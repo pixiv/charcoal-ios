@@ -1,0 +1,4107 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/FoundationInstance.swift",
+      "line": 4,
+      "symbol": "charcoalFoundation",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 14,
+      "symbol": "AssetColorTypeAlias",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 16,
+      "symbol": "AssetImageTypeAlias",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 23,
+      "symbol": "CharcoalAsset",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 24,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 25,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.assertive",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 26,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.background1",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 27,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.background2",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 28,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.border",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 29,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.brand",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 30,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.callToAction0",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 31,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.callToAction100",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 32,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.icon6",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 33,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.link1",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 34,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.link2",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 35,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.success",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 36,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.surface1",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 37,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.surface10",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 38,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.surface2",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 39,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.surface3",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 40,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.surface4",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 41,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.surface50",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 42,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.surface5100",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 43,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.surface6",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 44,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.surface7",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 45,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.surface8",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 46,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.surface9",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 47,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.text1",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 48,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.text2",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 49,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.text3",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 50,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.text4",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 51,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.text5",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 52,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.transparent",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 53,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.updatedItem",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 54,
+      "symbol": "CharcoalAsset.ColorPaletteGenerated.warning",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 56,
+      "symbol": "CharcoalAsset.Images",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 57,
+      "symbol": "CharcoalAsset.Images._16",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 58,
+      "symbol": "CharcoalAsset.Images._16.add",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 59,
+      "symbol": "CharcoalAsset.Images._16.arrowDown",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 60,
+      "symbol": "CharcoalAsset.Images._16.artwork",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 61,
+      "symbol": "CharcoalAsset.Images._16.back",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 62,
+      "symbol": "CharcoalAsset.Images._16.book",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 63,
+      "symbol": "CharcoalAsset.Images._16.bookmarkOff",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 64,
+      "symbol": "CharcoalAsset.Images._16.bookmarkOn",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 65,
+      "symbol": "CharcoalAsset.Images._16.check",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 66,
+      "symbol": "CharcoalAsset.Images._16.comment",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 67,
+      "symbol": "CharcoalAsset.Images._16.dot",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 68,
+      "symbol": "CharcoalAsset.Images._16.error",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 69,
+      "symbol": "CharcoalAsset.Images._16.filter",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 70,
+      "symbol": "CharcoalAsset.Images._16.imageResponse",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 71,
+      "symbol": "CharcoalAsset.Images._16.info",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 72,
+      "symbol": "CharcoalAsset.Images._16.like",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 73,
+      "symbol": "CharcoalAsset.Images._16.menu",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 74,
+      "symbol": "CharcoalAsset.Images._16.more",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 75,
+      "symbol": "CharcoalAsset.Images._16.pencil",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 76,
+      "symbol": "CharcoalAsset.Images._16.question",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 77,
+      "symbol": "CharcoalAsset.Images._16.ranking",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 78,
+      "symbol": "CharcoalAsset.Images._16.remove",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 79,
+      "symbol": "CharcoalAsset.Images._16.search",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 80,
+      "symbol": "CharcoalAsset.Images._16.smile",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 81,
+      "symbol": "CharcoalAsset.Images._16.speaker",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 82,
+      "symbol": "CharcoalAsset.Images._16.view",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 84,
+      "symbol": "CharcoalAsset.Images._24",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 85,
+      "symbol": "CharcoalAsset.Images._24.add",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 86,
+      "symbol": "CharcoalAsset.Images._24.addImage",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 87,
+      "symbol": "CharcoalAsset.Images._24.addModel",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 88,
+      "symbol": "CharcoalAsset.Images._24.addPeople",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 89,
+      "symbol": "CharcoalAsset.Images._24.addRubi",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 90,
+      "symbol": "CharcoalAsset.Images._24.addText",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 91,
+      "symbol": "CharcoalAsset.Images._24.alart",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 92,
+      "symbol": "CharcoalAsset.Images._24.announcement",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 93,
+      "symbol": "CharcoalAsset.Images._24.ar",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 94,
+      "symbol": "CharcoalAsset.Images._24.archive",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 95,
+      "symbol": "CharcoalAsset.Images._24.arrowDown",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 96,
+      "symbol": "CharcoalAsset.Images._24.arrowUp",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 97,
+      "symbol": "CharcoalAsset.Images._24.binet",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 98,
+      "symbol": "CharcoalAsset.Images._24.body",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 99,
+      "symbol": "CharcoalAsset.Images._24.bodyEdit",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 100,
+      "symbol": "CharcoalAsset.Images._24.book",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 101,
+      "symbol": "CharcoalAsset.Images._24.bringBackward",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 102,
+      "symbol": "CharcoalAsset.Images._24.bringForward",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 103,
+      "symbol": "CharcoalAsset.Images._24.calendar",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 104,
+      "symbol": "CharcoalAsset.Images._24.camera",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 105,
+      "symbol": "CharcoalAsset.Images._24.cameraVideo",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 106,
+      "symbol": "CharcoalAsset.Images._24.changeCharactor",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 107,
+      "symbol": "CharcoalAsset.Images._24.chatBot",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 108,
+      "symbol": "CharcoalAsset.Images._24.check",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 109,
+      "symbol": "CharcoalAsset.Images._24.chromaticAberration",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 110,
+      "symbol": "CharcoalAsset.Images._24.close",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 111,
+      "symbol": "CharcoalAsset.Images._24.codes",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 112,
+      "symbol": "CharcoalAsset.Images._24.collapse",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 113,
+      "symbol": "CharcoalAsset.Images._24.commentFill",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 114,
+      "symbol": "CharcoalAsset.Images._24.commentOutline",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 115,
+      "symbol": "CharcoalAsset.Images._24.contest",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 116,
+      "symbol": "CharcoalAsset.Images._24.contrast",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 117,
+      "symbol": "CharcoalAsset.Images._24.description",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 118,
+      "symbol": "CharcoalAsset.Images._24.deviceRotation",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 119,
+      "symbol": "CharcoalAsset.Images._24.discovery",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 120,
+      "symbol": "CharcoalAsset.Images._24.dot",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 121,
+      "symbol": "CharcoalAsset.Images._24.dotAlt",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 122,
+      "symbol": "CharcoalAsset.Images._24.down",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 123,
+      "symbol": "CharcoalAsset.Images._24.downloadAlt",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 124,
+      "symbol": "CharcoalAsset.Images._24.duplicate",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 125,
+      "symbol": "CharcoalAsset.Images._24.dust",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 126,
+      "symbol": "CharcoalAsset.Images._24.emoji",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 127,
+      "symbol": "CharcoalAsset.Images._24.error",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 128,
+      "symbol": "CharcoalAsset.Images._24.errorOctagon",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 129,
+      "symbol": "CharcoalAsset.Images._24.events",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 130,
+      "symbol": "CharcoalAsset.Images._24.expand",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 131,
+      "symbol": "CharcoalAsset.Images._24.faceEdit",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 132,
+      "symbol": "CharcoalAsset.Images._24.fashion",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 133,
+      "symbol": "CharcoalAsset.Images._24.feed",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 134,
+      "symbol": "CharcoalAsset.Images._24.file",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 135,
+      "symbol": "CharcoalAsset.Images._24.filter",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 136,
+      "symbol": "CharcoalAsset.Images._24.flare",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 137,
+      "symbol": "CharcoalAsset.Images._24.formatAlignCenter",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 138,
+      "symbol": "CharcoalAsset.Images._24.formatAlignLeft",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 139,
+      "symbol": "CharcoalAsset.Images._24.formatAlignRight",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 140,
+      "symbol": "CharcoalAsset.Images._24.formatColorFill",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 141,
+      "symbol": "CharcoalAsset.Images._24.formatColorFillNoColor",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 142,
+      "symbol": "CharcoalAsset.Images._24.formatFontFamily",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 143,
+      "symbol": "CharcoalAsset.Images._24.formatFontSize",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 144,
+      "symbol": "CharcoalAsset.Images._24.formatLetterSpacing",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 145,
+      "symbol": "CharcoalAsset.Images._24.formatLineSpacing",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 146,
+      "symbol": "CharcoalAsset.Images._24.fov",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 147,
+      "symbol": "CharcoalAsset.Images._24.frameEffect",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 148,
+      "symbol": "CharcoalAsset.Images._24.frameSize",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 149,
+      "symbol": "CharcoalAsset.Images._24.gift",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 150,
+      "symbol": "CharcoalAsset.Images._24.glow",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 151,
+      "symbol": "CharcoalAsset.Images._24.groups",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 152,
+      "symbol": "CharcoalAsset.Images._24.hairEdit",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 153,
+      "symbol": "CharcoalAsset.Images._24.hashtag",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 154,
+      "symbol": "CharcoalAsset.Images._24.hide",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 155,
+      "symbol": "CharcoalAsset.Images._24.home",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 156,
+      "symbol": "CharcoalAsset.Images._24.hue",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 157,
+      "symbol": "CharcoalAsset.Images._24.idea",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 158,
+      "symbol": "CharcoalAsset.Images._24.image",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 159,
+      "symbol": "CharcoalAsset.Images._24.imageAlt",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 160,
+      "symbol": "CharcoalAsset.Images._24.imageHidden",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 161,
+      "symbol": "CharcoalAsset.Images._24.imageReplace",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 162,
+      "symbol": "CharcoalAsset.Images._24.images",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 163,
+      "symbol": "CharcoalAsset.Images._24.imgContain",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 164,
+      "symbol": "CharcoalAsset.Images._24.imgCover",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 165,
+      "symbol": "CharcoalAsset.Images._24.index",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 166,
+      "symbol": "CharcoalAsset.Images._24.info",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 167,
+      "symbol": "CharcoalAsset.Images._24.invalid",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 168,
+      "symbol": "CharcoalAsset.Images._24.invoice",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 169,
+      "symbol": "CharcoalAsset.Images._24.itemRemove",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 170,
+      "symbol": "CharcoalAsset.Images._24.latestWorks",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 171,
+      "symbol": "CharcoalAsset.Images._24.likeOff",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 172,
+      "symbol": "CharcoalAsset.Images._24.likeOn",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 173,
+      "symbol": "CharcoalAsset.Images._24.link",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 174,
+      "symbol": "CharcoalAsset.Images._24.lockLock",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 175,
+      "symbol": "CharcoalAsset.Images._24.lockUnlock",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 176,
+      "symbol": "CharcoalAsset.Images._24.logout",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 177,
+      "symbol": "CharcoalAsset.Images._24.manga",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 178,
+      "symbol": "CharcoalAsset.Images._24.menu",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 179,
+      "symbol": "CharcoalAsset.Images._24.message",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 180,
+      "symbol": "CharcoalAsset.Images._24.microphone",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 181,
+      "symbol": "CharcoalAsset.Images._24.mobilePhone",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 182,
+      "symbol": "CharcoalAsset.Images._24.move1",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 183,
+      "symbol": "CharcoalAsset.Images._24.next",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 184,
+      "symbol": "CharcoalAsset.Images._24.noImage",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 185,
+      "symbol": "CharcoalAsset.Images._24.notification",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 186,
+      "symbol": "CharcoalAsset.Images._24.notificationOff",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 187,
+      "symbol": "CharcoalAsset.Images._24.novels",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 188,
+      "symbol": "CharcoalAsset.Images._24.openInNew",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 189,
+      "symbol": "CharcoalAsset.Images._24.options",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 190,
+      "symbol": "CharcoalAsset.Images._24.optionsAlt",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 191,
+      "symbol": "CharcoalAsset.Images._24.overlay",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 192,
+      "symbol": "CharcoalAsset.Images._24.palette",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 193,
+      "symbol": "CharcoalAsset.Images._24.pause",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 194,
+      "symbol": "CharcoalAsset.Images._24.pauseAlt",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 195,
+      "symbol": "CharcoalAsset.Images._24.pencil",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 196,
+      "symbol": "CharcoalAsset.Images._24.pencilDraw",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 197,
+      "symbol": "CharcoalAsset.Images._24.pencilLive",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 198,
+      "symbol": "CharcoalAsset.Images._24.pencilText",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 199,
+      "symbol": "CharcoalAsset.Images._24.person",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 200,
+      "symbol": "CharcoalAsset.Images._24.play",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 201,
+      "symbol": "CharcoalAsset.Images._24.pose",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 202,
+      "symbol": "CharcoalAsset.Images._24.prev",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 203,
+      "symbol": "CharcoalAsset.Images._24.projects",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 204,
+      "symbol": "CharcoalAsset.Images._24.pullDown",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 205,
+      "symbol": "CharcoalAsset.Images._24.pullUp",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 206,
+      "symbol": "CharcoalAsset.Images._24.question",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 207,
+      "symbol": "CharcoalAsset.Images._24.questionOutline",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 208,
+      "symbol": "CharcoalAsset.Images._24.ranking",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 209,
+      "symbol": "CharcoalAsset.Images._24.readHorizontalLeft",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 210,
+      "symbol": "CharcoalAsset.Images._24.readHorizontalRight",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 211,
+      "symbol": "CharcoalAsset.Images._24.readVertical",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 212,
+      "symbol": "CharcoalAsset.Images._24.reload",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 213,
+      "symbol": "CharcoalAsset.Images._24.reloadLoop",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 214,
+      "symbol": "CharcoalAsset.Images._24.reorder",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 215,
+      "symbol": "CharcoalAsset.Images._24.roll",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 216,
+      "symbol": "CharcoalAsset.Images._24.rotate90DegreesC",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 217,
+      "symbol": "CharcoalAsset.Images._24.rotate90DegreesCc",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 218,
+      "symbol": "CharcoalAsset.Images._24.rotateRight",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 219,
+      "symbol": "CharcoalAsset.Images._24.saturation",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 220,
+      "symbol": "CharcoalAsset.Images._24.save",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 221,
+      "symbol": "CharcoalAsset.Images._24.search",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 222,
+      "symbol": "CharcoalAsset.Images._24.send",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 223,
+      "symbol": "CharcoalAsset.Images._24.services",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 224,
+      "symbol": "CharcoalAsset.Images._24.set",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 225,
+      "symbol": "CharcoalAsset.Images._24.settings",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 226,
+      "symbol": "CharcoalAsset.Images._24.shareAndroid",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 227,
+      "symbol": "CharcoalAsset.Images._24.shareIos",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 228,
+      "symbol": "CharcoalAsset.Images._24.shopping",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 229,
+      "symbol": "CharcoalAsset.Images._24.show",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 230,
+      "symbol": "CharcoalAsset.Images._24.showOutline",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 231,
+      "symbol": "CharcoalAsset.Images._24.shutter",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 232,
+      "symbol": "CharcoalAsset.Images._24.star",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 233,
+      "symbol": "CharcoalAsset.Images._24.subtract",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 234,
+      "symbol": "CharcoalAsset.Images._24.sun",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 235,
+      "symbol": "CharcoalAsset.Images._24.temperature",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 236,
+      "symbol": "CharcoalAsset.Images._24.text",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 237,
+      "symbol": "CharcoalAsset.Images._24.trash",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 238,
+      "symbol": "CharcoalAsset.Images._24.trashAlt",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 239,
+      "symbol": "CharcoalAsset.Images._24.up",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 240,
+      "symbol": "CharcoalAsset.Images._24.upload",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 241,
+      "symbol": "CharcoalAsset.Images._24.uploadAlt",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 242,
+      "symbol": "CharcoalAsset.Images._24.usagi",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 243,
+      "symbol": "CharcoalAsset.Images._24.usagiAlt",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 244,
+      "symbol": "CharcoalAsset.Images._24.users",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 245,
+      "symbol": "CharcoalAsset.Images._24.video",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 246,
+      "symbol": "CharcoalAsset.Images._24.viewGrid2Columns",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 247,
+      "symbol": "CharcoalAsset.Images._24.viewGrid3Columns",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 248,
+      "symbol": "CharcoalAsset.Images._24.viewList",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 249,
+      "symbol": "CharcoalAsset.Images._24.warning",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 251,
+      "symbol": "CharcoalAsset.Images._32",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 252,
+      "symbol": "CharcoalAsset.Images._32.bookmarkOff",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 253,
+      "symbol": "CharcoalAsset.Images._32.bookmarkOn",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 254,
+      "symbol": "CharcoalAsset.Images._32.camera",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 255,
+      "symbol": "CharcoalAsset.Images._32.close",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 256,
+      "symbol": "CharcoalAsset.Images._32.collapse",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 257,
+      "symbol": "CharcoalAsset.Images._32.commentOff",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 258,
+      "symbol": "CharcoalAsset.Images._32.commentOn",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 259,
+      "symbol": "CharcoalAsset.Images._32.delete",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 260,
+      "symbol": "CharcoalAsset.Images._32.dot",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 261,
+      "symbol": "CharcoalAsset.Images._32.edit",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 262,
+      "symbol": "CharcoalAsset.Images._32.expand",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 263,
+      "symbol": "CharcoalAsset.Images._32.gift",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 264,
+      "symbol": "CharcoalAsset.Images._32.home",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 265,
+      "symbol": "CharcoalAsset.Images._32.horizontalWriting",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 266,
+      "symbol": "CharcoalAsset.Images._32.index",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 267,
+      "symbol": "CharcoalAsset.Images._32.likeOff",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 268,
+      "symbol": "CharcoalAsset.Images._32.likeOn",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 269,
+      "symbol": "CharcoalAsset.Images._32.likeOnPrivate",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 270,
+      "symbol": "CharcoalAsset.Images._32.message",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 271,
+      "symbol": "CharcoalAsset.Images._32.next",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 272,
+      "symbol": "CharcoalAsset.Images._32.notification",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 273,
+      "symbol": "CharcoalAsset.Images._32.notificationOff",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 274,
+      "symbol": "CharcoalAsset.Images._32.novelViewerSettings",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 275,
+      "symbol": "CharcoalAsset.Images._32.pan",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 276,
+      "symbol": "CharcoalAsset.Images._32.prev",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 277,
+      "symbol": "CharcoalAsset.Images._32.pullDown",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 278,
+      "symbol": "CharcoalAsset.Images._32.pullUp",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 279,
+      "symbol": "CharcoalAsset.Images._32.rollHorizontal",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 280,
+      "symbol": "CharcoalAsset.Images._32.rollVertical",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 281,
+      "symbol": "CharcoalAsset.Images._32.sansSerif",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 282,
+      "symbol": "CharcoalAsset.Images._32.serif",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 283,
+      "symbol": "CharcoalAsset.Images._32.shareAndroid",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 284,
+      "symbol": "CharcoalAsset.Images._32.shareIos",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 285,
+      "symbol": "CharcoalAsset.Images._32.shopping",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 286,
+      "symbol": "CharcoalAsset.Images._32.upload",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 287,
+      "symbol": "CharcoalAsset.Images._32.user",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 288,
+      "symbol": "CharcoalAsset.Images._32.verticalWriting",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 289,
+      "symbol": "CharcoalAsset.Images._32.zoomIn",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 291,
+      "symbol": "CharcoalAsset.Images.Inline",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 292,
+      "symbol": "CharcoalAsset.Images.Inline.add",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 293,
+      "symbol": "CharcoalAsset.Images.Inline.bookmarkOff",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 294,
+      "symbol": "CharcoalAsset.Images.Inline.bookmarkOn",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 295,
+      "symbol": "CharcoalAsset.Images.Inline.breadcrumbs",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 296,
+      "symbol": "CharcoalAsset.Images.Inline.check",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 297,
+      "symbol": "CharcoalAsset.Images.Inline.comment",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 298,
+      "symbol": "CharcoalAsset.Images.Inline.contextMenu",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 299,
+      "symbol": "CharcoalAsset.Images.Inline.external",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 300,
+      "symbol": "CharcoalAsset.Images.Inline.filter",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 301,
+      "symbol": "CharcoalAsset.Images.Inline.folder",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 302,
+      "symbol": "CharcoalAsset.Images.Inline.imageResponse",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 303,
+      "symbol": "CharcoalAsset.Images.Inline.images",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 304,
+      "symbol": "CharcoalAsset.Images.Inline.like",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 305,
+      "symbol": "CharcoalAsset.Images.Inline.likeOff",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 306,
+      "symbol": "CharcoalAsset.Images.Inline.list",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 307,
+      "symbol": "CharcoalAsset.Images.Inline.location",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 308,
+      "symbol": "CharcoalAsset.Images.Inline.lock",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 309,
+      "symbol": "CharcoalAsset.Images.Inline.more",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 310,
+      "symbol": "CharcoalAsset.Images.Inline.nextworks",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 311,
+      "symbol": "CharcoalAsset.Images.Inline.openInNew",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 312,
+      "symbol": "CharcoalAsset.Images.Inline.pencil",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 313,
+      "symbol": "CharcoalAsset.Images.Inline.remove",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 314,
+      "symbol": "CharcoalAsset.Images.Inline.smile",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 315,
+      "symbol": "CharcoalAsset.Images.Inline.smileOn",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 316,
+      "symbol": "CharcoalAsset.Images.Inline.users",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 317,
+      "symbol": "CharcoalAsset.Images.Inline.view",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 318,
+      "symbol": "CharcoalAsset.Images.Inline.viewOutline",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 326,
+      "symbol": "ColorAsset",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 327,
+      "symbol": "ColorAsset.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 332,
+      "symbol": "ColorAsset.Color",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 336,
+      "symbol": "ColorAsset.color",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 345,
+      "symbol": "ColorAsset.color(compatibleWith:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 359,
+      "symbol": "ColorAsset.Color",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 361,
+      "symbol": "ColorAsset.Color.init(asset:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 373,
+      "symbol": "ImageAsset",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 374,
+      "symbol": "ImageAsset.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 379,
+      "symbol": "ImageAsset.Image",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 383,
+      "symbol": "ImageAsset.image",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 401,
+      "symbol": "ImageAsset.image(compatibleWith:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 411,
+      "symbol": "ImageAsset.Image",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/Assets.swift",
+      "line": 415,
+      "symbol": "ImageAsset.Image.init(asset:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 9,
+      "symbol": "CharcoalFoundation",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 10,
+      "symbol": "CharcoalFoundation.borderRadius",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 11,
+      "symbol": "CharcoalFoundation.spacing",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 12,
+      "symbol": "CharcoalFoundation.typography",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 14,
+      "symbol": "CharcoalFoundation.init(borderRadius:spacing:typography:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 23,
+      "symbol": "CharcoalFoundation",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 24,
+      "symbol": "CharcoalFoundation.init(data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 28,
+      "symbol": "CharcoalFoundation.init(_:using:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 35,
+      "symbol": "CharcoalFoundation.init(fromURL:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 39,
+      "symbol": "CharcoalFoundation.with(borderRadius:spacing:typography:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 51,
+      "symbol": "CharcoalFoundation.jsonData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 55,
+      "symbol": "CharcoalFoundation.jsonString(encoding:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 61,
+      "symbol": "CharcoalBorderRadius",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 62,
+      "symbol": "CharcoalBorderRadius.the16",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 62,
+      "symbol": "CharcoalBorderRadius.the24",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 62,
+      "symbol": "CharcoalBorderRadius.the4",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 62,
+      "symbol": "CharcoalBorderRadius.the8",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 63,
+      "symbol": "CharcoalBorderRadius.none",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 63,
+      "symbol": "CharcoalBorderRadius.oval",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 73,
+      "symbol": "CharcoalBorderRadius.init(the4:the8:the16:the24:none:oval:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 85,
+      "symbol": "CharcoalBorderRadius",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 86,
+      "symbol": "CharcoalBorderRadius.init(data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 90,
+      "symbol": "CharcoalBorderRadius.init(_:using:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 97,
+      "symbol": "CharcoalBorderRadius.init(fromURL:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 101,
+      "symbol": "CharcoalBorderRadius.with(the4:the8:the16:the24:none:oval:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 119,
+      "symbol": "CharcoalBorderRadius.jsonData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 123,
+      "symbol": "CharcoalBorderRadius.jsonString(encoding:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 129,
+      "symbol": "CharcoalSpacing",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 130,
+      "symbol": "CharcoalSpacing.the0",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 130,
+      "symbol": "CharcoalSpacing.the16",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 130,
+      "symbol": "CharcoalSpacing.the4",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 130,
+      "symbol": "CharcoalSpacing.the8",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 131,
+      "symbol": "CharcoalSpacing.the104",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 131,
+      "symbol": "CharcoalSpacing.the24",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 131,
+      "symbol": "CharcoalSpacing.the40",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 131,
+      "symbol": "CharcoalSpacing.the64",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 132,
+      "symbol": "CharcoalSpacing.the168",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 132,
+      "symbol": "CharcoalSpacing.the272",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 132,
+      "symbol": "CharcoalSpacing.the440",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 148,
+      "symbol": "CharcoalSpacing.init(the0:the4:the8:the16:the24:the40:the64:the104:the168:the272:the440:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 165,
+      "symbol": "CharcoalSpacing",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 166,
+      "symbol": "CharcoalSpacing.init(data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 170,
+      "symbol": "CharcoalSpacing.init(_:using:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 177,
+      "symbol": "CharcoalSpacing.init(fromURL:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 181,
+      "symbol": "CharcoalSpacing.with(the0:the4:the8:the16:the24:the40:the64:the104:the168:the272:the440:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 209,
+      "symbol": "CharcoalSpacing.jsonData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 213,
+      "symbol": "CharcoalSpacing.jsonString(encoding:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 219,
+      "symbol": "CharcoalTypography",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 220,
+      "symbol": "CharcoalTypography.size",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 222,
+      "symbol": "CharcoalTypography.init(size:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 229,
+      "symbol": "CharcoalTypography",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 230,
+      "symbol": "CharcoalTypography.init(data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 234,
+      "symbol": "CharcoalTypography.init(_:using:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 241,
+      "symbol": "CharcoalTypography.init(fromURL:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 245,
+      "symbol": "CharcoalTypography.with(size:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 253,
+      "symbol": "CharcoalTypography.jsonData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 257,
+      "symbol": "CharcoalTypography.jsonString(encoding:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 263,
+      "symbol": "CharcoalSize",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 264,
+      "symbol": "CharcoalSize.the12",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 264,
+      "symbol": "CharcoalSize.the14",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 264,
+      "symbol": "CharcoalSize.the16",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 264,
+      "symbol": "CharcoalSize.the20",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 265,
+      "symbol": "CharcoalSize.the32",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 275,
+      "symbol": "CharcoalSize.init(the12:the14:the16:the20:the32:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 286,
+      "symbol": "CharcoalSize",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 287,
+      "symbol": "CharcoalSize.init(data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 291,
+      "symbol": "CharcoalSize.init(_:using:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 298,
+      "symbol": "CharcoalSize.init(fromURL:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 302,
+      "symbol": "CharcoalSize.with(the12:the14:the16:the20:the32:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 318,
+      "symbol": "CharcoalSize.jsonData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 322,
+      "symbol": "CharcoalSize.jsonString(encoding:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 328,
+      "symbol": "CharcoalThe12",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 329,
+      "symbol": "CharcoalThe12.fontSize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 329,
+      "symbol": "CharcoalThe12.lineHeight",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 331,
+      "symbol": "CharcoalThe12.init(fontSize:lineHeight:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 339,
+      "symbol": "CharcoalThe12",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 340,
+      "symbol": "CharcoalThe12.init(data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 344,
+      "symbol": "CharcoalThe12.init(_:using:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 351,
+      "symbol": "CharcoalThe12.init(fromURL:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 355,
+      "symbol": "CharcoalThe12.with(fontSize:lineHeight:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 365,
+      "symbol": "CharcoalThe12.jsonData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/Generated/CharcoalFoundation.swift",
+      "line": 369,
+      "symbol": "CharcoalThe12.jsonString(encoding:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Backgrounds.swift",
+      "line": 21,
+      "symbol": "View.charcoalBackground1()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Backgrounds.swift",
+      "line": 28,
+      "symbol": "View.charcoalBackground2()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/OnSurfaces.swift",
+      "line": 77,
+      "symbol": "View.charcoalOnSurfaceBorder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/OnSurfaces.swift",
+      "line": 84,
+      "symbol": "View.charcoalOnSurfaceLink1()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/OnSurfaces.swift",
+      "line": 91,
+      "symbol": "View.charcoalOnSurfaceLink2()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/OnSurfaces.swift",
+      "line": 98,
+      "symbol": "View.charcoalOnSurfaceText1()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/OnSurfaces.swift",
+      "line": 105,
+      "symbol": "View.charcoalOnSurfaceText2()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/OnSurfaces.swift",
+      "line": 112,
+      "symbol": "View.charcoalOnSurfaceText3()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/OnSurfaces.swift",
+      "line": 119,
+      "symbol": "View.charcoalOnSurfaceText4()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/OnSurfaces.swift",
+      "line": 126,
+      "symbol": "View.charcoalOnSurfaceText5()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Surfaces.swift",
+      "line": 86,
+      "symbol": "View.charcoalSurface1()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Surfaces.swift",
+      "line": 93,
+      "symbol": "View.charcoalSurface2()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Surfaces.swift",
+      "line": 100,
+      "symbol": "View.charcoalSurface3()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Surfaces.swift",
+      "line": 107,
+      "symbol": "View.charcoalSurface4()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Surfaces.swift",
+      "line": 114,
+      "symbol": "View.charcoalSurface5()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Surfaces.swift",
+      "line": 121,
+      "symbol": "View.charcoalSurface6()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Surfaces.swift",
+      "line": 128,
+      "symbol": "View.charcoalSurface7()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Surfaces.swift",
+      "line": 135,
+      "symbol": "View.charcoalSurface8()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Surfaces.swift",
+      "line": 142,
+      "symbol": "View.charcoalSurface9()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Buttons/CharcoalButtonSizes.swift",
+      "line": 3,
+      "symbol": "CharcoalButtonSize",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Buttons/CharcoalButtonSizes.swift",
+      "line": 4,
+      "symbol": "CharcoalButtonSize.medium",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Buttons/CharcoalButtonSizes.swift",
+      "line": 5,
+      "symbol": "CharcoalButtonSize.small",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Buttons/CharcoalDefaultButton.swift",
+      "line": 79,
+      "symbol": "View.charcoalDefaultButton(size:isFixed:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Buttons/CharcoalDefaultOverlay.swift",
+      "line": 80,
+      "symbol": "View.charcoalDefaultOverlayButton(size:isFixed:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Buttons/CharcoalLinkButton.swift",
+      "line": 60,
+      "symbol": "View.charcoalLinkButton()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Buttons/CharcoalNavigationButton.swift",
+      "line": 85,
+      "symbol": "View.charcoalNavigationButton(size:isFixed:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Buttons/CharcoalPrimaryButton.swift",
+      "line": 79,
+      "symbol": "View.charcoalPrimaryButton(size:isFixed:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/CharcoalTextField.swift",
+      "line": 79,
+      "symbol": "View.charcoalTextField(label:countLabel:assistiveText:hasError:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/CharcoalToggle.swift",
+      "line": 58,
+      "symbol": "View.charcoalToggle()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography10.swift",
+      "line": 5,
+      "symbol": "View.charcoalTypography10Bold(isSingleLine:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography10.swift",
+      "line": 9,
+      "symbol": "View.charcoalTypography10Regular(isSingleLine:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography10.swift",
+      "line": 13,
+      "symbol": "View.charcoalTypography10BoldMono()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography10.swift",
+      "line": 17,
+      "symbol": "View.charcoalTypography10RegularMono()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography12.swift",
+      "line": 8,
+      "symbol": "View.charcoalTypography12Bold(isSingleLine:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography12.swift",
+      "line": 17,
+      "symbol": "View.charcoalTypography12Regular(isSingleLine:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography12.swift",
+      "line": 26,
+      "symbol": "View.charcoalTypography12BoldMono()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography12.swift",
+      "line": 33,
+      "symbol": "View.charcoalTypography12RegularMono()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography14.swift",
+      "line": 8,
+      "symbol": "View.charcoalTypography14Bold(isSingleLine:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography14.swift",
+      "line": 17,
+      "symbol": "View.charcoalTypography14Regular(isSingleLine:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography14.swift",
+      "line": 26,
+      "symbol": "View.charcoalTypography14BoldMono()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography14.swift",
+      "line": 33,
+      "symbol": "View.charcoalTypography14RegularMono()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography16.swift",
+      "line": 8,
+      "symbol": "View.charcoalTypography16Bold(isSingleLine:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography16.swift",
+      "line": 17,
+      "symbol": "View.charcoalTypography16Regular(isSingleLine:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography16.swift",
+      "line": 26,
+      "symbol": "View.charcoalTypography16BoldMono()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography16.swift",
+      "line": 33,
+      "symbol": "View.charcoalTypography16RegularMono()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypograpy20.swift",
+      "line": 8,
+      "symbol": "View.charcoalTypography20Bold(isSingleLine:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypograpy20.swift",
+      "line": 17,
+      "symbol": "View.charcoalTypography20Regular(isSingleLine:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypograpy20.swift",
+      "line": 26,
+      "symbol": "View.charcoalTypography20BoldMono()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypograpy20.swift",
+      "line": 33,
+      "symbol": "View.charcoalTypography20RegularMono()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalButton.swift",
+      "line": 3,
+      "symbol": "CharcoalButton",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultMButton.swift",
+      "line": 4,
+      "symbol": "CharcoalDefaultMButton",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultMButton.swift",
+      "line": 6,
+      "symbol": "CharcoalDefaultMButton.isFixed",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultMButton.swift",
+      "line": 8,
+      "symbol": "CharcoalDefaultMButton.intrinsicContentSize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultMButton.swift",
+      "line": 17,
+      "symbol": "CharcoalDefaultMButton.isEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultMButton.swift",
+      "line": 23,
+      "symbol": "CharcoalDefaultMButton.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultMButton.swift",
+      "line": 28,
+      "symbol": "CharcoalDefaultMButton.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultMButton.swift",
+      "line": 33,
+      "symbol": "CharcoalDefaultMButton.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultMButton.swift",
+      "line": 38,
+      "symbol": "CharcoalDefaultMButton.prepareForInterfaceBuilder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultMButton.swift",
+      "line": 43,
+      "symbol": "CharcoalDefaultMButton.layoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultOverlayMButton.swift",
+      "line": 4,
+      "symbol": "CharcoalDefaultOverlayMButton",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultOverlayMButton.swift",
+      "line": 6,
+      "symbol": "CharcoalDefaultOverlayMButton.isFixed",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultOverlayMButton.swift",
+      "line": 8,
+      "symbol": "CharcoalDefaultOverlayMButton.intrinsicContentSize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultOverlayMButton.swift",
+      "line": 17,
+      "symbol": "CharcoalDefaultOverlayMButton.isEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultOverlayMButton.swift",
+      "line": 23,
+      "symbol": "CharcoalDefaultOverlayMButton.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultOverlayMButton.swift",
+      "line": 28,
+      "symbol": "CharcoalDefaultOverlayMButton.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultOverlayMButton.swift",
+      "line": 33,
+      "symbol": "CharcoalDefaultOverlayMButton.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultOverlayMButton.swift",
+      "line": 38,
+      "symbol": "CharcoalDefaultOverlayMButton.prepareForInterfaceBuilder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultOverlayMButton.swift",
+      "line": 43,
+      "symbol": "CharcoalDefaultOverlayMButton.layoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultOverlaySButton.swift",
+      "line": 4,
+      "symbol": "CharcoalDefaultOverlaySButton",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultOverlaySButton.swift",
+      "line": 6,
+      "symbol": "CharcoalDefaultOverlaySButton.isFixed",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultOverlaySButton.swift",
+      "line": 8,
+      "symbol": "CharcoalDefaultOverlaySButton.intrinsicContentSize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultOverlaySButton.swift",
+      "line": 17,
+      "symbol": "CharcoalDefaultOverlaySButton.isEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultOverlaySButton.swift",
+      "line": 23,
+      "symbol": "CharcoalDefaultOverlaySButton.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultOverlaySButton.swift",
+      "line": 28,
+      "symbol": "CharcoalDefaultOverlaySButton.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultOverlaySButton.swift",
+      "line": 33,
+      "symbol": "CharcoalDefaultOverlaySButton.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultOverlaySButton.swift",
+      "line": 38,
+      "symbol": "CharcoalDefaultOverlaySButton.prepareForInterfaceBuilder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultOverlaySButton.swift",
+      "line": 43,
+      "symbol": "CharcoalDefaultOverlaySButton.layoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultSButton.swift",
+      "line": 4,
+      "symbol": "CharcoalDefaultSButton",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultSButton.swift",
+      "line": 6,
+      "symbol": "CharcoalDefaultSButton.isFixed",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultSButton.swift",
+      "line": 8,
+      "symbol": "CharcoalDefaultSButton.intrinsicContentSize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultSButton.swift",
+      "line": 17,
+      "symbol": "CharcoalDefaultSButton.isEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultSButton.swift",
+      "line": 23,
+      "symbol": "CharcoalDefaultSButton.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultSButton.swift",
+      "line": 28,
+      "symbol": "CharcoalDefaultSButton.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultSButton.swift",
+      "line": 33,
+      "symbol": "CharcoalDefaultSButton.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultSButton.swift",
+      "line": 38,
+      "symbol": "CharcoalDefaultSButton.prepareForInterfaceBuilder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalDefaultSButton.swift",
+      "line": 43,
+      "symbol": "CharcoalDefaultSButton.layoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalLinkButton_UIKit.swift",
+      "line": 4,
+      "symbol": "CharcoalLinkButton",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalLinkButton_UIKit.swift",
+      "line": 6,
+      "symbol": "CharcoalLinkButton.isFixed",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalLinkButton_UIKit.swift",
+      "line": 8,
+      "symbol": "CharcoalLinkButton.intrinsicContentSize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalLinkButton_UIKit.swift",
+      "line": 17,
+      "symbol": "CharcoalLinkButton.isEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalLinkButton_UIKit.swift",
+      "line": 23,
+      "symbol": "CharcoalLinkButton.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalLinkButton_UIKit.swift",
+      "line": 28,
+      "symbol": "CharcoalLinkButton.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalLinkButton_UIKit.swift",
+      "line": 33,
+      "symbol": "CharcoalLinkButton.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalLinkButton_UIKit.swift",
+      "line": 38,
+      "symbol": "CharcoalLinkButton.prepareForInterfaceBuilder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalLinkButton_UIKit.swift",
+      "line": 43,
+      "symbol": "CharcoalLinkButton.layoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalNavigationButton_UIKit.swift",
+      "line": 4,
+      "symbol": "CharcoalNavigationMButton",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalNavigationButton_UIKit.swift",
+      "line": 6,
+      "symbol": "CharcoalNavigationMButton.isFixed",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalNavigationButton_UIKit.swift",
+      "line": 8,
+      "symbol": "CharcoalNavigationMButton.intrinsicContentSize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalNavigationButton_UIKit.swift",
+      "line": 17,
+      "symbol": "CharcoalNavigationMButton.isEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalNavigationButton_UIKit.swift",
+      "line": 23,
+      "symbol": "CharcoalNavigationMButton.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalNavigationButton_UIKit.swift",
+      "line": 28,
+      "symbol": "CharcoalNavigationMButton.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalNavigationButton_UIKit.swift",
+      "line": 33,
+      "symbol": "CharcoalNavigationMButton.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalNavigationButton_UIKit.swift",
+      "line": 38,
+      "symbol": "CharcoalNavigationMButton.prepareForInterfaceBuilder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalNavigationButton_UIKit.swift",
+      "line": 43,
+      "symbol": "CharcoalNavigationMButton.layoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalNavigationSButton.swift",
+      "line": 4,
+      "symbol": "CharcoalNavigationSButton",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalNavigationSButton.swift",
+      "line": 6,
+      "symbol": "CharcoalNavigationSButton.isFixed",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalNavigationSButton.swift",
+      "line": 8,
+      "symbol": "CharcoalNavigationSButton.intrinsicContentSize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalNavigationSButton.swift",
+      "line": 17,
+      "symbol": "CharcoalNavigationSButton.isEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalNavigationSButton.swift",
+      "line": 23,
+      "symbol": "CharcoalNavigationSButton.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalNavigationSButton.swift",
+      "line": 28,
+      "symbol": "CharcoalNavigationSButton.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalNavigationSButton.swift",
+      "line": 33,
+      "symbol": "CharcoalNavigationSButton.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalNavigationSButton.swift",
+      "line": 38,
+      "symbol": "CharcoalNavigationSButton.prepareForInterfaceBuilder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalNavigationSButton.swift",
+      "line": 43,
+      "symbol": "CharcoalNavigationSButton.layoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimaryMButton.swift",
+      "line": 4,
+      "symbol": "CharcoalPrimaryMButton",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimaryMButton.swift",
+      "line": 6,
+      "symbol": "CharcoalPrimaryMButton.isFixed",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimaryMButton.swift",
+      "line": 8,
+      "symbol": "CharcoalPrimaryMButton.intrinsicContentSize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimaryMButton.swift",
+      "line": 17,
+      "symbol": "CharcoalPrimaryMButton.isEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimaryMButton.swift",
+      "line": 23,
+      "symbol": "CharcoalPrimaryMButton.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimaryMButton.swift",
+      "line": 28,
+      "symbol": "CharcoalPrimaryMButton.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimaryMButton.swift",
+      "line": 33,
+      "symbol": "CharcoalPrimaryMButton.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimaryMButton.swift",
+      "line": 38,
+      "symbol": "CharcoalPrimaryMButton.prepareForInterfaceBuilder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimaryMButton.swift",
+      "line": 43,
+      "symbol": "CharcoalPrimaryMButton.layoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimarySButton.swift",
+      "line": 4,
+      "symbol": "CharcoalPrimarySButton",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimarySButton.swift",
+      "line": 6,
+      "symbol": "CharcoalPrimarySButton.isFixed",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimarySButton.swift",
+      "line": 8,
+      "symbol": "CharcoalPrimarySButton.intrinsicContentSize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimarySButton.swift",
+      "line": 17,
+      "symbol": "CharcoalPrimarySButton.isEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimarySButton.swift",
+      "line": 23,
+      "symbol": "CharcoalPrimarySButton.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimarySButton.swift",
+      "line": 28,
+      "symbol": "CharcoalPrimarySButton.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimarySButton.swift",
+      "line": 33,
+      "symbol": "CharcoalPrimarySButton.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimarySButton.swift",
+      "line": 38,
+      "symbol": "CharcoalPrimarySButton.prepareForInterfaceBuilder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimarySButton.swift",
+      "line": 43,
+      "symbol": "CharcoalPrimarySButton.layoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalSwitchingButton.swift",
+      "line": 4,
+      "symbol": "CharcoalSwitchingButton",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalSwitchingButton.swift",
+      "line": 5,
+      "symbol": "CharcoalSwitchingButton.isOn",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalSwitchingButton.swift",
+      "line": 14,
+      "symbol": "CharcoalSwitchingButton.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalSwitchingButton.swift",
+      "line": 18,
+      "symbol": "CharcoalSwitchingButton.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalSwitchingButton.swift",
+      "line": 22,
+      "symbol": "CharcoalSwitchingButton.intrinsicContentSize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalSwitchingButton.swift",
+      "line": 31,
+      "symbol": "CharcoalSwitchingButton.register(onButton:offButton:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Switch/CharcoalSwitch.swift",
+      "line": 4,
+      "symbol": "CharcoalSwitch",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Switch/CharcoalSwitch.swift",
+      "line": 5,
+      "symbol": "CharcoalSwitch.isEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Switch/CharcoalSwitch.swift",
+      "line": 11,
+      "symbol": "CharcoalSwitch.isOn",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Switch/CharcoalSwitch.swift",
+      "line": 17,
+      "symbol": "CharcoalSwitch.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Switch/CharcoalSwitch.swift",
+      "line": 22,
+      "symbol": "CharcoalSwitch.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Switch/CharcoalSwitch.swift",
+      "line": 27,
+      "symbol": "CharcoalSwitch.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Switch/CharcoalSwitch.swift",
+      "line": 32,
+      "symbol": "CharcoalSwitch.prepareForInterfaceBuilder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextFieldView_UIKit.swift",
+      "line": 4,
+      "symbol": "CharcoalTextFieldViewDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextFieldView_UIKit.swift",
+      "line": 7,
+      "symbol": "CharcoalTextFieldView",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextFieldView_UIKit.swift",
+      "line": 9,
+      "symbol": "CharcoalTextFieldView.lengthLimit",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextFieldView_UIKit.swift",
+      "line": 11,
+      "symbol": "CharcoalTextFieldView.title",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextFieldView_UIKit.swift",
+      "line": 13,
+      "symbol": "CharcoalTextFieldView.placeholder",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextFieldView_UIKit.swift",
+      "line": 15,
+      "symbol": "CharcoalTextFieldView.assertiveText",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextFieldView_UIKit.swift",
+      "line": 17,
+      "symbol": "CharcoalTextFieldView.charcoalTextField",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextFieldView_UIKit.swift",
+      "line": 21,
+      "symbol": "CharcoalTextFieldView.delegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextFieldView_UIKit.swift",
+      "line": 27,
+      "symbol": "CharcoalTextFieldView.isUserInteractionEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextFieldView_UIKit.swift",
+      "line": 33,
+      "symbol": "CharcoalTextFieldView.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextFieldView_UIKit.swift",
+      "line": 42,
+      "symbol": "CharcoalTextFieldView.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextFieldView_UIKit.swift",
+      "line": 47,
+      "symbol": "CharcoalTextFieldView.prepareForInterfaceBuilder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextFieldView_UIKit.swift",
+      "line": 105,
+      "symbol": "CharcoalTextFieldView.showAssertiveText(text:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextFieldView_UIKit.swift",
+      "line": 110,
+      "symbol": "CharcoalTextFieldView.hideAssertiveText()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextFieldView_UIKit.swift",
+      "line": 114,
+      "symbol": "CharcoalTextFieldView.updateCountLabel(text:hasError:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextFieldView_UIKit.swift",
+      "line": 121,
+      "symbol": "CharcoalTextFieldView.setHasError(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextField_UIKit.swift",
+      "line": 3,
+      "symbol": "CharcoalTextField",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextField_UIKit.swift",
+      "line": 10,
+      "symbol": "CharcoalTextField.textRect(forBounds:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextField_UIKit.swift",
+      "line": 15,
+      "symbol": "CharcoalTextField.placeholderRect(forBounds:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextField_UIKit.swift",
+      "line": 20,
+      "symbol": "CharcoalTextField.editingRect(forBounds:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextField_UIKit.swift",
+      "line": 25,
+      "symbol": "CharcoalTextField.rightViewRect(forBounds:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextField_UIKit.swift",
+      "line": 38,
+      "symbol": "CharcoalTextField.isEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextField_UIKit.swift",
+      "line": 60,
+      "symbol": "CharcoalTextField.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextField_UIKit.swift",
+      "line": 65,
+      "symbol": "CharcoalTextField.prepareForInterfaceBuilder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextField_UIKit.swift",
+      "line": 137,
+      "symbol": "CharcoalTextField.setAssertiveBorder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextField_UIKit.swift",
+      "line": 144,
+      "symbol": "CharcoalTextField.setBrandBorder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography10_UIKit.swift",
+      "line": 4,
+      "symbol": "CharcoalTypography10",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography10_UIKit.swift",
+      "line": 13,
+      "symbol": "CharcoalTypography10.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography10_UIKit.swift",
+      "line": 18,
+      "symbol": "CharcoalTypography10.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography10_UIKit.swift",
+      "line": 23,
+      "symbol": "CharcoalTypography10.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography10_UIKit.swift",
+      "line": 28,
+      "symbol": "CharcoalTypography10.prepareForInterfaceBuilder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography12_UIKit.swift",
+      "line": 4,
+      "symbol": "CharcoalTypography12",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography12_UIKit.swift",
+      "line": 13,
+      "symbol": "CharcoalTypography12.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography12_UIKit.swift",
+      "line": 18,
+      "symbol": "CharcoalTypography12.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography12_UIKit.swift",
+      "line": 23,
+      "symbol": "CharcoalTypography12.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography12_UIKit.swift",
+      "line": 28,
+      "symbol": "CharcoalTypography12.prepareForInterfaceBuilder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography14_UIKit.swift",
+      "line": 4,
+      "symbol": "CharcoalTypography14",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography14_UIKit.swift",
+      "line": 13,
+      "symbol": "CharcoalTypography14.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography14_UIKit.swift",
+      "line": 18,
+      "symbol": "CharcoalTypography14.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography14_UIKit.swift",
+      "line": 23,
+      "symbol": "CharcoalTypography14.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography14_UIKit.swift",
+      "line": 28,
+      "symbol": "CharcoalTypography14.prepareForInterfaceBuilder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography16_UIKit.swift",
+      "line": 4,
+      "symbol": "CharcoalTypography16",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography16_UIKit.swift",
+      "line": 13,
+      "symbol": "CharcoalTypography16.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography16_UIKit.swift",
+      "line": 18,
+      "symbol": "CharcoalTypography16.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography16_UIKit.swift",
+      "line": 23,
+      "symbol": "CharcoalTypography16.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography16_UIKit.swift",
+      "line": 28,
+      "symbol": "CharcoalTypography16.prepareForInterfaceBuilder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography20_UIKit.swift",
+      "line": 4,
+      "symbol": "CharcoalTypography20",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography20_UIKit.swift",
+      "line": 13,
+      "symbol": "CharcoalTypography20.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography20_UIKit.swift",
+      "line": 18,
+      "symbol": "CharcoalTypography20.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography20_UIKit.swift",
+      "line": 23,
+      "symbol": "CharcoalTypography20.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Typography/CharcoalTypography20_UIKit.swift",
+      "line": 28,
+      "symbol": "CharcoalTypography20.prepareForInterfaceBuilder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/runner/work/charcoal-ios/charcoal-ios"
+}
