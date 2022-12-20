@@ -40,7 +40,7 @@ dependencies: [
 
 ## Documentation
 
-[Documentation](https://turbo-lamp-6995093a.pages.github.io/)
+[Documentation](https://pixiv.github.io/charcoal-ios/)
 
 ## Development
 
