@@ -1,0 +1,10 @@
+xcassets:
+  inputs:
+    - Sources/Charcoal/ColorPalette.generated.xcassets
+    - Sources/Charcoal/Images.xcassets
+  outputs:
+    - templateName: swift5
+      output: Sources/Charcoal/Generated/Assets.swift
+      params:
+        enumName: CharcoalAsset
+        publicAccess: true

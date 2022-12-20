@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:BuildTools">
+   </FileRef>
+   <FileRef
+      location = "group:Examples/SwiftUISample/SwiftUISample.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Examples/UIKitSample/UIKitSample.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:">
+   </FileRef>
+</Workspace>

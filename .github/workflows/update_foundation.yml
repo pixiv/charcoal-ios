@@ -1,0 +1,53 @@
+name: update_foundation
+
+on:
+  schedule:
+    - cron: '0 4 * * 1-5'
+  workflow_dispatch:
+
+env:
+  FIGMA_FILE_URL: ${{secrets.FIGMA_FILE_URL}}
+  FIGMA_TOKEN: ${{secrets.FIGMA_TOKEN}}
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up node using nvm
+        uses: dcodeIO/setup-node-nvm@master
+        with:
+          node-version: lts/*
+
+      - name: Update foundation
+        run: |
+          cd scripts/foundation-gen/
+
+          curl -L https://unpkg.com/@charcoal-ui/theme@alpha/theme.json -o theme.json
+
+          npm install
+          npm run foundation-gen generate -- --input="theme.json" --outputJson="../../Sources/Charcoal/Generated" --outputSwift="../../Sources/Charcoal/Generated" --outputColorAsset="../../Sources/Charcoal/ColorPalette.generated.xcassets"
+          rm theme.json
+
+      - name: Update icon
+        run: |
+          cd scripts/xcasset-gen
+
+          OUTPUT_ROOT_DIR=icons npx @charcoal-ui/icons-cli@1.0.1-alpha.1 figma:export --format pdf
+
+          npm install
+          npm run xcasset-gen generate -- --input icons/pdf --output ../../Sources/Charcoal/Images.xcassets
+
+          rm -rf icons
+
+      - name: Generate Swift file
+        run: |
+          swift run --package-path BuildTools swiftgen
+
+      - name: Create Pull Request
+        run: |
+          cd scripts/create-pull-request/
+          npm install
+          npm run create-pull-request

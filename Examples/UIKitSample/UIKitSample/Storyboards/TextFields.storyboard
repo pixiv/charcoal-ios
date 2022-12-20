@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Charcoal Text Field View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="CharcoalTextFieldViewController" customModule="UIKitSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZA-j3-r4a" customClass="CharcoalTextFieldView" customModule="Charcoal">
+                                <rect key="frame" x="24" y="60" width="366" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="250" constant="40" id="jFz-HL-eRd"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lengthLimit">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agC-J4-IsJ" customClass="CharcoalTextFieldView" customModule="Charcoal">
+                                <rect key="frame" x="24" y="116" width="366" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="250" constant="40" id="TjD-HP-FIE"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lengthLimit">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="制限を超えて入力できます"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="canExceedText" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="assertiveText">
+                                        <string key="value">Assistive Textです。文字制限を超えて入力するとこの文章が表示されます。
+フォーカスを外しても赤色の枠線は消えません。</string>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPb-nn-yf6" customClass="CharcoalTextFieldView" customModule="Charcoal">
+                                <rect key="frame" x="24" y="172" width="366" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="250" constant="40" id="6zu-S7-DRJ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Label "/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lengthLimit">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="制限を超えた入力はできません"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="canExceedText" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLJ-P6-uws" customClass="CharcoalTextFieldView" customModule="Charcoal">
+                                <rect key="frame" x="24" y="228" width="366" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="250" constant="40" id="4ch-Zc-kiB"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="assertiveText">
+                                        <string key="value">Assistive Textです。文字制限を超えて入力するとこの文章が表示されます。
+フォーカスを外しても赤色の枠線は消えません。</string>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lengthLimit">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="補助テキストがある場合"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="supplementaryText" value="文字制限を超えて入力することができます。"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Label"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oef-h0-47u" customClass="CharcoalTextFieldView" customModule="Charcoal">
+                                <rect key="frame" x="24" y="284" width="366" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="250" constant="40" id="tEH-PO-BH0"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Label "/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="assertiveText" value="この文字が表示されたら実装がおかしいです。"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lengthLimit">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="補助テキストがある場合"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="canExceedText" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="supplementaryText">
+                                        <string key="value">文字制限を超えて入力することはできません。
+Assistive textは表示されません。</string>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ibg-4v-rNC" customClass="CharcoalTextFieldView" customModule="Charcoal">
+                                <rect key="frame" x="24" y="340" width="366" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="250" constant="40" id="2NB-m9-Dp5"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Label "/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="assertiveText" value="これは文字制限を超えた場合のエラー文です。"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lengthLimit">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="placeholder"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="supplementaryText" value="補助テキストが入ります。"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UVL-9R-Gtg" customClass="CharcoalTextFieldView" customModule="Charcoal">
+                                <rect key="frame" x="24" y="396" width="366" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="250" constant="40" id="7sb-eo-d1e"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Label "/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="assertiveText" value="Assistive textが入ります。Assistive textが入ります。ここにAssistive textが入ります。Assistive textが入ります。Assistive textが入ります。"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lengthLimit">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="placeholder"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="supplementaryText" value="補助テキストが入ります。"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="GLJ-P6-uws" secondAttribute="trailing" constant="24" id="2bU-DJ-eUS"/>
+                            <constraint firstItem="UVL-9R-Gtg" firstAttribute="top" secondItem="Ibg-4v-rNC" secondAttribute="bottom" constant="16" id="3dD-ME-Oqv"/>
+                            <constraint firstItem="GLJ-P6-uws" firstAttribute="top" secondItem="hPb-nn-yf6" secondAttribute="bottom" constant="16" id="4eO-jE-Va2"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="UVL-9R-Gtg" secondAttribute="trailing" constant="24" id="60W-1S-hvp"/>
+                            <constraint firstItem="Ibg-4v-rNC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="6jT-Rb-jtj"/>
+                            <constraint firstItem="GLJ-P6-uws" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="6na-Sa-28m"/>
+                            <constraint firstItem="agC-J4-IsJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="8SQ-Me-b1D"/>
+                            <constraint firstItem="hPb-nn-yf6" firstAttribute="top" secondItem="agC-J4-IsJ" secondAttribute="bottom" constant="16" id="IBA-7E-Ley"/>
+                            <constraint firstItem="Ibg-4v-rNC" firstAttribute="top" secondItem="oef-h0-47u" secondAttribute="bottom" constant="16" id="IIy-gu-0pN"/>
+                            <constraint firstItem="hPb-nn-yf6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="Ikv-tg-gBj"/>
+                            <constraint firstItem="oef-h0-47u" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="Mym-qH-89U"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="agC-J4-IsJ" secondAttribute="trailing" constant="24" id="N1C-P2-vyV"/>
+                            <constraint firstItem="QZA-j3-r4a" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="OT9-hh-Olu"/>
+                            <constraint firstItem="agC-J4-IsJ" firstAttribute="top" secondItem="QZA-j3-r4a" secondAttribute="bottom" constant="16" id="SXz-0E-Lil"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ibg-4v-rNC" secondAttribute="trailing" constant="24" id="V9b-ax-d7n"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QZA-j3-r4a" secondAttribute="trailing" constant="24" id="VMy-jZ-KLd"/>
+                            <constraint firstItem="UVL-9R-Gtg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="YmK-tY-rmw"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hPb-nn-yf6" secondAttribute="trailing" constant="24" id="hve-Fr-whM"/>
+                            <constraint firstItem="QZA-j3-r4a" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="ksb-G2-F7c"/>
+                            <constraint firstItem="oef-h0-47u" firstAttribute="top" secondItem="GLJ-P6-uws" secondAttribute="bottom" constant="16" id="y6Q-M9-nni"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oef-h0-47u" secondAttribute="trailing" constant="24" id="z8K-ma-Rfm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="charcoalTextField1" destination="QZA-j3-r4a" id="3Bx-Vz-kvR"/>
+                        <outlet property="charcoalTextField2" destination="agC-J4-IsJ" id="9JQ-ed-br6"/>
+                        <outlet property="charcoalTextField3" destination="hPb-nn-yf6" id="eue-A3-IyJ"/>
+                        <outlet property="charcoalTextField4" destination="GLJ-P6-uws" id="l0H-ln-5yP"/>
+                        <outlet property="charcoalTextField5" destination="oef-h0-47u" id="vom-yQ-oOa"/>
+                        <outlet property="charcoalTextField6" destination="Ibg-4v-rNC" id="yF6-3I-DQV"/>
+                        <outlet property="charcoalTextField7" destination="UVL-9R-Gtg" id="1Zj-un-DNF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

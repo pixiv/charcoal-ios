@@ -1,0 +1,17 @@
+{
+  "name": "create-pull-request",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "create-pull-request": "node src/index.js"
+  },
+  "type": "module",
+  "author": "pixiv",
+  "dependencies": {
+    "@octokit/rest": "^18.12.0",
+    "lodash": "^4.17.21",
+    "quicktype-core": "^6.0.70",
+    "yargs": "^17.3.1"
+  }
+}

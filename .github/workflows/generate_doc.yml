@@ -1,0 +1,34 @@
+name: generate_doc
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+          bundler-cache: true
+
+      - name: Bundle install
+        run: bundle install --path vendor/bundle
+
+      - name: Build
+        run: bundle exec jazzy --module Charcoal --swift-build-tool spm --build-tool-arguments -Xswiftc,"-sdk",-Xswiftc,"`xcrun --sdk iphonesimulator --show-sdk-path`",-Xswiftc,"-target",-Xswiftc,"x86_64-apple-ios14.4-simulator"
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs

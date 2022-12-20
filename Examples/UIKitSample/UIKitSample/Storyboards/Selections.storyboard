@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Charcoal Selections View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="CharcoalSelectionsViewController" customModule="UIKitSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toggle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Cx-Xv-hCS" customClass="CharcoalTypography12" customModule="Charcoal">
+                                <rect key="frame" x="20" y="68" width="52" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isBold" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toggle Disabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYT-pm-K8e" customClass="CharcoalTypography12" customModule="Charcoal">
+                                <rect key="frame" x="20" y="113" width="122" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isBold" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Z8-Al-hhS" customClass="CharcoalSwitch" customModule="Charcoal">
+                                <rect key="frame" x="345" y="63" width="51" height="31"/>
+                                <connections>
+                                    <action selector="didChangedSwitchValue:" destination="Y6W-OH-hqX" eventType="valueChanged" id="MtK-C5-afN"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bHg-eb-XUy" customClass="CharcoalSwitch" customModule="Charcoal">
+                                <rect key="frame" x="345" y="108" width="51" height="31"/>
+                            </switch>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7Z8-Al-hhS" secondAttribute="trailing" constant="20" id="6Ha-k6-Q9d"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bHg-eb-XUy" secondAttribute="trailing" constant="20" id="9LX-db-LfR"/>
+                            <constraint firstItem="0Cx-Xv-hCS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Acc-g1-sbK"/>
+                            <constraint firstItem="bHg-eb-XUy" firstAttribute="centerY" secondItem="EYT-pm-K8e" secondAttribute="centerY" id="Dc9-f8-icq"/>
+                            <constraint firstItem="EYT-pm-K8e" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="NsB-AX-P1u"/>
+                            <constraint firstItem="0Cx-Xv-hCS" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="24" id="eGD-zy-Ooo"/>
+                            <constraint firstItem="7Z8-Al-hhS" firstAttribute="centerY" secondItem="0Cx-Xv-hCS" secondAttribute="centerY" id="hF8-1u-c7N"/>
+                            <constraint firstItem="EYT-pm-K8e" firstAttribute="top" secondItem="0Cx-Xv-hCS" secondAttribute="bottom" constant="24" id="z5E-Cx-4oq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="disabledCharcoalSwitch" destination="bHg-eb-XUy" id="K2Y-hk-9VR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="138"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="0Cx-Xv-hCS">
+            <size key="intrinsicContentSize" width="51.5" height="20.5"/>
+        </designable>
+        <designable name="7Z8-Al-hhS">
+            <size key="intrinsicContentSize" width="49" height="31"/>
+        </designable>
+        <designable name="EYT-pm-K8e">
+            <size key="intrinsicContentSize" width="122" height="20.5"/>
+        </designable>
+        <designable name="bHg-eb-XUy">
+            <size key="intrinsicContentSize" width="49" height="31"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

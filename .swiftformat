@@ -1,0 +1,33 @@
+# format options
+--allman false
+--closingparen balanced
+--commas inline
+--conflictmarkers reject
+--decimalgrouping none
+--elseposition same-line
+--empty void
+--exponentcase lowercase
+--exponentgrouping disabled
+--fractiongrouping disabled
+--fragment false
+--header ignore
+--hexgrouping none
+--hexliteralcase uppercase
+--ifdef indent
+--importgrouping alphabetized
+--indentcase false
+--linebreaks lf
+--octalgrouping none
+--operatorfunc spaced
+--patternlet hoist
+--self remove
+--selfrequired
+--semicolons never
+--stripunusedargs closure-only
+--tabwidth 4
+--trailingclosures
+--trimwhitespace always
+--wraparguments before-first
+--wrapcollections before-first
+
+--exclude Sources/Charcoal/Generated
