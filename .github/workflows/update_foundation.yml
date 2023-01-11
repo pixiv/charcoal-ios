@@ -25,7 +25,7 @@ jobs:
         run: |
           cd scripts/foundation-gen/
 
-          curl -L https://unpkg.com/@charcoal-ui/theme@alpha/theme.json -o theme.json
+          curl -L https://unpkg.com/@charcoal-ui/theme@latest/theme.json -o theme.json
 
           npm install
           npm run foundation-gen generate -- --input="theme.json" --outputJson="../../Sources/Charcoal/Generated" --outputSwift="../../Sources/Charcoal/Generated" --outputColorAsset="../../Sources/Charcoal/ColorPalette.generated.xcassets"
@@ -35,7 +35,7 @@ jobs:
         run: |
           cd scripts/xcasset-gen
 
-          OUTPUT_ROOT_DIR=icons npx @charcoal-ui/icons-cli@1.0.1-alpha.1 figma:export --format pdf
+          OUTPUT_ROOT_DIR=icons npx @charcoal-ui/icons-cli@latest figma:export --format pdf
 
           npm install
           npm run xcasset-gen generate -- --input icons/pdf --output ../../Sources/Charcoal/Images.xcassets
