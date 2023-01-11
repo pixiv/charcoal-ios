@@ -11,7 +11,7 @@
   "dependencies": {
     "@octokit/rest": "^19.0.5",
     "lodash": "^4.17.21",
-    "quicktype-core": "^6.0.70",
+    "quicktype-core": "^7.0.38",
     "yargs": "^17.3.1"
   }
 }
