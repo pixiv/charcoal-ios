@@ -1,0 +1,18 @@
+version: 2
+updates:
+  - package-ecosystem: "bundler"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "npm"
+    directory: "/scripts/create-pull-request"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "npm"
+    directory: "/scripts/foundation-gen"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "npm"
+    directory: "/scripts/xcasset-gen"
+    schedule:
+      interval: "weekly"
