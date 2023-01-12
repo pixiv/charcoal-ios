@@ -1,15 +1,22 @@
 import yargs from 'yargs'
+import { hideBin } from 'yargs/helpers'
 import { XcassetGenerator } from './XcassetGenerator.js'
 
-yargs
-    .scriptName('xcasset-gen')
+yargs(hideBin(process.argv))
     .command(
         'generate',
-        'Generate Xcode Asset Catalog from images and colors',
-        () => [
-            yargs.option('input'),
-            yargs.option('output')
-        ],
+        '',
+        (yargs) => {
+            return yargs
+                .positional('input', {
+                    describe: 'input',
+                    type: 'string',
+                })
+                .positional('output', {
+                    describe: 'output xml directory',
+                    type: 'string',
+                })
+        },
         ({ input, output }) => {
             void XcassetGenerator.runFromCli(input, output ).catch(
                 e => {
