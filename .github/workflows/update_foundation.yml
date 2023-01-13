@@ -2,12 +2,17 @@ name: update_foundation
 
 on:
   schedule:
-    - cron: '0 4 * * 1-5'
+    - cron: '0 11 * * 1-5'
   workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
 
 env:
   FIGMA_FILE_URL: ${{secrets.FIGMA_FILE_URL}}
   FIGMA_TOKEN: ${{secrets.FIGMA_TOKEN}}
+  GITHUB_ACCESS_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
 jobs:
   build:
