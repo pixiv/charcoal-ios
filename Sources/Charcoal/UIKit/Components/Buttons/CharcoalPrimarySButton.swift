@@ -4,6 +4,8 @@ import UIKit
 public class CharcoalPrimarySButton: UIButton, CharcoalButton {
     @IBInspectable
     public var isFixed: Bool = false
+    @IBInspectable
+    public var color: UIColor = CharcoalAsset.ColorPaletteGenerated.brand.color
 
     override public var intrinsicContentSize: CGSize {
         let contentSize = super.intrinsicContentSize
@@ -51,14 +53,14 @@ public class CharcoalPrimarySButton: UIButton, CharcoalButton {
         if #available(iOS 15, *) {
             configuration = generateUIButtonConfiguration(
                 textColor: CharcoalAsset.ColorPaletteGenerated.text5.color,
-                enabledBackgroundColor: CharcoalAsset.ColorPaletteGenerated.brand.color,
+                enabledBackgroundColor: color,
                 pressedOverlayColor: CharcoalAsset.ColorPaletteGenerated.surface10.color,
                 size: .small
             )
         } else {
             setupButtonStyle(
                 textColor: CharcoalAsset.ColorPaletteGenerated.text5.color,
-                enabledBackgroundColor: CharcoalAsset.ColorPaletteGenerated.brand.color,
+                enabledBackgroundColor: color,
                 pressedOverlayColor: CharcoalAsset.ColorPaletteGenerated.surface10.color,
                 size: .small
             )
