@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="48" width="414" height="848"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="DVi-Mx-59J">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="858"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="959"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kN2-FR-jrI" customClass="CharcoalPrimaryMButton" customModule="Charcoal">
                                                 <rect key="frame" x="129" y="0.0" width="156.5" height="34.5"/>
@@ -87,8 +87,26 @@
                                                 <rect key="frame" x="152" y="757.5" width="110.5" height="34.5"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Link Button"/>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBE-2a-Bja" customClass="CharcoalPrimaryMButton" customModule="Charcoal">
+                                                <rect key="frame" x="66.5" y="808" width="281" height="34.5"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Primary Button M(Premium Color)"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryColor">
+                                                        <color key="value" red="1" green="0.62083333333333335" blue="0.089999999999999969" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVu-zD-AIp" customClass="CharcoalPrimaryMButton" customModule="Charcoal">
+                                                <rect key="frame" x="66.5" y="858.5" width="281" height="34.5"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Primary Button M(Premium Color)"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="primaryColor">
+                                                        <color key="value" red="1" green="0.62083333333333335" blue="0.089999999999999969" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cb8-0d-GAd" customClass="CharcoalSwitchingButton" customModule="Charcoal">
-                                                <rect key="frame" x="87" y="808" width="240" height="50"/>
+                                                <rect key="frame" x="87" y="909" width="240" height="50"/>
                                             </view>
                                         </subviews>
                                     </stackView>
@@ -133,6 +151,9 @@
         <designable name="JGW-w8-qTA">
             <size key="intrinsicContentSize" width="152.5" height="34.5"/>
         </designable>
+        <designable name="PVu-zD-AIp">
+            <size key="intrinsicContentSize" width="281" height="34.5"/>
+        </designable>
         <designable name="Q3p-Wk-xz0">
             <size key="intrinsicContentSize" width="149" height="34.5"/>
         </designable>
@@ -144,6 +165,9 @@
         </designable>
         <designable name="f54-h5-6k3">
             <size key="intrinsicContentSize" width="153" height="34.5"/>
+        </designable>
+        <designable name="gBE-2a-Bja">
+            <size key="intrinsicContentSize" width="281" height="34.5"/>
         </designable>
         <designable name="jJN-Vo-2RY">
             <size key="intrinsicContentSize" width="152.5" height="34.5"/>
