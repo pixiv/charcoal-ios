@@ -7,7 +7,7 @@ struct CharcoalPrimaryButtonStyleView: View {
     let isEnabled: Bool
     let size: CharcoalButtonSize
     let isFixed: Bool
-    let color: Color
+    let primaryColor: Color
 
     var body: some View {
         label
@@ -16,7 +16,7 @@ struct CharcoalPrimaryButtonStyleView: View {
             .padding(size == .medium ? 24 : 16)
             .frame(maxWidth: isFixed ? nil : .infinity)
             .frame(height: size == .medium ? 40 : 32)
-            .background(color)
+            .background(primaryColor)
             .opacity(isEnabled ? 1.0 : 0.32)
             .overlay(
                 Rectangle()
@@ -31,7 +31,7 @@ struct CharcoalPrimaryButtonStyleIos15: ButtonStyle {
     @Environment(\.isEnabled) var isEnabled
     let size: CharcoalButtonSize
     let isFixed: Bool
-    let color: Color
+    let primaryColor: Color
 
     func makeBody(configuration: Self.Configuration) -> some View {
         CharcoalPrimaryButtonStyleView(
@@ -40,7 +40,7 @@ struct CharcoalPrimaryButtonStyleIos15: ButtonStyle {
             isEnabled: isEnabled,
             size: size,
             isFixed: isFixed,
-            color: color
+            primaryColor: primaryColor
         )
     }
 }
@@ -50,7 +50,7 @@ struct CharcoalPrimaryButtonStyle: ButtonStyle {
     let isEnabled: Bool
     let size: CharcoalButtonSize
     let isFixed: Bool
-    let color: Color
+    let primaryColor: Color
 
     func makeBody(configuration: Self.Configuration) -> some View {
         CharcoalPrimaryButtonStyleView(
@@ -59,7 +59,7 @@ struct CharcoalPrimaryButtonStyle: ButtonStyle {
             isEnabled: isEnabled,
             size: size,
             isFixed: isFixed,
-            color: color
+            primaryColor: primaryColor
         )
     }
 }
@@ -69,13 +69,13 @@ struct CharcoalPrimaryButtonStyleModifier: ViewModifier {
     @Environment(\.isEnabled) var isEnabled
     let size: CharcoalButtonSize
     let isFixed: Bool
-    let color: Color
+    let primaryColor: Color
 
     func body(content: Content) -> some View {
         if #available(iOS 15, *) {
-            content.buttonStyle(CharcoalPrimaryButtonStyleIos15(size: size, isFixed: isFixed, color: color))
+            content.buttonStyle(CharcoalPrimaryButtonStyleIos15(size: size, isFixed: isFixed, primaryColor: primaryColor))
         } else {
-            content.buttonStyle(CharcoalPrimaryButtonStyle(isEnabled: isEnabled, size: size, isFixed: isFixed, color: color))
+            content.buttonStyle(CharcoalPrimaryButtonStyle(isEnabled: isEnabled, size: size, isFixed: isFixed, primaryColor: primaryColor))
         }
     }
 }
@@ -85,8 +85,8 @@ public extension View {
     func charcoalPrimaryButton(
         size: CharcoalButtonSize = .medium,
         isFixed: Bool = true,
-        color: Color = Color(CharcoalAsset.ColorPaletteGenerated.brand.color)
+        primaryColor: Color = Color(CharcoalAsset.ColorPaletteGenerated.brand.color)
     ) -> some View {
-        return modifier(CharcoalPrimaryButtonStyleModifier(size: size, isFixed: isFixed, color: color))
+        return modifier(CharcoalPrimaryButtonStyleModifier(size: size, isFixed: isFixed, primaryColor: primaryColor))
     }
 }
