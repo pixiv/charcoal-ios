@@ -2921,8 +2921,8 @@
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Buttons/CharcoalPrimaryButton.swift",
-      "line": 79,
-      "symbol": "View.charcoalPrimaryButton(size:isFixed:)",
+      "line": 85,
+      "symbol": "View.charcoalPrimaryButton(size:isFixed:primaryColor:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -3545,48 +3545,55 @@
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimaryMButton.swift",
       "line": 8,
+      "symbol": "CharcoalPrimaryMButton.primaryColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimaryMButton.swift",
+      "line": 10,
       "symbol": "CharcoalPrimaryMButton.intrinsicContentSize",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimaryMButton.swift",
-      "line": 17,
+      "line": 19,
       "symbol": "CharcoalPrimaryMButton.isEnabled",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimaryMButton.swift",
-      "line": 23,
+      "line": 25,
       "symbol": "CharcoalPrimaryMButton.init(frame:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimaryMButton.swift",
-      "line": 28,
+      "line": 30,
       "symbol": "CharcoalPrimaryMButton.init(coder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimaryMButton.swift",
-      "line": 33,
+      "line": 35,
       "symbol": "CharcoalPrimaryMButton.awakeFromNib()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimaryMButton.swift",
-      "line": 38,
+      "line": 40,
       "symbol": "CharcoalPrimaryMButton.prepareForInterfaceBuilder()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimaryMButton.swift",
-      "line": 43,
+      "line": 45,
       "symbol": "CharcoalPrimaryMButton.layoutSubviews()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -3608,48 +3615,55 @@
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimarySButton.swift",
       "line": 8,
+      "symbol": "CharcoalPrimarySButton.primaryColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimarySButton.swift",
+      "line": 10,
       "symbol": "CharcoalPrimarySButton.intrinsicContentSize",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimarySButton.swift",
-      "line": 17,
+      "line": 19,
       "symbol": "CharcoalPrimarySButton.isEnabled",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimarySButton.swift",
-      "line": 23,
+      "line": 25,
       "symbol": "CharcoalPrimarySButton.init(frame:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimarySButton.swift",
-      "line": 28,
+      "line": 30,
       "symbol": "CharcoalPrimarySButton.init(coder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimarySButton.swift",
-      "line": 33,
+      "line": 35,
       "symbol": "CharcoalPrimarySButton.awakeFromNib()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimarySButton.swift",
-      "line": 38,
+      "line": 40,
       "symbol": "CharcoalPrimarySButton.prepareForInterfaceBuilder()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalPrimarySButton.swift",
-      "line": 43,
+      "line": 45,
       "symbol": "CharcoalPrimarySButton.layoutSubviews()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
