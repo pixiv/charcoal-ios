@@ -38,9 +38,9 @@ struct ColorsView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
-                ForEach(0 ..< colors.count / columns + 1) { row in
+                ForEach(0 ..< colors.count / columns + 1, id: \.self) { row in
                     HStack(spacing: 16) {
-                        ForEach(0 ..< columns) { column in
+                        ForEach(0 ..< columns, id: \.self) { column in
                             if row * 4 + column < colors.count {
                                 Rectangle()
                                     .frame(width: 64, height: 64)
