@@ -19,7 +19,8 @@ jobs:
 
       - name: SwiftLint
         run: |
-          swift run -c release --package-path BuildTools swiftlint lint --config .swiftlint.yml --reporter html 2>&1 > report.html
+          set -o pipefail
+          swift run -c release --package-path BuildTools swiftlint lint --config .swiftlint.yml --reporter html > report.html
 
       - uses: actions/upload-artifact@v3
         with:
