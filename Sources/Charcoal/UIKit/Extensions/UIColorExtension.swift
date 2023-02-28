@@ -22,14 +22,17 @@ extension UIColor {
         overlay.getRed(&srcR, green: &srcG, blue: &srcB, alpha: &srcA)
         getRed(&dstR, green: &dstG, blue: &dstB, alpha: &dstA)
 
-        let a = srcA + dstA * (1 - srcA)
-        guard a != 0 else {
-            return .clear
-        }
-        let r = (srcR * srcA + dstR * dstA * (1 - srcA)) / a
-        let g = (srcG * srcA + dstG * dstA * (1 - srcA)) / a
-        let b = (srcB * srcA + dstB * dstA * (1 - srcA)) / a
+        // swiftlint:disable identifier_name
+        return {
+            let a = srcA + dstA * (1 - srcA)
+            guard a != 0 else {
+                return .clear
+            }
+            let r = (srcR * srcA + dstR * dstA * (1 - srcA)) / a
+            let g = (srcG * srcA + dstG * dstA * (1 - srcA)) / a
+            let b = (srcB * srcA + dstB * dstA * (1 - srcA)) / a
 
-        return UIColor(red: r, green: g, blue: b, alpha: a)
+            return UIColor(red: r, green: g, blue: b, alpha: a)
+        }()
     }
 }

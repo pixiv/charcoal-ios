@@ -18,7 +18,9 @@ extension UILabel {
     }
 
     func setupLineHeight(lineHeight: CGFloat) {
-        guard numberOfLines == 0, let text = text else { return }
+        guard numberOfLines == 0, let text = text else {
+            return
+        }
         let paragraphStyle = NSMutableParagraphStyle()
         let attributedText = NSMutableAttributedString(string: text)
         let range = NSRange(location: 0, length: attributedText.length)
