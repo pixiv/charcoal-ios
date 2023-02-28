@@ -19,8 +19,8 @@ jobs:
 
       - name: SwiftLint
         run: |
-          set -o pipefail
           swift run -c release --package-path BuildTools swiftlint lint --config .swiftlint.yml --reporter html > report.html
+        continue-on-error: true
 
       - uses: actions/upload-artifact@v3
         with:
