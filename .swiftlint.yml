@@ -14,3 +14,4 @@ excluded:
 - Sources/Charcoal/Generated
 - .build
 - BuildTools/.build
+- vendor/bundle
