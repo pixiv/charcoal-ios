@@ -18,9 +18,10 @@ jobs:
           xcode-version: latest-stable
 
       - name: SwiftLint
-        run: swift run -c release --package-path BuildTools swiftlint lint --config .swiftlint.yml --quiet --reporter html > report.html
+        run: |
+          swift run -c release --package-path BuildTools swiftlint lint --config .swiftlint.yml --quiet --reporter html > report.html
 
       - uses: actions/upload-artifact@v3
         with:
-        name: Lint Report
-        path: report.html
+          name: Lint Report
+          path: report.html
