@@ -2921,7 +2921,7 @@
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Buttons/CharcoalPrimaryButton.swift",
-      "line": 85,
+      "line": 87,
       "symbol": "View.charcoalPrimaryButton(size:isFixed:primaryColor:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
