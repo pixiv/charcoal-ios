@@ -73,8 +73,10 @@ struct CharcoalPrimaryButtonStyleModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         if #available(iOS 15, *) {
+            // swiftlint:disable line_length
             content.buttonStyle(CharcoalPrimaryButtonStyleIos15(size: size, isFixed: isFixed, primaryColor: primaryColor))
         } else {
+            // swiftlint:disable line_length
             content.buttonStyle(CharcoalPrimaryButtonStyle(isEnabled: isEnabled, size: size, isFixed: isFixed, primaryColor: primaryColor))
         }
     }

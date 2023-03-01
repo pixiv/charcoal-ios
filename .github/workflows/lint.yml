@@ -1,0 +1,25 @@
+name: lint
+
+on: pull_request
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: SwiftLint
+        run: |
+          swift run -c release --package-path BuildTools swiftlint lint --config .swiftlint.yml --reporter html > report.html
+        continue-on-error: true
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Lint Report
+          path: report.html

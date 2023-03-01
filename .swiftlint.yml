@@ -12,3 +12,6 @@ opt_in_rules:
 - sorted_imports
 excluded:
 - Sources/Charcoal/Generated
+- .build
+- BuildTools/.build
+- vendor/bundle
