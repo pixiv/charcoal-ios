@@ -2956,7 +2956,7 @@
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/CharcoalToggle.swift",
-      "line": 58,
+      "line": 71,
       "symbol": "View.charcoalToggle()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
