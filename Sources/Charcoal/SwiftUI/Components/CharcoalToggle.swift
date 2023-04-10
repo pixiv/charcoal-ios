@@ -1,7 +1,7 @@
 import SwiftUI
 
 @available(iOS 13, *)
-final class CharcoalToggleWrapper: UIViewRepresentable {
+struct CharcoalToggleWrapper: UIViewRepresentable {
     var isOn: Binding<Bool>
 
     init(isOn: Binding<Bool>) {
@@ -9,9 +9,13 @@ final class CharcoalToggleWrapper: UIViewRepresentable {
     }
 
     func makeUIView(context _: Context) -> UISwitch {
-        let view = UISwitch()
-        view.addTarget(self, action: #selector(handleValueChanged(_:)), for: .valueChanged)
-        return view
+        let uiSwitch = UISwitch()
+        uiSwitch.addTarget(self, action: #selector(Coordinator.handleValueChanged(_:)), for: .valueChanged)
+        return uiSwitch
+    }
+
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(self)
     }
 
     func updateUIView(_ uiView: UISwitch, context _: Context) {
@@ -21,9 +25,18 @@ final class CharcoalToggleWrapper: UIViewRepresentable {
         uiView.isOn = isOn.wrappedValue
     }
 
-    @objc
-    func handleValueChanged(_ sender: UISwitch) {
-        isOn.wrappedValue = sender.isOn
+    class Coordinator: NSObject {
+        var toggleWrapper: CharcoalToggleWrapper
+
+        init(_ toggleWrapper: CharcoalToggleWrapper) {
+            self.toggleWrapper = toggleWrapper
+            super.init()
+        }
+
+        @objc
+        func handleValueChanged(_ sender: UISwitch) {
+            toggleWrapper.isOn.wrappedValue = sender.isOn
+        }
     }
 }
 
