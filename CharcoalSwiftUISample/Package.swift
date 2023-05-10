@@ -16,7 +16,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(path: "../charcoal-ios")
+        .package(path: "../")
     ],
     targets: [
         .target(
