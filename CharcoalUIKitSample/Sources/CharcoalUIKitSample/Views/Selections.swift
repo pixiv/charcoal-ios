@@ -1,7 +1,7 @@
 import Charcoal
 import UIKit
 
-final class CharcoalSelectionsViewController: UIViewController {
+final class SelectionsViewController: UIViewController {
     @IBOutlet var disabledCharcoalSwitch: CharcoalSwitch!
 
     override func viewDidLoad() {

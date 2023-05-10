@@ -9,16 +9,9 @@
 /* Begin PBXBuildFile section */
 		242B159E271D0DDD0036906C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B159D271D0DDD0036906C /* AppDelegate.swift */; };
 		242B15A0271D0DFB0036906C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B159F271D0DFB0036906C /* SceneDelegate.swift */; };
-		24651B3127043658005AD842 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24651B3027043658005AD842 /* ContentView.swift */; };
 		24651B3327043659005AD842 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24651B3227043659005AD842 /* Assets.xcassets */; };
-		24651B3627043659005AD842 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24651B3527043659005AD842 /* Preview Assets.xcassets */; };
-		24651B43270457E4005AD842 /* ColorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24651B42270457E4005AD842 /* ColorsView.swift */; };
-		24651B4527046260005AD842 /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24651B4427046260005AD842 /* ButtonsView.swift */; };
-		24651B48270485D9005AD842 /* SelectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24651B47270485D9005AD842 /* SelectionsView.swift */; };
-		24651B4A27048D0B005AD842 /* TextFieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24651B4927048D0B005AD842 /* TextFieldsView.swift */; };
-		24A0B2CB2705A93A00FE5E45 /* TypographiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A0B2CA2705A93A00FE5E45 /* TypographiesView.swift */; };
-		24C27CF028AB5201005A6AA4 /* Charcoal in Frameworks */ = {isa = PBXBuildFile; productRef = 24C27CEF28AB5201005A6AA4 /* Charcoal */; };
 		24E018EC274DF4F800F53D89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24E018EB274DF4F800F53D89 /* LaunchScreen.storyboard */; };
+		24EDBE1E2A0B79AC000432BC /* CharcoalSwiftUISample in Frameworks */ = {isa = PBXBuildFile; productRef = 24EDBE1D2A0B79AC000432BC /* CharcoalSwiftUISample */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,15 +19,8 @@
 		242B159F271D0DFB0036906C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		242B15A1271D0E6C0036906C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		24651B2B27043658005AD842 /* SwiftUISample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUISample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		24651B3027043658005AD842 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		24651B3227043659005AD842 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		24651B3527043659005AD842 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		24651B42270457E4005AD842 /* ColorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsView.swift; sourceTree = "<group>"; };
-		24651B4427046260005AD842 /* ButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
-		24651B47270485D9005AD842 /* SelectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionsView.swift; sourceTree = "<group>"; };
-		24651B4927048D0B005AD842 /* TextFieldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldsView.swift; sourceTree = "<group>"; };
 		2467BC17293DD407008AE115 /* SwiftUISample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftUISample.entitlements; sourceTree = "<group>"; };
-		24A0B2CA2705A93A00FE5E45 /* TypographiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographiesView.swift; sourceTree = "<group>"; };
 		24E018EB274DF4F800F53D89 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,7 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24C27CF028AB5201005A6AA4 /* Charcoal in Frameworks */,
+				24EDBE1E2A0B79AC000432BC /* CharcoalSwiftUISample in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,10 +58,7 @@
 			children = (
 				2467BC17293DD407008AE115 /* SwiftUISample.entitlements */,
 				242B15A1271D0E6C0036906C /* Info.plist */,
-				24651B3027043658005AD842 /* ContentView.swift */,
 				24651B3227043659005AD842 /* Assets.xcassets */,
-				24651B46270485B4005AD842 /* Contents */,
-				24651B3427043659005AD842 /* Preview Content */,
 				242B159D271D0DDD0036906C /* AppDelegate.swift */,
 				242B159F271D0DFB0036906C /* SceneDelegate.swift */,
 				24E018EB274DF4F800F53D89 /* LaunchScreen.storyboard */,
@@ -83,31 +66,11 @@
 			path = SwiftUISample;
 			sourceTree = "<group>";
 		};
-		24651B3427043659005AD842 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				24651B3527043659005AD842 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
 		24651B3C270436C6005AD842 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		24651B46270485B4005AD842 /* Contents */ = {
-			isa = PBXGroup;
-			children = (
-				24651B4427046260005AD842 /* ButtonsView.swift */,
-				24651B42270457E4005AD842 /* ColorsView.swift */,
-				24651B47270485D9005AD842 /* SelectionsView.swift */,
-				24651B4927048D0B005AD842 /* TextFieldsView.swift */,
-				24A0B2CA2705A93A00FE5E45 /* TypographiesView.swift */,
-			);
-			path = Contents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,7 +91,7 @@
 			);
 			name = SwiftUISample;
 			packageProductDependencies = (
-				24C27CEF28AB5201005A6AA4 /* Charcoal */,
+				24EDBE1D2A0B79AC000432BC /* CharcoalSwiftUISample */,
 			);
 			productName = SwiftUISample;
 			productReference = 24651B2B27043658005AD842 /* SwiftUISample.app */;
@@ -173,7 +136,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				24E018EC274DF4F800F53D89 /* LaunchScreen.storyboard in Resources */,
-				24651B3627043659005AD842 /* Preview Assets.xcassets in Resources */,
 				24651B3327043659005AD842 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,13 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				242B159E271D0DDD0036906C /* AppDelegate.swift in Sources */,
-				24651B48270485D9005AD842 /* SelectionsView.swift in Sources */,
 				242B15A0271D0DFB0036906C /* SceneDelegate.swift in Sources */,
-				24651B3127043658005AD842 /* ContentView.swift in Sources */,
-				24651B4A27048D0B005AD842 /* TextFieldsView.swift in Sources */,
-				24651B43270457E4005AD842 /* ColorsView.swift in Sources */,
-				24651B4527046260005AD842 /* ButtonsView.swift in Sources */,
-				24A0B2CB2705A93A00FE5E45 /* TypographiesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +300,7 @@
 				CODE_SIGN_ENTITLEMENTS = SwiftUISample/SwiftUISample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftUISample/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = Q76D8M83GL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -378,7 +334,7 @@
 				CODE_SIGN_ENTITLEMENTS = SwiftUISample/SwiftUISample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftUISample/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = Q76D8M83GL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -428,9 +384,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		24C27CEF28AB5201005A6AA4 /* Charcoal */ = {
+		24EDBE1D2A0B79AC000432BC /* CharcoalSwiftUISample */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Charcoal;
+			productName = CharcoalSwiftUISample;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,5 +1,6 @@
 import SwiftUI
 import UIKit
+import CharcoalSwiftUISample
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?

@@ -1,9 +1,14 @@
 import UIKit
 
-final class ViewController: UITableViewController {
-    private let storyboardTitles = ["Buttons", "TextFields", "Selections", "Colors", "Typography"]
+public final class ContentViewController: UITableViewController {
+    public class func instantiate() -> UIViewController {
+        let viewController = UIStoryboard(name: "Content", bundle: .module).instantiateInitialViewController()!
+        return UINavigationController(rootViewController: viewController)
+    }
 
-    override func viewDidLoad() {
+    private let storyboardTitles = ["Buttons", "TextFields", "Selections", "Colors", "Typographies"]
+
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
         setupNavigationBar()
@@ -28,15 +33,15 @@ final class ViewController: UITableViewController {
         }
     }
 
-    override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+    public override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return storyboardTitles.count
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
         let title = storyboardTitles[indexPath.item]
-        guard let viewController = UIStoryboard(name: title, bundle: nil).instantiateInitialViewController() else {
+        guard let viewController = UIStoryboard(name: title, bundle: .module).instantiateInitialViewController() else {
             return
         }
         viewController.title = title

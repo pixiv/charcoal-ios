@@ -50,7 +50,7 @@ final class ColorsViewController: UIViewController {
         collectionView.register(
             UINib(
                 nibName: colorsCollectionViewCellIdentifier,
-                bundle: nil
+                bundle: .module
             ),
             forCellWithReuseIdentifier: colorsCollectionViewCellIdentifier
         )
