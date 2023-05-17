@@ -2,12 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:">
+   </FileRef>
+   <FileRef
+      location = "group:CharcoalSwiftUISample">
+   </FileRef>
+   <FileRef
+      location = "group:CharcoalUIKitSample">
+   </FileRef>
+   <FileRef
       location = "group:Examples/SwiftUISample/SwiftUISample.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Examples/UIKitSample/UIKitSample.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:">
    </FileRef>
 </Workspace>
