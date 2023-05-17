@@ -16,7 +16,7 @@
 
 /* Begin PBXFileReference section */
 		242860252A147F62004B020C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		24651B0B27043633005AD842 /* UIKitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24651B0B27043633005AD842 /* UIKitSampleIos12.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitSampleIos12.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24651B0E27043633005AD842 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24651B1727043635005AD842 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24651B1C27043635005AD842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -39,7 +39,7 @@
 		24651B0227043633005AD842 = {
 			isa = PBXGroup;
 			children = (
-				24651B0D27043633005AD842 /* UIKitSample */,
+				24651B0D27043633005AD842 /* UIKitSampleIos12 */,
 				24651B0C27043633005AD842 /* Products */,
 				24651B3F27043770005AD842 /* Frameworks */,
 			);
@@ -48,12 +48,12 @@
 		24651B0C27043633005AD842 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				24651B0B27043633005AD842 /* UIKitSample.app */,
+				24651B0B27043633005AD842 /* UIKitSampleIos12.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		24651B0D27043633005AD842 /* UIKitSample */ = {
+		24651B0D27043633005AD842 /* UIKitSampleIos12 */ = {
 			isa = PBXGroup;
 			children = (
 				24651B0E27043633005AD842 /* AppDelegate.swift */,
@@ -61,7 +61,7 @@
 				24651B1C27043635005AD842 /* Info.plist */,
 				242860252A147F62004B020C /* Launch Screen.storyboard */,
 			);
-			path = UIKitSample;
+			path = UIKitSampleIos12;
 			sourceTree = "<group>";
 		};
 		24651B3F27043770005AD842 /* Frameworks */ = {
@@ -75,9 +75,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		24651B0A27043633005AD842 /* UIKitSample */ = {
+		24651B0A27043633005AD842 /* UIKitSampleIos12 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24651B1F27043635005AD842 /* Build configuration list for PBXNativeTarget "UIKitSample" */;
+			buildConfigurationList = 24651B1F27043635005AD842 /* Build configuration list for PBXNativeTarget "UIKitSampleIos12" */;
 			buildPhases = (
 				24651B0727043633005AD842 /* Sources */,
 				24651B0827043633005AD842 /* Frameworks */,
@@ -88,12 +88,12 @@
 			);
 			dependencies = (
 			);
-			name = UIKitSample;
+			name = UIKitSampleIos12;
 			packageProductDependencies = (
 				24EDBE232A0B7CCC000432BC /* CharcoalUIKitSample */,
 			);
 			productName = UIKitSample;
-			productReference = 24651B0B27043633005AD842 /* UIKitSample.app */;
+			productReference = 24651B0B27043633005AD842 /* UIKitSampleIos12.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -111,7 +111,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 24651B0627043633005AD842 /* Build configuration list for PBXProject "UIKitSample" */;
+			buildConfigurationList = 24651B0627043633005AD842 /* Build configuration list for PBXProject "UIKitSampleIos12" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -124,7 +124,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				24651B0A27043633005AD842 /* UIKitSample */,
+				24651B0A27043633005AD842 /* UIKitSampleIos12 */,
 			);
 		};
 /* End PBXProject section */
@@ -363,7 +363,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		24651B0627043633005AD842 /* Build configuration list for PBXProject "UIKitSample" */ = {
+		24651B0627043633005AD842 /* Build configuration list for PBXProject "UIKitSampleIos12" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24651B1D27043635005AD842 /* Debug */,
@@ -372,7 +372,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24651B1F27043635005AD842 /* Build configuration list for PBXNativeTarget "UIKitSample" */ = {
+		24651B1F27043635005AD842 /* Build configuration list for PBXNativeTarget "UIKitSampleIos12" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24651B2027043635005AD842 /* Debug */,

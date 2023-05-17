@@ -19,7 +19,7 @@
 		242B159D271D0DDD0036906C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		242B159F271D0DFB0036906C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		242B15A1271D0E6C0036906C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		24651B2B27043658005AD842 /* SwiftUISample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUISample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24651B2B27043658005AD842 /* SwiftUISampleIos13.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUISampleIos13.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24651B3227043659005AD842 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -38,7 +38,7 @@
 		24651B2227043657005AD842 = {
 			isa = PBXGroup;
 			children = (
-				24651B2D27043658005AD842 /* SwiftUISample */,
+				24651B2D27043658005AD842 /* SwiftUISampleIos13 */,
 				24651B2C27043658005AD842 /* Products */,
 				24651B3C270436C6005AD842 /* Frameworks */,
 			);
@@ -47,12 +47,12 @@
 		24651B2C27043658005AD842 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				24651B2B27043658005AD842 /* SwiftUISample.app */,
+				24651B2B27043658005AD842 /* SwiftUISampleIos13.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		24651B2D27043658005AD842 /* SwiftUISample */ = {
+		24651B2D27043658005AD842 /* SwiftUISampleIos13 */ = {
 			isa = PBXGroup;
 			children = (
 				242B159D271D0DDD0036906C /* AppDelegate.swift */,
@@ -61,7 +61,7 @@
 				242860272A14832D004B020C /* Launch Screen.storyboard */,
 				242B159F271D0DFB0036906C /* SceneDelegate.swift */,
 			);
-			path = SwiftUISample;
+			path = SwiftUISampleIos13;
 			sourceTree = "<group>";
 		};
 		24651B3C270436C6005AD842 /* Frameworks */ = {
@@ -74,9 +74,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		24651B2A27043658005AD842 /* SwiftUISample */ = {
+		24651B2A27043658005AD842 /* SwiftUISampleIos13 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24651B3927043659005AD842 /* Build configuration list for PBXNativeTarget "SwiftUISample" */;
+			buildConfigurationList = 24651B3927043659005AD842 /* Build configuration list for PBXNativeTarget "SwiftUISampleIos13" */;
 			buildPhases = (
 				24651B2727043658005AD842 /* Sources */,
 				24651B2827043658005AD842 /* Frameworks */,
@@ -87,12 +87,12 @@
 			);
 			dependencies = (
 			);
-			name = SwiftUISample;
+			name = SwiftUISampleIos13;
 			packageProductDependencies = (
 				24EDBE1D2A0B79AC000432BC /* CharcoalSwiftUISample */,
 			);
 			productName = SwiftUISample;
-			productReference = 24651B2B27043658005AD842 /* SwiftUISample.app */;
+			productReference = 24651B2B27043658005AD842 /* SwiftUISampleIos13.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -110,7 +110,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 24651B2627043657005AD842 /* Build configuration list for PBXProject "SwiftUISample" */;
+			buildConfigurationList = 24651B2627043657005AD842 /* Build configuration list for PBXProject "SwiftUISampleIos13" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -123,7 +123,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				24651B2A27043658005AD842 /* SwiftUISample */,
+				24651B2A27043658005AD842 /* SwiftUISampleIos13 */,
 			);
 		};
 /* End PBXProject section */
@@ -365,7 +365,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		24651B2627043657005AD842 /* Build configuration list for PBXProject "SwiftUISample" */ = {
+		24651B2627043657005AD842 /* Build configuration list for PBXProject "SwiftUISampleIos13" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24651B3727043659005AD842 /* Debug */,
@@ -374,7 +374,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24651B3927043659005AD842 /* Build configuration list for PBXNativeTarget "SwiftUISample" */ = {
+		24651B3927043659005AD842 /* Build configuration list for PBXNativeTarget "SwiftUISampleIos13" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24651B3A27043659005AD842 /* Debug */,

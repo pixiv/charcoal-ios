@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "24651B0A27043633005AD842"
-               BuildableName = "UIKitSample.app"
-               BlueprintName = "UIKitSample"
-               ReferencedContainer = "container:UIKitSample.xcodeproj">
+               BlueprintIdentifier = "24651B2A27043658005AD842"
+               BuildableName = "SwiftUISampleIos13.app"
+               BlueprintName = "SwiftUISampleIos13"
+               ReferencedContainer = "container:SwiftUISampleIos13.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,10 +44,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "24651B0A27043633005AD842"
-            BuildableName = "UIKitSample.app"
-            BlueprintName = "UIKitSample"
-            ReferencedContainer = "container:UIKitSample.xcodeproj">
+            BlueprintIdentifier = "24651B2A27043658005AD842"
+            BuildableName = "SwiftUISampleIos13.app"
+            BlueprintName = "SwiftUISampleIos13"
+            ReferencedContainer = "container:SwiftUISampleIos13.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -61,10 +61,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "24651B0A27043633005AD842"
-            BuildableName = "UIKitSample.app"
-            BlueprintName = "UIKitSample"
-            ReferencedContainer = "container:UIKitSample.xcodeproj">
+            BlueprintIdentifier = "24651B2A27043658005AD842"
+            BuildableName = "SwiftUISampleIos13.app"
+            BlueprintName = "SwiftUISampleIos13"
+            ReferencedContainer = "container:SwiftUISampleIos13.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

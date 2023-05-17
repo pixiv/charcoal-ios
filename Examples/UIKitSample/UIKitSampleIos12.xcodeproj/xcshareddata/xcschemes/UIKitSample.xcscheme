@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "24651B2A27043658005AD842"
-               BuildableName = "SwiftUISample.app"
-               BlueprintName = "SwiftUISample"
-               ReferencedContainer = "container:SwiftUISample.xcodeproj">
+               BlueprintIdentifier = "24651B0A27043633005AD842"
+               BuildableName = "UIKitSample.app"
+               BlueprintName = "UIKitSample"
+               ReferencedContainer = "container:UIKitSampleIos12.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,10 +44,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "24651B2A27043658005AD842"
-            BuildableName = "SwiftUISample.app"
-            BlueprintName = "SwiftUISample"
-            ReferencedContainer = "container:SwiftUISample.xcodeproj">
+            BlueprintIdentifier = "24651B0A27043633005AD842"
+            BuildableName = "UIKitSample.app"
+            BlueprintName = "UIKitSample"
+            ReferencedContainer = "container:UIKitSampleIos12.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -61,10 +61,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "24651B2A27043658005AD842"
-            BuildableName = "SwiftUISample.app"
-            BlueprintName = "SwiftUISample"
-            ReferencedContainer = "container:SwiftUISample.xcodeproj">
+            BlueprintIdentifier = "24651B0A27043633005AD842"
+            BuildableName = "UIKitSample.app"
+            BlueprintName = "UIKitSample"
+            ReferencedContainer = "container:UIKitSampleIos12.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

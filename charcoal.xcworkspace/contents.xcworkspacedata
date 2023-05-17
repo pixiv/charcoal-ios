@@ -11,9 +11,9 @@
       location = "group:CharcoalUIKitSample">
    </FileRef>
    <FileRef
-      location = "group:Examples/SwiftUISample/SwiftUISample.xcodeproj">
+      location = "group:/Users/kwzr/ghq/github.com/pixiv/charcoal-ios/Examples/SwiftUISample/SwiftUISampleIos13.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Examples/UIKitSample/UIKitSample.xcodeproj">
+      location = "group:/Users/kwzr/ghq/github.com/pixiv/charcoal-ios/Examples/UIKitSample/UIKitSampleIos12.xcodeproj">
    </FileRef>
 </Workspace>
