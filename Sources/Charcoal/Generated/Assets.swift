@@ -171,6 +171,7 @@ public enum CharcoalAsset {
       public static let likeOff = ImageAsset(name: "24/LikeOff")
       public static let likeOn = ImageAsset(name: "24/LikeOn")
       public static let link = ImageAsset(name: "24/Link")
+      public static let list = ImageAsset(name: "24/List")
       public static let lockLock = ImageAsset(name: "24/LockLock")
       public static let lockUnlock = ImageAsset(name: "24/LockUnlock")
       public static let logout = ImageAsset(name: "24/Logout")
