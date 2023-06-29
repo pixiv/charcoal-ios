@@ -29,7 +29,7 @@ Swift Package Managerを使ってライブラリをインストールするこ�
 
 ```swift
 dependencies: [
-  .package(name: "Charcoal", url: "https://github.com/pixiv/charcoal-ios", .upToNextMajor(from: "0.1.0"))
+  .package(url: "https://github.com/pixiv/charcoal-ios", .upToNextMajor(from: "1.0.0"))
 ]
 ```
 
