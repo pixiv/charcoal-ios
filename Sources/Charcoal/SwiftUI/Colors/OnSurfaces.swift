@@ -1,10 +1,25 @@
 import SwiftUI
 
 @available(iOS 13, *)
+struct CharcoalForegroundColor: ViewModifier {
+    let color: Color
+    
+    func body(content: Content) -> some View {
+        if #available(iOS 15, *) {
+            content
+                .foregroundStyle(color)
+        } else {
+            content
+                .foregroundColor(color)
+        }
+    }
+}
+
+@available(iOS 13, *)
 struct CharcoalOnSurfaceBorder: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.border.color))
+            .charcoalForegroundColor(Color(CharcoalAsset.ColorPaletteGenerated.border.color))
     }
 }
 
@@ -12,7 +27,7 @@ struct CharcoalOnSurfaceBorder: ViewModifier {
 struct CharcoalOnSurfaceLink1: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.link1.color))
+            .charcoalForegroundColor(Color(CharcoalAsset.ColorPaletteGenerated.link1.color))
     }
 }
 
@@ -20,7 +35,7 @@ struct CharcoalOnSurfaceLink1: ViewModifier {
 struct CharcoalOnSurfaceLink2: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.link2.color))
+            .charcoalForegroundColor(Color(CharcoalAsset.ColorPaletteGenerated.link2.color))
     }
 }
 
@@ -28,7 +43,7 @@ struct CharcoalOnSurfaceLink2: ViewModifier {
 struct CharcoalOnSurfaceText1: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text1.color))
+            .charcoalForegroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text1.color))
     }
 }
 
@@ -36,7 +51,7 @@ struct CharcoalOnSurfaceText1: ViewModifier {
 struct CharcoalOnSurfaceText2: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text2.color))
+            .charcoalForegroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text2.color))
     }
 }
 
@@ -44,7 +59,7 @@ struct CharcoalOnSurfaceText2: ViewModifier {
 struct CharcoalOnSurfaceText3: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text3.color))
+            .charcoalForegroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text3.color))
     }
 }
 
@@ -52,7 +67,7 @@ struct CharcoalOnSurfaceText3: ViewModifier {
 struct CharcoalOnSurfaceText4: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text4.color))
+            .charcoalForegroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text4.color))
     }
 }
 
@@ -60,7 +75,7 @@ struct CharcoalOnSurfaceText4: ViewModifier {
 struct CharcoalOnSurfaceText5: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
+            .charcoalForegroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
     }
 }
 
@@ -68,7 +83,7 @@ struct CharcoalOnSurfaceText5: ViewModifier {
 struct CharcoalOnSurfaceIcon6: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.icon6.color))
+            .charcoalForegroundColor(Color(CharcoalAsset.ColorPaletteGenerated.icon6.color))
     }
 }
 
@@ -125,5 +140,12 @@ public extension View {
 public extension View {
     func charcoalOnSurfaceText5() -> some View {
         modifier(CharcoalOnSurfaceText5())
+    }
+}
+
+@available(iOS 13, *)
+public extension View {
+    func charcoalForegroundColor(_ color: Color) -> some View {
+        modifier(CharcoalForegroundColor(color: color))
     }
 }
