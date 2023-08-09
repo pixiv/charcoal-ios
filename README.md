@@ -44,6 +44,12 @@ dependencies: [
 
 ## Development
 
+### SwiftLint
+
+```
+brew install swiftlint
+```
+
 ### Code Format
 
 ```
