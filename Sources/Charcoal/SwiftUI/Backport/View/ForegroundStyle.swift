@@ -2,12 +2,12 @@ import SwiftUI
 
 @available(iOS 13, *)
 extension Backport where Content: View {
-    func foregroundStyle(_ color: Color) -> some View {
+    @ViewBuilder func foregroundStyle(_ color: Color) -> some View {
         if #available(iOS 15, *) {
-           return content
+            content
                 .foregroundStyle(color)
         } else {
-           return content
+            content
                 .foregroundColor(color)
         }
     }
