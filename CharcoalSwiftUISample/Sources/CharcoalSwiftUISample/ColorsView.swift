@@ -44,12 +44,12 @@ struct ColorsView: View {
                             if row * 4 + column < colors.count {
                                 Rectangle()
                                     .frame(width: 64, height: 64)
-                                    .charcoalForegroundColor(colors[row * 4 + column])
+                                    .foregroundColor(colors[row * 4 + column])
                                     .cornerRadius(8)
                             } else {
                                 Rectangle()
                                     .frame(width: 64, height: 64)
-                                    .charcoalForegroundColor(.clear)
+                                    .foregroundColor(Color.clear)
                             }
                         }
                     }
