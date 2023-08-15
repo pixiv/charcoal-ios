@@ -19,7 +19,7 @@ struct CharcoalDefaultButtonStyleView: View {
             .opacity(isEnabled ? 1.0 : 0.32)
             .overlay(
                 Rectangle()
-                    .foregroundColor(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
+                    .backport.foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
             )
             .cornerRadius(size == .medium ? 20 : 16)
     }

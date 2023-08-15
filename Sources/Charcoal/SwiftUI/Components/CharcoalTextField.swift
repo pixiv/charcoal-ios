@@ -36,7 +36,7 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
                         .font(.system(size: 14))
                         .padding(8.0)
                         // swiftlint:disable line_length
-                        .foregroundColor(Color(hasError ? CharcoalAsset.ColorPaletteGenerated.assertive.color : CharcoalAsset.ColorPaletteGenerated.text3.color))
+                        .backport.foregroundStyle(Color(hasError ? CharcoalAsset.ColorPaletteGenerated.assertive.color : CharcoalAsset.ColorPaletteGenerated.text3.color))
                 }
             }
             .frame(height: 40)
@@ -50,7 +50,7 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
                 Text(assistiveText)
                     .font(.system(size: 12))
                     // swiftlint:disable line_length
-                    .foregroundColor(Color(hasError ? CharcoalAsset.ColorPaletteGenerated.assertive.color : CharcoalAsset.ColorPaletteGenerated.text2.color))
+                    .backport.foregroundStyle(Color(hasError ? CharcoalAsset.ColorPaletteGenerated.assertive.color : CharcoalAsset.ColorPaletteGenerated.text2.color))
             }
         }
         .opacity(isEnabled ? 1.0 : 0.32)

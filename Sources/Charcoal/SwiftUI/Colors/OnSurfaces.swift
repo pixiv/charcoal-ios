@@ -4,7 +4,7 @@ import SwiftUI
 struct CharcoalOnSurfaceBorder: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.border.color))
+            .backport.foregroundStyle(Color(CharcoalAsset.ColorPaletteGenerated.border.color))
     }
 }
 
@@ -12,7 +12,7 @@ struct CharcoalOnSurfaceBorder: ViewModifier {
 struct CharcoalOnSurfaceLink1: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.link1.color))
+            .backport.foregroundStyle(Color(CharcoalAsset.ColorPaletteGenerated.link1.color))
     }
 }
 
@@ -20,7 +20,7 @@ struct CharcoalOnSurfaceLink1: ViewModifier {
 struct CharcoalOnSurfaceLink2: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.link2.color))
+            .backport.foregroundStyle(Color(CharcoalAsset.ColorPaletteGenerated.link2.color))
     }
 }
 
@@ -28,7 +28,7 @@ struct CharcoalOnSurfaceLink2: ViewModifier {
 struct CharcoalOnSurfaceText1: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text1.color))
+            .backport.foregroundStyle(Color(CharcoalAsset.ColorPaletteGenerated.text1.color))
     }
 }
 
@@ -36,7 +36,7 @@ struct CharcoalOnSurfaceText1: ViewModifier {
 struct CharcoalOnSurfaceText2: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text2.color))
+            .backport.foregroundStyle(Color(CharcoalAsset.ColorPaletteGenerated.text2.color))
     }
 }
 
@@ -44,7 +44,7 @@ struct CharcoalOnSurfaceText2: ViewModifier {
 struct CharcoalOnSurfaceText3: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text3.color))
+            .backport.foregroundStyle(Color(CharcoalAsset.ColorPaletteGenerated.text3.color))
     }
 }
 
@@ -52,7 +52,7 @@ struct CharcoalOnSurfaceText3: ViewModifier {
 struct CharcoalOnSurfaceText4: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text4.color))
+            .backport.foregroundStyle(Color(CharcoalAsset.ColorPaletteGenerated.text4.color))
     }
 }
 
@@ -60,7 +60,7 @@ struct CharcoalOnSurfaceText4: ViewModifier {
 struct CharcoalOnSurfaceText5: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
+            .backport.foregroundStyle(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
     }
 }
 
@@ -68,7 +68,7 @@ struct CharcoalOnSurfaceText5: ViewModifier {
 struct CharcoalOnSurfaceIcon6: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.icon6.color))
+            .backport.foregroundStyle(Color(CharcoalAsset.ColorPaletteGenerated.icon6.color))
     }
 }
 
@@ -127,3 +127,4 @@ public extension View {
         modifier(CharcoalOnSurfaceText5())
     }
 }
+

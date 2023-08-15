@@ -49,7 +49,7 @@ struct ColorsView: View {
                             } else {
                                 Rectangle()
                                     .frame(width: 64, height: 64)
-                                    .foregroundColor(.clear)
+                                    .foregroundColor(Color.clear)
                             }
                         }
                     }
