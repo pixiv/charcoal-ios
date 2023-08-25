@@ -3,13 +3,13 @@ import UIKit
 extension UILabel {
     func setupFont(fontSize: CGFloat, isBold: Bool, isMono: Bool) {
         if isBold {
-            if #available(iOS 13.0, *), isMono {
+            if isMono {
                 font = UIFont.monospacedSystemFont(ofSize: fontSize, weight: .bold)
             } else {
                 font = UIFont.boldSystemFont(ofSize: fontSize)
             }
         } else {
-            if #available(iOS 13.0, *), isMono {
+            if isMono {
                 font = UIFont.monospacedSystemFont(ofSize: fontSize, weight: .regular)
             } else {
                 font = UIFont.systemFont(ofSize: fontSize)

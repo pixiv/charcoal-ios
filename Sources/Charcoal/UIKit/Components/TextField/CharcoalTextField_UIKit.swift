@@ -101,11 +101,7 @@ public class CharcoalTextField: UITextField {
             return
         }
 
-        if #available(iOS 13.0, *) {
-            countLabel.font = UIFont.monospacedSystemFont(ofSize: 14, weight: .regular)
-        } else {
-            countLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 14, weight: .regular)
-        }
+        countLabel.font = UIFont.monospacedSystemFont(ofSize: 14, weight: .regular)
 
         countLabel.textColor = CharcoalAsset.ColorPaletteGenerated.text3.color
         countLabel.textAlignment = .left
