@@ -1,6 +1,5 @@
 import SwiftUI
 
-@available(iOS 13, *)
 struct CharcoalBackground1: ViewModifier {
     func body(content: Content) -> some View {
         content
@@ -8,7 +7,6 @@ struct CharcoalBackground1: ViewModifier {
     }
 }
 
-@available(iOS 13, *)
 struct CharcoalBackground2: ViewModifier {
     func body(content: Content) -> some View {
         content
@@ -16,14 +14,12 @@ struct CharcoalBackground2: ViewModifier {
     }
 }
 
-@available(iOS 13, *)
 public extension View {
     func charcoalBackground1() -> some View {
         modifier(CharcoalBackground1())
     }
 }
 
-@available(iOS 13, *)
 public extension View {
     func charcoalBackground2() -> some View {
         modifier(CharcoalBackground2())

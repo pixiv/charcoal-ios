@@ -1,6 +1,5 @@
 import SwiftUI
 
-@available(iOS 13, *)
 struct Backport<Content> {
     let content: Content
 
@@ -9,7 +8,6 @@ struct Backport<Content> {
     }
 }
 
-@available(iOS 13, *)
 extension View {
     var backport: Backport<Self> { Backport(self) }
 }

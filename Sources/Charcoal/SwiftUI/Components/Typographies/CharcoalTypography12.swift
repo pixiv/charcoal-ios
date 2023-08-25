@@ -3,7 +3,6 @@ import SwiftUI
 private let fontSize = CGFloat(charcoalFoundation.typography.size.the12.fontSize)
 private let lineHeight = CGFloat(charcoalFoundation.typography.size.the12.lineHeight)
 
-@available(iOS 13, *)
 public extension View {
     func charcoalTypography12Bold(isSingleLine: Bool = false) -> some View {
         return modifier(CharcoalFontModifier(
