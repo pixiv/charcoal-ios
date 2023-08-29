@@ -22,7 +22,7 @@ let package = Package(
         .target(
             name: "CharcoalSwiftUISample",
             dependencies: [
-                .product(name: "Charcoal", package: "charcoal-ios")
+                .product(name: "CharcoalSwiftUI", package: "charcoal-ios")
             ]
         )
     ]

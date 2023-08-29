@@ -11,8 +11,12 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "Charcoal",
-            targets: ["CharcoalSwiftUI", "CharcoalUIKit"]
+            name: "CharcoalSwiftUI",
+            targets: ["CharcoalSwiftUI"]
+        ),
+        .library(
+            name: "CharcoalUIKit",
+            targets: ["CharcoalUIKit"]
         )
     ],
     dependencies: [],
