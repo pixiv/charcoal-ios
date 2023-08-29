@@ -17,7 +17,7 @@ public struct ContentView: View {
                 NavigationLink(destination: ButtonsView()) {
                     Text("Buttons")
                 }
-                if #available(iOS 15, macOS 12, *) {
+                if #available(iOS 15, *) {
                     NavigationLink(destination: TextFieldsView()) {
                         Text("Text Fields (iOS 15+)")
                     }

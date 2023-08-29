@@ -15,7 +15,7 @@ struct CharcoalLinkButtonStyleView: View {
     }
 }
 
-@available(iOS 15, macOS 12, *)
+@available(iOS 15, *)
 struct CharcoalLinkButtonStyleIos15: ButtonStyle {
     @Environment(\.isEnabled) var isEnabled
 
@@ -44,7 +44,7 @@ struct CharcoalLinkButtonStyleModifier: ViewModifier {
     @Environment(\.isEnabled) var isEnabled
 
     func body(content: Content) -> some View {
-        if #available(iOS 15, macOS 12, *) {
+        if #available(iOS 15, *) {
             content.buttonStyle(CharcoalLinkButtonStyleIos15())
         } else {
             content.buttonStyle(CharcoalLinkButtonStyle(isEnabled: isEnabled))

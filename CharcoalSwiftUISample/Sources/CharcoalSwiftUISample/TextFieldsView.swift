@@ -1,6 +1,6 @@
 import SwiftUI
 
-@available(iOS 15, macOS 12, *)
+@available(iOS 15, *)
 struct TextFieldsView: View {
     @State var text1: String = ""
     @State var text2: String = ""

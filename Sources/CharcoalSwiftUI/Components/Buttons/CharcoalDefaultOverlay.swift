@@ -24,7 +24,7 @@ struct CharcoalDefaultOverlayButtonStyleView: View {
     }
 }
 
-@available(iOS 15, macOS 12, *)
+@available(iOS 15, *)
 struct CharcoalDefaultOverlayButtonStyleIos15: ButtonStyle {
     @Environment(\.isEnabled) var isEnabled
     let size: CharcoalButtonSize
@@ -64,7 +64,7 @@ struct CharcoalDefaultOverlayButtonStyleModifier: ViewModifier {
     let isFixed: Bool
 
     func body(content: Content) -> some View {
-        if #available(iOS 15, macOS 12, *) {
+        if #available(iOS 15, *) {
             content.buttonStyle(CharcoalDefaultOverlayButtonStyleIos15(size: size, isFixed: isFixed))
         } else {
             content.buttonStyle(CharcoalDefaultOverlayButtonStyle(isEnabled: isEnabled, size: size, isFixed: isFixed))

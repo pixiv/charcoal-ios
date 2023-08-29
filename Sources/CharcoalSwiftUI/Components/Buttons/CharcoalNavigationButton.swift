@@ -30,7 +30,7 @@ struct CharcoalNavigationButtonStyleView: View {
     }
 }
 
-@available(iOS 15, macOS 12, *)
+@available(iOS 15, *)
 struct CharcoalNavigationButtonStyleIos15: ButtonStyle {
     @Environment(\.isEnabled) var isEnabled
     let size: CharcoalButtonSize
@@ -69,7 +69,7 @@ struct CharcoalNavigationButtonStyleModifier: ViewModifier {
     let isFixed: Bool
 
     func body(content: Content) -> some View {
-        if #available(iOS 15, macOS 12, *) {
+        if #available(iOS 15, *) {
             content.buttonStyle(CharcoalNavigationButtonStyleIos15(size: size, isFixed: isFixed))
         } else {
             content.buttonStyle(CharcoalNavigationButtonStyle(isEnabled: isEnabled, size: size, isFixed: isFixed))

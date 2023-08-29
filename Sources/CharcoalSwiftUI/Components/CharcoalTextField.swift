@@ -57,7 +57,7 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
     }
 }
 
-@available(iOS 15, macOS 12, *)
+@available(iOS 15, *)
 struct CharcoalTextFieldStyleModifier: ViewModifier {
     @Binding var label: String
     @Binding var countLabel: String
@@ -74,7 +74,7 @@ struct CharcoalTextFieldStyleModifier: ViewModifier {
     }
 }
 
-@available(iOS 15, macOS 12, *)
+@available(iOS 15, *)
 public extension View {
     func charcoalTextField(
         label: Binding<String> = .constant(""),
