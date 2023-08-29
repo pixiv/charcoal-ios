@@ -44,6 +44,12 @@ dependencies: [
 
 ## Development
 
+### SwiftGen
+
+```
+brew install swiftgen
+```
+
 ### SwiftLint
 
 ```
