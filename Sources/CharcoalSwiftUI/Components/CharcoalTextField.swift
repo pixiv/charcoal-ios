@@ -1,6 +1,6 @@
 import SwiftUI
 
-@available(iOS 15, macOS 12, *)
+@available(iOS 15, *)
 struct CharcoalTextFieldStyle: TextFieldStyle {
     @Environment(\.isEnabled) var isEnabled
     @Binding var label: String
