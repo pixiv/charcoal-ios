@@ -21,7 +21,7 @@ let package = Package(
         .target(
             name: "CharcoalUIKitSample",
             dependencies: [
-                .product(name: "CharcoalUIKit", package: "charcoal-ios")
+                .product(name: "Charcoal", package: "charcoal-ios")
             ],
             resources: [
                 .copy("Storyboards/Buttons.storyboard"),
