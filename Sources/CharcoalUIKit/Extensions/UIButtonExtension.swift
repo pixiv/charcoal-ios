@@ -1,7 +1,7 @@
 import UIKit
 
 extension UIButton {
-    @available(iOS 15.0, *)
+    @available(iOS 15.0, macOS 12, *)
     func generateUIButtonConfiguration(
         textColor: UIColor,
         enabledBackgroundColor: UIColor,
@@ -32,7 +32,7 @@ extension UIButton {
         return configuration
     }
 
-    @available(iOS 15.0, *)
+    @available(iOS 15.0, macOS 12, *)
     func generateUIButtonConfiguration(
         textColor: UIColor,
         pressedTextColor: UIColor,

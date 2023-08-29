@@ -48,7 +48,7 @@ public class CharcoalLinkButton: UIButton, CharcoalButton {
     }
 
     private func setupStyle() {
-        if #available(iOS 15, *) {
+        if #available(iOS 15, macOS 12, *) {
             configuration = generateUIButtonConfiguration(
                 textColor: CharcoalAsset.ColorPaletteGenerated.text1.color,
                 pressedTextColor: CharcoalAsset.ColorPaletteGenerated.text3.color,

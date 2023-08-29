@@ -50,7 +50,7 @@ public class CharcoalPrimaryMButton: UIButton, CharcoalButton {
     }
 
     private func setupStyle() {
-        if #available(iOS 15, *) {
+        if #available(iOS 15, macOS 12, *) {
             configuration = generateUIButtonConfiguration(
                 textColor: CharcoalAsset.ColorPaletteGenerated.text5.color,
                 enabledBackgroundColor: primaryColor,

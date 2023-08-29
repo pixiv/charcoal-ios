@@ -24,7 +24,7 @@ struct CharcoalDefaultButtonStyleView: View {
     }
 }
 
-@available(iOS 15, *)
+@available(iOS 15, macOS 12, *)
 struct CharcoalDefaultButtonStyleIos15: ButtonStyle {
     @Environment(\.isEnabled) var isEnabled
     let size: CharcoalButtonSize
@@ -63,7 +63,7 @@ struct CharcoalDefaultButtonStyleModifier: ViewModifier {
     let isFixed: Bool
 
     func body(content: Content) -> some View {
-        if #available(iOS 15, *) {
+        if #available(iOS 15, macOS 12, *) {
             content.buttonStyle(CharcoalDefaultButtonStyleIos15(size: size, isFixed: isFixed))
         } else {
             content.buttonStyle(CharcoalDefaultButtonStyle(isEnabled: isEnabled, size: size, isFixed: isFixed))
