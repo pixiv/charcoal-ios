@@ -1,6 +1,5 @@
 import SwiftUI
 
-@available(iOS 13, *)
 struct CharcoalLinkButtonStyleView: View {
     let label: ButtonStyleConfiguration.Label
     let isPressed: Bool
@@ -29,7 +28,6 @@ struct CharcoalLinkButtonStyleIos15: ButtonStyle {
     }
 }
 
-@available(iOS 13, *)
 struct CharcoalLinkButtonStyle: ButtonStyle {
     let isEnabled: Bool
 
@@ -42,7 +40,6 @@ struct CharcoalLinkButtonStyle: ButtonStyle {
     }
 }
 
-@available(iOS 13, *)
 struct CharcoalLinkButtonStyleModifier: ViewModifier {
     @Environment(\.isEnabled) var isEnabled
 
@@ -55,7 +52,6 @@ struct CharcoalLinkButtonStyleModifier: ViewModifier {
     }
 }
 
-@available(iOS 13, *)
 public extension View {
     func charcoalLinkButton() -> some View {
         return modifier(CharcoalLinkButtonStyleModifier())

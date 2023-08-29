@@ -1,6 +1,5 @@
 import SwiftUI
 
-@available(iOS 13, *)
 struct CharcoalDefaultButtonStyleView: View {
     let label: ButtonStyleConfiguration.Label
     let isPressed: Bool
@@ -42,7 +41,6 @@ struct CharcoalDefaultButtonStyleIos15: ButtonStyle {
     }
 }
 
-@available(iOS 13, *)
 struct CharcoalDefaultButtonStyle: ButtonStyle {
     let isEnabled: Bool
     let size: CharcoalButtonSize
@@ -59,7 +57,6 @@ struct CharcoalDefaultButtonStyle: ButtonStyle {
     }
 }
 
-@available(iOS 13, *)
 struct CharcoalDefaultButtonStyleModifier: ViewModifier {
     @Environment(\.isEnabled) var isEnabled
     let size: CharcoalButtonSize
@@ -74,7 +71,6 @@ struct CharcoalDefaultButtonStyleModifier: ViewModifier {
     }
 }
 
-@available(iOS 13, *)
 public extension View {
     func charcoalDefaultButton(size: CharcoalButtonSize = .medium, isFixed: Bool = true) -> some View {
         return modifier(CharcoalDefaultButtonStyleModifier(size: size, isFixed: isFixed))

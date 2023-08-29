@@ -38,13 +38,6 @@ public class CharcoalSwitch: UISwitch {
         onTintColor = CharcoalAsset.ColorPaletteGenerated.brand.color
         subviews.first?.subviews.first?.backgroundColor = CharcoalAsset.ColorPaletteGenerated.text3.color
         addTarget(self, action: #selector(valueChanged), for: .valueChanged)
-
-        if #available(iOS 13.0, *) {
-        } else {
-            layer.cornerRadius = frame.height / 2
-            layer.masksToBounds = true
-        }
-
         updateStyle()
     }
 

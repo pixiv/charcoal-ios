@@ -1,6 +1,5 @@
 import SwiftUI
 
-@available(iOS 13, *)
 struct CharcoalToggleWrapper: UIViewRepresentable {
     var isOn: Binding<Bool>
 
@@ -41,7 +40,6 @@ struct CharcoalToggleWrapper: UIViewRepresentable {
 }
 
 // iOS 13のSwiftUIでは、onTintColorを変えられないのでToggleStyleで書き換え
-@available(iOS 13, *)
 struct CharcoalToggleStyle: ToggleStyle {
     @Environment(\.isEnabled) var isEnabled
 
@@ -59,14 +57,12 @@ struct CharcoalToggleStyle: ToggleStyle {
     }
 }
 
-@available(iOS 13, *)
 struct CharcoalToggleStyleModifier: ViewModifier {
     func body(content: Content) -> some View {
         return content.toggleStyle(CharcoalToggleStyle())
     }
 }
 
-@available(iOS 13, *)
 public extension View {
     func charcoalToggle() -> some View {
         return modifier(CharcoalToggleStyleModifier())

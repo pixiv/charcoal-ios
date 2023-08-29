@@ -17,20 +17,16 @@ public final class ContentViewController: UITableViewController {
     private func setupNavigationBar() {
         navigationItem.title = "Charcoal"
 
-        if #available(iOS 13.0, *) {
-            let darkModeSwitch = UISwitch()
-            darkModeSwitch.isOn = UITraitCollection.current.userInterfaceStyle == .dark
-            darkModeSwitch.addTarget(self, action: #selector(toggleDarkModeSwitch(_:)), for: .valueChanged)
-            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: darkModeSwitch)
-        }
+        let darkModeSwitch = UISwitch()
+        darkModeSwitch.isOn = UITraitCollection.current.userInterfaceStyle == .dark
+        darkModeSwitch.addTarget(self, action: #selector(toggleDarkModeSwitch(_:)), for: .valueChanged)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: darkModeSwitch)
     }
 
     @objc func toggleDarkModeSwitch(_ sender: UISwitch) {
-        if #available(iOS 13.0, *) {
-            let keyWindow = UIApplication.shared.windows
-                .first { $0.isKeyWindow }
-            keyWindow?.overrideUserInterfaceStyle = sender.isOn ? .dark : .light
-        }
+        let keyWindow = UIApplication.shared.windows
+            .first { $0.isKeyWindow }
+        keyWindow?.overrideUserInterfaceStyle = sender.isOn ? .dark : .light
     }
 
     public override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {

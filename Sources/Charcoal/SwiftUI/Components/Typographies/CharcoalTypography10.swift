@@ -1,6 +1,5 @@
 import SwiftUI
 
-@available(iOS 13, *)
 public extension View {
     func charcoalTypography10Bold(isSingleLine: Bool = false) -> some View {
         return modifier(CharcoalFontModifier(size: 10, weight: .bold, lineHeight: 18, isSingleLine: isSingleLine))

@@ -1,6 +1,5 @@
 import SwiftUI
 
-@available(iOS 13, *)
 struct CharcoalFontModifier: ViewModifier {
     let size: CGFloat
     let weight: UIFont.Weight
@@ -18,7 +17,6 @@ struct CharcoalFontModifier: ViewModifier {
     }
 }
 
-@available(iOS 13, *)
 struct CharcoalMonoFontModifier: ViewModifier {
     let size: CGFloat
     let weight: UIFont.Weight
