@@ -2767,133 +2767,133 @@
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Backgrounds.swift",
-      "line": 21,
+      "line": 18,
       "symbol": "View.charcoalBackground1()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Backgrounds.swift",
-      "line": 28,
+      "line": 24,
       "symbol": "View.charcoalBackground2()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/OnSurfaces.swift",
-      "line": 77,
+      "line": 67,
       "symbol": "View.charcoalOnSurfaceBorder()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/OnSurfaces.swift",
-      "line": 84,
+      "line": 73,
       "symbol": "View.charcoalOnSurfaceLink1()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/OnSurfaces.swift",
-      "line": 91,
+      "line": 79,
       "symbol": "View.charcoalOnSurfaceLink2()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/OnSurfaces.swift",
-      "line": 98,
+      "line": 85,
       "symbol": "View.charcoalOnSurfaceText1()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/OnSurfaces.swift",
-      "line": 105,
+      "line": 91,
       "symbol": "View.charcoalOnSurfaceText2()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/OnSurfaces.swift",
-      "line": 112,
+      "line": 97,
       "symbol": "View.charcoalOnSurfaceText3()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/OnSurfaces.swift",
-      "line": 119,
+      "line": 103,
       "symbol": "View.charcoalOnSurfaceText4()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/OnSurfaces.swift",
-      "line": 126,
+      "line": 109,
       "symbol": "View.charcoalOnSurfaceText5()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Surfaces.swift",
-      "line": 86,
+      "line": 76,
       "symbol": "View.charcoalSurface1()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Surfaces.swift",
-      "line": 93,
+      "line": 82,
       "symbol": "View.charcoalSurface2()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Surfaces.swift",
-      "line": 100,
+      "line": 88,
       "symbol": "View.charcoalSurface3()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Surfaces.swift",
-      "line": 107,
+      "line": 94,
       "symbol": "View.charcoalSurface4()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Surfaces.swift",
-      "line": 114,
+      "line": 100,
       "symbol": "View.charcoalSurface5()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Surfaces.swift",
-      "line": 121,
+      "line": 106,
       "symbol": "View.charcoalSurface6()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Surfaces.swift",
-      "line": 128,
+      "line": 112,
       "symbol": "View.charcoalSurface7()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Surfaces.swift",
-      "line": 135,
+      "line": 118,
       "symbol": "View.charcoalSurface8()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Surfaces.swift",
-      "line": 142,
+      "line": 124,
       "symbol": "View.charcoalSurface9()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -2921,35 +2921,35 @@
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Buttons/CharcoalDefaultButton.swift",
-      "line": 79,
+      "line": 75,
       "symbol": "View.charcoalDefaultButton(size:isFixed:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Buttons/CharcoalDefaultOverlay.swift",
-      "line": 80,
+      "line": 76,
       "symbol": "View.charcoalDefaultOverlayButton(size:isFixed:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Buttons/CharcoalLinkButton.swift",
-      "line": 60,
+      "line": 56,
       "symbol": "View.charcoalLinkButton()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Buttons/CharcoalNavigationButton.swift",
-      "line": 85,
+      "line": 81,
       "symbol": "View.charcoalNavigationButton(size:isFixed:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Buttons/CharcoalPrimaryButton.swift",
-      "line": 87,
+      "line": 83,
       "symbol": "View.charcoalPrimaryButton(size:isFixed:primaryColor:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -2963,147 +2963,147 @@
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/CharcoalToggle.swift",
-      "line": 71,
+      "line": 67,
       "symbol": "View.charcoalToggle()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography10.swift",
-      "line": 5,
+      "line": 4,
       "symbol": "View.charcoalTypography10Bold(isSingleLine:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography10.swift",
-      "line": 9,
+      "line": 8,
       "symbol": "View.charcoalTypography10Regular(isSingleLine:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography10.swift",
-      "line": 13,
+      "line": 12,
       "symbol": "View.charcoalTypography10BoldMono()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography10.swift",
-      "line": 17,
+      "line": 16,
       "symbol": "View.charcoalTypography10RegularMono()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography12.swift",
-      "line": 8,
+      "line": 7,
       "symbol": "View.charcoalTypography12Bold(isSingleLine:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography12.swift",
-      "line": 17,
+      "line": 16,
       "symbol": "View.charcoalTypography12Regular(isSingleLine:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography12.swift",
-      "line": 26,
+      "line": 25,
       "symbol": "View.charcoalTypography12BoldMono()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography12.swift",
-      "line": 33,
+      "line": 32,
       "symbol": "View.charcoalTypography12RegularMono()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography14.swift",
-      "line": 8,
+      "line": 7,
       "symbol": "View.charcoalTypography14Bold(isSingleLine:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography14.swift",
-      "line": 17,
+      "line": 16,
       "symbol": "View.charcoalTypography14Regular(isSingleLine:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography14.swift",
-      "line": 26,
+      "line": 25,
       "symbol": "View.charcoalTypography14BoldMono()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography14.swift",
-      "line": 33,
+      "line": 32,
       "symbol": "View.charcoalTypography14RegularMono()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography16.swift",
-      "line": 8,
+      "line": 7,
       "symbol": "View.charcoalTypography16Bold(isSingleLine:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography16.swift",
-      "line": 17,
+      "line": 16,
       "symbol": "View.charcoalTypography16Regular(isSingleLine:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography16.swift",
-      "line": 26,
+      "line": 25,
       "symbol": "View.charcoalTypography16BoldMono()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypography16.swift",
-      "line": 33,
+      "line": 32,
       "symbol": "View.charcoalTypography16RegularMono()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypograpy20.swift",
-      "line": 8,
+      "line": 7,
       "symbol": "View.charcoalTypography20Bold(isSingleLine:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypograpy20.swift",
-      "line": 17,
+      "line": 16,
       "symbol": "View.charcoalTypography20Regular(isSingleLine:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypograpy20.swift",
-      "line": 26,
+      "line": 25,
       "symbol": "View.charcoalTypography20BoldMono()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/Typographies/CharcoalTypograpy20.swift",
-      "line": 33,
+      "line": 32,
       "symbol": "View.charcoalTypography20RegularMono()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -3957,14 +3957,14 @@
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextField_UIKit.swift",
-      "line": 137,
+      "line": 133,
       "symbol": "CharcoalTextField.setAssertiveBorder()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextField_UIKit.swift",
-      "line": 144,
+      "line": 140,
       "symbol": "CharcoalTextField.setBrandBorder()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
