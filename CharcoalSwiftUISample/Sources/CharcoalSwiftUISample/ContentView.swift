@@ -1,4 +1,4 @@
-import Charcoal
+import CharcoalSwiftUI
 import SwiftUI
 
 public struct ContentView: View {

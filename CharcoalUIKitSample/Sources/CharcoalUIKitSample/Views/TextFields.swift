@@ -1,4 +1,4 @@
-import Charcoal
+import CharcoalUIKit
 import UIKit
 
 final class TextFieldsViewController: UIViewController {

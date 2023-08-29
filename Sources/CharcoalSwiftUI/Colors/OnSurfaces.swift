@@ -1,4 +1,5 @@
 import SwiftUI
+import CharcoalShared
 
 struct CharcoalOnSurfaceBorder: ViewModifier {
     func body(content: Content) -> some View {

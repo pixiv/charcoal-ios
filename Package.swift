@@ -12,13 +12,21 @@ let package = Package(
     products: [
         .library(
             name: "Charcoal",
-            targets: ["Charcoal"]
+            targets: ["CharcoalSwiftUI", "CharcoalUIKit"]
         )
     ],
     dependencies: [],
     targets: [
         .target(
-            name: "Charcoal",
+            name: "CharcoalSwiftUI",
+            dependencies: ["CharcoalShared"]
+        ),
+        .target(
+            name: "CharcoalUIKit",
+            dependencies: ["CharcoalShared"]
+        ),
+        .target(
+            name: "CharcoalShared",
             dependencies: [],
             resources: [
                 .process("Generated/CharcoalFoundation.json")
