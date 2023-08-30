@@ -150,7 +150,7 @@ public class CharcoalTextField: UITextField {
     }
     
     public override func resignFirstResponder() -> Bool {
-        removeAllBorder()
+        removeAllBorders()
         return super.resignFirstResponder()
     }
 }
