@@ -3957,15 +3957,22 @@
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextField_UIKit.swift",
-      "line": 133,
+      "line": 138,
       "symbol": "CharcoalTextField.setAssertiveBorder()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextField_UIKit.swift",
-      "line": 140,
+      "line": 145,
       "symbol": "CharcoalTextField.setBrandBorder()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/TextField/CharcoalTextField_UIKit.swift",
+      "line": 152,
+      "symbol": "CharcoalTextField.resignFirstResponder()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
