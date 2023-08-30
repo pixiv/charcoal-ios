@@ -121,13 +121,18 @@ public class CharcoalTextField: UITextField {
         borderLayer.borderWidth = 4.0
         borderLayer.cornerRadius = 8.0
         borderLayer.name = layerName
+        
+        removeAllBorder()
 
+        layer.addSublayer(borderLayer)
+    }
+    
+    private func removeAllBorder() {
         layer.sublayers?.forEach {
             if $0.name == borderIdentifireBrand || $0.name == borderIdentifireAssertive {
                 $0.removeFromSuperlayer()
             }
         }
-        layer.addSublayer(borderLayer)
     }
 
     public func setAssertiveBorder() {
@@ -142,5 +147,10 @@ public class CharcoalTextField: UITextField {
             borderColor: CharcoalAsset.ColorPaletteGenerated.brand.color,
             layerName: borderIdentifireBrand
         )
+    }
+    
+    public override func resignFirstResponder() -> Bool {
+        removeAllBorder()
+        return super.resignFirstResponder()
     }
 }
