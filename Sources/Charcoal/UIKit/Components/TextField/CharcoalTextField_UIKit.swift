@@ -122,12 +122,12 @@ public class CharcoalTextField: UITextField {
         borderLayer.cornerRadius = 8.0
         borderLayer.name = layerName
         
-        removeAllBorder()
+        removeAllBorders()
 
         layer.addSublayer(borderLayer)
     }
     
-    private func removeAllBorder() {
+    private func removeAllBorders() {
         layer.sublayers?.forEach {
             if $0.name == borderIdentifireBrand || $0.name == borderIdentifireAssertive {
                 $0.removeFromSuperlayer()
