@@ -46,6 +46,8 @@ struct CharcoalToggleStyle: ToggleStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         HStack {
             configuration.label
+                .charcoalTypography14Regular()
+                .charcoalOnSurfaceText1()
             Spacer()
             CharcoalToggleWrapper(isOn: configuration.$isOn)
                 .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
