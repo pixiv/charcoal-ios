@@ -62,7 +62,7 @@ public class CharcoalTextFieldView: UIStackView {
         titleLabel = UILabel()
         titleLabel.text = title
         titleLabel.isHidden = title == nil
-        titleLabel.font = UIFont.systemFont(ofSize: 14)
+        titleLabel.font = UIFont.systemFont(ofSize: CGFloat(charcoalFoundation.typography.size.the14.fontSize))
         titleLabel.textColor = CharcoalAsset.ColorPaletteGenerated.text1.color
         titleLabel.numberOfLines = 1
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -79,7 +79,7 @@ public class CharcoalTextFieldView: UIStackView {
     private func setupAssertiveTextLabel() {
         assertiveTextLabel = UILabel()
         assertiveTextLabel.isHidden = true
-        assertiveTextLabel.font = UIFont.systemFont(ofSize: 14)
+        assertiveTextLabel.font = UIFont.systemFont(ofSize: CGFloat(charcoalFoundation.typography.size.the14.fontSize))
         assertiveTextLabel.textColor = CharcoalAsset.ColorPaletteGenerated.text2.color
         assertiveTextLabel.numberOfLines = 0
         assertiveTextLabel.translatesAutoresizingMaskIntoConstraints = false
