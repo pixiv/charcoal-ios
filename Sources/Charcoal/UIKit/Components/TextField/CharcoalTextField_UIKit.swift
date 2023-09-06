@@ -101,7 +101,7 @@ public class CharcoalTextField: UITextField {
             return
         }
 
-        countLabel.font = UIFont.monospacedSystemFont(ofSize: 14, weight: .regular)
+        countLabel.font = UIFont.monospacedSystemFont(ofSize: CGFloat(charcoalFoundation.typography.size.the14.fontSize), weight: .regular)
 
         countLabel.textColor = CharcoalAsset.ColorPaletteGenerated.text3.color
         countLabel.textAlignment = .left
