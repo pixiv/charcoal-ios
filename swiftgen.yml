@@ -3,7 +3,7 @@ xcassets:
     - Sources/Charcoal/ColorPalette.generated.xcassets
     - Sources/Charcoal/Images.xcassets
   outputs:
-    - templateName: swift5
+    - templatePath: ./assets-template.stencil
       output: Sources/Charcoal/Generated/Assets.swift
       params:
         enumName: CharcoalAsset
