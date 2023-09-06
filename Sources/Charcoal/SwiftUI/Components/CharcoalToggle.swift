@@ -46,7 +46,7 @@ struct CharcoalToggleStyle: ToggleStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         HStack {
             configuration.label
-                .font(.system(size: 14))
+                .font(.system(size: CGFloat(charcoalFoundation.typography.size.the14.fontSize)))
                 .charcoalOnSurfaceText1()
             Spacer()
             CharcoalToggleWrapper(isOn: configuration.$isOn)
