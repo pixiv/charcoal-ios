@@ -76,12 +76,12 @@ public class CharcoalTextField: UITextField {
         layer.cornerRadius = 4.0
 
         defaultTextAttributes = [
-            .font: UIFont.systemFont(ofSize: 14),
+            .font: UIFont.systemFont(ofSize: CGFloat(charcoalFoundation.typography.size.the14.fontSize)),
             .foregroundColor: CharcoalAsset.ColorPaletteGenerated.text2.color
         ]
 
         let placeholderAttributedString: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 14),
+            .font: UIFont.systemFont(ofSize: CGFloat(charcoalFoundation.typography.size.the14.fontSize)),
             .foregroundColor: CharcoalAsset.ColorPaletteGenerated.text3.color
         ]
 
