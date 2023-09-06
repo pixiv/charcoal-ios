@@ -20,7 +20,7 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
         return VStack(alignment: .leading, spacing: 8) {
             if !label.isEmpty {
                 Text(label)
-                    .font(.system(size: 12))
+                    .font(.system(size: 14))
                     .charcoalOnSurfaceText1()
                     .lineLimit(1)
             }
@@ -48,7 +48,7 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
             )
             if !assistiveText.isEmpty {
                 Text(assistiveText)
-                    .font(.system(size: 12))
+                    .font(.system(size: 14))
                     // swiftlint:disable line_length
                     .backport.foregroundStyle(Color(hasError ? CharcoalAsset.ColorPaletteGenerated.assertive.color : CharcoalAsset.ColorPaletteGenerated.text2.color))
             }
