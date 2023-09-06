@@ -20,20 +20,20 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
         return VStack(alignment: .leading, spacing: 8) {
             if !label.isEmpty {
                 Text(label)
-                    .font(.system(size: 14))
+                    .charcoalTypography14Regular()
                     .charcoalOnSurfaceText1()
                     .lineLimit(1)
             }
             HStack(spacing: 0) {
                 configuration
-                    .font(.system(size: 14))
+                    .charcoalTypography14Regular()
                     .focused($isFocused)
                     .padding(8.0)
                     .frame(maxWidth: .infinity)
                     .charcoalOnSurfaceText2()
                 if !countLabel.isEmpty {
                     Text(countLabel)
-                        .font(.system(size: 14))
+                        .charcoalTypography14Regular()
                         .padding(8.0)
                         // swiftlint:disable line_length
                         .backport.foregroundStyle(Color(hasError ? CharcoalAsset.ColorPaletteGenerated.assertive.color : CharcoalAsset.ColorPaletteGenerated.text3.color))
@@ -48,7 +48,7 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
             )
             if !assistiveText.isEmpty {
                 Text(assistiveText)
-                    .font(.system(size: 14))
+                    .charcoalTypography14Regular()
                     // swiftlint:disable line_length
                     .backport.foregroundStyle(Color(hasError ? CharcoalAsset.ColorPaletteGenerated.assertive.color : CharcoalAsset.ColorPaletteGenerated.text2.color))
             }
