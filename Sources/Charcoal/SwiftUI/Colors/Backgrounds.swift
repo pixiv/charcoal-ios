@@ -15,12 +15,14 @@ struct CharcoalBackground2: ViewModifier {
 }
 
 public extension View {
+    @warn_unqualified_access
     func charcoalBackground1() -> some View {
         modifier(CharcoalBackground1())
     }
 }
 
 public extension View {
+    @warn_unqualified_access
     func charcoalBackground2() -> some View {
         modifier(CharcoalBackground2())
     }

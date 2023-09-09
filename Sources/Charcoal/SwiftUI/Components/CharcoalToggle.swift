@@ -66,6 +66,7 @@ struct CharcoalToggleStyleModifier: ViewModifier {
 }
 
 public extension View {
+    @warn_unqualified_access
     func charcoalToggle() -> some View {
         return modifier(CharcoalToggleStyleModifier())
     }

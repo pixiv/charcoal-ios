@@ -73,6 +73,7 @@ struct CharcoalDefaultOverlayButtonStyleModifier: ViewModifier {
 }
 
 public extension View {
+    @warn_unqualified_access
     func charcoalDefaultOverlayButton(size: CharcoalButtonSize = .medium, isFixed: Bool = true) -> some View {
         return modifier(CharcoalDefaultOverlayButtonStyleModifier(size: size, isFixed: isFixed))
     }
