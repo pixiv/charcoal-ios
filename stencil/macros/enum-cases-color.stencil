@@ -1,0 +1,18 @@
+{% macro enumCasesColorBlock assets%}
+  {# For now we produce the color assets only #}
+  {% if assets.first.type == "color" %}
+  {{accessModifier}} var colorAsset: ColorAsset {
+    switch (self) {
+      {% for asset in assets %}
+      {% if asset.type == "color" %}
+      case .{{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}:
+        return {{enumName}}.{{catalog.name|swiftIdentifier:"pretty"|escapeReservedKeywords}}.{{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}Asset
+      {% endif %}
+      {% endfor %}
+    }
+  }
+  {{accessModifier}} var color: UIColor {
+    return colorAsset.color
+  }
+  {% endif %}
+{% endmacro %}

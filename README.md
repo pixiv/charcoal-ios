@@ -44,6 +44,11 @@ dependencies: [
 
 ## Development
 
+### SwiftGen
+
+```
+```
+
 ### SwiftLint
 
 ```
