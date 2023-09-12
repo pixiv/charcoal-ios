@@ -57,6 +57,7 @@
 
   {% call enumCasesBlock assets %}
 
+  {# Generate Charcoral Color Asset Enum #}
   {% call enumCasesColorBlock assets %}
   {% if param.allValues %}
 
@@ -128,6 +129,8 @@
   {% endfor %}
 {% endmacro %}
 {% macro enumCasesColorBlock assets%}
+  {# For now we produce the color assets only #}
+  {% if assets.first.type == "color" %}
   {{accessModifier}} var colorAsset: ColorAsset {
     switch (self) {
       {% for asset in assets %}
@@ -138,10 +141,10 @@
       {% endfor %}
     }
   }
-
   {{accessModifier}} var color: UIColor {
     return colorAsset.color
   }
+  {% endif %}
 {% endmacro %}
 {% macro allValuesBlock assets filter prefix %}
   {% for asset in assets %}

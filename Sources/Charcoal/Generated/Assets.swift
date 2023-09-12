@@ -421,13 +421,6 @@ public enum CharcoalAsset {
       public static let view = ImageAsset(name: "Inline/View")
       public static let viewOutline = ImageAsset(name: "Inline/ViewOutline")
     }
-    public var colorAsset: ColorAsset {
-      switch (self) {
-      }
-    }
-    public var color: UIColor {
-      return colorAsset.color
-    }
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
