@@ -2,6 +2,16 @@ import Charcoal
 import SwiftUI
 
 struct ColorsView: View {
+    struct BackgroundView: View {
+        var body: some View {
+            ZStack {
+                Text("Charcoal")
+                Color.clear
+            }
+            .background(charcoalColor: .warning)
+        }
+    }
+    
     let colors = [
         CharcoalAsset.ColorPaletteGenerated.background1,
         CharcoalAsset.ColorPaletteGenerated.background2,
