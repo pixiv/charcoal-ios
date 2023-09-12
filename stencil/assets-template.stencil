@@ -57,8 +57,9 @@
 
   {% call enumCasesBlock assets %}
 
+  {% set catalogHasColor %}{% call hasValuesBlock assets "color" %}{% endset %}
   {# Generate Charcoral Color Asset Enum #}
-  {% if assets.first.type == "color" %}
+  {% if catalogHasColor %}
   {% call enumCasesColorBlock assets %}
   {% endif %}
 
