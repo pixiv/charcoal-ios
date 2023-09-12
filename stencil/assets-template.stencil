@@ -58,7 +58,9 @@
   {% call enumCasesBlock assets %}
 
   {# Generate Charcoral Color Asset Enum #}
+  {% if assets.first.type == "color" %}
   {% call enumCasesColorBlock assets %}
+  {% endif %}
 
   {% if param.allValues %}
 
