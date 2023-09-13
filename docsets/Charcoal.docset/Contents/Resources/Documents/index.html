@@ -16,7 +16,7 @@
     <a title="Charcoal  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">Charcoal Docs</a> (4% documented)</p>
+        <p><a href="index.html">Charcoal Docs</a> (5% documented)</p>
         <div class="header-right">
           <form role="search" action="search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
@@ -128,6 +128,15 @@
             <a href="Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Extensions/SwiftUI.html">SwiftUI</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/SwiftUI/Color.html">– Color</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/SwiftUI/Image.html">– Image</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Extensions/View.html">View</a>
               </li>
             </ul>
@@ -225,8 +234,14 @@
 
 <p><a href="https://pixiv.github.io/charcoal-ios/">Documentation</a></p>
 <h2 id='development' class='heading'>Development</h2>
+<h3 id='swiftgen' class='heading'>SwiftGen</h3>
+<h4 id='generate-assets' class='heading'>Generate Assets</h4>
+
+<p>Run <code>swiftgen</code> command in the <code>charcoal-ios</code> project folder.</p>
+<pre class="highlight plaintext"><code>swift run --package-path BuildTools swiftgen
+</code></pre>
 <h3 id='swiftlint' class='heading'>SwiftLint</h3>
-<pre class="highlight plaintext"><code>brew install swiftlint
+<pre class="highlight plaintext"><code>swift run --package-path BuildTools swiftlint
 </code></pre>
 <h3 id='code-format' class='heading'>Code Format</h3>
 <pre class="highlight plaintext"><code>swift run -c release --package-path BuildTools swiftformat .
