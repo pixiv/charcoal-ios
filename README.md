@@ -46,20 +46,18 @@ dependencies: [
 
 ### SwiftGen
 
-#### Install SwiftGen
-
-```
-brew install swiftgen
-```
-
 #### Generate Assets
 
 Run `swiftgen` command in the `charcoal-ios` project folder.
 
+```
+swift run --package-path BuildTools swiftgen config run --config ./swiftgen.yml
+```
+
 ### SwiftLint
 
 ```
-brew install swiftlint
+swift run --package-path BuildTools swiftlint  --config .swiftlint.yml
 ```
 
 ### Code Format

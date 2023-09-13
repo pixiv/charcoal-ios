@@ -8,7 +8,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/nicklockwood/SwiftFormat", from: "0.49.1"),
         .package(url: "https://github.com/realm/SwiftLint", from: "0.45.1"),
-        .package(url: "https://github.com/SwiftGen/SwiftGen", .upToNextMajor(from: "6.5.0"))
+        .package(url: "https://github.com/SwiftGen/SwiftGen", .upToNextMajor(from: "6.6.2"))
     ],
     targets: [
         .target(name: "BuildTools", path: "")
