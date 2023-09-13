@@ -51,7 +51,7 @@ dependencies: [
 Run `swiftgen` command in the `charcoal-ios` project folder.
 
 ```
-swift run --package-path BuildTools swiftgen config run
+swift run --package-path BuildTools swiftgen
 ```
 
 ### SwiftLint
