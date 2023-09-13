@@ -1,16 +1,25 @@
 import SwiftUI
 
+struct CharcoalBackground: ViewModifier {
+    let charcoalColor: CharcoalAsset.ColorPaletteGenerated
+    let edges: Edge.Set
+    
+    func body(content: Content) -> some View {
+        content.backport.background(Color(charcoalColor.color), ignoresSafeAreaEdges: edges)
+    }
+}
+
 struct CharcoalBackground1: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .background(Color(CharcoalAsset.ColorPaletteGenerated.background1.color))
+            .background(charcoalColor: .background1)
     }
 }
 
 struct CharcoalBackground2: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .background(Color(CharcoalAsset.ColorPaletteGenerated.background2.color))
+            .background(charcoalColor: .background2)
     }
 }
 
@@ -25,5 +34,29 @@ public extension View {
     @warn_unqualified_access
     func charcoalBackground2() -> some View {
         modifier(CharcoalBackground2())
+    }
+}
+
+public extension View {
+    func background(charcoalColor: CharcoalAsset.ColorPaletteGenerated, ignoresSafeAreaEdges edges: Edge.Set = .all) -> some View {
+        modifier(CharcoalBackground(charcoalColor: charcoalColor, edges: edges))
+    }
+}
+
+// MARK: Development View
+
+fileprivate struct BackgroundView: View {
+    var body: some View {
+        ZStack {
+            Text("Charcoal")
+            Color.clear
+        }
+        .background(charcoalColor: .warning)
+    }
+}
+
+struct BackgroundView_Previews: PreviewProvider {
+    static var previews: some View {
+        BackgroundView()
     }
 }

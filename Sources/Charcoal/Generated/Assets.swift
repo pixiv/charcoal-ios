@@ -1,12 +1,14 @@
 // swiftlint:disable all
 // Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
-
 #if os(macOS)
   import AppKit
 #elseif os(iOS)
   import UIKit
 #elseif os(tvOS) || os(watchOS)
   import UIKit
+#endif
+#if canImport(SwiftUI)
+  import SwiftUI
 #endif
 
 // Deprecated typealiases
@@ -22,36 +24,133 @@ public typealias AssetImageTypeAlias = ImageAsset.Image
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 public enum CharcoalAsset {
   public enum ColorPaletteGenerated {
-    public static let assertive = ColorAsset(name: "assertive")
-    public static let background1 = ColorAsset(name: "background1")
-    public static let background2 = ColorAsset(name: "background2")
-    public static let border = ColorAsset(name: "border")
-    public static let brand = ColorAsset(name: "brand")
-    public static let callToAction0 = ColorAsset(name: "callToAction_0")
-    public static let callToAction100 = ColorAsset(name: "callToAction_100")
-    public static let icon6 = ColorAsset(name: "icon6")
-    public static let link1 = ColorAsset(name: "link1")
-    public static let link2 = ColorAsset(name: "link2")
-    public static let success = ColorAsset(name: "success")
-    public static let surface1 = ColorAsset(name: "surface1")
-    public static let surface10 = ColorAsset(name: "surface10")
-    public static let surface2 = ColorAsset(name: "surface2")
-    public static let surface3 = ColorAsset(name: "surface3")
-    public static let surface4 = ColorAsset(name: "surface4")
-    public static let surface50 = ColorAsset(name: "surface5_0")
-    public static let surface5100 = ColorAsset(name: "surface5_100")
-    public static let surface6 = ColorAsset(name: "surface6")
-    public static let surface7 = ColorAsset(name: "surface7")
-    public static let surface8 = ColorAsset(name: "surface8")
-    public static let surface9 = ColorAsset(name: "surface9")
-    public static let text1 = ColorAsset(name: "text1")
-    public static let text2 = ColorAsset(name: "text2")
-    public static let text3 = ColorAsset(name: "text3")
-    public static let text4 = ColorAsset(name: "text4")
-    public static let text5 = ColorAsset(name: "text5")
-    public static let transparent = ColorAsset(name: "transparent")
-    public static let updatedItem = ColorAsset(name: "updatedItem")
-    public static let warning = ColorAsset(name: "warning")
+    static let assertiveAsset = ColorAsset(name: "assertive")
+    static let background1Asset = ColorAsset(name: "background1")
+    static let background2Asset = ColorAsset(name: "background2")
+    static let borderAsset = ColorAsset(name: "border")
+    static let brandAsset = ColorAsset(name: "brand")
+    static let callToAction0Asset = ColorAsset(name: "callToAction_0")
+    static let callToAction100Asset = ColorAsset(name: "callToAction_100")
+    static let icon6Asset = ColorAsset(name: "icon6")
+    static let link1Asset = ColorAsset(name: "link1")
+    static let link2Asset = ColorAsset(name: "link2")
+    static let successAsset = ColorAsset(name: "success")
+    static let surface1Asset = ColorAsset(name: "surface1")
+    static let surface10Asset = ColorAsset(name: "surface10")
+    static let surface2Asset = ColorAsset(name: "surface2")
+    static let surface3Asset = ColorAsset(name: "surface3")
+    static let surface4Asset = ColorAsset(name: "surface4")
+    static let surface50Asset = ColorAsset(name: "surface5_0")
+    static let surface5100Asset = ColorAsset(name: "surface5_100")
+    static let surface6Asset = ColorAsset(name: "surface6")
+    static let surface7Asset = ColorAsset(name: "surface7")
+    static let surface8Asset = ColorAsset(name: "surface8")
+    static let surface9Asset = ColorAsset(name: "surface9")
+    static let text1Asset = ColorAsset(name: "text1")
+    static let text2Asset = ColorAsset(name: "text2")
+    static let text3Asset = ColorAsset(name: "text3")
+    static let text4Asset = ColorAsset(name: "text4")
+    static let text5Asset = ColorAsset(name: "text5")
+    static let transparentAsset = ColorAsset(name: "transparent")
+    static let updatedItemAsset = ColorAsset(name: "updatedItem")
+    static let warningAsset = ColorAsset(name: "warning")
+    case assertive
+    case background1
+    case background2
+    case border
+    case brand
+    case callToAction0
+    case callToAction100
+    case icon6
+    case link1
+    case link2
+    case success
+    case surface1
+    case surface10
+    case surface2
+    case surface3
+    case surface4
+    case surface50
+    case surface5100
+    case surface6
+    case surface7
+    case surface8
+    case surface9
+    case text1
+    case text2
+    case text3
+    case text4
+    case text5
+    case transparent
+    case updatedItem
+    case warning
+    public var colorAsset: ColorAsset {
+      switch (self) {
+        case .assertive:
+          return CharcoalAsset.ColorPaletteGenerated.assertiveAsset
+        case .background1:
+          return CharcoalAsset.ColorPaletteGenerated.background1Asset
+        case .background2:
+          return CharcoalAsset.ColorPaletteGenerated.background2Asset
+        case .border:
+          return CharcoalAsset.ColorPaletteGenerated.borderAsset
+        case .brand:
+          return CharcoalAsset.ColorPaletteGenerated.brandAsset
+        case .callToAction0:
+          return CharcoalAsset.ColorPaletteGenerated.callToAction0Asset
+        case .callToAction100:
+          return CharcoalAsset.ColorPaletteGenerated.callToAction100Asset
+        case .icon6:
+          return CharcoalAsset.ColorPaletteGenerated.icon6Asset
+        case .link1:
+          return CharcoalAsset.ColorPaletteGenerated.link1Asset
+        case .link2:
+          return CharcoalAsset.ColorPaletteGenerated.link2Asset
+        case .success:
+          return CharcoalAsset.ColorPaletteGenerated.successAsset
+        case .surface1:
+          return CharcoalAsset.ColorPaletteGenerated.surface1Asset
+        case .surface10:
+          return CharcoalAsset.ColorPaletteGenerated.surface10Asset
+        case .surface2:
+          return CharcoalAsset.ColorPaletteGenerated.surface2Asset
+        case .surface3:
+          return CharcoalAsset.ColorPaletteGenerated.surface3Asset
+        case .surface4:
+          return CharcoalAsset.ColorPaletteGenerated.surface4Asset
+        case .surface50:
+          return CharcoalAsset.ColorPaletteGenerated.surface50Asset
+        case .surface5100:
+          return CharcoalAsset.ColorPaletteGenerated.surface5100Asset
+        case .surface6:
+          return CharcoalAsset.ColorPaletteGenerated.surface6Asset
+        case .surface7:
+          return CharcoalAsset.ColorPaletteGenerated.surface7Asset
+        case .surface8:
+          return CharcoalAsset.ColorPaletteGenerated.surface8Asset
+        case .surface9:
+          return CharcoalAsset.ColorPaletteGenerated.surface9Asset
+        case .text1:
+          return CharcoalAsset.ColorPaletteGenerated.text1Asset
+        case .text2:
+          return CharcoalAsset.ColorPaletteGenerated.text2Asset
+        case .text3:
+          return CharcoalAsset.ColorPaletteGenerated.text3Asset
+        case .text4:
+          return CharcoalAsset.ColorPaletteGenerated.text4Asset
+        case .text5:
+          return CharcoalAsset.ColorPaletteGenerated.text5Asset
+        case .transparent:
+          return CharcoalAsset.ColorPaletteGenerated.transparentAsset
+        case .updatedItem:
+          return CharcoalAsset.ColorPaletteGenerated.updatedItemAsset
+        case .warning:
+          return CharcoalAsset.ColorPaletteGenerated.warningAsset
+      }
+    }
+    public var color: UIColor {
+      return colorAsset.color
+    }
   }
   public enum Images {
     public enum _16 {
@@ -355,6 +454,13 @@ public final class ColorAsset {
   }
   #endif
 
+  #if canImport(SwiftUI)
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+  public private(set) lazy var swiftUIColor: SwiftUI.Color = {
+    SwiftUI.Color(asset: self)
+  }()
+  #endif
+
   fileprivate init(name: String) {
     self.name = name
   }
@@ -373,6 +479,16 @@ public extension ColorAsset.Color {
     #endif
   }
 }
+
+#if canImport(SwiftUI)
+@available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+public extension SwiftUI.Color {
+  init(asset: ColorAsset) {
+    let bundle = BundleToken.bundle
+    self.init(asset.name, bundle: bundle)
+  }
+}
+#endif
 
 public struct ImageAsset {
   public fileprivate(set) var name: String
@@ -410,6 +526,13 @@ public struct ImageAsset {
     return result
   }
   #endif
+
+  #if canImport(SwiftUI)
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+  public var swiftUIImage: SwiftUI.Image {
+    SwiftUI.Image(asset: self)
+  }
+  #endif
 }
 
 public extension ImageAsset.Image {
@@ -428,6 +551,26 @@ public extension ImageAsset.Image {
   }
 }
 
+#if canImport(SwiftUI)
+@available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+public extension SwiftUI.Image {
+  init(asset: ImageAsset) {
+    let bundle = BundleToken.bundle
+    self.init(asset.name, bundle: bundle)
+  }
+
+  init(asset: ImageAsset, label: Text) {
+    let bundle = BundleToken.bundle
+    self.init(asset.name, bundle: bundle, label: label)
+  }
+
+  init(decorative asset: ImageAsset) {
+    let bundle = BundleToken.bundle
+    self.init(decorative: asset.name, bundle: bundle)
+  }
+}
+#endif
+
 // swiftlint:disable convenience_type
 private final class BundleToken {
   static let bundle: Bundle = {
@@ -439,3 +582,4 @@ private final class BundleToken {
   }()
 }
 // swiftlint:enable convenience_type
+

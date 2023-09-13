@@ -53,6 +53,7 @@ struct CharcoalToggleStyle: ToggleStyle {
                 .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
                 .opacity(isEnabled ? 1.0 : 0.32)
         }
+        .contentShape(Rectangle())
         .onTapGesture {
             configuration.isOn = !configuration.isOn
         }
