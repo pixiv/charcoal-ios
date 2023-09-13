@@ -155,6 +155,7 @@ public enum CharcoalAsset {
   public enum Images {
     public enum _16 {
       public static let add = ImageAsset(name: "16/Add")
+      public static let archive = ImageAsset(name: "16/Archive")
       public static let arrowDown = ImageAsset(name: "16/ArrowDown")
       public static let artwork = ImageAsset(name: "16/Artwork")
       public static let back = ImageAsset(name: "16/Back")
@@ -171,6 +172,7 @@ public enum CharcoalAsset {
       public static let like = ImageAsset(name: "16/Like")
       public static let menu = ImageAsset(name: "16/Menu")
       public static let more = ImageAsset(name: "16/More")
+      public static let nextworks = ImageAsset(name: "16/Nextworks")
       public static let pencil = ImageAsset(name: "16/Pencil")
       public static let question = ImageAsset(name: "16/Question")
       public static let ranking = ImageAsset(name: "16/Ranking")
