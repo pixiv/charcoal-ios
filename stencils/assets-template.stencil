@@ -113,7 +113,7 @@
   // swiftlint:enable trailing_comma
   {% endif %}
 {% endmacro %}
-{% macro casesBlock assets assetsName %}
+{% macro casesBlock assets assetsGroupName %}
   {% for asset in assets %}
   {% if asset.type == "arresourcegroup" %}
   {{accessModifier}} static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = {{arResourceGroupType}}(name: "{{asset.value}}")
@@ -144,8 +144,8 @@
 
   {% set catalogHasImage %}{% call hasValuesNoRecursionBlock assets "image" %}{% endset %}
   {# Generate Charcoral Image Asset Enum #}
-  {% if catalogHasImage %}
-  {% call enumCasesImageBlock assets assetsName %}
+  {% if catalogHasImage and assetsGroupName %}
+  {% call enumCasesImageBlock assets assetsGroupName %}
   {% endif %}
 {% endmacro %}
 {% macro allValuesBlock assets filter prefix %}
