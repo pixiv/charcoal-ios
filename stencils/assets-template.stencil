@@ -65,6 +65,38 @@
 {% macro enumBlock assets %}
   {% call casesBlock assets assets.name %}
 
+  {% set assetsHasGroup %}{% call hasValuesNoRecursionBlock assets "group" %}{% endset %}
+
+  {% if assetsHasGroup %}
+  {% for asset in assets %}
+  {% if asset.items %}
+  {% for item in asset.items %}
+  case {{item.name | swiftIdentifier:"pretty"|lowerFirstWord}}{{asset.name}}
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+
+
+  {{accessModifier}} var imageAsset: ImageAsset {
+    switch (self) {
+      {% for asset in assets %}
+        {% if asset.items %}
+        {% for item in asset.items %}
+          {% if item.type == "image" %}
+            case .{{item.name|swiftIdentifier:"pretty"|lowerFirstWord}}{{asset.name}}:
+              return {{enumName}}.{{catalog.name|swiftIdentifier:"pretty"}}.{{asset.name|swiftIdentifier:"pretty"}}.{{item.name|swiftIdentifier:"pretty"|lowerFirstWord}}Asset
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+    }
+  }
+  {{accessModifier}} var image: ImageAsset.Image {
+    return imageAsset.image
+  }
+
+  {% endif %}
+
   {% if param.allValues %}
 
   // swiftlint:disable trailing_comma
@@ -119,7 +151,7 @@
   {% elif asset.type == "symbol" %}
   {{accessModifier}} static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = {{symbolType}}(name: "{{asset.value}}")
   {% elif asset.items and ( forceNamespaces == "true" or asset.isNamespaced == "true" ) %}
-  {{accessModifier}} enum {{asset.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
+  {{accessModifier}} enum {{asset.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} : CaseIterable {
     {% filter indent:2," ",true %}{% call casesBlock asset.items asset.name %}{% endfilter %}
   }
   {% elif asset.items %}
@@ -157,7 +189,7 @@
 {{accessModifier}} enum {{enumName}} {
   {% if catalogs.count > 1 or param.forceFileNameEnum %}
   {% for catalog in catalogs %}
-  {{accessModifier}} enum {{catalog.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
+  {{accessModifier}} enum {{catalog.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} : CaseIterable {
     {% if catalog.assets %}
     {% filter indent:2," ",true %}{% call enumBlock catalog.assets %}{% endfilter %}
     {% endif %}
