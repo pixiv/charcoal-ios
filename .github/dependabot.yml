@@ -20,3 +20,7 @@ updates:
     directory: "/scripts/xcasset-gen"
     schedule:
       interval: "weekly"
+  - package-ecosystem: "swift"
+    directory: "/BuildTools"
+    schedule:
+      interval: "weekly"
