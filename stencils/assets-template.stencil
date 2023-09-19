@@ -1,6 +1,8 @@
 // swiftlint:disable all
 // Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
+{% import "macros/enum-cases.stencil" %}
 {% import "macros/enum-cases-color.stencil" %}
+{% import "macros/enum-cases-image.stencil" %}
 {% if catalogs %}
 {% macro hasValuesBlock assets filter %}
   {%- for asset in assets -%}
@@ -8,6 +10,14 @@
       1
     {%- elif asset.items -%}
       {% call hasValuesBlock asset.items filter %}
+    {%- endif -%}
+  {%- endfor -%}
+{% endmacro %}
+
+{% macro hasValuesNoRecursionBlock assets filter %}
+  {%- for asset in assets -%}
+    {%- if asset.type == filter -%}
+      1
     {%- endif -%}
   {%- endfor -%}
 {% endmacro %}
@@ -53,15 +63,7 @@
 // MARK: - Asset Catalogs
 
 {% macro enumBlock assets %}
-  {% call casesBlock assets %}
-
-  {% call enumCasesBlock assets %}
-
-  {% set catalogHasColor %}{% call hasValuesBlock assets "color" %}{% endset %}
-  {# Generate Charcoral Color Asset Enum #}
-  {% if catalogHasColor %}
-  {% call enumCasesColorBlock assets %}
-  {% endif %}
+  {% call casesBlock assets assets.name %}
 
   {% if param.allValues %}
 
@@ -104,33 +106,40 @@
   // swiftlint:enable trailing_comma
   {% endif %}
 {% endmacro %}
-{% macro casesBlock assets %}
+{% macro casesBlock assets assetsName %}
   {% for asset in assets %}
   {% if asset.type == "arresourcegroup" %}
   {{accessModifier}} static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = {{arResourceGroupType}}(name: "{{asset.value}}")
   {% elif asset.type == "color" %}
-  static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}Asset = {{colorType}}(name: "{{asset.value}}")
+  static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord}}Asset = {{colorType}}(name: "{{asset.value}}")
   {% elif asset.type == "data" %}
   {{accessModifier}} static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = {{dataType}}(name: "{{asset.value}}")
   {% elif asset.type == "image" %}
-  {{accessModifier}} static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = {{imageType}}(name: "{{asset.value}}")
+  {{accessModifier}} static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord}}Asset = {{imageType}}(name: "{{asset.value}}")
   {% elif asset.type == "symbol" %}
   {{accessModifier}} static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = {{symbolType}}(name: "{{asset.value}}")
   {% elif asset.items and ( forceNamespaces == "true" or asset.isNamespaced == "true" ) %}
   {{accessModifier}} enum {{asset.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
-    {% filter indent:2," ",true %}{% call casesBlock asset.items %}{% endfilter %}
+    {% filter indent:2," ",true %}{% call casesBlock asset.items asset.name %}{% endfilter %}
   }
   {% elif asset.items %}
   {% call casesBlock asset.items %}
   {% endif %}
   {% endfor %}
-{% endmacro %}
-{% macro enumCasesBlock assets %}
-  {% for asset in assets %}
-  {% if asset.type == "color" %}
-  case {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}
+
+  {% call enumCasesBlock assets %}
+
+  {% set catalogHasColor %}{% call hasValuesNoRecursionBlock assets "color" %}{% endset %}
+  {# Generate Charcoral Color Asset Enum #}
+  {% if catalogHasColor %}
+  {% call enumCasesColorBlock assets %}
   {% endif %}
-  {% endfor %}
+
+  {% set catalogHasImage %}{% call hasValuesNoRecursionBlock assets "image" %}{% endset %}
+  {# Generate Charcoral Image Asset Enum #}
+  {% if catalogHasImage %}
+  {% call enumCasesImageBlock assets assetsName %}
+  {% endif %}
 {% endmacro %}
 {% macro allValuesBlock assets filter prefix %}
   {% for asset in assets %}

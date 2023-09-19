@@ -1,0 +1,15 @@
+{% macro enumCasesImageBlock assets assetsName%}
+  {{accessModifier}} var imageAsset: ImageAsset {
+    switch (self) {
+      {% for asset in assets %}
+      {% if asset.type == "image" %}
+      case .{{asset.name|swiftIdentifier:"pretty"|lowerFirstWord}}:
+        return {{enumName}}.{{catalog.name|swiftIdentifier:"pretty"}}.{{assetsName|swiftIdentifier:"pretty"}}.{{asset.name|swiftIdentifier:"pretty"|lowerFirstWord}}Asset
+      {% endif %}
+      {% endfor %}
+    }
+  }
+  {{accessModifier}} var image: ImageAsset.Image {
+    return imageAsset.image
+  }
+{% endmacro %}
