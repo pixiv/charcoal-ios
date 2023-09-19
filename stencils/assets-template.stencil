@@ -134,19 +134,18 @@
   {% endif %}
   {% endfor %}
 
-  {% call enumCasesBlock assets %}
-
   {% set catalogHasColor %}{% call hasValuesNoRecursionBlock assets "color" %}{% endset %}
   {# Generate Charcoral Color Asset Enum #}
   {% if catalogHasColor %}
+  {% call enumCasesBlock assets %}
   {% call enumCasesColorBlock assets %}
   {% endif %}
 
-  {% set catalogHasImage %}{% call hasValuesNoRecursionBlock assets "image" %}{% endset %}
+  {# {% set catalogHasImage %}{% call hasValuesNoRecursionBlock assets "image" %}{% endset %} #}
   {# Generate Charcoral Image Asset Enum #}
-  {% if catalogHasImage and assetsGroupName %}
-  {% call enumCasesImageBlock assets assetsGroupName %}
-  {% endif %}
+  {# {% if catalogHasImage and assetsGroupName %} #}
+  {# {% call enumCasesImageBlock assets assetsGroupName %} #}
+  {# {% endif %} #}
 {% endmacro %}
 {% macro allValuesBlock assets filter prefix %}
   {% for asset in assets %}
