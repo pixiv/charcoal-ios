@@ -3,63 +3,63 @@ import SwiftUI
 struct CharcoalOnSurfaceBorder: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .backport.foregroundStyle(Color(CharcoalAsset.ColorPaletteGenerated.border.color))
+            .foregroundStyle(charcoalColor: .border)
     }
 }
 
 struct CharcoalOnSurfaceLink1: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .backport.foregroundStyle(Color(CharcoalAsset.ColorPaletteGenerated.link1.color))
+            .foregroundStyle(charcoalColor: .link1)
     }
 }
 
 struct CharcoalOnSurfaceLink2: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .backport.foregroundStyle(Color(CharcoalAsset.ColorPaletteGenerated.link2.color))
+            .foregroundStyle(charcoalColor: .link2)
     }
 }
 
 struct CharcoalOnSurfaceText1: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .backport.foregroundStyle(Color(CharcoalAsset.ColorPaletteGenerated.text1.color))
+            .foregroundStyle(charcoalColor: .text1)
     }
 }
 
 struct CharcoalOnSurfaceText2: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .backport.foregroundStyle(Color(CharcoalAsset.ColorPaletteGenerated.text2.color))
+            .foregroundStyle(charcoalColor: .text2)
     }
 }
 
 struct CharcoalOnSurfaceText3: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .backport.foregroundStyle(Color(CharcoalAsset.ColorPaletteGenerated.text3.color))
+            .foregroundStyle(charcoalColor: .text3)
     }
 }
 
 struct CharcoalOnSurfaceText4: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .backport.foregroundStyle(Color(CharcoalAsset.ColorPaletteGenerated.text4.color))
+            .foregroundStyle(charcoalColor: .text4)
     }
 }
 
 struct CharcoalOnSurfaceText5: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .backport.foregroundStyle(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
+            .foregroundStyle(charcoalColor: .text5)
     }
 }
 
 struct CharcoalOnSurfaceIcon6: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .backport.foregroundStyle(Color(CharcoalAsset.ColorPaletteGenerated.icon6.color))
+            .foregroundStyle(charcoalColor: .icon6)
     }
 }
 
