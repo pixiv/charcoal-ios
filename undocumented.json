@@ -4698,6 +4698,13 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/Foregrounds.swift",
+      "line": 12,
+      "symbol": "View.foregroundStyle(charcoalColor:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Colors/OnSurfaces.swift",
       "line": 68,
       "symbol": "View.charcoalOnSurfaceBorder()",
@@ -4874,7 +4881,7 @@
     },
     {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Components/CharcoalTextField.swift",
-      "line": 80,
+      "line": 79,
       "symbol": "View.charcoalTextField(label:countLabel:assistiveText:hasError:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
