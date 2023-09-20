@@ -7,7 +7,7 @@ let package = Package(
     platforms: [.macOS(.v11)],
     dependencies: [
         .package(url: "https://github.com/nicklockwood/SwiftFormat", from: "0.49.1"),
-        .package(url: "https://github.com/realm/SwiftLint", from: "0.45.1"),
+        .package(url: "https://github.com/realm/SwiftLint", from: "0.52.4"),
         .package(url: "https://github.com/SwiftGen/SwiftGen", .upToNextMajor(from: "6.6.2"))
     ],
     targets: [
