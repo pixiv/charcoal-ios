@@ -1,8 +1,16 @@
 import SwiftUI
 
+struct CharcoalForegroundStyle: ViewModifier {
+    let charcoalColor: CharcoalAsset.ColorPaletteGenerated
+    
+    func body(content: Content) -> some View {
+        content.backport.foregroundStyle(Color(charcoalColor.color))
+    }
+}
+
 public extension View {
-    @ViewBuilder func foregroundStyle(charcoalColor:  CharcoalAsset.ColorPaletteGenerated) -> some View {
-        backport.foregroundStyle(Color(charcoalColor.color))
+    func foregroundStyle(charcoalColor:  CharcoalAsset.ColorPaletteGenerated) -> some View {
+        modifier(CharcoalForegroundStyle(charcoalColor: charcoalColor))
     }
 }
 
