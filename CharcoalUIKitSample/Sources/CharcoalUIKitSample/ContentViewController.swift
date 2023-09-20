@@ -6,7 +6,7 @@ public final class ContentViewController: UITableViewController {
         return UINavigationController(rootViewController: viewController)
     }
 
-    private let storyboardTitles = ["Buttons", "TextFields", "Selections", "Colors", "Typographies"]
+    private let storyboardTitles = ["Buttons", "TextFields", "Selections", "Colors", "Typographies", "Icons"]
 
     override public func viewDidLoad() {
         super.viewDidLoad()
