@@ -1,0 +1,7 @@
+{% macro enumCasesBlock assets %}
+  {% for asset in assets %}
+  {% if not asset.items %}
+  case {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}
+  {% endif %}
+  {% endfor %}
+{% endmacro %}
