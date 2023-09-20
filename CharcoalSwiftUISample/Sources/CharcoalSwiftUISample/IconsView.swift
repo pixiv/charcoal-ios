@@ -45,7 +45,7 @@ struct IconsView: View {
                 }
             }
         }
-        .navigationBarTitle("Colors")
+        .navigationBarTitle("Icons")
     }
 }
 
