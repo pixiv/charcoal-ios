@@ -5034,6 +5034,13 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/SwiftUI/Images/Image.swift",
+      "line": 4,
+      "symbol": "Image.init(charocalIcon:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/runner/work/charcoal-ios/charcoal-ios/Sources/Charcoal/UIKit/Components/Buttons/CharcoalButton.swift",
       "line": 3,
       "symbol": "CharcoalButton",
