@@ -1,6 +1,6 @@
 import SwiftUI
 
-extension Image {
+public extension Image {
     @inlinable init(charocalIcon: CharcoalAsset.Images) {
         self.init(asset: charocalIcon.imageAsset)
     }
