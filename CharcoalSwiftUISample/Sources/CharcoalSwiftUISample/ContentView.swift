@@ -37,6 +37,9 @@ public struct ContentView: View {
                 NavigationLink(destination: BackgroundView()) {
                     Text("Background")
                 }
+                NavigationLink(destination: IconsView()) {
+                    Text("Icons")
+                }
             }
             .navigationBarTitle("Charcoal")
         }
