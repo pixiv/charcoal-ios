@@ -45,9 +45,9 @@ export class PullRequestGenerator {
             repo,
           })
         
-        const exisitingPR = _.find(allPulls.data, {title});
+        const existingPR = _.find(allPulls.data, {title});
         
-        if (exisitingPR != undefined) {
+        if (existingPR != undefined) {
             return console.log("Pull Request already exists, skip")
         }
 
