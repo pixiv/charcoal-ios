@@ -55,4 +55,4 @@ jobs:
         run: |
           cd scripts/create-pull-request/
           npm install
-          npm run create-pull-request -- --owner="${{github.repository_owner}}" --repo="${{ github.event.repository.name }}" --baseBranch="main"
+          npm run create-pull-request -- --owner="${{github.repository_owner}}" --repo="${GITHUB_REPOSITORY#*/}" --baseBranch="main"
