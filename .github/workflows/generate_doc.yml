@@ -16,17 +16,9 @@ jobs:
         with:
           xcode-version: latest-stable
 
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7
-          bundler-cache: true
-
-      - name: Bundle install
-        run: bundle install --path vendor/bundle
-
       - name: Build
-        run: bundle exec jazzy --module Charcoal --swift-build-tool spm --build-tool-arguments -Xswiftc,"-sdk",-Xswiftc,"`xcrun --sdk iphonesimulator --show-sdk-path`",-Xswiftc,"-target",-Xswiftc,"x86_64-apple-ios14.4-simulator"
-
+        run:  xcodebuild docbuild -scheme Charcoal  -destination generic/platform=iOS OTHER_DOCC_FLAGS="--transform-for-static-hosting --hosting-base-path charcoal-ios --output-path ./docs"
+        
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
