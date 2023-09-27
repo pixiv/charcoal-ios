@@ -7,7 +7,6 @@ PIXIV Design System
         purpose: icon, 
         source: "charcoal-icon", 
         alt: "A technology icon representing the SlothCreator framework.")
-    @PageColor(blue)
 }
 
 ## Usage
