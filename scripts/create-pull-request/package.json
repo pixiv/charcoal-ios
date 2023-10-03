@@ -9,6 +9,7 @@
   "type": "module",
   "author": "pixiv",
   "dependencies": {
-    "@octokit/rest": "^20.0.1"
+    "@octokit/rest": "^20.0.1",
+    "yargs": "^17.7.2"
   }
 }
