@@ -39,12 +39,21 @@ export class PullRequestGenerator {
         const octokit = new Octokit({ auth: process.env.GITHUB_ACCESS_TOKEN })
 
         // Check if pull request exists
-        const allPulls = await octokit.pulls.list({
-            owner,
-            repo,
-          })
-        
-        const existingPR = allPulls.data.find(p => p.title === title)
+        const allPulls = [];
+        var page = 1;
+        var hasNext = true;
+        while (hasNext) {
+            const pulls = await octokit.pulls.list({
+                owner,
+                repo,
+                page: page
+            });
+            allPulls.push(...pulls.data)
+            hasNext = pulls.data.length > 0
+            page++
+        }
+
+        const existingPR = allPulls.find(p => p.title === title)
         
         if (existingPR != undefined) {
             return console.log("Pull Request already exists, skip")
