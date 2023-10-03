@@ -40,7 +40,7 @@ dependencies: [
 
 ## Documentation
 
-[Documentation](https://pixiv.github.io/charcoal-ios/)
+[Documentation](https://pixiv.github.io/charcoal-ios/documentation/charcoal/)
 
 ## Development
 
