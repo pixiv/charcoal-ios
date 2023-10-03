@@ -1,6 +1,16 @@
-# charcoal-ios ― PIXIV Design System
+# ``Charcoal``
+
+PIXIV Design System
+
+@Metadata {
+    @PageImage(
+        purpose: icon, 
+        source: "charcoal-icon", 
+        alt: "A technology icon representing the SlothCreator framework.")
+}
 
 ## Usage
+
 ### SwiftUI
 
 ```swift
@@ -24,44 +34,12 @@ let buttton = CharcoalPrimaryMButton()
 button.setTitle("OK", for: .normal)
 ```
 
-## Installation
+### Installation
+
 Swift Package Managerを使ってライブラリをインストールすることができます。
 
 ```swift
 dependencies: [
   .package(url: "https://github.com/pixiv/charcoal-ios", .upToNextMajor(from: "1.0.0"))
 ]
-```
-
-## Requirements
-
-- iOS 13+
-- macOS 11+
-
-## Documentation
-
-[Documentation](https://pixiv.github.io/charcoal-ios/documentation/charcoal/)
-
-## Development
-
-### SwiftGen
-
-#### Generate Assets
-
-Run `swiftgen` command in the `charcoal-ios` project folder.
-
-```
-swift run --package-path BuildTools swiftgen
-```
-
-### SwiftLint
-
-```
-swift run --package-path BuildTools swiftlint
-```
-
-### Code Format
-
-```
-swift run -c release --package-path BuildTools swiftformat .
 ```
