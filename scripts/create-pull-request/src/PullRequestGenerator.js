@@ -1,6 +1,5 @@
 import { Octokit } from '@octokit/rest'
 import { execSync } from 'child_process'
-import _ from 'lodash';
 import fs from 'fs'
 import path from 'path'
 
@@ -45,7 +44,7 @@ export class PullRequestGenerator {
             repo,
           })
         
-        const existingPR = _.find(allPulls.data, {title});
+        const existingPR = allPulls.data.find(p => p.title === title)
         
         if (existingPR != undefined) {
             return console.log("Pull Request already exists, skip")
