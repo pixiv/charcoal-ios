@@ -6,7 +6,7 @@ PIXIV Design System
     @PageImage(
         purpose: icon, 
         source: "charcoal-icon", 
-        alt: "A technology icon representing the SlothCreator framework.")
+        alt: "A technology icon representing the Charcoal framework.")
 }
 
 ## Usage
