@@ -44,6 +44,10 @@ dependencies: [
 
 ## Development
 
+### Configuration
+
+Xcode configuration `DebugMaxDeploymentTarget` は、自動化テストの際に `IPHONEOS_DEPLOYMENT_TARGET` を指定するためだけに使用されます。
+
 ### SwiftGen
 
 #### Generate Assets
