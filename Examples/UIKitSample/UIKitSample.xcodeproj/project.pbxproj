@@ -358,7 +358,7 @@
 			};
 			name = Release;
 		};
-		9F3625A62ADFC0710049D7AA /* DebugMax */ = {
+		9F3625A62ADFC0710049D7AA /* DebugMaxDeploymentTarget */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -416,9 +416,9 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = DebugMax;
+			name = DebugMaxDeploymentTarget;
 		};
-		9F3625A72ADFC0710049D7AA /* DebugMax */ = {
+		9F3625A72ADFC0710049D7AA /* DebugMaxDeploymentTarget */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -451,7 +451,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = DebugMax;
+			name = DebugMaxDeploymentTarget;
 		};
 /* End XCBuildConfiguration section */
 
@@ -460,7 +460,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24651B1D27043635005AD842 /* Debug */,
-				9F3625A62ADFC0710049D7AA /* DebugMax */,
+				9F3625A62ADFC0710049D7AA /* DebugMaxDeploymentTarget */,
 				24651B1E27043635005AD842 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -470,7 +470,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24651B2027043635005AD842 /* Debug */,
-				9F3625A72ADFC0710049D7AA /* DebugMax */,
+				9F3625A72ADFC0710049D7AA /* DebugMaxDeploymentTarget */,
 				24651B2127043635005AD842 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
