@@ -19,8 +19,8 @@ struct CharcoalToggleWrapper: UIViewRepresentable {
 
     func updateUIView(_ uiView: UISwitch, context _: Context) {
         uiView.onTintColor = CharcoalAsset.ColorPaletteGenerated.brand.color
-        uiView.tintColor = CharcoalAsset.ColorPaletteGenerated.surface4.color
-
+        uiView.backgroundColor = CharcoalAsset.ColorPaletteGenerated.surface4.color
+        uiView.layer.cornerRadius = uiView.frame.size.height / 2.0
         uiView.isOn = isOn.wrappedValue
     }
 
@@ -39,15 +39,30 @@ struct CharcoalToggleWrapper: UIViewRepresentable {
     }
 }
 
+// SwiftUIでToggleを自由にカスタマイズするのは難しいのでToggleStyleで書き換え
+struct CharcoalToggleStyle: ToggleStyle {
+    @Environment(\.isEnabled) var isEnabled
+
+    func makeBody(configuration: Self.Configuration) -> some View {
+        HStack {
+            configuration.label
+                .charcoalTypography14Regular()
+                .charcoalOnSurfaceText1()
+            Spacer()
+            CharcoalToggleWrapper(isOn: configuration.$isOn)
+                .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
+                .opacity(isEnabled ? 1.0 : 0.32)
+        }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            configuration.isOn = !configuration.isOn
+        }
+    }
+}
+
 struct CharcoalToggleStyleModifier: ViewModifier {
     func body(content: Content) -> some View {
-        if #available(iOS 15, *) {
-            content.tint(Color(CharcoalAsset.ColorPaletteGenerated.brand.color))
-        } else if #available(iOS 14.0, *) {
-            content.toggleStyle(SwitchToggleStyle(tint: Color(CharcoalAsset.ColorPaletteGenerated.brand.color)))
-        } else {
-            content
-       }
+        return content.toggleStyle(CharcoalToggleStyle())
     }
 }
 
