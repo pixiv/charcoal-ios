@@ -21,6 +21,7 @@ struct CharcoalToggleWrapper: UIViewRepresentable {
         uiView.onTintColor = CharcoalAsset.ColorPaletteGenerated.brand.color
         uiView.backgroundColor = CharcoalAsset.ColorPaletteGenerated.surface4.color
         uiView.layer.cornerRadius = uiView.frame.size.height / 2.0
+        uiView.layer.cornerCurve = .continuous
         uiView.isOn = isOn.wrappedValue
     }
 
