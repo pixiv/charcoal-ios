@@ -39,30 +39,15 @@ struct CharcoalToggleWrapper: UIViewRepresentable {
     }
 }
 
-// iOS 13のSwiftUIでは、onTintColorを変えられないのでToggleStyleで書き換え
-struct CharcoalToggleStyle: ToggleStyle {
-    @Environment(\.isEnabled) var isEnabled
-
-    func makeBody(configuration: Self.Configuration) -> some View {
-        HStack {
-            configuration.label
-                .charcoalTypography14Regular()
-                .charcoalOnSurfaceText1()
-            Spacer()
-            CharcoalToggleWrapper(isOn: configuration.$isOn)
-                .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
-                .opacity(isEnabled ? 1.0 : 0.32)
-        }
-        .contentShape(Rectangle())
-        .onTapGesture {
-            configuration.isOn = !configuration.isOn
-        }
-    }
-}
-
 struct CharcoalToggleStyleModifier: ViewModifier {
     func body(content: Content) -> some View {
-        return content.toggleStyle(CharcoalToggleStyle())
+        if #available(iOS 15, *) {
+            content.tint(Color(CharcoalAsset.ColorPaletteGenerated.brand.color))
+        } else if #available(iOS 14.0, *) {
+            content.toggleStyle(SwitchToggleStyle(tint: Color(CharcoalAsset.ColorPaletteGenerated.brand.color)))
+        } else {
+            content
+       }
     }
 }
 
