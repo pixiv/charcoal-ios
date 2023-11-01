@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "CharcoalUIKitSample",
     platforms: [
-        .iOS(.v13)
+        .iOS(.v14)
     ],
     products: [
         .library(

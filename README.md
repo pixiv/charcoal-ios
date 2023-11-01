@@ -35,8 +35,8 @@ dependencies: [
 
 ## Requirements
 
-- iOS 13+
-- macOS 11+
+- iOS 14+
+- macOS 12+
 
 ## Documentation
 
