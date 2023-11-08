@@ -1,6 +1,5 @@
 import UIKit
 
-@IBDesignable
 public class CharcoalSwitchingButton: UIView {
     public var isOn: Bool = false {
         didSet {
@@ -54,4 +53,20 @@ public class CharcoalSwitchingButton: UIView {
         onButton?.isHidden = !isOn
         offButton?.isHidden = isOn
     }
+}
+
+@available(iOS 17.0, *)
+#Preview {
+
+    let onButton = CharcoalDefaultMButton()
+    onButton.setTitle("フォロー中", for: .normal)
+
+    let offButton = CharcoalPrimaryMButton()
+    offButton.setTitle("フォローする", for: .normal)
+    
+    let switchingButton = CharcoalSwitchingButton()
+    switchingButton.register(onButton: onButton, offButton: offButton)
+    switchingButton.isOn = true
+    
+    return switchingButton
 }
