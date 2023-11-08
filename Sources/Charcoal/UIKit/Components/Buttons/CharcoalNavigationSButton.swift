@@ -1,8 +1,6 @@
 import UIKit
 
-@IBDesignable
 public class CharcoalNavigationSButton: UIButton, CharcoalButton {
-    @IBInspectable
     public var isFixed: Bool = false
 
     override public var intrinsicContentSize: CGSize {
@@ -32,11 +30,6 @@ public class CharcoalNavigationSButton: UIButton, CharcoalButton {
 
     override public func awakeFromNib() {
         super.awakeFromNib()
-        setupStyle()
-    }
-
-    override public func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
         setupStyle()
     }
 
@@ -71,3 +64,11 @@ public class CharcoalNavigationSButton: UIButton, CharcoalButton {
         alpha = isEnabled ? 1.0 : 0.0
     }
 }
+
+@available(iOS 17.0, *)
+#Preview {
+    let button = CharcoalNavigationSButton()
+    button.setTitle("Home", for: .normal)
+    return button
+}
+
