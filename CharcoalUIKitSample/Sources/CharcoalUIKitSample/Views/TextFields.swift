@@ -13,6 +13,38 @@ final class TextFieldsViewController: UIViewController {
     override func viewDidLoad() {
         view.backgroundColor = CharcoalAsset.ColorPaletteGenerated.background1.color
 
+        textField2.lengthLimit = 10
+        textField2.placeholder = "制限を超えて入力できます"
+        textField2.assertiveText = "Assistive Textです。文字制限を超えて入力するとこの文章が表示されます。フォーカスを外しても赤色の枠線は消えません。"
+        
+        textField3.title = "Label"
+        textField3.lengthLimit = 10
+        textField3.placeholder = "制限を超えた入力はできません"
+        
+        textField4.title = "Label"
+        textField4.lengthLimit = 10
+        textField4.placeholder = "補助テキストがある場合"
+        textField4.assertiveText = "Assistive Textです。文字制限を超えて入力するとこの文章が表示されます。フォーカスを外しても赤色の枠線は消えません。"
+        textField4.showAssertiveText(text: "補助テキストです。\nここでは文字数制限を超えて文字を入力することができます。")
+        
+        textField5.title = "Label"
+        textField5.lengthLimit = 10
+        textField5.placeholder = "補助テキストがある場合"
+        textField5.assertiveText = "この文字が表示されたら実装がおかしいです。"
+        textField5.showAssertiveText(text: "ここでは文字数制限を超えて文字を入力することができません。")
+        
+        textField6.title = "Label"
+        textField6.lengthLimit = 10
+        textField6.placeholder = "placeholder"
+        textField6.assertiveText = "これは文字制限を超えた場合のエラー文です。"
+        // swiftlint:disable line_length
+        textField6.showAssertiveText(text: "「文字制限を超えた場合」と「文字が入力されている間」にエラーになります。\nこの例では「文字が入力されている間」のエラーの方を優先的に表示させています。")
+        
+        textField7.title = "Label"
+        textField7.lengthLimit = 10
+        // swiftlint:disable line_length
+        textField7.showAssertiveText(text: "Assistive textが入ります。Assistive textが入ります。ここにAssistive textが入ります。Assistive textが入ります。Assistive textが入ります。")
+        
         setupTextFieldView(textField1)
         setupTextFieldView(textField2)
         setupTextFieldView(textField3)
@@ -20,11 +52,6 @@ final class TextFieldsViewController: UIViewController {
         setupTextFieldView(textField5)
         setupTextFieldView(textField6)
         setupTextFieldView(textField7)
-
-        textField4.showAssertiveText(text: "補助テキストです。\nここでは文字数制限を超えて文字を入力することができます。")
-        textField5.showAssertiveText(text: "ここでは文字数制限を超えて文字を入力することができません。")
-        // swiftlint:disable line_length
-        textField6.showAssertiveText(text: "「文字制限を超えた場合」と「文字が入力されている間」にエラーになります。\nこの例では「文字が入力されている間」のエラーの方を優先的に表示させています。")
     }
 
     private func setupTextFieldView(_ charcoalTextFieldView: CharcoalTextFieldView) {
