@@ -74,11 +74,6 @@ public class CharcoalTextFieldView: UIStackView {
         setupStyle()
     }
     
-    override public func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        setupStyle()
-    }
-    
     private func setupStyle() {
         setupTitleLabel()
         setupCharcoalTextField()
