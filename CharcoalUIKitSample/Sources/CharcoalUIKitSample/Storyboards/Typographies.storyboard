@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQ7-6y-cGt">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="848"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="ZSt-x6-vw1">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="2530"/>
@@ -67,7 +67,7 @@
                                                 <rect key="frame" x="0.0" y="66.5" width="414" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 Bold MultiLine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyr-O8-lOF" customClass="CharcoalTypography14" customModule="Charcoal">
-                                                        <rect key="frame" x="8" y="8" width="398" height="20.5"/>
+                                                        <rect key="frame" x="8" y="8" width="398" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -79,7 +79,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oh, wet Alex, a jar, a fag! Up, disk, curve by! Man Oz, Iraq, Arizona, my Bev? Ruck's id-pug, a far Ajax, elate? Who?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKB-ks-8FP" customClass="CharcoalTypography20" customModule="Charcoal">
-                                                        <rect key="frame" x="8" y="36.5" width="398" height="75.5"/>
+                                                        <rect key="frame" x="8" y="33" width="398" height="79"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -391,7 +391,7 @@
                                                 <rect key="frame" x="0.0" y="759" width="414" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16 Regular MultiLine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xeT-DZ-9AA" customClass="CharcoalTypography14" customModule="Charcoal">
-                                                        <rect key="frame" x="8" y="8" width="398" height="20.5"/>
+                                                        <rect key="frame" x="8" y="8" width="398" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -403,7 +403,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oh, wet Alex, a jar, a fag! Up, disk, curve by! Man Oz, Iraq, Arizona, my Bev? Ruck's id-pug, a far Ajax, elate? Who?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pct-B3-E6f" customClass="CharcoalTypography16" customModule="Charcoal">
-                                                        <rect key="frame" x="8" y="36.5" width="398" height="75.5"/>
+                                                        <rect key="frame" x="8" y="33" width="398" height="79"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -553,7 +553,7 @@
                                                 <rect key="frame" x="0.0" y="1078.5" width="414" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14 Bold MultiLine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGs-fq-ukD" customClass="CharcoalTypography14" customModule="Charcoal">
-                                                        <rect key="frame" x="8" y="8" width="398" height="20.5"/>
+                                                        <rect key="frame" x="8" y="8" width="398" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -565,7 +565,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oh, wet Alex, a jar, a fag! Up, disk, curve by! Man Oz, Iraq, Arizona, my Bev? Ruck's id-pug, a far Ajax, elate? Who?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZu-HF-9f2" customClass="CharcoalTypography14" customModule="Charcoal">
-                                                        <rect key="frame" x="8" y="36.5" width="398" height="75.5"/>
+                                                        <rect key="frame" x="8" y="33" width="398" height="79"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -634,7 +634,7 @@
                                                 <rect key="frame" x="0.0" y="1265" width="414" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14 Regular MultiLine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auO-7u-ooU" customClass="CharcoalTypography14" customModule="Charcoal">
-                                                        <rect key="frame" x="8" y="8" width="398" height="20.5"/>
+                                                        <rect key="frame" x="8" y="8" width="398" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -646,7 +646,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oh, wet Alex, a jar, a fag! Up, disk, curve by! Man Oz, Iraq, Arizona, my Bev? Ruck's id-pug, a far Ajax, elate? Who?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tm4-Zo-55f" customClass="CharcoalTypography14" customModule="Charcoal">
-                                                        <rect key="frame" x="8" y="36.5" width="398" height="75.5"/>
+                                                        <rect key="frame" x="8" y="33" width="398" height="79"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -796,7 +796,7 @@
                                                 <rect key="frame" x="0.0" y="1584.5" width="414" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 Bold MultiLine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0w4-GW-pMt" customClass="CharcoalTypography14" customModule="Charcoal">
-                                                        <rect key="frame" x="8" y="8" width="398" height="20.5"/>
+                                                        <rect key="frame" x="8" y="8" width="398" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -808,7 +808,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oh, wet Alex, a jar, a fag! Up, disk, curve by! Man Oz, Iraq, Arizona, my Bev? Ruck's id-pug, a far Ajax, elate? Who?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sof-qZ-osU" customClass="CharcoalTypography12" customModule="Charcoal">
-                                                        <rect key="frame" x="8" y="36.5" width="398" height="75.5"/>
+                                                        <rect key="frame" x="8" y="33" width="398" height="79"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -877,7 +877,7 @@
                                                 <rect key="frame" x="0.0" y="1771" width="414" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 Regular MultiLine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSb-wu-bK6" customClass="CharcoalTypography14" customModule="Charcoal">
-                                                        <rect key="frame" x="8" y="8" width="398" height="20.5"/>
+                                                        <rect key="frame" x="8" y="8" width="398" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -889,7 +889,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oh, wet Alex, a jar, a fag! Up, disk, curve by! Man Oz, Iraq, Arizona, my Bev? Ruck's id-pug, a far Ajax, elate? Who?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4OY-Iu-LXx" customClass="CharcoalTypography12" customModule="Charcoal">
-                                                        <rect key="frame" x="8" y="36.5" width="398" height="75.5"/>
+                                                        <rect key="frame" x="8" y="33" width="398" height="79"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1039,7 +1039,7 @@
                                                 <rect key="frame" x="0.0" y="2090.5" width="414" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Bold MultiLine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gd-hN-9Nu" customClass="CharcoalTypography14" customModule="Charcoal">
-                                                        <rect key="frame" x="8" y="8" width="398" height="20.5"/>
+                                                        <rect key="frame" x="8" y="8" width="398" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1051,7 +1051,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oh, wet Alex, a jar, a fag! Up, disk, curve by! Man Oz, Iraq, Arizona, my Bev? Ruck's id-pug, a far Ajax, elate? Who?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h68-ft-5TR" customClass="CharcoalTypography10" customModule="Charcoal">
-                                                        <rect key="frame" x="8" y="36.5" width="398" height="75.5"/>
+                                                        <rect key="frame" x="8" y="33" width="398" height="79"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1265,188 +1265,6 @@
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="0J0-WG-zTq">
-            <size key="intrinsicContentSize" width="110.5" height="17"/>
-        </designable>
-        <designable name="0w4-GW-pMt">
-            <size key="intrinsicContentSize" width="110" height="17"/>
-        </designable>
-        <designable name="1Eo-cD-KVw">
-            <size key="intrinsicContentSize" width="132.5" height="17"/>
-        </designable>
-        <designable name="2fS-nV-zhT">
-            <size key="intrinsicContentSize" width="398" height="25.5"/>
-        </designable>
-        <designable name="2ym-an-cvi">
-            <size key="intrinsicContentSize" width="121.5" height="25.5"/>
-        </designable>
-        <designable name="4OY-Iu-LXx">
-            <size key="intrinsicContentSize" width="1027.5" height="25.5"/>
-        </designable>
-        <designable name="5gd-hN-9Nu">
-            <size key="intrinsicContentSize" width="110.5" height="17"/>
-        </designable>
-        <designable name="6II-dk-WDY">
-            <size key="intrinsicContentSize" width="108.5" height="17"/>
-        </designable>
-        <designable name="7xL-ze-FuB">
-            <size key="intrinsicContentSize" width="398" height="25.5"/>
-        </designable>
-        <designable name="86V-Vz-KGI">
-            <size key="intrinsicContentSize" width="398" height="25.5"/>
-        </designable>
-        <designable name="8Rd-5b-xV2">
-            <size key="intrinsicContentSize" width="121.5" height="25.5"/>
-        </designable>
-        <designable name="8pR-Mz-ZXc">
-            <size key="intrinsicContentSize" width="88.5" height="17"/>
-        </designable>
-        <designable name="ClW-v4-L5k">
-            <size key="intrinsicContentSize" width="1027.5" height="25.5"/>
-        </designable>
-        <designable name="DT6-78-jbv">
-            <size key="intrinsicContentSize" width="121.5" height="25.5"/>
-        </designable>
-        <designable name="F3A-kP-Zzy">
-            <size key="intrinsicContentSize" width="139" height="17"/>
-        </designable>
-        <designable name="FCB-T1-17S">
-            <size key="intrinsicContentSize" width="88.5" height="17"/>
-        </designable>
-        <designable name="GAu-Dl-eH5">
-            <size key="intrinsicContentSize" width="88" height="17"/>
-        </designable>
-        <designable name="Gaa-ki-tOW">
-            <size key="intrinsicContentSize" width="118.5" height="17"/>
-        </designable>
-        <designable name="H8G-gk-OxV">
-            <size key="intrinsicContentSize" width="398" height="25.5"/>
-        </designable>
-        <designable name="Iyd-RS-DYL">
-            <size key="intrinsicContentSize" width="1027.5" height="25.5"/>
-        </designable>
-        <designable name="JAl-gk-MoG">
-            <size key="intrinsicContentSize" width="130.5" height="17"/>
-        </designable>
-        <designable name="KFf-Al-VUZ">
-            <size key="intrinsicContentSize" width="1027.5" height="25.5"/>
-        </designable>
-        <designable name="MAG-D6-psX">
-            <size key="intrinsicContentSize" width="108.5" height="17"/>
-        </designable>
-        <designable name="NHu-H8-LDu">
-            <size key="intrinsicContentSize" width="398" height="25.5"/>
-        </designable>
-        <designable name="Pct-B3-E6f">
-            <size key="intrinsicContentSize" width="1027.5" height="25.5"/>
-        </designable>
-        <designable name="RSb-wu-bK6">
-            <size key="intrinsicContentSize" width="130.5" height="17"/>
-        </designable>
-        <designable name="Tm4-Zo-55f">
-            <size key="intrinsicContentSize" width="1027.5" height="25.5"/>
-        </designable>
-        <designable name="Uhs-54-N6Q">
-            <size key="intrinsicContentSize" width="118" height="17"/>
-        </designable>
-        <designable name="VGs-fq-ukD">
-            <size key="intrinsicContentSize" width="111" height="17"/>
-        </designable>
-        <designable name="WR7-Tv-ffS">
-            <size key="intrinsicContentSize" width="398" height="25.5"/>
-        </designable>
-        <designable name="ZAq-vQ-Cqg">
-            <size key="intrinsicContentSize" width="138.5" height="17"/>
-        </designable>
-        <designable name="a3R-r5-jOu">
-            <size key="intrinsicContentSize" width="110.5" height="17"/>
-        </designable>
-        <designable name="aHZ-hL-jHg">
-            <size key="intrinsicContentSize" width="88" height="17"/>
-        </designable>
-        <designable name="af7-xX-4nf">
-            <size key="intrinsicContentSize" width="108" height="17"/>
-        </designable>
-        <designable name="auO-7u-ooU">
-            <size key="intrinsicContentSize" width="131" height="17"/>
-        </designable>
-        <designable name="eJn-B8-eZ8">
-            <size key="intrinsicContentSize" width="108.5" height="17"/>
-        </designable>
-        <designable name="fZC-tc-m3I">
-            <size key="intrinsicContentSize" width="121.5" height="25.5"/>
-        </designable>
-        <designable name="gsz-0o-IL7">
-            <size key="intrinsicContentSize" width="398" height="25.5"/>
-        </designable>
-        <designable name="gza-Kx-jCb">
-            <size key="intrinsicContentSize" width="121.5" height="25.5"/>
-        </designable>
-        <designable name="h68-ft-5TR">
-            <size key="intrinsicContentSize" width="1027.5" height="25.5"/>
-        </designable>
-        <designable name="hjC-XX-Vrv">
-            <size key="intrinsicContentSize" width="139" height="17"/>
-        </designable>
-        <designable name="jTH-E0-0WM">
-            <size key="intrinsicContentSize" width="90" height="17"/>
-        </designable>
-        <designable name="jWi-aW-m1B">
-            <size key="intrinsicContentSize" width="121.5" height="25.5"/>
-        </designable>
-        <designable name="jyr-O8-lOF">
-            <size key="intrinsicContentSize" width="112.5" height="17"/>
-        </designable>
-        <designable name="kfz-VQ-tvz">
-            <size key="intrinsicContentSize" width="398" height="25.5"/>
-        </designable>
-        <designable name="ml8-Lk-0Ij">
-            <size key="intrinsicContentSize" width="121.5" height="25.5"/>
-        </designable>
-        <designable name="oi0-r1-duw">
-            <size key="intrinsicContentSize" width="118.5" height="17"/>
-        </designable>
-        <designable name="pUB-qV-91P">
-            <size key="intrinsicContentSize" width="121.5" height="25.5"/>
-        </designable>
-        <designable name="pso-rb-4iy">
-            <size key="intrinsicContentSize" width="138.5" height="17"/>
-        </designable>
-        <designable name="rCg-F1-rR5">
-            <size key="intrinsicContentSize" width="121.5" height="25.5"/>
-        </designable>
-        <designable name="sof-qZ-osU">
-            <size key="intrinsicContentSize" width="1027.5" height="25.5"/>
-        </designable>
-        <designable name="tKB-ks-8FP">
-            <size key="intrinsicContentSize" width="1027.5" height="25.5"/>
-        </designable>
-        <designable name="tWG-mV-4wW">
-            <size key="intrinsicContentSize" width="398" height="25.5"/>
-        </designable>
-        <designable name="tvV-ge-jHv">
-            <size key="intrinsicContentSize" width="120.5" height="17"/>
-        </designable>
-        <designable name="ujM-Pa-Pdd">
-            <size key="intrinsicContentSize" width="140.5" height="17"/>
-        </designable>
-        <designable name="uuq-dE-uJW">
-            <size key="intrinsicContentSize" width="118.5" height="17"/>
-        </designable>
-        <designable name="vZu-HF-9f2">
-            <size key="intrinsicContentSize" width="1027.5" height="25.5"/>
-        </designable>
-        <designable name="xeT-DZ-9AA">
-            <size key="intrinsicContentSize" width="131" height="17"/>
-        </designable>
-        <designable name="xyu-U6-ZUa">
-            <size key="intrinsicContentSize" width="121.5" height="25.5"/>
-        </designable>
-        <designable name="ztL-dj-D4E">
-            <size key="intrinsicContentSize" width="398" height="25.5"/>
-        </designable>
-    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

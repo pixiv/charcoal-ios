@@ -1,10 +1,7 @@
 import UIKit
 
-@IBDesignable
 public class CharcoalTypography12: UILabel {
-    @IBInspectable
     var isBold: Bool = false
-    @IBInspectable
     var isMono: Bool = false
 
     private let fontSize = CGFloat(charcoalFoundation.typography.size.the12.fontSize)
@@ -25,11 +22,6 @@ public class CharcoalTypography12: UILabel {
         setupStyle()
     }
 
-    override public func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        setupStyle()
-    }
-
     private func setupStyle() {
         setupFont(fontSize: fontSize, isBold: isBold, isMono: isMono)
         if isMono {
@@ -38,4 +30,11 @@ public class CharcoalTypography12: UILabel {
             setupLineHeight(lineHeight: lineHeight)
         }
     }
+}
+
+@available(iOS 17.0, *)
+#Preview {
+    let typography = CharcoalTypography12()
+    typography.text = "Heavy boxes perform quick waltzes and jigs"
+    return typography
 }
