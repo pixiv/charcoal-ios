@@ -67,7 +67,7 @@ public class CharcoalDefaultMButton: UIButton, CharcoalButton {
 
 @available(iOS 17.0, *)
 #Preview {
-  let button = CharcoalDefaultMButton()
-  button.setTitle("フォロー中", for: .normal)
-  return button
+    let button = CharcoalDefaultMButton()
+    button.setTitle("フォロー中", for: .normal)
+    return button
 }

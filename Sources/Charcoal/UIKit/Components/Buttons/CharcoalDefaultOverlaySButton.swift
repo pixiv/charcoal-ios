@@ -67,7 +67,7 @@ public class CharcoalDefaultOverlaySButton: UIButton, CharcoalButton {
 
 @available(iOS 17.0, *)
 #Preview {
-  let button = CharcoalDefaultOverlaySButton()
-  button.setTitle("フォロー中", for: .normal)
-  return button
+    let button = CharcoalDefaultOverlaySButton()
+    button.setTitle("フォロー中", for: .normal)
+    return button
 }
