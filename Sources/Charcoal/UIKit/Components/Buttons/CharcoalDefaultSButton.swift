@@ -1,8 +1,6 @@
 import UIKit
 
-@IBDesignable
 public class CharcoalDefaultSButton: UIButton, CharcoalButton {
-    @IBInspectable
     public var isFixed: Bool = false
 
     override public var intrinsicContentSize: CGSize {
@@ -34,12 +32,7 @@ public class CharcoalDefaultSButton: UIButton, CharcoalButton {
         super.awakeFromNib()
         setupStyle()
     }
-
-    override public func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        setupStyle()
-    }
-
+    
     override public func layoutSubviews() {
         super.layoutSubviews()
 
@@ -70,4 +63,11 @@ public class CharcoalDefaultSButton: UIButton, CharcoalButton {
     private func updateStyle() {
         alpha = isEnabled ? 1.0 : 0.32
     }
+}
+
+@available(iOS 17.0, *)
+#Preview {
+  let button = CharcoalDefaultSButton()
+  button.setTitle("フォロー中", for: .normal)
+  return button
 }
