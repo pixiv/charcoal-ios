@@ -1,10 +1,7 @@
 import UIKit
 
-@IBDesignable
 public class CharcoalPrimaryMButton: UIButton, CharcoalButton {
-    @IBInspectable
     public var isFixed: Bool = false
-    @IBInspectable
     public var primaryColor: UIColor = CharcoalAsset.ColorPaletteGenerated.brand.color
 
     override public var intrinsicContentSize: CGSize {
@@ -34,11 +31,6 @@ public class CharcoalPrimaryMButton: UIButton, CharcoalButton {
 
     override public func awakeFromNib() {
         super.awakeFromNib()
-        setupStyle()
-    }
-
-    override public func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
         setupStyle()
     }
 
@@ -72,4 +64,11 @@ public class CharcoalPrimaryMButton: UIButton, CharcoalButton {
     private func updateStyle() {
         alpha = isEnabled ? 1.0 : 0.32
     }
+}
+
+@available(iOS 17.0, *)
+#Preview {
+  let button = CharcoalPrimaryMButton()
+  button.setTitle("フォロー中", for: .normal)
+  return button
 }
