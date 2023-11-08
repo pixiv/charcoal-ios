@@ -1,8 +1,6 @@
 import UIKit
 
-@IBDesignable
 public class CharcoalLinkButton: UIButton, CharcoalButton {
-    @IBInspectable
     public var isFixed: Bool = false
 
     override public var intrinsicContentSize: CGSize {
@@ -35,11 +33,6 @@ public class CharcoalLinkButton: UIButton, CharcoalButton {
         setupStyle()
     }
 
-    override public func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        setupStyle()
-    }
-
     override public func layoutSubviews() {
         super.layoutSubviews()
 
@@ -68,4 +61,11 @@ public class CharcoalLinkButton: UIButton, CharcoalButton {
     private func updateStyle() {
         alpha = isEnabled ? 1.0 : 0.32
     }
+}
+
+@available(iOS 17.0, *)
+#Preview {
+  let button = CharcoalLinkButton()
+  button.setTitle("https://pixiv.co.jp", for: .normal)
+  return button
 }
