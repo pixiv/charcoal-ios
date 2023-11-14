@@ -17,6 +17,7 @@ class IconsCollectionViewCell: UICollectionViewCell {
     private func setupPalletView() {
         palletView.layer.cornerRadius = 8.0
         palletView.layer.masksToBounds = true
+        palletView.backgroundColor = UIColor.secondarySystemBackground
     }
 
     private func setupColorNameLabel() {

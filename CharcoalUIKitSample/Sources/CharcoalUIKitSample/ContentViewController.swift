@@ -12,7 +12,7 @@ public final class ContentViewController: UITableViewController {
     case selections = "Selections"
     case colors = "Colors"
     case typographies = "Typographies"
-    case Icons = "Icons"
+    case icons = "Icons"
     }
 
     override public func viewDidLoad() {
@@ -59,6 +59,8 @@ extension ContentViewController.StoryboardTitles {
             return ButtonsViewController()
         case .colors:
             return ColorsViewController()
+        case .icons:
+            return IconsViewController()
         default:
             return UIStoryboard(name: rawValue, bundle: .module).instantiateInitialViewController()!
         }
