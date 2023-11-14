@@ -1,34 +1,21 @@
 import UIKit
 
-public class CharcoalTypography12: UILabel {
-    var isBold: Bool = false
-    var isMono: Bool = false
-
-    private let fontSize = CGFloat(charcoalFoundation.typography.size.the12.fontSize)
-    private let lineHeight = CGFloat(charcoalFoundation.typography.size.the12.lineHeight)
-
-    override public init(frame: CGRect) {
-        super.init(frame: frame)
-        setupStyle()
-    }
-
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setupStyle()
-    }
-
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-        setupStyle()
-    }
-
-    private func setupStyle() {
-        setupFont(fontSize: fontSize, isBold: isBold, isMono: isMono)
-        if isMono {
-            numberOfLines = 1
-        } else {
-            setupLineHeight(lineHeight: lineHeight)
+public class CharcoalTypography12: CharcoalTypographyLabel {
+    public override var fontSize: CGFloat {
+        get {
+            return CGFloat(charcoalFoundation.typography.size.the12.fontSize)
         }
+    }
+    
+    public override var lineHeight: CGFloat {
+        get {
+            return CGFloat(charcoalFoundation.typography.size.the12.lineHeight)
+        }
+    }
+    
+    func configStyle() {
+        self.isBold = false
+        self.isMono = false
     }
 }
 

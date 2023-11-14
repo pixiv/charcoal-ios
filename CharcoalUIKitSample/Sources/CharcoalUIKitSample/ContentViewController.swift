@@ -5,8 +5,15 @@ public final class ContentViewController: UITableViewController {
         let viewController = UIStoryboard(name: "Content", bundle: .module).instantiateInitialViewController()!
         return UINavigationController(rootViewController: viewController)
     }
-
-    private let storyboardTitles = ["Buttons", "TextFields", "Selections", "Colors", "Typographies", "Icons"]
+    
+    enum StoryboardTitles: String, CaseIterable {
+    case buttons = "Buttons"
+    case textFields = "TextFields"
+    case selections = "Selections"
+    case colors = "Colors"
+    case typographies = "Typographies"
+    case Icons = "Icons"
+    }
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -30,17 +37,26 @@ public final class ContentViewController: UITableViewController {
     }
 
     public override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return storyboardTitles.count
+        return StoryboardTitles.allCases.count
     }
 
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        let title = storyboardTitles[indexPath.item]
-        guard let viewController = UIStoryboard(name: title, bundle: .module).instantiateInitialViewController() else {
-            return
-        }
-        viewController.title = title
+        let titleCase = StoryboardTitles.allCases[indexPath.item]
+        let viewController = titleCase.viewController
+        viewController.title = titleCase.rawValue
         navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+extension ContentViewController.StoryboardTitles {
+    var viewController: UIViewController {
+        switch self {
+        case .typographies:
+            return TypographiesViewController()
+        default:
+            return UIViewController()
+        }
     }
 }
