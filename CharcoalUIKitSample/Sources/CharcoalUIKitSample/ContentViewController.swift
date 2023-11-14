@@ -55,6 +55,8 @@ extension ContentViewController.StoryboardTitles {
         switch self {
         case .typographies:
             return TypographiesViewController()
+        case .buttons:
+            return ButtonsViewController()
         default:
             return UIStoryboard(name: rawValue, bundle: .module).instantiateInitialViewController()!
         }
