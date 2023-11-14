@@ -1,6 +1,6 @@
 import UIKit
 
-open class CharcoalTypographyLabel: UILabel, CharcoalTypographyStyle {
+public class CharcoalTypographyLabel: UILabel, CharcoalTypographyStyle {
     public var isBold: Bool = false {
         didSet {
             setupStyle()
@@ -35,7 +35,7 @@ open class CharcoalTypographyLabel: UILabel, CharcoalTypographyStyle {
         setupStyle()
     }
     
-    override public func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         setupStyle()
     }
