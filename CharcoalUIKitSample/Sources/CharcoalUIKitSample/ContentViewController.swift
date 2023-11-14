@@ -61,6 +61,8 @@ extension ContentViewController.StoryboardTitles {
             return ColorsViewController()
         case .icons:
             return IconsViewController()
+        case .selections:
+            return SelectionsViewController()
         default:
             return UIStoryboard(name: rawValue, bundle: .module).instantiateInitialViewController()!
         }
