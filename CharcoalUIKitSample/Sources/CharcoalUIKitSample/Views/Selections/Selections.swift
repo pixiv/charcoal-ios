@@ -38,6 +38,7 @@ final class SelectionsViewController: UIViewController {
         label.text = "Toggle"
         let firstSwitch = CharcoalSwitch()
         firstSwitch.addTarget(self, action: #selector(didChangedSwitchValue), for: .valueChanged)
+        firstSwitch.isOn = true
         
         switchStack.addArrangedSubview(label)
         switchStack.addArrangedSubview(firstSwitch)
@@ -53,6 +54,7 @@ final class SelectionsViewController: UIViewController {
         let labelSecond = CharcoalTypography14()
         labelSecond.text = "Toggle Disabled"
         disabledCharcoalSwitch = CharcoalSwitch()
+        disabledCharcoalSwitch.isOn = true
         disabledCharcoalSwitch.isEnabled = false
         
         switchStackSecond.addArrangedSubview(labelSecond)
