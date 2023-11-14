@@ -12,11 +12,6 @@ public class CharcoalTypography10: CharcoalTypographyLabel {
             return 18
         }
     }
-    
-    func configStyle() {
-        self.isBold = false
-        self.isMono = false
-    }
 }
 
 @available(iOS 17.0, *)

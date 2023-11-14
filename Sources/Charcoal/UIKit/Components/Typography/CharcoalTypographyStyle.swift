@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by kevinzhow on 2023/11/14.
-//
-
 import UIKit
 
 protocol CharcoalTypographyStyle: UILabel {
@@ -16,12 +9,5 @@ protocol CharcoalTypographyStyle: UILabel {
     
     var lineHeight: CGFloat  {get}
     
-    func configStyle()
-    
     func setupStyle()
-}
-
-extension CharcoalTypographyStyle {
-    func configStyle() {
-    }
 }

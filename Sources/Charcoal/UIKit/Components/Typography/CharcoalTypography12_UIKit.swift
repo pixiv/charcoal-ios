@@ -12,11 +12,6 @@ public class CharcoalTypography12: CharcoalTypographyLabel {
             return CGFloat(charcoalFoundation.typography.size.the12.lineHeight)
         }
     }
-    
-    func configStyle() {
-        self.isBold = false
-        self.isMono = false
-    }
 }
 
 @available(iOS 17.0, *)

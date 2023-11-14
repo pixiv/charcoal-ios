@@ -1,7 +1,7 @@
 import UIKit
 
 open class CharcoalTypographyLabel: UILabel, CharcoalTypographyStyle {
-    public var isBold: Bool = false  {
+    public var isBold: Bool = false {
         didSet {
             setupStyle()
         }
@@ -25,9 +25,18 @@ open class CharcoalTypographyLabel: UILabel, CharcoalTypographyStyle {
         }
     }
     
-    public override func willMove(toSuperview newSuperview: UIView?) {
-        super.willMove(toSuperview: newSuperview)
-        configStyle()
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupStyle()
+    }
+    
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupStyle()
+    }
+    
+    override public func awakeFromNib() {
+        super.awakeFromNib()
         setupStyle()
     }
 }
