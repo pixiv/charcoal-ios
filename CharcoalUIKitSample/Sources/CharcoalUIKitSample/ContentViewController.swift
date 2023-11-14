@@ -56,7 +56,7 @@ extension ContentViewController.StoryboardTitles {
         case .typographies:
             return TypographiesViewController()
         default:
-            return UIViewController()
+            return UIStoryboard(name: rawValue, bundle: .module).instantiateInitialViewController()!
         }
     }
 }
