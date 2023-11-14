@@ -23,9 +23,7 @@ let package = Package(
             dependencies: [
                 .product(name: "Charcoal", package: "charcoal-ios")
             ],
-            resources: [
-                .copy("Storyboards/Content.storyboard"),
-            ]
+            resources: []
         )
     ]
 )
