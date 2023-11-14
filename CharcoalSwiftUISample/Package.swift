@@ -6,8 +6,8 @@ import PackageDescription
 let package = Package(
     name: "CharcoalSwiftUISample",
     platforms: [
-        .iOS(.v13),
-        .macOS(.v12)
+        .iOS(.v14),
+        .macOS(.v11)
     ],
     products: [
         .library(
