@@ -25,8 +25,6 @@ fileprivate struct ForegroundView: View {
     }
 }
 
-struct ForegroundView_Previews: PreviewProvider {
-    static var previews: some View {
-        ForegroundView()
-    }
+#Preview {
+    ForegroundView()
 }
