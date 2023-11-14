@@ -63,6 +63,36 @@ class TypographiesViewController: UIViewController {
         TypographyExample(title: "10 Bold Mono", content: Const.numberText, labelStyle: CharcoalTypography10.self, singleLine: true, bold: true, isMono: true),
         TypographyExample(title: "10 Regular Mono", content: Const.numberText, labelStyle: CharcoalTypography10.self, singleLine: false, bold: false, isMono: true),
     ]
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupUI()
+        
+        addTypograhpies()
+    }
+    
+    func setupUI() {
+        self.view.backgroundColor = UIColor.systemBackground
+
+        view.addSubview(scrollView)
+        
+        NSLayoutConstraint.activate([
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+        ])
+        
+        scrollView.addSubview(stackView)
+        
+        NSLayoutConstraint.activate([
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+        ])
+    }
     
     func addTypograhpies() {
         for typography in typographies {
@@ -104,36 +134,6 @@ class TypographiesViewController: UIViewController {
             
             stackView.addArrangedSubview(tView)
         }
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setupUI()
-        
-        addTypograhpies()
-    }
-    
-    func setupUI() {
-        self.view.backgroundColor = UIColor.systemBackground
-
-        view.addSubview(scrollView)
-        
-        NSLayoutConstraint.activate([
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-        ])
-        
-        scrollView.addSubview(stackView)
-        
-        NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-        ])
     }
 }
 

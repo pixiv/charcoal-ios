@@ -2,7 +2,11 @@ import UIKit
 
 public class CharcoalPrimaryMButton: UIButton, CharcoalButton {
     public var isFixed: Bool = false
-    public var primaryColor: UIColor = CharcoalAsset.ColorPaletteGenerated.brand.color
+    public var primaryColor: UIColor = CharcoalAsset.ColorPaletteGenerated.brand.color {
+        didSet {
+            setupStyle()
+        }
+    }
     
     override public var intrinsicContentSize: CGSize {
         let contentSize = super.intrinsicContentSize
