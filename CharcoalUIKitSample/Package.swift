@@ -24,12 +24,7 @@ let package = Package(
                 .product(name: "Charcoal", package: "charcoal-ios")
             ],
             resources: [
-                .copy("Storyboards/Buttons.storyboard"),
-                .copy("Storyboards/Colors.storyboard"),
                 .copy("Storyboards/Content.storyboard"),
-                .copy("Storyboards/Selections.storyboard"),
-                .copy("Storyboards/TextFields.storyboard"),
-                .copy("Storyboards/Typographies.storyboard")
             ]
         )
     ]
