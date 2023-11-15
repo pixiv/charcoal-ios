@@ -2,14 +2,14 @@ import Charcoal
 import UIKit
 
 final class TextFieldsViewController: UIViewController {
-    lazy var scrollView: UIScrollView = {
+    private lazy var scrollView: UIScrollView = {
         let view = UIScrollView(frame: .zero)
         view.bounces = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    lazy var stackView: UIStackView = {
+    private lazy var stackView: UIStackView = {
         let view = UIStackView(frame: .zero)
         view.axis = .vertical
         view.spacing = 16
@@ -19,13 +19,13 @@ final class TextFieldsViewController: UIViewController {
         return view
     }()
     
-    var textField1: CharcoalTextFieldView!
-    var textField2: CharcoalTextFieldView!
-    var textField3: CharcoalTextFieldView!
-    var textField4: CharcoalTextFieldView!
-    var textField5: CharcoalTextFieldView!
-    var textField6: CharcoalTextFieldView!
-    var textField7: CharcoalTextFieldView!
+    private var textField1: CharcoalTextFieldView!
+    private var textField2: CharcoalTextFieldView!
+    private var textField3: CharcoalTextFieldView!
+    private var textField4: CharcoalTextFieldView!
+    private var textField5: CharcoalTextFieldView!
+    private var textField6: CharcoalTextFieldView!
+    private var textField7: CharcoalTextFieldView!
 
     override func viewDidLoad() {
         view.backgroundColor = CharcoalAsset.ColorPaletteGenerated.background1.color
@@ -83,7 +83,7 @@ final class TextFieldsViewController: UIViewController {
         setupTextFieldView(textField7)
     }
     
-    func setupUI() {
+    private func setupUI() {
         view.addSubview(scrollView)
         
         NSLayoutConstraint.activate([

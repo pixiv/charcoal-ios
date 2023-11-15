@@ -2,7 +2,7 @@ import Charcoal
 import UIKit
 
 final class SelectionsViewController: UIViewController {
-    lazy var stackView: UIStackView = {
+    private lazy var stackView: UIStackView = {
         let view = UIStackView(frame: .zero)
         view.axis = .vertical
         view.alignment = .fill
@@ -12,7 +12,7 @@ final class SelectionsViewController: UIViewController {
         return view
     }()
     
-    var disabledCharcoalSwitch: CharcoalSwitch!
+    private var disabledCharcoalSwitch: CharcoalSwitch!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ final class SelectionsViewController: UIViewController {
         addSwitches()
     }
     
-    func setupUI() {
+    private func setupUI() {
         view.addSubview(stackView)
         
         NSLayoutConstraint.activate([
@@ -31,7 +31,7 @@ final class SelectionsViewController: UIViewController {
         ])
     }
     
-    func addSwitches() {
+    private func addSwitches() {
         let switchStack = UIStackView(frame: .zero)
         switchStack.axis = .horizontal
         let label = CharcoalTypography14()
@@ -48,7 +48,7 @@ final class SelectionsViewController: UIViewController {
         addDisabledSwitch()
     }
     
-    func addDisabledSwitch() {
+    private func addDisabledSwitch() {
         let switchStackSecond = UIStackView(frame: .zero)
         switchStackSecond.axis = .horizontal
         let labelSecond = CharcoalTypography14()
@@ -63,7 +63,7 @@ final class SelectionsViewController: UIViewController {
         stackView.addArrangedSubview(switchStackSecond)
     }
 
-    @objc func didChangedSwitchValue(_ sender: CharcoalSwitch) {
+    @objc private func didChangedSwitchValue(_ sender: CharcoalSwitch) {
         disabledCharcoalSwitch.isOn = sender.isOn
     }
 }

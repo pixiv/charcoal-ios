@@ -1,7 +1,7 @@
 import UIKit
 
-public final class ContentViewController: UIViewController {
-    lazy var tableView: UITableView = {
+final class ContentViewController: UIViewController {
+    private lazy var tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .insetGrouped)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -31,7 +31,7 @@ public final class ContentViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: darkModeSwitch)
     }
     
-    func setupUI() {
+    private func setupUI() {
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
@@ -45,7 +45,7 @@ public final class ContentViewController: UIViewController {
         tableView.delegate = self
     }
     
-    @objc func toggleDarkModeSwitch(_ sender: UISwitch) {
+    @objc private func toggleDarkModeSwitch(_ sender: UISwitch) {
         let keyWindow = UIApplication.shared.windows
             .first { $0.isKeyWindow }
         keyWindow?.overrideUserInterfaceStyle = sender.isOn ? .dark : .light
@@ -53,7 +53,7 @@ public final class ContentViewController: UIViewController {
 }
 
 extension ContentViewController: UITableViewDelegate, UITableViewDataSource {
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellIdentifier = "Cell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) ?? UITableViewCell(style: .default, reuseIdentifier: cellIdentifier)
@@ -64,11 +64,11 @@ extension ContentViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    public func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return StoryboardTitles.allCases.count
     }
     
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let titleCase = StoryboardTitles.allCases[indexPath.item]
@@ -77,7 +77,7 @@ extension ContentViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "UI LIBRARY"
     }
 }

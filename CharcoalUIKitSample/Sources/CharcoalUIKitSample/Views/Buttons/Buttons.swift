@@ -2,14 +2,14 @@ import Charcoal
 import UIKit
 
 final class ButtonsViewController: UIViewController {
-    lazy var scrollView: UIScrollView = {
+    private lazy var scrollView: UIScrollView = {
         let view = UIScrollView(frame: .zero)
         view.bounces = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    lazy var stackView: UIStackView = {
+    private lazy var stackView: UIStackView = {
         let view = UIStackView(frame: .zero)
         view.axis = .vertical
         view.spacing = 16
@@ -19,7 +19,7 @@ final class ButtonsViewController: UIViewController {
         return view
     }()
     
-    var buttons: [ButtonExample] = [
+    private var buttons: [ButtonExample] = [
         // Primary
         ButtonExample(title: "Primary Button M", buttonStyle: CharcoalPrimaryMButton.self, isEnabled: true),
         ButtonExample(title: "Primary Button M", buttonStyle: CharcoalPrimaryMButton.self, isEnabled: false),
@@ -46,7 +46,7 @@ final class ButtonsViewController: UIViewController {
         ButtonExample(title: "Primary Button M(Premium Color)", buttonStyle: CharcoalPrimaryMButton.self, isEnabled: false, color: UIColor.systemOrange),
     ]
     
-    var switchingButton: CharcoalSwitchingButton!
+    private var switchingButton: CharcoalSwitchingButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +55,7 @@ final class ButtonsViewController: UIViewController {
         setupSwitchingButton()
     }
     
-    func setupUI() {
+    private func setupUI() {
         self.view.backgroundColor = UIColor.systemBackground
 
         view.addSubview(scrollView)
@@ -77,7 +77,7 @@ final class ButtonsViewController: UIViewController {
         ])
     }
     
-    func addButtons() {
+    private func addButtons() {
         for example in buttons {
             let button = example.buttonStyle.init()
             button.translatesAutoresizingMaskIntoConstraints = false
@@ -107,7 +107,7 @@ final class ButtonsViewController: UIViewController {
         switchingButton.isOn = false
     }
 
-    @objc func handleSwitchingButtonTapped(_ button: UIButton) {
+    @objc private func handleSwitchingButtonTapped(_ button: UIButton) {
         switchingButton.isOn = !switchingButton.isOn
     }
 }

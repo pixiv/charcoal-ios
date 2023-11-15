@@ -2,7 +2,7 @@ import Charcoal
 import UIKit
 
 final class IconsViewController: UIViewController {
-    lazy var collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.translatesAutoresizingMaskIntoConstraints = false
         return view

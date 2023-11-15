@@ -10,14 +10,14 @@ class TypographiesViewController: UIViewController {
         static let numberText = "0123456789"
     }
     
-    lazy var scrollView: UIScrollView = {
+    private lazy var scrollView: UIScrollView = {
         let view = UIScrollView(frame: .zero)
         view.bounces = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    lazy var stackView: UIStackView = {
+    private lazy var stackView: UIStackView = {
         let view = UIStackView(frame: .zero)
         view.axis = .vertical
         view.alignment = .fill
@@ -26,7 +26,7 @@ class TypographiesViewController: UIViewController {
         return view
     }()
     
-    var typographies = [
+    private var typographies = [
         // 20
         TypographyExample(title: "20 Bold SingleLine", content: Const.shortText, labelStyle: CharcoalTypography20.self, isSingleLine: true, isBold: true, isMono: false),
         TypographyExample(title: "20 Bold MultiLine", content: Const.longText, labelStyle: CharcoalTypography20.self, isSingleLine: false, isBold: true, isMono: false),
@@ -72,7 +72,7 @@ class TypographiesViewController: UIViewController {
         addTypograhpies()
     }
     
-    func setupUI() {
+    private func setupUI() {
         self.view.backgroundColor = UIColor.systemBackground
 
         view.addSubview(scrollView)
@@ -94,7 +94,7 @@ class TypographiesViewController: UIViewController {
         ])
     }
     
-    func addTypograhpies() {
+    private func addTypograhpies() {
         for typography in typographies {
             let tView = UIView(frame: .zero)
             let titleLabel = CharcoalTypography14(frame: .zero)
