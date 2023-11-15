@@ -1,6 +1,6 @@
 import UIKit
 
-protocol CharcoalTypographyStyle: UILabel {
+protocol CharcoalTypographyStyle {
     var isBold: Bool {get set}
     
     var isMono: Bool  {get set}
