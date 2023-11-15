@@ -7,9 +7,9 @@ struct CharcoalToggleWrapper: UIViewRepresentable {
         self.isOn = isOn
     }
 
-    func makeUIView(context _: Context) -> UISwitch {
+    func makeUIView(context: Context) -> UISwitch {
         let uiSwitch = UISwitch()
-        uiSwitch.addTarget(self, action: #selector(Coordinator.handleValueChanged(_:)), for: .valueChanged)
+        uiSwitch.addTarget(context.coordinator, action: #selector(Coordinator.handleValueChanged(_:)), for: .valueChanged)
         return uiSwitch
     }
 
