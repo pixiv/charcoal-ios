@@ -1,6 +1,6 @@
 import UIKit
 
-final class ContentViewController: UIViewController {
+public final class ContentViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .insetGrouped)
         view.translatesAutoresizingMaskIntoConstraints = false
