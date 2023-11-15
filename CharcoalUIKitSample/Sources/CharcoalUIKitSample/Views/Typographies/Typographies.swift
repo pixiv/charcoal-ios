@@ -28,40 +28,40 @@ class TypographiesViewController: UIViewController {
     
     var typographies = [
         // 20
-        TypographyExample(title: "20 Bold SingleLine", content: Const.shortText, labelStyle: CharcoalTypography20.self, singleLine: true, bold: true, isMono: false),
-        TypographyExample(title: "20 Bold MultiLine", content: Const.longText, labelStyle: CharcoalTypography20.self, singleLine: false, bold: true, isMono: false),
-        TypographyExample(title: "20 Regular SingleLine", content: Const.shortText, labelStyle: CharcoalTypography20.self, singleLine: true, bold: false, isMono: false),
-        TypographyExample(title: "20 Regular MultiLine", content: Const.longText, labelStyle: CharcoalTypography20.self, singleLine: false, bold: false, isMono: false),
-        TypographyExample(title: "20 Bold Mono", content: Const.numberText, labelStyle: CharcoalTypography20.self, singleLine: true, bold: true, isMono: true),
-        TypographyExample(title: "20 Regular Mono", content: Const.numberText, labelStyle: CharcoalTypography20.self, singleLine: false, bold: false, isMono: true),
+        TypographyExample(title: "20 Bold SingleLine", content: Const.shortText, labelStyle: CharcoalTypography20.self, isSingleLine: true, isBold: true, isMono: false),
+        TypographyExample(title: "20 Bold MultiLine", content: Const.longText, labelStyle: CharcoalTypography20.self, isSingleLine: false, isBold: true, isMono: false),
+        TypographyExample(title: "20 Regular SingleLine", content: Const.shortText, labelStyle: CharcoalTypography20.self, isSingleLine: true, isBold: false, isMono: false),
+        TypographyExample(title: "20 Regular MultiLine", content: Const.longText, labelStyle: CharcoalTypography20.self, isSingleLine: false, isBold: false, isMono: false),
+        TypographyExample(title: "20 Bold Mono", content: Const.numberText, labelStyle: CharcoalTypography20.self, isSingleLine: true, isBold: true, isMono: true),
+        TypographyExample(title: "20 Regular Mono", content: Const.numberText, labelStyle: CharcoalTypography20.self, isSingleLine: false, isBold: false, isMono: true),
         // 16
-        TypographyExample(title: "16 Bold SingleLine", content: Const.shortText, labelStyle: CharcoalTypography16.self, singleLine: true, bold: true, isMono: false),
-        TypographyExample(title: "16 Bold MultiLine", content: Const.longText, labelStyle: CharcoalTypography16.self, singleLine: false, bold: true, isMono: false),
-        TypographyExample(title: "16 Regular SingleLine", content: Const.shortText, labelStyle: CharcoalTypography16.self, singleLine: true, bold: false, isMono: false),
-        TypographyExample(title: "16 Regular MultiLine", content: Const.longText, labelStyle: CharcoalTypography16.self, singleLine: false, bold: false, isMono: false),
-        TypographyExample(title: "16 Bold Mono", content: Const.numberText, labelStyle: CharcoalTypography16.self, singleLine: true, bold: true, isMono: true),
-        TypographyExample(title: "16 Regular Mono", content: Const.numberText, labelStyle: CharcoalTypography16.self, singleLine: false, bold: false, isMono: true),
+        TypographyExample(title: "16 Bold SingleLine", content: Const.shortText, labelStyle: CharcoalTypography16.self, isSingleLine: true, isBold: true, isMono: false),
+        TypographyExample(title: "16 Bold MultiLine", content: Const.longText, labelStyle: CharcoalTypography16.self, isSingleLine: false, isBold: true, isMono: false),
+        TypographyExample(title: "16 Regular SingleLine", content: Const.shortText, labelStyle: CharcoalTypography16.self, isSingleLine: true, isBold: false, isMono: false),
+        TypographyExample(title: "16 Regular MultiLine", content: Const.longText, labelStyle: CharcoalTypography16.self, isSingleLine: false, isBold: false, isMono: false),
+        TypographyExample(title: "16 Bold Mono", content: Const.numberText, labelStyle: CharcoalTypography16.self, isSingleLine: true, isBold: true, isMono: true),
+        TypographyExample(title: "16 Regular Mono", content: Const.numberText, labelStyle: CharcoalTypography16.self, isSingleLine: false, isBold: false, isMono: true),
         // 14
-        TypographyExample(title: "14 Bold SingleLine", content: Const.shortText, labelStyle: CharcoalTypography14.self, singleLine: true, bold: true, isMono: false),
-        TypographyExample(title: "14 Bold MultiLine", content: Const.longText, labelStyle: CharcoalTypography14.self, singleLine: false, bold: true, isMono: false),
-        TypographyExample(title: "14 Regular SingleLine", content: Const.shortText, labelStyle: CharcoalTypography14.self, singleLine: true, bold: false, isMono: false),
-        TypographyExample(title: "14 Regular MultiLine", content: Const.longText, labelStyle: CharcoalTypography14.self, singleLine: false, bold: false, isMono: false),
-        TypographyExample(title: "14 Bold Mono", content: Const.numberText, labelStyle: CharcoalTypography14.self, singleLine: true, bold: true, isMono: true),
-        TypographyExample(title: "14 Regular Mono", content: Const.numberText, labelStyle: CharcoalTypography14.self, singleLine: false, bold: false, isMono: true),
+        TypographyExample(title: "14 Bold SingleLine", content: Const.shortText, labelStyle: CharcoalTypography14.self, isSingleLine: true, isBold: true, isMono: false),
+        TypographyExample(title: "14 Bold MultiLine", content: Const.longText, labelStyle: CharcoalTypography14.self, isSingleLine: false, isBold: true, isMono: false),
+        TypographyExample(title: "14 Regular SingleLine", content: Const.shortText, labelStyle: CharcoalTypography14.self, isSingleLine: true, isBold: false, isMono: false),
+        TypographyExample(title: "14 Regular MultiLine", content: Const.longText, labelStyle: CharcoalTypography14.self, isSingleLine: false, isBold: false, isMono: false),
+        TypographyExample(title: "14 Bold Mono", content: Const.numberText, labelStyle: CharcoalTypography14.self, isSingleLine: true, isBold: true, isMono: true),
+        TypographyExample(title: "14 Regular Mono", content: Const.numberText, labelStyle: CharcoalTypography14.self, isSingleLine: false, isBold: false, isMono: true),
         // 12
-        TypographyExample(title: "12 Bold SingleLine", content: Const.shortText, labelStyle: CharcoalTypography12.self, singleLine: true, bold: true, isMono: false),
-        TypographyExample(title: "12 Bold MultiLine", content: Const.longText, labelStyle: CharcoalTypography12.self, singleLine: false, bold: true, isMono: false),
-        TypographyExample(title: "12 Regular SingleLine", content: Const.shortText, labelStyle: CharcoalTypography12.self, singleLine: true, bold: false, isMono: false),
-        TypographyExample(title: "12 Regular MultiLine", content: Const.longText, labelStyle: CharcoalTypography12.self, singleLine: false, bold: false, isMono: false),
-        TypographyExample(title: "12 Bold Mono", content: Const.numberText, labelStyle: CharcoalTypography12.self, singleLine: true, bold: true, isMono: true),
-        TypographyExample(title: "12 Regular Mono", content: Const.numberText, labelStyle: CharcoalTypography12.self, singleLine: false, bold: false, isMono: true),
+        TypographyExample(title: "12 Bold SingleLine", content: Const.shortText, labelStyle: CharcoalTypography12.self, isSingleLine: true, isBold: true, isMono: false),
+        TypographyExample(title: "12 Bold MultiLine", content: Const.longText, labelStyle: CharcoalTypography12.self, isSingleLine: false, isBold: true, isMono: false),
+        TypographyExample(title: "12 Regular SingleLine", content: Const.shortText, labelStyle: CharcoalTypography12.self, isSingleLine: true, isBold: false, isMono: false),
+        TypographyExample(title: "12 Regular MultiLine", content: Const.longText, labelStyle: CharcoalTypography12.self, isSingleLine: false, isBold: false, isMono: false),
+        TypographyExample(title: "12 Bold Mono", content: Const.numberText, labelStyle: CharcoalTypography12.self, isSingleLine: true, isBold: true, isMono: true),
+        TypographyExample(title: "12 Regular Mono", content: Const.numberText, labelStyle: CharcoalTypography12.self, isSingleLine: false, isBold: false, isMono: true),
         // 10
-        TypographyExample(title: "10 Bold SingleLine", content: Const.shortText, labelStyle: CharcoalTypography10.self, singleLine: true, bold: true, isMono: false),
-        TypographyExample(title: "10 Bold MultiLine", content: Const.longText, labelStyle: CharcoalTypography10.self, singleLine: false, bold: true, isMono: false),
-        TypographyExample(title: "10 Regular SingleLine", content: Const.shortText, labelStyle: CharcoalTypography10.self, singleLine: true, bold: false, isMono: false),
-        TypographyExample(title: "10 Regular MultiLine", content: Const.longText, labelStyle: CharcoalTypography10.self, singleLine: false, bold: false, isMono: false),
-        TypographyExample(title: "10 Bold Mono", content: Const.numberText, labelStyle: CharcoalTypography10.self, singleLine: true, bold: true, isMono: true),
-        TypographyExample(title: "10 Regular Mono", content: Const.numberText, labelStyle: CharcoalTypography10.self, singleLine: false, bold: false, isMono: true),
+        TypographyExample(title: "10 Bold SingleLine", content: Const.shortText, labelStyle: CharcoalTypography10.self, isSingleLine: true, isBold: true, isMono: false),
+        TypographyExample(title: "10 Bold MultiLine", content: Const.longText, labelStyle: CharcoalTypography10.self, isSingleLine: false, isBold: true, isMono: false),
+        TypographyExample(title: "10 Regular SingleLine", content: Const.shortText, labelStyle: CharcoalTypography10.self, isSingleLine: true, isBold: false, isMono: false),
+        TypographyExample(title: "10 Regular MultiLine", content: Const.longText, labelStyle: CharcoalTypography10.self, isSingleLine: false, isBold: false, isMono: false),
+        TypographyExample(title: "10 Bold Mono", content: Const.numberText, labelStyle: CharcoalTypography10.self, isSingleLine: true, isBold: true, isMono: true),
+        TypographyExample(title: "10 Regular Mono", content: Const.numberText, labelStyle: CharcoalTypography10.self, isSingleLine: false, isBold: false, isMono: true),
     ]
 
     override func viewDidLoad() {
@@ -104,9 +104,9 @@ class TypographiesViewController: UIViewController {
             let contentLabel = typography.labelStyle.init()
             contentLabel.translatesAutoresizingMaskIntoConstraints = false
             contentLabel.text = typography.content
-            contentLabel.numberOfLines = typography.singleLine ? 1 : 0
+            contentLabel.numberOfLines = typography.isSingleLine ? 1 : 0
             
-            if typography.bold {
+            if typography.isBold {
                 contentLabel.isBold = true
             }
             
@@ -114,7 +114,7 @@ class TypographiesViewController: UIViewController {
                 contentLabel.isMono = true
             }
             
-            if typography.singleLine {
+            if typography.isSingleLine {
                 contentLabel.numberOfLines = 1
             }
             
@@ -142,8 +142,8 @@ extension TypographiesViewController {
         let title: String
         let content: String
         let labelStyle: CharcoalTypographyLabel.Type
-        let singleLine: Bool
-        let bold: Bool
+        let isSingleLine: Bool
+        let isBold: Bool
         let isMono: Bool
     }
 }
