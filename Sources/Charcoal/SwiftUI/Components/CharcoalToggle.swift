@@ -1,15 +1,11 @@
 import SwiftUI
 
 struct CharcoalToggleWrapper: UIViewRepresentable {
-    var isOn: Binding<Bool>
+    @Binding var isOn: Bool
 
-    init(isOn: Binding<Bool>) {
-        self.isOn = isOn
-    }
-
-    func makeUIView(context _: Context) -> UISwitch {
+    func makeUIView(context: Context) -> UISwitch {
         let uiSwitch = UISwitch()
-        uiSwitch.addTarget(self, action: #selector(Coordinator.handleValueChanged(_:)), for: .valueChanged)
+        uiSwitch.addTarget(context.coordinator, action: #selector(Coordinator.handleValueChanged(_:)), for: .valueChanged)
         return uiSwitch
     }
 
@@ -22,7 +18,7 @@ struct CharcoalToggleWrapper: UIViewRepresentable {
         uiView.backgroundColor = CharcoalAsset.ColorPaletteGenerated.surface4.color
         uiView.layer.cornerRadius = uiView.frame.size.height / 2.0
         uiView.layer.cornerCurve = .continuous
-        uiView.isOn = isOn.wrappedValue
+        uiView.isOn = isOn
     }
 
     class Coordinator: NSObject {
@@ -35,7 +31,7 @@ struct CharcoalToggleWrapper: UIViewRepresentable {
 
         @objc
         func handleValueChanged(_ sender: UISwitch) {
-            toggleWrapper.isOn.wrappedValue = sender.isOn
+            toggleWrapper.isOn = sender.isOn
         }
     }
 }
@@ -46,17 +42,19 @@ struct CharcoalToggleStyle: ToggleStyle {
 
     func makeBody(configuration: Self.Configuration) -> some View {
         HStack {
-            configuration.label
-                .charcoalTypography14Regular()
-                .charcoalOnSurfaceText1()
-            Spacer()
+            HStack {
+                configuration.label
+                    .charcoalTypography14Regular()
+                    .charcoalOnSurfaceText1()
+                Spacer()
+            }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                configuration.isOn = !configuration.isOn
+            }
             CharcoalToggleWrapper(isOn: configuration.$isOn)
                 .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
                 .opacity(isEnabled ? 1.0 : 0.32)
-        }
-        .contentShape(Rectangle())
-        .onTapGesture {
-            configuration.isOn = !configuration.isOn
         }
     }
 }
