@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension CharcoalButtonPadding {
+struct CharcoalButtonPadding {
     static var medium: EdgeInsets = EdgeInsets(top: 11, leading: 24, bottom: 11, trailing: 24)
     static var small: EdgeInsets = EdgeInsets(top: 7, leading: 16, bottom: 7, trailing: 16)
 }
