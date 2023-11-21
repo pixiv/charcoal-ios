@@ -6,7 +6,7 @@
 import Foundation
 
 // MARK: - CharcoalFoundation
-public struct CharcoalFoundation: Codable {
+public struct CharcoalButtonPadding: Codable {
     public let borderRadius: CharcoalBorderRadius
     public let spacing: CharcoalSpacing
     public let typography: CharcoalTypography
@@ -20,9 +20,9 @@ public struct CharcoalFoundation: Codable {
 
 // MARK: CharcoalFoundation convenience initializers and mutators
 
-public extension CharcoalFoundation {
+public extension CharcoalButtonPadding {
     init(data: Data) throws {
-        self = try newJSONDecoder().decode(CharcoalFoundation.self, from: data)
+        self = try newJSONDecoder().decode(CharcoalButtonPadding.self, from: data)
     }
 
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {
@@ -40,8 +40,8 @@ public extension CharcoalFoundation {
         borderRadius: CharcoalBorderRadius? = nil,
         spacing: CharcoalSpacing? = nil,
         typography: CharcoalTypography? = nil
-    ) -> CharcoalFoundation {
-        return CharcoalFoundation(
+    ) -> CharcoalButtonPadding {
+        return CharcoalButtonPadding(
             borderRadius: borderRadius ?? self.borderRadius,
             spacing: spacing ?? self.spacing,
             typography: typography ?? self.typography

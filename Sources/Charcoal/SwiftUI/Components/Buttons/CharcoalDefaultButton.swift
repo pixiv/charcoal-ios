@@ -6,21 +6,29 @@ struct CharcoalDefaultButtonStyleView: View {
     let isEnabled: Bool
     let size: CharcoalButtonSize
     let isFixed: Bool
+    
+    @ScaledMetric(relativeTo: .body)
+    private var fontSize: CGFloat = 14
+    
+    @ScaledMetric(relativeTo: .body)
+    private var mediumCornerRadius: CGFloat = CharcoalButtonPadding.medium.leading
+    
+    @ScaledMetric(relativeTo: .body)
+    private var smallCornerRadius: CGFloat = CharcoalButtonPadding.medium.leading
 
     var body: some View {
         label
-            .font(.system(size: 14, weight: .bold))
+            .font(.system(size: fontSize, weight: .bold))
             .charcoalOnSurfaceText2()
-            .padding(size == .medium ? 24 : 16)
+            .padding(size == .medium ? CharcoalButtonPadding.medium : CharcoalButtonPadding.small)
             .frame(maxWidth: isFixed ? nil : .infinity)
-            .frame(height: size == .medium ? 40 : 32)
             .charcoalSurface3()
             .opacity(isEnabled ? 1.0 : 0.32)
             .overlay(
                 Rectangle()
                     .backport.foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
             )
-            .cornerRadius(size == .medium ? 20 : 16)
+            .cornerRadius(size == .medium ? mediumCornerRadius : smallCornerRadius)
     }
 }
 
@@ -75,5 +83,20 @@ public extension View {
     @warn_unqualified_access
     func charcoalDefaultButton(size: CharcoalButtonSize = .medium, isFixed: Bool = true) -> some View {
         return modifier(CharcoalDefaultButtonStyleModifier(size: size, isFixed: isFixed))
+    }
+}
+
+#Preview {
+    VStack(spacing: 8) {
+        Button("Default Button M") {}
+            .charcoalDefaultButton(size: .medium)
+        Button("Default Button M") {}
+            .charcoalDefaultButton(size: .medium)
+            .disabled(true)
+        Button("Default Button S") {}
+            .charcoalDefaultButton(size: .small)
+        Button("Default Button S") {}
+            .charcoalDefaultButton(size: .small)
+            .disabled(true)
     }
 }

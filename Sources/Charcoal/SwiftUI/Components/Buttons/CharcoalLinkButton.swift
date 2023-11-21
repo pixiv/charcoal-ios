@@ -4,13 +4,16 @@ struct CharcoalLinkButtonStyleView: View {
     let label: ButtonStyleConfiguration.Label
     let isPressed: Bool
     let isEnabled: Bool
+    
+    @ScaledMetric(relativeTo: .body)
+    private var fontSize: CGFloat = 14
 
     var body: some View {
         label
-            .font(.system(size: 14, weight: .bold))
+            .font(.system(size: fontSize, weight: .bold))
             // swiftlint:disable line_length
+            .padding(EdgeInsets(top: 11.5, leading: 0, bottom: 11.5, trailing: 0))
             .foregroundStyle(charcoalColor: isPressed ? .text3 : .text1)
-            .frame(height: 40)
             .opacity(isEnabled ? 1.0 : 0.32)
     }
 }
