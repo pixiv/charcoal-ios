@@ -2,40 +2,15 @@ import Charcoal
 import UIKit
 
 final class ColorsViewController: UIViewController {
-    @IBOutlet var collectionView: UICollectionView!
+    private lazy var collectionView: UICollectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private let colorsCollectionViewCellIdentifier = "ColorsCollectionViewCell"
 
-    private let colors = [
-        CharcoalAsset.ColorPaletteGenerated.background1,
-        CharcoalAsset.ColorPaletteGenerated.background2,
-        CharcoalAsset.ColorPaletteGenerated.brand,
-        CharcoalAsset.ColorPaletteGenerated.border,
-        CharcoalAsset.ColorPaletteGenerated.link1,
-        CharcoalAsset.ColorPaletteGenerated.link2,
-        CharcoalAsset.ColorPaletteGenerated.text1,
-        CharcoalAsset.ColorPaletteGenerated.text2,
-        CharcoalAsset.ColorPaletteGenerated.text3,
-        CharcoalAsset.ColorPaletteGenerated.text4,
-        CharcoalAsset.ColorPaletteGenerated.text5,
-        CharcoalAsset.ColorPaletteGenerated.icon6,
-        CharcoalAsset.ColorPaletteGenerated.assertive,
-        CharcoalAsset.ColorPaletteGenerated.callToAction0,
-        CharcoalAsset.ColorPaletteGenerated.callToAction100,
-        CharcoalAsset.ColorPaletteGenerated.success,
-        CharcoalAsset.ColorPaletteGenerated.warning,
-        CharcoalAsset.ColorPaletteGenerated.updatedItem,
-        CharcoalAsset.ColorPaletteGenerated.surface1,
-        CharcoalAsset.ColorPaletteGenerated.surface2,
-        CharcoalAsset.ColorPaletteGenerated.surface3,
-        CharcoalAsset.ColorPaletteGenerated.surface4,
-        CharcoalAsset.ColorPaletteGenerated.surface50,
-        CharcoalAsset.ColorPaletteGenerated.surface5100,
-        CharcoalAsset.ColorPaletteGenerated.surface6,
-        CharcoalAsset.ColorPaletteGenerated.surface7,
-        CharcoalAsset.ColorPaletteGenerated.surface8,
-        CharcoalAsset.ColorPaletteGenerated.surface9,
-        CharcoalAsset.ColorPaletteGenerated.surface10
-    ].map { $0.color }
+    private let colors = CharcoalAsset.ColorPaletteGenerated.allCases.map({ $0.color })
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +19,16 @@ final class ColorsViewController: UIViewController {
     }
 
     private func setupCollectionView() {
+        view.backgroundColor = UIColor.systemBackground
+        view.addSubview(collectionView)
+        
+        NSLayoutConstraint.activate([
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -121,4 +106,10 @@ extension ColorsViewController: UICollectionViewDelegateFlowLayout {
     ) -> CGFloat {
         return 0
     }
+}
+
+@available(iOS 17.0, *)
+#Preview {
+    let viewController = ColorsViewController()
+    return viewController
 }

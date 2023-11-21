@@ -1,3 +1,3 @@
-import Foundation
+import UIKit
 
-public protocol CharcoalButton {}
+public protocol CharcoalButton: UIButton {}

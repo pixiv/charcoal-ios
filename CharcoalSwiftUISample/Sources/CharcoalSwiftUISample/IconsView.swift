@@ -51,10 +51,6 @@ struct IconsView: View {
     }
 }
 
-// MARK: Development View
-
-struct Icons_Previews: PreviewProvider {
-    static var previews: some View {
-        IconsView()
-    }
+#Preview {
+    IconsView()
 }

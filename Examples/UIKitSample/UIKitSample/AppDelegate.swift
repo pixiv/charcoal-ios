@@ -9,9 +9,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _: UIApplication,
         didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        let viewController = ContentViewController.instantiate()
+        let viewController = ContentViewController()
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = viewController
+        self.window?.rootViewController = UINavigationController(rootViewController: viewController)
         self.window?.makeKeyAndVisible()
         return true
     }

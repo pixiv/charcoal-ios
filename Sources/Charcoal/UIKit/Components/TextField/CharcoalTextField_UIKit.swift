@@ -1,7 +1,11 @@
 import UIKit
 
 public class CharcoalTextField: UITextField {
-    private var lengthLimit: Int = 0
+    public var lengthLimit: Int = 0 {
+        didSet {
+            setupCountLabelIfNeeded()
+        }
+    }
     private var exceedLengthLimit = false
     private let borderIdentifireBrand = "net.pixiv.color.brand"
     private let borderIdentifireAssertive = "net.pixiv.color.assertive"
@@ -62,11 +66,6 @@ public class CharcoalTextField: UITextField {
         setupStyle()
     }
 
-    override public func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        setupStyle()
-    }
-
     private func setupStyle() {
         backgroundColor = CharcoalAsset.ColorPaletteGenerated.surface3.color
         borderStyle = .none
@@ -97,7 +96,8 @@ public class CharcoalTextField: UITextField {
     }
 
     private func setupCountLabelIfNeeded() {
-        guard lengthLimit > 0 else {
+        guard lengthLimit > 0 && rightView == nil else {
+            rightView = nil
             return
         }
 

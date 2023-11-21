@@ -1,41 +1,22 @@
 import UIKit
 
-@IBDesignable
-public class CharcoalTypography10: UILabel {
-    @IBInspectable
-    var isBold: Bool = false
-    @IBInspectable
-    var isMono: Bool = false
-
-    private let fontSize: CGFloat = 10
-    private let lineHeight: CGFloat = 18
-
-    override public init(frame: CGRect) {
-        super.init(frame: frame)
-        setupStyle()
-    }
-
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setupStyle()
-    }
-
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-        setupStyle()
-    }
-
-    override public func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        setupStyle()
-    }
-
-    private func setupStyle() {
-        setupFont(fontSize: fontSize, isBold: isBold, isMono: isMono)
-        if isMono {
-            numberOfLines = 1
-        } else {
-            setupLineHeight(lineHeight: lineHeight)
+public class CharcoalTypography10: CharcoalTypographyLabel {
+    public override var fontSize: CGFloat {
+        get {
+            return 10
         }
     }
+    
+    public override var lineHeight: CGFloat {
+        get {
+            return 18
+        }
+    }
+}
+
+@available(iOS 17.0, *)
+#Preview {
+    let typography = CharcoalTypography10()
+    typography.text = "Heavy boxes perform quick waltzes and jigs"
+    return typography
 }

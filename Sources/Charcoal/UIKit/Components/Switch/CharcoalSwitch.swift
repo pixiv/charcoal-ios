@@ -1,6 +1,5 @@
 import UIKit
 
-@IBDesignable
 public class CharcoalSwitch: UISwitch {
     override public var isEnabled: Bool {
         didSet {
@@ -29,11 +28,6 @@ public class CharcoalSwitch: UISwitch {
         setupStyle()
     }
 
-    override public func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        setupStyle()
-    }
-
     private func setupStyle() {
         onTintColor = CharcoalAsset.ColorPaletteGenerated.brand.color
         subviews.first?.subviews.first?.backgroundColor = CharcoalAsset.ColorPaletteGenerated.text3.color
@@ -48,4 +42,10 @@ public class CharcoalSwitch: UISwitch {
     private func updateStyle() {
         alpha = isEnabled ? 1 : 0.64
     }
+}
+
+@available(iOS 17.0, *)
+#Preview {
+    let button = CharcoalSwitch()
+    return button
 }
