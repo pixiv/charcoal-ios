@@ -9,18 +9,12 @@ struct CharcoalDefaultButtonStyleView: View {
     
     @ScaledMetric(relativeTo: .body)
     private var fontSize: CGFloat = 14
-    
-    @ScaledMetric(relativeTo: .body)
-    private var mediumCornerRadius: CGFloat = CharcoalButtonPadding.medium.leading
-    
-    @ScaledMetric(relativeTo: .body)
-    private var smallCornerRadius: CGFloat = CharcoalButtonPadding.medium.leading
 
     var body: some View {
         label
             .font(.system(size: fontSize, weight: .bold))
             .charcoalOnSurfaceText2()
-            .padding(size == .medium ? CharcoalButtonPadding.medium : CharcoalButtonPadding.small)
+            .padding(size == .medium ? CharcoalButtonSize.medium.padding : CharcoalButtonSize.small.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
             .charcoalSurface3()
             .opacity(isEnabled ? 1.0 : 0.32)
@@ -28,7 +22,7 @@ struct CharcoalDefaultButtonStyleView: View {
                 Rectangle()
                     .backport.foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
             )
-            .cornerRadius(size == .medium ? mediumCornerRadius : smallCornerRadius)
+            .cornerRadius(size.cornerRadius)
     }
 }
 

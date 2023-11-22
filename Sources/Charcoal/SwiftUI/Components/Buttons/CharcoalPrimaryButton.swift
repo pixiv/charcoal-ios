@@ -11,17 +11,11 @@ struct CharcoalPrimaryButtonStyleView: View {
     @ScaledMetric(relativeTo: .body)
     private var fontSize: CGFloat = 14
     
-    @ScaledMetric(relativeTo: .body)
-    private var mediumCornerRadius: CGFloat = CharcoalButtonPadding.medium.leading
-    
-    @ScaledMetric(relativeTo: .body)
-    private var smallCornerRadius: CGFloat = CharcoalButtonPadding.medium.leading
-    
     var body: some View {
         label
             .font(.system(size: fontSize, weight: .bold))
             .charcoalOnSurfaceText5()
-            .padding(size == .medium ? CharcoalButtonPadding.medium : CharcoalButtonPadding.small)
+            .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
             .background(primaryColor)
             .opacity(isEnabled ? 1.0 : 0.32)
@@ -29,7 +23,7 @@ struct CharcoalPrimaryButtonStyleView: View {
                 Rectangle()
                     .backport.foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
             )
-            .cornerRadius(size == .medium ? mediumCornerRadius : smallCornerRadius)
+            .cornerRadius(size.cornerRadius)
     }
 }
 
@@ -95,5 +89,20 @@ public extension View {
         primaryColor: Color = Color(CharcoalAsset.ColorPaletteGenerated.brand.color)
     ) -> some View {
         return modifier(CharcoalPrimaryButtonStyleModifier(size: size, isFixed: isFixed, primaryColor: primaryColor))
+    }
+}
+
+#Preview {
+    VStack(spacing: 8) {
+        Button("Primary Button M") {}
+            .charcoalPrimaryButton(size: .medium)
+        Button("Primary Button M") {}
+            .charcoalPrimaryButton(size: .medium)
+            .disabled(true)
+        Button("Primary Button S") {}
+            .charcoalPrimaryButton(size: .small)
+        Button("Primary Button S") {}
+            .charcoalPrimaryButton(size: .small)
+            .disabled(true)
     }
 }
