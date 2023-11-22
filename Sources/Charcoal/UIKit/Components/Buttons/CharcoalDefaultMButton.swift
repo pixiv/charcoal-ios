@@ -8,7 +8,7 @@ public class CharcoalDefaultMButton: UIButton, CharcoalButton {
         let fixedSize = superview?.frame.width ?? contentSize.width
         return CGSize(
             width: isFixed ? fixedSize : contentSize.width,
-            height: 40
+            height: contentSize.height
         )
     }
 
