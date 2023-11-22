@@ -11,6 +11,6 @@ extension CharcoalButtonSize {
     }
     
     var cornerRadius: CGFloat {
-        return UIFontMetrics.default.scaledValue(for: padding.leading)
+        return UIFontMetrics(forTextStyle: .body).scaledValue(for: padding.leading)
     }
 }
