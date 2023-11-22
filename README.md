@@ -1,6 +1,7 @@
 # charcoal-ios ― PIXIV Design System
 
 ## Usage
+
 ### SwiftUI
 
 ```swift
@@ -13,7 +14,7 @@ Button("OK") {}
 
 ### UIKit
 
-Storyboardとコードから利用可能です。
+Storyboard とコードから利用可能です。
 
 ```swift
 let label = CharcoalTypography20()
@@ -24,8 +25,33 @@ let buttton = CharcoalPrimaryMButton()
 button.setTitle("OK", for: .normal)
 ```
 
+### Dynamic Type
+
+charcoal-ios はデフォルトで Dynamic Type をサポートしています。この機能を無効にしたい場合は、以下の手順をご参照ください。
+
+#### SwiftUI
+
+`.environment(.sizeCategory, .large)` を使用して Dynamic Type レベルを固定します。
+
+```swift
+Button("Default Button M") {}
+    .charcoalDefaultButton(size: .medium)
+    .environment(\.sizeCategory, .large)
+```
+
+#### UIKit
+
+`setOverrideTraitCollection` を使用して Dynamic Type レベルを固定します。
+
+```swift
+let trait = UITraitCollection(preferredContentSizeCategory: .large)
+
+setOverrideTraitCollection(trait, forChild: viewController)
+```
+
 ## Installation
-Swift Package Managerを使ってライブラリをインストールすることができます。
+
+Swift Package Manager を使ってライブラリをインストールすることができます。
 
 ```swift
 dependencies: [
