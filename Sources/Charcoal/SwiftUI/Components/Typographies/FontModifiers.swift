@@ -5,15 +5,24 @@ struct CharcoalFontModifier: ViewModifier {
     let weight: UIFont.Weight
     let lineHeight: CGFloat
     let isSingleLine: Bool
+    let textStyle: UIFont.TextStyle
+    
+    init(size: CGFloat, weight: UIFont.Weight, lineHeight: CGFloat, isSingleLine: Bool, textStyle: UIFont.TextStyle = .body) {
+        self.size = size
+        self.weight = weight
+        self.lineHeight = lineHeight
+        self.isSingleLine = isSingleLine
+        self.textStyle = textStyle
+    }
     
     @Environment(\.sizeCategory) var sizeCategory
     
     var scaledFontSize: CGFloat {
-        return UIFontMetrics.default.scaledValue(for: size)
+        return UIFontMetrics(forTextStyle: textStyle).scaledValue(for: size)
     }
     
     var scaledLineHeight: CGFloat {
-        return UIFontMetrics.default.scaledValue(for: lineHeight)
+        return UIFontMetrics(forTextStyle: textStyle).scaledValue(for: lineHeight)
     }
 
     func body(content: Content) -> some View {

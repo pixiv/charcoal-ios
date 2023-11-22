@@ -20,7 +20,7 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
         return VStack(alignment: .leading, spacing: 8) {
             if !label.isEmpty {
                 Text(label)
-                    .charcoalTypography14Regular()
+                    .charcoalTypography14Regular(textStyle: .footnote)
                     .charcoalOnSurfaceText1()
                     .lineLimit(1)
             }
@@ -32,7 +32,7 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
                     .charcoalOnSurfaceText2()
                 if !countLabel.isEmpty {
                     Text(countLabel)
-                        .charcoalTypography14Regular()
+                        .charcoalTypography14Regular(textStyle: .footnote)
                         // swiftlint:disable line_length
                         .foregroundStyle(charcoalColor: hasError ? .assertive : .text3)
                 }
@@ -46,7 +46,7 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
             )
             if !assistiveText.isEmpty {
                 Text(assistiveText)
-                    .charcoalTypography14Regular()
+                    .charcoalTypography14Regular(textStyle: .footnote)
                     .foregroundStyle(charcoalColor: hasError ? .assertive : .text2)
             }
         }
