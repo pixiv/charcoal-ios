@@ -7,6 +7,8 @@ struct CharcoalFontModifier: ViewModifier {
     let isSingleLine: Bool
     let textStyle: UIFont.TextStyle
     
+    @Environment(\.sizeCategory) var sizeCategory
+    
     init(size: CGFloat, weight: UIFont.Weight, lineHeight: CGFloat, isSingleLine: Bool, textStyle: UIFont.TextStyle = .body) {
         self.size = size
         self.weight = weight
@@ -14,8 +16,6 @@ struct CharcoalFontModifier: ViewModifier {
         self.isSingleLine = isSingleLine
         self.textStyle = textStyle
     }
-    
-    @Environment(\.sizeCategory) var sizeCategory
     
     var scaledFontSize: CGFloat {
         return UIFontMetrics(forTextStyle: textStyle).scaledValue(for: size)

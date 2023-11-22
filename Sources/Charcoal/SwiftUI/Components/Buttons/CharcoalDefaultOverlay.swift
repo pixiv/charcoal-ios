@@ -7,12 +7,11 @@ struct CharcoalDefaultOverlayButtonStyleView: View {
     let size: CharcoalButtonSize
     let isFixed: Bool
     
-    @ScaledMetric(relativeTo: .body)
-    private var fontSize: CGFloat = 14
+    @Environment(\.sizeCategory) var sizeCategory
 
     var body: some View {
         label
-            .font(.system(size: fontSize, weight: .bold))
+            .font(.system(size: size.fontSize, weight: .bold))
             .charcoalOnSurfaceText2()
             .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
