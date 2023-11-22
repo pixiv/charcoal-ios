@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct ButtonsView: View {
-    @Environment(\.sizeCategory) var sizeCategory
     
     var body: some View {
         ScrollView {
