@@ -7,7 +7,19 @@ struct CharcoalNavigationButtonStyleView: View {
     let size: CharcoalButtonSize
     let isFixed: Bool
     
-    @Environment(\.sizeCategory) var sizeCategory
+    @ScaledMetric var fontSize: CGFloat;
+    
+    @ScaledMetric var cornerRadius: CGFloat;
+    
+    init(label: ButtonStyleConfiguration.Label, isPressed: Bool, isEnabled: Bool, size: CharcoalButtonSize, isFixed: Bool) {
+        self.label = label
+        self.isPressed = isPressed
+        self.isEnabled = isEnabled
+        self.size = size
+        self.isFixed = isFixed
+        self._fontSize = ScaledMetric(wrappedValue: size.fontSize)
+        self._cornerRadius = ScaledMetric(wrappedValue: size.cornerRadius)
+    }
 
     var body: some View {
         guard isEnabled else {
@@ -17,7 +29,7 @@ struct CharcoalNavigationButtonStyleView: View {
             )
         }
         return AnyView(label
-            .font(.system(size: size.fontSize, weight: .bold))
+            .font(.system(size: fontSize, weight: .bold))
             .charcoalOnSurfaceText5()
             .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
@@ -26,7 +38,7 @@ struct CharcoalNavigationButtonStyleView: View {
                 Rectangle()
                     .backport.foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
             )
-            .cornerRadius(size.cornerRadius)
+            .cornerRadius(cornerRadius)
         )
     }
 }
@@ -82,5 +94,20 @@ public extension View {
     @warn_unqualified_access
     func charcoalNavigationButton(size: CharcoalButtonSize = .medium, isFixed: Bool = true) -> some View {
         return modifier(CharcoalNavigationButtonStyleModifier(size: size, isFixed: isFixed))
+    }
+}
+
+#Preview {
+    VStack(spacing: 8) {
+        Button("Navigation M") {}
+            .charcoalNavigationButton(size: .medium)
+        Button("Navigation M") {}
+            .charcoalNavigationButton(size: .medium)
+            .disabled(true)
+        Button("Navigation S") {}
+            .charcoalNavigationButton(size: .small)
+        Button("Navigation S") {}
+            .charcoalNavigationButton(size: .small)
+            .disabled(true)
     }
 }

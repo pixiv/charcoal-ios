@@ -178,3 +178,7 @@ struct TypographiesView: View {
         .navigationBarTitle("Typographies")
     }
 }
+
+#Preview {
+    TypographiesView()
+}

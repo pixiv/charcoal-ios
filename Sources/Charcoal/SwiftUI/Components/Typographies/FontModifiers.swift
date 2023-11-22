@@ -3,34 +3,27 @@ import SwiftUI
 struct CharcoalFontModifier: ViewModifier {
     let size: CGFloat
     let weight: UIFont.Weight
-    let lineHeight: CGFloat
     let isSingleLine: Bool
-    let textStyle: UIFont.TextStyle
+    let textStyle: Font.TextStyle
     
-    @Environment(\.sizeCategory) var sizeCategory
+    @ScaledMetric var fontSize: CGFloat;
+    @ScaledMetric var lineHeight: CGFloat;
     
-    init(size: CGFloat, weight: UIFont.Weight, lineHeight: CGFloat, isSingleLine: Bool, textStyle: UIFont.TextStyle = .body) {
+    init(size: CGFloat, weight: UIFont.Weight, lineHeight: CGFloat, isSingleLine: Bool, textStyle: Font.TextStyle = .body) {
         self.size = size
         self.weight = weight
-        self.lineHeight = lineHeight
         self.isSingleLine = isSingleLine
         self.textStyle = textStyle
-    }
-    
-    var scaledFontSize: CGFloat {
-        return UIFontMetrics(forTextStyle: textStyle).scaledValue(for: size)
-    }
-    
-    var scaledLineHeight: CGFloat {
-        return UIFontMetrics(forTextStyle: textStyle).scaledValue(for: lineHeight)
+        self._fontSize = ScaledMetric(wrappedValue: size, relativeTo: textStyle)
+        self._lineHeight =  ScaledMetric(wrappedValue: lineHeight, relativeTo: textStyle)
     }
 
     func body(content: Content) -> some View {
-        let font: UIFont = .systemFont(ofSize: scaledFontSize, weight: weight)
+        let font: UIFont = .systemFont(ofSize: fontSize, weight: weight)
         return content
             .font(Font(font))
-            .lineSpacing(isSingleLine ? 0 : scaledLineHeight - font.lineHeight)
-            .padding(.vertical, isSingleLine ? 0 : (scaledLineHeight - font.lineHeight) / 2)
+            .lineSpacing(isSingleLine ? 0 : lineHeight - font.lineHeight)
+            .padding(.vertical, isSingleLine ? 0 : (lineHeight - font.lineHeight) / 2)
             .lineLimit(isSingleLine ? 1 : nil)
             .fixedSize(horizontal: false, vertical: true)
     }

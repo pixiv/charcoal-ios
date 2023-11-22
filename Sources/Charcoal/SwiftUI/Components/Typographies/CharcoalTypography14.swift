@@ -15,7 +15,7 @@ public extension View {
     }
 
     @warn_unqualified_access
-    func charcoalTypography14Regular(isSingleLine: Bool = false, textStyle: UIFont.TextStyle = .body) -> some View {
+    func charcoalTypography14Regular(isSingleLine: Bool = false, textStyle: Font.TextStyle = .body) -> some View {
         return modifier(CharcoalFontModifier(
             size: fontSize,
             weight: .regular,

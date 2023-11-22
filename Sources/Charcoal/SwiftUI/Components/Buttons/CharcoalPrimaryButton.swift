@@ -8,11 +8,24 @@ struct CharcoalPrimaryButtonStyleView: View {
     let isFixed: Bool
     let primaryColor: Color
     
-    @Environment(\.sizeCategory) var sizeCategory
+    @ScaledMetric var fontSize: CGFloat;
+    
+    @ScaledMetric var cornerRadius: CGFloat;
+    
+    init(label: ButtonStyleConfiguration.Label, isPressed: Bool, isEnabled: Bool, size: CharcoalButtonSize, isFixed: Bool, primaryColor: Color) {
+        self.label = label
+        self.isPressed = isPressed
+        self.isEnabled = isEnabled
+        self.size = size
+        self.isFixed = isFixed
+        self.primaryColor = primaryColor
+        self._fontSize = ScaledMetric(wrappedValue: size.fontSize)
+        self._cornerRadius = ScaledMetric(wrappedValue: size.cornerRadius)
+    }
     
     var body: some View {
         label
-            .font(.system(size: size.fontSize, weight: .bold))
+            .font(.system(size: fontSize, weight: .bold))
             .charcoalOnSurfaceText5()
             .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
@@ -22,7 +35,7 @@ struct CharcoalPrimaryButtonStyleView: View {
                 Rectangle()
                     .backport.foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
             )
-            .cornerRadius(size.cornerRadius)
+            .cornerRadius(cornerRadius)
     }
 }
 

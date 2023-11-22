@@ -7,11 +7,23 @@ struct CharcoalDefaultOverlayButtonStyleView: View {
     let size: CharcoalButtonSize
     let isFixed: Bool
     
-    @Environment(\.sizeCategory) var sizeCategory
+    @ScaledMetric var fontSize: CGFloat;
+    
+    @ScaledMetric var cornerRadius: CGFloat;
+    
+    init(label: ButtonStyleConfiguration.Label, isPressed: Bool, isEnabled: Bool, size: CharcoalButtonSize, isFixed: Bool) {
+        self.label = label
+        self.isPressed = isPressed
+        self.isEnabled = isEnabled
+        self.size = size
+        self.isFixed = isFixed
+        self._fontSize = ScaledMetric(wrappedValue: size.fontSize)
+        self._cornerRadius = ScaledMetric(wrappedValue: size.cornerRadius)
+    }
 
     var body: some View {
         label
-            .font(.system(size: size.fontSize, weight: .bold))
+            .font(.system(size: fontSize, weight: .bold))
             .charcoalOnSurfaceText2()
             .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
@@ -21,7 +33,7 @@ struct CharcoalDefaultOverlayButtonStyleView: View {
                 Rectangle()
                     .backport.foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
             )
-            .cornerRadius(size.cornerRadius)
+            .cornerRadius(cornerRadius)
     }
 }
 
@@ -77,5 +89,20 @@ public extension View {
     @warn_unqualified_access
     func charcoalDefaultOverlayButton(size: CharcoalButtonSize = .medium, isFixed: Bool = true) -> some View {
         return modifier(CharcoalDefaultOverlayButtonStyleModifier(size: size, isFixed: isFixed))
+    }
+}
+
+#Preview {
+    VStack(spacing: 8) {
+        Button("Default Overlay Button M") {}
+            .charcoalDefaultOverlayButton(size: .medium)
+        Button("Default Overlay Button M") {}
+            .charcoalDefaultOverlayButton(size: .medium)
+            .disabled(true)
+        Button("Default Overlay Button S") {}
+            .charcoalDefaultOverlayButton(size: .small)
+        Button("Default Overlay Button S") {}
+            .charcoalDefaultOverlayButton(size: .small)
+            .disabled(true)
     }
 }
