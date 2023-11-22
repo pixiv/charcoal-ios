@@ -14,7 +14,7 @@ struct CharcoalDefaultButtonStyleView: View {
         label
             .font(.system(size: fontSize, weight: .bold))
             .charcoalOnSurfaceText2()
-            .padding(size == .medium ? CharcoalButtonSize.medium.padding : CharcoalButtonSize.small.padding)
+            .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
             .charcoalSurface3()
             .opacity(isEnabled ? 1.0 : 0.32)
