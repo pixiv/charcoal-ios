@@ -5,7 +5,7 @@ private let lineHeight = CGFloat(charcoalFoundation.typography.size.the14.lineHe
 
 public extension View {
     @warn_unqualified_access
-    func charcoalTypography14Bold(isSingleLine: Bool = false) -> some View {
+    func charcoalTypography14Bold(isSingleLine: Bool = false, textStyle: Font.TextStyle = .body) -> some View {
         return modifier(CharcoalFontModifier(
             size: fontSize,
             weight: .bold,
@@ -26,18 +26,20 @@ public extension View {
     }
 
     @warn_unqualified_access
-    func charcoalTypography14BoldMono() -> some View {
+    func charcoalTypography14BoldMono(textStyle: Font.TextStyle = .body) -> some View {
         return modifier(CharcoalMonoFontModifier(
             size: fontSize,
-            weight: .bold
+            weight: .bold,
+            textStyle: textStyle
         ))
     }
 
     @warn_unqualified_access
-    func charcoalTypography14RegularMono() -> some View {
+    func charcoalTypography14RegularMono(textStyle: Font.TextStyle = .body) -> some View {
         return modifier(CharcoalMonoFontModifier(
             size: fontSize,
-            weight: .regular
+            weight: .regular,
+            textStyle: textStyle
         ))
     }
 }

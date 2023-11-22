@@ -32,13 +32,19 @@ struct CharcoalFontModifier: ViewModifier {
 struct CharcoalMonoFontModifier: ViewModifier {
     let size: CGFloat
     let weight: UIFont.Weight
+    let textStyle: Font.TextStyle
     
-    var scaledFontSize: CGFloat {
-        return UIFontMetrics.default.scaledValue(for: size)
+    @ScaledMetric var fontSize: CGFloat;
+    
+    init(size: CGFloat, weight: UIFont.Weight, textStyle: Font.TextStyle = .body) {
+        self.size = size
+        self.weight = weight
+        self.textStyle = textStyle
+        self._fontSize = ScaledMetric(wrappedValue: size, relativeTo: textStyle)
     }
 
     func body(content: Content) -> some View {
-        let font: UIFont = .monospacedSystemFont(ofSize: scaledFontSize, weight: weight)
+        let font: UIFont = .monospacedSystemFont(ofSize: fontSize, weight: weight)
         return content
             .font(Font(font))
             .lineLimit(1)
