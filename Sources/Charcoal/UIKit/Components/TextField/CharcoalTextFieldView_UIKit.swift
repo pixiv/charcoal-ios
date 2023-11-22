@@ -24,27 +24,28 @@ public class CharcoalTextFieldView: UIStackView {
     public lazy var charcoalTextField: CharcoalTextField = {
         let textField = CharcoalTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        textField.adjustsFontForContentSizeCategory = true
         return textField
     }()
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: CGFloat(charcoalFoundation.typography.size.the14.fontSize))
+        label.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize:CGFloat(charcoalFoundation.typography.size.the14.fontSize)))
         label.textColor = CharcoalAsset.ColorPaletteGenerated.text1.color
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
     private lazy var assertiveTextLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: CGFloat(charcoalFoundation.typography.size.the14.fontSize))
+        label.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize:CGFloat(charcoalFoundation.typography.size.the14.fontSize)))
         label.textColor = CharcoalAsset.ColorPaletteGenerated.text2.color
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.heightAnchor.constraint(greaterThanOrEqualToConstant: 20).isActive = true
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
