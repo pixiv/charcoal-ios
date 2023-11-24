@@ -32,35 +32,37 @@ final class SelectionsViewController: UIViewController {
     }
     
     private func addSwitches() {
-        let switchStack = UIStackView(frame: .zero)
-        switchStack.axis = .horizontal
-        let label = CharcoalTypography14()
-        label.text = "Toggle"
-        let firstSwitch = CharcoalSwitch()
-        firstSwitch.addTarget(self, action: #selector(didChangedSwitchValue), for: .valueChanged)
-        firstSwitch.isOn = true
-        
-        switchStack.addArrangedSubview(label)
-        switchStack.addArrangedSubview(firstSwitch)
-        
-        stackView.addArrangedSubview(switchStack)
+        let switchObject = CharcoalSwitch()
+        let firstSwitchView = createSwitchView(title: "Toggle", switchObject: switchObject)
+        switchObject.addTarget(self, action: #selector(didChangedSwitchValue), for: .valueChanged)
+        stackView.addArrangedSubview(firstSwitchView)
         
         addDisabledSwitch()
     }
     
     private func addDisabledSwitch() {
-        let switchStackSecond = UIStackView(frame: .zero)
-        switchStackSecond.axis = .horizontal
-        let labelSecond = CharcoalTypography14()
-        labelSecond.text = "Toggle Disabled"
         disabledCharcoalSwitch = CharcoalSwitch()
-        disabledCharcoalSwitch.isOn = true
         disabledCharcoalSwitch.isEnabled = false
+       
+        let switchView = createSwitchView(title: "Toggle Disabled", switchObject: disabledCharcoalSwitch)
         
-        switchStackSecond.addArrangedSubview(labelSecond)
-        switchStackSecond.addArrangedSubview(disabledCharcoalSwitch)
+        stackView.addArrangedSubview(switchView)
+    }
+    
+    private func createSwitchView(title: String, switchObject: CharcoalSwitch) -> UIView {
+        let stackview = UIStackView(frame: .zero)
+        stackview.axis = .horizontal
+        stackview.distribution = .fill
+        stackview.alignment = .center
+        let label = CharcoalTypography14()
+        label.text = title
         
-        stackView.addArrangedSubview(switchStackSecond)
+        switchObject.isOn = true
+        
+        stackview.addArrangedSubview(label)
+        stackview.addArrangedSubview(switchObject)
+        
+        return stackview
     }
 
     @objc private func didChangedSwitchValue(_ sender: CharcoalSwitch) {
