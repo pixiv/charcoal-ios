@@ -16,6 +16,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
     @State private var modalOpacity: Double = 0.0
     @State private var modalOffset: CGSize = CGSize(width: 0, height: 15.0)
     @State private var backgroundOpacity: Double = 0.0
+    @State private var indicatorInset: CGFloat?
     
     init(title: String,
          style: CharcoalModalStyle = .center,
@@ -41,6 +42,11 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
         }
     }
     
+    func getIndicatorInset(geometry: GeometryProxy) -> CGFloat {
+        indicatorInset = indicatorInset ?? geometry.safeAreaInsets.bottom
+        return indicatorInset ?? 0
+    }
+    
     func body(content: Content) -> some View {
         content
             .onChange(of: isPresented, perform: { newValue in
@@ -58,63 +64,49 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                 }
             })
             .fullScreenCover(isPresented: $isActualPresented, content: {
-                ZStack(alignment: style == .center ? .center : .bottom, content: {
-                    Rectangle()
-                        .foregroundColor(Color.black.opacity(0.6))
-                        .opacity(backgroundOpacity)
-                        .ignoresSafeArea(.all)
-                        .onTapGesture {
-                            isPresented = false
+                GeometryReader(content: { geometry in
+                    ZStack(alignment: style == .center ? .center : .bottom, content: {
+                        Rectangle()
+                            .foregroundColor(Color.black.opacity(0.6))
+                            .opacity(backgroundOpacity)
+                            .ignoresSafeArea(.all)
+                            .onTapGesture {
+                                isPresented = false
+                            }
+                       
+                        // Modal Content
+                        VStack(spacing: 0) {
+                            Text(title).charcoalTypography20Bold(isSingleLine: true)
+                                .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
+                            modalContent
+                            VStack {
+                                actions
+                            }
+                            .padding(EdgeInsets(top: 20, leading: 20, bottom: style == .center ? 20 : getIndicatorInset(geometry: geometry), trailing: 20))
+                            .ignoresSafeArea(.container, edges: .top)
                         }
-                   
-                    VStack(spacing: 0) {
-                        Text(title).charcoalTypography20Bold(isSingleLine: true)
-                            .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
-                        modalContent
-                        VStack {
-                            actions
+                        .frame(minWidth: 280)
+                        .background(Rectangle().cornerRadius(32, corners:  style == .center ? [.allCorners] : [.topLeft, .topRight]).foregroundColor(.white))
+                        .opacity(modalOpacity)
+                        .offset(modalOffset)
+                        .padding(style == .center ? 24 : 0)
+                    })
+                    .ignoresSafeArea(.container)
+                    .background(BackgroundTransparentView())
+                    .onAppear {
+                        if !UIView.areAnimationsEnabled {
+                            UIView.setAnimationsEnabled(true)
                         }
-                        .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
+                        
+                        prepareAnimation()
                     }
-                    .frame(minWidth: 280)
-                    .background(Rectangle().cornerRadius(32, corners: [.topLeft, .topRight]).foregroundColor(.white))
-                    .opacity(modalOpacity)
-                    .offset(modalOffset)
-                    .padding(style == .center ? 24 : 0)
+                    .onDisappear {
+                        if !UIView.areAnimationsEnabled {
+                            UIView.setAnimationsEnabled(true)
+                        }
+                    }
                 })
-                .ignoresSafeArea(.container)
-                .background(BackgroundTransparentView())
-                .onAppear {
-                    if !UIView.areAnimationsEnabled {
-                        UIView.setAnimationsEnabled(true)
-                    }
-                    
-                    prepareAnimation()
-                }
-                .onDisappear {
-                    if !UIView.areAnimationsEnabled {
-                        UIView.setAnimationsEnabled(true)
-                    }
-                }
             })
-    }
-}
-
-extension View {
-    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-        clipShape( RoundedCorner(radius: radius, corners: corners) )
-    }
-    
-}
-
-struct RoundedCorner: Shape {
-
-    var radius: CGFloat = .infinity
-    var corners: UIRectCorner = .allCorners
-
-    func path(in rect: CGRect) -> Path {
-        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        return Path(path.cgPath)
     }
 }
 
@@ -140,7 +132,7 @@ extension View {
                 .padding()
         })
         .charcoalModal(title: "Title",
-                       style: .bottom,
+                       style: .center,
                        isPresented: $isPresented,
                        actions: {
             Button(action: {
@@ -156,9 +148,10 @@ extension View {
                 Text("Dismiss") .frame(maxWidth: .infinity)
             }).charcoalDefaultButton(size: .medium)
         }) {
-            VStack {
-                Text("Hello This is a dialog about Charcoal")
+            VStack(spacing: 10) {
+                Text("Hello This is a center dialog from Charcoal")
                     .charcoalTypography16Regular()
+                    .frame(maxWidth: .infinity)
                
                 if #available(iOS 15, *) {
                     TextField("Simple text field", text: $text1).charcoalTextField()

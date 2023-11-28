@@ -31,8 +31,8 @@ public struct ModalsView: View {
             }) {
                 VStack {
                     Text("Hello This is a center dialog from Charcoal")
-                        .frame(maxWidth: .infinity)
                         .charcoalTypography16Regular()
+                        .frame(maxWidth: .infinity)
                     
                     if #available(iOS 15, *) {
                         TextField("Simple text field", text: $text1).charcoalTextField()
