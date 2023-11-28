@@ -77,7 +77,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                         .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
                     }
                     .frame(minWidth: 280)
-                    .background(RoundedRectangle(cornerRadius: 32).foregroundColor(.white))
+                    .background(Rectangle().cornerRadius(32, corners: [.topLeft, .topRight]).foregroundColor(.white))
                     .opacity(modalOpacity)
                     .offset(modalOffset)
                     .padding(style == .center ? 24 : 0)
@@ -97,6 +97,24 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                     }
                 }
             })
+    }
+}
+
+extension View {
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        clipShape( RoundedCorner(radius: radius, corners: corners) )
+    }
+    
+}
+
+struct RoundedCorner: Shape {
+
+    var radius: CGFloat = .infinity
+    var corners: UIRectCorner = .allCorners
+
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
     }
 }
 
