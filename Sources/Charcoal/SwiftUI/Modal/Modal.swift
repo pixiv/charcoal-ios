@@ -12,9 +12,9 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
     @State private var isActualPresented: Bool
     private let actions: ActionContent
     private let modalContent: ModalContent
-    private let duration: Double = 0.3
+    private let duration: Double
     @State private var modalOpacity: Double = 0.0
-    @State private var modalScale: Double
+    @State private var modalScale: CGSize
     @State private var modalOffset: CGSize = CGSize.zero
     @State private var modalInitailOffset: CGSize?
     @State private var backgroundOpacity: Double = 0.0
@@ -31,24 +31,29 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
         self._isActualPresented = State(initialValue: isPresented.wrappedValue)
         self.modalContent = modalContent()
         self.actions = actions()
-        self._modalScale = style == .center ? State(initialValue: 1.05) : State(initialValue: 1.0)
+        self._modalScale = style == .center ? State(initialValue: CGSize(width: 1.05, height: 1.05)) : State(initialValue: CGSize(width: 1.0, height: 1.0))
+        self.duration = 0.3
     }
     
     func prepareAnimation() {
-        
-        withAnimation(.easeInOut(duration: style == .center ? duration * 0.7 : duration)) {
-            self.modalOpacity = isPresented ? 1.0 : 0.0
+        var transaction = Transaction(animation: .easeInOut(duration: duration))
+        transaction.disablesAnimations = true
+
+        withTransaction(transaction) {
             if style == .center {
-                self.modalScale = isPresented ? 1.0 : 1.05
                 self.modalOffset = CGSize.zero
-            } else if style == .bottom {
-                self.modalOffset = isPresented ? CGSize.zero : modalInitailOffset ?? .zero
+            } else {
+                self.modalOffset = isPresented ? CGSize.zero : (UIAccessibility.isReduceMotionEnabled ? .zero : modalInitailOffset ?? .zero )
             }
         }
         
-        withAnimation(.easeInOut(duration: duration * 0.5)) {
-            self.backgroundOpacity = isPresented ? 1.0 : 0.0
+        self.modalOpacity = isPresented ? 1.0 : 0.0
+        
+        if style == .center {
+            self.modalScale = isPresented ? CGSize(width: 1.0, height: 1.0) : (UIAccessibility.isReduceMotionEnabled ? CGSize(width: 1.0, height: 1.0) : CGSize(width: 1.05, height: 1.05))
         }
+        
+        self.backgroundOpacity = isPresented ? 1.0 : 0.0
     }
     
     func getIndicatorInset(geometry: GeometryProxy) -> CGFloat {
@@ -78,6 +83,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                         Rectangle()
                             .foregroundColor(Color.black.opacity(0.6))
                             .opacity(backgroundOpacity)
+                            .animation(.easeInOut(duration: duration), value: backgroundOpacity)
                             .ignoresSafeArea(.all)
                             .onTapGesture {
                                 isPresented = false
@@ -97,9 +103,11 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                         .frame(minWidth: 280)
                         .background(Rectangle().cornerRadius(32, corners:  style == .center ? [.allCorners] : [.topLeft, .topRight]).foregroundColor(.white))
                         .opacity(modalOpacity)
-                        .scaleEffect(CGSize(width: modalScale, height: modalScale))
                         .padding(style == .center ? 24 : 0)
                         .offset(modalOffset)
+                        .animation(.easeInOut(duration: duration), value: modalOpacity)
+                        .scaleEffect(modalScale)
+                        .animation(UIAccessibility.isReduceMotionEnabled ? .none : .easeInOut(duration: duration * 0.5), value: modalScale)
                         .overlay(GeometryReader { modalGeomtry in
                             Color.clear.preference(key: ViewHeightKey.self, value: modalGeomtry.size.height)
                         })
@@ -107,7 +115,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                     .onPreferenceChange(ViewHeightKey.self, perform: { value in
                         let modalSize = CGSize(width: 0, height: value)
                         if style == .bottom {
-                            if self.modalInitailOffset == nil {
+                            if self.modalInitailOffset == nil && !UIAccessibility.isReduceMotionEnabled {
                                 self.modalOffset = modalSize
                             }
                             self.modalInitailOffset = modalSize
@@ -119,10 +127,11 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                         if !UIView.areAnimationsEnabled {
                             UIView.setAnimationsEnabled(true)
                         }
+                        
+                        // Add some delay to wait for modalOffset from onPreferenceChange of ViewHeightKey
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05, execute: {
                             prepareAnimation()
                         })
-                        
                     }
                     .onDisappear {
                         if !UIView.areAnimationsEnabled {
@@ -132,6 +141,10 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                 })
             })
     }
+}
+
+private struct ModalTransactionKey: TransactionKey {
+    static let defaultValue = false
 }
 
 struct ViewHeightKey: PreferenceKey {
