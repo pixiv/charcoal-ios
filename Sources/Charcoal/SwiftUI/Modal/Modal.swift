@@ -136,8 +136,8 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                             UIView.setAnimationsEnabled(true)
                         }
                         
-                        // Add some delay to wait for modalOffset from onPreferenceChange of ViewHeightKey
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05, execute: {
+                        // Magic: Add some delay to wait for initial modalOffset
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01, execute: {
                             prepareAnimation()
                         })
                     }
