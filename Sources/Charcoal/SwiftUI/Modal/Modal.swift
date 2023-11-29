@@ -1,8 +1,17 @@
 import SwiftUI
 
 public enum CharcoalModalStyle {
-case center
-case bottom
+    case center
+    case bottom
+    
+    var modalScale: CGSize {
+        switch self {
+        case .center:
+            return CGSize(width: 1.05, height: 1.05)
+        case .bottom:
+            return CGSize(width: 1.0, height: 1.0)
+        }
+    }
 }
 
 struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier {
@@ -12,7 +21,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
     @State private var isActualPresented: Bool
     private let actions: ActionContent
     private let modalContent: ModalContent
-    private let duration: Double
+    private let duration: Double = 0.25
     @State private var modalOpacity: Double = 0.0
     @State private var modalScale: CGSize
     @State private var modalOffset: CGSize = CGSize.zero
@@ -31,8 +40,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
         self._isActualPresented = State(initialValue: isPresented.wrappedValue)
         self.modalContent = modalContent()
         self.actions = actions()
-        self._modalScale = style == .center ? State(initialValue: CGSize(width: 1.05, height: 1.05)) : State(initialValue: CGSize(width: 1.0, height: 1.0))
-        self.duration = 0.3
+        self._modalScale = style == .center ? State(initialValue: style.modalScale) : State(initialValue: CGSize(width: 1.0, height: 1.0))
     }
     
     func prepareAnimation() {
@@ -50,7 +58,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
         self.modalOpacity = isPresented ? 1.0 : 0.0
         
         if style == .center {
-            self.modalScale = isPresented ? CGSize(width: 1.0, height: 1.0) : (UIAccessibility.isReduceMotionEnabled ? CGSize(width: 1.0, height: 1.0) : CGSize(width: 1.05, height: 1.05))
+            self.modalScale = isPresented ? CGSize(width: 1.0, height: 1.0) : (UIAccessibility.isReduceMotionEnabled ? CGSize(width: 1.0, height: 1.0) : style.modalScale)
         }
         
         self.backgroundOpacity = isPresented ? 1.0 : 0.0
