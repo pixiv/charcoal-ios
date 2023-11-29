@@ -36,7 +36,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
     
     func prepareAnimation() {
         
-        withAnimation(.easeInOut(duration: style == .center ? duration * 0.8 : duration)) {
+        withAnimation(.easeInOut(duration: style == .center ? duration * 0.7 : duration)) {
             self.modalOpacity = isPresented ? 1.0 : 0.0
             if style == .center {
                 self.modalScale = isPresented ? 1.0 : 1.05
@@ -101,7 +101,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                         .padding(style == .center ? 24 : 0)
                         .offset(modalOffset)
                         .overlay(GeometryReader { modalGeomtry in
-                            Color.clear.preference(key: ViewHeightKey.self, value: geometry.size.height)
+                            Color.clear.preference(key: ViewHeightKey.self, value: modalGeomtry.size.height)
                         })
                     })
                     .onPreferenceChange(ViewHeightKey.self, perform: { value in
@@ -119,10 +119,10 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                         if !UIView.areAnimationsEnabled {
                             UIView.setAnimationsEnabled(true)
                         }
-                        
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05, execute: {
                             prepareAnimation()
                         })
+                        
                     }
                     .onDisappear {
                         if !UIView.areAnimationsEnabled {
