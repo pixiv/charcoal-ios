@@ -12,9 +12,11 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
     @State private var isActualPresented: Bool
     private let actions: ActionContent
     private let modalContent: ModalContent
-    private let duration: Double = 0.25
+    private let duration: Double = 0.3
     @State private var modalOpacity: Double = 0.0
-    @State private var modalOffset: CGSize = CGSize(width: 0, height: 15.0)
+    @State private var modalScale: Double
+    @State private var modalOffset: CGSize = CGSize.zero
+    @State private var modalInitailOffset: CGSize?
     @State private var backgroundOpacity: Double = 0.0
     @State private var indicatorInset: CGFloat?
     
@@ -29,12 +31,19 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
         self._isActualPresented = State(initialValue: isPresented.wrappedValue)
         self.modalContent = modalContent()
         self.actions = actions()
+        self._modalScale = style == .center ? State(initialValue: 1.05) : State(initialValue: 1.0)
     }
     
     func prepareAnimation() {
-        withAnimation(.easeInOut(duration: duration)) {
+        
+        withAnimation(.easeInOut(duration: style == .center ? duration * 0.8 : duration)) {
             self.modalOpacity = isPresented ? 1.0 : 0.0
-            self.modalOffset = isPresented ? CGSize(width: 0, height: 0.0) : CGSize(width: 0, height: 15.0)
+            if style == .center {
+                self.modalScale = isPresented ? 1.0 : 1.05
+                self.modalOffset = CGSize.zero
+            } else if style == .bottom {
+                self.modalOffset = isPresented ? CGSize.zero : modalInitailOffset ?? .zero
+            }
         }
         
         withAnimation(.easeInOut(duration: duration * 0.5)) {
@@ -88,8 +97,21 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                         .frame(minWidth: 280)
                         .background(Rectangle().cornerRadius(32, corners:  style == .center ? [.allCorners] : [.topLeft, .topRight]).foregroundColor(.white))
                         .opacity(modalOpacity)
-                        .offset(modalOffset)
+                        .scaleEffect(CGSize(width: modalScale, height: modalScale))
                         .padding(style == .center ? 24 : 0)
+                        .offset(modalOffset)
+                        .overlay(GeometryReader { modalGeomtry in
+                            Color.clear.preference(key: ViewHeightKey.self, value: geometry.size.height)
+                        })
+                    })
+                    .onPreferenceChange(ViewHeightKey.self, perform: { value in
+                        let modalSize = CGSize(width: 0, height: value)
+                        if style == .bottom {
+                            if self.modalInitailOffset == nil {
+                                self.modalOffset = modalSize
+                            }
+                            self.modalInitailOffset = modalSize
+                        }
                     })
                     .ignoresSafeArea(.container)
                     .background(BackgroundTransparentView())
@@ -98,7 +120,9 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                             UIView.setAnimationsEnabled(true)
                         }
                         
-                        prepareAnimation()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05, execute: {
+                            prepareAnimation()
+                        })
                     }
                     .onDisappear {
                         if !UIView.areAnimationsEnabled {
@@ -108,6 +132,13 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                 })
             })
     }
+}
+
+struct ViewHeightKey: PreferenceKey {
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = nextValue()
+    }
+    static var defaultValue: CGFloat = .zero
 }
 
 extension View {
