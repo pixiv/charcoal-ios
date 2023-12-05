@@ -5,9 +5,12 @@ import SwiftUI
     - Parameters:
         - title: The title of the modal view.
         - style: The style of the modal view.
+        - tapBackgroundToDismiss: Tap on background to dismiss.
+        - duration: The duration of the animation
+        - maxWidth: The max width of the modal view.
         - isPresented: A binding to whether the modal view is presented.
-        - actions: A view builder that creates the action view.
-        - modalContent: A view builder that creates the content view.
+        - actions: The content of the action view
+        - modalContent: The content of the modal view
         
     # Example #
     ```swift
