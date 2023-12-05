@@ -162,7 +162,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                                 }
                             }
                             .frame(minWidth: 280, maxWidth: maxWidth)
-                            .background(Rectangle().cornerRadius(32, corners: style.roundedCorners).foregroundColor(.white))
+                            .background(Rectangle().cornerRadius(32, corners: style.roundedCorners).foregroundStyle(charcoalColor: .surface1))
                             .opacity(modalOpacity)
                             .padding(style.padding)
                             .offset(modalOffset)
@@ -235,7 +235,7 @@ extension View {
                 .padding()
         })
         .charcoalModal(title: "Title",
-                       style: .fullScreen,
+                       style: .center,
                        isPresented: $isPresented,
                        actions: {
             Button(action: {
