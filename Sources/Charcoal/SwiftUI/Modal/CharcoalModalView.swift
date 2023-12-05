@@ -1,19 +1,27 @@
 import SwiftUI
 
-public enum CharcoalModalStyle {
-    case center
-    case bottom
-    
-    var modalScale: CGSize {
-        switch self {
-        case .center:
-            return CGSize(width: 1.05, height: 1.05)
-        case .bottom:
-            return CGSize(width: 1.0, height: 1.0)
-        }
-    }
-}
-
+/**
+    A view modifier that presents a modal view.
+    - Parameters:
+        - title: The title of the modal view.
+        - style: The style of the modal view.
+        - isPresented: A binding to whether the modal view is presented.
+        - actions: A view builder that creates the action view.
+        - modalContent: A view builder that creates the content view.
+        
+    # Example #
+    ```swift
+    CharcoalModalView(title: "Title", style: .center, isPresented: $isPresented, actions: {
+        Button(action: {
+            isPresented = false
+        }, label: {
+            Text("OK")
+        })
+    }, modalContent: {
+        Text("Content")
+    })
+    ```
+ */
 struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier {
     var title: String
     var style: CharcoalModalStyle
@@ -64,7 +72,10 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
         self.backgroundOpacity = isPresented ? 1.0 : 0.0
     }
     
-    func getIndicatorInset(geometry: GeometryProxy) -> CGFloat {
+    /// Get the bottom inset of the safe area.
+    /// - Parameter geometry: The geometry proxy.
+    /// - Returns: The bottom inset of the safe area.
+    func getBottomIndicatorInset(geometry: GeometryProxy) -> CGFloat {
         indicatorInset = indicatorInset ?? geometry.safeAreaInsets.bottom
         return indicatorInset ?? 0
     }
@@ -76,15 +87,15 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                 if newValue {
                     isActualPresented = newValue
                 } else {
-                    Task { @MainActor in
-                        prepareAnimation()
-                    }
                     Task {
+                        prepareAnimation()
+                        // Wait for the dismiss animation to finish
                         try await Task.sleep(nanoseconds: UInt64(self.duration*1000)*1000000)
                         self.isActualPresented = newValue
                     }
                 }
             })
+            // use fullScreenCover to make sure modal always shows on top
             .fullScreenCover(isPresented: $isActualPresented, content: {
                 GeometryReader(content: { geometry in
                     ZStack(alignment: style == .center ? .center : .bottom, content: {
@@ -105,7 +116,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                             VStack {
                                 actions
                             }
-                            .padding(EdgeInsets(top: 20, leading: 20, bottom: style == .center ? 20 : getIndicatorInset(geometry: geometry), trailing: 20))
+                            .padding(EdgeInsets(top: 20, leading: 20, bottom: style == .center ? 20 : getBottomIndicatorInset(geometry: geometry), trailing: 20))
                             .ignoresSafeArea(.container, edges: .top)
                         }
                         .frame(minWidth: 280)
