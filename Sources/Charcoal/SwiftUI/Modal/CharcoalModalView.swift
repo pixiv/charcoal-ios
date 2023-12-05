@@ -130,7 +130,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                         if let actions = actions {
                             VStack {
                                 actions
-                            }.padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))
+                            }.padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
                         }
                     }
                 } else {
@@ -161,7 +161,6 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                                         actions
                                     }
                                     .padding(EdgeInsets(top: 20, leading: 20, bottom: style == .center ? 20 : getBottomIndicatorInset(geometry: geometry), trailing: 20))
-                                    .ignoresSafeArea(.container, edges: .top)
                                 }
                             }
                             .frame(minWidth: 280, maxWidth: maxWidth)
