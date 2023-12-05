@@ -23,27 +23,46 @@ import SwiftUI
     ```
  */
 struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier {
-    var title: String
+    /// The title of the modal view.
+    var title: String?
+    /// The style of the modal view.
     var style: CharcoalModalStyle
+    /// Tap on background to dismiss.
+    var tapBackgroundToDismiss: Bool
+    /// The duration of the animation
+    let duration: Double
+    /// The max width of the modal view.
+    let maxWidth: CGFloat
+    /// A binding to whether the modal view is presented.
     @Binding var isPresented: Bool
-    @State private var isActualPresented: Bool
-    private let actions: ActionContent
+    /// The content of the action view
+    private let actions: ActionContent?
+    /// The content of the modal view
     private let modalContent: ModalContent
-    private let duration: Double = 0.25
+    /// The actual state of the modal view
+    @State private var isActualPresented: Bool
+    /// The bottom inset of the safe area.
+    @State private var indicatorInset: CGFloat?
+    // Animation states
     @State private var modalOpacity: Double = 0.0
     @State private var modalScale: CGSize
     @State private var modalOffset: CGSize = CGSize.zero
     @State private var modalInitailOffset: CGSize?
     @State private var backgroundOpacity: Double = 0.0
-    @State private var indicatorInset: CGFloat?
     
-    init(title: String,
+    init(title: String?,
          style: CharcoalModalStyle = .center,
+         tapBackgroundToDismiss: Bool = true,
+         duration: Double = 0.25,
+         maxWidth: CGFloat = 440,
          isPresented: Binding<Bool>,
-         @ViewBuilder actions: () -> ActionContent,
+         @ViewBuilder actions: () -> ActionContent?,
          @ViewBuilder modalContent: () -> ModalContent) {
         self.title = title
         self.style = style
+        self.tapBackgroundToDismiss = tapBackgroundToDismiss
+        self.duration = duration
+        self.maxWidth = maxWidth
         self._isPresented = isPresented
         self._isActualPresented = State(initialValue: isPresented.wrappedValue)
         self.modalContent = modalContent()
@@ -83,81 +102,106 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
     func body(content: Content) -> some View {
         content
             .onChange(of: isPresented, perform: { newValue in
-                UIView.setAnimationsEnabled(false)
-                if newValue {
+                if style == .fullScreen {
                     isActualPresented = newValue
                 } else {
-                    Task {
-                        prepareAnimation()
-                        // Wait for the dismiss animation to finish
-                        try await Task.sleep(nanoseconds: UInt64(self.duration*1000)*1000000)
-                        self.isActualPresented = newValue
+                    UIView.setAnimationsEnabled(false)
+                    if newValue {
+                        isActualPresented = newValue
+                    } else {
+                        Task {
+                            prepareAnimation()
+                            // Wait for the dismiss animation to finish
+                            try await Task.sleep(nanoseconds: UInt64(self.duration*1000)*1000000)
+                            self.isActualPresented = newValue
+                        }
                     }
                 }
             })
             // use fullScreenCover to make sure modal always shows on top
             .fullScreenCover(isPresented: $isActualPresented, content: {
-                GeometryReader(content: { geometry in
-                    ZStack(alignment: style == .center ? .center : .bottom, content: {
-                        Rectangle()
-                            .foregroundColor(Color.black.opacity(0.6))
-                            .opacity(backgroundOpacity)
-                            .animation(.easeInOut(duration: duration), value: backgroundOpacity)
-                            .ignoresSafeArea(.all)
-                            .onTapGesture {
-                                isPresented = false
-                            }
-                       
-                        // Modal Content
-                        VStack(spacing: 0) {
-                            Text(title).charcoalTypography20Bold(isSingleLine: true)
-                                .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
-                            modalContent
+                if style == .fullScreen {
+                    VStack {
+                        modalContent
+                        
+                        if let actions = actions {
                             VStack {
                                 actions
-                            }
-                            .padding(EdgeInsets(top: 20, leading: 20, bottom: style == .center ? 20 : getBottomIndicatorInset(geometry: geometry), trailing: 20))
-                            .ignoresSafeArea(.container, edges: .top)
-                        }
-                        .frame(minWidth: 280)
-                        .background(Rectangle().cornerRadius(32, corners:  style == .center ? [.allCorners] : [.topLeft, .topRight]).foregroundColor(.white))
-                        .opacity(modalOpacity)
-                        .padding(style == .center ? 24 : 0)
-                        .offset(modalOffset)
-                        .animation(.easeInOut(duration: duration), value: modalOpacity)
-                        .scaleEffect(modalScale)
-                        .animation(UIAccessibility.isReduceMotionEnabled ? .none : .easeInOut(duration: duration * 0.5), value: modalScale)
-                        .overlay(GeometryReader { modalGeomtry in
-                            Color.clear.preference(key: ViewHeightKey.self, value: modalGeomtry.size.height)
-                        })
-                    })
-                    .onPreferenceChange(ViewHeightKey.self, perform: { value in
-                        let modalSize = CGSize(width: 0, height: value)
-                        if style == .bottom {
-                            if self.modalInitailOffset == nil && !UIAccessibility.isReduceMotionEnabled {
-                                self.modalOffset = modalSize
-                            }
-                            self.modalInitailOffset = modalSize
-                        }
-                    })
-                    .ignoresSafeArea(.container)
-                    .background(BackgroundTransparentView())
-                    .onAppear {
-                        if !UIView.areAnimationsEnabled {
-                            UIView.setAnimationsEnabled(true)
-                        }
-                        
-                        // Magic: Add some delay to wait for initial modalOffset
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01, execute: {
-                            prepareAnimation()
-                        })
-                    }
-                    .onDisappear {
-                        if !UIView.areAnimationsEnabled {
-                            UIView.setAnimationsEnabled(true)
+                            }.padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))
                         }
                     }
-                })
+                } else {
+                    GeometryReader(content: { geometry in
+                        ZStack(alignment: style.alignment, content: {
+                            Rectangle()
+                                .foregroundColor(Color.black.opacity(0.6))
+                                .opacity(backgroundOpacity)
+                                .animation(.easeInOut(duration: duration), value: backgroundOpacity)
+                                .ignoresSafeArea(.all)
+                                .onTapGesture {
+                                    if tapBackgroundToDismiss {
+                                        isPresented = false
+                                    }
+                                }
+                           
+                            // Modal Content
+                            VStack(spacing: 0) {
+                                if let title = title {
+                                    Text(title).charcoalTypography20Bold(isSingleLine: true)
+                                        .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
+                                }
+
+                                modalContent
+                                
+                                if let actions = actions {
+                                    VStack {
+                                        actions
+                                    }
+                                    .padding(EdgeInsets(top: 20, leading: 20, bottom: style == .center ? 20 : getBottomIndicatorInset(geometry: geometry), trailing: 20))
+                                    .ignoresSafeArea(.container, edges: .top)
+                                }
+                            }
+                            .frame(minWidth: 280, maxWidth: maxWidth)
+                            .background(Rectangle().cornerRadius(32, corners: style.roundedCorners).foregroundColor(.white))
+                            .opacity(modalOpacity)
+                            .padding(style.padding)
+                            .offset(modalOffset)
+                            .animation(.easeInOut(duration: duration), value: modalOpacity)
+                            .scaleEffect(modalScale)
+                            .animation(UIAccessibility.isReduceMotionEnabled ? .none : .easeInOut(duration: duration * 0.5), value: modalScale)
+                            .overlay(GeometryReader { modalGeomtry in
+                                Color.clear.preference(key: ModalViewHeightKey.self, value: modalGeomtry.size.height)
+                            })
+                        })
+                        .onPreferenceChange(ModalViewHeightKey.self, perform: { value in
+                            let modalSize = CGSize(width: 0, height: value)
+                            if style == .bottomSheet {
+                                // Set the initial offset to the modal size
+                                if self.modalInitailOffset == nil && !UIAccessibility.isReduceMotionEnabled {
+                                    self.modalOffset = modalSize
+                                }
+                                self.modalInitailOffset = modalSize
+                            }
+                        })
+                        .ignoresSafeArea(.container)
+                        .background(BackgroundTransparentView())
+                        .onAppear {
+                            if !UIView.areAnimationsEnabled {
+                                UIView.setAnimationsEnabled(true)
+                            }
+                            
+                            // Magic: Add some delay to wait for initial modalOffset
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01, execute: {
+                                prepareAnimation()
+                            })
+                        }
+                        .onDisappear {
+                            if !UIView.areAnimationsEnabled {
+                                UIView.setAnimationsEnabled(true)
+                            }
+                        }
+                    })
+                }
             })
     }
 }
@@ -166,7 +210,7 @@ private struct ModalTransactionKey: TransactionKey {
     static let defaultValue = false
 }
 
-struct ViewHeightKey: PreferenceKey {
+struct ModalViewHeightKey: PreferenceKey {
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
         value = nextValue()
     }
@@ -174,7 +218,7 @@ struct ViewHeightKey: PreferenceKey {
 }
 
 extension View {
-    public func charcoalModal(title: String, style: CharcoalModalStyle = .center, isPresented: Binding<Bool>, @ViewBuilder actions: @escaping () -> some View, @ViewBuilder content: @escaping () -> some View) -> some View {
+    public func charcoalModal(title: String? = nil, style: CharcoalModalStyle = .center, isPresented: Binding<Bool>, @ViewBuilder actions: @escaping () -> some View, @ViewBuilder content: @escaping () -> some View) -> some View {
         self.modifier(CharcoalModalView(title: title, style: style, isPresented: isPresented, actions: actions, modalContent: content))
     }
 }
@@ -184,10 +228,6 @@ extension View {
     @State var text1: String = ""
     
     return ZStack {
-        VStack {
-            Color.orange.padding(100)
-        }
-        
         Button(action: {
             isPresented = true
         }, label: {
@@ -195,7 +235,7 @@ extension View {
                 .padding()
         })
         .charcoalModal(title: "Title",
-                       style: .center,
+                       style: .fullScreen,
                        isPresented: $isPresented,
                        actions: {
             Button(action: {
@@ -211,17 +251,21 @@ extension View {
                 Text("Dismiss") .frame(maxWidth: .infinity)
             }).charcoalDefaultButton(size: .medium)
         }) {
-            VStack(spacing: 10) {
-                Text("Hello This is a center dialog from Charcoal")
-                    .charcoalTypography16Regular()
-                    .frame(maxWidth: .infinity)
-               
-                if #available(iOS 15, *) {
-                    TextField("Simple text field", text: $text1).charcoalTextField()
-                } else {
-                    // Fallback on earlier versions
-                }
-            }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+            NavigationView {
+                VStack(spacing: 10) {
+                    Text("Hello This is a center dialog from Charcoal")
+                        .charcoalTypography16Regular()
+                        .frame(maxWidth: .infinity)
+                    
+                    if #available(iOS 15, *) {
+                        TextField("Simple text field", text: $text1).charcoalTextField()
+                    } else {
+                        // Fallback on earlier versions
+                    }
+                }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                    .navigationTitle("SwiftUI")
+                    .navigationBarTitleDisplayMode(.inline)
+            }
         }
         
     }
