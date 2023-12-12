@@ -8,7 +8,7 @@ public extension Image {
 
 // MARK: Development View
 
-fileprivate struct ImageView: View {
+private struct ImageView: View {
     var body: some View {
         VStack {
             Image(charocalIcon: .add24)

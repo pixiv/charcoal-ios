@@ -71,4 +71,3 @@ public class CharcoalNavigationSButton: UIButton, CharcoalButton {
     button.setTitle("Home", for: .normal)
     return button
 }
-

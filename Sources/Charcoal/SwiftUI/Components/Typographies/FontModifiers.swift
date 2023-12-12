@@ -5,17 +5,17 @@ struct CharcoalFontModifier: ViewModifier {
     let weight: UIFont.Weight
     let isSingleLine: Bool
     let textStyle: Font.TextStyle
-    
-    @ScaledMetric var fontSize: CGFloat;
-    @ScaledMetric var lineHeight: CGFloat;
-    
+
+    @ScaledMetric var fontSize: CGFloat
+    @ScaledMetric var lineHeight: CGFloat
+
     init(size: CGFloat, weight: UIFont.Weight, lineHeight: CGFloat, isSingleLine: Bool, textStyle: Font.TextStyle = .body) {
         self.size = size
         self.weight = weight
         self.isSingleLine = isSingleLine
         self.textStyle = textStyle
-        self._fontSize = ScaledMetric(wrappedValue: size, relativeTo: textStyle)
-        self._lineHeight =  ScaledMetric(wrappedValue: lineHeight, relativeTo: textStyle)
+        _fontSize = ScaledMetric(wrappedValue: size, relativeTo: textStyle)
+        _lineHeight = ScaledMetric(wrappedValue: lineHeight, relativeTo: textStyle)
     }
 
     func body(content: Content) -> some View {
@@ -33,14 +33,14 @@ struct CharcoalMonoFontModifier: ViewModifier {
     let size: CGFloat
     let weight: UIFont.Weight
     let textStyle: Font.TextStyle
-    
-    @ScaledMetric var fontSize: CGFloat;
-    
+
+    @ScaledMetric var fontSize: CGFloat
+
     init(size: CGFloat, weight: UIFont.Weight, textStyle: Font.TextStyle = .body) {
         self.size = size
         self.weight = weight
         self.textStyle = textStyle
-        self._fontSize = ScaledMetric(wrappedValue: size, relativeTo: textStyle)
+        _fontSize = ScaledMetric(wrappedValue: size, relativeTo: textStyle)
     }
 
     func body(content: Content) -> some View {

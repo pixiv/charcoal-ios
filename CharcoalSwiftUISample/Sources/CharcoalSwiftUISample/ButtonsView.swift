@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct ButtonsView: View {
-    
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {

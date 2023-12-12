@@ -4,8 +4,8 @@ struct CharcoalLinkButtonStyleView: View {
     let label: ButtonStyleConfiguration.Label
     let isPressed: Bool
     let isEnabled: Bool
-    
-    @ScaledMetric var fontSize: CGFloat = CharcoalButtonSize.small.fontSize;
+
+    @ScaledMetric var fontSize: CGFloat = CharcoalButtonSize.small.fontSize
 
     var body: some View {
         label

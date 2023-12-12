@@ -6,11 +6,12 @@ public class CharcoalTextField: UITextField {
             setupCountLabelIfNeeded()
         }
     }
+
     private var exceedLengthLimit = false
     private let borderIdentifireBrand = "net.pixiv.color.brand"
     private let borderIdentifireAssertive = "net.pixiv.color.assertive"
     let countLabel = UILabel()
-    
+
     private var borderLayer: CALayer?
 
     override public func textRect(forBounds bounds: CGRect) -> CGRect {
@@ -32,7 +33,7 @@ public class CharcoalTextField: UITextField {
         guard lengthLimit > 0 else {
             return CGRect()
         }
-        
+
         countLabel.sizeToFit()
 
         return CGRect(
@@ -74,11 +75,11 @@ public class CharcoalTextField: UITextField {
         backgroundColor = CharcoalAsset.ColorPaletteGenerated.surface3.color
         borderStyle = .none
         rightViewMode = .always
-        
+
         layer.masksToBounds = false
         layer.cornerRadius = 4.0
-        
-        let scaledFont = UIFont.systemFont(ofSize:CGFloat(charcoalFoundation.typography.size.the14.fontSize)).scaledFont
+
+        let scaledFont = UIFont.systemFont(ofSize: CGFloat(charcoalFoundation.typography.size.the14.fontSize)).scaledFont
 
         defaultTextAttributes = [
             .font: scaledFont,
@@ -116,8 +117,8 @@ public class CharcoalTextField: UITextField {
 
         rightView = countLabel
     }
-    
-    public override func layoutSubviews() {
+
+    override public func layoutSubviews() {
         super.layoutSubviews()
         adjustBorderLayerFrame()
     }
@@ -127,7 +128,7 @@ public class CharcoalTextField: UITextField {
     }
 
     private func updateBorderColor(borderColor: UIColor, layerName: String) {
-        if (borderLayer == nil) {
+        if borderLayer == nil {
             borderLayer = CALayer()
         }
         borderLayer?.frame = CGRect(x: -4, y: -4, width: bounds.width + 8, height: bounds.height + 8)
@@ -135,18 +136,18 @@ public class CharcoalTextField: UITextField {
         borderLayer?.borderWidth = 4.0
         borderLayer?.cornerRadius = 8.0
         borderLayer?.name = layerName
-        
+
         removeAllBorders()
 
         if let borderLayer = borderLayer {
             layer.addSublayer(borderLayer)
         }
     }
-    
+
     private func removeAllBorders() {
         borderLayer?.removeFromSuperlayer()
     }
-    
+
     private func adjustBorderLayerFrame() {
         borderLayer?.frame = CGRect(x: -4, y: -4, width: bounds.width + 8, height: bounds.height + 8)
     }
@@ -164,8 +165,8 @@ public class CharcoalTextField: UITextField {
             layerName: borderIdentifireBrand
         )
     }
-    
-    public override func resignFirstResponder() -> Bool {
+
+    override public func resignFirstResponder() -> Bool {
         removeAllBorders()
         return super.resignFirstResponder()
     }

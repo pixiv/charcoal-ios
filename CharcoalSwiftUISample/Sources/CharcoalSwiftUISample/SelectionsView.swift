@@ -7,11 +7,11 @@ struct SelectionsView: View {
         ScrollView {
             VStack {
                 Toggle(isOn: $isOn) {
-                    Text("Toggle(\(isOn ? "On":"Off"))")
+                    Text("Toggle(\(isOn ? "On" : "Off"))")
                 }
                 .charcoalToggle()
                 Toggle(isOn: $isOn) {
-                    Text("Toggle Disabled(\(isOn ? "On":"Off"))")
+                    Text("Toggle Disabled(\(isOn ? "On" : "Off"))")
                 }
                 .disabled(true)
                 .charcoalToggle()

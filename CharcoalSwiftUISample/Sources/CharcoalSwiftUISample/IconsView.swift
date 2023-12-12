@@ -21,7 +21,7 @@ struct IconsView: View {
                             let iconIndex = row * 4 + column
                             if iconIndex < icons.count {
                                 let icon = icons[iconIndex]
-                                VStack() {
+                                VStack {
                                     ZStack {
                                         Rectangle()
                                             .frame(width: 64, height: 64)

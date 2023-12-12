@@ -65,7 +65,6 @@ public class CharcoalDefaultOverlayMButton: UIButton, CharcoalButton {
     }
 }
 
-
 @available(iOS 17.0, *)
 #Preview {
     let button = CharcoalDefaultOverlayMButton()

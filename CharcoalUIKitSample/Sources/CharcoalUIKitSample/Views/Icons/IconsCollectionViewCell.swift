@@ -1,10 +1,9 @@
-import UIKit
 import Charcoal
+import UIKit
 
 class IconsCollectionViewCell: UICollectionViewCell {
-    
-    @IBOutlet weak var palletView: UIView!
-    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet var palletView: UIView!
+    @IBOutlet var iconImageView: UIImageView!
     @IBOutlet var colorNameLabel: UILabel!
 
     override func awakeFromNib() {

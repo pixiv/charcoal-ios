@@ -6,19 +6,19 @@ struct CharcoalNavigationButtonStyleView: View {
     let isEnabled: Bool
     let size: CharcoalButtonSize
     let isFixed: Bool
-    
-    @ScaledMetric var fontSize: CGFloat;
-    
-    @ScaledMetric var cornerRadius: CGFloat;
-    
+
+    @ScaledMetric var fontSize: CGFloat
+
+    @ScaledMetric var cornerRadius: CGFloat
+
     init(label: ButtonStyleConfiguration.Label, isPressed: Bool, isEnabled: Bool, size: CharcoalButtonSize, isFixed: Bool) {
         self.label = label
         self.isPressed = isPressed
         self.isEnabled = isEnabled
         self.size = size
         self.isFixed = isFixed
-        self._fontSize = ScaledMetric(wrappedValue: size.fontSize)
-        self._cornerRadius = ScaledMetric(wrappedValue: size.cornerRadius)
+        _fontSize = ScaledMetric(wrappedValue: size.fontSize)
+        _cornerRadius = ScaledMetric(wrappedValue: size.cornerRadius)
     }
 
     var body: some View {

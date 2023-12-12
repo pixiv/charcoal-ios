@@ -8,7 +8,7 @@ final class ButtonsViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+
     private lazy var stackView: UIStackView = {
         let view = UIStackView(frame: .zero)
         view.axis = .vertical
@@ -18,7 +18,7 @@ final class ButtonsViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+
     private var buttons: [ButtonExample] = [
         // Primary
         ButtonExample(title: "Primary Button M", buttonStyle: CharcoalPrimaryMButton.self, isEnabled: true),
@@ -43,9 +43,9 @@ final class ButtonsViewController: UIViewController {
         ButtonExample(title: "Link Button", buttonStyle: CharcoalLinkButton.self, isEnabled: false),
         // Premium Color
         ButtonExample(title: "Primary Button M(Premium Color)", buttonStyle: CharcoalPrimaryMButton.self, isEnabled: true, color: UIColor.systemOrange),
-        ButtonExample(title: "Primary Button M(Premium Color)", buttonStyle: CharcoalPrimaryMButton.self, isEnabled: false, color: UIColor.systemOrange),
+        ButtonExample(title: "Primary Button M(Premium Color)", buttonStyle: CharcoalPrimaryMButton.self, isEnabled: false, color: UIColor.systemOrange)
     ]
-    
+
     private var switchingButton: CharcoalSwitchingButton!
 
     override func viewDidLoad() {
@@ -54,29 +54,29 @@ final class ButtonsViewController: UIViewController {
         addButtons()
         setupSwitchingButton()
     }
-    
+
     private func setupUI() {
-        self.view.backgroundColor = UIColor.systemBackground
+        view.backgroundColor = UIColor.systemBackground
 
         view.addSubview(scrollView)
-        
+
         NSLayoutConstraint.activate([
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
-        
+
         scrollView.addSubview(stackView)
-        
+
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
     }
-    
+
     private func addButtons() {
         for example in buttons {
             let button = example.buttonStyle.init()
@@ -94,7 +94,7 @@ final class ButtonsViewController: UIViewController {
         switchingButton = CharcoalSwitchingButton()
         switchingButton.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(switchingButton)
-        
+
         let onButton = CharcoalDefaultMButton()
         onButton.setTitle("フォロー中", for: .normal)
         onButton.addTarget(self, action: #selector(handleSwitchingButtonTapped), for: .touchUpInside)
@@ -118,7 +118,7 @@ extension ButtonsViewController {
         let buttonStyle: CharcoalButton.Type
         let isEnabled: Bool
         let color: UIColor?
-        
+
         init(title: String, buttonStyle: CharcoalButton.Type, isEnabled: Bool, color: UIColor? = nil) {
             self.title = title
             self.buttonStyle = buttonStyle

@@ -93,7 +93,7 @@ public extension View {
 #Preview {
     @State var text1 = ""
     @State var text2 = ""
-    
+
     return VStack(spacing: 16) {
         TextField("Simple text field", text: $text1)
             .charcoalTextField()
