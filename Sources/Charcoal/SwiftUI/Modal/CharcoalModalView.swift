@@ -11,7 +11,7 @@ import SwiftUI
         - isPresented: A binding to whether the modal view is presented.
         - actions: The content of the action view
         - modalContent: The content of the modal view
-        
+
     # Example #
     ```swift
     CharcoalModalView(title: "Title", style: .center, isPresented: $isPresented, actions: {
@@ -49,30 +49,32 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
     // Animation states
     @State private var modalOpacity: Double = 0.0
     @State private var modalScale: CGSize
-    @State private var modalOffset: CGSize = CGSize.zero
+    @State private var modalOffset: CGSize = .zero
     @State private var modalInitailOffset: CGSize?
     @State private var backgroundOpacity: Double = 0.0
-    
-    init(title: String?,
-         style: CharcoalModalStyle = .center,
-         tapBackgroundToDismiss: Bool = true,
-         duration: Double = 0.25,
-         maxWidth: CGFloat = 440,
-         isPresented: Binding<Bool>,
-         @ViewBuilder actions: () -> ActionContent?,
-         @ViewBuilder modalContent: () -> ModalContent) {
+
+    init(
+        title: String?,
+        style: CharcoalModalStyle = .center,
+        tapBackgroundToDismiss: Bool = true,
+        duration: Double = 0.25,
+        maxWidth: CGFloat = 440,
+        isPresented: Binding<Bool>,
+        @ViewBuilder actions: () -> ActionContent?,
+        @ViewBuilder modalContent: () -> ModalContent
+    ) {
         self.title = title
         self.style = style
         self.tapBackgroundToDismiss = tapBackgroundToDismiss
         self.duration = duration
         self.maxWidth = maxWidth
-        self._isPresented = isPresented
-        self._isActualPresented = State(initialValue: isPresented.wrappedValue)
+        _isPresented = isPresented
+        _isActualPresented = State(initialValue: isPresented.wrappedValue)
         self.modalContent = modalContent()
         self.actions = actions()
-        self._modalScale = style == .center ? State(initialValue: style.modalScale) : State(initialValue: CGSize(width: 1.0, height: 1.0))
+        _modalScale = style == .center ? State(initialValue: style.modalScale) : State(initialValue: CGSize(width: 1.0, height: 1.0))
     }
-    
+
     func prepareAnimation() {
         var transaction = Transaction(animation: .easeInOut(duration: duration))
         transaction.disablesAnimations = true
@@ -81,19 +83,19 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
             if style == .center {
                 self.modalOffset = CGSize.zero
             } else {
-                self.modalOffset = isPresented ? CGSize.zero : (UIAccessibility.isReduceMotionEnabled ? .zero : modalInitailOffset ?? .zero )
+                self.modalOffset = isPresented ? CGSize.zero : (UIAccessibility.isReduceMotionEnabled ? .zero : modalInitailOffset ?? .zero)
             }
         }
-        
-        self.modalOpacity = isPresented ? 1.0 : 0.0
-        
+
+        modalOpacity = isPresented ? 1.0 : 0.0
+
         if style == .center {
-            self.modalScale = isPresented ? CGSize(width: 1.0, height: 1.0) : (UIAccessibility.isReduceMotionEnabled ? CGSize(width: 1.0, height: 1.0) : style.modalScale)
+            modalScale = isPresented ? CGSize(width: 1.0, height: 1.0) : (UIAccessibility.isReduceMotionEnabled ? CGSize(width: 1.0, height: 1.0) : style.modalScale)
         }
-        
-        self.backgroundOpacity = isPresented ? 1.0 : 0.0
+
+        backgroundOpacity = isPresented ? 1.0 : 0.0
     }
-    
+
     /// Get the bottom inset of the safe area.
     /// - Parameter geometry: The geometry proxy.
     /// - Returns: The bottom inset of the safe area.
@@ -101,7 +103,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
         indicatorInset = indicatorInset ?? geometry.safeAreaInsets.bottom
         return indicatorInset ?? 0
     }
-    
+
     func body(content: Content) -> some View {
         content
             .onChange(of: isPresented, perform: { newValue in
@@ -115,7 +117,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                         Task {
                             prepareAnimation()
                             // Wait for the dismiss animation to finish
-                            try await Task.sleep(nanoseconds: UInt64(self.duration*1000)*1000000)
+                            try await Task.sleep(nanoseconds: UInt64(self.duration * 1000) * 1000000)
                             self.isActualPresented = newValue
                         }
                     }
@@ -126,7 +128,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                 if style == .fullScreen {
                     VStack {
                         modalContent
-                        
+
                         if let actions = actions {
                             VStack {
                                 actions
@@ -146,7 +148,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                                         isPresented = false
                                     }
                                 }
-                           
+
                             // Modal Content
                             VStack(spacing: 0) {
                                 if let title = title {
@@ -155,7 +157,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                                 }
 
                                 modalContent
-                                
+
                                 if let actions = actions {
                                     VStack {
                                         actions
@@ -179,7 +181,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                             let modalSize = CGSize(width: 0, height: value)
                             if style == .bottomSheet {
                                 // Set the initial offset to the modal size
-                                if self.modalInitailOffset == nil && !UIAccessibility.isReduceMotionEnabled {
+                                if self.modalInitailOffset == nil, !UIAccessibility.isReduceMotionEnabled {
                                     self.modalOffset = modalSize
                                 }
                                 self.modalInitailOffset = modalSize
@@ -191,11 +193,11 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                             if !UIView.areAnimationsEnabled {
                                 UIView.setAnimationsEnabled(true)
                             }
-                            
+
                             // Magic: Add some delay to wait for initial modalOffset
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01, execute: {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
                                 prepareAnimation()
-                            })
+                            }
                         }
                         .onDisappear {
                             if !UIView.areAnimationsEnabled {
@@ -216,12 +218,13 @@ struct ModalViewHeightKey: PreferenceKey {
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
         value = nextValue()
     }
+
     static var defaultValue: CGFloat = .zero
 }
 
-extension View {
-    public func charcoalModal(title: String? = nil, style: CharcoalModalStyle = .center, isPresented: Binding<Bool>, @ViewBuilder actions: @escaping () -> some View, @ViewBuilder content: @escaping () -> some View) -> some View {
-        self.modifier(CharcoalModalView(title: title, style: style, isPresented: isPresented, actions: actions, modalContent: content))
+public extension View {
+    func charcoalModal(title: String? = nil, style: CharcoalModalStyle = .center, isPresented: Binding<Bool>, @ViewBuilder actions: @escaping () -> some View, @ViewBuilder content: @escaping () -> some View) -> some View {
+        modifier(CharcoalModalView(title: title, style: style, isPresented: isPresented, actions: actions, modalContent: content))
     }
 }
 
@@ -229,7 +232,7 @@ extension View {
 #Preview {
     @State var isPresented = true
     @State var text1: String = ""
-    
+
     return ZStack {
         Button(action: {
             isPresented = true
@@ -237,35 +240,35 @@ extension View {
             Text("Show")
                 .padding()
         })
-        .charcoalModal(title: "Title",
-                       style: .center,
-                       isPresented: $isPresented,
-                       actions: {
-            Button(action: {
-                isPresented = false
-            }, label: {
-                Text("OK") .frame(maxWidth: .infinity)
-            }).charcoalPrimaryButton(size: .medium)
-              
-            
-            Button(action: {
-                isPresented = false
-            }, label: {
-                Text("Dismiss") .frame(maxWidth: .infinity)
-            }).charcoalDefaultButton(size: .medium)
-        }) {
+        .charcoalModal(
+            title: "Title",
+            style: .center,
+            isPresented: $isPresented,
+            actions: {
+                Button(action: {
+                    isPresented = false
+                }, label: {
+                    Text("OK").frame(maxWidth: .infinity)
+                }).charcoalPrimaryButton(size: .medium)
+
+                Button(action: {
+                    isPresented = false
+                }, label: {
+                    Text("Dismiss").frame(maxWidth: .infinity)
+                }).charcoalDefaultButton(size: .medium)
+            }
+        ) {
             NavigationView {
                 VStack(spacing: 10) {
                     Text("Hello This is a center dialog from Charcoal")
                         .charcoalTypography16Regular()
                         .frame(maxWidth: .infinity)
-                    
+
                     TextField("Simple text field", text: $text1).charcoalTextField()
                 }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                     .navigationTitle("SwiftUI")
                     .navigationBarTitleDisplayMode(.inline)
             }
         }
-        
     }
 }

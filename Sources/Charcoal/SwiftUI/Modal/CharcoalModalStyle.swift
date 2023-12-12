@@ -4,7 +4,7 @@ public enum CharcoalModalStyle {
     case center
     case bottomSheet
     case fullScreen
-    
+
     var modalScale: CGSize {
         switch self {
         case .center:
@@ -13,7 +13,7 @@ public enum CharcoalModalStyle {
             return CGSize(width: 1.0, height: 1.0)
         }
     }
-    
+
     /// Modal content alignment
     var alignment: Alignment {
         switch self {
@@ -25,7 +25,7 @@ public enum CharcoalModalStyle {
             return .top
         }
     }
-    
+
     /// Modal content padding around the edges
     var padding: CGFloat {
         switch self {
@@ -35,7 +35,7 @@ public enum CharcoalModalStyle {
             return 0
         }
     }
-    
+
     var roundedCorners: UIRectCorner {
         switch self {
         case .center:
