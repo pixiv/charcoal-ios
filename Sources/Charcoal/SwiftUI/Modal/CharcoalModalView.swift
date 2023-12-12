@@ -225,6 +225,7 @@ extension View {
     }
 }
 
+@available(iOS 17, *)
 #Preview {
     @State var isPresented = true
     @State var text1: String = ""
@@ -259,11 +260,7 @@ extension View {
                         .charcoalTypography16Regular()
                         .frame(maxWidth: .infinity)
                     
-                    if #available(iOS 15, *) {
-                        TextField("Simple text field", text: $text1).charcoalTextField()
-                    } else {
-                        // Fallback on earlier versions
-                    }
+                    TextField("Simple text field", text: $text1).charcoalTextField()
                 }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                     .navigationTitle("SwiftUI")
                     .navigationBarTitleDisplayMode(.inline)
