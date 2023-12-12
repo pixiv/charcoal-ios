@@ -3,13 +3,12 @@ import SwiftUI
 public enum CharcoalModalStyle {
     case center
     case bottomSheet
-    case fullScreen
 
     var modalScale: CGSize {
         switch self {
         case .center:
             return CGSize(width: 1.05, height: 1.05)
-        case .bottomSheet, .fullScreen:
+        case .bottomSheet:
             return CGSize(width: 1.0, height: 1.0)
         }
     }
@@ -21,8 +20,6 @@ public enum CharcoalModalStyle {
             return .center
         case .bottomSheet:
             return .bottom
-        case .fullScreen:
-            return .top
         }
     }
 
@@ -31,7 +28,7 @@ public enum CharcoalModalStyle {
         switch self {
         case .center:
             return 24
-        case .bottomSheet, .fullScreen:
+        case .bottomSheet:
             return 0
         }
     }
@@ -42,8 +39,6 @@ public enum CharcoalModalStyle {
             return [.allCorners]
         case .bottomSheet:
             return [.topLeft, .topRight]
-        case .fullScreen:
-            return []
         }
     }
 }

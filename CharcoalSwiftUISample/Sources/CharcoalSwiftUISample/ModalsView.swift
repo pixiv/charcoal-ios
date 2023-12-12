@@ -82,46 +82,6 @@ public struct ModalsView: View {
                     }
                 }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             }
-
-            // FullScreen
-            Button(action: {
-                isFullScreenPresented = true
-            }, label: {
-                Text("FullScreen")
-            })
-            .charcoalModal(
-                style: .fullScreen,
-                isPresented: $isFullScreenPresented,
-                actions: {
-                    Button(action: {
-                        isFullScreenPresented = false
-                    }, label: {
-                        Text("OK")
-                    }).charcoalPrimaryButton(size: .medium, isFixed: false)
-
-                    Button(action: {
-                        isFullScreenPresented = false
-                    }, label: {
-                        Text("Dismiss")
-                    }).charcoalDefaultButton(size: .medium, isFixed: false)
-                }
-            ) {
-                NavigationView {
-                    VStack {
-                        Text("Hello This is a bottom dialog from Charcoal")
-                            .charcoalTypography16Regular()
-                            .frame(maxWidth: .infinity)
-
-                        if #available(iOS 15, *) {
-                            TextField("Simple text field", text: $text3).charcoalTextField()
-                        } else {
-                            TextField("Simple text field", text: $text3)
-                        }
-                    }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-                        .navigationTitle("FullScreen")
-                        .navigationBarTitleDisplayMode(.inline)
-                }
-            }
         }
         .navigationBarTitle("Modals")
     }
