@@ -1,11 +1,11 @@
 import SwiftUI
 
-public struct BackgroundTransparentView: UIViewRepresentable {
-    public func makeUIView(context _: Context) -> UIView {
+struct BackgroundTransparentView: UIViewRepresentable {
+    func makeUIView(context _: Context) -> UIView {
         TransparentView()
     }
 
-    public func updateUIView(_: UIView, context _: Context) {}
+    func updateUIView(_: UIView, context _: Context) {}
 
     private class TransparentView: UIView {
         override func layoutSubviews() {
