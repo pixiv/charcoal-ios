@@ -187,7 +187,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                                 self.modalInitailOffset = modalSize
                             }
                         })
-                        .ignoresSafeArea(.container)
+                        .ignoresSafeArea(.container, edges: .bottom)
                         .background(BackgroundTransparentView())
                         .onAppear {
                             if !UIView.areAnimationsEnabled {
