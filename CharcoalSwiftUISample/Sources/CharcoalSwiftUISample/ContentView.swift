@@ -40,6 +40,9 @@ public struct ContentView: View {
                 NavigationLink(destination: IconsView()) {
                     Text("Icons")
                 }
+                NavigationLink(destination: ModalsView()) {
+                    Text("Modal")
+                }
             }
             .navigationBarTitle("Charcoal")
         }
