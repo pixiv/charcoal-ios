@@ -5,37 +5,33 @@ public class CharcoalTypographyLabel: UILabel, CharcoalTypographyStyle {
         didSet {
             setupStyle()
         }
-     }
-    
+    }
+
     public var isMono: Bool = false {
         didSet {
             setupStyle()
         }
-     }
-    
+    }
+
     public var fontSize: CGFloat {
-        get {
-            fatalError("Subclass must implement the 'fontSize' property")
-        }
+        fatalError("Subclass must implement the 'fontSize' property")
     }
-    
-    public var lineHeight: CGFloat{
-        get {
-            fatalError("Subclass must implement the 'lineHeight' property")
-        }
+
+    public var lineHeight: CGFloat {
+        fatalError("Subclass must implement the 'lineHeight' property")
     }
-    
-    public override init(frame: CGRect) {
+
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         setupStyle()
     }
-    
+
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupStyle()
     }
-    
-    public override func awakeFromNib() {
+
+    override public func awakeFromNib() {
         super.awakeFromNib()
         setupStyle()
     }
@@ -44,6 +40,7 @@ public class CharcoalTypographyLabel: UILabel, CharcoalTypographyStyle {
 extension CharcoalTypographyStyle where Self: UILabel {
     func setupStyle() {
         setupFont(fontSize: fontSize, isBold: isBold, isMono: isMono)
+        adjustsFontForContentSizeCategory = true
         if isMono {
             numberOfLines = 1
         } else {

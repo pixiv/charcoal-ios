@@ -24,22 +24,20 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
                     .charcoalOnSurfaceText1()
                     .lineLimit(1)
             }
-            HStack(spacing: 0) {
+            HStack(spacing: 10) {
                 configuration
                     .charcoalTypography14Regular()
                     .focused($isFocused)
-                    .padding(8.0)
                     .frame(maxWidth: .infinity)
                     .charcoalOnSurfaceText2()
                 if !countLabel.isEmpty {
                     Text(countLabel)
                         .charcoalTypography14Regular()
-                        .padding(8.0)
                         // swiftlint:disable line_length
                         .foregroundStyle(charcoalColor: hasError ? .assertive : .text3)
                 }
             }
-            .frame(height: 40)
+            .padding(EdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8))
             .charcoalSurface3()
             .cornerRadius(4.0)
             .overlay(
@@ -89,4 +87,38 @@ public extension View {
             hasError: hasError
         ))
     }
+}
+
+@available(iOS 15, *)
+#Preview {
+    @State var text1 = ""
+    @State var text2 = ""
+
+    return VStack(spacing: 16) {
+        TextField("Simple text field", text: $text1)
+            .charcoalTextField()
+        TextField("Placeholder", text: $text2)
+            .charcoalTextField(
+                label: .constant("Label"),
+                countLabel: .init(
+                    get: { "\(text2.count)/10" },
+                    set: { _ in }
+                ),
+                assistiveText: .init(
+                    get: { text2.count > 10 ? "Error" : "OK" },
+                    set: { _ in }
+                ),
+                hasError: .init(
+                    get: { text2.count > 10 },
+                    set: { _ in }
+                )
+            )
+        TextField("", text: .constant("Text"))
+            .disabled(true)
+            .charcoalTextField(
+                label: .constant("Label"),
+                countLabel: .constant("0/10"),
+                assistiveText: .constant("Assistive text")
+            )
+    }.padding()
 }

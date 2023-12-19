@@ -8,20 +8,34 @@ struct CharcoalPrimaryButtonStyleView: View {
     let isFixed: Bool
     let primaryColor: Color
 
+    @ScaledMetric var fontSize: CGFloat
+
+    @ScaledMetric var cornerRadius: CGFloat
+
+    init(label: ButtonStyleConfiguration.Label, isPressed: Bool, isEnabled: Bool, size: CharcoalButtonSize, isFixed: Bool, primaryColor: Color) {
+        self.label = label
+        self.isPressed = isPressed
+        self.isEnabled = isEnabled
+        self.size = size
+        self.isFixed = isFixed
+        self.primaryColor = primaryColor
+        _fontSize = ScaledMetric(wrappedValue: size.fontSize)
+        _cornerRadius = ScaledMetric(wrappedValue: size.cornerRadius)
+    }
+
     var body: some View {
         label
-            .font(.system(size: 14, weight: .bold))
+            .font(.system(size: fontSize, weight: .bold))
             .charcoalOnSurfaceText5()
-            .padding(size == .medium ? 24 : 16)
+            .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
-            .frame(height: size == .medium ? 40 : 32)
             .background(primaryColor)
             .opacity(isEnabled ? 1.0 : 0.32)
             .overlay(
                 Rectangle()
                     .backport.foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
             )
-            .cornerRadius(size == .medium ? 20 : 16)
+            .cornerRadius(cornerRadius)
     }
 }
 
@@ -87,5 +101,20 @@ public extension View {
         primaryColor: Color = Color(CharcoalAsset.ColorPaletteGenerated.brand.color)
     ) -> some View {
         return modifier(CharcoalPrimaryButtonStyleModifier(size: size, isFixed: isFixed, primaryColor: primaryColor))
+    }
+}
+
+#Preview {
+    VStack(spacing: 8) {
+        Button("Primary Button M") {}
+            .charcoalPrimaryButton(size: .medium)
+        Button("Primary Button M") {}
+            .charcoalPrimaryButton(size: .medium)
+            .disabled(true)
+        Button("Primary Button S") {}
+            .charcoalPrimaryButton(size: .small)
+        Button("Primary Button S") {}
+            .charcoalPrimaryButton(size: .small)
+            .disabled(true)
     }
 }

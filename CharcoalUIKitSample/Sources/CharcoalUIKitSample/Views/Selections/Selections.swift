@@ -11,7 +11,7 @@ final class SelectionsViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+
     private var disabledCharcoalSwitch: CharcoalSwitch!
 
     override func viewDidLoad() {
@@ -20,47 +20,49 @@ final class SelectionsViewController: UIViewController {
         setupUI()
         addSwitches()
     }
-    
+
     private func setupUI() {
         view.addSubview(stackView)
-        
+
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
     }
-    
+
     private func addSwitches() {
-        let switchStack = UIStackView(frame: .zero)
-        switchStack.axis = .horizontal
-        let label = CharcoalTypography14()
-        label.text = "Toggle"
-        let firstSwitch = CharcoalSwitch()
-        firstSwitch.addTarget(self, action: #selector(didChangedSwitchValue), for: .valueChanged)
-        firstSwitch.isOn = true
-        
-        switchStack.addArrangedSubview(label)
-        switchStack.addArrangedSubview(firstSwitch)
-        
-        stackView.addArrangedSubview(switchStack)
-        
+        let switchObject = CharcoalSwitch()
+        let firstSwitchView = createSwitchView(title: "Toggle", switchObject: switchObject)
+        switchObject.addTarget(self, action: #selector(didChangedSwitchValue), for: .valueChanged)
+        stackView.addArrangedSubview(firstSwitchView)
+
         addDisabledSwitch()
     }
-    
+
     private func addDisabledSwitch() {
-        let switchStackSecond = UIStackView(frame: .zero)
-        switchStackSecond.axis = .horizontal
-        let labelSecond = CharcoalTypography14()
-        labelSecond.text = "Toggle Disabled"
         disabledCharcoalSwitch = CharcoalSwitch()
-        disabledCharcoalSwitch.isOn = true
         disabledCharcoalSwitch.isEnabled = false
-        
-        switchStackSecond.addArrangedSubview(labelSecond)
-        switchStackSecond.addArrangedSubview(disabledCharcoalSwitch)
-        
-        stackView.addArrangedSubview(switchStackSecond)
+
+        let switchView = createSwitchView(title: "Toggle Disabled", switchObject: disabledCharcoalSwitch)
+
+        stackView.addArrangedSubview(switchView)
+    }
+
+    private func createSwitchView(title: String, switchObject: CharcoalSwitch) -> UIView {
+        let stackview = UIStackView(frame: .zero)
+        stackview.axis = .horizontal
+        stackview.distribution = .fill
+        stackview.alignment = .center
+        let label = CharcoalTypography14()
+        label.text = title
+
+        switchObject.isOn = true
+
+        stackview.addArrangedSubview(label)
+        stackview.addArrangedSubview(switchObject)
+
+        return stackview
     }
 
     @objc private func didChangedSwitchValue(_ sender: CharcoalSwitch) {

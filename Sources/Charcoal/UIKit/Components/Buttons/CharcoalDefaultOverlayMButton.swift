@@ -8,7 +8,7 @@ public class CharcoalDefaultOverlayMButton: UIButton, CharcoalButton {
         let fixedSize = superview?.frame.width ?? contentSize.width
         return CGSize(
             width: isFixed ? fixedSize : contentSize.width,
-            height: 40
+            height: contentSize.height
         )
     }
 
@@ -64,7 +64,6 @@ public class CharcoalDefaultOverlayMButton: UIButton, CharcoalButton {
         alpha = isEnabled ? 1.0 : 0.32
     }
 }
-
 
 @available(iOS 17.0, *)
 #Preview {

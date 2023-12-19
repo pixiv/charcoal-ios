@@ -9,125 +9,129 @@ public class CharcoalTextFieldView: UIStackView {
             charcoalTextField.lengthLimit = lengthLimit
         }
     }
+
     public var title: String? {
         didSet {
             setupTitleLabel()
         }
     }
+
     public var placeholder: String? {
         didSet {
             charcoalTextField.placeholder = placeholder
         }
     }
+
     public var assertiveText: String?
-    
+
     public lazy var charcoalTextField: CharcoalTextField = {
         let textField = CharcoalTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        textField.adjustsFontForContentSizeCategory = true
         return textField
     }()
-    
+
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: CGFloat(charcoalFoundation.typography.size.the14.fontSize))
+        label.font = UIFont.systemFont(ofSize: CGFloat(charcoalFoundation.typography.size.the14.fontSize)).scaledFont
         label.textColor = CharcoalAsset.ColorPaletteGenerated.text1.color
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
-    
+
     private lazy var assertiveTextLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: CGFloat(charcoalFoundation.typography.size.the14.fontSize))
+        label.font = UIFont.systemFont(ofSize: CGFloat(charcoalFoundation.typography.size.the14.fontSize)).scaledFont
         label.textColor = CharcoalAsset.ColorPaletteGenerated.text2.color
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.heightAnchor.constraint(greaterThanOrEqualToConstant: 20).isActive = true
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
-    
+
     public weak var delegate: CharcoalTextFieldViewDelegate? {
         didSet {
             charcoalTextField.delegate = delegate
         }
     }
-    
+
     override public var isUserInteractionEnabled: Bool {
         didSet {
             updateStyle()
         }
     }
-    
+
     override public init(frame: CGRect) {
         super.init(frame: frame)
         setupStyle()
     }
-    
+
     required init(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
+
     override public func awakeFromNib() {
         super.awakeFromNib()
         setupStyle()
     }
-    
+
     private func setupStyle() {
         setupTitleLabel()
         setupCharcoalTextField()
         setupAssertiveTextLabel()
         setupStackView()
-        
+
         updateStyle()
     }
-    
+
     private func setupTitleLabel() {
         titleLabel.text = title
         titleLabel.isHidden = title == nil
     }
-    
+
     private func setupCharcoalTextField() {
         charcoalTextField.placeholder = placeholder
     }
-    
+
     private func setupAssertiveTextLabel() {
         assertiveTextLabel.isHidden = true
     }
-    
+
     private func setupStackView() {
         backgroundColor = CharcoalAsset.ColorPaletteGenerated.surface1.color
         distribution = .fill
         alignment = .fill
         axis = .vertical
         spacing = 8.0
-        
+
         addArrangedSubview(titleLabel)
         addArrangedSubview(charcoalTextField)
         addArrangedSubview(assertiveTextLabel)
     }
-    
+
     private func updateStyle() {
         alpha = isUserInteractionEnabled ? 1.0 : 0.32
     }
-    
+
     open func showAssertiveText(text: String) {
         assertiveTextLabel.text = text
         assertiveTextLabel.isHidden = false
     }
-    
+
     open func hideAssertiveText() {
         assertiveTextLabel.isHidden = true
     }
-    
+
     open func updateCountLabel(text: String, hasError: Bool) {
         charcoalTextField.countLabel.text = text
         // swiftlint:disable line_length
         charcoalTextField.countLabel.textColor = hasError ? CharcoalAsset.ColorPaletteGenerated.assertive.color : CharcoalAsset.ColorPaletteGenerated.text3.color
         charcoalTextField.countLabel.sizeToFit()
     }
-    
+
     open func setHasError(_ hasError: Bool) {
         if hasError {
             charcoalTextField.setAssertiveBorder()

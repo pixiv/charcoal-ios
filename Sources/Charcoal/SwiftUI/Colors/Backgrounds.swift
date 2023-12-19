@@ -3,7 +3,7 @@ import SwiftUI
 struct CharcoalBackground: ViewModifier {
     let charcoalColor: CharcoalAsset.ColorPaletteGenerated
     let edges: Edge.Set
-    
+
     func body(content: Content) -> some View {
         content.backport.background(Color(charcoalColor.color), ignoresSafeAreaEdges: edges)
     }
@@ -45,7 +45,7 @@ public extension View {
 
 // MARK: Development View
 
-fileprivate struct BackgroundView: View {
+private struct BackgroundView: View {
     var body: some View {
         ZStack {
             Text("Charcoal")

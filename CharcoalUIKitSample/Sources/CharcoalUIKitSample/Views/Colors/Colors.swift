@@ -7,10 +7,10 @@ final class ColorsViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+
     private let colorsCollectionViewCellIdentifier = "ColorsCollectionViewCell"
 
-    private let colors = CharcoalAsset.ColorPaletteGenerated.allCases.map({ $0.color })
+    private let colors = CharcoalAsset.ColorPaletteGenerated.allCases.map { $0.color }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,14 +21,14 @@ final class ColorsViewController: UIViewController {
     private func setupCollectionView() {
         view.backgroundColor = UIColor.systemBackground
         view.addSubview(collectionView)
-        
+
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        
+
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self

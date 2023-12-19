@@ -3,11 +3,23 @@ import SwiftUI
 struct CharcoalFontModifier: ViewModifier {
     let size: CGFloat
     let weight: UIFont.Weight
-    let lineHeight: CGFloat
     let isSingleLine: Bool
+    let textStyle: Font.TextStyle
+
+    @ScaledMetric var fontSize: CGFloat
+    @ScaledMetric var lineHeight: CGFloat
+
+    init(size: CGFloat, weight: UIFont.Weight, lineHeight: CGFloat, isSingleLine: Bool, textStyle: Font.TextStyle = .body) {
+        self.size = size
+        self.weight = weight
+        self.isSingleLine = isSingleLine
+        self.textStyle = textStyle
+        _fontSize = ScaledMetric(wrappedValue: size, relativeTo: textStyle)
+        _lineHeight = ScaledMetric(wrappedValue: lineHeight, relativeTo: textStyle)
+    }
 
     func body(content: Content) -> some View {
-        let font: UIFont = .systemFont(ofSize: size, weight: weight)
+        let font: UIFont = .systemFont(ofSize: fontSize, weight: weight)
         return content
             .font(Font(font))
             .lineSpacing(isSingleLine ? 0 : lineHeight - font.lineHeight)
@@ -20,9 +32,19 @@ struct CharcoalFontModifier: ViewModifier {
 struct CharcoalMonoFontModifier: ViewModifier {
     let size: CGFloat
     let weight: UIFont.Weight
+    let textStyle: Font.TextStyle
+
+    @ScaledMetric var fontSize: CGFloat
+
+    init(size: CGFloat, weight: UIFont.Weight, textStyle: Font.TextStyle = .body) {
+        self.size = size
+        self.weight = weight
+        self.textStyle = textStyle
+        _fontSize = ScaledMetric(wrappedValue: size, relativeTo: textStyle)
+    }
 
     func body(content: Content) -> some View {
-        let font: UIFont = .monospacedSystemFont(ofSize: size, weight: weight)
+        let font: UIFont = .monospacedSystemFont(ofSize: fontSize, weight: weight)
         return content
             .font(Font(font))
             .lineLimit(1)

@@ -10,7 +10,8 @@ public extension View {
             size: fontSize,
             weight: .bold,
             lineHeight: lineHeight,
-            isSingleLine: isSingleLine
+            isSingleLine: isSingleLine,
+            textStyle: .body
         ))
     }
 
@@ -20,7 +21,8 @@ public extension View {
             size: fontSize,
             weight: .regular,
             lineHeight: lineHeight,
-            isSingleLine: isSingleLine
+            isSingleLine: isSingleLine,
+            textStyle: .body
         ))
     }
 
@@ -28,7 +30,8 @@ public extension View {
     func charcoalTypography12BoldMono() -> some View {
         return modifier(CharcoalMonoFontModifier(
             size: fontSize,
-            weight: .bold
+            weight: .bold,
+            textStyle: .body
         ))
     }
 
@@ -36,7 +39,8 @@ public extension View {
     func charcoalTypography12RegularMono() -> some View {
         return modifier(CharcoalMonoFontModifier(
             size: fontSize,
-            weight: .regular
+            weight: .regular,
+            textStyle: .body
         ))
     }
 }

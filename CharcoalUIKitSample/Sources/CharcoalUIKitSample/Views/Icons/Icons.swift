@@ -7,7 +7,7 @@ final class IconsViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+
     private let iconsCollectionViewCellIdentifier = "IconsCollectionViewCell"
 
     private let icons = CharcoalAsset.Images.allCases
@@ -21,14 +21,14 @@ final class IconsViewController: UIViewController {
     private func setupCollectionView() {
         view.backgroundColor = UIColor.systemBackground
         view.addSubview(collectionView)
-        
+
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        
+
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self

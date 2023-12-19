@@ -4,15 +4,15 @@ extension UILabel {
     func setupFont(fontSize: CGFloat, isBold: Bool, isMono: Bool) {
         if isBold {
             if isMono {
-                font = UIFont.monospacedSystemFont(ofSize: fontSize, weight: .bold)
+                font = UIFont.monospacedSystemFont(ofSize: fontSize, weight: .bold).scaledFont
             } else {
-                font = UIFont.boldSystemFont(ofSize: fontSize)
+                font = UIFont.systemFont(ofSize: fontSize, weight: .bold).scaledFont
             }
         } else {
             if isMono {
-                font = UIFont.monospacedSystemFont(ofSize: fontSize, weight: .regular)
+                font = UIFont.monospacedSystemFont(ofSize: fontSize, weight: .regular).scaledFont
             } else {
-                font = UIFont.systemFont(ofSize: fontSize)
+                font = UIFont.systemFont(ofSize: fontSize).scaledFont
             }
         }
     }
