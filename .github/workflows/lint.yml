@@ -19,7 +19,7 @@ jobs:
           swift run -c release --package-path BuildTools swiftlint lint --config .swiftlint.yml --reporter html > report.html
         continue-on-error: true
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: Lint Report
           path: report.html
