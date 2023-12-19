@@ -16,17 +16,17 @@ public class CharcoalTextField: UITextField {
 
     override public func textRect(forBounds bounds: CGRect) -> CGRect {
         let right = lengthLimit > 0 ? 16 + countLabel.bounds.width : 8
-        return bounds.inset(by: UIEdgeInsets(top: 11.5, left: 8, bottom: 11.5, right: right))
+        return bounds.inset(by: UIEdgeInsets(top: 10, left: 8, bottom: 10, right: right))
     }
 
     override public func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         let right = lengthLimit > 0 ? 16 + countLabel.bounds.width : 8
-        return bounds.inset(by: UIEdgeInsets(top: 11.5, left: 8, bottom: 11.5, right: right))
+        return bounds.inset(by: UIEdgeInsets(top: 10, left: 8, bottom: 10, right: right))
     }
 
     override public func editingRect(forBounds bounds: CGRect) -> CGRect {
         let right = lengthLimit > 0 ? 16 + countLabel.bounds.width : 8
-        return bounds.inset(by: UIEdgeInsets(top: 11.5, left: 8, bottom: 11.5, right: right))
+        return bounds.inset(by: UIEdgeInsets(top: 10, left: 8, bottom: 10, right: right))
     }
 
     override public func rightViewRect(forBounds bounds: CGRect) -> CGRect {

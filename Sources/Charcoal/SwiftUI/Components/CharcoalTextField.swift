@@ -37,7 +37,7 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
                         .foregroundStyle(charcoalColor: hasError ? .assertive : .text3)
                 }
             }
-            .padding(EdgeInsets(top: 11.5, leading: 8, bottom: 11.5, trailing: 8))
+            .padding(EdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8))
             .charcoalSurface3()
             .cornerRadius(4.0)
             .overlay(
