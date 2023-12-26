@@ -2,7 +2,7 @@ name: update_foundation
 
 on:
   schedule:
-    - cron: '0 11 * * 1-5'
+    - cron: "0 11 * * 1-5"
   workflow_dispatch:
 
 permissions:
@@ -50,6 +50,7 @@ jobs:
       - name: Generate Swift file
         run: |
           swift run --package-path BuildTools swiftgen
+          git restore BuildTools/Package.resolved
 
       - name: Create Pull Request
         run: |
