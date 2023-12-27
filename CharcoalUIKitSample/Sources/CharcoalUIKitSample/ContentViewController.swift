@@ -1,4 +1,5 @@
 import UIKit
+import Charcoal
 
 public final class ContentViewController: UIViewController {
     private lazy var tableView: UITableView = {
@@ -35,7 +36,7 @@ public final class ContentViewController: UIViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-
+        CharcoalConfig.fixedSizeCategory = .large
         setupNavigationBar()
         setupUI()
     }

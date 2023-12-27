@@ -41,12 +41,10 @@ Button("Default Button M") {}
 
 #### UIKit
 
-`setOverrideTraitCollection` を使用して Dynamic Type レベルを固定します。
+`CharcoalConfig.fixedSizeCategory` を使用して Dynamic Type レベルを固定します。
 
 ```swift
-let trait = UITraitCollection(preferredContentSizeCategory: .large)
-
-setOverrideTraitCollection(trait, forChild: viewController)
+CharcoalConfig.fixedSizeCategory = .large
 ```
 
 ## Installation
