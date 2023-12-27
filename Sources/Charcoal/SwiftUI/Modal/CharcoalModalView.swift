@@ -107,9 +107,11 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
     func body(content: Content) -> some View {
         content
             .onChange(of: isPresented, perform: { newValue in
-                UIView.setAnimationsEnabled(false)
                 if newValue {
-                    isActualPresented = newValue
+                    // Present fullScreenCover immediately to avoid the default animation
+                    withoutAnimation {
+                        isActualPresented = newValue
+                    }
                 } else {
                     Task {
                         prepareAnimation()
@@ -166,6 +168,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                         let modalSize = CGSize(width: 0, height: value)
                         if style == .bottomSheet {
                             // Set the initial offset to the modal size
+                            // To made an animation that modal slides up from bottom
                             if self.modalInitailOffset == nil, !UIAccessibility.isReduceMotionEnabled {
                                 self.modalOffset = modalSize
                             }
@@ -175,18 +178,9 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                     .ignoresSafeArea(.container, edges: .bottom)
                     .background(BackgroundTransparentView())
                     .onAppear {
-                        if !UIView.areAnimationsEnabled {
-                            UIView.setAnimationsEnabled(true)
-                        }
-
                         // Magic: Add some delay to wait for initial modalOffset
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
                             prepareAnimation()
-                        }
-                    }
-                    .onDisappear {
-                        if !UIView.areAnimationsEnabled {
-                            UIView.setAnimationsEnabled(true)
                         }
                     }
                 })
