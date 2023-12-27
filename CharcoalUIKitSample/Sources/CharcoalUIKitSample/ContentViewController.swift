@@ -1,5 +1,5 @@
-import UIKit
 import Charcoal
+import UIKit
 
 public final class ContentViewController: UIViewController {
     private lazy var tableView: UITableView = {
