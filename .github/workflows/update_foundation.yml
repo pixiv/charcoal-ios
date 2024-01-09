@@ -33,7 +33,7 @@ jobs:
           curl -L https://unpkg.com/@charcoal-ui/theme@latest/theme.json -o theme.json
 
           npm install
-          npm run foundation-gen generate -- --input="theme.json" --outputJson="../../Sources/Charcoal/Generated" --outputSwift="../../Sources/Charcoal/Generated" --outputColorAsset="../../Sources/Charcoal/ColorPalette.generated.xcassets"
+          npm run foundation-gen generate -- --input="theme.json" --outputJson="../../Sources/CharcoalShared/Generated" --outputSwift="../../Sources/CharcoalShared/Generated" --outputColorAsset="../../Sources/CharcoalShared/ColorPalette.generated.xcassets"
           rm theme.json
 
       - name: Update icon
@@ -43,7 +43,7 @@ jobs:
           OUTPUT_ROOT_DIR=icons npx @charcoal-ui/icons-cli@latest figma:export --format pdf
 
           npm install
-          npm run xcasset-gen generate -- --input icons/pdf --output ../../Sources/Charcoal/Images.xcassets
+          npm run xcasset-gen generate -- --input icons/pdf --output ../../Sources/CharcoalShared/Images.xcassets
 
           rm -rf icons
 
