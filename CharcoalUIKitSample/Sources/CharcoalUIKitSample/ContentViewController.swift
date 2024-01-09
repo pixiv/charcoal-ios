@@ -36,7 +36,6 @@ public final class ContentViewController: UIViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-        CharcoalConfig.fixedSizeCategory = .large
         setupNavigationBar()
         setupUI()
     }
