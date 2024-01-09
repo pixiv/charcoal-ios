@@ -41,10 +41,10 @@ Button("Default Button M") {}
 
 #### UIKit
 
-`CharcoalConfig.fixedSizeCategory` を使用して Dynamic Type レベルを固定します。
+`CharcoalConfig.configUIKit.fixedSizeCategory` を使用して Dynamic Type レベルを固定します。
 
 ```swift
-CharcoalConfig.fixedSizeCategory = .large
+CharcoalConfig.configUIKit.fixedSizeCategory = .large
 ```
 
 ## Installation
