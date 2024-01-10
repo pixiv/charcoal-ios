@@ -175,6 +175,7 @@ extension ContentViewController {
         case .fixedSizeCategory:
             CharcoalConfig.configUIKit.fixedSizeCategory = sender.isOn ? .large : nil
             
+            // Update current view controller as it is not controled by CharcoalConfig
             if #available(iOS 15.0, *) {
                 self.view.maximumContentSizeCategory = CharcoalConfig.configUIKit.fixedSizeCategory
                 self.view.minimumContentSizeCategory = CharcoalConfig.configUIKit.fixedSizeCategory
