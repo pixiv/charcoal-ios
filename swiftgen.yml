@@ -1,10 +1,10 @@
 xcassets:
   inputs:
-    - Sources/Charcoal/ColorPalette.generated.xcassets
-    - Sources/Charcoal/Images.xcassets
+    - Sources/CharcoalShared/ColorPalette.generated.xcassets
+    - Sources/CharcoalShared/Images.xcassets
   outputs:
     - templatePath: ./stencils/assets-template.stencil
-      output: Sources/Charcoal/Generated/Assets.swift
+      output: Sources/CharcoalShared/Generated/Assets.swift
       params:
         enumName: CharcoalAsset
         publicAccess: true
