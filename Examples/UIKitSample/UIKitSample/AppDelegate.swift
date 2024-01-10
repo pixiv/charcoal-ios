@@ -9,9 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(
         _: UIApplication,
         didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?
-    ) -> Bool {
-        CharcoalConfig.configUIKit.fixedSizeCategory = .large
-        
+    ) -> Bool { 
         let viewController = ContentViewController()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController(rootViewController: viewController)
