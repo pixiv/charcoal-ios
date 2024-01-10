@@ -13,16 +13,36 @@ let package = Package(
         .library(
             name: "Charcoal",
             targets: ["Charcoal"]
+        ),
+        .library(
+            name: "CharcoalSwiftUI",
+            targets: ["CharcoalSwiftUI"]
+        ),
+        .library(
+            name: "CharcoalUIKit",
+            targets: ["CharcoalUIKit"]
         )
     ],
     dependencies: [],
     targets: [
         .target(
             name: "Charcoal",
+            dependencies: ["CharcoalShared", "CharcoalSwiftUI", "CharcoalUIKit"]
+        ),
+        .target(
+            name: "CharcoalShared",
             dependencies: [],
             resources: [
                 .process("Generated/CharcoalFoundation.json")
             ]
+        ),
+        .target(
+            name: "CharcoalSwiftUI",
+            dependencies: ["CharcoalShared"]
+        ),
+        .target(
+            name: "CharcoalUIKit",
+            dependencies: ["CharcoalShared"]
         )
     ]
 )
