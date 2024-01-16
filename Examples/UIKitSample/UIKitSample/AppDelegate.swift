@@ -1,6 +1,6 @@
+import Charcoal
 import CharcoalUIKitSample
 import UIKit
-import Charcoal
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -9,7 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(
         _: UIApplication,
         didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?
-    ) -> Bool { 
+    ) -> Bool {
         let viewController = ContentViewController()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController(rootViewController: viewController)
