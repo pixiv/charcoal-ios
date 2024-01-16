@@ -1,17 +1,17 @@
 ---
 opt_in_rules:
-- anyobject_protocol
-- closure_end_indentation
-- closure_spacing
-- collection_alignment
-- conditional_returns_on_newline
-- explicit_init
-- multiline_function_chains
-- multiline_literal_brackets
-- multiline_parameters_brackets
-- sorted_imports
+  - anyobject_protocol
+  - closure_end_indentation
+  - closure_spacing
+  - collection_alignment
+  - conditional_returns_on_newline
+  - explicit_init
+  - multiline_function_chains
+  - multiline_literal_brackets
+  - multiline_parameters_brackets
+  - sorted_imports
 excluded:
-- Sources/Charcoal/Generated
-- .build
-- BuildTools/.build
-- vendor/bundle
+  - Sources/CharcoalShared/Generated
+  - .build
+  - BuildTools/.build
+  - vendor/bundle
