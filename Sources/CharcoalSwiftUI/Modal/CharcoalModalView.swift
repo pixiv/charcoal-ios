@@ -50,7 +50,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
     @State private var modalOpacity: Double = 0.0
     @State private var modalScale: CGSize
     @State private var modalOffset: CGSize = .zero
-    @State private var modalInitailOffset: CGSize?
+    @State private var modalInitailOffset: CGSize = .zero
     @State private var backgroundOpacity: Double = 0.0
 
     init(
@@ -83,7 +83,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
             if style == .center {
                 self.modalOffset = CGSize.zero
             } else {
-                self.modalOffset = isPresented ? CGSize.zero : (UIAccessibility.isReduceMotionEnabled ? .zero : modalInitailOffset ?? .zero)
+                self.modalOffset = isPresented ? CGSize.zero : modalInitailOffset
             }
         }
 
@@ -117,7 +117,9 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                         prepareAnimation()
                         // Wait for the dismiss animation to finish
                         try await Task.sleep(nanoseconds: UInt64(self.duration * 1000) * 1000000)
-                        self.isActualPresented = newValue
+                        withoutAnimation {
+                            isActualPresented = newValue
+                        }
                     }
                 }
             })
@@ -169,10 +171,13 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                         if style == .bottomSheet {
                             // Set the initial offset to the modal size
                             // To made an animation that modal slides up from bottom
-                            if self.modalInitailOffset == nil, !UIAccessibility.isReduceMotionEnabled {
+                            if self.modalInitailOffset == .zero, !UIAccessibility.isReduceMotionEnabled {
                                 self.modalOffset = modalSize
                             }
-                            self.modalInitailOffset = modalSize
+                            
+                            if !UIAccessibility.isReduceMotionEnabled {
+                                self.modalInitailOffset = modalSize
+                            }
                         }
                     })
                     .ignoresSafeArea(.container, edges: .bottom)
