@@ -174,7 +174,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                             if self.modalInitailOffset == .zero, !UIAccessibility.isReduceMotionEnabled {
                                 self.modalOffset = modalSize
                             }
-                            
+
                             if !UIAccessibility.isReduceMotionEnabled {
                                 self.modalInitailOffset = modalSize
                             }
