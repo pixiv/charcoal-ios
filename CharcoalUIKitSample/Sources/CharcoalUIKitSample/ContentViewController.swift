@@ -170,7 +170,7 @@ extension ContentViewController {
     private func performActionFor(setting: SettingsTitles, sender: UISwitch) {
         switch setting {
         case .darkMode:
-            overrideUserInterfaceStyle = sender.isOn ? .dark : .light
+            navigationController?.overrideUserInterfaceStyle = sender.isOn ? .dark : .light
         case .fixedSizeCategory:
             CharcoalConfig.configUIKit.fixedSizeCategory = sender.isOn ? .large : nil
 
