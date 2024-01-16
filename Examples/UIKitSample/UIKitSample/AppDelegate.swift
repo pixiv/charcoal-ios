@@ -1,3 +1,4 @@
+import Charcoal
 import CharcoalUIKitSample
 import UIKit
 

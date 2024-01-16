@@ -15,7 +15,7 @@ extension UIButton {
         configuration.contentInsets = size == .medium ? .init(top: 11.5, leading: 24, bottom: 11.5, trailing: 24) : .init(top: 7.5, leading: 16, bottom: 7.5, trailing: 16)
 
         configurationUpdateHandler = { button in
-            button.configuration?.attributedTitle?.font = .systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 14), weight: .bold)
+            button.configuration?.attributedTitle?.font = .systemFont(ofSize: UIFontMetrics.default.charcoalScaledValue(for: 14), weight: .bold)
             switch button.state {
             case .highlighted:
                 button.configuration?.attributedTitle?.foregroundColor = pressedTextColor
@@ -41,7 +41,7 @@ extension UIButton {
         let configuration = UIButton.Configuration.filled()
 
         configurationUpdateHandler = { button in
-            button.configuration?.attributedTitle?.font = .systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 14), weight: .bold)
+            button.configuration?.attributedTitle?.font = .systemFont(ofSize: UIFontMetrics.default.charcoalScaledValue(for: 14), weight: .bold)
             switch button.state {
             case .highlighted:
                 button.configuration?.attributedTitle?.foregroundColor = pressedTextColor
@@ -74,7 +74,7 @@ extension UIButton {
         setTitleColor(pressedTextColor, for: .highlighted)
 
         isExclusiveTouch = true
-        titleLabel?.font = .systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 14), weight: .bold)
+        titleLabel?.font = .systemFont(ofSize: UIFontMetrics.default.charcoalScaledValue(for: 14), weight: .bold)
         // swiftlint:disable line_length
         contentEdgeInsets = size == .medium ? UIEdgeInsets(top: 11.5, left: 24, bottom: 11.5, right: 24) : UIEdgeInsets(top: 7.5, left: 16, bottom: 7.5, right: 16)
     }
@@ -91,7 +91,7 @@ extension UIButton {
         setTitleColor(pressedTextColor, for: .highlighted)
 
         isExclusiveTouch = true
-        titleLabel?.font = .systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 14), weight: .bold)
+        titleLabel?.font = .systemFont(ofSize: UIFontMetrics.default.charcoalScaledValue(for: 14), weight: .bold)
         contentEdgeInsets = UIEdgeInsets(top: 8, left: 24, bottom: 8, right: 24)
     }
 }
