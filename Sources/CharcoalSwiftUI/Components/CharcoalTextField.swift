@@ -26,13 +26,13 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
             }
             HStack(spacing: 10) {
                 configuration
-                    .charcoalTypography14Regular()
+                    .charcoalTypography14Regular(isSingleLine: true)
                     .focused($isFocused)
                     .frame(maxWidth: .infinity)
                     .charcoalOnSurfaceText2()
                 if !countLabel.isEmpty {
                     Text(countLabel)
-                        .charcoalTypography14Regular()
+                        .charcoalTypography14Regular(isSingleLine: true)
                         // swiftlint:disable line_length
                         .foregroundStyle(charcoalColor: hasError ? .assertive : .text3)
                 }
