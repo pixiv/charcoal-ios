@@ -50,8 +50,9 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
     @State private var modalOpacity: Double = 0.0
     @State private var modalScale: CGSize
     @State private var modalOffset: CGSize = .zero
-    @State private var modalInitailOffset: CGSize?
+    @State private var modalInitailOffset: CGSize = .zero
     @State private var backgroundOpacity: Double = 0.0
+    @State private var modalOffsetAnimation: Animation?
 
     init(
         title: String?,
@@ -76,24 +77,24 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
     }
 
     func prepareAnimation() {
-        var transaction = Transaction(animation: .easeInOut(duration: duration))
-        transaction.disablesAnimations = true
+        // Shedule the animation to the next runloop
+        DispatchQueue.main.async {
+            modalOffsetAnimation = .easeInOut(duration: duration)
 
-        withTransaction(transaction) {
             if style == .center {
                 self.modalOffset = CGSize.zero
             } else {
-                self.modalOffset = isPresented ? CGSize.zero : (UIAccessibility.isReduceMotionEnabled ? .zero : modalInitailOffset ?? .zero)
+                self.modalOffset = isPresented ? CGSize.zero : modalInitailOffset
             }
+
+            modalOpacity = isPresented ? 1.0 : 0.0
+
+            if style == .center {
+                modalScale = isPresented ? CGSize(width: 1.0, height: 1.0) : (UIAccessibility.isReduceMotionEnabled ? CGSize(width: 1.0, height: 1.0) : style.modalScale)
+            }
+
+            backgroundOpacity = isPresented ? 1.0 : 0.0
         }
-
-        modalOpacity = isPresented ? 1.0 : 0.0
-
-        if style == .center {
-            modalScale = isPresented ? CGSize(width: 1.0, height: 1.0) : (UIAccessibility.isReduceMotionEnabled ? CGSize(width: 1.0, height: 1.0) : style.modalScale)
-        }
-
-        backgroundOpacity = isPresented ? 1.0 : 0.0
     }
 
     /// Get the bottom inset of the safe area.
@@ -117,7 +118,9 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                         prepareAnimation()
                         // Wait for the dismiss animation to finish
                         try await Task.sleep(nanoseconds: UInt64(self.duration * 1000) * 1000000)
-                        self.isActualPresented = newValue
+                        withoutAnimation {
+                            isActualPresented = newValue
+                        }
                     }
                 }
             })
@@ -157,6 +160,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                         .opacity(modalOpacity)
                         .padding(style.padding)
                         .offset(modalOffset)
+                        .animation(modalOffsetAnimation, value: modalOffset)
                         .animation(.easeInOut(duration: duration), value: modalOpacity)
                         .scaleEffect(modalScale)
                         .animation(UIAccessibility.isReduceMotionEnabled ? .none : .easeInOut(duration: duration * 0.5), value: modalScale)
@@ -169,17 +173,20 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                         if style == .bottomSheet {
                             // Set the initial offset to the modal size
                             // To made an animation that modal slides up from bottom
-                            if self.modalInitailOffset == nil, !UIAccessibility.isReduceMotionEnabled {
+                            if self.modalInitailOffset == .zero, !UIAccessibility.isReduceMotionEnabled {
                                 self.modalOffset = modalSize
                             }
-                            self.modalInitailOffset = modalSize
+
+                            if !UIAccessibility.isReduceMotionEnabled {
+                                self.modalInitailOffset = modalSize
+                            }
                         }
                     })
                     .ignoresSafeArea(.container, edges: .bottom)
                     .background(BackgroundTransparentView())
                     .onAppear {
-                        // Magic: Add some delay to wait for initial modalOffset
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                        // Shedule the prepare function to the next runloop
+                        DispatchQueue.main.async {
                             prepareAnimation()
                         }
                     }
