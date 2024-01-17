@@ -56,7 +56,11 @@ public struct CharcoalSpinnerModifier: ViewModifier {
                         transparentBackground: transparentBackground
                     )
                 }
-            }.frame(maxWidth: screen.width, maxHeight: screen.height))
+            }
+                .frame(maxWidth: screen.width, maxHeight: screen.height)
+                .ignoresSafeArea()
+                .animation(.spring, value: isPresenting)
+            )
     }
 }
 
@@ -81,20 +85,23 @@ public extension View {
     return ZStack {
         Color.gray
         VStack {
-            CharcoalSpinner(
-                spinnerSize: 48,
-                transparentBackground: false
-            )
+            Button {
+                isPresenting.toggle()
+            } label: {
+                Text("Regular")
+            }.charcoalSpinner(isPresenting: $isPresenting)
 
-            CharcoalSpinner(
-                spinnerSize: 100,
-                transparentBackground: false
-            )
-
-            CharcoalSpinner(
-                spinnerSize: 48,
-                transparentBackground: true
-            )
+            Button {
+                isPresenting.toggle()
+            } label: {
+                Text("Big")
+            }.charcoalSpinner(isPresenting: $isPresenting, spinnerSize: 100)
+            
+            Button {
+                isPresenting.toggle()
+            } label: {
+                Text("Transparent")
+            }.charcoalSpinner(isPresenting: $isPresenting, transparentBackground: true)
         }
     }.ignoresSafeArea()
 }

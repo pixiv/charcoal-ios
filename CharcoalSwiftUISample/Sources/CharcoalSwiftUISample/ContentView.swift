@@ -43,6 +43,9 @@ public struct ContentView: View {
                 NavigationLink(destination: ModalsView()) {
                     Text("Modal")
                 }
+                NavigationLink(destination: SpinnersView()) {
+                    Text("Spinners")
+                }
             }
             .navigationBarTitle("Charcoal")
         }
