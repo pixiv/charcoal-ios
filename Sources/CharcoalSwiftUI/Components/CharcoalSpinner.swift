@@ -7,7 +7,7 @@ public struct CharcoalSpinner: View {
     @State private var radius: CGFloat = 0
     @State private var opacity: CGFloat = 1.0
 
-    init(spinnerSize: CGFloat, transparentBackground: Bool) {
+    public init(spinnerSize: CGFloat, transparentBackground: Bool) {
         self.spinnerSize = spinnerSize
         self.transparentBackground = transparentBackground
     }
@@ -64,19 +64,6 @@ public struct CharcoalSpinnerModifier: ViewModifier {
     }
 }
 
-public extension View {
-    func charcoalSpinner(
-        isPresenting: Binding<Bool>,
-        spinnerSize: CGFloat = 48,
-        transparentBackground: Bool = false
-    ) -> some View {
-        return modifier(CharcoalSpinnerModifier(
-            isPresenting: isPresenting,
-            spinnerSize: spinnerSize,
-            transparentBackground: transparentBackground
-        ))
-    }
-}
 
 @available(iOS 17, *)
 #Preview {

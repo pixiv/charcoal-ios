@@ -12,7 +12,7 @@ public struct SpinnersView: View {
                 isPresentedCenter.toggle()
             }, label: {
                 Text("Center")
-            })
+            }).charcoalSpinner(isPresenting: $isPresentedCenter)
             
             // Transparent
             Button(action: {
@@ -22,7 +22,6 @@ public struct SpinnersView: View {
             })
         }
         .navigationBarTitle("Spinners")
-        .charcoalSpinner(isPresenting: $isPresentedCenter)
-        .charcoalSpinner(isPresenting: $isPresentedTransparent, transparentBackground: true)
+        .charcoalOverlayContainer()
     }
 }
