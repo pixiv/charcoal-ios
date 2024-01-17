@@ -191,7 +191,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: ViewModifier 
                         }
                     }
                 })
-            })
+            }).animation(nil, value: isActualPresented)
     }
 }
 
