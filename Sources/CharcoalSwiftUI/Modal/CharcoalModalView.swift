@@ -98,7 +98,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
     }
 
     var body: some View {
-        return EmptyView().overlay(GeometryReader(content: { geometry in
+        return GeometryReader(content: { geometry in
             ZStack(alignment: style.alignment, content: {
                 Rectangle()
                     .foregroundColor(Color.black.opacity(0.6))
@@ -158,7 +158,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
                 }
             })
             .ignoresSafeArea(.container, edges: .bottom)
-        }))
+        })
         .onChange(of: isPresented, perform: { newValue in
             if !newValue {
                 prepareAnimation()
