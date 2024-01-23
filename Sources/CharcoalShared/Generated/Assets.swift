@@ -182,6 +182,7 @@ public enum CharcoalAsset {
       public static let smileAsset = ImageAsset(name: "16/Smile")
       public static let speakerAsset = ImageAsset(name: "16/Speaker")
       public static let viewAsset = ImageAsset(name: "16/View")
+      public static let warningAsset = ImageAsset(name: "16/Warning")
     }
     public enum _24 : CaseIterable {
       public static let addAsset = ImageAsset(name: "24/Add")
@@ -450,6 +451,7 @@ public enum CharcoalAsset {
     case smile16
     case speaker16
     case view16
+    case warning16
     case add24
     case addImage24
     case addModel24
@@ -740,6 +742,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._16.speakerAsset
         case .view16:
           return CharcoalAsset.Images._16.viewAsset
+        case .warning16:
+          return CharcoalAsset.Images._16.warningAsset
         case .add24:
           return CharcoalAsset.Images._24.addAsset
         case .addImage24:
