@@ -126,7 +126,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
                         }
                         .padding(EdgeInsets(top: 20, leading: 20, bottom: style == .center ? 20 : indicatorInset, trailing: 20))
                         .onAppear {
-                            indicatorInset = geometry.safeAreaInsets.bottom
+                            indicatorInset = max(geometry.safeAreaInsets.bottom, 30)
                         }
                     }
                 }
