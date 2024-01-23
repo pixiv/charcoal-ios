@@ -12,6 +12,7 @@ public struct SpinnersView: View {
     @State var isPresentedTransparent = false
     
     @State var isPresentedTooltipGlobal = false
+    @State var isPresentedTooltip = false
     
     public var body: some View {
         List {
@@ -74,6 +75,12 @@ public struct SpinnersView: View {
                         Text("Center HUD")
                         Text("Modifier attached to List View").foregroundStyle(Color.gray)
                     }
+                })
+                
+                Button(action: {
+                    isPresentedTooltipGlobal.toggle()
+                }, label: {
+                    Text("Tooltip can only be attached to Global overlay")
                 })
             }
             

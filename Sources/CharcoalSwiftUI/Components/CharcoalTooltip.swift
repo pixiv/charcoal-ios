@@ -34,10 +34,6 @@ public struct CharcoalTooltipModifier: ViewModifier {
     
     var text: String
 
-    private var screen: CGRect {
-        return UIScreen.main.bounds
-    }
-
     public func body(content: Content) -> some View {
         content
             .overlay(GeometryReader(content: { proxy in

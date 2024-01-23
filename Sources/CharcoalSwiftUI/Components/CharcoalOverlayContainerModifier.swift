@@ -31,7 +31,9 @@ struct CharcoalOverlayContainerChild<SubContent: CharcoalPopupView>: ViewModifie
                 }
             }
             .onChange(of: view) { newValue in
-                manager.addView(view: view)
+                if isPresenting {
+                    manager.addView(view: view)
+                }
             }
     }
 }
