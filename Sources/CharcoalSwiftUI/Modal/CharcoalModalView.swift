@@ -144,16 +144,16 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
                 })
             })
             .onPreferenceChange(ModalViewHeightKey.self, perform: { value in
-                let modalSize = CGSize(width: 0, height: value)
+                let offset = CGSize(width: 0, height: value)
                 if style == .bottomSheet {
                     // Set the initial offset to the modal size
                     // To made an animation that modal slides up from bottom
                     if self.modalInitailOffset == .zero, !UIAccessibility.isReduceMotionEnabled {
-                        self.modalOffset = modalSize
+                        self.modalOffset = offset
                     }
 
                     if !UIAccessibility.isReduceMotionEnabled {
-                        self.modalInitailOffset = modalSize
+                        self.modalInitailOffset = offset
                     }
                 }
             })
