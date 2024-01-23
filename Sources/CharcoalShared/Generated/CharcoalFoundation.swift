@@ -6,7 +6,6 @@
 import Foundation
 
 // MARK: - CharcoalFoundation
-
 public struct CharcoalFoundation: Codable {
     public let borderRadius: CharcoalBorderRadius
     public let spacing: CharcoalSpacing
@@ -34,7 +33,7 @@ public extension CharcoalFoundation {
     }
 
     init(fromURL url: URL) throws {
-        try self.init(data: Data(contentsOf: url))
+        try self.init(data: try Data(contentsOf: url))
     }
 
     func with(
@@ -54,12 +53,11 @@ public extension CharcoalFoundation {
     }
 
     func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
-        return try String(data: jsonData(), encoding: encoding)
+        return String(data: try self.jsonData(), encoding: encoding)
     }
 }
 
 // MARK: - CharcoalBorderRadius
-
 public struct CharcoalBorderRadius: Codable {
     public let the4, the8, the16, the24: Int
     public let none, oval: Int
@@ -97,7 +95,7 @@ public extension CharcoalBorderRadius {
     }
 
     init(fromURL url: URL) throws {
-        try self.init(data: Data(contentsOf: url))
+        try self.init(data: try Data(contentsOf: url))
     }
 
     func with(
@@ -123,12 +121,11 @@ public extension CharcoalBorderRadius {
     }
 
     func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
-        return try String(data: jsonData(), encoding: encoding)
+        return String(data: try self.jsonData(), encoding: encoding)
     }
 }
 
 // MARK: - CharcoalSpacing
-
 public struct CharcoalSpacing: Codable {
     public let the0, the4, the8, the16: Int
     public let the24, the40, the64, the104: Int
@@ -178,7 +175,7 @@ public extension CharcoalSpacing {
     }
 
     init(fromURL url: URL) throws {
-        try self.init(data: Data(contentsOf: url))
+        try self.init(data: try Data(contentsOf: url))
     }
 
     func with(
@@ -214,12 +211,11 @@ public extension CharcoalSpacing {
     }
 
     func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
-        return try String(data: jsonData(), encoding: encoding)
+        return String(data: try self.jsonData(), encoding: encoding)
     }
 }
 
 // MARK: - CharcoalTypography
-
 public struct CharcoalTypography: Codable {
     public let size: CharcoalSize
 
@@ -243,7 +239,7 @@ public extension CharcoalTypography {
     }
 
     init(fromURL url: URL) throws {
-        try self.init(data: Data(contentsOf: url))
+        try self.init(data: try Data(contentsOf: url))
     }
 
     func with(
@@ -259,12 +255,11 @@ public extension CharcoalTypography {
     }
 
     func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
-        return try String(data: jsonData(), encoding: encoding)
+        return String(data: try self.jsonData(), encoding: encoding)
     }
 }
 
 // MARK: - CharcoalSize
-
 public struct CharcoalSize: Codable {
     public let the12, the14, the16, the20: CharcoalThe12
     public let the32: CharcoalThe12
@@ -301,7 +296,7 @@ public extension CharcoalSize {
     }
 
     init(fromURL url: URL) throws {
-        try self.init(data: Data(contentsOf: url))
+        try self.init(data: try Data(contentsOf: url))
     }
 
     func with(
@@ -325,12 +320,11 @@ public extension CharcoalSize {
     }
 
     func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
-        return try String(data: jsonData(), encoding: encoding)
+        return String(data: try self.jsonData(), encoding: encoding)
     }
 }
 
 // MARK: - CharcoalThe12
-
 public struct CharcoalThe12: Codable {
     public let fontSize, lineHeight: Int
 
@@ -355,7 +349,7 @@ public extension CharcoalThe12 {
     }
 
     init(fromURL url: URL) throws {
-        try self.init(data: Data(contentsOf: url))
+        try self.init(data: try Data(contentsOf: url))
     }
 
     func with(
@@ -373,7 +367,7 @@ public extension CharcoalThe12 {
     }
 
     func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
-        return try String(data: jsonData(), encoding: encoding)
+        return String(data: try self.jsonData(), encoding: encoding)
     }
 }
 
