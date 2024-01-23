@@ -1,30 +1,4 @@
 import SwiftUI
-
-/**
- A view modifier that presents a modal view.
- - Parameters:
- - title: The title of the modal view.
- - style: The style of the modal view.
- - tapBackgroundToDismiss: Tap on background to dismiss.
- - duration: The duration of the animation
- - maxWidth: The max width of the modal view.
- - isPresented: A binding to whether the modal view is presented.
- - actions: The content of the action view
- - modalContent: The content of the modal view
-
- # Example #
- ```swift
- CharcoalModalView(title: "Title", style: .center, isPresented: $isPresented, actions: {
-     Button(action: {
-         isPresented = false
-     }, label: {
-         Text("OK")
-     })
- }, modalContent: {
-     Text("Content")
- })
- ```
- */
 struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
     /// The title of the modal view.
     var title: String?
@@ -57,7 +31,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
     init(
         title: String?,
         style: CharcoalModalStyle = .center,
-        tapBackgroundToDismiss: Bool = true,
+        tapBackgroundToDismiss: Bool,
         duration: Double,
         maxWidth: CGFloat,
         isPresented: Binding<Bool>,
@@ -186,9 +160,48 @@ struct ModalViewHeightKey: PreferenceKey {
 }
 
 public extension View {
+    
+    /**
+     A view modifier that presents a modal view.
+     
+     - Parameters:
+        - title: The title of the modal view.
+        - style: The style of the modal view.
+        - tapBackgroundToDismiss: Tap on background to dismiss.
+        - duration: The duration of the animation
+        - maxWidth: The max width of the modal view.
+        - isPresented: A binding to whether the modal view is presented.
+        - actions: The content of the action view
+        - modalContent: The content of the modal view
+
+     # Example #
+     ```swift
+     .charcoalModal(
+         title: "Title",
+         style: .center,
+         isPresented: $isPresented,
+         actions: {
+             Button(action: {
+                 isPresented = false
+             }, label: {
+                 Text("OK").frame(maxWidth: .infinity)
+             }).charcoalPrimaryButton(size: .medium)
+
+             Button(action: {
+                 isPresented = false
+             }, label: {
+                 Text("Dismiss").frame(maxWidth: .infinity)
+             }).charcoalDefaultButton(size: .medium)
+         }
+     ) {
+        Text("Hello This is a center dialog from Charcoal")
+     }
+     ```
+     */
     func charcoalModal(
         title: String? = nil,
         style: CharcoalModalStyle = .center,
+        tapBackgroundToDismiss: Bool = true,
         duration: Double = 0.25,
         maxWidth: CGFloat = 440,
         isPresented: Binding<Bool>,
@@ -196,7 +209,7 @@ public extension View {
         @ViewBuilder content: @escaping () -> some View
     ) -> some View {
         charcoalFullScreenCover(isPresented: isPresented, duration: duration, content: {
-            CharcoalModalView(title: title, style: style, duration: duration, maxWidth: maxWidth, isPresented: isPresented, actions: actions, modalContent: content)
+            CharcoalModalView(title: title, style: style, tapBackgroundToDismiss: tapBackgroundToDismiss, duration: duration, maxWidth: maxWidth, isPresented: isPresented, actions: actions, modalContent: content)
         })
     }
 }
