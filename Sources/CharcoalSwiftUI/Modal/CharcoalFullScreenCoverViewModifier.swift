@@ -6,7 +6,7 @@ struct CharcoalFullScreenCoverViewModifier<SubContent: View>: ViewModifier {
     @ViewBuilder var subContent: () -> SubContent
 
     var duration: Double
-    
+
     @State var hostingViewController: UIHostingController<SubContent>? = nil
 
     init(isPresented: Binding<Bool>, duration: Double, @ViewBuilder subContent: @escaping () -> SubContent) {
@@ -22,7 +22,7 @@ struct CharcoalFullScreenCoverViewModifier<SubContent: View>: ViewModifier {
                 if let windowScene = scene as? UIWindowScene {
                     if newValue {
                         hostingViewController = UIHostingController(rootView: subContent())
-                        
+
                         if let hostingViewController {
                             hostingViewController.view.backgroundColor = UIColor.clear
                             hostingViewController.modalPresentationStyle = .overFullScreen
