@@ -58,8 +58,8 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
         title: String?,
         style: CharcoalModalStyle = .center,
         tapBackgroundToDismiss: Bool = true,
-        duration: Double = 0.25,
-        maxWidth: CGFloat = 440,
+        duration: Double,
+        maxWidth: CGFloat,
         isPresented: Binding<Bool>,
         @ViewBuilder actions: () -> ActionContent?,
         @ViewBuilder modalContent: () -> ModalContent
@@ -186,9 +186,17 @@ struct ModalViewHeightKey: PreferenceKey {
 }
 
 public extension View {
-    func charcoalModal(title: String? = nil, style: CharcoalModalStyle = .center, isPresented: Binding<Bool>, @ViewBuilder actions: @escaping () -> some View, @ViewBuilder content: @escaping () -> some View) -> some View {
-        charcoalFullScreenCover(isPresented: isPresented, duration: 0.25, content: {
-            CharcoalModalView(title: title, style: style, duration: 0.25, isPresented: isPresented, actions: actions, modalContent: content)
+    func charcoalModal(
+        title: String? = nil,
+        style: CharcoalModalStyle = .center,
+        duration: Double = 0.25,
+        maxWidth: CGFloat = 440,
+        isPresented: Binding<Bool>,
+        @ViewBuilder actions: @escaping () -> some View,
+        @ViewBuilder content: @escaping () -> some View
+    ) -> some View {
+        charcoalFullScreenCover(isPresented: isPresented, duration: duration, content: {
+            CharcoalModalView(title: title, style: style, duration: duration, maxWidth: maxWidth, isPresented: isPresented, actions: actions, modalContent: content)
         })
     }
 }
