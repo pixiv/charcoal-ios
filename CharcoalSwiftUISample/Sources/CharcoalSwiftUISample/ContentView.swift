@@ -43,8 +43,11 @@ public struct ContentView: View {
                 NavigationLink(destination: ModalsView()) {
                     Text("Modal")
                 }
-                NavigationLink(destination: SpinnersView()) {
-                    Text("Spinners")
+                
+                if #available(iOS 15, *) {
+                    NavigationLink(destination: SpinnersView()) {
+                        Text("Spinners (iOS 15+)")
+                    }
                 }
             }
             .navigationBarTitle("Charcoal")

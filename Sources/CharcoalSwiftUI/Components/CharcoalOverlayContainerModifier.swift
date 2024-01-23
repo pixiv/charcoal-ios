@@ -6,15 +6,18 @@ struct CharcoalOverlayContainerModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .overlay(
-                CharcoalOverlayContainer(viewManager: self.manager)
+                CharcoalOverlayContainer(viewManager: self.manager).ignoresSafeArea()
             )
     }
 }
 
-struct CharcoalOverlayContainerChild: ViewModifier {
+typealias CharcoalPopupView = View & Equatable
+
+struct CharcoalOverlayContainerChild<SubContent: CharcoalPopupView>: ViewModifier {
     @Environment(\.overlayContainerManager) var manager
     @Binding var isPresenting: Bool
-    var view: AnyView
+    
+    var view: SubContent
     
     func body(content: Content) -> some View {
         content
@@ -27,20 +30,15 @@ struct CharcoalOverlayContainerChild: ViewModifier {
                     manager.removeView()
                 }
             }
+            .onChange(of: view) { newValue in
+                manager.addView(view: view)
+            }
     }
 }
 
 public extension View {
     func charcoalOverlayContainer() -> some View {
         modifier(CharcoalOverlayContainerModifier())
-    }
-    
-    func charcoalSpinner(
-        isPresenting: Binding<Bool>,
-        spinnerSize: CGFloat = 48,
-        transparentBackground: Bool = false
-    ) -> some View {
-        return modifier(CharcoalOverlayContainerChild(isPresenting: isPresenting, view: AnyView(CharcoalSpinner(spinnerSize: spinnerSize, transparentBackground: transparentBackground))))
     }
 }
 
@@ -61,6 +59,7 @@ struct CharcoalOverlayContainer: View {
     
     var body: some View {
         ZStack {
+            Color.clear.allowsHitTesting(false)
             if let view = viewManager.overlayView {
                 if viewManager.isPresenting {
                     view

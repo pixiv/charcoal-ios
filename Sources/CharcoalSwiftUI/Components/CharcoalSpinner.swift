@@ -1,6 +1,10 @@
 import SwiftUI
 
-public struct CharcoalSpinner: View {
+public struct CharcoalSpinner: CharcoalPopupView {
+    public static func == (lhs: CharcoalSpinner, rhs: CharcoalSpinner) -> Bool {
+        return lhs.transparentBackground == rhs.transparentBackground && lhs.spinnerSize == rhs.spinnerSize
+    }
+    
     let spinnerSize: CGFloat
     var transparentBackground: Bool = false
 
@@ -34,6 +38,7 @@ public struct CharcoalSpinner: View {
         .padding(16)
         .background(transparentBackground ? nil : Color(CharcoalAsset.ColorPaletteGenerated.background1.color))
         .cornerRadius(8, corners: .allCorners)
+        .shadow(color: Color.black.opacity(0.1), radius: 8, x: 0, y: 0)
     }
 }
 
@@ -64,6 +69,23 @@ public struct CharcoalSpinnerModifier: ViewModifier {
     }
 }
 
+public extension View {
+    func charcoalSpinnerGlobal(
+        isPresenting: Binding<Bool>,
+        spinnerSize: CGFloat = 48,
+        transparentBackground: Bool = false
+    ) -> some View {
+        return modifier(CharcoalOverlayContainerChild(isPresenting: isPresenting, view: CharcoalSpinner(spinnerSize: spinnerSize, transparentBackground: transparentBackground)))
+    }
+    
+    func charcoalSpinner(
+        isPresenting: Binding<Bool>,
+        spinnerSize: CGFloat = 48,
+        transparentBackground: Bool = false
+    ) -> some View {
+        return modifier(CharcoalSpinnerModifier(isPresenting: isPresenting, spinnerSize: spinnerSize, transparentBackground: transparentBackground))
+    }
+}
 
 @available(iOS 17, *)
 #Preview {
@@ -76,19 +98,19 @@ public struct CharcoalSpinnerModifier: ViewModifier {
                 isPresenting.toggle()
             } label: {
                 Text("Regular")
-            }.charcoalSpinner(isPresenting: $isPresenting)
+            }.charcoalSpinnerGlobal(isPresenting: $isPresenting)
 
             Button {
                 isPresenting.toggle()
             } label: {
                 Text("Big")
-            }.charcoalSpinner(isPresenting: $isPresenting, spinnerSize: 100)
+            }.charcoalSpinnerGlobal(isPresenting: $isPresenting, spinnerSize: 100)
             
             Button {
                 isPresenting.toggle()
             } label: {
                 Text("Transparent")
-            }.charcoalSpinner(isPresenting: $isPresenting, transparentBackground: true)
+            }.charcoalSpinnerGlobal(isPresenting: $isPresenting, transparentBackground: true)
         }
     }.ignoresSafeArea()
 }

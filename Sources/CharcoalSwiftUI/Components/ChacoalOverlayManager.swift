@@ -5,12 +5,12 @@ import Combine
 public class CharcoalContainerManager: ObservableObject {
     static let share = CharcoalContainerManager()
     
-    @Published var overlayView: (AnyView)?
+    @Published var overlayView: AnyView?
     
     @Published var isPresenting: Bool = false
     
-    public func addView(view: AnyView) {
-        self.overlayView = view
+    public func addView<SubContent: View>(view: SubContent) {
+        self.overlayView = AnyView(view)
     }
     
     public func removeView() {
