@@ -6,6 +6,8 @@ struct CharcoalFullScreenCoverViewModifier<SubContent: View>: ViewModifier {
     @ViewBuilder var subContent: () -> SubContent
 
     var duration: Double
+    
+    @State var hostingViewController: UIHostingController<SubContent>? = nil
 
     init(isPresented: Binding<Bool>, duration: Double, @ViewBuilder subContent: @escaping () -> SubContent) {
         _isPresented = isPresented
@@ -19,15 +21,18 @@ struct CharcoalFullScreenCoverViewModifier<SubContent: View>: ViewModifier {
                 let scene = UIApplication.shared.connectedScenes.first
                 if let windowScene = scene as? UIWindowScene {
                     if newValue {
-                        let hostingController = UIHostingController(rootView: subContent())
-                        hostingController.view.backgroundColor = UIColor.clear
-                        hostingController.modalPresentationStyle = .overFullScreen
-                        windowScene.windows.first?.rootViewController?.present(hostingController, animated: false)
+                        hostingViewController = UIHostingController(rootView: subContent())
+                        
+                        if let hostingViewController {
+                            hostingViewController.view.backgroundColor = UIColor.clear
+                            hostingViewController.modalPresentationStyle = .overFullScreen
+                            windowScene.windows.first?.rootViewController?.present(hostingViewController, animated: false)
+                        }
                     } else {
                         Task {
                             // Wait for the dismiss animation to finish
                             try await Task.sleep(nanoseconds: UInt64(self.duration * 1000) * 1000000)
-                            UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: false)
+                            hostingViewController?.dismiss(animated: false)
                         }
                     }
                 }
