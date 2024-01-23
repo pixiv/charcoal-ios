@@ -2,17 +2,17 @@ import SwiftUI
 
 struct CharcoalFullScreenCoverViewModifier<SubContent: View>: ViewModifier {
     @Binding var isPresented: Bool
-    
+
     @ViewBuilder var subContent: () -> SubContent
-    
+
     var duration: Double
-    
+
     init(isPresented: Binding<Bool>, duration: Double, @ViewBuilder subContent: @escaping () -> SubContent) {
         _isPresented = isPresented
         self.subContent = subContent
         self.duration = duration
     }
-    
+
     func body(content: Content) -> some View {
         content
             .onChange(of: isPresented) { newValue in

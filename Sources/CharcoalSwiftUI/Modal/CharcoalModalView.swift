@@ -11,7 +11,7 @@ import SwiftUI
  - isPresented: A binding to whether the modal view is presented.
  - actions: The content of the action view
  - modalContent: The content of the modal view
- 
+
  # Example #
  ```swift
  CharcoalModalView(title: "Title", style: .center, isPresented: $isPresented, actions: {
@@ -53,7 +53,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
     @State private var modalInitailOffset: CGSize = .zero
     @State private var backgroundOpacity: Double = 0.0
     @State private var modalOffsetAnimation: Animation?
-    
+
     init(
         title: String?,
         style: CharcoalModalStyle = .center,
@@ -75,28 +75,28 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
         self.actions = actions()
         _modalScale = style == .center ? State(initialValue: style.modalScale) : State(initialValue: CGSize(width: 1.0, height: 1.0))
     }
-    
+
     func prepareAnimation() {
         // Shedule the animation to the next runloop
         DispatchQueue.main.async {
             modalOffsetAnimation = .easeInOut(duration: duration)
-            
+
             if style == .center {
                 self.modalOffset = CGSize.zero
             } else {
                 self.modalOffset = isPresented ? CGSize.zero : modalInitailOffset
             }
-            
+
             modalOpacity = isPresented ? 1.0 : 0.0
-            
+
             if style == .center {
                 modalScale = isPresented ? CGSize(width: 1.0, height: 1.0) : (UIAccessibility.isReduceMotionEnabled ? CGSize(width: 1.0, height: 1.0) : style.modalScale)
             }
-            
+
             backgroundOpacity = isPresented ? 1.0 : 0.0
         }
     }
-    
+
     var body: some View {
         return EmptyView().overlay(GeometryReader(content: { geometry in
             ZStack(alignment: style.alignment, content: {
@@ -110,16 +110,16 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
                             isPresented = false
                         }
                     }
-                
+
                 // Modal Content
                 VStack(spacing: 0) {
                     if let title = title {
                         Text(title).charcoalTypography20Bold(isSingleLine: true)
                             .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
                     }
-                    
+
                     modalContent
-                    
+
                     if let actions = actions {
                         VStack {
                             actions
@@ -151,7 +151,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
                     if self.modalInitailOffset == .zero, !UIAccessibility.isReduceMotionEnabled {
                         self.modalOffset = modalSize
                     }
-                    
+
                     if !UIAccessibility.isReduceMotionEnabled {
                         self.modalInitailOffset = modalSize
                     }
@@ -181,7 +181,7 @@ struct ModalViewHeightKey: PreferenceKey {
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
         value = nextValue()
     }
-    
+
     static var defaultValue: CGFloat = .zero
 }
 
@@ -197,7 +197,7 @@ public extension View {
 #Preview {
     @State var isPresented = true
     @State var text1: String = ""
-    
+
     return ZStack {
         Button(action: {
             isPresented = true
@@ -215,7 +215,7 @@ public extension View {
                 }, label: {
                     Text("OK").frame(maxWidth: .infinity)
                 }).charcoalPrimaryButton(size: .medium)
-                
+
                 Button(action: {
                     isPresented = false
                 }, label: {
@@ -228,7 +228,7 @@ public extension View {
                     Text("Hello This is a center dialog from Charcoal")
                         .charcoalTypography16Regular()
                         .frame(maxWidth: .infinity)
-                    
+
                     TextField("Simple text field", text: $text1).charcoalTextField()
                 }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                     .navigationTitle("SwiftUI")
