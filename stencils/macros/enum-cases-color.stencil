@@ -9,7 +9,7 @@
       {% endfor %}
     }
   }
-  {{accessModifier}} var color: UIColor {
+  {{accessModifier}} var color: ColorAsset.Color {
     return colorAsset.color
   }
 {% endmacro %}
