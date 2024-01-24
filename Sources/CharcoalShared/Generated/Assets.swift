@@ -210,6 +210,7 @@ public enum CharcoalAsset {
       public static let chatBotAsset = ImageAsset(name: "24/ChatBot")
       public static let checkAsset = ImageAsset(name: "24/Check")
       public static let chromaticAberrationAsset = ImageAsset(name: "24/ChromaticAberration")
+      public static let clickAsset = ImageAsset(name: "24/Click")
       public static let closeAsset = ImageAsset(name: "24/Close")
       public static let codesAsset = ImageAsset(name: "24/Codes")
       public static let collapseAsset = ImageAsset(name: "24/Collapse")
@@ -477,6 +478,7 @@ public enum CharcoalAsset {
     case chatBot24
     case check24
     case chromaticAberration24
+    case click24
     case close24
     case codes24
     case collapse24
@@ -794,6 +796,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.checkAsset
         case .chromaticAberration24:
           return CharcoalAsset.Images._24.chromaticAberrationAsset
+        case .click24:
+          return CharcoalAsset.Images._24.clickAsset
         case .close24:
           return CharcoalAsset.Images._24.closeAsset
         case .codes24:
