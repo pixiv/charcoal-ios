@@ -3,10 +3,12 @@ import SwiftUI
 public struct CharcoalTooltip: CharcoalPopupView {
     let text: String
     let targetFrame: CGRect
+    let maxWidth: CGFloat
 
-    public init(text: String, targetFrame: CGRect) {
+    public init(text: String, targetFrame: CGRect, maxWidth: CGFloat = 184) {
         self.text = text
         self.targetFrame = targetFrame
+        self.maxWidth = maxWidth
     }
 
     private var animation: Animation {
@@ -18,11 +20,16 @@ public struct CharcoalTooltip: CharcoalPopupView {
         ZStack(alignment: .topLeading) {
             Color.clear
             ZStack {
-                Text(text).foregroundColor(Color.white).padding()
+                Text(text)
+                    .charcoalTypography12Regular()
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
+                    .padding(EdgeInsets(top: 4, leading: 12, bottom: 4, trailing: 12))
             }
-            .background(Color(CharcoalAsset.ColorPaletteGenerated.brand.color))
-            .cornerRadius(8, corners: .allCorners)
-            .shadow(color: Color.black.opacity(0.1), radius: 8, x: 0, y: 0)
+            .frame(maxWidth: maxWidth)
+            .background(Color(CharcoalAsset.ColorPaletteGenerated.surface8.color))
+            .cornerRadius(4, corners: .allCorners)
             .offset(CGSize(width: targetFrame.maxX - (targetFrame.width / 2.0), height: targetFrame.maxY))
         }
     }
@@ -45,10 +52,14 @@ public struct CharcoalTooltipModifier: ViewModifier {
 }
 
 public extension View {
-    func charcoalTooltipGlobal(
+    func charcoalTooltip(
         isPresenting: Binding<Bool>,
         text: String
     ) -> some View {
         return modifier(CharcoalTooltipModifier(isPresenting: isPresenting, text: text))
     }
+}
+
+#Preview {
+    CharcoalTooltip(text: "Hellow World This is a tooltip and here is testing it's multiple line feature", targetFrame: CGRect(x: 0, y: 100, width: 100, height: 100))
 }

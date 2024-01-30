@@ -16,28 +16,11 @@ public struct TooltipsView: View {
                 isPresented.toggle()
             }, label: {
                 VStack(alignment: .leading) {
-                    Text("Regular")
+                    Image(charocalIcon: .question16)
                 }
-            })
-            
-            Button(action: {
-                isBigPresented.toggle()
-            }, label: {
-                VStack(alignment: .leading) {
-                    Text("Bigger")
-                }
-            })
-            
-            Button(action: {
-                isPresentedTransparent.toggle()
-            }, label: {
-                VStack(alignment: .leading) {
-                    Text("Transparent")
-                }
-            })
-            
+            }).charcoalTooltip(isPresenting: $isPresented, text: "Tooltip created by Charcoal")
         }
         .charcoalOverlayContainer()
-        .navigationBarTitle("Spinners")
+        .navigationBarTitle("Tooltips")
     }
 }
