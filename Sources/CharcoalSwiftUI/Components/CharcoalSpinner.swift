@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct CharcoalSpinner: CharcoalPopupView {
+public struct CharcoalSpinner: View {
     let spinnerSize: CGFloat
     var transparentBackground: Bool = false
 
