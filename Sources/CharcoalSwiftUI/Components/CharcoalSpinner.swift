@@ -1,10 +1,6 @@
 import SwiftUI
 
 public struct CharcoalSpinner: CharcoalPopupView {
-    public static func == (lhs: CharcoalSpinner, rhs: CharcoalSpinner) -> Bool {
-        return lhs.transparentBackground == rhs.transparentBackground && lhs.spinnerSize == rhs.spinnerSize
-    }
-    
     let spinnerSize: CGFloat
     var transparentBackground: Bool = false
 
@@ -40,6 +36,11 @@ public struct CharcoalSpinner: CharcoalPopupView {
         .cornerRadius(8, corners: .allCorners)
         .shadow(color: Color.black.opacity(0.1), radius: 8, x: 0, y: 0)
     }
+    
+    public static func == (lhs: CharcoalSpinner, rhs: CharcoalSpinner) -> Bool {
+        return lhs.transparentBackground == rhs.transparentBackground
+        && lhs.spinnerSize == rhs.spinnerSize
+    }
 }
 
 public struct CharcoalSpinnerModifier: ViewModifier {
@@ -70,14 +71,29 @@ public struct CharcoalSpinnerModifier: ViewModifier {
 }
 
 public extension View {
-    func charcoalSpinnerGlobal(
-        isPresenting: Binding<Bool>,
-        spinnerSize: CGFloat = 48,
-        transparentBackground: Bool = false
-    ) -> some View {
-        return modifier(CharcoalOverlayContainerChild(isPresenting: isPresenting, view: CharcoalSpinner(spinnerSize: spinnerSize, transparentBackground: transparentBackground)))
-    }
-    
+    /**
+        A view modifier that presents a Spinner view.
+        - Parameters:
+            - isPresented: A binding to whether the  view is presented.
+            - spinnerSize: The size of the spinner view.
+            - transparentBackground: Whether the background of the spinner view is transparent.
+
+        # Example #
+        ```swift
+        struct ContentView: View {
+            @State var isPresenting = true
+
+            var body: some View {
+                VStack {
+                    Button("Show Spinner") {
+                        isPresenting = true
+                    }
+                }
+                .charcoalSpinner(isPresenting: $isPresenting)
+            }
+        }
+        ```
+     */
     func charcoalSpinner(
         isPresenting: Binding<Bool>,
         spinnerSize: CGFloat = 48,
@@ -90,27 +106,24 @@ public extension View {
 @available(iOS 17, *)
 #Preview {
     @State var isPresenting = true
+    @State var isBigPresenting = true
+    @State var isTransparentPresenting = true
 
     return ZStack {
-        Color.gray
+        Color.white
         VStack {
-            Button {
-                isPresenting.toggle()
-            } label: {
-                Text("Regular")
-            }.charcoalSpinnerGlobal(isPresenting: $isPresenting)
+            VStack{}
+                .frame(width:100,height: 100)
+                .charcoalSpinner(isPresenting: $isPresenting)
 
-            Button {
-                isPresenting.toggle()
-            } label: {
-                Text("Big")
-            }.charcoalSpinnerGlobal(isPresenting: $isPresenting, spinnerSize: 100)
+            VStack{}
+                .frame(width:100,height: 150)
+                .charcoalSpinner(isPresenting: $isBigPresenting, spinnerSize: 100)
             
-            Button {
-                isPresenting.toggle()
-            } label: {
-                Text("Transparent")
-            }.charcoalSpinnerGlobal(isPresenting: $isPresenting, transparentBackground: true)
+            VStack{}
+                .frame(width:100,height: 100)
+                .charcoalSpinner(isPresenting: $isTransparentPresenting, transparentBackground: true)
         }
-    }.ignoresSafeArea()
+    }
+    .ignoresSafeArea()
 }
