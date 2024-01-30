@@ -2,11 +2,10 @@ name: generate_doc
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
-
     runs-on: macos-13
 
     steps:
@@ -14,11 +13,14 @@ jobs:
 
       - uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: '15'
+          xcode-version: "15"
 
       - name: Build
-        run:  xcodebuild docbuild -scheme Charcoal -destination generic/platform=iOS OTHER_DOCC_FLAGS="--transform-for-static-hosting --hosting-base-path charcoal-ios --output-path ./docs"
-        
+        run: |
+          xcodebuild docbuild -scheme CharcoalSwiftUI -destination generic/platform=iOS -derivedDataPath  OTHER_DOCC_FLAGS="--transform-for-static-hosting --hosting-base-path charcoal-ios --output-path ./docs"
+          xcodebuild docbuild -scheme CharcoalUIKit -destination generic/platform=iOS -derivedDataPath  OTHER_DOCC_FLAGS="--transform-for-static-hosting --hosting-base-path charcoal-ios --output-path ./docs"
+          xcodebuild docbuild -scheme Charcoal -destination generic/platform=iOS OTHER_DOCC_FLAGS="--transform-for-static-hosting --hosting-base-path charcoal-ios --output-path ./docs"
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
