@@ -149,7 +149,7 @@ public enum CharcoalAsset {
           return CharcoalAsset.ColorPaletteGenerated.warningAsset
       }
     }
-    public var color: UIColor {
+    public var color: ColorAsset.Color {
       return colorAsset.color
     }
   }
