@@ -18,15 +18,17 @@ struct CharcoalFullScreenCoverViewModifier<SubContent: View>: ViewModifier {
     func body(content: Content) -> some View {
         content
             .onChange(of: isPresented) { newValue in
-                let scene = UIApplication.shared.connectedScenes.first
-                if let windowScene = scene as? UIWindowScene {
+                let scene = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }
+                    .filter { $0.activationState == .foregroundActive }
+                    .first
+                if let windowScene = scene {
                     if newValue {
                         hostingViewController = UIHostingController(rootView: subContent())
 
                         if let hostingViewController {
                             hostingViewController.view.backgroundColor = UIColor.clear
                             hostingViewController.modalPresentationStyle = .overFullScreen
-                            windowScene.windows.filter {$0.isKeyWindow}.first?.rootViewController?.present(hostingViewController, animated: false)
+                            windowScene.windows.filter { $0.isKeyWindow }.first?.rootViewController?.present(hostingViewController, animated: false)
                         }
                     } else {
                         Task {

@@ -160,10 +160,9 @@ struct ModalViewHeightKey: PreferenceKey {
 }
 
 public extension View {
-    
     /**
      A view modifier that presents a modal view.
-     
+
      - Parameters:
         - title: The title of the modal view.
         - style: The style of the modal view.
