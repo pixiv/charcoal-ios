@@ -6,10 +6,10 @@ public struct SpinnersView: View {
     @State var isPresented = false
     @State var isBigPresented = false
     @State var isPresentedTransparent = false
-    
+
     @State var isPresentedTooltipGlobal = false
     @State var isPresentedTooltip = false
-    
+
     public var body: some View {
         List {
             Button(action: {
@@ -19,7 +19,7 @@ public struct SpinnersView: View {
                     Text("Regular")
                 }
             })
-            
+
             Button(action: {
                 isBigPresented.toggle()
             }, label: {
@@ -27,7 +27,7 @@ public struct SpinnersView: View {
                     Text("Bigger")
                 }
             })
-            
+
             Button(action: {
                 isPresentedTransparent.toggle()
             }, label: {
@@ -35,7 +35,7 @@ public struct SpinnersView: View {
                     Text("Transparent")
                 }
             })
-            
+
             Button(action: {
                 isOverlayShow.toggle()
             }, label: {
@@ -43,14 +43,13 @@ public struct SpinnersView: View {
             })
         }
         .overlay(
-             isOverlayShow ?
-             Color.blue.opacity(0.2).ignoresSafeArea().allowsHitTesting(false) : nil
+            isOverlayShow ?
+                Color.blue.opacity(0.2).ignoresSafeArea().allowsHitTesting(false) : nil
         )
 
         .charcoalSpinner(isPresenting: $isPresented)
         .charcoalSpinner(isPresenting: $isBigPresented, spinnerSize: 80)
         .charcoalSpinner(isPresenting: $isPresentedTransparent, transparentBackground: true)
         .navigationBarTitle("Spinners")
-       
     }
 }

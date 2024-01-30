@@ -36,10 +36,10 @@ public struct CharcoalSpinner: View {
         .cornerRadius(8, corners: .allCorners)
         .shadow(color: Color.black.opacity(0.1), radius: 8, x: 0, y: 0)
     }
-    
+
     public static func == (lhs: CharcoalSpinner, rhs: CharcoalSpinner) -> Bool {
         return lhs.transparentBackground == rhs.transparentBackground
-        && lhs.spinnerSize == rhs.spinnerSize
+            && lhs.spinnerSize == rhs.spinnerSize
     }
 }
 
@@ -63,9 +63,9 @@ public struct CharcoalSpinnerModifier: ViewModifier {
                     )
                 }
             }
-                .frame(maxWidth: screen.width, maxHeight: screen.height)
-                .ignoresSafeArea()
-                .animation(.spring, value: isPresenting)
+            .frame(maxWidth: screen.width, maxHeight: screen.height)
+            .ignoresSafeArea()
+            .animation(.spring, value: isPresenting)
             )
     }
 }
@@ -112,16 +112,16 @@ public extension View {
     return ZStack {
         Color.white
         VStack {
-            VStack{}
-                .frame(width:100,height: 100)
+            VStack {}
+                .frame(width: 100, height: 100)
                 .charcoalSpinner(isPresenting: $isPresenting)
 
-            VStack{}
-                .frame(width:100,height: 150)
+            VStack {}
+                .frame(width: 100, height: 150)
                 .charcoalSpinner(isPresenting: $isBigPresenting, spinnerSize: 100)
-            
-            VStack{}
-                .frame(width:100,height: 100)
+
+            VStack {}
+                .frame(width: 100, height: 100)
                 .charcoalSpinner(isPresenting: $isTransparentPresenting, transparentBackground: true)
         }
     }
