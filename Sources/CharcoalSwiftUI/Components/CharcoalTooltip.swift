@@ -26,14 +26,21 @@ public struct CharcoalTooltip: CharcoalPopupView {
     
     func tooltipX(canvasGeometrySize: CGSize) -> CGFloat {
         let minX = targetFrame.midX - (tooltipSize.width / 2.0)
-        let edgeLeft = max(0, minX)
-        let edgeRight = min(edgeLeft, canvasGeometrySize.width - tooltipSize.width)
-        return min(edgeLeft, edgeRight)
+        
+        var edgeLeft = minX
+        
+        if (edgeLeft + tooltipSize.width >= canvasGeometrySize.width) {
+            edgeLeft = canvasGeometrySize.width - tooltipSize.width
+        } else if (edgeLeft < 0) {
+            edgeLeft = 0
+        }
+        
+        return edgeLeft
     }
     
     func tooltipY(canvasGeometrySize: CGSize) -> CGFloat {
         let minX = targetFrame.maxY + spacingToTarget
-        var edgeBottom =  targetFrame.maxY + spacingToTarget + targetFrame.height
+        var edgeBottom = targetFrame.maxY + spacingToTarget + targetFrame.height
         
         if edgeBottom >= canvasGeometrySize.height {
             edgeBottom = targetFrame.minY - tooltipSize.height - spacingToTarget
@@ -44,17 +51,17 @@ public struct CharcoalTooltip: CharcoalPopupView {
     
     public var body: some View {
         GeometryReader(content: { canvasGeometry in
-            VStack {
-                Text(text)
-                    .charcoalTypography12Regular()
-                    .multilineTextAlignment(.center)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
-                    .padding(EdgeInsets(top: 4, leading: 12, bottom: 4, trailing: 12))
-            }
+            Text(text)
+                .charcoalTypography12Regular()
+                .multilineTextAlignment(.center)
+                .fixedSize(horizontal: false, vertical: true)
+                .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
+                .padding(EdgeInsets(top: 2, leading: 12, bottom: 2, trailing: 12))
+            .background(Color(CharcoalAsset.ColorPaletteGenerated.surface8.color)            .cornerRadius(4, corners: .allCorners))
             .frame(maxWidth: maxWidth)
-            .background(Color(CharcoalAsset.ColorPaletteGenerated.surface8.color))
-            .cornerRadius(4, corners: .allCorners)
+            .offset(CGSize(
+                width: tooltipX(canvasGeometrySize: canvasGeometry.size),
+                height: tooltipY(canvasGeometrySize: canvasGeometry.size)))
             .overlay(
                 GeometryReader(content: { tooltipGeometry in
                     Color.clear.preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
@@ -63,9 +70,6 @@ public struct CharcoalTooltip: CharcoalPopupView {
             .onPreferenceChange(TooltipSizeKey.self, perform: { value in
                 tooltipSize = value
             })
-            .offset(CGSize(
-                width: tooltipX(canvasGeometrySize: canvasGeometry.size),
-                height: tooltipY(canvasGeometrySize: canvasGeometry.size)))
             .animation(.none, value: tooltipSize)
             .animation(.none, value: targetFrame)
         })
@@ -126,7 +130,7 @@ private struct TooltipsPreviewView: View {
                         Image(charocalIcon: .question24)
                     }
                     .charcoalTooltip(isPresenting: $isPresenting, text: "Hello World ")
-                    .offset(CGSize(width: 20.0, height: 20.0))
+                    .offset(CGSize(width: 20.0, height: 80.0))
                     
                     Button  {
                         isPresenting2.toggle()
