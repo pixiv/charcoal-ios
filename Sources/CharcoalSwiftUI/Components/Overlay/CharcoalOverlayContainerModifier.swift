@@ -68,7 +68,7 @@ struct CharcoalOverlayContainer: View {
                 }
             }
         }
-        .animation(.spring, value: viewManager.isPresenting)
+        .animation(.easeInOut(duration: 0.2), value: viewManager.isPresenting)
         .onDisappear { viewManager.removeView() }
     }
 }

@@ -1,10 +1,6 @@
 import SwiftUI
 
 public struct CharcoalTooltip: CharcoalPopupView {
-    public static func == (lhs: CharcoalTooltip, rhs: CharcoalTooltip) -> Bool {
-        return lhs.text == rhs.text && lhs.targetFrame == rhs.targetFrame && lhs.maxWidth == rhs.maxWidth
-    }
-    
     let text: String
     let targetFrame: CGRect
     let maxWidth: CGFloat
@@ -29,20 +25,20 @@ public struct CharcoalTooltip: CharcoalPopupView {
     }
     
     func tooltipX(canvasGeometrySize: CGSize) -> CGFloat {
-//        print("targetFrameMidX \(targetFrame.midX) tooltipWidth \(tooltipSize.width)")
         let minX = targetFrame.midX - (tooltipSize.width / 2.0)
-//        print("tooltipX \(max(0, minX))")
         let edgeLeft = max(0, minX)
         let edgeRight = min(edgeLeft, canvasGeometrySize.width - tooltipSize.width)
-//        print("edgeLeft \(edgeLeft) edgeRight \(edgeRight)")
         return min(edgeLeft, edgeRight)
     }
     
     func tooltipY(canvasGeometrySize: CGSize) -> CGFloat {
-        print("targetFrameMidX \(targetFrame.midX) tooltipHeight \(tooltipSize.height)")
         let minX = targetFrame.maxY + spacingToTarget
-        let edgeBottom = canvasGeometrySize.height - tooltipSize.height - targetFrame.height - spacingToTarget
-        print("edgeBottom \(edgeBottom)")
+        var edgeBottom =  targetFrame.maxY + spacingToTarget + targetFrame.height
+        
+        if edgeBottom >= canvasGeometrySize.height {
+            edgeBottom = targetFrame.minY - tooltipSize.height - spacingToTarget
+        }
+        
         return min(minX, edgeBottom)
     }
     
@@ -65,10 +61,7 @@ public struct CharcoalTooltip: CharcoalPopupView {
                 })
             )
             .onPreferenceChange(TooltipSizeKey.self, perform: { value in
-                DispatchQueue.main.async {
-                    tooltipSize = value
-                }
-                print("canvasGeometry \(canvasGeometry.size) tooltipSize \(tooltipSize)")
+                tooltipSize = value
             })
             .offset(CGSize(
                 width: tooltipX(canvasGeometrySize: canvasGeometry.size),
@@ -76,6 +69,10 @@ public struct CharcoalTooltip: CharcoalPopupView {
             .animation(.none, value: tooltipSize)
             .animation(.none, value: targetFrame)
         })
+    }
+    
+    public static func == (lhs: CharcoalTooltip, rhs: CharcoalTooltip) -> Bool {
+        return lhs.text == rhs.text && lhs.targetFrame == rhs.targetFrame && lhs.maxWidth == rhs.maxWidth && lhs.tooltipSize == rhs.tooltipSize
     }
 }
 
@@ -118,41 +115,46 @@ private struct TooltipsPreviewView: View {
     @State var isPresenting4 = false
     
     var body: some View {
-        ZStack(alignment: .topLeading) {
-            GeometryReader(content: { geometry in
-                Button  {
-                    isPresenting.toggle()
-                } label: {
-                    Image(charocalIcon: .question24)
+        GeometryReader(content: { geometry in
+            ScrollView {
+                ZStack(alignment: .topLeading) {
+                    Color.clear
+                    
+                    Button  {
+                        isPresenting.toggle()
+                    } label: {
+                        Image(charocalIcon: .question24)
+                    }
+                    .charcoalTooltip(isPresenting: $isPresenting, text: "Hello World ")
+                    .offset(CGSize(width: 20.0, height: 20.0))
+                    
+                    Button  {
+                        isPresenting2.toggle()
+                    } label: {
+                        Image(charocalIcon: .question24)
+                    }
+                    .charcoalTooltip(isPresenting: $isPresenting2, text: "Hello World This is a tooltip")
+                    .offset(CGSize(width: 100.0, height: 100.0))
+                    
+                    Button  {
+                        isPresenting3.toggle()
+                    } label: {
+                        Image(charocalIcon: .question24)
+                    }
+                    .charcoalTooltip(isPresenting: $isPresenting3, text: "here is testing it's multiple line feature")
+                    .offset(CGSize(width: geometry.size.width - 30, height: 100.0))
+                    
+                    Button  {
+                        isPresenting4.toggle()
+                    } label: {
+                        Image(charocalIcon: .question24)
+                    }
+                    .charcoalTooltip(isPresenting: $isPresenting4, text: "Hello World This is a tooltip and here is testing it's multiple line feature")
+                    .offset(CGSize(width: geometry.size.width - 40, height: geometry.size.height - 40))
+                    
                 }
-                .charcoalTooltip(isPresenting: $isPresenting, text: "Hello World This is a tooltip and here is testing it's multiple line feature")
-                .offset(CGSize(width: 20.0, height: 20.0))
-                
-                Button  {
-                    isPresenting2.toggle()
-                } label: {
-                    Image(charocalIcon: .question24)
-                }
-                .charcoalTooltip(isPresenting: $isPresenting2, text: "Hello World This is a tooltip and here is testing it's multiple line feature")
-                .offset(CGSize(width: 100.0, height: 100.0))
-                
-                Button  {
-                    isPresenting3.toggle()
-                } label: {
-                    Image(charocalIcon: .question24)
-                }
-                .charcoalTooltip(isPresenting: $isPresenting3, text: "Hello World This is a tooltip and here is testing it's multiple line feature")
-                .offset(CGSize(width: geometry.size.width - 30, height: 100.0))
-                
-                Button  {
-                    isPresenting4.toggle()
-                } label: {
-                    Image(charocalIcon: .question24)
-                }
-                .charcoalTooltip(isPresenting: $isPresenting4, text: "Hello World This is a tooltip and here is testing it's multiple line feature")
-                .offset(CGSize(width: geometry.size.width - 40, height: geometry.size.height - 40))
-            })
-        }
+            }
+        })
         .ignoresSafeArea()
         .charcoalOverlayContainer()
     }
