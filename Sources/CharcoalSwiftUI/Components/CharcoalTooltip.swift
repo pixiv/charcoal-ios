@@ -49,6 +49,8 @@ public struct CharcoalTooltip: CharcoalPopupView {
         return min(minX, edgeBottom)
     }
     
+    @State private var adaptiveMaxWidth: CGFloat?
+    
     public var body: some View {
         GeometryReader(content: { canvasGeometry in
             Text(text)
@@ -57,18 +59,18 @@ public struct CharcoalTooltip: CharcoalPopupView {
                 .fixedSize(horizontal: false, vertical: true)
                 .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
                 .padding(EdgeInsets(top: 2, leading: 12, bottom: 2, trailing: 12))
-            .background(Color(CharcoalAsset.ColorPaletteGenerated.surface8.color)            .cornerRadius(4, corners: .allCorners))
-            .frame(maxWidth: maxWidth)
+            .background(GeometryReader(content: { tooltipGeometry in
+                Color(CharcoalAsset.ColorPaletteGenerated.surface8.color)            .cornerRadius(4, corners: .allCorners).preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
+            }))
+            .frame(maxWidth: adaptiveMaxWidth)
             .offset(CGSize(
                 width: tooltipX(canvasGeometrySize: canvasGeometry.size),
                 height: tooltipY(canvasGeometrySize: canvasGeometry.size)))
-            .overlay(
-                GeometryReader(content: { tooltipGeometry in
-                    Color.clear.preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
-                })
-            )
             .onPreferenceChange(TooltipSizeKey.self, perform: { value in
                 tooltipSize = value
+                if (adaptiveMaxWidth == nil) {
+                    adaptiveMaxWidth = tooltipSize.width < maxWidth ? nil : maxWidth
+                }
             })
             .animation(.none, value: tooltipSize)
             .animation(.none, value: targetFrame)
