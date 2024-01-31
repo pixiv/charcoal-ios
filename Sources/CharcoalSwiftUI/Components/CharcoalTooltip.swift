@@ -1,9 +1,15 @@
 import SwiftUI
 
 public struct CharcoalTooltip: CharcoalPopupView {
+    public static func == (lhs: CharcoalTooltip, rhs: CharcoalTooltip) -> Bool {
+        return lhs.text == rhs.text && lhs.targetFrame == rhs.targetFrame && lhs.maxWidth == rhs.maxWidth
+    }
+    
     let text: String
     let targetFrame: CGRect
     let maxWidth: CGFloat
+    
+    @State private var tooltipSize: CGSize = .zero
 
     public init(text: String, targetFrame: CGRect, maxWidth: CGFloat = 184) {
         self.text = text
@@ -19,7 +25,7 @@ public struct CharcoalTooltip: CharcoalPopupView {
     public var body: some View {
         ZStack(alignment: .topLeading) {
             Color.clear
-            ZStack {
+            VStack {
                 Text(text)
                     .charcoalTypography12Regular()
                     .multilineTextAlignment(.center)
@@ -30,9 +36,26 @@ public struct CharcoalTooltip: CharcoalPopupView {
             .frame(maxWidth: maxWidth)
             .background(Color(CharcoalAsset.ColorPaletteGenerated.surface8.color))
             .cornerRadius(4, corners: .allCorners)
-            .offset(CGSize(width: targetFrame.maxX - (targetFrame.width / 2.0), height: targetFrame.maxY))
+            .overlay(
+                GeometryReader(content: { geometry in
+                    Color.clear.preference(key: TooltipSizeKey.self, value: geometry.size)
+                })
+            )
+            .onPreferenceChange(TooltipSizeKey.self, perform: { value in
+                tooltipSize = value
+            })
+            .offset(CGSize(width: targetFrame.midX - (tooltipSize.width / 2.0), height: targetFrame.maxY))
+            .animation(.none, value: tooltipSize)
+            .animation(.none, value: targetFrame)
         }
     }
+}
+
+struct TooltipSizeKey: PreferenceKey {
+    static func reduce(value: inout CGSize, nextValue: () -> CGSize) {
+        value = nextValue()
+    }
+    static var defaultValue: CGSize = .zero
 }
 
 public struct CharcoalTooltipModifier: ViewModifier {
@@ -60,6 +83,31 @@ public extension View {
     }
 }
 
+private struct TooltipsPreviewView: View {
+   @State var isPresenting = false
+   @State var isPresenting2 = false
+
+   var body: some View {
+       ZStack(alignment: .topLeading) {
+           Color.clear
+           Button  {
+               isPresenting.toggle()
+           } label: {
+               Image(charocalIcon: .question24)
+           }
+           .charcoalTooltip(isPresenting: $isPresenting, text: "Hello World This is a tooltip and here is testing it's multiple line feature")
+           
+           Button  {
+               isPresenting2.toggle()
+           } label: {
+               Image(charocalIcon: .question24)
+           }
+           .charcoalTooltip(isPresenting: $isPresenting2, text: "Hello World This is a tooltip and here is testing it's multiple line feature")
+           .offset(CGSize(width: 100.0, height: 100.0))
+       }.charcoalOverlayContainer()
+   }
+}
+
 #Preview {
-    CharcoalTooltip(text: "Hellow World This is a tooltip and here is testing it's multiple line feature", targetFrame: CGRect(x: 0, y: 100, width: 100, height: 100))
+   TooltipsPreviewView()
 }
