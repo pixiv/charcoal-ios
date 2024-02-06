@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-@MainActor public class CharcoalContainerManager: ObservableObject {
+@MainActor class CharcoalContainerManager: ObservableObject {
     static let share = CharcoalContainerManager()
     
     @Published var overlayViews: [CharcoalIdentifiableOverlayView] = []
