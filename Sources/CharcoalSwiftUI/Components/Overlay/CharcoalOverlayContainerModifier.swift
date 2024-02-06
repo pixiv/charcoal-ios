@@ -19,21 +19,31 @@ struct CharcoalOverlayContainerChild<SubContent: CharcoalPopupView>: ViewModifie
     
     var view: SubContent
     
+    let viewID: UUID
+    
+    func createOverlayView(view: SubContent) -> CharcoalIdentifiableOverlayView {
+        return CharcoalIdentifiableOverlayView(id: viewID, contentView: AnyView(view), isPresenting: $isPresenting)
+    }
+    
+    init(isPresenting: Binding<Bool>, view: SubContent, viewID: UUID) {
+        _isPresenting = isPresenting
+        self.view = view
+        self.viewID = viewID
+        
+        manager.addView(view: createOverlayView(view: view))
+    }
+    
     func body(content: Content) -> some View {
         content
             .onChange(of: isPresenting) { newValue in
-                if (newValue) {
-                    manager.addView(view: view)
-                    manager.isPresenting = true
+                if newValue {
+                    manager.addView(view:  createOverlayView(view: view))
                 } else {
-                    manager.isPresenting = false
-                    manager.removeView()
+                    manager.removeView(id: viewID)
                 }
             }
             .onChange(of: view) { newValue in
-                if isPresenting {
-                    manager.addView(view: view)
-                }
+                manager.addView(view: createOverlayView(view: view))
             }
     }
 }
@@ -62,13 +72,11 @@ struct CharcoalOverlayContainer: View {
     var body: some View {
         ZStack {
             Color.clear.allowsHitTesting(false)
-            if let view = viewManager.overlayView {
-                if viewManager.isPresenting {
-                    view
-                }
+            
+            ForEach(viewManager.overlayViews, id: \.id) { overlayView in
+                overlayView
             }
         }
-        .animation(.easeInOut(duration: 0.2), value: viewManager.isPresenting)
-        .onDisappear { viewManager.removeView() }
+        .onDisappear { viewManager.clear() }
     }
 }

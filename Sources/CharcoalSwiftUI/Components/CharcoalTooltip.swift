@@ -96,11 +96,13 @@ public struct CharcoalTooltipModifier: ViewModifier {
     
     var text: String
     
+    var viewID = UUID()
+    
     public func body(content: Content) -> some View {
         content
             .overlay(GeometryReader(content: { proxy in
                 EmptyView()
-                    .modifier(CharcoalOverlayContainerChild(isPresenting: $isPresenting, view: CharcoalTooltip(text: text, targetFrame: proxy.frame(in: .global))))
+                    .modifier(CharcoalOverlayContainerChild(isPresenting: $isPresenting, view: CharcoalTooltip(text: text, targetFrame: proxy.frame(in: .global)), viewID: viewID))
             }))
     }
 }
@@ -115,7 +117,7 @@ public extension View {
 }
 
 private struct TooltipsPreviewView: View {
-    @State var isPresenting = false
+    @State var isPresenting = true
     @State var isPresenting2 = false
     @State var isPresenting3 = false
     @State var isPresenting4 = false
