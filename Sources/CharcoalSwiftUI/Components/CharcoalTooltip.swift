@@ -41,8 +41,7 @@ struct CharcoalTooltip: CharcoalPopupView {
     func tooltipY(canvasGeometrySize: CGSize) -> CGFloat {
         let minX = targetFrame.maxY + spacingToTarget
         var edgeBottom = targetFrame.maxY + spacingToTarget + targetFrame.height
-        
-        if edgeBottom >= canvasGeometrySize.height {
+        if edgeBottom + tooltipSize.height >= canvasGeometrySize.height {
             edgeBottom = targetFrame.minY - tooltipSize.height - spacingToTarget
         }
         
@@ -163,7 +162,6 @@ private struct TooltipsPreviewView: View {
                 }
             }
         })
-        .ignoresSafeArea()
         .charcoalOverlayContainer()
     }
 }
