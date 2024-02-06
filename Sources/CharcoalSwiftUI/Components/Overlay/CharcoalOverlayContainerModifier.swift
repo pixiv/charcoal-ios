@@ -30,21 +30,34 @@ struct CharcoalOverlayContainerChild<SubContent: CharcoalPopupView>: ViewModifie
         self.view = view
         self.viewID = viewID
         
-        manager.addView(view: createOverlayView(view: view))
+        let newView = createOverlayView(view: view)
+        let manager = manager
+        Task {
+            await manager.addView(view: newView)
+        }
     }
     
     func body(content: Content) -> some View {
         content
             .onChange(of: isPresenting) { newValue in
                 if newValue {
-                    manager.addView(view:  createOverlayView(view: view))
+                    let newView = createOverlayView(view: view)
+                    Task {
+                        await manager.addView(view: newView)
+                    }
                 } else {
-                    manager.removeView(id: viewID)
+                    Task {
+                        await manager.removeView(id: viewID)
+                    }
                 }
             }
             .onChange(of: view) { newValue in
-                manager.addView(view: createOverlayView(view: view))
+                let newView = createOverlayView(view: view)
+                Task {
+                    await manager.addView(view: newView)
+                }
             }
+               
     }
 }
 
@@ -77,6 +90,10 @@ struct CharcoalOverlayContainer: View {
                 overlayView
             }
         }
-        .onDisappear { viewManager.clear() }
+        .onDisappear {
+            Task {
+                await viewManager.clear()
+            }
+        }
     }
 }

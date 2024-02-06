@@ -17,28 +17,28 @@ struct CharcoalIdentifiableOverlayView: View {
     }
 }
 
+@globalActor actor CharcoalContainerActor {
+    static let shared = CharcoalContainerActor()
+}
+
 public class CharcoalContainerManager: ObservableObject {
     static let share = CharcoalContainerManager()
     
     @Published var overlayViews: [CharcoalIdentifiableOverlayView] = []
     
-    func addView(view: CharcoalIdentifiableOverlayView) {
+    @CharcoalContainerActor func addView(view: CharcoalIdentifiableOverlayView) {
         if let index = self.overlayViews.firstIndex(where: { $0.id == view.id }) {
             self.overlayViews[index] = view
         } else {
             self.overlayViews.append(view)
         }
     }
-    
-    func getView(id: CharcoalIdentifiableOverlayView.IDValue) -> CharcoalIdentifiableOverlayView? {
-        return self.overlayViews.first(where: { $0.id == id })
-    }
-    
-    func removeView(id: CharcoalIdentifiableOverlayView.IDValue) {
+
+    @CharcoalContainerActor func removeView(id: CharcoalIdentifiableOverlayView.IDValue) {
         self.overlayViews.removeAll(where: { $0.id == id })
     }
     
-    func clear() {
+    @CharcoalContainerActor func clear() {
         self.overlayViews.removeAll()
     }
 }
