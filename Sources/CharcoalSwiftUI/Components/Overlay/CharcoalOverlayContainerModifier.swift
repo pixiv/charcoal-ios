@@ -1,12 +1,10 @@
 import SwiftUI
 
 struct CharcoalOverlayContainerModifier: ViewModifier {
-    @Environment(\.overlayContainerManager) var manager
-    
     func body(content: Content) -> some View {
         content
             .overlay(
-                CharcoalOverlayContainer(viewManager: self.manager).ignoresSafeArea()
+                CharcoalOverlayContainer().ignoresSafeArea()
             )
     }
 }
@@ -14,7 +12,8 @@ struct CharcoalOverlayContainerModifier: ViewModifier {
 typealias CharcoalPopupView = View & Equatable
 
 struct CharcoalOverlayContainerChild<SubContent: CharcoalPopupView>: ViewModifier {
-    @Environment(\.overlayContainerManager) var manager
+    
+    var viewManager = CharcoalContainerManager.share
     @Binding var isPresenting: Bool
     
     var view: SubContent
@@ -31,9 +30,9 @@ struct CharcoalOverlayContainerChild<SubContent: CharcoalPopupView>: ViewModifie
         self.viewID = viewID
         
         let newView = createOverlayView(view: view)
-        let manager = manager
+        let viewManager = viewManager
         Task {
-            await manager.addView(view: newView)
+            await viewManager.addView(view: newView)
         }
     }
     
@@ -42,20 +41,16 @@ struct CharcoalOverlayContainerChild<SubContent: CharcoalPopupView>: ViewModifie
             .onChange(of: isPresenting) { newValue in
                 if newValue {
                     let newView = createOverlayView(view: view)
-                    Task {
-                        await manager.addView(view: newView)
-                    }
+                    viewManager.addView(view: newView)
                 }
             }
             .onChange(of: view) { newValue in
                 if isPresenting {
                     let newView = createOverlayView(view: view)
-                    Task {
-                        await manager.addView(view: newView)
-                    }
+                    viewManager.addView(view: newView)
                 }
             }
-               
+        
     }
 }
 
@@ -67,7 +62,7 @@ public extension View {
 
 struct CharcoalOverlayContainer: View {
     
-    @ObservedObject var viewManager: CharcoalContainerManager
+    @ObservedObject var viewManager = CharcoalContainerManager.share
     
     var body: some View {
         ZStack {
@@ -78,9 +73,7 @@ struct CharcoalOverlayContainer: View {
             }
         }
         .onDisappear {
-            Task {
-                await viewManager.clear()
-            }
+            viewManager.clear()
         }
     }
 }

@@ -15,7 +15,7 @@ public struct TooltipsView: View {
         VStack {
             List {
                 HStack() {
-                    Text("Help")
+                    Text("Help") 
                     Button(action: {
                         isPresented.toggle()
                     }, label: {
