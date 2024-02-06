@@ -58,9 +58,10 @@ public struct CharcoalTooltip: CharcoalPopupView {
                 .multilineTextAlignment(.center)
                 .fixedSize(horizontal: false, vertical: true)
                 .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
-                .padding(EdgeInsets(top: 2, leading: 12, bottom: 2, trailing: 12))
+                .padding(EdgeInsets(top: 4, leading: 12, bottom: 4, trailing: 12))
             .background(GeometryReader(content: { tooltipGeometry in
-                Color(CharcoalAsset.ColorPaletteGenerated.surface8.color)            .cornerRadius(4, corners: .allCorners).preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
+                Color(CharcoalAsset.ColorPaletteGenerated.surface8.color)            .cornerRadius(4, corners: .allCorners)
+                    .preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
             }))
             .frame(maxWidth: adaptiveMaxWidth)
             .offset(CGSize(
@@ -98,9 +99,8 @@ public struct CharcoalTooltipModifier: ViewModifier {
     public func body(content: Content) -> some View {
         content
             .overlay(GeometryReader(content: { proxy in
-                let frame = proxy.frame(in: .global)
                 EmptyView()
-                    .modifier(CharcoalOverlayContainerChild(isPresenting: $isPresenting, view: CharcoalTooltip(text: text, targetFrame: frame)))
+                    .modifier(CharcoalOverlayContainerChild(isPresenting: $isPresenting, view: CharcoalTooltip(text: text, targetFrame: proxy.frame(in: .global))))
             }))
     }
 }
