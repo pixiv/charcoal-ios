@@ -2,21 +2,6 @@ import Foundation
 import SwiftUI
 import Combine
 
-struct CharcoalIdentifiableOverlayView: View {
-    typealias IDValue = UUID
-    let id: IDValue
-    var contentView: AnyView
-    @Binding var isPresenting: Bool
-    
-    var body: some View {
-        VStack {
-            if isPresenting {
-                contentView
-            }
-        }.animation(.easeInOut(duration: 0.2), value: isPresenting)
-    }
-}
-
 @globalActor actor CharcoalContainerActor {
     static let shared = CharcoalContainerActor()
 }
@@ -28,10 +13,9 @@ public class CharcoalContainerManager: ObservableObject {
     
     @CharcoalContainerActor func addView(view: CharcoalIdentifiableOverlayView) {
         if let index = self.overlayViews.firstIndex(where: { $0.id == view.id }) {
-            self.overlayViews[index] = view
-        } else {
-            self.overlayViews.append(view)
+            self.overlayViews.remove(at: index) // Make sure we don't have duplicate views and the latest view is on top of the Stack
         }
+        self.overlayViews.append(view)
     }
 
     @CharcoalContainerActor func removeView(id: CharcoalIdentifiableOverlayView.IDValue) {

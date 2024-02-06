@@ -45,10 +45,6 @@ struct CharcoalOverlayContainerChild<SubContent: CharcoalPopupView>: ViewModifie
                     Task {
                         await manager.addView(view: newView)
                     }
-                } else {
-                    Task {
-                        await manager.removeView(id: viewID)
-                    }
                 }
             }
             .onChange(of: view) { newValue in
