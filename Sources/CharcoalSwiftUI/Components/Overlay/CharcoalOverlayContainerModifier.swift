@@ -63,17 +63,6 @@ public extension View {
     }
 }
 
-struct CharcoalOverlayContainerChildModifier: ViewModifier {
-    @Environment(\.overlayContainerManager) var manager
-    
-    func body(content: Content) -> some View {
-        content
-            .overlay(
-                CharcoalOverlayContainer(viewManager: self.manager)
-            )
-    }
-}
-
 struct CharcoalOverlayContainer: View {
     
     @ObservedObject var viewManager: CharcoalContainerManager
