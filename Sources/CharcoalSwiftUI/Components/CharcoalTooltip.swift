@@ -1,25 +1,25 @@
 import SwiftUI
 
-public struct CharcoalTooltip: CharcoalPopupView {
+struct CharcoalTooltip: CharcoalPopupView {
     let text: String
     let targetFrame: CGRect
     let maxWidth: CGFloat
     
     let spacingToTarget: CGFloat = 5
     
-    @State private var tooltipSize: CGSize = .zero
+    @State var tooltipSize: CGSize = .zero
     
-    private var offset: CGSize {
+    var offset: CGSize {
         CGSize(width: targetFrame.midX - (tooltipSize.width / 2.0), height: targetFrame.maxY)
     }
     
-    public init(text: String, targetFrame: CGRect, maxWidth: CGFloat = 184) {
+    init(text: String, targetFrame: CGRect, maxWidth: CGFloat = 184) {
         self.text = text
         self.targetFrame = targetFrame
         self.maxWidth = maxWidth
     }
     
-    private var animation: Animation {
+    var animation: Animation {
         .easeOut(duration: 1)
         .repeatForever(autoreverses: false)
     }
@@ -49,9 +49,9 @@ public struct CharcoalTooltip: CharcoalPopupView {
         return min(minX, edgeBottom)
     }
     
-    @State private var adaptiveMaxWidth: CGFloat?
+    @State var adaptiveMaxWidth: CGFloat?
     
-    public var body: some View {
+    var body: some View {
         GeometryReader(content: { canvasGeometry in
             Text(text)
                 .charcoalTypography12Regular()
@@ -78,7 +78,7 @@ public struct CharcoalTooltip: CharcoalPopupView {
         })
     }
     
-    public static func == (lhs: CharcoalTooltip, rhs: CharcoalTooltip) -> Bool {
+    static func == (lhs: CharcoalTooltip, rhs: CharcoalTooltip) -> Bool {
         return lhs.text == rhs.text && lhs.targetFrame == rhs.targetFrame && lhs.maxWidth == rhs.maxWidth && lhs.tooltipSize == rhs.tooltipSize
     }
 }
@@ -90,7 +90,7 @@ struct TooltipSizeKey: PreferenceKey {
     static var defaultValue: CGSize = .zero
 }
 
-public struct CharcoalTooltipModifier: ViewModifier {
+struct CharcoalTooltipModifier: ViewModifier {
     /// Presentation `Binding<Bool>`
     @Binding var isPresenting: Bool
     
@@ -98,7 +98,7 @@ public struct CharcoalTooltipModifier: ViewModifier {
     
     var viewID = UUID()
     
-    public func body(content: Content) -> some View {
+    func body(content: Content) -> some View {
         content
             .overlay(GeometryReader(content: { proxy in
                 EmptyView()
@@ -133,7 +133,7 @@ private struct TooltipsPreviewView: View {
                     } label: {
                         Image(charocalIcon: .question24)
                     }
-                    .charcoalTooltip(isPresenting: $isPresenting, text: "Hello World ")
+                    .charcoalTooltip(isPresenting: $isPresenting, text: "Hello World")
                     .offset(CGSize(width: 20.0, height: 80.0))
                     
                     Button  {
