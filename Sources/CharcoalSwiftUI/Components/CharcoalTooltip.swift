@@ -95,7 +95,7 @@ struct CharcoalTooltipModifier: ViewModifier {
     
     var text: String
     
-    var viewID = UUID()
+    @State var viewID = UUID()
     
     func body(content: Content) -> some View {
         content
@@ -121,11 +121,23 @@ private struct TooltipsPreviewView: View {
     @State var isPresenting3 = false
     @State var isPresenting4 = false
     
+    @State var textOfLabel = "Hello"
+    
     var body: some View {
         GeometryReader(content: { geometry in
             ScrollView {
                 ZStack(alignment: .topLeading) {
                     Color.clear
+                    
+                    VStack {
+                        Text(textOfLabel)
+                        
+                        Button {
+                            textOfLabel = "Changed"
+                        } label: {
+                            Text("Change Label")
+                        }
+                    }
                     
                     Button  {
                         isPresenting.toggle()
