@@ -1,19 +1,22 @@
 import SwiftUI
 
 struct CharcoalOverlayContainerModifier: ViewModifier {
+    @StateObject var viewManager = CharcoalContainerManager()
+    
     func body(content: Content) -> some View {
         content
             .overlay(
                 CharcoalOverlayContainer().ignoresSafeArea()
             )
+            .environmentObject(viewManager)
     }
 }
 
 typealias CharcoalPopupView = View & Equatable
 
 struct CharcoalOverlayContainerChild<SubContent: CharcoalPopupView>: ViewModifier {
+    @EnvironmentObject var viewManager: CharcoalContainerManager
     
-    var viewManager = CharcoalContainerManager.share
     @Binding var isPresenting: Bool
     
     var view: SubContent
@@ -22,18 +25,6 @@ struct CharcoalOverlayContainerChild<SubContent: CharcoalPopupView>: ViewModifie
     
     func createOverlayView(view: SubContent) -> CharcoalIdentifiableOverlayView {
         return CharcoalIdentifiableOverlayView(id: viewID, contentView: AnyView(view), isPresenting: $isPresenting)
-    }
-    
-    init(isPresenting: Binding<Bool>, view: SubContent, viewID: UUID) {
-        _isPresenting = isPresenting
-        self.view = view
-        self.viewID = viewID
-        
-        let newView = createOverlayView(view: view)
-        let viewManager = viewManager
-        Task {
-            await viewManager.addView(view: newView)
-        }
     }
     
     func body(content: Content) -> some View {
@@ -50,6 +41,11 @@ struct CharcoalOverlayContainerChild<SubContent: CharcoalPopupView>: ViewModifie
                     viewManager.addView(view: newView)
                 }
             }
+            .onAppear {
+                // onAppear is needed if the overlay is presented by default
+                let newView = createOverlayView(view: view)
+                viewManager.addView(view: newView)
+            }
         
     }
 }
@@ -62,7 +58,7 @@ public extension View {
 
 struct CharcoalOverlayContainer: View {
     
-    @ObservedObject var viewManager = CharcoalContainerManager.share
+    @EnvironmentObject var viewManager: CharcoalContainerManager
     
     var body: some View {
         ZStack {

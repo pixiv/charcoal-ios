@@ -100,7 +100,7 @@ struct CharcoalTooltipModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .overlay(GeometryReader(content: { proxy in
-                EmptyView()
+                Color.clear
                     .modifier(CharcoalOverlayContainerChild(isPresenting: $isPresenting, view: CharcoalTooltip(text: text, targetFrame: proxy.frame(in: .global)), viewID: viewID))
             }))
     }
@@ -175,6 +175,7 @@ private struct TooltipsPreviewView: View {
             }
         })
         .charcoalOverlayContainer()
+        
     }
 }
 
