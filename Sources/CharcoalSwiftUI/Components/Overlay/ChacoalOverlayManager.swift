@@ -21,8 +21,4 @@ class CharcoalContainerManager: ObservableObject {
     func clear() {
         self.overlayViews.removeAll()
     }
-    
-    deinit {
-        clear()
-    }
 }
