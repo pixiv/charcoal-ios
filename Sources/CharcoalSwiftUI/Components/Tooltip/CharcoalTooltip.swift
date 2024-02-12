@@ -1,18 +1,25 @@
 import SwiftUI
 
 struct CharcoalTooltip: CharcoalPopupView {
+    /// The text of the tooltip
     let text: String
     
+    /// The frame of the target view which the arrow will point to
     let targetFrame: CGRect
     
+    /// The maximum width of the tooltip
     let maxWidth: CGFloat
     
+    /// The corner radius of the tooltip
     let cornerRadius: CGFloat = 4
     
+    /// The height of the arrow
     let arrowHeight: CGFloat = 3
     
+    /// The spacing between the tooltip and the target view
     let spacingToTarget: CGFloat = 4
     
+    /// The spacing between the tooltip and the screen edge
     let spacingToScreen: CGFloat = 16
     
     @State private var tooltipSize: CGSize = .zero
@@ -31,11 +38,6 @@ struct CharcoalTooltip: CharcoalPopupView {
         self.text = text
         self.targetFrame = targetFrame
         self.maxWidth = maxWidth
-    }
-    
-    var animation: Animation {
-        .easeOut(duration: 1)
-        .repeatForever(autoreverses: false)
     }
     
     func tooltipX(canvasGeometrySize: CGSize) -> CGFloat {
@@ -71,9 +73,11 @@ struct CharcoalTooltip: CharcoalPopupView {
                 .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
                 .padding(EdgeInsets(top: 4, leading: 12, bottom: 4, trailing: 12))
                 .background(GeometryReader(content: { tooltipGeometry in
-                    BubbleShape(
-                        frameInGlobal: tooltipGeometry.frame(in: .global),
-                        targetFrame: targetFrame,
+                    let tooltipOrigin = tooltipGeometry.frame(in: .global).origin
+                    TooltipBubbleShape(
+                        targetPoint: 
+                            CGPoint(x: targetFrame.midX - tooltipOrigin.x,
+                                    y: targetFrame.maxY - tooltipOrigin.y),
                         arrowHeight: arrowHeight,
                         cornerRadius: cornerRadius
                     )
@@ -87,6 +91,9 @@ struct CharcoalTooltip: CharcoalPopupView {
                 .onPreferenceChange(TooltipSizeKey.self, perform: { value in
                     tooltipSize = value
                     if (adaptiveMaxWidth == nil) {
+                        // Set adaptiveMaxWidth only when the text size is greater than maxWidth
+                        // This is a workaround to `.frame(maxWidth: ).fixedSize()` problem
+                        // SwiftUI might give the view a greater width if it is smaller than maxWidth
                         adaptiveMaxWidth = tooltipSize.width < maxWidth ? nil : maxWidth
                     }
                 })
@@ -97,52 +104,6 @@ struct CharcoalTooltip: CharcoalPopupView {
     
     static func == (lhs: CharcoalTooltip, rhs: CharcoalTooltip) -> Bool {
         return lhs.text == rhs.text && lhs.targetFrame == rhs.targetFrame && lhs.maxWidth == rhs.maxWidth && lhs.tooltipSize == rhs.tooltipSize
-    }
-}
-
-struct BubbleShape: Shape {
-    let frameInGlobal: CGRect
-    let targetFrame: CGRect
-    let arrowHeight: CGFloat
-    let cornerRadius: CGFloat
-    let arrowWidth: CGFloat = 5
-    
-    func path(in rect: CGRect) -> Path {
-        let diffX = frameInGlobal.origin.x - rect.origin.x
-        let targetLocalX = targetFrame.midX - diffX
-        
-        let diffY = frameInGlobal.origin.y - rect.origin.y
-        let targetLocalY = targetFrame.midY - diffY
-        
-        var arrowY = rect.minY - arrowHeight
-        var arrowBaseY = rect.minY
-        
-        let minX = rect.minX + cornerRadius + arrowWidth
-        let maxX = rect.maxX - cornerRadius - arrowWidth
-        
-        let arrowMidX = min(max(minX, targetLocalX), maxX)
-        
-        var arrowMaxX = arrowMidX + arrowWidth
-        
-        var arrowMinX = arrowMidX - arrowWidth
-        
-        if (targetLocalY > rect.minY) {
-            arrowY = rect.maxY + arrowHeight
-            arrowBaseY = rect.maxY
-            arrowMaxX = arrowMidX - arrowWidth
-            arrowMinX = arrowMidX + arrowWidth
-        }
-        
-        var bubblePath = RoundedRectangle(cornerRadius: cornerRadius).path(in: rect)
-        let arrowPath = Path { path in
-            path.move(to: CGPoint(x: arrowMaxX, y: arrowBaseY))
-            path.addLine(to: CGPoint(x: arrowMinX, y: arrowBaseY))
-            path.addLine(to: CGPoint(x: arrowMidX, y: arrowY))
-            path.closeSubpath()
-        }
-        
-        bubblePath.addPath(arrowPath)
-        return bubblePath
     }
 }
 
@@ -157,8 +118,10 @@ struct CharcoalTooltipModifier: ViewModifier {
     /// Presentation `Binding<Bool>`
     @Binding var isPresenting: Bool
     
+    /// Text to be displayed in the tooltip
     var text: String
     
+    /// Assign a unique ID to the view
     @State var viewID = UUID()
     
     func body(content: Content) -> some View {
