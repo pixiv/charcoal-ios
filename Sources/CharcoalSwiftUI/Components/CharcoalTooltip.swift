@@ -105,6 +105,7 @@ struct BubbleShape: Shape {
     let targetFrame: CGRect
     let arrowHeight: CGFloat
     let cornerRadius: CGFloat
+    let arrowWidth: CGFloat = 5
     
     func path(in rect: CGRect) -> Path {
         let diffX = frameInGlobal.origin.x - rect.origin.x
@@ -114,24 +115,29 @@ struct BubbleShape: Shape {
         let targetLocalY = targetFrame.midY - diffY
         
         var arrowY = rect.minY - arrowHeight
-        var arrowBaseY = rect.minY + 1
+        var arrowBaseY = rect.minY
         
-        var arrowMaxX = min(targetLocalX + 5, rect.maxX)
+        let minX = rect.minX + cornerRadius + arrowWidth
+        let maxX = rect.maxX - cornerRadius - arrowWidth
         
-        var arrowMinX = max(targetLocalX - 5 , rect.minX)
+        let arrowMidX = min(max(minX, targetLocalX), maxX)
+        
+        var arrowMaxX = arrowMidX + arrowWidth
+        
+        var arrowMinX = arrowMidX - arrowWidth
         
         if (targetLocalY > rect.minY) {
             arrowY = rect.maxY + arrowHeight
-            arrowBaseY = rect.maxY - 1
-            arrowMaxX = max(targetLocalX - 5 , rect.minX)
-            arrowMinX = min(targetLocalX + 5, rect.maxX)
+            arrowBaseY = rect.maxY
+            arrowMaxX = arrowMidX - arrowWidth
+            arrowMinX = arrowMidX + arrowWidth
         }
         
         var bubblePath = RoundedRectangle(cornerRadius: cornerRadius).path(in: rect)
         let arrowPath = Path { path in
             path.move(to: CGPoint(x: arrowMaxX, y: arrowBaseY))
             path.addLine(to: CGPoint(x: arrowMinX, y: arrowBaseY))
-            path.addLine(to: CGPoint(x: targetLocalX, y: arrowY))
+            path.addLine(to: CGPoint(x: arrowMidX, y: arrowY))
             path.closeSubpath()
         }
         
@@ -193,7 +199,7 @@ private struct TooltipsPreviewView: View {
                         Text(textOfLabel)
                         
                         Button {
-                            textOfLabel = "Changed"
+                            textOfLabel = ["Changed", "Hello"].randomElement()!
                         } label: {
                             Text("Change Label")
                         }
@@ -231,7 +237,7 @@ private struct TooltipsPreviewView: View {
                         Image(charocalIcon: .question24)
                     }
                     .charcoalTooltip(isPresenting: $isPresenting4, text: "Hello World This is a tooltip and here is testing it's multiple line feature")
-                    .offset(CGSize(width: geometry.size.width - 40, height: geometry.size.height - 40))
+                    .offset(CGSize(width: geometry.size.width - 30, height: geometry.size.height - 40))
                     
                     Button  {
                         isPresenting5.toggle()
