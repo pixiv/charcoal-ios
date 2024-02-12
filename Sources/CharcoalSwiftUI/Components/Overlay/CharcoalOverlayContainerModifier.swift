@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct CharcoalOverlayContainerModifier: ViewModifier {
-    @ObservedObject var viewManager = CharcoalContainerManager()
+    @StateObject var viewManager = CharcoalContainerManager()
     
     func body(content: Content) -> some View {
         content
@@ -67,6 +67,8 @@ struct CharcoalOverlayContainer: View {
             ForEach(viewManager.overlayViews, id: \.id) { overlayView in
                 overlayView
             }
+        }.onDisappear {
+            viewManager.clear()
         }
     }
 }
