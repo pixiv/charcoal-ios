@@ -5,7 +5,7 @@ struct CharcoalIdentifiableOverlayView: View {
     let id: IDValue
     var contentView: AnyView
     @Binding var isPresenting: Bool
-    
+
     var body: some View {
         VStack {
             if isPresenting {

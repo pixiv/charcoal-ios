@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CharcoalOverlayContainerModifier: ViewModifier {
     @StateObject var viewManager = CharcoalContainerManager()
-    
+
     func body(content: Content) -> some View {
         content
             .overlay(
@@ -12,21 +12,21 @@ struct CharcoalOverlayContainerModifier: ViewModifier {
     }
 }
 
-typealias CharcoalPopupView = View & Equatable
+typealias CharcoalPopupView = Equatable & View
 
 struct CharcoalOverlayContainerChild<SubContent: CharcoalPopupView>: ViewModifier {
     @EnvironmentObject var viewManager: CharcoalContainerManager
-    
+
     @Binding var isPresenting: Bool
-    
+
     var view: SubContent
-    
+
     let viewID: UUID
-    
+
     func createOverlayView(view: SubContent) -> CharcoalIdentifiableOverlayView {
         return CharcoalIdentifiableOverlayView(id: viewID, contentView: AnyView(view), isPresenting: $isPresenting)
     }
-    
+
     func body(content: Content) -> some View {
         content
             .onChange(of: isPresenting) { newValue in
@@ -35,7 +35,7 @@ struct CharcoalOverlayContainerChild<SubContent: CharcoalPopupView>: ViewModifie
                     viewManager.addView(view: newView)
                 }
             }
-            .onChange(of: view) { newValue in
+            .onChange(of: view) { _ in
                 if isPresenting {
                     let newView = createOverlayView(view: view)
                     viewManager.addView(view: newView)
@@ -46,7 +46,6 @@ struct CharcoalOverlayContainerChild<SubContent: CharcoalPopupView>: ViewModifie
                 let newView = createOverlayView(view: view)
                 viewManager.addView(view: newView)
             }
-        
     }
 }
 
@@ -57,13 +56,12 @@ public extension View {
 }
 
 struct CharcoalOverlayContainer: View {
-    
     @EnvironmentObject var viewManager: CharcoalContainerManager
-    
+
     var body: some View {
         ZStack {
             Color.clear.allowsHitTesting(false)
-            
+
             ForEach(viewManager.overlayViews, id: \.id) { overlayView in
                 overlayView
             }
