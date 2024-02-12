@@ -24,12 +24,6 @@ struct CharcoalTooltip: CharcoalPopupView {
 
     @State private var tooltipSize: CGSize = .zero
 
-    /// The actuall width control parameter of tooltip
-    ///
-    /// This will be set only when text size is greater than maxWidth to prevent SwiftUI might
-    /// layout a unexpected width for the tooltip
-    @State private var adaptiveMaxWidth: CGFloat?
-
     var offset: CGSize {
         CGSize(width: targetFrame.midX - (tooltipSize.width / 2.0), height: targetFrame.maxY)
     }
@@ -66,42 +60,37 @@ struct CharcoalTooltip: CharcoalPopupView {
 
     var body: some View {
         GeometryReader(content: { canvasGeometry in
-            Text(text)
-                .charcoalTypography12Regular()
-                .multilineTextAlignment(.center)
-                .fixedSize(horizontal: false, vertical: true)
-                .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
-                .padding(EdgeInsets(top: 4, leading: 12, bottom: 4, trailing: 12))
-                .background(GeometryReader(content: { tooltipGeometry in
-                    let tooltipOrigin = tooltipGeometry.frame(in: .global).origin
-                    TooltipBubbleShape(
-                        targetPoint:
-                        CGPoint(
-                            x: targetFrame.midX - tooltipOrigin.x,
-                            y: targetFrame.maxY - tooltipOrigin.y
-                        ),
-                        arrowHeight: arrowHeight,
-                        cornerRadius: cornerRadius
-                    )
-                    .fill(Color(CharcoalAsset.ColorPaletteGenerated.surface8.color))
-                    .preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
-                }))
-                .frame(maxWidth: adaptiveMaxWidth)
-                .offset(CGSize(
-                    width: tooltipX(canvasGeometrySize: canvasGeometry.size),
-                    height: tooltipY(canvasGeometrySize: canvasGeometry.size)
-                ))
-                .onPreferenceChange(TooltipSizeKey.self, perform: { value in
-                    tooltipSize = value
-                    if adaptiveMaxWidth == nil {
-                        // Set adaptiveMaxWidth only when the text size is greater than maxWidth
-                        // This is a workaround to `.frame(maxWidth: ).fixedSize()` problem
-                        // SwiftUI might give the view a greater width if it is smaller than maxWidth
-                        adaptiveMaxWidth = tooltipSize.width < maxWidth ? nil : maxWidth
-                    }
-                })
-                .animation(.none, value: tooltipSize)
-                .animation(.none, value: targetFrame)
+            VStack {
+                Text(text)
+                    .charcoalTypography12Regular()
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
+                    .padding(EdgeInsets(top: 4, leading: 12, bottom: 4, trailing: 12))
+                    .background(GeometryReader(content: { tooltipGeometry in
+                        let tooltipOrigin = tooltipGeometry.frame(in: .global).origin
+                        TooltipBubbleShape(
+                            targetPoint:
+                            CGPoint(
+                                x: targetFrame.midX - tooltipOrigin.x,
+                                y: targetFrame.maxY - tooltipOrigin.y
+                            ),
+                            arrowHeight: arrowHeight,
+                            cornerRadius: cornerRadius
+                        )
+                        .fill(Color(CharcoalAsset.ColorPaletteGenerated.surface8.color))
+                        .preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
+                    }))
+                    .offset(CGSize(
+                        width: tooltipX(canvasGeometrySize: canvasGeometry.size),
+                        height: tooltipY(canvasGeometrySize: canvasGeometry.size)
+                    ))
+                    .onPreferenceChange(TooltipSizeKey.self, perform: { value in
+                        tooltipSize = value
+                    })
+                    .animation(.none, value: tooltipSize)
+                    .animation(.none, value: targetFrame)
+            }.frame(minWidth: 0, maxWidth: maxWidth, alignment: .leading)
         })
     }
 
