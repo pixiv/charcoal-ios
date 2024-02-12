@@ -5,7 +5,9 @@ struct CharcoalTooltip: CharcoalPopupView {
     let targetFrame: CGRect
     let maxWidth: CGFloat
     
-    let spacingToTarget: CGFloat = 5
+    let spacingToTarget: CGFloat = 4
+    
+    let spacingToScreen: CGFloat = 16
     
     @State var tooltipSize: CGSize = .zero
     
@@ -30,9 +32,9 @@ struct CharcoalTooltip: CharcoalPopupView {
         var edgeLeft = minX
         
         if (edgeLeft + tooltipSize.width >= canvasGeometrySize.width) {
-            edgeLeft = canvasGeometrySize.width - tooltipSize.width
+            edgeLeft = canvasGeometrySize.width - tooltipSize.width - spacingToScreen
         } else if (edgeLeft < 0) {
-            edgeLeft = 0
+            edgeLeft = spacingToScreen
         }
         
         return edgeLeft
@@ -150,18 +152,20 @@ private struct TooltipsPreviewView: View {
                     Button  {
                         isPresenting2.toggle()
                     } label: {
-                        Image(charocalIcon: .question24)
+                        Text("Help")
                     }
+                    .charcoalDefaultButton()
                     .charcoalTooltip(isPresenting: $isPresenting2, text: "Hello World This is a tooltip")
-                    .offset(CGSize(width: 100.0, height: 100.0))
+                    .offset(CGSize(width: 100.0, height: 150.0))
                     
                     Button  {
                         isPresenting3.toggle()
                     } label: {
-                        Image(charocalIcon: .question24)
+                        Text("Right")
                     }
+                    .charcoalPrimaryButton(size: .medium)
                     .charcoalTooltip(isPresenting: $isPresenting3, text: "here is testing it's multiple line feature")
-                    .offset(CGSize(width: geometry.size.width - 30, height: 100.0))
+                    .offset(CGSize(width: geometry.size.width - 100, height: 100.0))
                     
                     Button  {
                         isPresenting4.toggle()
