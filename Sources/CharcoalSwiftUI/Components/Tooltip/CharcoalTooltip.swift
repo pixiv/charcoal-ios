@@ -75,7 +75,7 @@ struct CharcoalTooltip: CharcoalPopupView {
                 .background(GeometryReader(content: { tooltipGeometry in
                     let tooltipOrigin = tooltipGeometry.frame(in: .global).origin
                     TooltipBubbleShape(
-                        targetPoint: 
+                        targetPoint:
                             CGPoint(x: targetFrame.midX - tooltipOrigin.x,
                                     y: targetFrame.maxY - tooltipOrigin.y),
                         arrowHeight: arrowHeight,
@@ -134,6 +134,18 @@ struct CharcoalTooltipModifier: ViewModifier {
 }
 
 public extension View {
+    /**
+     Add a tooltip to the view
+     
+     - Parameters:
+        - isPresenting: A binding to whether the Tooltip  is presented.
+        - text: The text to be displayed in the tooltip.
+     
+     # Example #
+     ```swift
+     Text("Hello").charcoalTooltip(isPresenting: $isPresenting, text: "This is a tooltip")
+     ```
+     */
     func charcoalTooltip(
         isPresenting: Binding<Bool>,
         text: String
