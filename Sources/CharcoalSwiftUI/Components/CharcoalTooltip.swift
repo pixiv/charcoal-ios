@@ -7,6 +7,8 @@ struct CharcoalTooltip: CharcoalPopupView {
     
     let maxWidth: CGFloat
     
+    let cornerRadius: CGFloat = 4
+    
     let arrowHeight: CGFloat = 3
     
     let spacingToTarget: CGFloat = 4
@@ -72,7 +74,9 @@ struct CharcoalTooltip: CharcoalPopupView {
                     BubbleShape(
                         frameInGlobal: tooltipGeometry.frame(in: .global),
                         targetFrame: targetFrame,
-                        arrowHeight: arrowHeight)
+                        arrowHeight: arrowHeight,
+                        cornerRadius: cornerRadius
+                    )
                         .fill(Color(CharcoalAsset.ColorPaletteGenerated.surface8.color))
                         .preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
                 }))
@@ -100,24 +104,34 @@ struct BubbleShape: Shape {
     let frameInGlobal: CGRect
     let targetFrame: CGRect
     let arrowHeight: CGFloat
+    let cornerRadius: CGFloat
     
     func path(in rect: CGRect) -> Path {
         let diffX = frameInGlobal.origin.x - rect.origin.x
-        let targetRelativeX = targetFrame.midX - diffX
+        let targetLocalX = targetFrame.midX - diffX
+        
         let diffY = frameInGlobal.origin.y - rect.origin.y
-        let targetRelativeY = targetFrame.midY - diffY
+        let targetLocalY = targetFrame.midY - diffY
+        
         var arrowY = rect.minY - arrowHeight
-        var arrowBaseY = rect.minY
-        if (targetRelativeY > rect.minY) {
+        var arrowBaseY = rect.minY + 1
+        
+        var arrowMaxX = min(targetLocalX + 5, rect.maxX)
+        
+        var arrowMinX = max(targetLocalX - 5 , rect.minX)
+        
+        if (targetLocalY > rect.minY) {
             arrowY = rect.maxY + arrowHeight
-            arrowBaseY = rect.maxY
+            arrowBaseY = rect.maxY - 1
+            arrowMaxX = max(targetLocalX - 5 , rect.minX)
+            arrowMinX = min(targetLocalX + 5, rect.maxX)
         }
         
-        var bubblePath = RoundedRectangle(cornerRadius: 4).path(in: rect)
+        var bubblePath = RoundedRectangle(cornerRadius: cornerRadius).path(in: rect)
         let arrowPath = Path { path in
-            path.move(to: CGPoint(x: targetRelativeX + 5, y: arrowBaseY))
-            path.addLine(to: CGPoint(x: targetRelativeX - 5, y: arrowBaseY))
-            path.addLine(to: CGPoint(x: targetRelativeX, y: arrowY))
+            path.move(to: CGPoint(x: arrowMaxX, y: arrowBaseY))
+            path.addLine(to: CGPoint(x: arrowMinX, y: arrowBaseY))
+            path.addLine(to: CGPoint(x: targetLocalX, y: arrowY))
             path.closeSubpath()
         }
         
@@ -161,9 +175,11 @@ public extension View {
 
 private struct TooltipsPreviewView: View {
     @State var isPresenting = true
-    @State var isPresenting2 = false
-    @State var isPresenting3 = false
-    @State var isPresenting4 = false
+    @State var isPresenting2 = true
+    @State var isPresenting3 = true
+    @State var isPresenting4 = true
+    @State var isPresenting5 = true
+    @State var isPresenting6 = true
     
     @State var textOfLabel = "Hello"
     
@@ -216,6 +232,23 @@ private struct TooltipsPreviewView: View {
                     }
                     .charcoalTooltip(isPresenting: $isPresenting4, text: "Hello World This is a tooltip and here is testing it's multiple line feature")
                     .offset(CGSize(width: geometry.size.width - 40, height: geometry.size.height - 40))
+                    
+                    Button  {
+                        isPresenting5.toggle()
+                    } label: {
+                        Text("Bottom")
+                    }
+                    .charcoalPrimaryButton(size: .medium)
+                    .charcoalTooltip(isPresenting: $isPresenting5, text: "Hello World This is a tooltip and here is testing it's multiple line feature")
+                    .offset(CGSize(width: geometry.size.width - 240, height: geometry.size.height - 40))
+                    
+                    Button  {
+                        isPresenting6.toggle()
+                    } label: {
+                        Image(charocalIcon: .question24)
+                    }
+                    .charcoalTooltip(isPresenting: $isPresenting6, text: "Hello World This is a tooltip and here is testing it's multiple line feature")
+                    .offset(CGSize(width: geometry.size.width - 380, height: geometry.size.height - 240))
                     
                 }
             }
