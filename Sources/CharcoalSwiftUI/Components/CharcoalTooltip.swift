@@ -2,14 +2,24 @@ import SwiftUI
 
 struct CharcoalTooltip: CharcoalPopupView {
     let text: String
+    
     let targetFrame: CGRect
+    
     let maxWidth: CGFloat
+    
+    let arrowHeight: CGFloat = 3
     
     let spacingToTarget: CGFloat = 4
     
     let spacingToScreen: CGFloat = 16
     
-    @State var tooltipSize: CGSize = .zero
+    @State private var tooltipSize: CGSize = .zero
+    
+    /// The actuall width control parameter of tooltip
+    ///
+    /// This will be set only when text size is greater than maxWidth to prevent SwiftUI might
+    /// layout a unexpected width for the tooltip
+    @State private var adaptiveMaxWidth: CGFloat?
     
     var offset: CGSize {
         CGSize(width: targetFrame.midX - (tooltipSize.width / 2.0), height: targetFrame.maxY)
@@ -41,16 +51,14 @@ struct CharcoalTooltip: CharcoalPopupView {
     }
     
     func tooltipY(canvasGeometrySize: CGSize) -> CGFloat {
-        let minX = targetFrame.maxY + spacingToTarget
+        let minX = targetFrame.maxY + spacingToTarget + arrowHeight
         var edgeBottom = targetFrame.maxY + spacingToTarget + targetFrame.height
         if edgeBottom + tooltipSize.height >= canvasGeometrySize.height {
-            edgeBottom = targetFrame.minY - tooltipSize.height - spacingToTarget
+            edgeBottom = targetFrame.minY - tooltipSize.height - spacingToTarget - arrowHeight
         }
         
         return min(minX, edgeBottom)
     }
-    
-    @State var adaptiveMaxWidth: CGFloat?
     
     var body: some View {
         GeometryReader(content: { canvasGeometry in
@@ -60,27 +68,61 @@ struct CharcoalTooltip: CharcoalPopupView {
                 .fixedSize(horizontal: false, vertical: true)
                 .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
                 .padding(EdgeInsets(top: 4, leading: 12, bottom: 4, trailing: 12))
-            .background(GeometryReader(content: { tooltipGeometry in
-                Color(CharcoalAsset.ColorPaletteGenerated.surface8.color)            .cornerRadius(4, corners: .allCorners)
-                    .preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
-            }))
-            .frame(maxWidth: adaptiveMaxWidth)
-            .offset(CGSize(
-                width: tooltipX(canvasGeometrySize: canvasGeometry.size),
-                height: tooltipY(canvasGeometrySize: canvasGeometry.size)))
-            .onPreferenceChange(TooltipSizeKey.self, perform: { value in
-                tooltipSize = value
-                if (adaptiveMaxWidth == nil) {
-                    adaptiveMaxWidth = tooltipSize.width < maxWidth ? nil : maxWidth
-                }
-            })
-            .animation(.none, value: tooltipSize)
-            .animation(.none, value: targetFrame)
+                .background(GeometryReader(content: { tooltipGeometry in
+                    BubbleShape(
+                        frameInGlobal: tooltipGeometry.frame(in: .global),
+                        targetFrame: targetFrame,
+                        arrowHeight: arrowHeight)
+                        .fill(Color(CharcoalAsset.ColorPaletteGenerated.surface8.color))
+                        .preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
+                }))
+                .frame(maxWidth: adaptiveMaxWidth)
+                .offset(CGSize(
+                    width: tooltipX(canvasGeometrySize: canvasGeometry.size),
+                    height: tooltipY(canvasGeometrySize: canvasGeometry.size)))
+                .onPreferenceChange(TooltipSizeKey.self, perform: { value in
+                    tooltipSize = value
+                    if (adaptiveMaxWidth == nil) {
+                        adaptiveMaxWidth = tooltipSize.width < maxWidth ? nil : maxWidth
+                    }
+                })
+                .animation(.none, value: tooltipSize)
+                .animation(.none, value: targetFrame)
         })
     }
     
     static func == (lhs: CharcoalTooltip, rhs: CharcoalTooltip) -> Bool {
         return lhs.text == rhs.text && lhs.targetFrame == rhs.targetFrame && lhs.maxWidth == rhs.maxWidth && lhs.tooltipSize == rhs.tooltipSize
+    }
+}
+
+struct BubbleShape: Shape {
+    let frameInGlobal: CGRect
+    let targetFrame: CGRect
+    let arrowHeight: CGFloat
+    
+    func path(in rect: CGRect) -> Path {
+        let diffX = frameInGlobal.origin.x - rect.origin.x
+        let targetRelativeX = targetFrame.midX - diffX
+        let diffY = frameInGlobal.origin.y - rect.origin.y
+        let targetRelativeY = targetFrame.midY - diffY
+        var arrowY = rect.minY - arrowHeight
+        var arrowBaseY = rect.minY
+        if (targetRelativeY > rect.minY) {
+            arrowY = rect.maxY + arrowHeight
+            arrowBaseY = rect.maxY
+        }
+        
+        var bubblePath = RoundedRectangle(cornerRadius: 4).path(in: rect)
+        let arrowPath = Path { path in
+            path.move(to: CGPoint(x: targetRelativeX + 5, y: arrowBaseY))
+            path.addLine(to: CGPoint(x: targetRelativeX - 5, y: arrowBaseY))
+            path.addLine(to: CGPoint(x: targetRelativeX, y: arrowY))
+            path.closeSubpath()
+        }
+        
+        bubblePath.addPath(arrowPath)
+        return bubblePath
     }
 }
 
