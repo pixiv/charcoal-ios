@@ -47,7 +47,7 @@ struct CharcoalTooltip: CharcoalPopupView {
         
         if (edgeLeft + tooltipSize.width >= canvasGeometrySize.width) {
             edgeLeft = canvasGeometrySize.width - tooltipSize.width - spacingToScreen
-        } else if (edgeLeft < 0) {
+        } else if (edgeLeft < spacingToScreen) {
             edgeLeft = spacingToScreen
         }
         
