@@ -60,8 +60,8 @@ struct CharcoalOverlayContainer: View {
 
     var body: some View {
         ZStack {
-            Color.clear.allowsHitTesting(false)
-
+            Color.clear
+            
             ForEach(viewManager.overlayViews, id: \.id) { overlayView in
                 overlayView
             }
