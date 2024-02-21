@@ -26,12 +26,12 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
         maxWidth: CGFloat = 312,
         bottomSpacing: CGFloat,
         thumbnailImage: Image?,
-        action: ActionContent?
+        @ViewBuilder action: () ->  ActionContent?
     ) {
         self.text = text
         self.maxWidth = maxWidth
         self.thumbnailImage = thumbnailImage
-        self.action = action
+        self.action = action()
         self.bottomSpacing = bottomSpacing
     }
 
@@ -86,7 +86,7 @@ struct CharcoalSnackBarModifier<ActionContent: View>: ViewModifier {
     let thumbnailImage: Image?
 
     /// The action to be displayed in the snackbar
-    let action: ActionContent?
+    @ViewBuilder let action: () ->  ActionContent?
 
     /// Assign a unique ID to the view
     @State var viewID = UUID()
@@ -133,7 +133,7 @@ public extension View {
         thumbnailImage: Image? = nil,
         @ViewBuilder action: @escaping () -> some View = { EmptyView() }
     ) -> some View {
-        return modifier(CharcoalSnackBarModifier(isPresenting: isPresenting, bottomSpacing: bottomSpacing, text: text, thumbnailImage: thumbnailImage, action: action()))
+        return modifier(CharcoalSnackBarModifier(isPresenting: isPresenting, bottomSpacing: bottomSpacing, text: text, thumbnailImage: thumbnailImage, action: action))
     }
 }
 

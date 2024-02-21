@@ -2,6 +2,7 @@ import Charcoal
 import SwiftUI
 
 public struct ToastsView: View {
+    @State var text = "Hello"
     @State var isPresenting = false
     @State var isPresenting2 = false
     @State var isPresenting3 = false
