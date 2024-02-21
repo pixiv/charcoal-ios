@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct CharcoalSnackBar: CharcoalPopupView {
+    let thumbnailImage: UIImage?
     /// The text of the tooltip
     let text: String
 
@@ -19,18 +20,21 @@ struct CharcoalSnackBar: CharcoalPopupView {
         CGSize(width: 0, height: 0)
     }
 
-    init(text: String, maxWidth: CGFloat = 312) {
+    init(text: String, maxWidth: CGFloat = 312, thumbnailImage: UIImage?) {
         self.text = text
         self.maxWidth = maxWidth
+        self.thumbnailImage = thumbnailImage
     }
 
     var body: some View {
-        ZStack(alignment: .center) {
+        ZStack(alignment: .bottom) {
             HStack(spacing: 0) {
-                Image(charocalIcon: .addImage24)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 64, height: 64)
+                if let thumbnailImage = thumbnailImage {
+                    Image(uiImage: thumbnailImage)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 64, height: 64)
+                }
                 HStack(spacing: 16) {
                     Text(text)
                         .charcoalTypography14Bold(isSingleLine: true)
@@ -65,6 +69,8 @@ struct CharcoalSnackBarModifier: ViewModifier {
 
     /// Text to be displayed in the tooltip
     var text: String
+    
+    let thumbnailImage: UIImage?
 
     /// Assign a unique ID to the view
     @State var viewID = UUID()
@@ -73,7 +79,7 @@ struct CharcoalSnackBarModifier: ViewModifier {
         content
             .overlay(GeometryReader(content: { proxy in
                 Color.clear
-                    .modifier(CharcoalOverlayContainerChild(isPresenting: $isPresenting, view: CharcoalSnackBar(text: text), viewID: viewID))
+                    .modifier(CharcoalOverlayContainerChild(isPresenting: $isPresenting, view: CharcoalSnackBar(text: text, thumbnailImage: thumbnailImage), viewID: viewID))
             }))
     }
 }
@@ -93,9 +99,10 @@ public extension View {
      */
     func charcoalSnackBar(
         isPresenting: Binding<Bool>,
-        text: String
+        text: String,
+        thumbnailImage: UIImage? = nil
     ) -> some View {
-        return modifier(CharcoalSnackBarModifier(isPresenting: isPresenting, text: text))
+        return modifier(CharcoalSnackBarModifier(isPresenting: isPresenting, text: text, thumbnailImage: thumbnailImage))
     }
 }
 
@@ -122,7 +129,10 @@ private struct SnackBarsPreviewView: View {
                     }
                 }
             }
-            .charcoalSnackBar(isPresenting: $isPresenting6, text: "Hello World This is a tooltip and here is testing it's multiple line feature")
+            .charcoalSnackBar(isPresenting: $isPresenting6, 
+                              text: "Hello World This is a tooltip and here is testing it's multiple line feature",
+                              thumbnailImage: CharcoalAsset.Images.addPeople24.image
+            )
         })
         .charcoalOverlayContainer()
     }
