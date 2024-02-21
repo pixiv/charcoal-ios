@@ -14,7 +14,7 @@ struct CharcoalSnackBar<CharcoalSnackBarActionContent: View>: CharcoalPopupView 
     let cornerRadius: CGFloat = 32
     
     /// The spacing between the snackbar and the screen edge
-    let spacingToScreen: CGFloat = 16
+    let bottomSpacing: CGFloat
     
     /// The content of the action view
     let action: CharcoalSnackBarActionContent?
@@ -23,16 +23,19 @@ struct CharcoalSnackBar<CharcoalSnackBarActionContent: View>: CharcoalPopupView 
     
     init(text: String,
          maxWidth: CGFloat = 312,
+         bottomSpacing: CGFloat,
          thumbnailImage: UIImage?,
          action: CharcoalSnackBarActionContent?) {
         self.text = text
         self.maxWidth = maxWidth
         self.thumbnailImage = thumbnailImage
         self.action = action
+        self.bottomSpacing = bottomSpacing
     }
     
     var body: some View {
-        ZStack(alignment: .center) {
+        ZStack(alignment: .bottom) {
+            Color.clear
             HStack(spacing: 0) {
                 if let thumbnailImage = thumbnailImage {
                     Image(uiImage: thumbnailImage)
@@ -58,6 +61,7 @@ struct CharcoalSnackBar<CharcoalSnackBarActionContent: View>: CharcoalPopupView 
                 RoundedRectangle(cornerRadius: cornerRadius)
                     .stroke(Color(CharcoalAsset.ColorPaletteGenerated.border.color), lineWidth: 1)
             )
+            .offset(CGSize(width: 0, height: -bottomSpacing))
             
         }.frame(minWidth: 0, maxWidth: maxWidth, alignment: .center)
     }
@@ -71,6 +75,9 @@ struct CharcoalSnackBar<CharcoalSnackBarActionContent: View>: CharcoalPopupView 
 struct CharcoalSnackBarModifier<CharcoalSnackBarActionContent: View>: ViewModifier {
     /// Presentation `Binding<Bool>`
     @Binding var isPresenting: Bool
+    
+    /// The spacing between the snackbar and the screen edge
+    let bottomSpacing: CGFloat
     
     /// Text to be displayed in the snackbar
     let text: String
@@ -93,6 +100,7 @@ struct CharcoalSnackBarModifier<CharcoalSnackBarActionContent: View>: ViewModifi
                             isPresenting: $isPresenting,
                             view: CharcoalSnackBar(
                                 text: text,
+                                bottomSpacing: bottomSpacing,
                                 thumbnailImage: thumbnailImage,
                                 action: action
                             ),
@@ -118,11 +126,12 @@ public extension View {
      */
     func charcoalSnackBar(
         isPresenting: Binding<Bool>,
+        bottomSpacing: CGFloat = 96,
         text: String,
         thumbnailImage: UIImage? = nil,
         action: @escaping () -> some View = {EmptyView()}
     ) -> some View {
-        return modifier(CharcoalSnackBarModifier(isPresenting: isPresenting, text: text, thumbnailImage: thumbnailImage, action: action()))
+        return modifier(CharcoalSnackBarModifier(isPresenting: isPresenting, bottomSpacing: bottomSpacing, text: text, thumbnailImage: thumbnailImage, action: action()))
     }
 }
 
@@ -138,19 +147,21 @@ private extension UIColor {
 
 private struct SnackBarsPreviewView: View {
     @State var isPresenting = true
-    @State var isPresenting6 = true
     
     @State var textOfLabel = "Hello"
     
     var body: some View {
-        GeometryReader(content: { geometry in
-            ScrollView {
-                ZStack(alignment: .topLeading) {
-                    Color.clear
+        ZStack {
+            Color.clear
+            ZStack() {
+                Button {
+                    isPresenting.toggle()
+                } label: {
+                    Text("Toggle SnackBar")
                 }
             }
             .charcoalSnackBar(
-                isPresenting: $isPresenting6,
+                isPresenting: $isPresenting,
                 text: "ブックマークしました",
                 thumbnailImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64),
                 action: {
@@ -160,7 +171,7 @@ private struct SnackBarsPreviewView: View {
                         Text("編集")
                     }}
             )
-        })
+        }
         .charcoalOverlayContainer()
     }
 }
