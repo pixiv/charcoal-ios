@@ -18,13 +18,15 @@ struct CharcoalOverlayContainerChild<SubContent: CharcoalPopupView>: ViewModifie
     @EnvironmentObject var viewManager: CharcoalContainerManager
 
     @Binding var isPresenting: Bool
+    
+    let dismissOnTouchOutside: Bool
 
-    var view: SubContent
+    let view: SubContent
 
     let viewID: UUID
 
     func createOverlayView(view: SubContent) -> CharcoalIdentifiableOverlayView {
-        return CharcoalIdentifiableOverlayView(id: viewID, contentView: AnyView(view), isPresenting: $isPresenting)
+        return CharcoalIdentifiableOverlayView(id: viewID, contentView: AnyView(view), dismissOnTouchOutside: dismissOnTouchOutside, isPresenting: $isPresenting)
     }
 
     func body(content: Content) -> some View {

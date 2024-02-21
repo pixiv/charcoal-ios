@@ -69,7 +69,7 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
     }
 
     static func == (lhs: CharcoalSnackBar, rhs: CharcoalSnackBar) -> Bool {
-        return lhs.text == rhs.text && lhs.maxWidth == rhs.maxWidth && lhs.tooltipSize == rhs.tooltipSize
+        return lhs.text == rhs.text && lhs.maxWidth == rhs.maxWidth && lhs.thumbnailImage == rhs.thumbnailImage
     }
 }
 
@@ -99,6 +99,7 @@ struct CharcoalSnackBarModifier<ActionContent: View>: ViewModifier {
                     .modifier(
                         CharcoalOverlayContainerChild(
                             isPresenting: $isPresenting,
+                            dismissOnTouchOutside: false,
                             view: CharcoalSnackBar(
                                 text: text,
                                 bottomSpacing: bottomSpacing,
@@ -149,6 +150,10 @@ private extension UIColor {
 
 private struct SnackBarsPreviewView: View {
     @State var isPresenting = true
+    
+    @State var isPresenting2 = true
+    
+    @State var isPresenting3 = true
 
     @State var textOfLabel = "Hello"
 
@@ -158,6 +163,8 @@ private struct SnackBarsPreviewView: View {
             ZStack {
                 Button {
                     isPresenting.toggle()
+                    isPresenting2.toggle()
+                    isPresenting3.toggle()
                 } label: {
                     Text("Toggle SnackBar")
                 }
@@ -173,6 +180,23 @@ private struct SnackBarsPreviewView: View {
                         Text("編集")
                     }
                 }
+            )
+            .charcoalSnackBar(
+                isPresenting: $isPresenting2,
+                bottomSpacing: 192,
+                text: "ブックマークしました",
+                action: {
+                    Button {
+                        print("Tapped")
+                    } label: {
+                        Text("編集")
+                    }
+                }
+            )
+            .charcoalSnackBar(
+                isPresenting: $isPresenting3,
+                bottomSpacing: 275,
+                text: "ブックマークしました"
             )
         }
         .charcoalOverlayContainer()

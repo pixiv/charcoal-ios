@@ -121,7 +121,12 @@ struct CharcoalTooltipModifier: ViewModifier {
         content
             .overlay(GeometryReader(content: { proxy in
                 Color.clear
-                    .modifier(CharcoalOverlayContainerChild(isPresenting: $isPresenting, view: CharcoalTooltip(text: text, targetFrame: proxy.frame(in: .global)), viewID: viewID))
+                    .modifier(CharcoalOverlayContainerChild(
+                        isPresenting: $isPresenting,
+                        dismissOnTouchOutside: true, view: CharcoalTooltip(
+                            text: text, 
+                            targetFrame: proxy.frame(in: .global)),
+                        viewID: viewID))
             }))
     }
 }
