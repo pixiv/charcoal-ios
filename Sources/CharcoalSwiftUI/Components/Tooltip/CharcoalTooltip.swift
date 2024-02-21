@@ -123,8 +123,9 @@ struct CharcoalTooltipModifier: ViewModifier {
                 Color.clear
                     .modifier(CharcoalOverlayContainerChild(
                         isPresenting: $isPresenting,
-                        dismissOnTouchOutside: true, view: CharcoalTooltip(
-                            text: text, 
+                        dismissOnTouchOutside: true, 
+                        view: CharcoalTooltip(
+                            text: text,
                             targetFrame: proxy.frame(in: .global)),
                         viewID: viewID))
             }))
