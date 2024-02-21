@@ -93,21 +93,19 @@ struct CharcoalSnackBarModifier<ActionContent: View>: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .overlay(GeometryReader(content: { _ in
-                Color.clear
-                    .modifier(
-                        CharcoalOverlayContainerChild(
-                            isPresenting: $isPresenting,
-                            dismissOnTouchOutside: false,
-                            view: CharcoalSnackBar(
-                                text: text,
-                                bottomSpacing: bottomSpacing,
-                                thumbnailImage: thumbnailImage,
-                                action: action
-                            ),
-                            viewID: viewID
-                        ))
-            }))
+            .overlay(Color.clear
+                .modifier(
+                    CharcoalOverlayContainerChild(
+                        isPresenting: $isPresenting,
+                        dismissOnTouchOutside: false,
+                        view: CharcoalSnackBar(
+                            text: text,
+                            bottomSpacing: bottomSpacing,
+                            thumbnailImage: thumbnailImage,
+                            action: action
+                        ),
+                        viewID: viewID
+                    )))
     }
 }
 
