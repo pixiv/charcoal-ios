@@ -5,7 +5,7 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
     let text: String
 
     /// The thumbnail image of the snackbar
-    let thumbnailImage: UIImage?
+    let thumbnailImage: Image?
 
     /// The maximum width of the snackbar
     let maxWidth: CGFloat
@@ -25,7 +25,7 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
         text: String,
         maxWidth: CGFloat = 312,
         bottomSpacing: CGFloat,
-        thumbnailImage: UIImage?,
+        thumbnailImage: Image?,
         action: ActionContent?
     ) {
         self.text = text
@@ -40,7 +40,7 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
             Color.clear
             HStack(spacing: 0) {
                 if let thumbnailImage = thumbnailImage {
-                    Image(uiImage: thumbnailImage)
+                    thumbnailImage
                         .resizable()
                         .scaledToFill()
                         .frame(width: 64, height: 64)
@@ -84,7 +84,7 @@ struct CharcoalSnackBarModifier<ActionContent: View>: ViewModifier {
     let text: String
 
     /// The thumbnail image to be displayed in the snackbar
-    let thumbnailImage: UIImage?
+    let thumbnailImage: Image?
 
     /// The action to be displayed in the snackbar
     let action: ActionContent?
@@ -130,7 +130,7 @@ public extension View {
         isPresenting: Binding<Bool>,
         bottomSpacing: CGFloat = 96,
         text: String,
-        thumbnailImage: UIImage? = nil,
+        thumbnailImage: Image? = nil,
         action: @escaping () -> some View = { EmptyView() }
     ) -> some View {
         return modifier(CharcoalSnackBarModifier(isPresenting: isPresenting, bottomSpacing: bottomSpacing, text: text, thumbnailImage: thumbnailImage, action: action()))
@@ -165,7 +165,7 @@ private struct SnackBarsPreviewView: View {
             .charcoalSnackBar(
                 isPresenting: $isPresenting,
                 text: "ブックマークしました",
-                thumbnailImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64),
+                thumbnailImage: Image(uiImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64)),
                 action: {
                     Button {
                         print("Tapped")
