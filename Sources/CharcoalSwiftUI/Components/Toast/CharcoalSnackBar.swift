@@ -124,13 +124,13 @@ public extension View {
      Text("Hello").charcoalSnackBar(isPresenting: $isPresenting, text: "Hello")
      ```
      */
-    func charcoalSnackBar(
+    func charcoalSnackBar<Content>(
         isPresenting: Binding<Bool>,
         bottomSpacing: CGFloat = 96,
         text: String,
         thumbnailImage: Image? = nil,
-        @ViewBuilder action: @escaping () -> some View = { EmptyView() }
-    ) -> some View {
+        @ViewBuilder action: @escaping () -> Content = { EmptyView() }
+    ) -> some View where Content: View {
         return modifier(CharcoalSnackBarModifier(isPresenting: isPresenting, bottomSpacing: bottomSpacing, text: text, thumbnailImage: thumbnailImage, action: action))
     }
 }
