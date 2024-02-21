@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CharcoalSnackBar<CharcoalSnackBarActionContent: View>: CharcoalPopupView {
+struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
     /// The text of the snackbar
     let text: String
 
@@ -17,7 +17,7 @@ struct CharcoalSnackBar<CharcoalSnackBarActionContent: View>: CharcoalPopupView 
     let bottomSpacing: CGFloat
 
     /// The content of the action view
-    let action: CharcoalSnackBarActionContent?
+    let action: ActionContent?
 
     @State private var tooltipSize: CGSize = .zero
 
@@ -26,7 +26,7 @@ struct CharcoalSnackBar<CharcoalSnackBarActionContent: View>: CharcoalPopupView 
         maxWidth: CGFloat = 312,
         bottomSpacing: CGFloat,
         thumbnailImage: UIImage?,
-        action: CharcoalSnackBarActionContent?
+        action: ActionContent?
     ) {
         self.text = text
         self.maxWidth = maxWidth
@@ -73,7 +73,7 @@ struct CharcoalSnackBar<CharcoalSnackBarActionContent: View>: CharcoalPopupView 
     }
 }
 
-struct CharcoalSnackBarModifier<CharcoalSnackBarActionContent: View>: ViewModifier {
+struct CharcoalSnackBarModifier<ActionContent: View>: ViewModifier {
     /// Presentation `Binding<Bool>`
     @Binding var isPresenting: Bool
 
@@ -87,7 +87,7 @@ struct CharcoalSnackBarModifier<CharcoalSnackBarActionContent: View>: ViewModifi
     let thumbnailImage: UIImage?
 
     /// The action to be displayed in the snackbar
-    let action: CharcoalSnackBarActionContent?
+    let action: ActionContent?
 
     /// Assign a unique ID to the view
     @State var viewID = UUID()
