@@ -57,12 +57,11 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
                 }
                 .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
             }
-            .cornerRadius(cornerRadius, corners: .allCorners)
-            .clipped()
             .background(
-                RoundedRectangle(cornerRadius: cornerRadius)
-                    .stroke(Color(CharcoalAsset.ColorPaletteGenerated.border.color), lineWidth: 1)
+                Color(CharcoalAsset.ColorPaletteGenerated.background1.color)
             )
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+            .overlay(RoundedRectangle(cornerRadius: cornerRadius).stroke(Color(CharcoalAsset.ColorPaletteGenerated.border.color), lineWidth: 1))
             .offset(CGSize(width: 0, height: -bottomSpacing))
 
         }.frame(minWidth: 0, maxWidth: maxWidth, alignment: .center)
@@ -132,7 +131,7 @@ public extension View {
         bottomSpacing: CGFloat = 96,
         text: String,
         thumbnailImage: Image? = nil,
-        action: @escaping () -> some View = { EmptyView() }
+        @ViewBuilder action: @escaping () -> some View = { EmptyView() }
     ) -> some View {
         return modifier(CharcoalSnackBarModifier(isPresenting: isPresenting, bottomSpacing: bottomSpacing, text: text, thumbnailImage: thumbnailImage, action: action()))
     }
