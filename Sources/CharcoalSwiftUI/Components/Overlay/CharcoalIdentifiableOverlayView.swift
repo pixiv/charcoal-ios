@@ -2,9 +2,17 @@ import SwiftUI
 
 struct CharcoalIdentifiableOverlayView: View {
     typealias IDValue = UUID
+    
+    /// The unique ID of the overlay.
     let id: IDValue
+    
+    /// The content to display in the overlay.
     let contentView: AnyView
+    
+    /// If true, the overlay will be dismissed when the user taps outside of the overlay.
     let dismissOnTouchOutside: Bool
+    
+    /// A binding to whether the overlay is presented.
     @Binding var isPresenting: Bool
 
     var body: some View {
