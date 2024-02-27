@@ -17,6 +17,7 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
     /// The corner radius of the snackbar
     let cornerRadius: CGFloat = 32
 
+    /// The edge of the screen where the snackbar will be presented
     let screenEdge: CharcoalPopupViewEdge
 
     /// The spacing between the snackbar and the screen edge
@@ -126,6 +127,7 @@ struct CharcoalSnackBarModifier<ActionContent: View>: ViewModifier {
     /// Presentation `Binding<Bool>`
     @Binding var isPresenting: Bool
     
+    /// The edge of the screen where the snackbar will be presented
     let screenEdge: CharcoalPopupViewEdge
 
     /// The spacing between the snackbar and the screen edge
@@ -177,8 +179,11 @@ public extension View {
         - isPresenting: A binding to whether the Tooltip  is presented.
         - text: The text to be displayed in the snackbar.
         - thumbnailImage: The thumbnail image to be displayed in the snackbar.
+        - dismissAfter: The overlay will be dismissed after a certain time interval.
+        - screenEdge: The edge of the screen where the snackbar will be presented
+        - screenEdgeSpacing: The spacing between the snackbar and the screen edge
         - action: The action to be displayed in the snackbar.
-
+     
      # Example #
      ```swift
      Text("Hello").charcoalSnackBar(isPresenting: $isPresenting, text: "Hello")

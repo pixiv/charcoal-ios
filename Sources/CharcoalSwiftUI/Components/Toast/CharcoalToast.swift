@@ -14,6 +14,7 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupView {
     /// The corner radius of the Toast
     let cornerRadius: CGFloat = 32
     
+    /// The edge of the screen where the Toast will be presented
     let screenEdge: CharcoalPopupViewEdge
 
     /// The spacing between the snackbar and the screen edge
@@ -206,12 +207,16 @@ public extension View {
 
      - Parameters:
         - isPresenting: A binding to whether the Tooltip  is presented.
+        - dismissAfter: The overlay will be dismissed after a certain time interval.
+        - screenEdge: The edge of the screen where the snackbar will be presented
+        - screenEdgeSpacing: The spacing between the snackbar and the screen edge
         - text: The text to be displayed in the snackbar.
         - action: The action to be displayed in the snackbar.
+        - appearance: The appearance of the Toast
 
      # Example #
      ```swift
-     Text("Hello").charcoalSnackBar(isPresenting: $isPresenting, text: "Hello")
+     Text("Hello").charcoalToast(isPresenting: $isPresenting, text: "Hello")
      ```
      */
     func charcoalToast<Content>(
