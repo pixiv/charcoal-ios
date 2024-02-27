@@ -124,7 +124,6 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol {
             isActuallyPresenting = isPresenting
         }
         .animation(.spring(), value: isActuallyPresenting)
-        .animation(.easeInOut(duration: 0.2), value: isPresenting)
         .frame(minWidth: 0, maxWidth: maxWidth, alignment: .center)
     }
 
