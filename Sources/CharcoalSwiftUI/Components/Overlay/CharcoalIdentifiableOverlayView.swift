@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CharcoalIdentifiableOverlayView: View {
+struct CharcoalIdentifiableOverlayView: View, Identifiable {
     typealias IDValue = UUID
     
     /// The unique ID of the overlay.
