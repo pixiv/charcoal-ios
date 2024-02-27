@@ -51,7 +51,6 @@ public struct TooltipsView: View {
                 }).charcoalTooltip(isPresenting: $isPresented3, text: "Tooltip created by Charcoal and here is testing Auto-Positioning")
             }
         }
-        .charcoalOverlayContainer()
         .navigationBarTitle("Tooltips")
     }
 }

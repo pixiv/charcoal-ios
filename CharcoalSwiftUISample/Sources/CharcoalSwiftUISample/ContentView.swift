@@ -52,6 +52,7 @@ public struct ContentView: View {
             }
             .navigationBarTitle("Charcoal")
         }
+        .charcoalOverlayContainer()
         .preferredColorScheme(isDarkModeOn ? .dark : .light)
     }
 }

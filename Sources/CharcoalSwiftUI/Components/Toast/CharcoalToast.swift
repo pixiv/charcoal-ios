@@ -162,6 +162,11 @@ public struct CharcoalToastAnimationConfiguration {
     public let enablePositionAnimation: Bool
     public let animation: Animation
     
+    public init(enablePositionAnimation: Bool, animation: Animation) {
+        self.enablePositionAnimation = enablePositionAnimation
+        self.animation = animation
+    }
+    
     public static let `default` = CharcoalToastAnimationConfiguration(enablePositionAnimation: true, animation: .spring())
 }
 
