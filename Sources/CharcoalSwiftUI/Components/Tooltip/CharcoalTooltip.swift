@@ -116,6 +116,9 @@ struct CharcoalTooltipModifier: ViewModifier {
 
     /// Assign a unique ID to the view
     @State var viewID = UUID()
+    
+    /// If true, the overlay will be dismissed when the user taps outside of the overlay.
+    let dismissAfter: TimeInterval?
 
     func body(content: Content) -> some View {
         content
@@ -123,11 +126,12 @@ struct CharcoalTooltipModifier: ViewModifier {
                 Color.clear
                     .modifier(CharcoalOverlayContainerChild(
                         isPresenting: $isPresenting,
-                        dismissOnTouchOutside: true, 
+                        dismissOnTouchOutside: true,
                         view: CharcoalTooltip(
                             text: text,
                             targetFrame: proxy.frame(in: .global)),
-                        viewID: viewID))
+                        viewID: viewID,
+                        dismissAfter: dismissAfter))
             }))
     }
 }
@@ -147,9 +151,10 @@ public extension View {
      */
     func charcoalTooltip(
         isPresenting: Binding<Bool>,
-        text: String
+        text: String,
+        dismissAfter: TimeInterval? = nil
     ) -> some View {
-        return modifier(CharcoalTooltipModifier(isPresenting: isPresenting, text: text))
+        return modifier(CharcoalTooltipModifier(isPresenting: isPresenting, text: text, dismissAfter: dismissAfter))
     }
 }
 
@@ -219,7 +224,10 @@ private struct TooltipsPreviewView: View {
                         Text("Bottom")
                     }
                     .charcoalPrimaryButton(size: .medium)
-                    .charcoalTooltip(isPresenting: $isPresenting5, text: "Hello World This is a tooltip and here is testing it's multiple line feature")
+                    .charcoalTooltip(
+                        isPresenting: $isPresenting5,
+                        text: "Hello World This is a tooltip and here is testing it's multiple line feature",
+                        dismissAfter: 3)
                     .offset(CGSize(width: geometry.size.width - 240, height: geometry.size.height - 40))
 
                     Button {

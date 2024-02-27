@@ -90,6 +90,9 @@ struct CharcoalSnackBarModifier<ActionContent: View>: ViewModifier {
 
     /// Assign a unique ID to the view
     @State var viewID = UUID()
+    
+    /// If true, the overlay will be dismissed when the user taps outside of the overlay.
+    let dismissAfter: TimeInterval?
 
     func body(content: Content) -> some View {
         content
@@ -104,7 +107,8 @@ struct CharcoalSnackBarModifier<ActionContent: View>: ViewModifier {
                             thumbnailImage: thumbnailImage,
                             action: action
                         ),
-                        viewID: viewID
+                        viewID: viewID,
+                        dismissAfter: dismissAfter
                     )))
     }
 }
@@ -129,9 +133,10 @@ public extension View {
         bottomSpacing: CGFloat = 96,
         text: String,
         thumbnailImage: Image? = nil,
+        dismissAfter: TimeInterval? = nil,
         @ViewBuilder action: @escaping () -> Content = { EmptyView() }
     ) -> some View where Content: View {
-        return modifier(CharcoalSnackBarModifier(isPresenting: isPresenting, bottomSpacing: bottomSpacing, text: text, thumbnailImage: thumbnailImage, action: action))
+        return modifier(CharcoalSnackBarModifier(isPresenting: isPresenting, bottomSpacing: bottomSpacing, text: text, thumbnailImage: thumbnailImage, action: action, dismissAfter: dismissAfter))
     }
 }
 
@@ -182,6 +187,7 @@ private struct SnackBarsPreviewView: View {
                 isPresenting: $isPresenting2,
                 bottomSpacing: 192,
                 text: "ブックマークしました",
+                dismissAfter: 2,
                 action: {
                     Button {
                         print("Tapped")

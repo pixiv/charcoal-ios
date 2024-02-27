@@ -14,6 +14,9 @@ struct CharcoalIdentifiableOverlayView: View {
     
     /// A binding to whether the overlay is presented.
     @Binding var isPresenting: Bool
+    
+    /// If true, the overlay will be dismissed when the user taps outside of the overlay.
+    let dismissAfter: TimeInterval?
 
     var body: some View {
         ZStack {
@@ -34,8 +37,15 @@ struct CharcoalIdentifiableOverlayView: View {
                     )
             }
             if isPresenting {
-                contentView
+                contentView.onAppear {
+                    if let dismissAfter = dismissAfter {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + dismissAfter) {
+                            isPresenting = false
+                        }
+                    }
+                }
             }
         }.animation(.easeInOut(duration: 0.2), value: isPresenting)
+            
     }
 }
