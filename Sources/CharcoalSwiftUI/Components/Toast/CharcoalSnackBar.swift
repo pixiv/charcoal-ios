@@ -17,8 +17,10 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
     /// The corner radius of the snackbar
     let cornerRadius: CGFloat = 32
 
+    let screenEdge: CharcoalPopupViewEdge
+
     /// The spacing between the snackbar and the screen edge
-    let bottomSpacing: CGFloat
+    let screenEdgeSpacing: CGFloat
 
     /// The content of the action view
     let action: ActionContent?
@@ -38,7 +40,8 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
         id: IDValue,
         text: String,
         maxWidth: CGFloat = 312,
-        bottomSpacing: CGFloat,
+        screenEdge: CharcoalPopupViewEdge = .bottom,
+        screenEdgeSpacing: CGFloat,
         thumbnailImage: Image?,
         @ViewBuilder action: () -> ActionContent?,
         isPresenting: Binding<Bool>,
@@ -50,14 +53,15 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
         self.maxWidth = maxWidth
         self.thumbnailImage = thumbnailImage
         self.action = action()
-        self.bottomSpacing = bottomSpacing
+        self.screenEdgeSpacing = screenEdgeSpacing
         _isPresenting = isPresenting
         self.dismissOnTouchOutside = dismissOnTouchOutside
         self.dismissAfter = dismissAfter
+        self.screenEdge = screenEdge
     }
 
     var body: some View {
-        ZStack(alignment: .bottom) {
+        ZStack(alignment: screenEdge.alignment) {
             Color.clear
                 .if(dismissOnTouchOutside && isPresenting) { view in
                     view.contentShape(Rectangle())
@@ -99,7 +103,7 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
                 )
                 .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
                 .overlay(RoundedRectangle(cornerRadius: cornerRadius).stroke(Color(CharcoalAsset.ColorPaletteGenerated.border.color), lineWidth: 1))
-                .offset(CGSize(width: 0, height: -bottomSpacing))
+                .offset(CGSize(width: 0, height: screenEdge.offset * screenEdgeSpacing))
                 .onAppear {
                     if let dismissAfter = dismissAfter {
                         DispatchQueue.main.asyncAfter(deadline: .now() + dismissAfter) {
@@ -121,9 +125,11 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
 struct CharcoalSnackBarModifier<ActionContent: View>: ViewModifier {
     /// Presentation `Binding<Bool>`
     @Binding var isPresenting: Bool
+    
+    let screenEdge: CharcoalPopupViewEdge
 
     /// The spacing between the snackbar and the screen edge
-    let bottomSpacing: CGFloat
+    let screenEdgeSpacing: CGFloat
 
     /// Text to be displayed in the snackbar
     let text: String
@@ -150,7 +156,8 @@ struct CharcoalSnackBarModifier<ActionContent: View>: ViewModifier {
                         view: CharcoalSnackBar(
                             id: viewID,
                             text: text,
-                            bottomSpacing: bottomSpacing,
+                            screenEdge: screenEdge,
+                            screenEdgeSpacing: screenEdgeSpacing,
                             thumbnailImage: thumbnailImage,
                             action: action,
                             isPresenting: $isPresenting,
@@ -179,13 +186,23 @@ public extension View {
      */
     func charcoalSnackBar<Content>(
         isPresenting: Binding<Bool>,
-        bottomSpacing: CGFloat = 96,
+        screenEdge: CharcoalPopupViewEdge = .bottom,
+        screenEdgeSpacing: CGFloat = 96,
         text: String,
         thumbnailImage: Image? = nil,
         dismissAfter: TimeInterval? = nil,
         @ViewBuilder action: @escaping () -> Content = { EmptyView() }
     ) -> some View where Content: View {
-        return modifier(CharcoalSnackBarModifier(isPresenting: isPresenting, bottomSpacing: bottomSpacing, text: text, thumbnailImage: thumbnailImage, action: action, dismissAfter: dismissAfter))
+        return modifier(
+            CharcoalSnackBarModifier(
+                isPresenting: isPresenting,
+                screenEdge: screenEdge,
+                screenEdgeSpacing: screenEdgeSpacing,
+                text: text,
+                thumbnailImage: thumbnailImage,
+                action: action,
+                dismissAfter: dismissAfter)
+        )
     }
 }
 
@@ -233,7 +250,7 @@ private struct SnackBarsPreviewView: View {
             )
             .charcoalSnackBar(
                 isPresenting: $isPresenting2,
-                bottomSpacing: 192,
+                screenEdgeSpacing: 192,
                 text: "ブックマークしました",
                 dismissAfter: 2,
                 action: {
@@ -246,7 +263,7 @@ private struct SnackBarsPreviewView: View {
             )
             .charcoalSnackBar(
                 isPresenting: $isPresenting3,
-                bottomSpacing: 275,
+                screenEdgeSpacing: 275,
                 text: "ブックマークしました"
             )
         }

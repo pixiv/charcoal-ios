@@ -13,9 +13,11 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupView {
 
     /// The corner radius of the Toast
     let cornerRadius: CGFloat = 32
+    
+    let screenEdge: CharcoalPopupViewEdge
 
     /// The spacing between the snackbar and the screen edge
-    let bottomSpacing: CGFloat
+    let screenEdgeSpacing: CGFloat
 
     /// The content of the action view
     let action: ActionContent?
@@ -38,7 +40,8 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupView {
         id: IDValue,
         text: String,
         maxWidth: CGFloat = 312,
-        bottomSpacing: CGFloat,
+        screenEdge: CharcoalPopupViewEdge = .bottom,
+        screenEdgeSpacing: CGFloat,
         @ViewBuilder action: () -> ActionContent?,
         isPresenting: Binding<Bool>,
         dismissOnTouchOutside: Bool = true,
@@ -49,15 +52,16 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupView {
         self.text = text
         self.maxWidth = maxWidth
         self.action = action()
-        self.bottomSpacing = bottomSpacing
+        self.screenEdgeSpacing = screenEdgeSpacing
         _isPresenting = isPresenting
         self.dismissOnTouchOutside = dismissOnTouchOutside
         self.dismissAfter = dismissAfter
         self.appearance = appearance
+        self.screenEdge = screenEdge
     }
 
     var body: some View {
-        ZStack(alignment: .bottom) {
+        ZStack(alignment: screenEdge.alignment) {
             Color.clear
                 .if(dismissOnTouchOutside && isPresenting) { view in
                     view.contentShape(Rectangle())
@@ -93,7 +97,7 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupView {
                 )
                 .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
                 .overlay(RoundedRectangle(cornerRadius: cornerRadius).stroke(Color(CharcoalAsset.ColorPaletteGenerated.background1.color), lineWidth: 2))
-                .offset(CGSize(width: 0, height: -bottomSpacing))
+                .offset(CGSize(width: 0, height: screenEdge.offset*screenEdgeSpacing))
                 .onAppear {
                     if let dismissAfter = dismissAfter {
                         DispatchQueue.main.asyncAfter(deadline: .now() + dismissAfter) {
@@ -109,6 +113,29 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupView {
 
     static func == (lhs: CharcoalToast, rhs: CharcoalToast) -> Bool {
         return lhs.text == rhs.text && lhs.maxWidth == rhs.maxWidth  && lhs.isPresenting == rhs.isPresenting
+    }
+}
+
+public enum CharcoalPopupViewEdge {
+    case top
+    case bottom
+    
+    var alignment: Alignment {
+        switch self {
+        case .top:
+            return .top
+        case .bottom:
+            return .bottom
+        }
+    }
+    
+    var offset: CGFloat {
+        switch self {
+        case .top:
+            return 1
+        case .bottom:
+            return -1
+        }
     }
 }
 
@@ -131,8 +158,9 @@ struct CharcoalToastModifier<ActionContent: View>: ViewModifier {
     /// Presentation `Binding<Bool>`
     @Binding var isPresenting: Bool
 
+    let screenEdge: CharcoalPopupViewEdge
     /// The spacing between the snackbar and the screen edge
-    let bottomSpacing: CGFloat
+    let screenEdgeSpacing: CGFloat
 
     /// Text to be displayed in the snackbar
     let text: String
@@ -159,7 +187,8 @@ struct CharcoalToastModifier<ActionContent: View>: ViewModifier {
                         view: CharcoalToast(
                             id: viewID,
                             text: text,
-                            bottomSpacing: bottomSpacing,
+                            screenEdge: screenEdge,
+                            screenEdgeSpacing: screenEdgeSpacing,
                             action: action,
                             isPresenting: $isPresenting,
                             dismissOnTouchOutside: false,
@@ -187,7 +216,8 @@ public extension View {
      */
     func charcoalToast<Content>(
         isPresenting: Binding<Bool>,
-        bottomSpacing: CGFloat = 96,
+        screenEdge: CharcoalPopupViewEdge = .bottom,
+        screenEdgeSpacing: CGFloat = 96,
         text: String,
         dismissAfter: TimeInterval? = nil,
         appearance: CharcoalToastAppearance = .success,
@@ -196,7 +226,8 @@ public extension View {
         return modifier(
             CharcoalToastModifier(
                 isPresenting: isPresenting,
-                bottomSpacing: bottomSpacing,
+                screenEdge: screenEdge,
+                screenEdgeSpacing: screenEdgeSpacing,
                 text: text,
                 action: action,
                 dismissAfter: dismissAfter,
@@ -227,7 +258,8 @@ private struct ToastsPreviewView: View {
             }
             .charcoalToast(
                 isPresenting: $isPresenting,
-                text: "ブックマークしました",
+                screenEdge: .top,
+                text: "テキストメッセージ",
                 action: {
                     Button {
                         isPresenting = false
@@ -239,14 +271,14 @@ private struct ToastsPreviewView: View {
             )
             .charcoalToast(
                 isPresenting: $isPresenting2,
-                bottomSpacing: 192,
-                text: "ブックマークしました",
+                screenEdgeSpacing: 192,
+                text: "テキストメッセージ",
                 appearance: .error
             )
             .charcoalToast(
                 isPresenting: $isPresenting3,
-                bottomSpacing: 275,
-                text: "ブックマークしました"
+                screenEdgeSpacing: 275,
+                text: "テキストメッセージ"
             )
         }
         .charcoalOverlayContainer()
