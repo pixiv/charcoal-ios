@@ -24,13 +24,13 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
     let action: ActionContent?
 
     @State private var tooltipSize: CGSize = .zero
-    
+
     /// A binding to whether the overlay is presented.
     @Binding var isPresenting: Bool
-    
+
     /// If true, the overlay will be dismissed when the user taps outside of the overlay.
     let dismissOnTouchOutside: Bool
-    
+
     /// The overlay will be dismissed after a certain time interval.
     let dismissAfter: TimeInterval?
 
@@ -40,7 +40,7 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
         maxWidth: CGFloat = 312,
         bottomSpacing: CGFloat,
         thumbnailImage: Image?,
-        @ViewBuilder action: () ->  ActionContent?,
+        @ViewBuilder action: () -> ActionContent?,
         isPresenting: Binding<Bool>,
         dismissOnTouchOutside: Bool = true,
         dismissAfter: TimeInterval? = nil
@@ -60,7 +60,7 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
         ZStack(alignment: .bottom) {
             Color.clear
                 .if(dismissOnTouchOutside && isPresenting) { view in
-                        view.contentShape(Rectangle())
+                    view.contentShape(Rectangle())
                         .simultaneousGesture(
                             TapGesture()
                                 .onEnded { _ in
@@ -107,7 +107,6 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
                         }
                     }
                 }
-
             }
         }
         .animation(.easeInOut(duration: 0.2), value: isPresenting)
@@ -133,11 +132,11 @@ struct CharcoalSnackBarModifier<ActionContent: View>: ViewModifier {
     let thumbnailImage: Image?
 
     /// The action to be displayed in the snackbar
-    @ViewBuilder let action: () ->  ActionContent?
+    @ViewBuilder let action: () -> ActionContent?
 
     /// Assign a unique ID to the view
     @State var viewID = UUID()
-    
+
     /// The overlay will be dismissed after a certain time interval.
     let dismissAfter: TimeInterval?
 
@@ -202,9 +201,9 @@ private extension UIColor {
 
 private struct SnackBarsPreviewView: View {
     @State var isPresenting = true
-    
+
     @State var isPresenting2 = true
-    
+
     @State var isPresenting3 = true
 
     @State var textOfLabel = "Hello"

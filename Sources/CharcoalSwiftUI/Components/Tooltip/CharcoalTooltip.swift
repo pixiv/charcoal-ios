@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CharcoalTooltip: CharcoalPopupView {
     typealias IDValue = UUID
-    
+
     /// The unique ID of the overlay.
     let id: IDValue
     /// The text of the tooltip
@@ -27,13 +27,13 @@ struct CharcoalTooltip: CharcoalPopupView {
     let spacingToScreen: CGFloat = 16
 
     @State private var tooltipSize: CGSize = .zero
-    
+
     /// A binding to whether the overlay is presented.
     @Binding var isPresenting: Bool
-    
+
     /// If true, the overlay will be dismissed when the user taps outside of the overlay.
     let dismissOnTouchOutside: Bool
-    
+
     /// The overlay will be dismissed after a certain time interval.
     let dismissAfter: TimeInterval?
 
@@ -41,13 +41,14 @@ struct CharcoalTooltip: CharcoalPopupView {
         CGSize(width: targetFrame.midX - (tooltipSize.width / 2.0), height: targetFrame.maxY)
     }
 
-    init(id: IDValue,
-         text: String,
-         targetFrame: CGRect,
-         maxWidth: CGFloat = 184,
-         isPresenting: Binding<Bool>,
-         dismissOnTouchOutside: Bool = true,
-         dismissAfter: TimeInterval? = nil
+    init(
+        id: IDValue,
+        text: String,
+        targetFrame: CGRect,
+        maxWidth: CGFloat = 184,
+        isPresenting: Binding<Bool>,
+        dismissOnTouchOutside: Bool = true,
+        dismissAfter: TimeInterval? = nil
     ) {
         self.id = id
         self.text = text
@@ -86,7 +87,7 @@ struct CharcoalTooltip: CharcoalPopupView {
         ZStack {
             Color.clear
                 .if(dismissOnTouchOutside && isPresenting) { view in
-                        view.contentShape(Rectangle())
+                    view.contentShape(Rectangle())
                         .simultaneousGesture(
                             TapGesture()
                                 .onEnded { _ in
@@ -169,7 +170,7 @@ struct CharcoalTooltipModifier: ViewModifier {
 
     /// Assign a unique ID to the view
     @State var viewID = UUID()
-    
+
     /// The overlay will be dismissed after a certain time interval.
     let dismissAfter: TimeInterval?
 
@@ -186,7 +187,8 @@ struct CharcoalTooltipModifier: ViewModifier {
                             isPresenting: $isPresenting,
                             dismissAfter: dismissAfter
                         ),
-                        viewID: viewID))
+                        viewID: viewID
+                    ))
             }))
     }
 }
@@ -282,7 +284,8 @@ private struct TooltipsPreviewView: View {
                     .charcoalTooltip(
                         isPresenting: $isPresenting5,
                         text: "Hello World This is a tooltip and here is testing it's multiple line feature",
-                        dismissAfter: 2)
+                        dismissAfter: 2
+                    )
                     .offset(CGSize(width: geometry.size.width - 240, height: geometry.size.height - 40))
 
                     Button {

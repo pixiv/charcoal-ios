@@ -18,7 +18,7 @@ public struct ToastsView: View {
                 isPresenting: $isPresenting,
                 text: "ブックマークしました"
             )
-            
+
             VStack(alignment: .leading) {
                 Button {
                     isPresenting2.toggle()
@@ -38,7 +38,7 @@ public struct ToastsView: View {
                     }
                 }
             )
-            
+
             VStack(alignment: .leading) {
                 Button {
                     isPresenting3.toggle()
