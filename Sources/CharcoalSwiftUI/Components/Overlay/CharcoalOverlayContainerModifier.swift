@@ -25,7 +25,7 @@ struct CharcoalOverlayContainerChild<SubContent: CharcoalPopupView>: ViewModifie
 
     let viewID: UUID
     
-    /// If true, the overlay will be dismissed when the user taps outside of the overlay.
+    /// The overlay will be dismissed after a certain time interval.
     let dismissAfter: TimeInterval?
 
     func createOverlayView(view: SubContent) -> CharcoalIdentifiableOverlayView {

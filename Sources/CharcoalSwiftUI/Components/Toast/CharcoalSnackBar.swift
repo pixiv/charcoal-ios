@@ -91,7 +91,7 @@ struct CharcoalSnackBarModifier<ActionContent: View>: ViewModifier {
     /// Assign a unique ID to the view
     @State var viewID = UUID()
     
-    /// If true, the overlay will be dismissed when the user taps outside of the overlay.
+    /// The overlay will be dismissed after a certain time interval.
     let dismissAfter: TimeInterval?
 
     func body(content: Content) -> some View {
