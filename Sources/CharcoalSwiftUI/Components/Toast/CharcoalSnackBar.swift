@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
+struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol {
     typealias IDValue = UUID
 
     /// The unique ID of the overlay.

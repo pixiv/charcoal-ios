@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CharcoalToast<ActionContent: View>: CharcoalPopupView {
+struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol {
     typealias IDValue = UUID
 
     /// The unique ID of the overlay.
@@ -116,30 +116,6 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupView {
         return lhs.text == rhs.text && lhs.maxWidth == rhs.maxWidth  && lhs.isPresenting == rhs.isPresenting
     }
 }
-
-public enum CharcoalPopupViewEdge {
-    case top
-    case bottom
-    
-    var alignment: Alignment {
-        switch self {
-        case .top:
-            return .top
-        case .bottom:
-            return .bottom
-        }
-    }
-    
-    var offset: CGFloat {
-        switch self {
-        case .top:
-            return 1
-        case .bottom:
-            return -1
-        }
-    }
-}
-
 
 public enum CharcoalToastAppearance {
     case success

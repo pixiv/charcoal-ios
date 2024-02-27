@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CharcoalTooltip: CharcoalPopupView {
+struct CharcoalTooltip: CharcoalPopupProtocol {
     typealias IDValue = UUID
 
     /// The unique ID of the overlay.
