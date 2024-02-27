@@ -230,7 +230,7 @@ private struct ToastsPreviewView: View {
                 text: "ブックマークしました",
                 action: {
                     Button {
-                        print("Tapped")
+                        isPresenting = false
                     } label: {
                         Image(charocalIcon: .remove16)
                             .renderingMode(.template)
@@ -241,14 +241,7 @@ private struct ToastsPreviewView: View {
                 isPresenting: $isPresenting2,
                 bottomSpacing: 192,
                 text: "ブックマークしました",
-                appearance: .error,
-                action: {
-                    Button {
-                        print("Tapped")
-                    } label: {
-                        Text("編集")
-                    }
-                }
+                appearance: .error
             )
             .charcoalToast(
                 isPresenting: $isPresenting3,
