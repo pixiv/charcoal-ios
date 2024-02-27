@@ -178,7 +178,7 @@ struct CharcoalTooltipModifier: ViewModifier {
         content
             .overlay(GeometryReader(content: { proxy in
                 Color.clear
-                    .modifier(CharcoalOverlayContainerChild(
+                    .modifier(CharcoalOverlayUpdaterContainer(
                         isPresenting: $isPresenting,
                         view: CharcoalTooltip(
                             id: viewID,

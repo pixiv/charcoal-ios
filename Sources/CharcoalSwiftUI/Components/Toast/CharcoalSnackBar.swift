@@ -144,7 +144,7 @@ struct CharcoalSnackBarModifier<ActionContent: View>: ViewModifier {
         content
             .overlay(Color.clear
                 .modifier(
-                    CharcoalOverlayContainerChild(
+                    CharcoalOverlayUpdaterContainer(
                         isPresenting: $isPresenting,
 
                         view: CharcoalSnackBar(
