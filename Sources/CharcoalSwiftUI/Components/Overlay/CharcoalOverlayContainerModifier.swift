@@ -26,25 +26,26 @@ struct CharcoalOverlayContainerChild<SubContent: CharcoalPopupView>: ViewModifie
     func createOverlayView(view: SubContent) -> CharcoalIdentifiableOverlayView {
         return CharcoalIdentifiableOverlayView(id: viewID, contentView: AnyView(view))
     }
+    
+    func updateView(view: SubContent)  {
+        viewManager.addView(view: createOverlayView(view: view))
+    }
 
     func body(content: Content) -> some View {
         content
             .onChange(of: isPresenting) { newValue in
                 if newValue {
-                    let newView = createOverlayView(view: view)
-                    viewManager.addView(view: newView)
+                    updateView(view: view)
                 }
             }
             .onChange(of: view) { newValue in
                 if isPresenting {
-                    let newView = createOverlayView(view: newValue)
-                    viewManager.addView(view: newView)
+                    updateView(view: newValue)
                 }
             }
             .onAppear {
                 // onAppear is needed if the overlay is presented by default
-                let newView = createOverlayView(view: view)
-                viewManager.addView(view: newView)
+                updateView(view: view)
             }
     }
 }
