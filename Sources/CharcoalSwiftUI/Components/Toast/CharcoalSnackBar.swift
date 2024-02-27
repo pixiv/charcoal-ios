@@ -24,6 +24,15 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
     let action: ActionContent?
 
     @State private var tooltipSize: CGSize = .zero
+    
+    /// A binding to whether the overlay is presented.
+    @Binding var isPresenting: Bool
+    
+    /// If true, the overlay will be dismissed when the user taps outside of the overlay.
+    let dismissOnTouchOutside: Bool
+    
+    /// The overlay will be dismissed after a certain time interval.
+    let dismissAfter: TimeInterval?
 
     init(
         id: IDValue,
@@ -31,7 +40,10 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
         maxWidth: CGFloat = 312,
         bottomSpacing: CGFloat,
         thumbnailImage: Image?,
-        @ViewBuilder action: () ->  ActionContent?
+        @ViewBuilder action: () ->  ActionContent?,
+        isPresenting: Binding<Bool>,
+        dismissOnTouchOutside: Bool = true,
+        dismissAfter: TimeInterval? = nil
     ) {
         self.id = id
         self.text = text
@@ -39,42 +51,71 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
         self.thumbnailImage = thumbnailImage
         self.action = action()
         self.bottomSpacing = bottomSpacing
+        _isPresenting = isPresenting
+        self.dismissOnTouchOutside = dismissOnTouchOutside
+        self.dismissAfter = dismissAfter
     }
 
     var body: some View {
         ZStack(alignment: .bottom) {
             Color.clear
-            HStack(spacing: 0) {
-                if let thumbnailImage = thumbnailImage {
-                    thumbnailImage
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 64, height: 64)
+                .if(dismissOnTouchOutside && isPresenting) { view in
+                        view.contentShape(Rectangle())
+                        .simultaneousGesture(
+                            TapGesture()
+                                .onEnded { _ in
+                                    isPresenting = false
+                                }
+                        )
+                        .simultaneousGesture(
+                            DragGesture()
+                                .onChanged { _ in
+                                    isPresenting = false
+                                }
+                        )
                 }
-                HStack(spacing: 16) {
-                    Text(text)
-                        .charcoalTypography14Bold(isSingleLine: true)
-                        .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text1.color))
+            if isPresenting {
+                HStack(spacing: 0) {
+                    if let thumbnailImage = thumbnailImage {
+                        thumbnailImage
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 64, height: 64)
+                    }
+                    HStack(spacing: 16) {
+                        Text(text)
+                            .charcoalTypography14Bold(isSingleLine: true)
+                            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text1.color))
 
-                    if let action = action {
-                        action
-                            .charcoalDefaultButton(size: .small)
+                        if let action = action {
+                            action
+                                .charcoalDefaultButton(size: .small)
+                        }
+                    }
+                    .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
+                }
+                .background(
+                    Color(CharcoalAsset.ColorPaletteGenerated.background1.color)
+                )
+                .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+                .overlay(RoundedRectangle(cornerRadius: cornerRadius).stroke(Color(CharcoalAsset.ColorPaletteGenerated.border.color), lineWidth: 1))
+                .offset(CGSize(width: 0, height: -bottomSpacing))
+                .onAppear {
+                    if let dismissAfter = dismissAfter {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + dismissAfter) {
+                            isPresenting = false
+                        }
                     }
                 }
-                .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
-            }
-            .background(
-                Color(CharcoalAsset.ColorPaletteGenerated.background1.color)
-            )
-            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
-            .overlay(RoundedRectangle(cornerRadius: cornerRadius).stroke(Color(CharcoalAsset.ColorPaletteGenerated.border.color), lineWidth: 1))
-            .offset(CGSize(width: 0, height: -bottomSpacing))
 
-        }.frame(minWidth: 0, maxWidth: maxWidth, alignment: .center)
+            }
+        }
+        .animation(.easeInOut(duration: 0.2), value: isPresenting)
+        .frame(minWidth: 0, maxWidth: maxWidth, alignment: .center)
     }
 
     static func == (lhs: CharcoalSnackBar, rhs: CharcoalSnackBar) -> Bool {
-        return lhs.text == rhs.text && lhs.maxWidth == rhs.maxWidth && lhs.thumbnailImage == rhs.thumbnailImage
+        return lhs.text == rhs.text && lhs.maxWidth == rhs.maxWidth && lhs.thumbnailImage == rhs.thumbnailImage && lhs.isPresenting == rhs.isPresenting
     }
 }
 
@@ -106,16 +147,18 @@ struct CharcoalSnackBarModifier<ActionContent: View>: ViewModifier {
                 .modifier(
                     CharcoalOverlayContainerChild(
                         isPresenting: $isPresenting,
-                        dismissOnTouchOutside: false,
+
                         view: CharcoalSnackBar(
                             id: viewID,
                             text: text,
                             bottomSpacing: bottomSpacing,
                             thumbnailImage: thumbnailImage,
-                            action: action
+                            action: action,
+                            isPresenting: $isPresenting,
+                            dismissOnTouchOutside: false,
+                            dismissAfter: dismissAfter
                         ),
-                        viewID: viewID,
-                        dismissAfter: dismissAfter
+                        viewID: viewID
                     )))
     }
 }
@@ -172,7 +215,6 @@ private struct SnackBarsPreviewView: View {
             ZStack {
                 Button {
                     isPresenting.toggle()
-                    isPresenting2.toggle()
                     isPresenting3.toggle()
                 } label: {
                     Text("Toggle SnackBar")

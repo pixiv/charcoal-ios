@@ -27,6 +27,15 @@ struct CharcoalTooltip: CharcoalPopupView {
     let spacingToScreen: CGFloat = 16
 
     @State private var tooltipSize: CGSize = .zero
+    
+    /// A binding to whether the overlay is presented.
+    @Binding var isPresenting: Bool
+    
+    /// If true, the overlay will be dismissed when the user taps outside of the overlay.
+    let dismissOnTouchOutside: Bool
+    
+    /// The overlay will be dismissed after a certain time interval.
+    let dismissAfter: TimeInterval?
 
     var offset: CGSize {
         CGSize(width: targetFrame.midX - (tooltipSize.width / 2.0), height: targetFrame.maxY)
@@ -35,11 +44,18 @@ struct CharcoalTooltip: CharcoalPopupView {
     init(id: IDValue,
          text: String,
          targetFrame: CGRect,
-         maxWidth: CGFloat = 184) {
-            self.id = id
-            self.text = text
-            self.targetFrame = targetFrame
-            self.maxWidth = maxWidth
+         maxWidth: CGFloat = 184,
+         isPresenting: Binding<Bool>,
+         dismissOnTouchOutside: Bool = true,
+         dismissAfter: TimeInterval? = nil
+    ) {
+        self.id = id
+        self.text = text
+        self.targetFrame = targetFrame
+        self.maxWidth = maxWidth
+        _isPresenting = isPresenting
+        self.dismissOnTouchOutside = dismissOnTouchOutside
+        self.dismissAfter = dismissAfter
     }
 
     func tooltipX(canvasGeometrySize: CGSize) -> CGFloat {
@@ -67,39 +83,68 @@ struct CharcoalTooltip: CharcoalPopupView {
     }
 
     var body: some View {
-        GeometryReader(content: { canvasGeometry in
-            VStack {
-                Text(text)
-                    .charcoalTypography12Regular()
-                    .multilineTextAlignment(.center)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
-                    .padding(EdgeInsets(top: 4, leading: 12, bottom: 4, trailing: 12))
-                    .background(GeometryReader(content: { tooltipGeometry in
-                        let tooltipOrigin = tooltipGeometry.frame(in: .global).origin
-                        TooltipBubbleShape(
-                            targetPoint:
-                            CGPoint(
-                                x: targetFrame.midX - tooltipOrigin.x,
-                                y: targetFrame.maxY - tooltipOrigin.y
-                            ),
-                            arrowHeight: arrowHeight,
-                            cornerRadius: cornerRadius
+        ZStack {
+            Color.clear
+                .if(dismissOnTouchOutside && isPresenting) { view in
+                        view.contentShape(Rectangle())
+                        .simultaneousGesture(
+                            TapGesture()
+                                .onEnded { _ in
+                                    isPresenting = false
+                                }
                         )
-                        .fill(Color(CharcoalAsset.ColorPaletteGenerated.surface8.color))
-                        .preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
-                    }))
-                    .offset(CGSize(
-                        width: tooltipX(canvasGeometrySize: canvasGeometry.size),
-                        height: tooltipY(canvasGeometrySize: canvasGeometry.size)
-                    ))
-                    .onPreferenceChange(TooltipSizeKey.self, perform: { value in
-                        tooltipSize = value
-                    })
-                    .animation(.none, value: tooltipSize)
-                    .animation(.none, value: targetFrame)
-            }.frame(minWidth: 0, maxWidth: maxWidth, alignment: .leading)
-        })
+                        .simultaneousGesture(
+                            DragGesture()
+                                .onChanged { _ in
+                                    isPresenting = false
+                                }
+                        )
+                }
+            if isPresenting {
+                GeometryReader(content: { canvasGeometry in
+                    VStack {
+                        Text(text)
+                            .charcoalTypography12Regular()
+                            .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
+                            .padding(EdgeInsets(top: 4, leading: 12, bottom: 4, trailing: 12))
+                            .background(GeometryReader(content: { tooltipGeometry in
+                                let tooltipOrigin = tooltipGeometry.frame(in: .global).origin
+                                TooltipBubbleShape(
+                                    targetPoint:
+                                    CGPoint(
+                                        x: targetFrame.midX - tooltipOrigin.x,
+                                        y: targetFrame.maxY - tooltipOrigin.y
+                                    ),
+                                    arrowHeight: arrowHeight,
+                                    cornerRadius: cornerRadius
+                                )
+                                .fill(Color(CharcoalAsset.ColorPaletteGenerated.surface8.color))
+                                .preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
+                            }))
+                            .offset(CGSize(
+                                width: tooltipX(canvasGeometrySize: canvasGeometry.size),
+                                height: tooltipY(canvasGeometrySize: canvasGeometry.size)
+                            ))
+                            .onPreferenceChange(TooltipSizeKey.self, perform: { value in
+                                tooltipSize = value
+                            })
+                            .animation(.none, value: tooltipSize)
+                            .animation(.none, value: targetFrame)
+                    }
+                    .frame(minWidth: 0, maxWidth: maxWidth, alignment: .leading)
+                })
+                .onAppear {
+                    if let dismissAfter = dismissAfter {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + dismissAfter) {
+                            isPresenting = false
+                        }
+                    }
+                }
+            }
+        }
+        .animation(.easeInOut(duration: 0.2), value: isPresenting)
     }
 
     static func == (lhs: CharcoalTooltip, rhs: CharcoalTooltip) -> Bool {
@@ -134,13 +179,14 @@ struct CharcoalTooltipModifier: ViewModifier {
                 Color.clear
                     .modifier(CharcoalOverlayContainerChild(
                         isPresenting: $isPresenting,
-                        dismissOnTouchOutside: true,
                         view: CharcoalTooltip(
                             id: viewID,
                             text: text,
-                            targetFrame: proxy.frame(in: .global)),
-                        viewID: viewID,
-                        dismissAfter: dismissAfter))
+                            targetFrame: proxy.frame(in: .global),
+                            isPresenting: $isPresenting,
+                            dismissAfter: dismissAfter
+                        ),
+                        viewID: viewID))
             }))
     }
 }
@@ -236,7 +282,7 @@ private struct TooltipsPreviewView: View {
                     .charcoalTooltip(
                         isPresenting: $isPresenting5,
                         text: "Hello World This is a tooltip and here is testing it's multiple line feature",
-                        dismissAfter: 3)
+                        dismissAfter: 2)
                     .offset(CGSize(width: geometry.size.width - 240, height: geometry.size.height - 40))
 
                     Button {

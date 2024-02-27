@@ -18,18 +18,13 @@ struct CharcoalOverlayContainerChild<SubContent: CharcoalPopupView>: ViewModifie
     @EnvironmentObject var viewManager: CharcoalContainerManager
 
     @Binding var isPresenting: Bool
-    
-    let dismissOnTouchOutside: Bool
 
     let view: SubContent
 
     let viewID: UUID
-    
-    /// The overlay will be dismissed after a certain time interval.
-    let dismissAfter: TimeInterval?
 
     func createOverlayView(view: SubContent) -> CharcoalIdentifiableOverlayView {
-        return CharcoalIdentifiableOverlayView(id: viewID, contentView: AnyView(view), dismissOnTouchOutside: dismissOnTouchOutside, isPresenting: $isPresenting, dismissAfter: dismissAfter)
+        return CharcoalIdentifiableOverlayView(id: viewID, contentView: AnyView(view))
     }
 
     func body(content: Content) -> some View {
