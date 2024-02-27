@@ -38,6 +38,8 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol {
     let appearance: CharcoalToastAppearance
     
     @State var isActuallyPresenting: Bool = false
+    
+    let animationConfiguration: CharcoalToastAnimationConfiguration
 
     init(
         id: IDValue,
@@ -49,7 +51,8 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol {
         isPresenting: Binding<Bool>,
         dismissOnTouchOutside: Bool = true,
         dismissAfter: TimeInterval? = nil,
-        appearance: CharcoalToastAppearance = .success
+        appearance: CharcoalToastAppearance = .success,
+        animationConfiguration: CharcoalToastAnimationConfiguration
     ) {
         self.id = id
         self.text = text
@@ -61,6 +64,7 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol {
         self.dismissAfter = dismissAfter
         self.appearance = appearance
         self.screenEdge = screenEdge
+        self.animationConfiguration = animationConfiguration
     }
 
     var body: some View {
@@ -99,7 +103,7 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol {
             )
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .overlay(RoundedRectangle(cornerRadius: cornerRadius).stroke(Color(CharcoalAsset.ColorPaletteGenerated.background1.color), lineWidth: 2))
-            .offset(CGSize(width: 0, height: isActuallyPresenting ? screenEdge.offset*screenEdgeSpacing : -screenEdge.offset*(tooltipSize.height)))
+            .offset(CGSize(width: 0, height: animationConfiguration.enablePositionAnimation ? (isActuallyPresenting ? screenEdge.offset*screenEdgeSpacing : -screenEdge.offset*(tooltipSize.height)) : screenEdge.offset*screenEdgeSpacing))
             .opacity(isActuallyPresenting ? 1 : 0)
             .overlay(
                 GeometryReader(content: { geometry in
@@ -123,7 +127,7 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol {
         .onAppear {
             isActuallyPresenting = isPresenting
         }
-        .animation(.spring(), value: isActuallyPresenting)
+        .animation(animationConfiguration.animation, value: isActuallyPresenting)
         .frame(minWidth: 0, maxWidth: maxWidth, alignment: .center)
     }
 
@@ -154,6 +158,13 @@ public enum CharcoalToastAppearance {
     }
 }
 
+public struct CharcoalToastAnimationConfiguration {
+    public let enablePositionAnimation: Bool
+    public let animation: Animation
+    
+    public static let `default` = CharcoalToastAnimationConfiguration(enablePositionAnimation: true, animation: .spring())
+}
+
 struct CharcoalToastModifier<ActionContent: View>: ViewModifier {
     /// Presentation `Binding<Bool>`
     @Binding var isPresenting: Bool
@@ -176,6 +187,8 @@ struct CharcoalToastModifier<ActionContent: View>: ViewModifier {
     
     /// The appearance of the Toast
     let appearance: CharcoalToastAppearance
+    
+    let animationConfiguration: CharcoalToastAnimationConfiguration
 
     func body(content: Content) -> some View {
         content
@@ -193,7 +206,8 @@ struct CharcoalToastModifier<ActionContent: View>: ViewModifier {
                             isPresenting: $isPresenting,
                             dismissOnTouchOutside: false,
                             dismissAfter: dismissAfter,
-                            appearance: appearance
+                            appearance: appearance,
+                            animationConfiguration: animationConfiguration
                         ),
                         viewID: viewID
                     )))
@@ -225,6 +239,7 @@ public extension View {
         text: String,
         dismissAfter: TimeInterval? = nil,
         appearance: CharcoalToastAppearance = .success,
+        animationConfiguration: CharcoalToastAnimationConfiguration = .default,
         @ViewBuilder action: @escaping () -> Content = { EmptyView() }
     ) -> some View where Content: View {
         return modifier(
@@ -235,7 +250,7 @@ public extension View {
                 text: text,
                 action: action,
                 dismissAfter: dismissAfter,
-                appearance: appearance)
+                appearance: appearance, animationConfiguration: animationConfiguration)
         )
     }
 }
@@ -278,12 +293,21 @@ private struct ToastsPreviewView: View {
                 screenEdgeSpacing: 192,
                 text: "テキストメッセージ",
                 dismissAfter: 2,
-                appearance: .error
+                appearance: .error,
+                action: {
+                    Button {
+                        isPresenting2 = false
+                    } label: {
+                        Image(charocalIcon: .remove16)
+                            .renderingMode(.template)
+                    }
+                }
             )
             .charcoalToast(
                 isPresenting: $isPresenting3,
                 screenEdgeSpacing: 275,
-                text: "テキストメッセージ"
+                text: "テキストメッセージ",
+                animationConfiguration: .init(enablePositionAnimation: false, animation: .easeInOut(duration: 0.2))
             )
         }
         .charcoalOverlayContainer()
