@@ -36,6 +36,8 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol {
     
     /// The appearance of the Toast
     let appearance: CharcoalToastAppearance
+    
+    @State var isActuallyPresenting: Bool = false
 
     init(
         id: IDValue,
@@ -79,35 +81,49 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol {
                                 }
                         )
                 }
-            if isPresenting {
-                HStack(spacing: 0) {
-                    HStack(spacing: 8) {
-                        Text(text)
-                            .charcoalTypography14Bold(isSingleLine: true)
-                            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.background1.color))
+            HStack(spacing: 0) {
+                HStack(spacing: 8) {
+                    Text(text)
+                        .charcoalTypography14Bold(isSingleLine: true)
+                        .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.background1.color))
 
-                        if let action = action {
-                            action
-                                .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.background1.color))
-                        }
+                    if let action = action {
+                        action
+                            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.background1.color))
                     }
-                    .padding(EdgeInsets(top: 8, leading: 24, bottom: 8, trailing: 24))
                 }
-                .background(
-                    appearance.background
-                )
-                .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
-                .overlay(RoundedRectangle(cornerRadius: cornerRadius).stroke(Color(CharcoalAsset.ColorPaletteGenerated.background1.color), lineWidth: 2))
-                .offset(CGSize(width: 0, height: screenEdge.offset*screenEdgeSpacing))
-                .onAppear {
-                    if let dismissAfter = dismissAfter {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + dismissAfter) {
-                            isPresenting = false
-                        }
+                .padding(EdgeInsets(top: 8, leading: 24, bottom: 8, trailing: 24))
+            }
+            .background(
+                appearance.background
+            )
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+            .overlay(RoundedRectangle(cornerRadius: cornerRadius).stroke(Color(CharcoalAsset.ColorPaletteGenerated.background1.color), lineWidth: 2))
+            .offset(CGSize(width: 0, height: isActuallyPresenting ? screenEdge.offset*screenEdgeSpacing : -screenEdge.offset*(tooltipSize.height)))
+            .opacity(isActuallyPresenting ? 1 : 0)
+            .overlay(
+                GeometryReader(content: { geometry in
+                    Color.clear.preference(key: PopupViewSizeKey.self, value: geometry.size)
+                })
+            )
+            .onPreferenceChange(PopupViewSizeKey.self, perform: { value in
+                tooltipSize = value
+            })
+            .onChange(of: isActuallyPresenting) { newValue in
+                if let dismissAfter = dismissAfter, newValue {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + dismissAfter + 0.5) {
+                        isPresenting = false
                     }
                 }
             }
         }
+        .onChange(of: isPresenting, perform: { newValue in
+            isActuallyPresenting = isPresenting
+        })
+        .onAppear {
+            isActuallyPresenting = isPresenting
+        }
+        .animation(.spring(), value: isActuallyPresenting)
         .animation(.easeInOut(duration: 0.2), value: isPresenting)
         .frame(minWidth: 0, maxWidth: maxWidth, alignment: .center)
     }
@@ -115,6 +131,14 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol {
     static func == (lhs: CharcoalToast, rhs: CharcoalToast) -> Bool {
         return lhs.text == rhs.text && lhs.maxWidth == rhs.maxWidth  && lhs.isPresenting == rhs.isPresenting
     }
+}
+
+struct PopupViewSizeKey: PreferenceKey {
+    static func reduce(value: inout CGSize, nextValue: () -> CGSize) {
+        value = nextValue()
+    }
+
+    static var defaultValue: CGSize = .zero
 }
 
 public enum CharcoalToastAppearance {
@@ -254,6 +278,7 @@ private struct ToastsPreviewView: View {
                 isPresenting: $isPresenting2,
                 screenEdgeSpacing: 192,
                 text: "テキストメッセージ",
+                dismissAfter: 2,
                 appearance: .error
             )
             .charcoalToast(
