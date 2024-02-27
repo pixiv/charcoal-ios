@@ -12,7 +12,7 @@ struct CharcoalOverlayContainerModifier: ViewModifier {
     }
 }
 
-typealias CharcoalPopupView = Equatable & View
+typealias CharcoalPopupView = Equatable & View & Identifiable
 
 struct CharcoalOverlayContainerChild<SubContent: CharcoalPopupView>: ViewModifier {
     @EnvironmentObject var viewManager: CharcoalContainerManager

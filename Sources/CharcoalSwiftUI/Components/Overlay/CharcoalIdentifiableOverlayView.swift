@@ -37,13 +37,14 @@ struct CharcoalIdentifiableOverlayView: View, Identifiable {
                     )
             }
             if isPresenting {
-                contentView.onAppear {
-                    if let dismissAfter = dismissAfter {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + dismissAfter) {
-                            isPresenting = false
+                contentView
+                    .onAppear {
+                        if let dismissAfter = dismissAfter {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + dismissAfter) {
+                                isPresenting = false
+                            }
                         }
                     }
-                }
             }
         }.animation(.easeInOut(duration: 0.2), value: isPresenting)
             

@@ -1,6 +1,10 @@
 import SwiftUI
 
 struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
+    typealias IDValue = UUID
+
+    /// The unique ID of the overlay.
+    let id: IDValue
     /// The text of the snackbar
     let text: String
 
@@ -22,12 +26,14 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupView {
     @State private var tooltipSize: CGSize = .zero
 
     init(
+        id: IDValue,
         text: String,
         maxWidth: CGFloat = 312,
         bottomSpacing: CGFloat,
         thumbnailImage: Image?,
         @ViewBuilder action: () ->  ActionContent?
     ) {
+        self.id = id
         self.text = text
         self.maxWidth = maxWidth
         self.thumbnailImage = thumbnailImage
@@ -102,6 +108,7 @@ struct CharcoalSnackBarModifier<ActionContent: View>: ViewModifier {
                         isPresenting: $isPresenting,
                         dismissOnTouchOutside: false,
                         view: CharcoalSnackBar(
+                            id: viewID,
                             text: text,
                             bottomSpacing: bottomSpacing,
                             thumbnailImage: thumbnailImage,

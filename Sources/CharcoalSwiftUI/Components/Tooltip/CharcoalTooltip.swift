@@ -1,6 +1,10 @@
 import SwiftUI
 
 struct CharcoalTooltip: CharcoalPopupView {
+    typealias IDValue = UUID
+    
+    /// The unique ID of the overlay.
+    let id: IDValue
     /// The text of the tooltip
     let text: String
 
@@ -28,10 +32,14 @@ struct CharcoalTooltip: CharcoalPopupView {
         CGSize(width: targetFrame.midX - (tooltipSize.width / 2.0), height: targetFrame.maxY)
     }
 
-    init(text: String, targetFrame: CGRect, maxWidth: CGFloat = 184) {
-        self.text = text
-        self.targetFrame = targetFrame
-        self.maxWidth = maxWidth
+    init(id: IDValue,
+         text: String,
+         targetFrame: CGRect,
+         maxWidth: CGFloat = 184) {
+            self.id = id
+            self.text = text
+            self.targetFrame = targetFrame
+            self.maxWidth = maxWidth
     }
 
     func tooltipX(canvasGeometrySize: CGSize) -> CGFloat {
@@ -128,6 +136,7 @@ struct CharcoalTooltipModifier: ViewModifier {
                         isPresenting: $isPresenting,
                         dismissOnTouchOutside: true,
                         view: CharcoalTooltip(
+                            id: viewID,
                             text: text,
                             targetFrame: proxy.frame(in: .global)),
                         viewID: viewID,
