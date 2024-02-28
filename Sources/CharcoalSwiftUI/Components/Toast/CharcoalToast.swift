@@ -1,23 +1,19 @@
 import SwiftUI
 
-struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol {
+struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalToastProtocol {
     typealias IDValue = UUID
 
-    /// The unique ID of the overlay.
     let id: IDValue
-    /// The text of the Toast
+
     let text: String
     
-    /// The maximum width of the Toast
     let maxWidth: CGFloat
 
     /// The corner radius of the Toast
     let cornerRadius: CGFloat = 32
     
-    /// The edge of the screen where the Toast will be presented
     let screenEdge: CharcoalPopupViewEdge
 
-    /// The spacing between the snackbar and the screen edge
     let screenEdgeSpacing: CGFloat
 
     /// The content of the action view
@@ -28,10 +24,6 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol {
     /// A binding to whether the overlay is presented.
     @Binding var isPresenting: Bool
 
-    /// If true, the overlay will be dismissed when the user taps outside of the overlay.
-    let dismissOnTouchOutside: Bool
-
-    /// The overlay will be dismissed after a certain time interval.
     let dismissAfter: TimeInterval?
     
     /// The appearance of the Toast
@@ -49,7 +41,6 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol {
         screenEdgeSpacing: CGFloat,
         @ViewBuilder action: () -> ActionContent?,
         isPresenting: Binding<Bool>,
-        dismissOnTouchOutside: Bool = true,
         dismissAfter: TimeInterval? = nil,
         appearance: CharcoalToastAppearance = .success,
         animationConfiguration: CharcoalToastAnimationConfiguration
@@ -60,7 +51,6 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol {
         self.action = action()
         self.screenEdgeSpacing = screenEdgeSpacing
         _isPresenting = isPresenting
-        self.dismissOnTouchOutside = dismissOnTouchOutside
         self.dismissAfter = dismissAfter
         self.appearance = appearance
         self.screenEdge = screenEdge
@@ -70,21 +60,6 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol {
     var body: some View {
         ZStack(alignment: screenEdge.alignment) {
             Color.clear
-                .if(dismissOnTouchOutside && isPresenting) { view in
-                    view.contentShape(Rectangle())
-                        .simultaneousGesture(
-                            TapGesture()
-                                .onEnded { _ in
-                                    isPresenting = false
-                                }
-                        )
-                        .simultaneousGesture(
-                            DragGesture()
-                                .onChanged { _ in
-                                    isPresenting = false
-                                }
-                        )
-                }
             HStack(spacing: 0) {
                 HStack(spacing: 8) {
                     Text(text)
@@ -209,7 +184,6 @@ struct CharcoalToastModifier<ActionContent: View>: ViewModifier {
                             screenEdgeSpacing: screenEdgeSpacing,
                             action: action,
                             isPresenting: $isPresenting,
-                            dismissOnTouchOutside: false,
                             dismissAfter: dismissAfter,
                             appearance: appearance,
                             animationConfiguration: animationConfiguration
