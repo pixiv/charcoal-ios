@@ -1,10 +1,10 @@
 import SwiftUI
 
-typealias CharcoalToastProtocol = CharcoalToastActionProtocol & CharcoalToastBaseProtocol
+typealias CharcoalToastProtocol = CharcoalToastAction & CharcoalToastBase
 
-typealias CharcoalAnimatableToastProtocol = CharcoalToastAnimationProtocol & CharcoalToastProtocol
+typealias CharcoalToastAnimatable = CharcoalToastAnimationProtocol & CharcoalToastProtocol
 
-protocol CharcoalToastBaseProtocol {
+protocol CharcoalToastBase {
     /// The text of the toast
     var text: String { get }
     /// The maximum width of the toast
@@ -25,7 +25,7 @@ protocol CharcoalToastBaseProtocol {
     var borderLineWidth: CGFloat { get }
 }
 
-protocol CharcoalToastActionProtocol {
+protocol CharcoalToastAction {
     associatedtype ActionContent: View
     /// The content of the action view
     var action: ActionContent? { get }

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalAnimatableToastProtocol {
+struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalToastAnimatable {
     typealias IDValue = UUID
 
     let id: IDValue
