@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalToastProtocol {
+struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalAnimatedToastProtocol {
     typealias IDValue = UUID
 
     let id: IDValue
@@ -11,6 +11,10 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalToastP
 
     /// The corner radius of the Toast
     let cornerRadius: CGFloat = 32
+    
+    let borderColor: Color
+    
+    let borderLineWidth: CGFloat = 2
     
     let screenEdge: CharcoalPopupViewEdge
 
@@ -55,6 +59,7 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalToastP
         self.appearance = appearance
         self.screenEdge = screenEdge
         self.animationConfiguration = animationConfiguration
+        self.borderColor = Color(CharcoalAsset.ColorPaletteGenerated.background1.color)
     }
 
     var body: some View {
@@ -76,33 +81,17 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalToastP
             .background(
                 appearance.background
             )
-            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
-            .overlay(RoundedRectangle(cornerRadius: cornerRadius).stroke(Color(CharcoalAsset.ColorPaletteGenerated.background1.color), lineWidth: 2))
-            .offset(CGSize(width: 0, height: animationConfiguration.enablePositionAnimation ? (isActuallyPresenting ? screenEdge.offset*screenEdgeSpacing : -screenEdge.offset*(tooltipSize.height)) : screenEdge.offset*screenEdgeSpacing))
-            .opacity(isActuallyPresenting ? 1 : 0)
-            .overlay(
-                GeometryReader(content: { geometry in
-                    Color.clear.preference(key: PopupViewSizeKey.self, value: geometry.size)
-                })
-            )
-            .onPreferenceChange(PopupViewSizeKey.self, perform: { value in
-                tooltipSize = value
-            })
-            .onChange(of: isActuallyPresenting) { newValue in
-                if let dismissAfter = dismissAfter, newValue {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + dismissAfter) {
-                        isPresenting = false
-                    }
-                }
-            }
+            .charcoalAnimatedToast(
+                isPresenting: $isPresenting,
+                isActuallyPresenting: $isActuallyPresenting,
+                tooltipSize: $tooltipSize,
+                cornerRadius: cornerRadius,
+                borderColor: borderColor,
+                borderLineWidth: borderLineWidth,
+                screenEdge: screenEdge,
+                screenEdgeSpacing: screenEdgeSpacing,
+                dismissAfter: dismissAfter)
         }
-        .onChange(of: isPresenting, perform: { newValue in
-            isActuallyPresenting = isPresenting
-        })
-        .onAppear {
-            isActuallyPresenting = isPresenting
-        }
-        .animation(animationConfiguration.animation, value: isActuallyPresenting)
         .frame(minWidth: 0, maxWidth: maxWidth, alignment: .center)
     }
 
