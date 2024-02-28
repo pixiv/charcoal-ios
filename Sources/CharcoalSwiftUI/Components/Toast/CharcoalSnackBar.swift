@@ -88,7 +88,7 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalToa
             .opacity(isActuallyPresenting ? 1 : 0)
             .onChange(of: isActuallyPresenting) { newValue in
                 if let dismissAfter = dismissAfter, newValue {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + dismissAfter + 0.5) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + dismissAfter) {
                         isPresenting = false
                     }
                 }
