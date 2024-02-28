@@ -5,7 +5,7 @@ typealias CharcoalPopupProtocol = Equatable & Identifiable & View
 public enum CharcoalPopupViewEdge {
     case top
     case bottom
-    
+
     var alignment: Alignment {
         switch self {
         case .top:
@@ -14,7 +14,7 @@ public enum CharcoalPopupViewEdge {
             return .bottom
         }
     }
-    
+
     var offset: CGFloat {
         switch self {
         case .top:

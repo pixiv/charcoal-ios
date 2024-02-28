@@ -6,12 +6,12 @@ public struct ToastsView: View {
     @State var isPresenting2 = false
     @State var isPresenting3 = false
     @State var isPresenting4 = false
-    
+
     @State var isPresentingToast = false
     @State var isPresentingToast2 = false
     @State var isPresentingToast3 = false
     @State var isPresentingToast4 = false
-    
+
     public var body: some View {
         List {
             Section(header: Text("SnackBar")) {
@@ -24,7 +24,7 @@ public struct ToastsView: View {
                     isPresenting: $isPresenting,
                     text: "ブックマークしました"
                 )
-                
+
                 VStack(alignment: .leading) {
                     Button {
                         isPresenting2.toggle()
@@ -44,7 +44,7 @@ public struct ToastsView: View {
                         }
                     }
                 )
-                
+
                 VStack(alignment: .leading) {
                     Button {
                         isPresenting3.toggle()
@@ -67,7 +67,7 @@ public struct ToastsView: View {
                     }
                 )
             }
-            
+
             Section(header: Text("Toasts")) {
                 Button {
                     isPresentingToast.toggle()
@@ -78,7 +78,7 @@ public struct ToastsView: View {
                     isPresenting: $isPresentingToast,
                     text: "テキストメッセージ"
                 )
-                
+
                 VStack(alignment: .leading) {
                     Button {
                         isPresentingToast2.toggle()
@@ -100,7 +100,7 @@ public struct ToastsView: View {
                         }
                     }
                 )
-                
+
                 VStack(alignment: .leading) {
                     Button {
                         isPresentingToast3.toggle()
@@ -123,7 +123,7 @@ public struct ToastsView: View {
                         }
                     }
                 )
-                
+
                 VStack(alignment: .leading) {
                     Button {
                         isPresentingToast4.toggle()

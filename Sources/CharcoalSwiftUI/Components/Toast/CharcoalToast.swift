@@ -6,16 +6,16 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalAnimat
     let id: IDValue
 
     let text: String
-    
+
     let maxWidth: CGFloat
 
     /// The corner radius of the Toast
     let cornerRadius: CGFloat = 32
-    
+
     let borderColor: Color
-    
+
     let borderLineWidth: CGFloat = 2
-    
+
     let screenEdge: CharcoalPopupViewEdge
 
     let screenEdgeSpacing: CGFloat
@@ -29,12 +29,12 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalAnimat
     @Binding var isPresenting: Bool
 
     let dismissAfter: TimeInterval?
-    
+
     /// The appearance of the Toast
     let appearance: CharcoalToastAppearance
-    
+
     @State var isActuallyPresenting: Bool = false
-    
+
     let animationConfiguration: CharcoalToastAnimationConfiguration
 
     init(
@@ -59,7 +59,7 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalAnimat
         self.appearance = appearance
         self.screenEdge = screenEdge
         self.animationConfiguration = animationConfiguration
-        self.borderColor = Color(CharcoalAsset.ColorPaletteGenerated.background1.color)
+        borderColor = Color(CharcoalAsset.ColorPaletteGenerated.background1.color)
     }
 
     var body: some View {
@@ -90,13 +90,14 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalAnimat
                 borderLineWidth: borderLineWidth,
                 screenEdge: screenEdge,
                 screenEdgeSpacing: screenEdgeSpacing,
-                dismissAfter: dismissAfter)
+                dismissAfter: dismissAfter
+            )
         }
         .frame(minWidth: 0, maxWidth: maxWidth, alignment: .center)
     }
 
     static func == (lhs: CharcoalToast, rhs: CharcoalToast) -> Bool {
-        return lhs.text == rhs.text && lhs.maxWidth == rhs.maxWidth  && lhs.isPresenting == rhs.isPresenting
+        return lhs.text == rhs.text && lhs.maxWidth == rhs.maxWidth && lhs.isPresenting == rhs.isPresenting
     }
 }
 
@@ -111,7 +112,7 @@ struct PopupViewSizeKey: PreferenceKey {
 public enum CharcoalToastAppearance {
     case success
     case error
-    
+
     var background: Color {
         switch self {
         case .success:
@@ -125,12 +126,12 @@ public enum CharcoalToastAppearance {
 public struct CharcoalToastAnimationConfiguration {
     public let enablePositionAnimation: Bool
     public let animation: Animation
-    
+
     public init(enablePositionAnimation: Bool, animation: Animation) {
         self.enablePositionAnimation = enablePositionAnimation
         self.animation = animation
     }
-    
+
     public static let `default` = CharcoalToastAnimationConfiguration(enablePositionAnimation: true, animation: .spring())
 }
 
@@ -153,10 +154,10 @@ struct CharcoalToastModifier<ActionContent: View>: ViewModifier {
 
     /// The overlay will be dismissed after a certain time interval.
     let dismissAfter: TimeInterval?
-    
+
     /// The appearance of the Toast
     let appearance: CharcoalToastAppearance
-    
+
     let animationConfiguration: CharcoalToastAnimationConfiguration
 
     func body(content: Content) -> some View {
@@ -218,7 +219,8 @@ public extension View {
                 text: text,
                 action: action,
                 dismissAfter: dismissAfter,
-                appearance: appearance, animationConfiguration: animationConfiguration)
+                appearance: appearance, animationConfiguration: animationConfiguration
+            )
         )
     }
 }

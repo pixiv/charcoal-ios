@@ -1,22 +1,21 @@
 import SwiftUI
 
 struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalAnimatedToastProtocol {
-    
     typealias IDValue = UUID
 
     let id: IDValue
-    
+
     let text: String
 
     /// The thumbnail image of the snackbar
     let thumbnailImage: Image?
 
     let maxWidth: CGFloat
-    
+
     let cornerRadius: CGFloat = 32
-    
+
     let borderColor: Color
-    
+
     let borderLineWidth: CGFloat = 1
 
     let screenEdge: CharcoalPopupViewEdge
@@ -32,9 +31,9 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalAni
     @Binding var isPresenting: Bool
 
     let dismissAfter: TimeInterval?
-    
+
     @State var isActuallyPresenting: Bool = false
-    
+
     var animationConfiguration: CharcoalToastAnimationConfiguration
 
     init(
@@ -59,7 +58,7 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalAni
         self.dismissAfter = dismissAfter
         self.screenEdge = screenEdge
         self.animationConfiguration = animationConfiguration
-        self.borderColor = Color(CharcoalAsset.ColorPaletteGenerated.border.color)
+        borderColor = Color(CharcoalAsset.ColorPaletteGenerated.border.color)
     }
 
     var body: some View {
@@ -96,7 +95,8 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalAni
                 borderLineWidth: borderLineWidth,
                 screenEdge: screenEdge,
                 screenEdgeSpacing: screenEdgeSpacing,
-                dismissAfter: dismissAfter)
+                dismissAfter: dismissAfter
+            )
         }
         .frame(minWidth: 0, maxWidth: maxWidth, alignment: .center)
     }
@@ -109,7 +109,7 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalAni
 struct CharcoalSnackBarModifier<ActionContent: View>: ViewModifier {
     /// Presentation `Binding<Bool>`
     @Binding var isPresenting: Bool
-    
+
     /// The edge of the screen where the snackbar will be presented
     let screenEdge: CharcoalPopupViewEdge
 
@@ -165,7 +165,7 @@ public extension View {
         - screenEdge: The edge of the screen where the snackbar will be presented
         - screenEdgeSpacing: The spacing between the snackbar and the screen edge
         - action: The action to be displayed in the snackbar.
-     
+
      # Example #
      ```swift
      Text("Hello").charcoalSnackBar(isPresenting: $isPresenting, text: "Hello")
@@ -188,7 +188,8 @@ public extension View {
                 text: text,
                 thumbnailImage: thumbnailImage,
                 action: action,
-                dismissAfter: dismissAfter)
+                dismissAfter: dismissAfter
+            )
         )
     }
 }
@@ -225,7 +226,7 @@ private struct SnackBarsPreviewView: View {
             }
             .charcoalSnackBar(
                 isPresenting: $isPresenting,
-                screenEdge: .top, 
+                screenEdge: .top,
                 text: "ブックマークしました",
                 thumbnailImage: Image(uiImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64)),
                 action: {

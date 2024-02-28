@@ -24,8 +24,8 @@ struct CharcoalOverlayUpdaterContainer<SubContent: CharcoalPopupProtocol>: ViewM
     func createOverlayView(view: SubContent) -> CharcoalIdentifiableOverlayView {
         return CharcoalIdentifiableOverlayView(id: viewID, contentView: AnyView(view))
     }
-    
-    func updateView(view: SubContent)  {
+
+    func updateView(view: SubContent) {
         viewManager.addView(view: createOverlayView(view: view))
     }
 
