@@ -2,7 +2,7 @@ import SwiftUI
 
 typealias CharcoalToastProtocol = CharcoalToastActionProtocol & CharcoalToastBaseProtocol
 
-typealias CharcoalAnimatedToastProtocol = CharcoalToastAnimationProtocol & CharcoalToastProtocol
+typealias CharcoalAnimatableToastProtocol = CharcoalToastAnimationProtocol & CharcoalToastProtocol
 
 protocol CharcoalToastBaseProtocol {
     /// The text of the toast
