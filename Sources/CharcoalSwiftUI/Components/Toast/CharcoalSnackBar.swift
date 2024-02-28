@@ -84,6 +84,14 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalToa
             )
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .overlay(RoundedRectangle(cornerRadius: cornerRadius).stroke(Color(CharcoalAsset.ColorPaletteGenerated.border.color), lineWidth: 1))
+            .overlay(
+                GeometryReader(content: { geometry in
+                    Color.clear.preference(key: PopupViewSizeKey.self, value: geometry.size)
+                })
+            )
+            .onPreferenceChange(PopupViewSizeKey.self, perform: { value in
+                tooltipSize = value
+            })
             .offset(CGSize(width: 0, height: animationConfiguration.enablePositionAnimation ? (isActuallyPresenting ? screenEdge.offset*screenEdgeSpacing : -screenEdge.offset*(tooltipSize.height)) : screenEdge.offset*screenEdgeSpacing))
             .opacity(isActuallyPresenting ? 1 : 0)
             .onChange(of: isActuallyPresenting) { newValue in

@@ -55,6 +55,7 @@ public struct ToastsView: View {
                 }
                 .charcoalSnackBar(
                     isPresenting: $isPresenting3,
+                    screenEdge: .top,
                     text: "ブックマークしました",
                     thumbnailImage: Image("SnackbarDemo", bundle: Bundle.module),
                     action: {
