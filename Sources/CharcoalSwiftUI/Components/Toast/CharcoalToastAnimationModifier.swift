@@ -34,7 +34,7 @@ struct CharcoalToastAnimationModifier: ViewModifier, CharcoalToastBaseProtocol, 
                     Color.clear.preference(key: PopupViewSizeKey.self, value: geometry.size)
                 })
             )
-            .offset(CGSize(width: 0, height: animationConfiguration.enablePositionAnimation ? (isActuallyPresenting ? screenEdge.offset * screenEdgeSpacing : -screenEdge.offset * (tooltipSize.height)) : screenEdge.offset * screenEdgeSpacing))
+            .offset(CGSize(width: 0, height: animationConfiguration.enablePositionAnimation ? (isActuallyPresenting ? screenEdge.direction * screenEdgeSpacing : -screenEdge.direction * (tooltipSize.height)) : screenEdge.direction * screenEdgeSpacing))
             .opacity(isActuallyPresenting ? 1 : 0)
             .onPreferenceChange(PopupViewSizeKey.self, perform: { value in
                 tooltipSize = value

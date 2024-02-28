@@ -15,7 +15,7 @@ public enum CharcoalPopupViewEdge {
         }
     }
 
-    var offset: CGFloat {
+    var direction: CGFloat {
         switch self {
         case .top:
             return 1
