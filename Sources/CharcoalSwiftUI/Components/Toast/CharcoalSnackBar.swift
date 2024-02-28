@@ -58,7 +58,7 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalAni
         self.dismissAfter = dismissAfter
         self.screenEdge = screenEdge
         self.animationConfiguration = animationConfiguration
-        borderColor = Color(CharcoalAsset.ColorPaletteGenerated.border.color)
+        self.borderColor = Color(CharcoalAsset.ColorPaletteGenerated.border.color)
     }
 
     var body: some View {
@@ -95,7 +95,8 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalAni
                 borderLineWidth: borderLineWidth,
                 screenEdge: screenEdge,
                 screenEdgeSpacing: screenEdgeSpacing,
-                dismissAfter: dismissAfter
+                dismissAfter: dismissAfter,
+                animationConfiguration: animationConfiguration
             )
         }
         .frame(minWidth: 0, maxWidth: maxWidth, alignment: .center)

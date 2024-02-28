@@ -59,7 +59,7 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalAnimat
         self.appearance = appearance
         self.screenEdge = screenEdge
         self.animationConfiguration = animationConfiguration
-        borderColor = Color(CharcoalAsset.ColorPaletteGenerated.background1.color)
+        self.borderColor = Color(CharcoalAsset.ColorPaletteGenerated.background1.color)
     }
 
     var body: some View {
@@ -90,7 +90,8 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalAnimat
                 borderLineWidth: borderLineWidth,
                 screenEdge: screenEdge,
                 screenEdgeSpacing: screenEdgeSpacing,
-                dismissAfter: dismissAfter
+                dismissAfter: dismissAfter,
+                animationConfiguration: animationConfiguration
             )
         }
         .frame(minWidth: 0, maxWidth: maxWidth, alignment: .center)

@@ -67,7 +67,7 @@ public extension View {
         screenEdge: CharcoalPopupViewEdge,
         screenEdgeSpacing: CGFloat,
         dismissAfter: TimeInterval? = nil,
-        animationConfiguration: CharcoalToastAnimationConfiguration = .default
+        animationConfiguration: CharcoalToastAnimationConfiguration
     ) -> some View {
         modifier(CharcoalToastAnimationModifier(text: "", maxWidth: 0, isPresenting: isPresenting, cornerRadius: cornerRadius, borderColor: borderColor, borderLineWidth: borderLineWidth, screenEdge: screenEdge, screenEdgeSpacing: screenEdgeSpacing, tooltipSize: tooltipSize, isActuallyPresenting: isActuallyPresenting, animationConfiguration: animationConfiguration, dismissAfter: dismissAfter))
     }
