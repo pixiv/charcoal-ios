@@ -47,8 +47,8 @@ struct CharcoalToastAnimationModifier: ViewModifier, CharcoalToastBaseProtocol, 
                 }
             }
             .animation(animationConfiguration.animation, value: isActuallyPresenting)
-            .onChange(of: isPresenting, perform: { _ in
-                isActuallyPresenting = isPresenting
+            .onChange(of: isPresenting, perform: { newValue in
+                isActuallyPresenting = newValue
             })
             .onAppear {
                 isActuallyPresenting = isPresenting

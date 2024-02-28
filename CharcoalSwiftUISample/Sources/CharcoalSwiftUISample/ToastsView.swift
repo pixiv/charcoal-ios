@@ -35,6 +35,7 @@ public struct ToastsView: View {
                 }
                 .charcoalSnackBar(
                     isPresenting: $isPresenting2,
+                    screenEdge: .top,
                     text: "ブックマークしました",
                     action: {
                         Button {
@@ -55,9 +56,30 @@ public struct ToastsView: View {
                 }
                 .charcoalSnackBar(
                     isPresenting: $isPresenting3,
-                    screenEdge: .top,
                     text: "ブックマークしました",
                     thumbnailImage: Image("SnackbarDemo", bundle: Bundle.module),
+                    action: {
+                        Button {
+                            print("Tapped")
+                        } label: {
+                            Text("編集")
+                        }
+                    }
+                )
+                
+                VStack(alignment: .leading) {
+                    Button {
+                        isPresenting4.toggle()
+                    } label: {
+                        Text("SnackBar")
+                    }
+                    Text("Auto dismiss after 2 seconds")
+                }
+                .charcoalSnackBar(
+                    isPresenting: $isPresenting4,
+                    text: "ブックマークしました",
+                    thumbnailImage: Image("SnackbarDemo", bundle: Bundle.module),
+                    dismissAfter: 2,
                     action: {
                         Button {
                             print("Tapped")
