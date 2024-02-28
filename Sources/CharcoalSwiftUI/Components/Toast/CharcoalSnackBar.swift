@@ -29,6 +29,8 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalToa
 
     let dismissAfter: TimeInterval?
     
+    @State var isActuallyPresenting: Bool = false
+    
     var animationConfiguration: CharcoalToastAnimationConfiguration
 
     init(
@@ -58,42 +60,47 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalToa
     var body: some View {
         ZStack(alignment: screenEdge.alignment) {
             Color.clear
-            if isPresenting {
-                HStack(spacing: 0) {
-                    if let thumbnailImage = thumbnailImage {
-                        thumbnailImage
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 64, height: 64)
-                    }
-                    HStack(spacing: 16) {
-                        Text(text)
-                            .charcoalTypography14Bold(isSingleLine: true)
-                            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text1.color))
-
-                        if let action = action {
-                            action
-                                .charcoalDefaultButton(size: .small)
-                        }
-                    }
-                    .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
+            HStack(spacing: 0) {
+                if let thumbnailImage = thumbnailImage {
+                    thumbnailImage
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 64, height: 64)
                 }
-                .background(
-                    Color(CharcoalAsset.ColorPaletteGenerated.background1.color)
-                )
-                .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
-                .overlay(RoundedRectangle(cornerRadius: cornerRadius).stroke(Color(CharcoalAsset.ColorPaletteGenerated.border.color), lineWidth: 1))
-                .offset(CGSize(width: 0, height: screenEdge.offset * screenEdgeSpacing))
-                .onAppear {
-                    if let dismissAfter = dismissAfter {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + dismissAfter) {
-                            isPresenting = false
-                        }
+                HStack(spacing: 16) {
+                    Text(text)
+                        .charcoalTypography14Bold(isSingleLine: true)
+                        .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text1.color))
+
+                    if let action = action {
+                        action
+                            .charcoalDefaultButton(size: .small)
+                    }
+                }
+                .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
+            }
+            .background(
+                Color(CharcoalAsset.ColorPaletteGenerated.background1.color)
+            )
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+            .overlay(RoundedRectangle(cornerRadius: cornerRadius).stroke(Color(CharcoalAsset.ColorPaletteGenerated.border.color), lineWidth: 1))
+            .offset(CGSize(width: 0, height: animationConfiguration.enablePositionAnimation ? (isActuallyPresenting ? screenEdge.offset*screenEdgeSpacing : -screenEdge.offset*(tooltipSize.height)) : screenEdge.offset*screenEdgeSpacing))
+            .opacity(isActuallyPresenting ? 1 : 0)
+            .onChange(of: isActuallyPresenting) { newValue in
+                if let dismissAfter = dismissAfter, newValue {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + dismissAfter + 0.5) {
+                        isPresenting = false
                     }
                 }
             }
         }
-        .animation(.easeInOut(duration: 0.2), value: isPresenting)
+        .onChange(of: isPresenting, perform: { newValue in
+            isActuallyPresenting = isPresenting
+        })
+        .onAppear {
+            isActuallyPresenting = isPresenting
+        }
+        .animation(animationConfiguration.animation, value: isActuallyPresenting)
         .frame(minWidth: 0, maxWidth: maxWidth, alignment: .center)
     }
 
@@ -221,6 +228,7 @@ private struct SnackBarsPreviewView: View {
             }
             .charcoalSnackBar(
                 isPresenting: $isPresenting,
+                screenEdge: .top, 
                 text: "ブックマークしました",
                 thumbnailImage: Image(uiImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64)),
                 action: {
