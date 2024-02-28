@@ -86,7 +86,7 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalAni
             .background(
                 Color(CharcoalAsset.ColorPaletteGenerated.background1.color)
             )
-            .charcoalAnimatedToast(
+            .charcoalAnimatableToast(
                 isPresenting: $isPresenting,
                 isActuallyPresenting: $isActuallyPresenting,
                 tooltipSize: $tooltipSize,

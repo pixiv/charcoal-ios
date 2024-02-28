@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CharcoalToastAnimationModifier: ViewModifier, CharcoalToastBaseProtocol, CharcoalToastAnimationProtocol {
+struct CharcoalToastAnimatableModifier: ViewModifier, CharcoalToastBaseProtocol, CharcoalToastAnimationProtocol {
     var text: String
 
     var maxWidth: CGFloat
@@ -57,7 +57,7 @@ struct CharcoalToastAnimationModifier: ViewModifier, CharcoalToastBaseProtocol, 
 }
 
 public extension View {
-    func charcoalAnimatedToast(
+    func charcoalAnimatableToast(
         isPresenting: Binding<Bool>,
         isActuallyPresenting: Binding<Bool>,
         tooltipSize: Binding<CGSize>,
@@ -69,6 +69,6 @@ public extension View {
         dismissAfter: TimeInterval? = nil,
         animationConfiguration: CharcoalToastAnimationConfiguration
     ) -> some View {
-        modifier(CharcoalToastAnimationModifier(text: "", maxWidth: 0, isPresenting: isPresenting, cornerRadius: cornerRadius, borderColor: borderColor, borderLineWidth: borderLineWidth, screenEdge: screenEdge, screenEdgeSpacing: screenEdgeSpacing, tooltipSize: tooltipSize, isActuallyPresenting: isActuallyPresenting, animationConfiguration: animationConfiguration, dismissAfter: dismissAfter))
+        modifier(CharcoalToastAnimatableModifier(text: "", maxWidth: 0, isPresenting: isPresenting, cornerRadius: cornerRadius, borderColor: borderColor, borderLineWidth: borderLineWidth, screenEdge: screenEdge, screenEdgeSpacing: screenEdgeSpacing, tooltipSize: tooltipSize, isActuallyPresenting: isActuallyPresenting, animationConfiguration: animationConfiguration, dismissAfter: dismissAfter))
     }
 }

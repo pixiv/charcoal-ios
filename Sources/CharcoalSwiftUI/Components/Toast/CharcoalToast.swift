@@ -81,7 +81,7 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalAnimat
             .background(
                 appearance.background
             )
-            .charcoalAnimatedToast(
+            .charcoalAnimatableToast(
                 isPresenting: $isPresenting,
                 isActuallyPresenting: $isActuallyPresenting,
                 tooltipSize: $tooltipSize,
