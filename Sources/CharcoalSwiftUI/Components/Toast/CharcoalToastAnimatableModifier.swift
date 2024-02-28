@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CharcoalToastAnimatableModifier: ViewModifier, CharcoalToastBase, CharcoalToastAnimationProtocol {
+struct CharcoalToastAnimatableModifier: ViewModifier, CharcoalToastBase {
     var text: String
 
     var maxWidth: CGFloat

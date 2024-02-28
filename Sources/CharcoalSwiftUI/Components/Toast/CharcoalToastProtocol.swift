@@ -1,9 +1,5 @@
 import SwiftUI
 
-typealias CharcoalToastProtocol = CharcoalToastAction & CharcoalToastBase
-
-typealias CharcoalToastAnimatable = CharcoalToastAnimationProtocol & CharcoalToastProtocol
-
 protocol CharcoalToastBase {
     /// The text of the toast
     var text: String { get }
@@ -23,15 +19,13 @@ protocol CharcoalToastBase {
     var borderColor: Color { get }
     /// Width of the toast border line
     var borderLineWidth: CGFloat { get }
+    /// The configuration of the toast animation
+    var animationConfiguration: CharcoalToastAnimationConfiguration { get }
 }
 
-protocol CharcoalToastAction {
+protocol CharcoalToastActionable {
     associatedtype ActionContent: View
     /// The content of the action view
     var action: ActionContent? { get }
 }
 
-protocol CharcoalToastAnimationProtocol {
-    /// The configuration of the toast animation
-    var animationConfiguration: CharcoalToastAnimationConfiguration { get }
-}
