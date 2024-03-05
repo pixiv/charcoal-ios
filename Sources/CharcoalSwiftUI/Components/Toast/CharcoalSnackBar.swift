@@ -111,14 +111,14 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalToa
                     .onChanged { gesture in
                         let translationInDirection = gesture.translation.height*screenEdge.direction
                         dragVelocity = gesture.velocity
+                        
                         isDragging = true
-                        print("isDraging \(isDragging)")
                         if (translationInDirection < 0) {
                             offset = CGSize(width: 0,
                                             height: gesture.translation.height)
                         } else {
                             // the less the faster resistance
-                            let limit: CGFloat = 100
+                            let limit: CGFloat = 60
                             let yOff = gesture.translation.height
                             let dist = sqrt(yOff*yOff)
                             let factor = 1 / (dist / limit + 1)
@@ -135,7 +135,7 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalToa
                         if offsetInDirection < -50 || movingVelocityInDirection < -100 {
                             // remove the card
                             isPresenting = false
-                            let animation = Animation.interpolatingSpring(initialVelocity: movingVelocityInDirection)
+                            let animation = Animation.interpolatingSpring(initialVelocity: dragVelocity.height)
                             withAnimation(animation) {
                                 offset = .zero
                             }
