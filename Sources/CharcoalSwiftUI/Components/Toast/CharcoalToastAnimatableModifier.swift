@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 
 struct CharcoalToastAnimatableModifier: ViewModifier, CharcoalToastBase {
     var text: String
@@ -24,6 +25,10 @@ struct CharcoalToastAnimatableModifier: ViewModifier, CharcoalToastBase {
     let animationConfiguration: CharcoalToastAnimationConfiguration
 
     let dismissAfter: TimeInterval?
+    
+    @Binding var isDragging: Bool
+    
+    @State var timer: Timer?
 
     func body(content: Content) -> some View {
         content
@@ -41,11 +46,18 @@ struct CharcoalToastAnimatableModifier: ViewModifier, CharcoalToastBase {
             })
             .onChange(of: isActuallyPresenting) { newValue in
                 if let dismissAfter = dismissAfter, newValue {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + dismissAfter) {
-                        isPresenting = false
-                    }
+                    timer = Timer.scheduledTimer(withTimeInterval: dismissAfter, repeats: false, block: { timer in
+                        if !isDragging {
+                            isPresenting = false
+                        }
+                    })
                 }
             }
+            .onChange(of: isDragging, perform: { newValue in
+                if (isDragging) {
+                    timer?.invalidate()
+                }
+            })
             .animation(animationConfiguration.animation, value: isActuallyPresenting)
             .onChange(of: isPresenting, perform: { newValue in
                 isActuallyPresenting = newValue
@@ -60,6 +72,7 @@ public extension View {
     func charcoalAnimatableToast(
         isPresenting: Binding<Bool>,
         isActuallyPresenting: Binding<Bool>,
+        isDragging: Binding<Bool> = Binding.constant(false),
         tooltipSize: Binding<CGSize>,
         cornerRadius: CGFloat,
         borderColor: Color,
@@ -69,6 +82,6 @@ public extension View {
         dismissAfter: TimeInterval? = nil,
         animationConfiguration: CharcoalToastAnimationConfiguration
     ) -> some View {
-        modifier(CharcoalToastAnimatableModifier(text: "", maxWidth: 0, isPresenting: isPresenting, cornerRadius: cornerRadius, borderColor: borderColor, borderLineWidth: borderLineWidth, screenEdge: screenEdge, screenEdgeSpacing: screenEdgeSpacing, tooltipSize: tooltipSize, isActuallyPresenting: isActuallyPresenting, animationConfiguration: animationConfiguration, dismissAfter: dismissAfter))
+        modifier(CharcoalToastAnimatableModifier(text: "", maxWidth: 0, isPresenting: isPresenting, cornerRadius: cornerRadius, borderColor: borderColor, borderLineWidth: borderLineWidth, screenEdge: screenEdge, screenEdgeSpacing: screenEdgeSpacing, tooltipSize: tooltipSize, isActuallyPresenting: isActuallyPresenting, animationConfiguration: animationConfiguration, dismissAfter: dismissAfter, isDragging: isDragging))
     }
 }

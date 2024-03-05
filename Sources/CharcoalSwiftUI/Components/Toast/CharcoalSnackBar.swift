@@ -39,6 +39,8 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalToa
     @State private var offset = CGSize.zero
     
     @State private var dragVelocity = CGSize.zero
+    
+    @State private var isDragging = false
 
     init(
         id: IDValue,
@@ -93,6 +95,7 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalToa
             .charcoalAnimatableToast(
                 isPresenting: $isPresenting,
                 isActuallyPresenting: $isActuallyPresenting,
+                isDragging: $isDragging,
                 tooltipSize: $tooltipSize,
                 cornerRadius: cornerRadius,
                 borderColor: borderColor,
@@ -108,6 +111,8 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalToa
                     .onChanged { gesture in
                         let translationInDirection = gesture.translation.height*screenEdge.direction
                         dragVelocity = gesture.velocity
+                        isDragging = true
+                        print("isDraging \(isDragging)")
                         if (translationInDirection < 0) {
                             offset = CGSize(width: 0,
                                             height: gesture.translation.height)
@@ -123,6 +128,7 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalToa
                         }
                     }
                     .onEnded { _ in
+                        isDragging = false
                         let movingVelocityInDirection = dragVelocity.height * screenEdge.direction
                         let offsetInDirection = offset.height * screenEdge.direction
                         
