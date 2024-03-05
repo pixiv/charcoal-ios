@@ -35,6 +35,10 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalToa
     @State var isActuallyPresenting: Bool = false
 
     var animationConfiguration: CharcoalToastAnimationConfiguration
+    
+    @State private var offset = CGSize.zero
+    
+    @State private var dragVelocity = CGSize.zero
 
     init(
         id: IDValue,
@@ -97,6 +101,44 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalToa
                 screenEdgeSpacing: screenEdgeSpacing,
                 dismissAfter: dismissAfter,
                 animationConfiguration: animationConfiguration
+            )
+            .offset(y: offset.height)
+            .gesture(
+                DragGesture(minimumDistance: 0)
+                    .onChanged { gesture in
+                        let translationInDirection = gesture.translation.height*screenEdge.direction
+                        dragVelocity = gesture.velocity
+                        if (translationInDirection < 0) {
+                            offset = CGSize(width: 0,
+                                            height: gesture.translation.height)
+                        } else {
+                            // the less the faster resistance
+                            let limit: CGFloat = 100
+                            let yOff = gesture.translation.height
+                            let dist = sqrt(yOff*yOff)
+                            let factor = 1 / (dist / limit + 1)
+                            
+                            offset = CGSize(width: 0,
+                                            height: gesture.translation.height * factor)
+                        }
+                    }
+                    .onEnded { _ in
+                        let movingVelocityInDirection = dragVelocity.height * screenEdge.direction
+                        let offsetInDirection = offset.height * screenEdge.direction
+                        
+                        if offsetInDirection < -50 || movingVelocityInDirection < -100 {
+                            // remove the card
+                            isPresenting = false
+                            let animation = Animation.interpolatingSpring(initialVelocity: movingVelocityInDirection)
+                            withAnimation(animation) {
+                                offset = .zero
+                            }
+                        } else {
+                            withAnimation(.bouncy) {
+                                offset = .zero
+                            }
+                        }
+                    }
             )
         }
         .frame(minWidth: 0, maxWidth: maxWidth, alignment: .center)
