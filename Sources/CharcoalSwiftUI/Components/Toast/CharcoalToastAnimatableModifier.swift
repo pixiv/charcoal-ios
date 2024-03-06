@@ -68,7 +68,7 @@ struct CharcoalToastAnimatableModifier: ViewModifier, CharcoalToastBase {
     }
 }
 
-public extension View {
+extension View {
     func charcoalAnimatableToast(
         isPresenting: Binding<Bool>,
         isActuallyPresenting: Binding<Bool>,
