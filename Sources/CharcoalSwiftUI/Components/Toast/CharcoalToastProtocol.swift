@@ -29,3 +29,10 @@ protocol CharcoalToastActionable {
     var action: ActionContent? { get }
 }
 
+protocol CharcoalToastDraggable {
+    var offset: CGSize {get set}
+    
+    var dragVelocity: CGSize {get set}
+    
+    var isDragging: Bool {get set}
+}

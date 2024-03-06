@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalToastBase, CharcoalToastActionable {
+struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalToastBase, CharcoalToastActionable, CharcoalToastDraggable {
     typealias IDValue = UUID
 
     let id: IDValue
@@ -36,11 +36,11 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalToa
 
     var animationConfiguration: CharcoalToastAnimationConfiguration
     
-    @State private var offset = CGSize.zero
+    @State internal var offset = CGSize.zero
     
-    @State private var dragVelocity = CGSize.zero
+    @State internal var dragVelocity = CGSize.zero
     
-    @State private var isDragging = false
+    @State internal var isDragging = false
 
     init(
         id: IDValue,
@@ -276,6 +276,7 @@ private struct SnackBarsPreviewView: View {
             .charcoalSnackBar(
                 isPresenting: $isPresenting,
                 screenEdge: .top,
+                screenEdgeSpacing: 96,
                 text: "ブックマークしました",
                 thumbnailImage: Image(uiImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64)),
                 action: {
