@@ -66,7 +66,7 @@ public struct ToastsView: View {
                         }
                     }
                 )
-                
+
                 VStack(alignment: .leading) {
                     Button {
                         isPresenting4.toggle()

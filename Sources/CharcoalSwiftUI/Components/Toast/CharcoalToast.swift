@@ -59,7 +59,7 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalToastB
         self.appearance = appearance
         self.screenEdge = screenEdge
         self.animationConfiguration = animationConfiguration
-        self.borderColor = Color(CharcoalAsset.ColorPaletteGenerated.background1.color)
+        borderColor = Color(CharcoalAsset.ColorPaletteGenerated.background1.color)
     }
 
     var body: some View {

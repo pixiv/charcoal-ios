@@ -1,5 +1,5 @@
-import SwiftUI
 import Combine
+import SwiftUI
 
 struct CharcoalToastAnimatableModifier: ViewModifier, CharcoalToastBase {
     var text: String
@@ -25,9 +25,9 @@ struct CharcoalToastAnimatableModifier: ViewModifier, CharcoalToastBase {
     let animationConfiguration: CharcoalToastAnimationConfiguration
 
     let dismissAfter: TimeInterval?
-    
+
     @Binding var isDragging: Bool
-    
+
     @State var timer: Timer?
 
     func body(content: Content) -> some View {
@@ -46,15 +46,15 @@ struct CharcoalToastAnimatableModifier: ViewModifier, CharcoalToastBase {
             })
             .onChange(of: isActuallyPresenting) { newValue in
                 if let dismissAfter = dismissAfter, newValue {
-                    timer = Timer.scheduledTimer(withTimeInterval: dismissAfter, repeats: false, block: { timer in
+                    timer = Timer.scheduledTimer(withTimeInterval: dismissAfter, repeats: false, block: { _ in
                         if !isDragging {
                             isPresenting = false
                         }
                     })
                 }
             }
-            .onChange(of: isDragging, perform: { newValue in
-                if (isDragging) {
+            .onChange(of: isDragging, perform: { _ in
+                if isDragging {
                     timer?.invalidate()
                 }
             })
