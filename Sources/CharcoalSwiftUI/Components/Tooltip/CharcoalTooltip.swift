@@ -120,7 +120,7 @@ struct CharcoalTooltip: CharcoalPopupProtocol {
                                     ),
                                     arrowHeight: arrowHeight,
                                     cornerRadius: cornerRadius,
-                                    arrowWidth: 5
+                                    arrowWidth: 7
                                 )
                                 .fill(Color(CharcoalAsset.ColorPaletteGenerated.surface8.color))
                                 .preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
