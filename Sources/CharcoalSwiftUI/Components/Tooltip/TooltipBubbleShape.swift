@@ -83,7 +83,7 @@ private struct BubbleShapePreview: View {
             )
             .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
             .frame(width: 240, height: 100)
-        }
+        }.ignoresSafeArea()
     }
 }
 
