@@ -276,13 +276,7 @@ private struct BalloonsPreviewView: View {
                         Image(charocalIcon: .question24)
                     }
                     .charcoalBalloon(isPresenting: $isPresenting, 
-                                     text: "Hello World") {
-                        Button(action: {
-                            
-                        }, label: {
-                            Text("Button")
-                        })
-                    }
+                                     text: "作品中の特定単語について")
                     .offset(CGSize(width: 20.0, height: 80.0))
 
                     Button {
@@ -291,7 +285,14 @@ private struct BalloonsPreviewView: View {
                         Text("Help")
                     }
                     .charcoalDefaultButton()
-                    .charcoalBalloon(isPresenting: $isPresenting2, text: "Hello World This is a tooltip")
+                    .charcoalBalloon(isPresenting: $isPresenting2, text: "作品中の特定単語について、単語変換をして読めるようになりました") {
+                        Button(action: {
+                            
+                        }, label: {
+                            Text("詳しく")
+                        })
+                    }
+                    
                     .offset(CGSize(width: 100.0, height: 150.0))
 
                     Button {
