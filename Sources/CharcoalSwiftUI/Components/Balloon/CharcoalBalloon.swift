@@ -1,6 +1,7 @@
 import SwiftUI
 
-struct CharcoalBalloon: CharcoalPopupProtocol {
+struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToastActionable {
+    
     typealias IDValue = UUID
 
     /// The unique ID of the overlay.
@@ -15,7 +16,7 @@ struct CharcoalBalloon: CharcoalPopupProtocol {
     let maxWidth: CGFloat
 
     /// The corner radius of the tooltip
-    let cornerRadius: CGFloat = 8
+    let cornerRadius: CGFloat = 16
 
     /// The height of the arrow
     let arrowHeight: CGFloat = 4
@@ -36,6 +37,8 @@ struct CharcoalBalloon: CharcoalPopupProtocol {
 
     /// The overlay will be dismissed after a certain time interval.
     let dismissAfter: TimeInterval?
+    
+    let action: ActionContent?
 
     var offset: CGSize {
         CGSize(width: targetFrame.midX - (tooltipSize.width / 2.0), height: targetFrame.maxY)
@@ -45,10 +48,11 @@ struct CharcoalBalloon: CharcoalPopupProtocol {
         id: IDValue,
         text: String,
         targetFrame: CGRect,
-        maxWidth: CGFloat = 184,
+        maxWidth: CGFloat = 240,
         isPresenting: Binding<Bool>,
         dismissOnTouchOutside: Bool = false,
-        dismissAfter: TimeInterval? = nil
+        dismissAfter: TimeInterval? = nil,
+        @ViewBuilder action: () -> ActionContent?
     ) {
         self.id = id
         self.text = text
@@ -57,6 +61,7 @@ struct CharcoalBalloon: CharcoalPopupProtocol {
         _isPresenting = isPresenting
         self.dismissOnTouchOutside = dismissOnTouchOutside
         self.dismissAfter = dismissAfter
+        self.action = action()
     }
 
     func tooltipX(canvasGeometrySize: CGSize) -> CGFloat {
@@ -103,28 +108,39 @@ struct CharcoalBalloon: CharcoalPopupProtocol {
                 }
             if isPresenting {
                 GeometryReader(content: { canvasGeometry in
-                    VStack {
-                        HStack(alignment: .firstTextBaseline, spacing: 5) {
-                            Text(text)
-                                .charcoalTypography14Bold()
-                                .multilineTextAlignment(.leading)
-                                .fixedSize(horizontal: false, vertical: true)
-                                .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
+                    ZStack {
+                        VStack {
+                            HStack(alignment: .firstTextBaseline, spacing: 5) {
+                                Text(text)
+                                    .charcoalTypography14Bold()
+                                    .multilineTextAlignment(.leading)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
+                                
+                                Image(charocalIcon: .remove16)
+                                    .renderingMode(.template)
+                                    .foregroundColor(Color.white)
+                                    .frame(width: 16+6)
+                                    .background(Circle()
+                                        .fill(Color.black.opacity(0.35))
+                                        .frame(width: 16+6, height: 16+6))
+                                    .overlay(
+                                        EmptyView().frame(width: 45, height: 45)
+                                            .contentShape(Rectangle()).onTapGesture {
+                                                isPresenting = false
+                                            })
+                            }
                             
-                            Image(charocalIcon: .remove16)
-                                .renderingMode(.template)
-                                .foregroundColor(Color.white)
-                                .frame(width: 16+6)
-                                .background(Circle()
-                                    .fill(Color.black.opacity(0.35))
-                                    .frame(width: 16+6, height: 16+6))
-                                .overlay(
-                                    EmptyView().frame(width: 45, height: 45)
-                                        .contentShape(Rectangle()).onTapGesture {
-                                            isPresenting = false
-                                        })
+                            if let action = action {
+                                action
+                                    .charcoalTypography14Bold()
+                                    .padding(EdgeInsets(top: 3, leading: 16, bottom: 3, trailing: 16))
+                                    .background(Capsule()
+                                        .fill(Color.black.opacity(0.35)))
+                                    .foregroundColor(Color.white)
+                            }
                         }
-                        .padding(EdgeInsets(top: 7, leading: 9, bottom: 7, trailing: 9))
+                        .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
                         .background(GeometryReader(content: { tooltipGeometry in
                             let tooltipOrigin = tooltipGeometry.frame(in: .global).origin
                             TooltipBubbleShape(
@@ -170,7 +186,7 @@ struct CharcoalBalloon: CharcoalPopupProtocol {
 }
 
 
-struct CharcoalBalloonModifier: ViewModifier {
+struct CharcoalBalloonModifier<ActionContent: View>: ViewModifier {
     /// Presentation `Binding<Bool>`
     @Binding var isPresenting: Bool
 
@@ -182,6 +198,8 @@ struct CharcoalBalloonModifier: ViewModifier {
 
     /// The overlay will be dismissed after a certain time interval.
     let dismissAfter: TimeInterval?
+    
+    @ViewBuilder let action: () -> ActionContent?
 
     func body(content: Content) -> some View {
         content
@@ -194,7 +212,8 @@ struct CharcoalBalloonModifier: ViewModifier {
                             text: text,
                             targetFrame: proxy.frame(in: .global),
                             isPresenting: $isPresenting,
-                            dismissAfter: dismissAfter
+                            dismissAfter: dismissAfter,
+                            action: action
                         ),
                         viewID: viewID
                     ))
@@ -215,12 +234,13 @@ public extension View {
      Text("Hello").charcoalTooltip(isPresenting: $isPresenting, text: "This is a tooltip")
      ```
      */
-    func charcoalBalloon(
+    func charcoalBalloon<Content: View>(
         isPresenting: Binding<Bool>,
         text: String,
-        dismissAfter: TimeInterval? = nil
+        dismissAfter: TimeInterval? = nil,
+        @ViewBuilder action: @escaping () -> Content = { EmptyView() }
     ) -> some View {
-        return modifier(CharcoalBalloonModifier(isPresenting: isPresenting, text: text, dismissAfter: dismissAfter))
+        return modifier(CharcoalBalloonModifier(isPresenting: isPresenting, text: text, dismissAfter: dismissAfter, action: action))
     }
 }
 
@@ -255,7 +275,14 @@ private struct BalloonsPreviewView: View {
                     } label: {
                         Image(charocalIcon: .question24)
                     }
-                    .charcoalBalloon(isPresenting: $isPresenting, text: "Hello World")
+                    .charcoalBalloon(isPresenting: $isPresenting, 
+                                     text: "Hello World") {
+                        Button(action: {
+                            
+                        }, label: {
+                            Text("Button")
+                        })
+                    }
                     .offset(CGSize(width: 20.0, height: 80.0))
 
                     Button {
