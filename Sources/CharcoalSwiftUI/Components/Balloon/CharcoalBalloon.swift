@@ -157,6 +157,7 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
                             .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
                         }))
                         .overlay(GeometryReader(content: { tooltipGeometry in
+                            // GeometryReader size is zero in background, so we use overlay instead
                             Color.clear.preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
                         }))
                         .offset(CGSize(

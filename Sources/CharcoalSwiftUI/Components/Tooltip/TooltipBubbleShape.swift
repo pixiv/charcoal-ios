@@ -11,9 +11,10 @@ struct TooltipBubbleShape: Shape {
     let arrowWidth: CGFloat
 
     func path(in rect: CGRect) -> Path {
+        var mordenAPI = false
         var arrowY = rect.minY - arrowHeight
-        var arrowBaseY = rect.minY + 1
-
+        var arrowBaseY = rect.minY
+        
         // The minimum and maximum x position of the arrow
         let minX = rect.minX + cornerRadius + arrowWidth
         let maxX = rect.maxX - cornerRadius - arrowWidth
@@ -28,28 +29,55 @@ struct TooltipBubbleShape: Shape {
         // Check if the arrow should be on top of the tooltip
         if targetPoint.y > rect.minY {
             arrowY = rect.maxY + arrowHeight
-            arrowBaseY = rect.maxY - 1
+            arrowBaseY = rect.maxY
             arrowMaxX = arrowMidX - arrowWidth
             arrowMinX = arrowMidX + arrowWidth
         }
-
-        var bubblePath = RoundedRectangle(cornerRadius: cornerRadius).path(in: rect)
-        let arrowPath = Path { path in
-            path.move(to: CGPoint(x: arrowMaxX, y: arrowBaseY))
-            path.addLine(to: CGPoint(x: arrowMidX, y: arrowY))
-            path.addLine(to: CGPoint(x: arrowMinX, y: arrowBaseY))
-//            path.closeSubpath()
-        }
         
-        var combinedPath = bubblePath.cgPath
-        
-        if #available(iOS 16.0, *) {
-            combinedPath = bubblePath.cgPath.union(arrowPath.cgPath)
-        } else {
-            // Fallback on earlier versions
+        // Fallback on earlier versions
+        // Draw the bubble with the arrow
+        let width = rect.width
+        let height = rect.height
+        let path = Path { p in
+            p.move(to: .init(x: rect.minX + cornerRadius, y: rect.minY))
+            if arrowBaseY == rect.minY {
+                p.addLine(to: CGPoint(x: arrowMinX, y: arrowBaseY))
+                p.addLine(to: CGPoint(x: arrowMidX, y: arrowY))
+                p.addLine(to: CGPoint(x: arrowMaxX, y: arrowBaseY))
+            }
+            p.addLine(to: .init(x: rect.maxX - cornerRadius, y: rect.minY))
+            p.addArc(
+                tangent1End: .init(x: rect.maxX, y: rect.minY),
+                tangent2End: .init(x: rect.maxX, y: rect.minY + cornerRadius),
+                radius: cornerRadius
+            )
+            p.addLine(to: .init(x: rect.maxX, y: rect.maxY - cornerRadius))
+            p.addArc(
+                tangent1End: .init(x: rect.maxX, y: rect.maxY),
+                tangent2End: .init(x: rect.maxX - cornerRadius, y: rect.maxY),
+                radius: cornerRadius
+            )
+            if arrowBaseY == rect.maxY {
+                p.addLine(to: CGPoint(x: arrowMinX, y: arrowBaseY))
+                p.addLine(to: CGPoint(x: arrowMidX, y: arrowY))
+                p.addLine(to: CGPoint(x: arrowMaxX, y: arrowBaseY))
+            }
+            p.addLine(to: .init(x: rect.minX + cornerRadius, y: rect.maxY))
+            p.addArc(
+                tangent1End: .init(x: rect.minX, y: rect.maxY),
+                tangent2End: .init(x: rect.minX, y: rect.maxY - cornerRadius),
+                radius: cornerRadius
+            )
+            p.addLine(to: .init(x: rect.minX, y: rect.minY + cornerRadius))
+            p.addArc(
+                tangent1End: .init(x: rect.minX, y: rect.minY),
+                tangent2End: .init(x: rect.minX + cornerRadius, y: rect.minY),
+                radius: cornerRadius
+            )
+            p.closeSubpath()
         }
 
-        return Path(combinedPath)
+        return path
     }
 }
 
@@ -71,18 +99,33 @@ private struct BubbleShapePreview: View {
     var body: some View {
         ZStack {
             Color.gray
-            TooltipBubbleShape(
-                targetPoint:
-                CGPoint(
-                    x: 0,
-                    y: 0
-                ),
-                arrowHeight: 4,
-                cornerRadius: 16,
-                arrowWidth: 8
-            )
-            .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
-            .frame(width: 240, height: 100)
+            VStack {
+                TooltipBubbleShape(
+                    targetPoint:
+                    CGPoint(
+                        x: 0,
+                        y: 0
+                    ),
+                    arrowHeight: 4,
+                    cornerRadius: 16,
+                    arrowWidth: 8
+                )
+                .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
+                .frame(width: 240, height: 100)
+                
+                TooltipBubbleShape(
+                    targetPoint:
+                    CGPoint(
+                        x: 200,
+                        y: 200
+                    ),
+                    arrowHeight: 4,
+                    cornerRadius: 16,
+                    arrowWidth: 8
+                )
+                .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
+                .frame(width: 240, height: 100)
+            }
         }.ignoresSafeArea()
     }
 }
