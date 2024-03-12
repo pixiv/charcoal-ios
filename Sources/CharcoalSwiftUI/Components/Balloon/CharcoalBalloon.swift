@@ -74,6 +74,7 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
         } else if edgeLeft < spacingToScreen {
             edgeLeft = spacingToScreen
         }
+        
 
         return edgeLeft
     }
@@ -154,13 +155,16 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
                                 arrowWidth: 10
                             )
                             .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
-                            .preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
+                        }))
+                        .overlay(GeometryReader(content: { tooltipGeometry in
+                            Color.clear.preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
                         }))
                         .offset(CGSize(
                             width: tooltipX(canvasGeometrySize: canvasGeometry.size),
                             height: tooltipY(canvasGeometrySize: canvasGeometry.size)
                         ))
                         .onPreferenceChange(TooltipSizeKey.self, perform: { value in
+                            print(value)
                             tooltipSize = value
                         })
                         .animation(.none, value: tooltipSize)
