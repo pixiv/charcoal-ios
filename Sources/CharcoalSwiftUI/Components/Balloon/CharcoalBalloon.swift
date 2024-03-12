@@ -151,9 +151,9 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
                                 ),
                                 arrowHeight: arrowHeight,
                                 cornerRadius: cornerRadius,
-                                arrowWidth: 8
+                                arrowWidth: 10
                             )
-                            .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color))
+                            .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
                             .preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
                         }))
                         .offset(CGSize(
