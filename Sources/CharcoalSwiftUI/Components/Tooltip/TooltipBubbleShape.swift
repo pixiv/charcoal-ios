@@ -8,7 +8,7 @@ struct TooltipBubbleShape: Shape {
     /// The corner radius of the tooltip
     let cornerRadius: CGFloat
     /// The width of the arrow
-    let arrowWidth: CGFloat = 5
+    let arrowWidth: CGFloat
 
     func path(in rect: CGRect) -> Path {
         var arrowY = rect.minY - arrowHeight
