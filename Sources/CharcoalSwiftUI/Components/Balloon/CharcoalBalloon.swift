@@ -152,7 +152,7 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
                                 ),
                                 arrowHeight: arrowHeight,
                                 cornerRadius: cornerRadius,
-                                arrowWidth: 10
+                                arrowWidth: 9
                             )
                             .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
                         }))
