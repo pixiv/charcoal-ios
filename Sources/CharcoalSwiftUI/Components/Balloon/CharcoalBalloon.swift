@@ -152,7 +152,7 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
                                 ),
                                 arrowHeight: arrowHeight,
                                 cornerRadius: cornerRadius,
-                                arrowWidth: 9
+                                arrowWidth: 7
                             )
                             .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
                         }))
@@ -165,7 +165,6 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
                             height: tooltipY(canvasGeometrySize: canvasGeometry.size)
                         ))
                         .onPreferenceChange(TooltipSizeKey.self, perform: { value in
-                            print(value)
                             tooltipSize = value
                         })
                         .animation(.none, value: tooltipSize)
