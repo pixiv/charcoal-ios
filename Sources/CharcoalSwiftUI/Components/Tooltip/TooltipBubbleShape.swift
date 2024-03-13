@@ -11,36 +11,36 @@ struct TooltipBubbleShape: Shape {
     let arrowWidth: CGFloat
 
     func path(in rect: CGRect) -> Path {
-        var mordenAPI = false
-        var arrowY = rect.minY - arrowHeight
-        var arrowBaseY = rect.minY
         
-        // The minimum and maximum x position of the arrow
-        let minX = rect.minX + cornerRadius + arrowWidth
-        let maxX = rect.maxX - cornerRadius - arrowWidth
-
-        // The x position of the arrow
-        let arrowMidX = min(max(minX, targetPoint.x), maxX)
-
-        var arrowMaxX = arrowMidX + arrowWidth
-
-        var arrowMinX = arrowMidX - arrowWidth
-
-        // Check if the arrow should be on top of the tooltip
-        if targetPoint.y > rect.minY {
-            arrowY = rect.maxY + arrowHeight
-            arrowBaseY = rect.maxY
-            arrowMaxX = arrowMidX - arrowWidth
-            arrowMinX = arrowMidX + arrowWidth
+        var layoutDirection: CharcoalTooltipLayoutPriority
+        
+        if targetPoint.x < rect.minX && targetPoint.y > rect.minY {
+            layoutDirection = .left
+        } else if targetPoint.x > rect.maxX && targetPoint.y > rect.minY {
+            layoutDirection = .right
+        } else if targetPoint.y < rect.minY {
+            layoutDirection = .bottom
+        } else {
+            layoutDirection = .top
         }
         
-        // Fallback on earlier versions
-        // Draw the bubble with the arrow
-        let width = rect.width
-        let height = rect.height
         let path = Path { p in
             p.move(to: .init(x: rect.minX + cornerRadius, y: rect.minY))
-            if arrowBaseY == rect.minY {
+            if layoutDirection == .bottom {
+                let arrowY = rect.minY - arrowHeight
+                let arrowBaseY = rect.minY
+                
+                // The minimum and maximum x position of the arrow
+                let minX = rect.minX + cornerRadius + arrowWidth
+                let maxX = rect.maxX - cornerRadius - arrowWidth
+
+                // The x position of the arrow
+                let arrowMidX = min(max(minX, targetPoint.x), maxX)
+
+                let arrowMaxX = arrowMidX + arrowWidth
+
+                let arrowMinX = arrowMidX - arrowWidth
+
                 p.addLine(to: CGPoint(x: arrowMinX, y: arrowBaseY))
                 p.addLine(to: CGPoint(x: arrowMidX, y: arrowY))
                 p.addLine(to: CGPoint(x: arrowMaxX, y: arrowBaseY))
@@ -51,13 +51,45 @@ struct TooltipBubbleShape: Shape {
                 tangent2End: .init(x: rect.maxX, y: rect.minY + cornerRadius),
                 radius: cornerRadius
             )
+            if layoutDirection == .right {
+                let arrowX = rect.maxX + arrowHeight
+                let arrowBaseX = rect.maxX
+                
+                // The minimum and maximum x position of the arrow
+                let minY = rect.minY + cornerRadius + arrowWidth
+                let maxY = rect.maxY - cornerRadius - arrowWidth
+
+                // The x position of the arrow
+                let arrowMidY = min(max(minY, targetPoint.y), maxY)
+
+                let arrowMaxY = arrowMidY + arrowWidth
+
+                let arrowMinY = arrowMidY - arrowWidth
+
+                p.addLine(to: CGPoint(x: arrowBaseX, y: arrowMinY))
+                p.addLine(to: CGPoint(x: arrowX, y: arrowMidY))
+                p.addLine(to: CGPoint(x: arrowBaseX, y: arrowMaxY))
+            }
             p.addLine(to: .init(x: rect.maxX, y: rect.maxY - cornerRadius))
             p.addArc(
                 tangent1End: .init(x: rect.maxX, y: rect.maxY),
                 tangent2End: .init(x: rect.maxX - cornerRadius, y: rect.maxY),
                 radius: cornerRadius
             )
-            if arrowBaseY == rect.maxY {
+            if layoutDirection == .top {
+                let arrowY = rect.maxY + arrowHeight
+                let arrowBaseY = rect.maxY
+                
+                // The minimum and maximum x position of the arrow
+                let minX = rect.minX + cornerRadius + arrowWidth
+                let maxX = rect.maxX - cornerRadius - arrowWidth
+
+                // The x position of the arrow
+                let arrowMidX = min(max(minX, targetPoint.x), maxX)
+                
+                
+                let arrowMaxX = arrowMidX - arrowWidth
+                let arrowMinX = arrowMidX + arrowWidth
                 p.addLine(to: CGPoint(x: arrowMinX, y: arrowBaseY))
                 p.addLine(to: CGPoint(x: arrowMidX, y: arrowY))
                 p.addLine(to: CGPoint(x: arrowMaxX, y: arrowBaseY))
@@ -68,6 +100,25 @@ struct TooltipBubbleShape: Shape {
                 tangent2End: .init(x: rect.minX, y: rect.maxY - cornerRadius),
                 radius: cornerRadius
             )
+            if layoutDirection == .left {
+                let arrowX = rect.minX - arrowHeight
+                let arrowBaseX = rect.minX
+                
+                // The minimum and maximum x position of the arrow
+                let minY = rect.minY + cornerRadius + arrowWidth
+                let maxY = rect.maxY - cornerRadius - arrowWidth
+
+                // The x position of the arrow
+                let arrowMidY = min(max(minY, targetPoint.y), maxY)
+
+                let arrowMaxY = arrowMidY + arrowWidth
+
+                let arrowMinY = arrowMidY - arrowWidth
+
+                p.addLine(to: CGPoint(x: arrowBaseX, y: arrowMaxY))
+                p.addLine(to: CGPoint(x: arrowX, y: arrowMidY))
+                p.addLine(to: CGPoint(x: arrowBaseX, y: arrowMinY))
+            }
             p.addLine(to: .init(x: rect.minX, y: rect.minY + cornerRadius))
             p.addArc(
                 tangent1End: .init(x: rect.minX, y: rect.minY),
@@ -104,7 +155,7 @@ private struct BubbleShapePreview: View {
                     targetPoint:
                     CGPoint(
                         x: 0,
-                        y: 0
+                        y: -10
                     ),
                     arrowHeight: 4,
                     cornerRadius: 16,
@@ -118,6 +169,34 @@ private struct BubbleShapePreview: View {
                     CGPoint(
                         x: 200,
                         y: 200
+                    ),
+                    arrowHeight: 4,
+                    cornerRadius: 16,
+                    arrowWidth: 8
+                )
+                .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
+                .frame(width: 240, height: 100)
+                
+                
+                TooltipBubbleShape(
+                    targetPoint:
+                    CGPoint(
+                        x: 300,
+                        y: 50
+                    ),
+                    arrowHeight: 4,
+                    cornerRadius: 16,
+                    arrowWidth: 8
+                )
+                .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
+                .frame(width: 240, height: 100)
+                
+                
+                TooltipBubbleShape(
+                    targetPoint:
+                    CGPoint(
+                        x: -10,
+                        y: 50
                     ),
                     arrowHeight: 4,
                     cornerRadius: 16,

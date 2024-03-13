@@ -1,5 +1,23 @@
 import SwiftUI
 
+enum CharcoalTooltipLayoutPriority: Codable {
+    case bottom
+    case top
+    case right
+    case left
+}
+
+struct LayoutPriority {
+    var priority: CharcoalTooltipLayoutPriority
+    var spaceArea: CGSize
+}
+
+extension CGSize {
+    var area: CGFloat {
+        return width * height
+    }
+}
+
 struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToastActionable {
     
     typealias IDValue = UUID
@@ -60,6 +78,54 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
         self.dismissOnTouchOutside = dismissOnTouchOutside
         self.dismissAfter = dismissAfter
         self.action = action()
+    }
+    
+    func intersectionArea(rectA: (x1: CGFloat, y1: CGFloat, x2: CGFloat, y2: CGFloat),
+                          rectB: (x1: CGFloat, y1: CGFloat, x2: CGFloat, y2: CGFloat)) -> CGFloat {
+        let xOverlap = max(0, min(rectA.x2, rectB.x2) - max(rectA.x1, rectB.x1))
+        let yOverlap = max(0, min(rectA.y2, rectB.y2) - max(rectA.y1, rectB.y1))
+        
+        return xOverlap * yOverlap // 面积
+    }
+    
+    func layoutTooltip(canvasGeometrySize: CGSize) -> CGSize {
+        // Check avaliable area for each direction, compare area size with tooltip size.
+        // The priorty is Bottom > Top > Right > Left
+        var priorities: [LayoutPriority] = []
+        
+        // Calculate layout it by sides
+        let rightWidth = canvasGeometrySize.width - targetFrame.maxX - spacingToScreen - arrowHeight
+        let rightHeight = canvasGeometrySize.height - targetFrame.height
+        priorities.append(LayoutPriority(priority: .right, spaceArea: CGSize(width: rightWidth, height: rightHeight)))
+        
+        let leftWidth = targetFrame.minX - spacingToScreen - arrowHeight
+        let leftHeight = canvasGeometrySize.height - targetFrame.height
+        priorities.append(LayoutPriority(priority: .left, spaceArea: CGSize(width: leftWidth, height: leftHeight)))
+        
+        // Calculate layout it by top and bottom
+        let bottomHeight = canvasGeometrySize.height - targetFrame.maxY - spacingToScreen - spacingToTarget - arrowHeight
+        let buttonWidth = canvasGeometrySize.width - spacingToScreen * 2
+        priorities.append(LayoutPriority(priority: .bottom, spaceArea: CGSize(width: buttonWidth, height: bottomHeight)))
+        
+        let topHeight = targetFrame.minY - spacingToScreen - arrowHeight - spacingToTarget
+        let topWidth = canvasGeometrySize.width - spacingToScreen * 2
+        priorities.append(LayoutPriority(priority: .top, spaceArea: CGSize(width: topWidth, height: topHeight)))
+        
+        
+        // Get the ideal layout plan
+        let layoutPlan = priorities.first(where: { $0.spaceArea.width >= tooltipSize.width && $0.spaceArea.height >= tooltipSize.height }) ?? priorities.sorted(by: { intersectionArea(rectA: (x1: 0, y1: 0, x2: $0.spaceArea.width, y2: $0.spaceArea.height), rectB: (x1: 0, y1: 0, x2: tooltipSize.width, y2: tooltipSize.height)) > intersectionArea(rectA: (x1: 0, y1: 0, x2: $1.spaceArea.width, y2: $1.spaceArea.height), rectB: (x1: 0, y1: 0, x2: tooltipSize.width, y2: tooltipSize.height)) }).first!
+        
+        
+        switch layoutPlan.priority {
+        case .bottom:
+            return CGSize(width: tooltipX(canvasGeometrySize: canvasGeometrySize), height: targetFrame.maxY + spacingToTarget + arrowHeight)
+        case .top:
+            return CGSize(width: tooltipX(canvasGeometrySize: canvasGeometrySize), height: targetFrame.minY - spacingToTarget - tooltipSize.height - arrowHeight)
+        case .right:
+            return CGSize(width: targetFrame.maxX + spacingToTarget + arrowHeight, height: targetFrame.midY - tooltipSize.height / 2.0)
+        case .left:
+            return CGSize(width: targetFrame.minX - tooltipSize.width - spacingToTarget - arrowHeight, height: targetFrame.midY - tooltipSize.height / 2.0)
+        }
     }
 
     func tooltipX(canvasGeometrySize: CGSize) -> CGFloat {
@@ -146,7 +212,7 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
                                 targetPoint:
                                 CGPoint(
                                     x: targetFrame.midX - tooltipOrigin.x,
-                                    y: targetFrame.maxY - tooltipOrigin.y
+                                    y: targetFrame.midY - tooltipOrigin.y
                                 ),
                                 arrowHeight: arrowHeight,
                                 cornerRadius: cornerRadius,
@@ -158,10 +224,7 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
                             // GeometryReader size is zero in background, so we use overlay instead
                             Color.clear.preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
                         }))
-                        .offset(CGSize(
-                            width: tooltipX(canvasGeometrySize: canvasGeometry.size),
-                            height: tooltipY(canvasGeometrySize: canvasGeometry.size)
-                        ))
+                        .offset(layoutTooltip(canvasGeometrySize: canvasGeometry.size))
                         .onPreferenceChange(TooltipSizeKey.self, perform: { value in
                             tooltipSize = value
                         })
@@ -265,22 +328,22 @@ private struct BalloonsPreviewView: View {
             ScrollView {
                 ZStack(alignment: .topLeading) {
                     Color.clear
-                    VStack {
-                        Text(textOfLabel)
-
-                        Button {
-                            textOfLabel = ["Changed", "Hello"].randomElement()!
-                        } label: {
-                            Text("Change Label")
-                        }
-                    }
+//                    VStack {
+//                        Text(textOfLabel)
+//
+//                        Button {
+//                            textOfLabel = ["Changed", "Hello"].randomElement()!
+//                        } label: {
+//                            Text("Change Label")
+//                        }
+//                    }
 
                     Button {
                         isPresenting.toggle()
                     } label: {
                         Image(charocalIcon: .question24)
                     }
-                    .charcoalBalloon(isPresenting: $isPresenting, 
+                    .charcoalBalloon(isPresenting: $isPresenting,
                                      text: "作品中の特定単語について")
                     .offset(CGSize(width: 20.0, height: 80.0))
 
@@ -340,7 +403,6 @@ private struct BalloonsPreviewView: View {
                 }
             }
         })
-        .ignoresSafeArea()
         .charcoalOverlayContainer()
     }
 }
