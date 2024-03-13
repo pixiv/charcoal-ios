@@ -39,6 +39,8 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
     let dismissAfter: TimeInterval?
     
     let action: ActionContent?
+    
+    @State var timer: Timer?
 
     init(
         id: IDValue,
@@ -170,10 +172,13 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
                 })
                 .onAppear {
                     if let dismissAfter = dismissAfter {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + dismissAfter) {
+                        timer = Timer.scheduledTimer(withTimeInterval: dismissAfter, repeats: false, block: { _ in
                             isPresenting = false
-                        }
+                        })
                     }
+                }
+                .onDisappear {
+                    timer?.invalidate()
                 }
             }
         }
