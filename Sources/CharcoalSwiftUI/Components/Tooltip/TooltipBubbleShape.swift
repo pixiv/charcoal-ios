@@ -12,21 +12,21 @@ struct TooltipBubbleShape: Shape {
 
     func path(in rect: CGRect) -> Path {
         
-        var layoutDirection: CharcoalTooltipLayoutPriority
+        var pointPosition: CharcoalTooltipLayoutPriority
         
         if targetPoint.x < rect.minX && targetPoint.y > rect.minY {
-            layoutDirection = .left
+            pointPosition = .left
         } else if targetPoint.x > rect.maxX && targetPoint.y > rect.minY {
-            layoutDirection = .right
+            pointPosition = .right
         } else if targetPoint.y < rect.minY {
-            layoutDirection = .bottom
+            pointPosition = .top
         } else {
-            layoutDirection = .top
+            pointPosition = .bottom
         }
         
         let path = Path { p in
             p.move(to: .init(x: rect.minX + cornerRadius, y: rect.minY))
-            if layoutDirection == .bottom {
+            if pointPosition == .top {
                 let arrowY = rect.minY - arrowHeight
                 let arrowBaseY = rect.minY
                 
@@ -51,7 +51,7 @@ struct TooltipBubbleShape: Shape {
                 tangent2End: .init(x: rect.maxX, y: rect.minY + cornerRadius),
                 radius: cornerRadius
             )
-            if layoutDirection == .right {
+            if pointPosition == .right {
                 let arrowX = rect.maxX + arrowHeight
                 let arrowBaseX = rect.maxX
                 
@@ -76,7 +76,7 @@ struct TooltipBubbleShape: Shape {
                 tangent2End: .init(x: rect.maxX - cornerRadius, y: rect.maxY),
                 radius: cornerRadius
             )
-            if layoutDirection == .top {
+            if pointPosition == .bottom {
                 let arrowY = rect.maxY + arrowHeight
                 let arrowBaseY = rect.maxY
                 
@@ -100,7 +100,7 @@ struct TooltipBubbleShape: Shape {
                 tangent2End: .init(x: rect.minX, y: rect.maxY - cornerRadius),
                 radius: cornerRadius
             )
-            if layoutDirection == .left {
+            if pointPosition == .left {
                 let arrowX = rect.minX - arrowHeight
                 let arrowBaseX = rect.minX
                 
