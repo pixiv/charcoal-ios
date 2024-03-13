@@ -256,8 +256,10 @@ private struct BalloonsPreviewView: View {
 
     var body: some View {
         GeometryReader(content: { geometry in
+            Color.gray.opacity(0.1)
             ScrollView {
                 ZStack(alignment: .topLeading) {
+                    Color.clear
                     VStack {
                         Text(textOfLabel)
 
@@ -333,6 +335,7 @@ private struct BalloonsPreviewView: View {
                 }
             }
         })
+        .ignoresSafeArea()
         .charcoalOverlayContainer()
     }
 }
