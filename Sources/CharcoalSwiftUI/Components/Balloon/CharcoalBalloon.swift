@@ -22,7 +22,7 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
     let arrowHeight: CGFloat = 4
 
     /// The spacing between the tooltip and the target view
-    let spacingToTarget: CGFloat = 3.5
+    let spacingToTarget: CGFloat = 4
 
     /// The spacing between the tooltip and the screen edge
     let spacingToScreen: CGFloat = 16
@@ -39,10 +39,6 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
     let dismissAfter: TimeInterval?
     
     let action: ActionContent?
-
-    var offset: CGSize {
-        CGSize(width: targetFrame.midX - (tooltipSize.width / 2.0), height: targetFrame.maxY)
-    }
 
     init(
         id: IDValue,
@@ -262,8 +258,6 @@ private struct BalloonsPreviewView: View {
         GeometryReader(content: { geometry in
             ScrollView {
                 ZStack(alignment: .topLeading) {
-                    Color.clear
-
                     VStack {
                         Text(textOfLabel)
 

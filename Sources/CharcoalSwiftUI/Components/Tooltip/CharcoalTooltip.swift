@@ -37,10 +37,6 @@ struct CharcoalTooltip: CharcoalPopupProtocol {
     /// The overlay will be dismissed after a certain time interval.
     let dismissAfter: TimeInterval?
 
-    var offset: CGSize {
-        CGSize(width: targetFrame.midX - (tooltipSize.width / 2.0), height: targetFrame.maxY)
-    }
-
     init(
         id: IDValue,
         text: String,
