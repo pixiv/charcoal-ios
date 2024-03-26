@@ -183,7 +183,7 @@ public extension View {
     func charcoalSnackBar<Content>(
         isPresenting: Binding<Bool>,
         screenEdge: CharcoalPopupViewEdge = .bottom,
-        screenEdgeSpacing: CGFloat = 120,
+        screenEdgeSpacing: CGFloat = 150,
         text: String,
         thumbnailImage: Image? = nil,
         dismissAfter: TimeInterval? = nil,
