@@ -43,19 +43,18 @@ public struct ContentView: View {
                 NavigationLink(destination: ModalsView()) {
                     Text("Modal")
                 }
-                NavigationLink(destination: TooltipsView()) {
+                NavigationLink(destination: TooltipsView().charcoalOverlayContainer()) {
                     Text("Tooltips")
                 }
-                NavigationLink(destination: ToastsView()) {
+                NavigationLink(destination: ToastsView().charcoalOverlayContainer()) {
                     Text("Toasts")
                 }
-                NavigationLink(destination: BalloonsView()) {
+                NavigationLink(destination: BalloonsView().charcoalOverlayContainer()) {
                     Text("Balloons")
                 }
             }
             .navigationBarTitle("Charcoal")
         }
-        .charcoalOverlayContainer()
         .preferredColorScheme(isDarkModeOn ? .dark : .light)
     }
 }
