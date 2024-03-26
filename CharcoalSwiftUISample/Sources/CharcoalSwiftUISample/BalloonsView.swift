@@ -4,11 +4,11 @@ import SwiftUI
 public struct BalloonsView: View {
     @State var isPresented = false
 
-    @State var isPresented2 = true
+    @State var isPresented2 = false
 
     @State var isPresented3 = false
 
-    @State var isPresented4 = true
+    @State var isPresented4 = false
 
     public var body: some View {
         VStack {
