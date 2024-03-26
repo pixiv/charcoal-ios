@@ -45,9 +45,6 @@ struct CharcoalOverlayUpdaterContainer<SubContent: CharcoalPopupProtocol>: ViewM
                 // onAppear is needed if the overlay is presented by default
                 updateView(view: view)
             }
-            .onDisappear {
-                viewManager.removeView(id: viewID)
-            }
     }
 }
 
