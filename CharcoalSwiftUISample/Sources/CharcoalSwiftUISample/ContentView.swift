@@ -49,6 +49,9 @@ public struct ContentView: View {
                 NavigationLink(destination: ToastsView()) {
                     Text("Toasts")
                 }
+                NavigationLink(destination: BalloonsView()) {
+                    Text("Balloons")
+                }
             }
             .navigationBarTitle("Charcoal")
         }

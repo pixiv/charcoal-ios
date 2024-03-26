@@ -14,41 +14,54 @@ public struct BalloonsView: View {
         VStack {
             List {
                 HStack {
-                    Text("Help")
-                    Button(action: {
+                    Text("Tutorial")
+                    Button {
                         isPresented.toggle()
-                    }, label: {
-                        Image(charocalIcon: .question16)
-                    }).charcoalTooltip(isPresenting: $isPresented, text: "Tooltip created by Charcoal")
+                    } label: {
+                        Image(charocalIcon: .question24)
+                    }
+                    .charcoalBalloon(isPresenting: $isPresented,
+                                     text: "作品中の特定単語について")
                 }
 
                 HStack {
-                    Text("Help (Multiple Line)")
-                    Button(action: {
+                    Text("Tutorial (With Action)")
+                    Button {
                         isPresented2.toggle()
-                    }, label: {
-                        Image(charocalIcon: .question16)
-                    }).charcoalTooltip(isPresenting: $isPresented2, text: "Tooltip created by Charcoal and here is testing it's multiple line feature")
+                    } label: {
+                        Image(charocalIcon: .question24)
+                    }
+                    .charcoalBalloon(isPresenting: $isPresented2, text: "作品中の特定単語について、単語変換をして読めるようになりました") {
+                        Button(action: {
+                            
+                        }, label: {
+                            Text("詳しく")
+                        })
+                    }
                 }
 
                 HStack {
-                    Text("Help (Auto-Positioning-Trailing)")
+                    Text("Tutorial (Auto-Positioning-Trailing)")
                     Spacer()
-                    Button(action: {
-                        isPresented4.toggle()
-                    }, label: {
-                        Image(charocalIcon: .question16)
-                    }).charcoalTooltip(isPresenting: $isPresented4, text: "Tooltip created by Charcoal and here is testing Auto-Positioning")
+                    Button {
+                        isPresented3.toggle()
+                    } label: {
+                        Image(charocalIcon: .question24)
+                    }
+                    .charcoalBalloon(isPresenting: $isPresented3,
+                                     text: "作品中の特定単語について")
                 }
             }
             Spacer()
             HStack {
-                Text("Help (Auto-Positioning-Bottom)")
-                Button(action: {
-                    isPresented3.toggle()
-                }, label: {
-                    Image(charocalIcon: .question16)
-                }).charcoalTooltip(isPresenting: $isPresented3, text: "Tooltip created by Charcoal and here is testing Auto-Positioning")
+                Text("Tutorial")
+                Button {
+                    isPresented4.toggle()
+                } label: {
+                    Image(charocalIcon: .question24)
+                }
+                .charcoalBalloon(isPresenting: $isPresented4,
+                                 text: "Hello World This is a tooltip and here is testing it's multiple line feature")
             }
         }
         .navigationBarTitle("Tooltips")
