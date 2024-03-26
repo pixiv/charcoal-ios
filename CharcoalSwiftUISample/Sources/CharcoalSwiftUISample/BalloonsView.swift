@@ -1,7 +1,7 @@
 import Charcoal
 import SwiftUI
 
-public struct TooltipsView: View {
+public struct BalloonsView: View {
     @State var isPresented = false
 
     @State var isPresented2 = false
@@ -56,5 +56,6 @@ public struct TooltipsView: View {
 }
 
 #Preview {
-    TooltipsView().charcoalOverlayContainer()
+    BalloonsView().charcoalOverlayContainer()
 }
+
