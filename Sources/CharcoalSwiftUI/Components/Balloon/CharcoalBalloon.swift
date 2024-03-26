@@ -10,6 +10,10 @@ enum CharcoalTooltipLayoutPriority: Codable {
 struct LayoutPriority {
     var priority: CharcoalTooltipLayoutPriority
     var spaceArea: CGSize
+    
+    var rect: CGRect {
+        return CGRect(x: 0, y: 0, width: spaceArea.width, height: spaceArea.height)
+    }
 }
 
 extension CGSize {
@@ -80,15 +84,8 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
         self.action = action()
     }
     
-    func intersectionArea(rectA: (x1: CGFloat, y1: CGFloat, x2: CGFloat, y2: CGFloat),
-                          rectB: (x1: CGFloat, y1: CGFloat, x2: CGFloat, y2: CGFloat)) -> CGFloat {
-        let xOverlap = max(0, min(rectA.x2, rectB.x2) - max(rectA.x1, rectB.x1))
-        let yOverlap = max(0, min(rectA.y2, rectB.y2) - max(rectA.y1, rectB.y1))
-        
-        return xOverlap * yOverlap // 面积
-    }
-    
-    func layoutTooltip(canvasGeometrySize: CGSize) -> CGSize {
+    /// Calculate the position of the tooltip
+    func positionOfOverlay(canvasGeometrySize: CGSize) -> CGSize {
         // Check avaliable area for each direction, compare area size with tooltip size.
         // The priorty is Bottom > Top > Right > Left
         var priorities: [LayoutPriority] = []
@@ -111,10 +108,10 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
         let topWidth = canvasGeometrySize.width - spacingToScreen * 2
         priorities.append(LayoutPriority(priority: .top, spaceArea: CGSize(width: topWidth, height: topHeight)))
         
+        let tooltipRect = CGRect(x: 0, y: 0, width: tooltipSize.width, height: tooltipSize.height)
         
         // Get the ideal layout plan
-        let layoutPlan = priorities.first(where: { $0.spaceArea.width >= tooltipSize.width && $0.spaceArea.height >= tooltipSize.height }) ?? priorities.sorted(by: { intersectionArea(rectA: (x1: 0, y1: 0, x2: $0.spaceArea.width, y2: $0.spaceArea.height), rectB: (x1: 0, y1: 0, x2: tooltipSize.width, y2: tooltipSize.height)) > intersectionArea(rectA: (x1: 0, y1: 0, x2: $1.spaceArea.width, y2: $1.spaceArea.height), rectB: (x1: 0, y1: 0, x2: tooltipSize.width, y2: tooltipSize.height)) }).first!
-        
+        let layoutPlan = priorities.first(where: { $0.spaceArea.width >= tooltipSize.width && $0.spaceArea.height >= tooltipSize.height }) ?? priorities.sorted(by: { $0.rect.intersectionArea(tooltipRect) > $1.rect.intersectionArea(tooltipRect)}).first!
         
         switch layoutPlan.priority {
         case .bottom:
@@ -138,19 +135,8 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
         } else if edgeLeft < spacingToScreen {
             edgeLeft = spacingToScreen
         }
-        
 
         return edgeLeft
-    }
-
-    func tooltipY(canvasGeometrySize: CGSize) -> CGFloat {
-        let minX = targetFrame.maxY + spacingToTarget + arrowHeight
-        var edgeBottom = targetFrame.maxY + spacingToTarget + targetFrame.height
-        if edgeBottom + tooltipSize.height >= canvasGeometrySize.height {
-            edgeBottom = targetFrame.minY - tooltipSize.height - spacingToTarget - arrowHeight
-        }
-
-        return min(minX, edgeBottom)
     }
 
     var body: some View {
@@ -224,7 +210,7 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
                             // GeometryReader size is zero in background, so we use overlay instead
                             Color.clear.preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
                         }))
-                        .offset(layoutTooltip(canvasGeometrySize: canvasGeometry.size))
+                        .offset(positionOfOverlay(canvasGeometrySize: canvasGeometry.size))
                         .onPreferenceChange(TooltipSizeKey.self, perform: { value in
                             tooltipSize = value
                         })
