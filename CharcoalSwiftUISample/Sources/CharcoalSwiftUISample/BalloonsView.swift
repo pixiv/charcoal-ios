@@ -4,11 +4,11 @@ import SwiftUI
 public struct BalloonsView: View {
     @State var isPresented = false
 
-    @State var isPresented2 = false
+    @State var isPresented2 = true
 
     @State var isPresented3 = false
 
-    @State var isPresented4 = false
+    @State var isPresented4 = true
 
     public var body: some View {
         VStack {
@@ -61,7 +61,7 @@ public struct BalloonsView: View {
                     Image(charocalIcon: .question24)
                 }
                 .charcoalBalloon(isPresenting: $isPresented4,
-                                 text: "Hello World This is a tooltip and here is testing it's multiple line feature")
+                                 text: "作品中の特定単語について、単語変換をして読めるようになりました")
             }
         }
         .navigationBarTitle("Tooltips")
