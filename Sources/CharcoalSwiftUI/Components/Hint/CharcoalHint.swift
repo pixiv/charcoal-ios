@@ -3,6 +3,11 @@ import SwiftUI
 struct CharcoalHint<ActionContent:View>: View {
     /// The text of the tooltip
     let text: String
+    
+    /// The text of the tooltip
+    let subtitle: String?
+    
+    let icon: CharcoalAsset.Images
 
     /// The corner radius of the tooltip
     let cornerRadius: CGFloat = 8
@@ -16,26 +21,36 @@ struct CharcoalHint<ActionContent:View>: View {
 
     init(
         text: String,
+        subtitle: String? = nil,
+        icon: CharcoalAsset.Images = .info16,
         isPresenting: Binding<Bool>,
-        @ViewBuilder action: () -> ActionContent?
+        @ViewBuilder action: () -> ActionContent? = { EmptyView() }
     ) {
         self.text = text
+        self.subtitle = subtitle
+        self.icon = icon
         _isPresenting = isPresenting
         self.action = action()
     }
 
     var body: some View {
         HStack(spacing: 5) {
-            Image(charocalIcon: .info16)
-            Text(text).charcoalTypography14Regular()
+            Image(charocalIcon: icon)
             
-            if let action = action {
+            VStack {
+                Text(text).charcoalTypography14Regular()
+                if let subtitle = subtitle {
+                    Text(subtitle).charcoalTypography14Regular()
+                }
+            }
+            
+            if let action = action, type(of:action) != EmptyView.self {
                 Spacer()
                 action.charcoalPrimaryButton(size: .small)
             }
         }
         .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
-        .background(charcoalColor: .background2)
+        .background(charcoalColor: .surface3)
         .cornerRadius(cornerRadius, corners: .allCorners)
     }
 }
@@ -52,18 +67,17 @@ private struct HintsPreviewView: View {
     @State var textOfLabel = "Hello"
 
     var body: some View {
-        ScrollView {
-            ZStack(alignment: .center) {
-                Color.clear
-                CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting) {
-                    Button(action: {
-                        print("Hello")
-                    }) {
-                        Text("Button")
-                    }
+        VStack {
+            CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting) {
+                Button(action: {
+                    print("Hello")
+                }) {
+                    Text("Button")
                 }
-            }.padding()
-        }
+            }
+            
+            CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting)
+        }.padding()
     }
 }
 
