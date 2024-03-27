@@ -11,9 +11,8 @@ struct TooltipBubbleShape: Shape {
     let arrowWidth: CGFloat
 
     func path(in rect: CGRect) -> Path {
-        
         var pointPosition: CharcoalTooltipLayoutPriority
-        
+
         if targetPoint.x < rect.minX && targetPoint.y > rect.minY {
             pointPosition = .left
         } else if targetPoint.x > rect.maxX && targetPoint.y > rect.minY {
@@ -23,13 +22,13 @@ struct TooltipBubbleShape: Shape {
         } else {
             pointPosition = .bottom
         }
-        
+
         let path = Path { p in
             p.move(to: .init(x: rect.minX + cornerRadius, y: rect.minY))
             if pointPosition == .top {
                 let arrowY = rect.minY - arrowHeight
                 let arrowBaseY = rect.minY
-                
+
                 // The minimum and maximum x position of the arrow
                 let minX = rect.minX + cornerRadius + arrowWidth
                 let maxX = rect.maxX - cornerRadius - arrowWidth
@@ -54,7 +53,7 @@ struct TooltipBubbleShape: Shape {
             if pointPosition == .right {
                 let arrowX = rect.maxX + arrowHeight
                 let arrowBaseX = rect.maxX
-                
+
                 // The minimum and maximum x position of the arrow
                 let minY = rect.minY + cornerRadius + arrowWidth
                 let maxY = rect.maxY - cornerRadius - arrowWidth
@@ -79,15 +78,14 @@ struct TooltipBubbleShape: Shape {
             if pointPosition == .bottom {
                 let arrowY = rect.maxY + arrowHeight
                 let arrowBaseY = rect.maxY
-                
+
                 // The minimum and maximum x position of the arrow
                 let minX = rect.minX + cornerRadius + arrowWidth
                 let maxX = rect.maxX - cornerRadius - arrowWidth
 
                 // The x position of the arrow
                 let arrowMidX = min(max(minX, targetPoint.x), maxX)
-                
-                
+
                 let arrowMaxX = arrowMidX - arrowWidth
                 let arrowMinX = arrowMidX + arrowWidth
                 p.addLine(to: CGPoint(x: arrowMinX, y: arrowBaseY))
@@ -103,7 +101,7 @@ struct TooltipBubbleShape: Shape {
             if pointPosition == .left {
                 let arrowX = rect.minX - arrowHeight
                 let arrowBaseX = rect.minX
-                
+
                 // The minimum and maximum x position of the arrow
                 let minY = rect.minY + cornerRadius + arrowWidth
                 let maxY = rect.maxY - cornerRadius - arrowWidth
@@ -132,9 +130,9 @@ struct TooltipBubbleShape: Shape {
     }
 }
 
-extension Shape {
+public extension Shape {
     /// fills and strokes a shape
-    public func fill<S:ShapeStyle>(
+    func fill<S: ShapeStyle>(
         _ fillContent: S,
         strokeColor: Color,
         lineWidth: CGFloat
@@ -163,7 +161,7 @@ private struct BubbleShapePreview: View {
                 )
                 .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
                 .frame(width: 240, height: 100)
-                
+
                 TooltipBubbleShape(
                     targetPoint:
                     CGPoint(
@@ -176,8 +174,7 @@ private struct BubbleShapePreview: View {
                 )
                 .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
                 .frame(width: 240, height: 100)
-                
-                
+
                 TooltipBubbleShape(
                     targetPoint:
                     CGPoint(
@@ -190,8 +187,7 @@ private struct BubbleShapePreview: View {
                 )
                 .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
                 .frame(width: 240, height: 100)
-                
-                
+
                 TooltipBubbleShape(
                     targetPoint:
                     CGPoint(
@@ -208,7 +204,6 @@ private struct BubbleShapePreview: View {
         }.ignoresSafeArea()
     }
 }
-
 
 #Preview {
     BubbleShapePreview()

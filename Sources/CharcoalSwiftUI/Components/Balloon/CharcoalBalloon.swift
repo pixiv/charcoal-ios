@@ -10,7 +10,7 @@ enum CharcoalTooltipLayoutPriority: Codable {
 struct LayoutPriority {
     var priority: CharcoalTooltipLayoutPriority
     var spaceArea: CGSize
-    
+
     var rect: CGRect {
         return CGRect(x: 0, y: 0, width: spaceArea.width, height: spaceArea.height)
     }
@@ -22,8 +22,7 @@ extension CGSize {
     }
 }
 
-struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToastActionable {
-    
+struct CharcoalBalloon<ActionContent: View>: CharcoalPopupProtocol, CharcoalToastActionable {
     typealias IDValue = UUID
 
     /// The unique ID of the overlay.
@@ -59,9 +58,9 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
 
     /// The overlay will be dismissed after a certain time interval.
     let dismissAfter: TimeInterval?
-    
+
     let action: ActionContent?
-    
+
     @State var timer: Timer?
 
     init(
@@ -83,36 +82,36 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
         self.dismissAfter = dismissAfter
         self.action = action()
     }
-    
+
     /// Calculate the position of the tooltip
     func positionOfOverlay(canvasGeometrySize: CGSize) -> CGSize {
         // Check avaliable area for each direction, compare area size with tooltip size.
         // The priorty is Bottom > Top > Right > Left
         var priorities: [LayoutPriority] = []
-        
+
         // Calculate layout it by sides
         let rightWidth = canvasGeometrySize.width - targetFrame.maxX - spacingToScreen - arrowHeight
         let rightHeight = canvasGeometrySize.height - targetFrame.height
         priorities.append(LayoutPriority(priority: .right, spaceArea: CGSize(width: rightWidth, height: rightHeight)))
-        
+
         let leftWidth = targetFrame.minX - spacingToScreen - arrowHeight
         let leftHeight = canvasGeometrySize.height - targetFrame.height
         priorities.append(LayoutPriority(priority: .left, spaceArea: CGSize(width: leftWidth, height: leftHeight)))
-        
+
         // Calculate layout it by top and bottom
         let bottomHeight = canvasGeometrySize.height - targetFrame.maxY - spacingToScreen - spacingToTarget - arrowHeight
         let buttonWidth = canvasGeometrySize.width - spacingToScreen * 2
         priorities.append(LayoutPriority(priority: .bottom, spaceArea: CGSize(width: buttonWidth, height: bottomHeight)))
-        
+
         let topHeight = targetFrame.minY - spacingToScreen - arrowHeight - spacingToTarget
         let topWidth = canvasGeometrySize.width - spacingToScreen * 2
         priorities.append(LayoutPriority(priority: .top, spaceArea: CGSize(width: topWidth, height: topHeight)))
-        
+
         let tooltipRect = CGRect(x: 0, y: 0, width: tooltipSize.width, height: tooltipSize.height)
-        
+
         // Get the ideal layout plan
-        let layoutPlan = priorities.first(where: { $0.spaceArea.width >= tooltipSize.width && $0.spaceArea.height >= tooltipSize.height }) ?? priorities.sorted(by: { $0.rect.intersectionArea(tooltipRect) > $1.rect.intersectionArea(tooltipRect)}).first!
-        
+        let layoutPlan = priorities.first(where: { $0.spaceArea.width >= tooltipSize.width && $0.spaceArea.height >= tooltipSize.height }) ?? priorities.sorted(by: { $0.rect.intersectionArea(tooltipRect) > $1.rect.intersectionArea(tooltipRect) }).first!
+
         switch layoutPlan.priority {
         case .bottom:
             return CGSize(width: tooltipX(canvasGeometrySize: canvasGeometrySize), height: targetFrame.maxY + spacingToTarget + arrowHeight)
@@ -167,21 +166,21 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
                                     .multilineTextAlignment(.leading)
                                     .fixedSize(horizontal: false, vertical: true)
                                     .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
-                                
+
                                 Image(charocalIcon: .remove16)
                                     .renderingMode(.template)
                                     .foregroundColor(Color.white)
-                                    .frame(width: 16+6)
+                                    .frame(width: 16 + 6)
                                     .background(Circle()
                                         .fill(Color.black.opacity(0.35))
-                                        .frame(width: 16+6, height: 16+6))
+                                        .frame(width: 16 + 6, height: 16 + 6))
                                     .overlay(
                                         EmptyView().frame(width: 45, height: 45)
                                             .contentShape(Rectangle()).onTapGesture {
                                                 isPresenting = false
                                             })
                             }
-                            
+
                             if let action = action {
                                 action
                                     .charcoalTypography14Bold()
@@ -239,7 +238,6 @@ struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToast
     }
 }
 
-
 struct CharcoalBalloonModifier<ActionContent: View>: ViewModifier {
     /// Presentation `Binding<Bool>`
     @Binding var isPresenting: Bool
@@ -252,7 +250,7 @@ struct CharcoalBalloonModifier<ActionContent: View>: ViewModifier {
 
     /// The overlay will be dismissed after a certain time interval.
     let dismissAfter: TimeInterval?
-    
+
     @ViewBuilder let action: () -> ActionContent?
 
     func body(content: Content) -> some View {
@@ -329,8 +327,10 @@ private struct BalloonsPreviewView: View {
                     } label: {
                         Image(charocalIcon: .question24)
                     }
-                    .charcoalBalloon(isPresenting: $isPresenting,
-                                     text: "作品中の特定単語について")
+                    .charcoalBalloon(
+                        isPresenting: $isPresenting,
+                        text: "作品中の特定単語について"
+                    )
                     .offset(CGSize(width: 20.0, height: 80.0))
 
                     Button {
@@ -340,13 +340,11 @@ private struct BalloonsPreviewView: View {
                     }
                     .charcoalDefaultButton()
                     .charcoalBalloon(isPresenting: $isPresenting2, text: "作品中の特定単語について、単語変換をして読めるようになりました") {
-                        Button(action: {
-                            
-                        }, label: {
+                        Button(action: {}, label: {
                             Text("詳しく")
                         })
                     }
-                    
+
                     .offset(CGSize(width: 100.0, height: 150.0))
 
                     Button {

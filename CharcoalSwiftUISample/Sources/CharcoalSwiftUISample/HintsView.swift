@@ -10,7 +10,7 @@ public struct HintsView: View {
 
     public var body: some View {
         ScrollView {
-            VStack() {
+            VStack {
                 CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresented) {
                     Button(action: {
                         isPresented = false
@@ -18,9 +18,9 @@ public struct HintsView: View {
                         Text("Button")
                     }
                 }
-                
+
                 CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresented2)
-                
+
                 CharcoalHint(text: "ヒントテキストヒントテキスト", maxWidth: .infinity, isPresenting: $isPresented3)
             }
             .padding()

@@ -1,24 +1,24 @@
 import SwiftUI
 
-public struct CharcoalHint<ActionContent:View>: View {
+public struct CharcoalHint<ActionContent: View>: View {
     /// The text of the tooltip
     let text: String
-    
+
     /// The text of the tooltip
     let subtitle: String?
-    
+
     let icon: CharcoalAsset.Images
 
     /// The corner radius of the tooltip
     let cornerRadius: CGFloat = 8
-    
+
     let maxWidth: CGFloat?
 
     /// A binding to whether the overlay is presented.
     @Binding var isPresenting: Bool
-    
+
     let action: ActionContent?
-    
+
     @State var timer: Timer?
 
     public init(
@@ -41,15 +41,15 @@ public struct CharcoalHint<ActionContent:View>: View {
         if isPresenting {
             HStack(spacing: 5) {
                 Image(charocalIcon: icon)
-                
+
                 VStack {
                     Text(text).charcoalTypography14Regular()
                     if let subtitle = subtitle {
                         Text(subtitle).charcoalTypography14Regular()
                     }
                 }
-                
-                if let action = action, type(of:action) != EmptyView.self {
+
+                if let action = action, type(of: action) != EmptyView.self {
                     Spacer()
                     action.charcoalPrimaryButton(size: .small)
                 }
@@ -61,7 +61,6 @@ public struct CharcoalHint<ActionContent:View>: View {
         }
     }
 }
-
 
 private struct HintsPreviewView: View {
     @State var isPresenting = true
@@ -79,11 +78,11 @@ private struct HintsPreviewView: View {
                     Text("Button")
                 }
             }
-            
+
             CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting2)
-            
+
             CharcoalHint(text: "ヒントテキストヒントテキスト", maxWidth: .infinity, isPresenting: $isPresenting3)
-            
+
         }.padding()
     }
 }
