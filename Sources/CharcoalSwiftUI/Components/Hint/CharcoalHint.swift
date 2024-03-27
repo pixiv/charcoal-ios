@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CharcoalHint<ActionContent:View>: View {
+public struct CharcoalHint<ActionContent:View>: View {
     /// The text of the tooltip
     let text: String
     
@@ -21,7 +21,7 @@ struct CharcoalHint<ActionContent:View>: View {
     
     @State var timer: Timer?
 
-    init(
+    public init(
         text: String,
         subtitle: String? = nil,
         icon: CharcoalAsset.Images = .info16,
@@ -37,7 +37,7 @@ struct CharcoalHint<ActionContent:View>: View {
         self.action = action()
     }
 
-    var body: some View {
+    public var body: some View {
         if isPresenting {
             HStack(spacing: 5) {
                 Image(charocalIcon: icon)
