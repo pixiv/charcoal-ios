@@ -35,7 +35,7 @@ class SpinnerContainerView: UIView {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: subview.intrinsicContentSize.width + padding,
-                      height: subview.intrinsicContentSize.height + padding)
+        return CGSize(width: subview.intrinsicContentSize.width + padding * 2,
+                      height: subview.intrinsicContentSize.height + padding * 2)
     }
 }
