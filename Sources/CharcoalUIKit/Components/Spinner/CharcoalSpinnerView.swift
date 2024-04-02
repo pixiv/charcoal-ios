@@ -59,6 +59,10 @@ class CharcoalSpinnerView: UIView {
         circleLayer.add(pathAnimation, forKey: "pathAnimation")
         circleLayer.add(opacityAnimation, forKey: "opacityAnimation")
     }
+    
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: spinnerSize, height: spinnerSize)
+    }
 }
 
 class SpinnerContainerView: UIView {
@@ -83,9 +87,7 @@ class SpinnerContainerView: UIView {
         spinner.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
-            spinner.centerYAnchor.constraint(equalTo: centerYAnchor),
-            spinner.widthAnchor.constraint(equalToConstant: spinnerSize),
-            spinner.heightAnchor.constraint(equalToConstant: spinnerSize)
+            spinner.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
     
@@ -98,8 +100,8 @@ class SpinnerContainerView: UIView {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: spinner.spinnerSize + padding, 
-                      height: spinner.spinnerSize + padding)
+        return CGSize(width: spinner.intrinsicContentSize.width + padding,
+                      height: spinner.intrinsicContentSize.height + padding)
     }
 }
 
