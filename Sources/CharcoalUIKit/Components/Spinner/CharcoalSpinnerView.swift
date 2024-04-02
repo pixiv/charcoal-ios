@@ -25,7 +25,7 @@ class CharcoalSpinnerView: UIView {
         self.layer.addSublayer(circleLayer)
         
         if !transparentBackground {
-            self.backgroundColor = UIColor.white // 替换为所需的背景色
+            self.backgroundColor = UIColor.white
         }
         
         startAnimating()
