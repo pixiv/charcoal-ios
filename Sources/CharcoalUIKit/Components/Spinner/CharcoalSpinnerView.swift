@@ -66,15 +66,15 @@ class CharcoalSpinnerView: UIView {
 }
 
 class SpinnerContainerView: UIView {
-    let spinner: CharcoalSpinnerView
+    let subview: UIView
     let transparentBackground: Bool
     let padding: CGFloat = 16
     
-    init(spinnerSize: CGFloat = 48, transparentBackground: Bool = false) {
-        self.spinner = CharcoalSpinnerView(spinnerSize: spinnerSize)
+    init(subview: UIView, transparentBackground: Bool = false) {
+        self.subview = subview
         self.transparentBackground = transparentBackground
         super.init(frame: CGRect.zero)
-        addSubview(spinner)
+        addSubview(subview)
         
         if (!transparentBackground) {
             backgroundColor = UIColor.white
@@ -84,10 +84,10 @@ class SpinnerContainerView: UIView {
             layer.shadowOpacity = 0.1
         }
 
-        spinner.translatesAutoresizingMaskIntoConstraints = false
+        subview.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
-            spinner.centerYAnchor.constraint(equalTo: centerYAnchor)
+            subview.centerXAnchor.constraint(equalTo: centerXAnchor),
+            subview.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
     
@@ -100,8 +100,8 @@ class SpinnerContainerView: UIView {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: spinner.intrinsicContentSize.width + padding,
-                      height: spinner.intrinsicContentSize.height + padding)
+        return CGSize(width: subview.intrinsicContentSize.width + padding,
+                      height: subview.intrinsicContentSize.height + padding)
     }
 }
 
@@ -113,9 +113,9 @@ class SpinnerContainerView: UIView {
     stackView.alignment = .center
     stackView.spacing = 8.0
     
-    let spinner = SpinnerContainerView()
-    let spinner2 = SpinnerContainerView(spinnerSize: 100, transparentBackground: true)
-    let spinner3 = SpinnerContainerView(spinnerSize: 100, transparentBackground: false)
+    let spinner = SpinnerContainerView(subview: CharcoalSpinnerView(spinnerSize: 48))
+    let spinner2 = SpinnerContainerView(subview: CharcoalSpinnerView(spinnerSize: 100), transparentBackground: true)
+    let spinner3 = SpinnerContainerView(subview: CharcoalSpinnerView(spinnerSize: 100), transparentBackground: false)
     
     stackView.addArrangedSubview(spinner)
     stackView.addArrangedSubview(spinner2)

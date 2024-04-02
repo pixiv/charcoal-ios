@@ -65,19 +65,12 @@ extension CharcoalSpinner {
     private func removeContainer() {
     }
 
-    private func setupContainer(spinnerSize: CGFloat) {
+    private func setupContainer(subview: UIView) {
         if (containerView == nil) {
-            let padding = CGFloat(16)
-            containerView = UIView(frame: CGRect.zero)
+            containerView = SpinnerContainerView(subview: subview)
             guard let containerView = containerView else {
                 fatalError("Container view is nil.")
             }
-            
-            containerView.backgroundColor = UIColor.white
-            containerView.layer.shadowColor = UIColor.black.cgColor
-            containerView.layer.shadowRadius = 8
-            containerView.layer.cornerRadius = 8
-            containerView.layer.shadowOpacity = 0.1
             
             containerView.translatesAutoresizingMaskIntoConstraints = false
             mainWindow.addSubview(containerView)
@@ -86,36 +79,11 @@ extension CharcoalSpinner {
             
             constraints = [
                 containerView.centerXAnchor.constraint(equalTo: mainWindow.centerXAnchor, constant: 0),
-                containerView.centerYAnchor.constraint(equalTo: mainWindow.centerYAnchor, constant: 0),
-                containerView.widthAnchor.constraint(equalToConstant: spinnerSize + padding),
-                containerView.heightAnchor.constraint(equalToConstant: spinnerSize + padding)
+                containerView.centerYAnchor.constraint(equalTo: mainWindow.centerYAnchor, constant: 0)
             ]
             
             NSLayoutConstraint.activate(constraints)
         }
-    }
-}
-
-// MARK: - Spinner View
-extension CharcoalSpinner {
-    private func removeSpinnerView() {
-    }
-
-    private func setupSpinnerView(spinnerSize: CGFloat) {
-        let spinner = CharcoalSpinnerView(spinnerSize: spinnerSize)
-        spinner.translatesAutoresizingMaskIntoConstraints = false
-        containerView!.addSubview(spinner)
-        
-        var constraints: [NSLayoutConstraint] = []
-        
-        constraints = [
-            spinner.centerXAnchor.constraint(equalTo: containerView!.centerXAnchor, constant: 0),
-            spinner.centerYAnchor.constraint(equalTo: containerView!.centerYAnchor, constant: 0),
-            spinner.widthAnchor.constraint(equalToConstant: spinnerSize),
-            spinner.heightAnchor.constraint(equalToConstant: spinnerSize)
-        ]
-        
-        NSLayoutConstraint.activate(constraints)
     }
 }
 
@@ -124,8 +92,7 @@ extension CharcoalSpinner {
     func show(spinnerSize: CGFloat = 48, dismissOnTouch: Bool, onWindow window: UIWindow? = nil) {
         setupWindow(window: window)
         setupBackground(dismissOnTouch)
-        setupContainer(spinnerSize: spinnerSize)
-        setupSpinnerView(spinnerSize: spinnerSize)
+        setupContainer(subview: CharcoalSpinnerView(spinnerSize: spinnerSize))
         display()
     }
     
