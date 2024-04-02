@@ -35,7 +35,7 @@ extension CharcoalSpinner {
         backgroundView = nil
     }
 
-    private func setupBackground(_ interaction: Bool) {
+    private func setupBackground(_ dismissOnTouch: Bool) {
         if (backgroundView == nil) {
             let bounds = mainWindow.bounds
             backgroundView = UIView(frame: bounds)
@@ -56,7 +56,12 @@ extension CharcoalSpinner {
             NSLayoutConstraint.activate(constraints)
         }
         
-        backgroundView?.isUserInteractionEnabled = interaction
+        backgroundView?.isUserInteractionEnabled = dismissOnTouch
+        
+        if (dismissOnTouch) {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismiss))
+            backgroundView?.addGestureRecognizer(tapGesture)
+        }
     }
 }
 
@@ -100,7 +105,7 @@ extension CharcoalSpinner {
         display()
     }
     
-    func dismiss() {
+    @objc func dismiss() {
         // Hide with animation
         UIView.animate(withDuration: 0.25, animations: { [weak self] in
             self?.containerView?.alpha = 0
@@ -175,7 +180,7 @@ class CharcoalSpinnerPreview: UIView {
     }
     
     @objc func showTransparentSpinner() {
-        CharcoalSpinner.show(transparentBackground: true, dismissOnTouch: false)
+        CharcoalSpinner.show(transparentBackground: true, dismissOnTouch: true)
     }
     
     @objc func dismissSpinner() {
