@@ -124,10 +124,10 @@ extension CharcoalSpinner {
 }
 
 // MARK: Class Show, Dismiss
-extension CharcoalSpinner {
+public extension CharcoalSpinner {
     class func show(spinnerSize: CGFloat = 48,
               transparentBackground: Bool = false,
-              dismissOnTouch: Bool,
+              dismissOnTouch: Bool = false,
               onWindow window: UIWindow? = nil) {
         DispatchQueue.main.async {
             shared.show(spinnerSize: spinnerSize, transparentBackground: transparentBackground, dismissOnTouch: dismissOnTouch, onWindow: window)
