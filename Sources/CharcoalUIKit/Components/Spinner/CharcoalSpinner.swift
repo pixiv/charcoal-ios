@@ -44,9 +44,7 @@ extension CharcoalSpinner {
             backgroundView.translatesAutoresizingMaskIntoConstraints = false
             mainWindow.addSubview(backgroundView)
             
-            var constraints: [NSLayoutConstraint] = []
-            
-            constraints = [
+            let constraints: [NSLayoutConstraint] =  [
                 backgroundView.leadingAnchor.constraint(equalTo: mainWindow.leadingAnchor, constant: 0),
                 backgroundView.topAnchor.constraint(equalTo: mainWindow.topAnchor, constant: 0),
                 backgroundView.bottomAnchor.constraint(equalTo: mainWindow.bottomAnchor, constant: 0),
@@ -65,9 +63,9 @@ extension CharcoalSpinner {
     private func removeContainer() {
     }
 
-    private func setupContainer(subview: UIView) {
+    private func setupContainer(subview: UIView, transparentBackground: Bool = false) {
         if (containerView == nil) {
-            containerView = SpinnerContainerView(subview: subview)
+            containerView = SpinnerContainerView(subview: subview, transparentBackground: transparentBackground)
             guard let containerView = containerView else {
                 fatalError("Container view is nil.")
             }
@@ -75,9 +73,7 @@ extension CharcoalSpinner {
             containerView.translatesAutoresizingMaskIntoConstraints = false
             mainWindow.addSubview(containerView)
             
-            var constraints: [NSLayoutConstraint] = []
-            
-            constraints = [
+            let constraints: [NSLayoutConstraint] = [
                 containerView.centerXAnchor.constraint(equalTo: mainWindow.centerXAnchor, constant: 0),
                 containerView.centerYAnchor.constraint(equalTo: mainWindow.centerYAnchor, constant: 0)
             ]
@@ -89,10 +85,13 @@ extension CharcoalSpinner {
 
 // MARK: - Spinner, Show, Dismiss
 extension CharcoalSpinner {
-    func show(spinnerSize: CGFloat = 48, dismissOnTouch: Bool, onWindow window: UIWindow? = nil) {
+    func show(spinnerSize: CGFloat = 48,
+              transparentBackground: Bool = false,
+              dismissOnTouch: Bool,
+              onWindow window: UIWindow? = nil) {
         setupWindow(window: window)
         setupBackground(dismissOnTouch)
-        setupContainer(subview: CharcoalSpinnerView(spinnerSize: spinnerSize))
+        setupContainer(subview: CharcoalSpinnerView(spinnerSize: spinnerSize), transparentBackground: transparentBackground)
         display()
     }
     
@@ -110,6 +109,6 @@ extension CharcoalSpinner {
 @available(iOS 17.0, *)
 #Preview {
     let spinner = CharcoalSpinner()
-    spinner.show(dismissOnTouch: false)
+    spinner.show(transparentBackground: true, dismissOnTouch: false)
     return spinner
 }
