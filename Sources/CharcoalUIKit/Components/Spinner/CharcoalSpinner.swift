@@ -7,6 +7,8 @@ public class CharcoalSpinner: UIView {
     var backgroundView: UIView?
     /// The container view of the spinner.
     var containerView: UIView?
+    
+    static let shared = CharcoalSpinner()
 }
 
 // MARK: - Window
@@ -54,18 +56,21 @@ extension CharcoalSpinner {
             NSLayoutConstraint.activate(constraints)
         }
         
-        backgroundView?.isUserInteractionEnabled = !interaction
+        backgroundView?.isUserInteractionEnabled = interaction
     }
 }
 
 // MARK: - Container
 extension CharcoalSpinner {
     private func removeContainer() {
+        containerView?.removeFromSuperview()
+        containerView = nil
     }
 
     private func setupContainer(subview: UIView, transparentBackground: Bool = false) {
         if (containerView == nil) {
             containerView = SpinnerContainerView(subview: subview, transparentBackground: transparentBackground)
+            containerView?.alpha = 0
             guard let containerView = containerView else {
                 fatalError("Container view is nil.")
             }
@@ -96,19 +101,94 @@ extension CharcoalSpinner {
     }
     
     func dismiss() {
-        
+        // Hide with animation
+        UIView.animate(withDuration: 0.25, animations: { [weak self] in
+            self?.containerView?.alpha = 0
+        }) { [weak self] _ in
+            self?.removeContainer()
+            self?.removeBackground()
+            self?.removeFromSuperview()
+        }
     }
     
     func display() {
-        if (alpha == 0) {
-            alpha = 1
+        UIView.animate(withDuration: 0.25, animations: { [weak self] in
+            self?.containerView?.alpha = 1
+        })
+    }
+}
+
+// MARK: Class Show, Dismiss
+extension CharcoalSpinner {
+    class func show(spinnerSize: CGFloat = 48,
+              transparentBackground: Bool = false,
+              dismissOnTouch: Bool,
+              onWindow window: UIWindow? = nil) {
+        DispatchQueue.main.async {
+            shared.show(spinnerSize: spinnerSize, transparentBackground: transparentBackground, dismissOnTouch: dismissOnTouch, onWindow: window)
         }
+    }
+    
+    class func dismiss() {
+        DispatchQueue.main.async {
+            shared.dismiss()
+        }
+    }
+}
+
+class CharcoalSpinnerPreview: UIView {
+    let stackView = UIStackView()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.alignment = .center
+        stackView.spacing = 8.0
+        
+        let button = CharcoalPrimaryMButton()
+        button.addTarget(self, action: #selector(showNormalSpinner), for: .touchUpInside)
+        button.setTitle("Normal", for: .normal)
+        
+        let transparentButton = CharcoalPrimaryMButton()
+        transparentButton.addTarget(self, action: #selector(showTransparentSpinner), for: .touchUpInside)
+        transparentButton.setTitle("Transparent", for: .normal)
+        
+        let dismissButton = CharcoalDefaultMButton()
+        dismissButton.addTarget(self, action: #selector(dismissSpinner), for: .touchUpInside)
+        dismissButton.setTitle("Dismiss", for: .normal)
+        
+        stackView.addArrangedSubview(button)
+        stackView.addArrangedSubview(transparentButton)
+        stackView.addArrangedSubview(dismissButton)
+        addSubview(stackView)
+        
+        NSLayoutConstraint.activate([
+            stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -100),
+            stackView.widthAnchor.constraint(equalTo: widthAnchor)
+        ])
+    }
+    
+    @objc func showNormalSpinner() {
+        CharcoalSpinner.show(dismissOnTouch: false)
+    }
+    
+    @objc func showTransparentSpinner() {
+        CharcoalSpinner.show(transparentBackground: true, dismissOnTouch: false)
+    }
+    
+    @objc func dismissSpinner() {
+        CharcoalSpinner.dismiss()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
 @available(iOS 17.0, *)
 #Preview {
-    let spinner = CharcoalSpinner()
-    spinner.show(transparentBackground: true, dismissOnTouch: false)
-    return spinner
+    let view = CharcoalSpinnerPreview()
+    return view
 }
