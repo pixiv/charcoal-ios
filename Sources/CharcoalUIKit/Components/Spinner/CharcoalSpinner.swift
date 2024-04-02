@@ -102,7 +102,7 @@ extension CharcoalSpinner {
     }
 
     private func setupSpinnerView(spinnerSize: CGFloat) {
-        let spinner = CharcoalSpinnerView(spinnerSize: spinnerSize, transparentBackground: true)
+        let spinner = CharcoalSpinnerView(spinnerSize: spinnerSize)
         spinner.translatesAutoresizingMaskIntoConstraints = false
         containerView!.addSubview(spinner)
         

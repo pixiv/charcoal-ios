@@ -1,14 +1,12 @@
 import UIKit
 
 class CharcoalSpinnerView: UIView {
-    var spinnerSize: CGFloat
-    var transparentBackground: Bool
+    let spinnerSize: CGFloat
     
-    private var circleLayer: CAShapeLayer!
+    var circleLayer: CAShapeLayer!
     
-    init(spinnerSize: CGFloat, transparentBackground: Bool = false) {
+    init(spinnerSize: CGFloat) {
         self.spinnerSize = spinnerSize
-        self.transparentBackground = transparentBackground
         super.init(frame: CGRect(x: 0, y: 0, width: spinnerSize, height: spinnerSize))
         setupLayer()
     }
@@ -24,10 +22,6 @@ class CharcoalSpinnerView: UIView {
         
         self.layer.addSublayer(circleLayer)
         
-        if !transparentBackground {
-            self.backgroundColor = UIColor.white
-        }
-        
         startAnimating()
     }
     
@@ -40,6 +34,8 @@ class CharcoalSpinnerView: UIView {
         opacityAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
         opacityAnimation.repeatCount = Float.infinity
         opacityAnimation.isRemovedOnCompletion = false
+        
+        // Path Animation
         let startPath = UIBezierPath(arcCenter: CGPoint(x: spinnerSize / 2, y: spinnerSize / 2),
                                      radius: 0.1,
                                      startAngle: 0,
@@ -65,11 +61,32 @@ class CharcoalSpinnerView: UIView {
     }
 }
 
-class SpinnerPreviewView: UIView {
-    let spinner = CharcoalSpinnerView(spinnerSize: 48)
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+class SpinnerContainerView: UIView {
+    let spinner: CharcoalSpinnerView
+    let transparentBackground: Bool
+    let padding: CGFloat = 16
+    
+    init(spinnerSize: CGFloat = 48, transparentBackground: Bool = false) {
+        self.spinner = CharcoalSpinnerView(spinnerSize: spinnerSize)
+        self.transparentBackground = transparentBackground
+        super.init(frame: CGRect.zero)
         addSubview(spinner)
+        
+        if (!transparentBackground) {
+            backgroundColor = UIColor.white
+            layer.shadowColor = UIColor.black.cgColor
+            layer.shadowRadius = 8
+            layer.cornerRadius = 8
+            layer.shadowOpacity = 0.1
+        }
+
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: centerYAnchor),
+            spinner.widthAnchor.constraint(equalToConstant: spinnerSize),
+            spinner.heightAnchor.constraint(equalToConstant: spinnerSize)
+        ])
     }
     
     required init?(coder: NSCoder) {
@@ -78,29 +95,29 @@ class SpinnerPreviewView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        spinner.center = CGPoint(x: bounds.midX, y: bounds.midY)
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: spinner.spinnerSize + padding, 
+                      height: spinner.spinnerSize + padding)
     }
 }
 
 @available(iOS 17.0, *)
-#Preview {
-    let backgroundView = UIView()
-    let spinner = SpinnerPreviewView(frame: CGRect(x: 0, y: 0, width: 64, height: 64))
-    spinner.translatesAutoresizingMaskIntoConstraints = false
-    spinner.backgroundColor = UIColor.white
-    backgroundView.addSubview(spinner)
-    backgroundView.backgroundColor = UIColor.gray
+#Preview(traits: .sizeThatFitsLayout) {
+    let stackView = UIStackView()
+    stackView.axis = .vertical
+    stackView.distribution = .fill
+    stackView.alignment = .center
+    stackView.spacing = 8.0
     
-    var constraints: [NSLayoutConstraint] = []
+    let spinner = SpinnerContainerView()
+    let spinner2 = SpinnerContainerView(spinnerSize: 100, transparentBackground: true)
+    let spinner3 = SpinnerContainerView(spinnerSize: 100, transparentBackground: false)
     
-    constraints = [
-        spinner.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor, constant: 0),
-        spinner.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor, constant: 0),
-        spinner.widthAnchor.constraint(equalToConstant: 64),
-        spinner.heightAnchor.constraint(equalToConstant: 64)
-    ]
+    stackView.addArrangedSubview(spinner)
+    stackView.addArrangedSubview(spinner2)
+    stackView.addArrangedSubview(spinner3)
     
-    NSLayoutConstraint.activate(constraints)
-    
-    return backgroundView
+    return stackView
 }
