@@ -1,5 +1,12 @@
 import UIKit
 
+/**
+    Displays a spinner on the screen.
+    # Example #
+    ```swift
+    CharcoalSpinner.show()
+    ```
+ */
 public class CharcoalSpinner: UIView {
     /// The window to display the spinner in.
     var mainWindow: UIWindow!
@@ -132,6 +139,19 @@ extension CharcoalSpinner {
 // MARK: Class Show, Dismiss
 
 public extension CharcoalSpinner {
+    /**
+        Displays a spinner on the screen.
+        - Parameters:
+            - spinnerSize: The size of the spinner view.
+            - transparentBackground: Whether the background of the spinner view is transparent.
+            - dismissOnTouch: Whether the spinner view dismisses when touched.
+            - window: The window to display the spinner in.
+
+        # Example #
+        ```swift
+        CharcoalSpinner.show()
+        ```
+     */
     class func show(
         spinnerSize: CGFloat = 48,
         transparentBackground: Bool = false,
@@ -143,6 +163,14 @@ public extension CharcoalSpinner {
         }
     }
 
+    /**
+        Dismisses the spinner.
+
+        # Example #
+        ```swift
+        CharcoalSpinner.dismiss()
+        ```
+     */
     class func dismiss() {
         DispatchQueue.main.async {
             shared.dismiss()
