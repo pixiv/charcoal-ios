@@ -2,7 +2,6 @@ import Charcoal
 import UIKit
 
 final class SpinnersViewController: UIViewController {
-    
     class SpinnerTypeTableViewCell: UITableViewCell {
         static let identifier = "SpinnerTypeTableViewCell"
     }
@@ -10,7 +9,7 @@ final class SpinnersViewController: UIViewController {
     enum SpinnerTypes: CaseIterable {
         case normal
         case transparent
-        
+
         var title: String {
             switch self {
             case .normal:
@@ -20,7 +19,7 @@ final class SpinnersViewController: UIViewController {
             }
         }
     }
-    
+
     private lazy var tableview: UITableView = {
         let view = UITableView(frame: CGRect.zero, style: .insetGrouped)
         view.bounces = true
@@ -28,20 +27,20 @@ final class SpinnersViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-    
+
     private func setupUI() {
         view.backgroundColor = UIColor.systemBackground
-        
+
         view.addSubview(tableview)
-        
+
         tableview.dataSource = self
         tableview.delegate = self
-        
+
         NSLayoutConstraint.activate([
             tableview.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableview.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -52,36 +51,33 @@ final class SpinnersViewController: UIViewController {
 }
 
 extension SpinnersViewController: UITableViewDelegate, UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return SpinnerTypes.allCases.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(
             withIdentifier: SpinnerTypeTableViewCell.identifier,
             for: indexPath
         ) as! SpinnerTypeTableViewCell
-        
+
         let spinnerType = SpinnerTypes.allCases[indexPath.row]
-        
+
         cell.textLabel?.text = spinnerType.title
-        
+
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let spinnerType = SpinnerTypes.allCases[indexPath.row]
-        
+
         switch spinnerType {
         case .normal:
             CharcoalSpinner.show(dismissOnTouch: true)
         case .transparent:
             CharcoalSpinner.show(transparentBackground: true, dismissOnTouch: true)
         }
-        
+
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
