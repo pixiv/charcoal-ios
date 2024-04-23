@@ -49,20 +49,20 @@ final class SpinnersViewController: UIViewController {
             tableview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
     }
-    
+
     private func addDismissButton() {
         // Add to navigationBar
-        
+
         let dismissButton = UIBarButtonItem(
             title: "Dismiss",
             style: .plain,
             target: self,
             action: #selector(dismissButtonTapped)
         )
-        
+
         navigationItem.rightBarButtonItem = dismissButton
     }
-    
+
     @objc func dismissButtonTapped() {
         CharcoalSpinner.dismiss()
     }
