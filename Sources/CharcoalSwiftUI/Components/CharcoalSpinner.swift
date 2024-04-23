@@ -63,7 +63,7 @@ public struct CharcoalSpinnerModifier: ViewModifier {
                 if isPresenting {
                     if interactionPassthrough == false {
                         // Prevent user interaction passthrough needs non-clear color
-                        Color.white.opacity(0.01).contentShape(Rectangle())
+                        Color.white.opacity(0.01)
                     }
                     CharcoalSpinner(
                         spinnerSize: spinnerSize,
