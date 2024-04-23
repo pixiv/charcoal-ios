@@ -62,7 +62,8 @@ public struct CharcoalSpinnerModifier: ViewModifier {
             .overlay(ZStack {
                 if isPresenting {
                     if interactionPassthrough == false {
-                        Color.clear.contentShape(Rectangle())
+                        // Prevent user interaction passthrough needs non-clear color
+                        Color.white.opacity(0.01).contentShape(Rectangle())
                     }
                     CharcoalSpinner(
                         spinnerSize: spinnerSize,
@@ -119,7 +120,7 @@ struct SpinnersPreview: View {
     @State var isTransparentPresenting = true
     
     var body: some View {
-        return ZStack {
+        ZStack {
             Color.gray.opacity(0.2)
             VStack {
                 Button {
@@ -141,7 +142,6 @@ struct SpinnersPreview: View {
             }
             
         }
-
         .ignoresSafeArea()
     }
 }
