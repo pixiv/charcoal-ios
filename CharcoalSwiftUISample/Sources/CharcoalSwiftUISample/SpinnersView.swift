@@ -46,10 +46,23 @@ public struct SpinnersView: View {
             isOverlayShow ?
                 Color.blue.opacity(0.2).ignoresSafeArea().allowsHitTesting(false) : nil
         )
-
         .charcoalSpinner(isPresenting: $isPresented)
         .charcoalSpinner(isPresenting: $isBigPresented, spinnerSize: 80)
         .charcoalSpinner(isPresenting: $isPresentedTransparent, transparentBackground: true)
         .navigationBarTitle("Spinners")
+        .toolbar {
+            Button("Dismiss") {
+                isPresented = false
+                isBigPresented = false
+                isPresentedTransparent = false
+                isOverlayShow = false
+            }
+        }
+    }
+}
+
+#Preview {
+    NavigationView {
+        SpinnersView()
     }
 }

@@ -60,10 +60,10 @@ public struct CharcoalSpinnerModifier: ViewModifier {
     public func body(content: Content) -> some View {
         content
             .overlay(ZStack {
-                if interactionPassthrough == false {
-                    Color.clear.contentShape(Rectangle())
-                }
                 if isPresenting {
+                    if interactionPassthrough == false {
+                        Color.clear.contentShape(Rectangle())
+                    }
                     CharcoalSpinner(
                         spinnerSize: spinnerSize,
                         transparentBackground: transparentBackground
@@ -71,14 +71,16 @@ public struct CharcoalSpinnerModifier: ViewModifier {
                 }
             }
             .ignoresSafeArea()
-            .animation(.spring, value: isPresenting)
-            )
+            .animation(.spring, value: isPresenting))
     }
 }
 
 public extension View {
     /**
         A view modifier that presents a Spinner view.
+     
+     By default, the spinner view is centered in the parent view and takes up all the avaliable space on parent view.
+         
         - Parameters:
             - isPresented: A binding to whether the  view is presented.
             - spinnerSize: The size of the spinner view.
@@ -139,6 +141,7 @@ struct SpinnersPreview: View {
             }
             
         }
+
         .ignoresSafeArea()
     }
 }
