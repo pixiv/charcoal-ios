@@ -9,7 +9,7 @@ import UIKit
  */
 public class CharcoalSpinner: UIView {
     /// The window to display the spinner in.
-    var mainWindow: UIWindow!
+    var mainView: UIView!
     /// The background view of the spinner.
     var backgroundView: UIView?
     /// The container view of the spinner.
@@ -22,15 +22,15 @@ public class CharcoalSpinner: UIView {
 
 extension CharcoalSpinner {
     /// Initializes the spinner with the given window.
-    func setupWindow(window: UIWindow?) {
-        if let window = window {
-            mainWindow = window
+    func setupView(view: UIView?) {
+        if let view = view {
+            mainView = view
         } else {
-            if mainWindow == nil {
+            if mainView == nil {
                 let scene = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }
                     .filter { $0.activationState == .foregroundActive }
                     .first
-                mainWindow = scene?.windows.filter { $0.isKeyWindow }.first ?? UIApplication.shared.windows.first
+                mainView = scene?.windows.filter { $0.isKeyWindow }.first ?? UIApplication.shared.windows.first
             }
         }
     }
@@ -44,33 +44,28 @@ extension CharcoalSpinner {
         backgroundView = nil
     }
 
-    private func setupBackground(_ dismissOnTouch: Bool) {
+    private func setupBackground(_ interactionPassthrough: Bool) {
         if backgroundView == nil {
-            let bounds = mainWindow.bounds
+            let bounds = mainView.bounds
             backgroundView = UIView(frame: bounds)
 
             guard let backgroundView = backgroundView else {
                 fatalError("Background view is nil.")
             }
             backgroundView.translatesAutoresizingMaskIntoConstraints = false
-            mainWindow.addSubview(backgroundView)
+            mainView.addSubview(backgroundView)
 
             let constraints: [NSLayoutConstraint] = [
-                backgroundView.leadingAnchor.constraint(equalTo: mainWindow.leadingAnchor, constant: 0),
-                backgroundView.topAnchor.constraint(equalTo: mainWindow.topAnchor, constant: 0),
-                backgroundView.bottomAnchor.constraint(equalTo: mainWindow.bottomAnchor, constant: 0),
-                backgroundView.rightAnchor.constraint(equalTo: mainWindow.rightAnchor, constant: 0)
+                backgroundView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 0),
+                backgroundView.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 0),
+                backgroundView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: 0),
+                backgroundView.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: 0)
             ]
 
             NSLayoutConstraint.activate(constraints)
         }
 
-        backgroundView?.isUserInteractionEnabled = dismissOnTouch
-
-        if dismissOnTouch {
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismiss))
-            backgroundView?.addGestureRecognizer(tapGesture)
-        }
+        backgroundView?.isUserInteractionEnabled = interactionPassthrough ? false : true
     }
 }
 
@@ -91,11 +86,11 @@ extension CharcoalSpinner {
             }
 
             containerView.translatesAutoresizingMaskIntoConstraints = false
-            mainWindow.addSubview(containerView)
+            mainView.addSubview(containerView)
 
             let constraints: [NSLayoutConstraint] = [
-                containerView.centerXAnchor.constraint(equalTo: mainWindow.centerXAnchor, constant: 0),
-                containerView.centerYAnchor.constraint(equalTo: mainWindow.centerYAnchor, constant: 0)
+                containerView.centerXAnchor.constraint(equalTo: mainView.centerXAnchor, constant: 0),
+                containerView.centerYAnchor.constraint(equalTo: mainView.centerYAnchor, constant: 0)
             ]
 
             NSLayoutConstraint.activate(constraints)
@@ -109,11 +104,11 @@ extension CharcoalSpinner {
     func show(
         spinnerSize: CGFloat = 48,
         transparentBackground: Bool = false,
-        dismissOnTouch: Bool,
-        onWindow window: UIWindow? = nil
+        interactionPassthrough: Bool,
+        on view: UIView? = nil
     ) {
-        setupWindow(window: window)
-        setupBackground(dismissOnTouch)
+        setupView(view: view)
+        setupBackground(interactionPassthrough)
         setupContainer(subview: CharcoalSpinnerView(spinnerSize: spinnerSize), transparentBackground: transparentBackground)
         display()
     }
@@ -144,8 +139,8 @@ public extension CharcoalSpinner {
         - Parameters:
             - spinnerSize: The size of the spinner view.
             - transparentBackground: Whether the background of the spinner view is transparent.
-            - dismissOnTouch: Whether the spinner view dismisses when touched.
-            - window: The window to display the spinner in.
+            - interactionPassthrough: Whether the spinner background should pass through user interactions.
+            - view: The window or view to display the spinner in.
 
         # Example #
         ```swift
@@ -155,11 +150,11 @@ public extension CharcoalSpinner {
     class func show(
         spinnerSize: CGFloat = 48,
         transparentBackground: Bool = false,
-        dismissOnTouch: Bool = false,
-        onWindow window: UIWindow? = nil
+        interactionPassthrough: Bool = false,
+        on view: UIView? = nil
     ) {
         DispatchQueue.main.async {
-            shared.show(spinnerSize: spinnerSize, transparentBackground: transparentBackground, dismissOnTouch: dismissOnTouch, onWindow: window)
+            shared.show(spinnerSize: spinnerSize, transparentBackground: transparentBackground, interactionPassthrough: interactionPassthrough, on: view)
         }
     }
 
@@ -213,11 +208,11 @@ class CharcoalSpinnerPreview: UIView {
     }
 
     @objc func showNormalSpinner() {
-        CharcoalSpinner.show(dismissOnTouch: false)
+        CharcoalSpinner.show(interactionPassthrough: false)
     }
 
     @objc func showTransparentSpinner() {
-        CharcoalSpinner.show(transparentBackground: true, dismissOnTouch: true)
+        CharcoalSpinner.show(transparentBackground: true, interactionPassthrough: true)
     }
 
     @objc func dismissSpinner() {

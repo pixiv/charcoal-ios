@@ -31,6 +31,7 @@ final class SpinnersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        addDismissButton()
     }
 
     private func setupUI() {
@@ -47,6 +48,23 @@ final class SpinnersViewController: UIViewController {
             tableview.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
+    }
+    
+    private func addDismissButton() {
+        // Add to navigationBar
+        
+        let dismissButton = UIBarButtonItem(
+            title: "Dismiss",
+            style: .plain,
+            target: self,
+            action: #selector(dismissButtonTapped)
+        )
+        
+        navigationItem.rightBarButtonItem = dismissButton
+    }
+    
+    @objc func dismissButtonTapped() {
+        CharcoalSpinner.dismiss()
     }
 }
 
@@ -73,9 +91,9 @@ extension SpinnersViewController: UITableViewDelegate, UITableViewDataSource {
 
         switch spinnerType {
         case .normal:
-            CharcoalSpinner.show(dismissOnTouch: true)
+            CharcoalSpinner.show(on: view)
         case .transparent:
-            CharcoalSpinner.show(transparentBackground: true, dismissOnTouch: true)
+            CharcoalSpinner.show(transparentBackground: true, on: view)
         }
 
         tableView.deselectRow(at: indexPath, animated: true)
