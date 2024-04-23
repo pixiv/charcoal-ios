@@ -49,7 +49,7 @@ public struct CharcoalSpinnerModifier: ViewModifier {
     let spinnerSize: CGFloat
     let transparentBackground: Bool
     let interactionPassthrough: Bool
-    
+
     init(isPresenting: Binding<Bool>, spinnerSize: CGFloat, transparentBackground: Bool, interactionPassthrough: Bool) {
         _isPresenting = isPresenting
         self.spinnerSize = spinnerSize
@@ -79,9 +79,9 @@ public struct CharcoalSpinnerModifier: ViewModifier {
 public extension View {
     /**
         A view modifier that presents a Spinner view.
-     
+
      By default, the spinner view is centered in the parent view and takes up all the avaliable space on parent view.
-         
+
         - Parameters:
             - isPresented: A binding to whether the  view is presented.
             - spinnerSize: The size of the spinner view.
@@ -118,7 +118,7 @@ struct SpinnersPreview: View {
     @State var isPresenting = true
     @State var isBigPresenting = true
     @State var isTransparentPresenting = true
-    
+
     var body: some View {
         ZStack {
             Color.gray.opacity(0.2)
@@ -140,7 +140,6 @@ struct SpinnersPreview: View {
                     .frame(width: 100, height: 100)
                     .charcoalSpinner(isPresenting: $isTransparentPresenting, transparentBackground: true)
             }
-            
         }
         .ignoresSafeArea()
     }
