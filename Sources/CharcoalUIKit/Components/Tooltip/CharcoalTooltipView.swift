@@ -9,9 +9,12 @@ class CharcoalTooltipView: UIView {
 
     /// The height of the arrow
     let arrowHeight: CGFloat = 3
+    
+    /// The width of the arrow
+    let arrowWidth: CGFloat = 5
 
-    init(text: String, targetFrame: CGRect, maxWidth: CGFloat = 184) {
-        self.bubbleShape = TooltipBubbleShape(targetPoint: .zero, arrowHeight: 3, bubbleRadius: 4, arrowWidth: 7)
+    init(text: String, targetPoint: CGPoint, maxWidth: CGFloat = 184) {
+        self.bubbleShape = TooltipBubbleShape(targetPoint: targetPoint, arrowHeight: arrowHeight, bubbleRadius: cornerRadius, arrowWidth: arrowWidth)
         super.init(frame: .zero)
         self.layer.addSublayer(self.bubbleShape)
     }
@@ -46,9 +49,18 @@ class CharcoalTooltipView: UIView {
     stackView.alignment = .center
     stackView.spacing = 8.0
 
-    let tooltip = CharcoalTooltipView(text: "Hello", targetFrame: CGRect.zero)
+    let tooltip = CharcoalTooltipView(text: "Hello", targetPoint: CGPoint(x: 15, y: -5))
+    
+    let tooltip2 = CharcoalTooltipView(text: "Hello", targetPoint: CGPoint(x: 110, y: 10))
+    
+    let tooltip3 = CharcoalTooltipView(text: "Hello", targetPoint: CGPoint(x: 50, y: 55))
+    
+    let tooltip4 = CharcoalTooltipView(text: "Hello", targetPoint: CGPoint(x: -10, y: 25))
 
     stackView.addArrangedSubview(tooltip)
+    stackView.addArrangedSubview(tooltip2)
+    stackView.addArrangedSubview(tooltip3)
+    stackView.addArrangedSubview(tooltip4)
 
     return stackView
 }
