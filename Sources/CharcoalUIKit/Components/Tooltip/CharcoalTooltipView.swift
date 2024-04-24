@@ -1,9 +1,19 @@
 import UIKit
 
 class CharcoalTooltipView: UIView {
+    
+    let bubbleShape: TooltipBubbleShape
+    
+    /// The corner radius of the tooltip
+    let cornerRadius: CGFloat = 4
 
-    init(text: String) {
+    /// The height of the arrow
+    let arrowHeight: CGFloat = 3
+
+    init(text: String, targetFrame: CGRect, maxWidth: CGFloat = 184) {
+        self.bubbleShape = TooltipBubbleShape(targetPoint: .zero, arrowHeight: 3, bubbleRadius: 4, arrowWidth: 7)
         super.init(frame: .zero)
+        self.layer.addSublayer(self.bubbleShape)
     }
 
     @available(*, unavailable)
@@ -19,7 +29,12 @@ class CharcoalTooltipView: UIView {
     }
 
     override var intrinsicContentSize: CGSize {
-        return CGSize.zero
+        return CGSize(width: 100, height: 50)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.bubbleShape.frame = self.bounds
     }
 }
 
@@ -31,7 +46,7 @@ class CharcoalTooltipView: UIView {
     stackView.alignment = .center
     stackView.spacing = 8.0
 
-    let tooltip = CharcoalTooltipView(text: "Hello")
+    let tooltip = CharcoalTooltipView(text: "Hello", targetFrame: CGRect.zero)
 
     stackView.addArrangedSubview(tooltip)
 
