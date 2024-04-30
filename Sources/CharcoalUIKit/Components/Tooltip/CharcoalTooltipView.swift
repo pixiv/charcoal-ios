@@ -1,6 +1,10 @@
 import UIKit
 
-class CharcoalTooltipView: UIView {
+protocol CharcoalAnchorable {
+    func updateTargetPoint(point:CGPoint)
+}
+
+class CharcoalTooltipView: UIView, CharcoalAnchorable {
     
     lazy var label: CharcoalTypography12 = {
         let label = CharcoalTypography12()
@@ -29,13 +33,10 @@ class CharcoalTooltipView: UIView {
     /// Padding around the bubble
     let padding = UIEdgeInsets(top: 4, left: 12, bottom: 4, right: 12)
     
-    var targetPoint: CGPoint
-    
     /// Text frame size
     private var textFrameSize: CGSize = .zero
 
     init(text: String, targetPoint: CGPoint, maxWidth: CGFloat = 184) {
-        self.targetPoint = targetPoint
         self.bubbleShape = CharcoalBubbleShape(targetPoint: targetPoint, arrowHeight: arrowHeight, bubbleRadius: cornerRadius, arrowWidth: arrowWidth)
         self.maxWidth = maxWidth
         self.text = text
@@ -45,8 +46,8 @@ class CharcoalTooltipView: UIView {
     }
     
     func updateTargetPoint(point:CGPoint) {
-        self.targetPoint = point
-        layoutSubviews()
+        self.bubbleShape.targetPoint = point
+        self.setNeedsLayout()
     }
 
     @available(*, unavailable)

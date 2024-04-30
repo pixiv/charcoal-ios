@@ -5,6 +5,7 @@ class CharcoalTooltip {}
 extension CharcoalTooltip {
     static func show(text: String, anchorView: UIView, on: UIView? = nil) {
         let tooltip = CharcoalTooltipView(text: text, targetPoint: CGPoint(x: 0, y: 0))
+        
         tooltip.translatesAutoresizingMaskIntoConstraints = false
         CharcoalOverlayView.shared.show(view: tooltip, interactionPassthrough: true, anchorView: anchorView, on: on)
     }
