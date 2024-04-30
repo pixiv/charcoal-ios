@@ -65,6 +65,7 @@ class CharcoalTooltipView: UIView {
     }
 
     override var intrinsicContentSize: CGSize {
+        self.textFrameSize = text.calculateFrame(font: label.font, maxWidth: maxWidth)
         return CGSize(width: padding.left + textFrameSize.width + padding.right, height: padding.top + textFrameSize.height + padding.bottom)
     }
     

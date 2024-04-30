@@ -79,19 +79,18 @@ extension CharcoalOverlayView {
     
     private func setupContainer() {
         if containerView == nil {
-            containerView = UIView()
+            containerView = UIView(frame: .zero)
             containerView?.alpha = 0
             guard let containerView = containerView else {
                 fatalError("Container view is nil.")
             }
-            
             containerView.translatesAutoresizingMaskIntoConstraints = false
             mainView.addSubview(containerView)
             
             let constraints: [NSLayoutConstraint] = [
-                containerView.centerXAnchor.constraint(equalTo: mainView.centerXAnchor, constant: 0),
-                containerView.centerYAnchor.constraint(equalTo: mainView.centerYAnchor, constant: 0),
-                containerView.heightAnchor.constraint(equalTo: mainView.widthAnchor),
+                containerView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 0),
+                containerView.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 0),
+                containerView.heightAnchor.constraint(equalTo: mainView.heightAnchor),
                 containerView.widthAnchor.constraint(equalTo: mainView.widthAnchor),
             ]
             
@@ -107,7 +106,7 @@ extension CharcoalOverlayView {
         view: UIView,
         transparentBackground: Bool = false,
         interactionPassthrough: Bool,
-        anchorPoint: CGPoint? = nil,
+        anchorView: UIView? = nil,
         on superView: UIView? = nil
     ) {
         setupSuperView(view: superView)
@@ -115,7 +114,9 @@ extension CharcoalOverlayView {
         setupContainer()
         containerView!.addSubview(view)
         
-        if let anchorPoint = anchorPoint {
+        if let anchorView = anchorView {
+            let anchorPoint = anchorView.superview!.convert(anchorView.frame.origin, to: containerView)
+            print("anchor point \(anchorView.frame) converted \(anchorPoint)")
             let constraints: [NSLayoutConstraint] = [
                 view.leadingAnchor.constraint(equalTo: containerView!.leadingAnchor, constant: anchorPoint.x),
                 view.topAnchor.constraint(equalTo: containerView!.topAnchor, constant: anchorPoint.y),
