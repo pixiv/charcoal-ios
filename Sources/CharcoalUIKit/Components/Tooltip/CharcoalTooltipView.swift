@@ -26,9 +26,10 @@ class CharcoalTooltipView: UIView {
     /// The max width of the tooltip
     let maxWidth: CGFloat
     
+    /// Padding around the bubble
     let padding = UIEdgeInsets(top: 4, left: 12, bottom: 4, right: 12)
     
-    // Text frame size
+    /// Text frame size
     private var textFrameSize: CGSize = .zero
 
     init(text: String, targetPoint: CGPoint, maxWidth: CGFloat = 184) {
@@ -56,15 +57,18 @@ class CharcoalTooltipView: UIView {
     private func startAnimating() {
 
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        self.textFrameSize = text.calculateFrame(font: label.font, maxWidth: maxWidth)
+    }
 
     override var intrinsicContentSize: CGSize {
         return CGSize(width: padding.left + textFrameSize.width + padding.right, height: padding.top + textFrameSize.height + padding.bottom)
     }
     
     override func layoutSubviews() {
-        super.layoutSubviews()
+        super.layoutSubviews()        
         self.bubbleShape.frame = self.bounds
-       
         self.label.frame = CGRect(x: padding.left, y: padding.top, width: textFrameSize.width, height: textFrameSize.height)
     }
 }
