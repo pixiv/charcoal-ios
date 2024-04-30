@@ -2,7 +2,7 @@ import UIKit
 
 class CharcoalTooltipView: UIView {
     
-    let bubbleShape: TooltipBubbleShape
+    let bubbleShape: CharcoalBubbleShape
     
     /// The corner radius of the tooltip
     let cornerRadius: CGFloat = 4
@@ -14,7 +14,7 @@ class CharcoalTooltipView: UIView {
     let arrowWidth: CGFloat = 5
 
     init(text: String, targetPoint: CGPoint, maxWidth: CGFloat = 184) {
-        self.bubbleShape = TooltipBubbleShape(targetPoint: targetPoint, arrowHeight: arrowHeight, bubbleRadius: cornerRadius, arrowWidth: arrowWidth)
+        self.bubbleShape = CharcoalBubbleShape(targetPoint: targetPoint, arrowHeight: arrowHeight, bubbleRadius: cornerRadius, arrowWidth: arrowWidth)
         super.init(frame: .zero)
         self.layer.addSublayer(self.bubbleShape)
     }

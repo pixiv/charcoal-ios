@@ -7,7 +7,7 @@ enum CharcoalTooltipLayoutPriority: Codable {
     case left
 }
 
-class TooltipBubbleShape: CAShapeLayer {
+class CharcoalBubbleShape: CAShapeLayer {
     var targetPoint: CGPoint
     var arrowHeight: CGFloat
     var bubbleRadius: CGFloat
