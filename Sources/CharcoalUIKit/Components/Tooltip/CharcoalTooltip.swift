@@ -5,9 +5,8 @@ class CharcoalTooltip {}
 extension CharcoalTooltip {
     static func show(text: String, anchorView: UIView, on: UIView? = nil) {
         let tooltip = CharcoalTooltipView(text: text, targetPoint: CGPoint(x: 0, y: 0))
-        
         tooltip.translatesAutoresizingMaskIntoConstraints = false
-        CharcoalOverlayView.shared.show(view: tooltip, interactionPassthrough: false, anchorView: anchorView, on: on)
+        CharcoalOverlayView.shared.show(view: tooltip, interactionPassthrough: true, anchorView: anchorView, on: on)
     }
 }
 
@@ -30,6 +29,7 @@ extension CharcoalTooltip {
     let debugContainerView = UIView(frame: .zero)
     debugContainerView.translatesAutoresizingMaskIntoConstraints = false
     debugContainerView.backgroundColor = UIColor.blue.withAlphaComponent(0.1)
+    debugContainerView.isUserInteractionEnabled = false
     view.addSubview(debugContainerView)
     
     NSLayoutConstraint.activate([

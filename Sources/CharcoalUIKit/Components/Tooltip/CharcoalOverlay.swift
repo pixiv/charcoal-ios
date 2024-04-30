@@ -115,11 +115,13 @@ extension CharcoalOverlayView {
         containerView!.addSubview(view)
         
         if let anchorView = anchorView {
-            let anchorPoint = anchorView.superview!.convert(anchorView.frame.origin, to: containerView)
-            print("anchor point \(anchorView.frame) converted \(anchorPoint)")
+            let spacing: CGFloat = 4
+            let viewSize = view.intrinsicContentSize
+            let anchorPoint = anchorView.superview!.convert(anchorView.center, to: containerView)
+            print("anchor point \(anchorView.frame) converted \(anchorPoint) frame \(anchorView.frame)")
             let constraints: [NSLayoutConstraint] = [
-                view.leadingAnchor.constraint(equalTo: containerView!.leadingAnchor, constant: anchorPoint.x),
-                view.topAnchor.constraint(equalTo: containerView!.topAnchor, constant: anchorPoint.y),
+                view.leadingAnchor.constraint(equalTo: containerView!.leadingAnchor, constant: anchorPoint.x - viewSize.width / 2.0),
+                view.topAnchor.constraint(equalTo: containerView!.topAnchor, constant: anchorPoint.y - viewSize.height - anchorView.frame.size.height / 2.0 - spacing),
             ]
             NSLayoutConstraint.activate(constraints)
         }

@@ -29,16 +29,24 @@ class CharcoalTooltipView: UIView {
     /// Padding around the bubble
     let padding = UIEdgeInsets(top: 4, left: 12, bottom: 4, right: 12)
     
+    var targetPoint: CGPoint
+    
     /// Text frame size
     private var textFrameSize: CGSize = .zero
 
     init(text: String, targetPoint: CGPoint, maxWidth: CGFloat = 184) {
+        self.targetPoint = targetPoint
         self.bubbleShape = CharcoalBubbleShape(targetPoint: targetPoint, arrowHeight: arrowHeight, bubbleRadius: cornerRadius, arrowWidth: arrowWidth)
         self.maxWidth = maxWidth
         self.text = text
         super.init(frame: .zero)
         self.textFrameSize = text.calculateFrame(font: label.font, maxWidth: maxWidth)
         self.setupLayer()
+    }
+    
+    func updateTargetPoint(point:CGPoint) {
+        self.targetPoint = point
+        layoutSubviews()
     }
 
     @available(*, unavailable)
