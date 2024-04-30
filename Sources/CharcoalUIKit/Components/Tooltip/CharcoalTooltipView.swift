@@ -59,6 +59,8 @@ class CharcoalTooltipView: UIView {
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
         self.textFrameSize = text.calculateFrame(font: label.font, maxWidth: maxWidth)
     }
 
@@ -67,7 +69,7 @@ class CharcoalTooltipView: UIView {
     }
     
     override func layoutSubviews() {
-        super.layoutSubviews()        
+        super.layoutSubviews()
         self.bubbleShape.frame = self.bounds
         self.label.frame = CGRect(x: padding.left, y: padding.top, width: textFrameSize.width, height: textFrameSize.height)
     }
