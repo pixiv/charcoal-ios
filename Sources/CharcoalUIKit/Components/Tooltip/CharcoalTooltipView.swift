@@ -2,6 +2,16 @@ import UIKit
 
 class CharcoalTooltipView: UIView {
     
+    lazy var label: CharcoalTypography12 = {
+        let label = CharcoalTypography12()
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = CharcoalAsset.ColorPaletteGenerated.text5.color
+        return label
+    }()
+    
+    let text: String
+    
     let bubbleShape: CharcoalBubbleShape
     
     /// The corner radius of the tooltip
@@ -12,11 +22,22 @@ class CharcoalTooltipView: UIView {
     
     /// The width of the arrow
     let arrowWidth: CGFloat = 5
+    
+    /// The max width of the tooltip
+    let maxWidth: CGFloat
+    
+    let padding = UIEdgeInsets(top: 4, left: 12, bottom: 4, right: 12)
+    
+    // Text frame size
+    private var textFrameSize: CGSize = .zero
 
     init(text: String, targetPoint: CGPoint, maxWidth: CGFloat = 184) {
         self.bubbleShape = CharcoalBubbleShape(targetPoint: targetPoint, arrowHeight: arrowHeight, bubbleRadius: cornerRadius, arrowWidth: arrowWidth)
+        self.maxWidth = maxWidth
+        self.text = text
         super.init(frame: .zero)
-        self.layer.addSublayer(self.bubbleShape)
+        self.textFrameSize = text.calculateFrame(font: label.font, maxWidth: maxWidth)
+        self.setupLayer()
     }
 
     @available(*, unavailable)
@@ -25,6 +46,11 @@ class CharcoalTooltipView: UIView {
     }
 
     private func setupLayer() {
+        // Setup Bubble Shape
+        self.layer.addSublayer(self.bubbleShape)
+        // Setup Label
+        addSubview(label)
+        label.text = text
     }
 
     private func startAnimating() {
@@ -32,12 +58,14 @@ class CharcoalTooltipView: UIView {
     }
 
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: 100, height: 50)
+        return CGSize(width: padding.left + textFrameSize.width + padding.right, height: padding.top + textFrameSize.height + padding.bottom)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         self.bubbleShape.frame = self.bounds
+       
+        self.label.frame = CGRect(x: padding.left, y: padding.top, width: textFrameSize.width, height: textFrameSize.height)
     }
 }
 
@@ -49,13 +77,13 @@ class CharcoalTooltipView: UIView {
     stackView.alignment = .center
     stackView.spacing = 8.0
 
-    let tooltip = CharcoalTooltipView(text: "Hello", targetPoint: CGPoint(x: 15, y: -5))
+    let tooltip = CharcoalTooltipView(text: "Hello World", targetPoint: CGPoint(x: 15, y: -5))
     
-    let tooltip2 = CharcoalTooltipView(text: "Hello", targetPoint: CGPoint(x: 110, y: 10))
+    let tooltip2 = CharcoalTooltipView(text: "Hello World This is a tooltip", targetPoint: CGPoint(x: 110, y: 10))
     
-    let tooltip3 = CharcoalTooltipView(text: "Hello", targetPoint: CGPoint(x: 50, y: 55))
+    let tooltip3 = CharcoalTooltipView(text: "here is testing it's multiple line feature", targetPoint: CGPoint(x: 50, y: 55))
     
-    let tooltip4 = CharcoalTooltipView(text: "Hello", targetPoint: CGPoint(x: -10, y: 25))
+    let tooltip4 = CharcoalTooltipView(text: "こんにちは This is a tooltip and here is testing it's multiple line feature", targetPoint: CGPoint(x: -10, y: 25))
 
     stackView.addArrangedSubview(tooltip)
     stackView.addArrangedSubview(tooltip2)
