@@ -1,6 +1,9 @@
 import UIKit
 
-class CharcoalIdentifiableOverlayView: UIView {
+class CharcoalIdentifiableOverlayView: UIView, Identifiable {
+    typealias IDValue = UUID
+    
+    let id = IDValue()
     
     let interactionMode: CharcoalOverlayInteractionMode
     

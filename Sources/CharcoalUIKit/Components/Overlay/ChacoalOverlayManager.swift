@@ -10,13 +10,13 @@ case dimissOnTap
  Displays a overlay on the screen.
  */
 public class ChacoalOverlayManager: UIView {
-    /// The window to display the spinner in.
+    /// The window to display the overlays in.
     var mainView: UIView!
-    /// The background view of the overall overlays.
+    /// The background view of the overlays.
     var backgroundView: UIView?
-    
+    /// The container view array of the overlays.
     var overlayContainerViews: [CharcoalIdentifiableOverlayView] = []
-    
+    /// Shared instance of the overlay manager.
     static let shared = ChacoalOverlayManager()
 }
 
@@ -97,19 +97,18 @@ extension ChacoalOverlayManager {
 // MARK: - Show, Dismiss
 
 extension ChacoalOverlayManager {
+    @discardableResult
     func show(
         view: UIView,
         transparentBackground: Bool = false,
         interactionMode: CharcoalOverlayInteractionMode = .dimissOnTap,
         anchorView: UIView? = nil,
         on superView: UIView? = nil
-    ) {
+    ) -> CharcoalIdentifiableOverlayView.IDValue {
         setupSuperView(view: superView)
         setupBackground()
         let containerView = setupContainer(interactionMode)
         containerView.addSubview(view)
-        
-//        layoutIfNeeded()
         
         if let anchorView = anchorView, let anchorableView = view as? CharcoalAnchorable  {
             let spacingToScreen: CGFloat = 16
@@ -134,6 +133,8 @@ extension ChacoalOverlayManager {
         }
         
         display()
+        
+        return containerView.id
     }
     
     func tooltipX(anchorFrame: CGRect, tooltipSize: CGSize, canvasGeometrySize: CGSize, spacingToScreen: CGFloat) -> CGFloat {
@@ -170,6 +171,12 @@ extension ChacoalOverlayManager {
         for containerView in overlayContainerViews {
             containerView.dismiss()
         }
+    }
+    
+    /// Dismisses the overlay with the given identifier.
+    func dismiss(id: CharcoalIdentifiableOverlayView.IDValue) {
+        let containerView = overlayContainerViews.first { $0.id == id }
+        containerView?.dismiss()
     }
 }
 
