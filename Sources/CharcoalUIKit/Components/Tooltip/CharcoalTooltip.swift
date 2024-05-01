@@ -27,26 +27,32 @@ extension CharcoalTooltip {
         button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
     ])
     
-    let debugContainerView = UIView(frame: .zero)
-    debugContainerView.translatesAutoresizingMaskIntoConstraints = false
-    debugContainerView.backgroundColor = UIColor.blue.withAlphaComponent(0.1)
-    debugContainerView.isUserInteractionEnabled = false
-    view.addSubview(debugContainerView)
+    let button2 = CharcoalPrimaryMButton()
+    button2.setTitle("OK", for: .normal)
+    button2.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(button2)
     
     NSLayoutConstraint.activate([
-        debugContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        debugContainerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        debugContainerView.widthAnchor.constraint(equalTo: view.widthAnchor),
-        debugContainerView.heightAnchor.constraint(equalTo: view.widthAnchor)
+        button2.topAnchor.constraint(equalTo: view.topAnchor),
+        button2.leadingAnchor.constraint(equalTo: view.leadingAnchor)
     ])
-//    let tooltip2 = CharcoalTooltipView(text: "Hello World This is a tooltip", targetPoint: CGPoint(x: 110, y: 10))
-//    
-//    let tooltip3 = CharcoalTooltipView(text: "here is testing it's multiple line feature", targetPoint: CGPoint(x: 50, y: 55))
-//    
-//    let tooltip4 = CharcoalTooltipView(text: "こんにちは This is a tooltip and here is testing it's multiple line feature", targetPoint: CGPoint(x: -10, y: 25))
+    
+    let button3 = CharcoalPrimaryMButton()
+    button3.setTitle("OK", for: .normal)
+    button3.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(button3)
+    
+    NSLayoutConstraint.activate([
+        button3.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        button3.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+    ])
     
     DispatchQueue.main.async {
-        CharcoalTooltip.show(text: "Hello World", anchorView: button, on: debugContainerView)
+        CharcoalTooltip.show(text: "Hello World", anchorView: button)
+        
+        CharcoalTooltip.show(text: "Hello World This is a tooltip", anchorView: button2)
+        
+        CharcoalTooltip.show(text: "こんにちは This is a tooltip and here is testing it's multiple line feature", anchorView: button3)
     }
 
     return view
