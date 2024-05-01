@@ -28,8 +28,6 @@ extension CharcoalOverlayView {
                     .first
                 mainView = scene?.windows.filter { $0.isKeyWindow }.first ??
                 UIApplication.shared.windows.first
-                
-                print("shows on main")
             }
         }
     }
@@ -118,29 +116,19 @@ extension CharcoalOverlayView {
         containerView!.addSubview(view)
         
         if let anchorView = anchorView, let anchorableView = view as? CharcoalAnchorable  {
-            let spacing: CGFloat = 4
+            let spacingToScreen: CGFloat = 16
+            let gap: CGFloat = 4
             let viewSize = view.intrinsicContentSize
-            let anchorPoint = anchorView.superview!.convert(anchorView.center, to: containerView)
+            let anchorPoint = anchorView.superview!.convert(anchorView.frame.origin, to: containerView)
             let targetPoint = anchorView.superview!.convert(anchorView.center, to: view)
-            let anchorViewHalfHeight = anchorView.frame.size.height / 2.0
-            let anchroViewMaxY = anchorPoint.y + anchorViewHalfHeight
-            let anchroViewMinY = anchorPoint.y - anchorViewHalfHeight
-            print("containerView!.frame.width \(mainView!.frame.width)")
+            let newAnchorRect = CGRect(x: anchorPoint.x, y: anchorPoint.y, width: anchorView.frame.width, height: anchorView.frame.height)
             
-            let viewLeadingConstant = min(max(16, anchorPoint.x - viewSize.width / 2.0), mainView!.frame.width - viewSize.width - 16)
+            let viewLeadingConstant = tooltipX(anchorFrame: newAnchorRect, tooltipSize: viewSize, canvasGeometrySize: mainView.frame.size, spacingToScreen: spacingToScreen)
             
-            var viewTopConstant: CGFloat
-            
-            if (anchroViewMinY - spacing >= viewSize.height) {
-                viewTopConstant = anchroViewMinY - spacing - viewSize.height - anchorableView.arrowHeight
-            } else {
-                viewTopConstant = anchroViewMaxY + spacing + anchorableView.arrowHeight
-            }
+            let viewTopConstant = tooltipY(anchorFrame: newAnchorRect, arrowHeight: anchorableView.arrowHeight, tooltipSize: viewSize, canvasGeometrySize: mainView.frame.size, spacingToTarget: gap)
             
             let newTargetPoint = CGPoint(x: targetPoint.x - viewLeadingConstant, y: targetPoint.y - viewTopConstant)
             anchorableView.updateTargetPoint(point: newTargetPoint)
-            
-            print("anchor point \(anchorPoint) leading \(viewLeadingConstant) top \(viewTopConstant)")
             
             let constraints: [NSLayoutConstraint] = [
                 view.leadingAnchor.constraint(equalTo: containerView!.leadingAnchor, constant: viewLeadingConstant),
@@ -152,8 +140,31 @@ extension CharcoalOverlayView {
         display()
     }
     
+    func tooltipX(anchorFrame: CGRect, tooltipSize: CGSize, canvasGeometrySize: CGSize, spacingToScreen: CGFloat) -> CGFloat {
+        let minX = anchorFrame.midX - (tooltipSize.width / 2.0)
+
+        var edgeLeft = minX
+
+        if edgeLeft + tooltipSize.width >= canvasGeometrySize.width {
+            edgeLeft = canvasGeometrySize.width - tooltipSize.width - spacingToScreen
+        } else if edgeLeft < spacingToScreen {
+            edgeLeft = spacingToScreen
+        }
+
+        return edgeLeft
+    }
+
+    func tooltipY(anchorFrame: CGRect, arrowHeight: CGFloat, tooltipSize: CGSize, canvasGeometrySize: CGSize, spacingToTarget: CGFloat) -> CGFloat {
+        let minX = anchorFrame.maxY + spacingToTarget + arrowHeight
+        var edgeBottom = anchorFrame.maxY + spacingToTarget + anchorFrame.height
+        if edgeBottom + tooltipSize.height >= canvasGeometrySize.height {
+            edgeBottom = anchorFrame.minY - tooltipSize.height - spacingToTarget - arrowHeight
+        }
+
+        return min(minX, edgeBottom)
+    }
+    
     func display() {
-        print("display")
         UIView.animate(withDuration: 0.25, animations: { [weak self] in
             self?.containerView?.alpha = 1
         })
