@@ -36,7 +36,6 @@ class CharcoalIdentifiableOverlayView: UIView, Identifiable {
     }
     
     @objc func dismiss() {
-        print("dismiss")
         UIView.animate(withDuration: 0.25, animations: { [weak self] in
             self?.alpha = 0
         }) {

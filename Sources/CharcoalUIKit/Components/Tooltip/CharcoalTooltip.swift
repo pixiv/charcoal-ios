@@ -1,8 +1,8 @@
 import UIKit
 
-class CharcoalTooltip {}
+public class CharcoalTooltip {}
 
-extension CharcoalTooltip {
+public extension CharcoalTooltip {
     static func show(text: String, anchorView: UIView, on: UIView? = nil) {
         let tooltip = CharcoalTooltipView(text: text, targetPoint: .zero)
         
