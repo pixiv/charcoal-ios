@@ -30,7 +30,7 @@ enum TooltipTitles: String, CaseIterable {
     }
 }
 
-public final class TooltipsController: UIViewController {
+public final class TooltipsViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .insetGrouped)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -98,7 +98,7 @@ public final class TooltipsController: UIViewController {
     }
 }
 
-extension TooltipsController: UITableViewDelegate, UITableViewDataSource {
+extension TooltipsViewController: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = Sections.allCases[indexPath.section]
 
@@ -142,6 +142,6 @@ extension TooltipsController: UITableViewDelegate, UITableViewDataSource {
 
 @available(iOS 17.0, *)
 #Preview {
-    let viewController = TooltipsController()
+    let viewController = TooltipsViewController()
     return viewController
 }
