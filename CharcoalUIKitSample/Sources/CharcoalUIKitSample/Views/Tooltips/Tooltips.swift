@@ -5,7 +5,7 @@ enum TooltipTitles: String, CaseIterable {
     case leading = "Leading"
     case trailing = "Trailing"
     case bottom = "Bottom"
-    
+
     var text: String {
         switch self {
         case .leading:
@@ -16,8 +16,8 @@ enum TooltipTitles: String, CaseIterable {
             return "こんにちは This is a tooltip and here is testing it's multiple line feature"
         }
     }
-    
-    func configCell(cell: TooltipTableViewCell)  {
+
+    func configCell(cell: TooltipTableViewCell) {
         cell.titleLabel.text = rawValue
         switch self {
         case .leading:
@@ -36,7 +36,7 @@ public final class TooltipsController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+
     lazy var bottomInfoImage: UIImageView = {
         let imageView = UIImageView(image: CharcoalAsset.Images.info16.image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -88,9 +88,9 @@ public final class TooltipsController: UIViewController {
 
         tableView.dataSource = self
         tableView.delegate = self
-        
+
         view.addSubview(bottomInfoImage)
-        
+
         NSLayoutConstraint.activate([
             bottomInfoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             bottomInfoImage.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20)
@@ -116,7 +116,7 @@ extension TooltipsController: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Sections.allCases[section].items.count
     }
-    
+
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! TooltipTableViewCell
         tableView.deselectRow(at: indexPath, animated: true)
@@ -139,7 +139,6 @@ extension TooltipsController: UITableViewDelegate, UITableViewDataSource {
         return Sections.allCases[section].title
     }
 }
-
 
 @available(iOS 17.0, *)
 #Preview {

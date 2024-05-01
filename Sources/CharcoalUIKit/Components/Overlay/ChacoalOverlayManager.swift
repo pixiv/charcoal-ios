@@ -1,9 +1,9 @@
 import UIKit
 
 enum CharcoalOverlayInteractionMode {
-case passThrough
-case block
-case dimissOnTap
+    case passThrough
+    case block
+    case dimissOnTap
 }
 
 /**
@@ -33,7 +33,7 @@ extension ChacoalOverlayManager {
                     .filter { $0.activationState == .foregroundActive }
                     .first
                 mainView = scene?.windows.filter { $0.isKeyWindow }.first ??
-                UIApplication.shared.windows.first
+                    UIApplication.shared.windows.first
             }
         }
     }
@@ -46,7 +46,7 @@ extension ChacoalOverlayManager {
         backgroundView?.removeFromSuperview()
         backgroundView = nil
     }
-    
+
     private func setupBackground() {
         if backgroundView == nil {
             backgroundView = UIView(frame: .zero)
@@ -54,21 +54,20 @@ extension ChacoalOverlayManager {
             guard let backgroundView = backgroundView else {
                 fatalError("Background view is nil.")
             }
-            
+
             backgroundView.translatesAutoresizingMaskIntoConstraints = false
-            
+
             mainView.addSubview(backgroundView)
-            
+
             let constraints: [NSLayoutConstraint] = [
                 backgroundView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 0),
                 backgroundView.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 0),
                 backgroundView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: 0),
                 backgroundView.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: 0)
             ]
-            
+
             NSLayoutConstraint.activate(constraints)
         }
-    
     }
 }
 
@@ -85,11 +84,11 @@ extension ChacoalOverlayManager {
             containerView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor),
             containerView.topAnchor.constraint(equalTo: mainView.topAnchor),
             containerView.heightAnchor.constraint(equalTo: mainView.heightAnchor),
-            containerView.widthAnchor.constraint(equalTo: mainView.widthAnchor),
+            containerView.widthAnchor.constraint(equalTo: mainView.widthAnchor)
         ]
-        
+
         NSLayoutConstraint.activate(constraints)
-        
+
         return containerView
     }
 }
@@ -109,51 +108,51 @@ extension ChacoalOverlayManager {
         setupBackground()
         let containerView = setupContainer(interactionMode)
         containerView.addSubview(view)
-        
-        if let anchorView = anchorView, let anchorableView = view as? CharcoalAnchorable  {
+
+        if let anchorView = anchorView, let anchorableView = view as? CharcoalAnchorable {
             let spacingToScreen: CGFloat = 16
             let gap: CGFloat = 4
             let viewSize = view.intrinsicContentSize
             let anchorPoint = anchorView.superview!.convert(anchorView.frame.origin, to: containerView)
             let targetPoint = anchorView.superview!.convert(anchorView.center, to: view)
             let newAnchorRect = CGRect(x: anchorPoint.x, y: anchorPoint.y, width: anchorView.frame.width, height: anchorView.frame.height)
-            
+
             let viewLeadingConstant = tooltipX(anchorFrame: newAnchorRect, tooltipSize: viewSize, canvasGeometrySize: mainView.frame.size, spacingToScreen: spacingToScreen)
-            
+
             let viewTopConstant = tooltipY(anchorFrame: newAnchorRect, arrowHeight: anchorableView.arrowHeight, tooltipSize: viewSize, canvasGeometrySize: mainView.frame.size, spacingToTarget: gap)
-            
+
             let newTargetPoint = CGPoint(x: targetPoint.x - viewLeadingConstant, y: targetPoint.y - viewTopConstant)
             anchorableView.updateTargetPoint(point: newTargetPoint)
-            
+
             let constraints: [NSLayoutConstraint] = [
                 view.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: viewLeadingConstant),
-                view.topAnchor.constraint(equalTo: containerView.topAnchor, constant: viewTopConstant),
+                view.topAnchor.constraint(equalTo: containerView.topAnchor, constant: viewTopConstant)
             ]
             NSLayoutConstraint.activate(constraints)
         }
-        
+
         display(view: containerView)
-        
+
         return containerView.id
     }
-    
+
     func display() {
         for containerView in overlayContainerViews {
             containerView.display()
         }
     }
-    
+
     @objc func dismiss() {
         for containerView in overlayContainerViews {
             containerView.dismiss()
         }
     }
-    
+
     /// Displays the overlay.
     func display(view: CharcoalIdentifiableOverlayView) {
         view.display()
     }
-    
+
     /// Dismisses the overlay with the given identifier.
     func dismiss(id: CharcoalIdentifiableOverlayView.IDValue) {
         let containerView = overlayContainerViews.first { $0.id == id }
@@ -162,6 +161,7 @@ extension ChacoalOverlayManager {
 }
 
 // MARK: Layout
+
 extension ChacoalOverlayManager {
     func tooltipX(anchorFrame: CGRect, tooltipSize: CGSize, canvasGeometrySize: CGSize, spacingToScreen: CGFloat) -> CGFloat {
         let minX = anchorFrame.midX - (tooltipSize.width / 2.0)
@@ -192,7 +192,7 @@ extension ChacoalOverlayManager {
 
 extension ChacoalOverlayManager: CharcoalIdentifiableOverlayDelegate {
     func overlayViewDidDismiss(_ overlayView: CharcoalIdentifiableOverlayView) {
-        overlayContainerViews = overlayContainerViews.filter({ $0.id !=  overlayView.id})
+        overlayContainerViews = overlayContainerViews.filter { $0.id != overlayView.id }
         if overlayContainerViews.isEmpty {
             removeBackground()
         }

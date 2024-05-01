@@ -1,4 +1,5 @@
 import SwiftUI
+
 struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
     /// The title of the modal view.
     var title: String?

@@ -5,7 +5,7 @@ extension String {
         let size = CGSize(width: maxWidth, height: .greatestFiniteMagnitude)
         let options: NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading]
         let attributes = [NSAttributedString.Key.font: font]
-        let rect = self.boundingRect(with: size, options: options, attributes: attributes, context: nil)
+        let rect = boundingRect(with: size, options: options, attributes: attributes, context: nil)
         return rect.size
     }
 }
