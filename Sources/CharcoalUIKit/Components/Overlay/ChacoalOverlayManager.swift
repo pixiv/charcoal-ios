@@ -132,7 +132,7 @@ extension ChacoalOverlayManager {
             NSLayoutConstraint.activate(constraints)
         }
         
-        display()
+        display(view: containerView)
         
         return containerView.id
     }
@@ -147,6 +147,11 @@ extension ChacoalOverlayManager {
         for containerView in overlayContainerViews {
             containerView.dismiss()
         }
+    }
+    
+    /// Displays the overlay.
+    func display(view: CharcoalIdentifiableOverlayView) {
+        view.display()
     }
     
     /// Dismisses the overlay with the given identifier.
