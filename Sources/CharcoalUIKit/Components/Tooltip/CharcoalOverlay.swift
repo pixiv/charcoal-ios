@@ -50,7 +50,7 @@ extension CharcoalOverlayView {
     private func setupBackground() {
         if backgroundView == nil {
             backgroundView = UIView(frame: .zero)
-            
+            backgroundView?.isUserInteractionEnabled = false
             guard let backgroundView = backgroundView else {
                 fatalError("Background view is nil.")
             }
@@ -109,7 +109,7 @@ extension CharcoalOverlayView {
         let containerView = setupContainer(interactionMode)
         containerView.addSubview(view)
         
-        layoutIfNeeded()
+//        layoutIfNeeded()
         
         if let anchorView = anchorView, let anchorableView = view as? CharcoalAnchorable  {
             let spacingToScreen: CGFloat = 16
