@@ -137,6 +137,27 @@ extension ChacoalOverlayManager {
         return containerView.id
     }
     
+    func display() {
+        for containerView in overlayContainerViews {
+            containerView.display()
+        }
+    }
+    
+    @objc func dismiss() {
+        for containerView in overlayContainerViews {
+            containerView.dismiss()
+        }
+    }
+    
+    /// Dismisses the overlay with the given identifier.
+    func dismiss(id: CharcoalIdentifiableOverlayView.IDValue) {
+        let containerView = overlayContainerViews.first { $0.id == id }
+        containerView?.dismiss()
+    }
+}
+
+// MARK: Layout
+extension ChacoalOverlayManager {
     func tooltipX(anchorFrame: CGRect, tooltipSize: CGSize, canvasGeometrySize: CGSize, spacingToScreen: CGFloat) -> CGFloat {
         let minX = anchorFrame.midX - (tooltipSize.width / 2.0)
 
@@ -160,23 +181,4 @@ extension ChacoalOverlayManager {
 
         return min(minX, edgeBottom)
     }
-    
-    func display() {
-        for containerView in overlayContainerViews {
-            containerView.display()
-        }
-    }
-    
-    @objc func dismiss() {
-        for containerView in overlayContainerViews {
-            containerView.dismiss()
-        }
-    }
-    
-    /// Dismisses the overlay with the given identifier.
-    func dismiss(id: CharcoalIdentifiableOverlayView.IDValue) {
-        let containerView = overlayContainerViews.first { $0.id == id }
-        containerView?.dismiss()
-    }
 }
-
