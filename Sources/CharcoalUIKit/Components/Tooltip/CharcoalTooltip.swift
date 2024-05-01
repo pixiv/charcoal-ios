@@ -7,7 +7,7 @@ extension CharcoalTooltip {
         let tooltip = CharcoalTooltipView(text: text, targetPoint: .zero)
         
         tooltip.translatesAutoresizingMaskIntoConstraints = false
-        CharcoalOverlayView.shared.show(view: tooltip, interactionPassthrough: true, anchorView: anchorView, on: on)
+        CharcoalOverlayView.shared.show(view: tooltip, interactionMode: .dimissOnTap, anchorView: anchorView, on: on)
     }
 }
 

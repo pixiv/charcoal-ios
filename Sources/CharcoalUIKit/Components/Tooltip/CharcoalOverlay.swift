@@ -1,5 +1,11 @@
 import UIKit
 
+enum CharcoalOverlayInteractionMode {
+case passThrough
+case block
+case dimissOnTap
+}
+
 /**
  Displays a overlay on the screen.
  */
@@ -41,7 +47,7 @@ extension CharcoalOverlayView {
         backgroundView = nil
     }
     
-    private func setupBackground(_ interactionPassthrough: Bool) {
+    private func setupBackground(_ interactionMode: CharcoalOverlayInteractionMode) {
         if backgroundView == nil {
             backgroundView = UIView(frame: .zero)
             
@@ -63,7 +69,17 @@ extension CharcoalOverlayView {
             NSLayoutConstraint.activate(constraints)
         }
         
-        backgroundView?.isUserInteractionEnabled = interactionPassthrough ? false : true
+        switch interactionMode {
+        case .block:
+            backgroundView?.isUserInteractionEnabled = true
+        case .dimissOnTap:
+            backgroundView?.isUserInteractionEnabled = true
+            // Add dismiss tap gesture
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismiss))
+            backgroundView?.addGestureRecognizer(tapGesture)
+        case .passThrough:
+            backgroundView?.isUserInteractionEnabled = false
+        }
     }
 }
 
@@ -79,6 +95,7 @@ extension CharcoalOverlayView {
         if containerView == nil {
             containerView = UIView(frame: .zero)
             containerView?.alpha = 0
+            containerView?.isUserInteractionEnabled = false
             guard let containerView = containerView else {
                 fatalError("Container view is nil.")
             }
@@ -103,12 +120,12 @@ extension CharcoalOverlayView {
     func show(
         view: UIView,
         transparentBackground: Bool = false,
-        interactionPassthrough: Bool,
+        interactionMode: CharcoalOverlayInteractionMode = .dimissOnTap,
         anchorView: UIView? = nil,
         on superView: UIView? = nil
     ) {
         setupSuperView(view: superView)
-        setupBackground(interactionPassthrough)
+        setupBackground(interactionMode)
         setupContainer()
         
         layoutIfNeeded()
@@ -168,6 +185,17 @@ extension CharcoalOverlayView {
         UIView.animate(withDuration: 0.25, animations: { [weak self] in
             self?.containerView?.alpha = 1
         })
+    }
+    
+    @objc func dismiss() {
+        print("dismiss")
+        UIView.animate(withDuration: 0.25, animations: { [weak self] in
+            self?.containerView?.alpha = 0
+        }) {
+            [weak self] _ in
+            self?.removeContainer()
+            self?.removeBackground()
+        }
     }
 }
 
