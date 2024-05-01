@@ -9,20 +9,20 @@ case dimissOnTap
 /**
  Displays a overlay on the screen.
  */
-public class CharcoalOverlayView: UIView {
+public class ChacoalOverlayManager: UIView {
     /// The window to display the spinner in.
     var mainView: UIView!
     /// The background view of the overall overlays.
     var backgroundView: UIView?
     
-    var overlayContainerViews: [CharcoalOverlayContainerView] = []
+    var overlayContainerViews: [CharcoalIdentifiableOverlayView] = []
     
-    static let shared = CharcoalOverlayView()
+    static let shared = ChacoalOverlayManager()
 }
 
 // MARK: - Window
 
-extension CharcoalOverlayView {
+extension ChacoalOverlayManager {
     /// Initializes the spinner with the given window.
     func setupSuperView(view: UIView?) {
         if let view = view {
@@ -41,7 +41,7 @@ extension CharcoalOverlayView {
 
 // MARK: - Background
 
-extension CharcoalOverlayView {
+extension ChacoalOverlayManager {
     private func removeBackground() {
         backgroundView?.removeFromSuperview()
         backgroundView = nil
@@ -74,9 +74,9 @@ extension CharcoalOverlayView {
 
 // MARK: - Container
 
-extension CharcoalOverlayView {
-    private func setupContainer(_ interactionMode: CharcoalOverlayInteractionMode) -> CharcoalOverlayContainerView {
-        let containerView = CharcoalOverlayContainerView(interactionMode: interactionMode)
+extension ChacoalOverlayManager {
+    private func setupContainer(_ interactionMode: CharcoalOverlayInteractionMode) -> CharcoalIdentifiableOverlayView {
+        let containerView = CharcoalIdentifiableOverlayView(interactionMode: interactionMode)
         containerView.alpha = 0
         containerView.translatesAutoresizingMaskIntoConstraints = false
         mainView.addSubview(containerView)
@@ -96,7 +96,7 @@ extension CharcoalOverlayView {
 
 // MARK: - Show, Dismiss
 
-extension CharcoalOverlayView {
+extension ChacoalOverlayManager {
     func show(
         view: UIView,
         transparentBackground: Bool = false,

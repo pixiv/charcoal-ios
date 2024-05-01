@@ -1,6 +1,6 @@
 import UIKit
 
-class CharcoalOverlayContainerView: UIView {
+class CharcoalIdentifiableOverlayView: UIView {
     
     let interactionMode: CharcoalOverlayInteractionMode
     
