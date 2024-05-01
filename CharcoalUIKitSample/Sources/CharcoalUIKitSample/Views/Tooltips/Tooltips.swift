@@ -20,7 +20,7 @@ enum TooltipTitles: String, CaseIterable {
     func configCell(cell: TooltipTableViewCell)  {
         cell.titleLabel.text = rawValue
         switch self {
-        case .leading:å
+        case .leading:
             cell.leadingImageView.image = CharcoalAsset.Images.info24.image
         case .trailing:
             cell.accessoryImageView.image = CharcoalAsset.Images.info24.image
