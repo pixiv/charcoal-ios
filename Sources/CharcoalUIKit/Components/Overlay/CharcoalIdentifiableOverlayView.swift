@@ -1,11 +1,17 @@
 import UIKit
 
+protocol CharcoalIdentifiableOverlayDelegate: AnyObject {
+    func overlayViewDidDismiss(_ overlayView: CharcoalIdentifiableOverlayView)
+}
+
 class CharcoalIdentifiableOverlayView: UIView, Identifiable {
     typealias IDValue = UUID
     
     let id = IDValue()
     
     let interactionMode: CharcoalOverlayInteractionMode
+    
+    weak var delegate: CharcoalIdentifiableOverlayDelegate?
     
     init(interactionMode: CharcoalOverlayInteractionMode) {
         self.interactionMode = interactionMode
@@ -40,7 +46,9 @@ class CharcoalIdentifiableOverlayView: UIView, Identifiable {
             self?.alpha = 0
         }) {
             [weak self] _ in
-            self?.removeFromSuperview()
+            guard let self = self else {return}
+            self.removeFromSuperview()
+            self.delegate?.overlayViewDidDismiss(self)
         }
     }
 }

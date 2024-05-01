@@ -187,3 +187,14 @@ extension ChacoalOverlayManager {
         return min(minX, edgeBottom)
     }
 }
+
+// MARK: - CharcoalIdentifiableOverlayDelegate
+
+extension ChacoalOverlayManager: CharcoalIdentifiableOverlayDelegate {
+    func overlayViewDidDismiss(_ overlayView: CharcoalIdentifiableOverlayView) {
+        overlayContainerViews = overlayContainerViews.filter({ $0.id !=  overlayView.id})
+        if overlayContainerViews.isEmpty {
+            removeBackground()
+        }
+    }
+}
