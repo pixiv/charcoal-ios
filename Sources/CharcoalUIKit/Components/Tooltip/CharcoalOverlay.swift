@@ -12,10 +12,10 @@ case dimissOnTap
 public class CharcoalOverlayView: UIView {
     /// The window to display the spinner in.
     var mainView: UIView!
-    /// The background view of the spinner.
+    /// The background view of the overall overlays.
     var backgroundView: UIView?
-    /// The container view of the spinner.
-    var containerView: UIView?
+    
+    var overlayContainerViews: [CharcoalOverlayContainerView] = []
     
     static let shared = CharcoalOverlayView()
 }
@@ -47,7 +47,7 @@ extension CharcoalOverlayView {
         backgroundView = nil
     }
     
-    private func setupBackground(_ interactionMode: CharcoalOverlayInteractionMode) {
+    private func setupBackground() {
         if backgroundView == nil {
             backgroundView = UIView(frame: .zero)
             
@@ -68,49 +68,29 @@ extension CharcoalOverlayView {
             
             NSLayoutConstraint.activate(constraints)
         }
-        
-        switch interactionMode {
-        case .block:
-            backgroundView?.isUserInteractionEnabled = true
-        case .dimissOnTap:
-            backgroundView?.isUserInteractionEnabled = true
-            // Add dismiss tap gesture
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismiss))
-            backgroundView?.addGestureRecognizer(tapGesture)
-        case .passThrough:
-            backgroundView?.isUserInteractionEnabled = false
-        }
+    
     }
 }
 
 // MARK: - Container
 
 extension CharcoalOverlayView {
-    private func removeContainer() {
-        containerView?.removeFromSuperview()
-        containerView = nil
-    }
-    
-    private func setupContainer() {
-        if containerView == nil {
-            containerView = UIView(frame: .zero)
-            containerView?.alpha = 0
-            containerView?.isUserInteractionEnabled = false
-            guard let containerView = containerView else {
-                fatalError("Container view is nil.")
-            }
-            containerView.translatesAutoresizingMaskIntoConstraints = false
-            mainView.addSubview(containerView)
-            
-            let constraints: [NSLayoutConstraint] = [
-                containerView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor),
-                containerView.topAnchor.constraint(equalTo: mainView.topAnchor),
-                containerView.heightAnchor.constraint(equalTo: mainView.heightAnchor),
-                containerView.widthAnchor.constraint(equalTo: mainView.widthAnchor),
-            ]
-            
-            NSLayoutConstraint.activate(constraints)
-        }
+    private func setupContainer(_ interactionMode: CharcoalOverlayInteractionMode) -> CharcoalOverlayContainerView {
+        let containerView = CharcoalOverlayContainerView(interactionMode: interactionMode)
+        containerView.alpha = 0
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        mainView.addSubview(containerView)
+        overlayContainerViews.append(containerView)
+        let constraints: [NSLayoutConstraint] = [
+            containerView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor),
+            containerView.topAnchor.constraint(equalTo: mainView.topAnchor),
+            containerView.heightAnchor.constraint(equalTo: mainView.heightAnchor),
+            containerView.widthAnchor.constraint(equalTo: mainView.widthAnchor),
+        ]
+        
+        NSLayoutConstraint.activate(constraints)
+        
+        return containerView
     }
 }
 
@@ -125,12 +105,11 @@ extension CharcoalOverlayView {
         on superView: UIView? = nil
     ) {
         setupSuperView(view: superView)
-        setupBackground(interactionMode)
-        setupContainer()
+        setupBackground()
+        let containerView = setupContainer(interactionMode)
+        containerView.addSubview(view)
         
         layoutIfNeeded()
-        
-        containerView!.addSubview(view)
         
         if let anchorView = anchorView, let anchorableView = view as? CharcoalAnchorable  {
             let spacingToScreen: CGFloat = 16
@@ -148,8 +127,8 @@ extension CharcoalOverlayView {
             anchorableView.updateTargetPoint(point: newTargetPoint)
             
             let constraints: [NSLayoutConstraint] = [
-                view.leadingAnchor.constraint(equalTo: containerView!.leadingAnchor, constant: viewLeadingConstant),
-                view.topAnchor.constraint(equalTo: containerView!.topAnchor, constant: viewTopConstant),
+                view.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: viewLeadingConstant),
+                view.topAnchor.constraint(equalTo: containerView.topAnchor, constant: viewTopConstant),
             ]
             NSLayoutConstraint.activate(constraints)
         }
@@ -182,19 +161,14 @@ extension CharcoalOverlayView {
     }
     
     func display() {
-        UIView.animate(withDuration: 0.25, animations: { [weak self] in
-            self?.containerView?.alpha = 1
-        })
+        for containerView in overlayContainerViews {
+            containerView.display()
+        }
     }
     
     @objc func dismiss() {
-        print("dismiss")
-        UIView.animate(withDuration: 0.25, animations: { [weak self] in
-            self?.containerView?.alpha = 0
-        }) {
-            [weak self] _ in
-            self?.removeContainer()
-            self?.removeBackground()
+        for containerView in overlayContainerViews {
+            containerView.dismiss()
         }
     }
 }
