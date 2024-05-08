@@ -58,7 +58,7 @@ struct CharcoalTooltip: CharcoalPopupView {
         return min(minX, edgeBottom)
     }
 
-    var body: some View {
+    public var body: some View {
         GeometryReader(content: { canvasGeometry in
             VStack {
                 Text(text)
@@ -94,7 +94,7 @@ struct CharcoalTooltip: CharcoalPopupView {
         })
     }
 
-    static func == (lhs: CharcoalTooltip, rhs: CharcoalTooltip) -> Bool {
+    public static func == (lhs: CharcoalTooltip, rhs: CharcoalTooltip) -> Bool {
         return lhs.text == rhs.text && lhs.targetFrame == rhs.targetFrame && lhs.maxWidth == rhs.maxWidth && lhs.tooltipSize == rhs.tooltipSize
     }
 }
