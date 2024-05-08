@@ -27,10 +27,10 @@ class CharcoalIdentifiableOverlayView: UIView, Identifiable {
             isUserInteractionEnabled = false
         }
     }
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        
+
         // Dismiss on tap or scroll
         if interactionMode == .dimissOnTouch {
             dismiss()
