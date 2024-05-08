@@ -1,10 +1,5 @@
 import UIKit
 
-protocol CharcoalAnchorable {
-    var arrowHeight: CGFloat { get }
-    func updateTargetPoint(point: CGPoint)
-}
-
 class CharcoalTooltipView: UIView, CharcoalAnchorable {
     lazy var label: CharcoalTypography12 = {
         let label = CharcoalTypography12()
@@ -63,8 +58,6 @@ class CharcoalTooltipView: UIView, CharcoalAnchorable {
         label.text = text
     }
 
-    private func startAnimating() {}
-
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
@@ -72,7 +65,6 @@ class CharcoalTooltipView: UIView, CharcoalAnchorable {
     }
 
     override var intrinsicContentSize: CGSize {
-        textFrameSize = text.calculateFrame(font: label.font, maxWidth: maxWidth)
         return CGSize(width: padding.left + textFrameSize.width + padding.right, height: padding.top + textFrameSize.height + padding.bottom)
     }
 

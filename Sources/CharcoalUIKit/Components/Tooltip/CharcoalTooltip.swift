@@ -3,11 +3,27 @@ import UIKit
 public class CharcoalTooltip {}
 
 public extension CharcoalTooltip {
+    /**
+        Show a tooltip anchored to a view.
+
+     - Parameters:
+        - text: The text to be displayed in the tooltip.
+        - anchorView: The view to which the tooltip will be anchored.
+        - on: The view on which the tooltip will be displayed. If not provided, the tooltip will be displayed on the window.
+
+     # Example #
+     ```swift
+     CharcoalTooltip.show(text: "This is a tooltip", anchorView: someView)
+     ```
+     */
     static func show(text: String, anchorView: UIView, on: UIView? = nil) {
         let tooltip = CharcoalTooltipView(text: text, targetPoint: .zero)
 
         tooltip.translatesAutoresizingMaskIntoConstraints = false
-        ChacoalOverlayManager.shared.show(view: tooltip, interactionMode: .dimissOnTap, anchorView: anchorView, on: on)
+
+        DispatchQueue.main.async {
+            ChacoalOverlayManager.shared.show(view: tooltip, interactionMode: .dimissOnTap, anchorView: anchorView, on: on)
+        }
     }
 }
 
