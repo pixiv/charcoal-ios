@@ -123,8 +123,8 @@
         "repositoryURL": "https://github.com/nicklockwood/SwiftFormat",
         "state": {
           "branch": null,
-          "revision": "402367fbe91d6a453bc608bfc0d93b14a301a519",
-          "version": "0.53.1"
+          "revision": "ab238886b8b50f8b678b251f3c28c0c887305407",
+          "version": "0.53.8"
         }
       },
       {
@@ -132,8 +132,8 @@
         "repositoryURL": "https://github.com/SwiftGen/SwiftGen",
         "state": {
           "branch": null,
-          "revision": "1cf6d7eebd70c2157f69d5a991bc57c1ef182ed1",
-          "version": "6.6.2"
+          "revision": "f7c23b63053e5a8aab4a4dbb633b24920bbb9436",
+          "version": "6.6.3"
         }
       },
       {
