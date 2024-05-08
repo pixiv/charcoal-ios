@@ -1,11 +1,5 @@
 import UIKit
 
-enum CharcoalOverlayInteractionMode {
-    case passThrough
-    case block
-    case dimissOnTap
-}
-
 /**
  Displays a overlay on the screen.
  */
@@ -100,7 +94,7 @@ extension ChacoalOverlayManager {
     func show(
         view: UIView,
         transparentBackground: Bool = false,
-        interactionMode: CharcoalOverlayInteractionMode = .dimissOnTap,
+        interactionMode: CharcoalOverlayInteractionMode = .dimissOnTouch,
         anchorView: UIView? = nil,
         on superView: UIView? = nil
     ) -> CharcoalIdentifiableOverlayView.IDValue {

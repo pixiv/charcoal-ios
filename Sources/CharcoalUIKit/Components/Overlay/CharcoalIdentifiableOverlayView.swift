@@ -21,13 +21,19 @@ class CharcoalIdentifiableOverlayView: UIView, Identifiable {
         switch interactionMode {
         case .block:
             isUserInteractionEnabled = true
-        case .dimissOnTap:
+        case .dimissOnTouch:
             isUserInteractionEnabled = true
-            // Add dismiss tap gesture
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismiss))
-            addGestureRecognizer(tapGesture)
         case .passThrough:
             isUserInteractionEnabled = false
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
+        // Dismiss on tap or scroll
+        if interactionMode == .dimissOnTouch {
+            dismiss()
         }
     }
 

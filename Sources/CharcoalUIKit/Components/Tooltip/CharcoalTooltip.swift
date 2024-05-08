@@ -22,7 +22,7 @@ public extension CharcoalTooltip {
         tooltip.translatesAutoresizingMaskIntoConstraints = false
 
         DispatchQueue.main.async {
-            ChacoalOverlayManager.shared.show(view: tooltip, interactionMode: .dimissOnTap, anchorView: anchorView, on: on)
+            ChacoalOverlayManager.shared.show(view: tooltip, interactionMode: .dimissOnTouch, anchorView: anchorView, on: on)
         }
     }
 }
