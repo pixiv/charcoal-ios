@@ -60,8 +60,10 @@ class CharcoalToastView: UIView {
         // Setup Bubble Shape
         addSubview(capsuleShape)
         capsuleShape.backgroundColor = appearance.background
-        capsuleShape.layer.borderColor = borderColor.cgColor
-        capsuleShape.layer.borderWidth = borderLineWidth
+        layer.borderColor = borderColor.cgColor
+        layer.borderWidth = borderLineWidth
+        layer.masksToBounds = true
+        layer.cornerCurve = .continuous
         // Setup Label
         addSubview(label)
         label.text = text
@@ -80,7 +82,7 @@ class CharcoalToastView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         capsuleShape.frame = bounds
-        capsuleShape.layer.cornerRadius = min(cornerRadius, bounds.height / 2.0)
+        layer.cornerRadius = min(cornerRadius, bounds.height / 2.0)
         label.frame = CGRect(x: padding.left, y: padding.top, width: textFrameSize.width, height: textFrameSize.height)
     }
 }
@@ -95,7 +97,7 @@ class CharcoalToastView: UIView {
 
     let tooltip = CharcoalToastView(text: "Hello World", targetPoint: CGPoint(x: 15, y: -5))
 
-    let tooltip2 = CharcoalToastView(text: "Hello World This is a tooltip", targetPoint: CGPoint(x: 110, y: 10))
+    let tooltip2 = CharcoalToastView(text: "Hello World This is a tooltip", targetPoint: CGPoint(x: 110, y: 10), appearance: .error)
 
     let tooltip3 = CharcoalToastView(text: "here is testing it's multiple line feature", targetPoint: CGPoint(x: 50, y: 55))
 
