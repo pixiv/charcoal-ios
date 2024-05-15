@@ -50,6 +50,7 @@ public final class ContentViewController: UIViewController {
         case typographies = "Typographies"
         case icons = "Icons"
         case tooltips = "Tooltips"
+        case toasts = "Toasts"
 
         var viewController: UIViewController {
             switch self {
@@ -67,6 +68,8 @@ public final class ContentViewController: UIViewController {
                 return TextFieldsViewController()
             case .tooltips:
                 return TooltipsViewController()
+            case .toasts:
+                return ToastsViewController()
             }
         }
     }
