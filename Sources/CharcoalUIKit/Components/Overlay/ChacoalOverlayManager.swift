@@ -91,43 +91,17 @@ extension ChacoalOverlayManager {
 
 extension ChacoalOverlayManager {
     @discardableResult
-    func show(
+    func layout(
         view: UIView,
         transparentBackground: Bool = false,
         interactionMode: CharcoalOverlayInteractionMode = .dimissOnTouch,
-        anchorView: UIView? = nil,
         on superView: UIView? = nil
-    ) -> CharcoalIdentifiableOverlayView.IDValue {
+    ) -> CharcoalIdentifiableOverlayView {
         setupSuperView(view: superView)
         setupBackground()
         let containerView = setupContainer(interactionMode)
         containerView.addSubview(view)
-
-        if let anchorView = anchorView, let anchorableView = view as? CharcoalAnchorable {
-            let spacingToScreen: CGFloat = 16
-            let gap: CGFloat = 4
-            let viewSize = view.intrinsicContentSize
-            let anchorPoint = anchorView.superview!.convert(anchorView.frame.origin, to: containerView)
-            let targetPoint = anchorView.superview!.convert(anchorView.center, to: view)
-            let newAnchorRect = CGRect(x: anchorPoint.x, y: anchorPoint.y, width: anchorView.frame.width, height: anchorView.frame.height)
-
-            let viewLeadingConstant = tooltipX(anchorFrame: newAnchorRect, tooltipSize: viewSize, canvasGeometrySize: mainView.frame.size, spacingToScreen: spacingToScreen)
-
-            let viewTopConstant = tooltipY(anchorFrame: newAnchorRect, arrowHeight: anchorableView.arrowHeight, tooltipSize: viewSize, canvasGeometrySize: mainView.frame.size, spacingToTarget: gap)
-
-            let newTargetPoint = CGPoint(x: targetPoint.x - viewLeadingConstant, y: targetPoint.y - viewTopConstant)
-            anchorableView.updateTargetPoint(point: newTargetPoint)
-
-            let constraints: [NSLayoutConstraint] = [
-                view.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: viewLeadingConstant),
-                view.topAnchor.constraint(equalTo: containerView.topAnchor, constant: viewTopConstant)
-            ]
-            NSLayoutConstraint.activate(constraints)
-        }
-
-        display(view: containerView)
-
-        return containerView.id
+        return containerView
     }
 
     func display() {
@@ -151,34 +125,6 @@ extension ChacoalOverlayManager {
     func dismiss(id: CharcoalIdentifiableOverlayView.IDValue) {
         let containerView = overlayContainerViews.first { $0.id == id }
         containerView?.dismiss()
-    }
-}
-
-// MARK: Layout
-
-extension ChacoalOverlayManager {
-    func tooltipX(anchorFrame: CGRect, tooltipSize: CGSize, canvasGeometrySize: CGSize, spacingToScreen: CGFloat) -> CGFloat {
-        let minX = anchorFrame.midX - (tooltipSize.width / 2.0)
-
-        var edgeLeft = minX
-
-        if edgeLeft + tooltipSize.width >= canvasGeometrySize.width {
-            edgeLeft = canvasGeometrySize.width - tooltipSize.width - spacingToScreen
-        } else if edgeLeft < spacingToScreen {
-            edgeLeft = spacingToScreen
-        }
-
-        return edgeLeft
-    }
-
-    func tooltipY(anchorFrame: CGRect, arrowHeight: CGFloat, tooltipSize: CGSize, canvasGeometrySize: CGSize, spacingToTarget: CGFloat) -> CGFloat {
-        let minX = anchorFrame.maxY + spacingToTarget + arrowHeight
-        var edgeBottom = anchorFrame.maxY + spacingToTarget + anchorFrame.height
-        if edgeBottom + tooltipSize.height >= canvasGeometrySize.height {
-            edgeBottom = anchorFrame.minY - tooltipSize.height - spacingToTarget - arrowHeight
-        }
-
-        return min(minX, edgeBottom)
     }
 }
 
