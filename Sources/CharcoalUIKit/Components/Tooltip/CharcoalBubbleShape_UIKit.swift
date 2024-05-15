@@ -138,6 +138,6 @@ class CharcoalBubbleShape: CAShapeLayer {
 
     override func layoutSublayers() {
         super.layoutSublayers()
-        updatePath() // 确保路径更新匹配图层的大小
+        updatePath() // Update the path when the layer is resized
     }
 }
