@@ -36,18 +36,24 @@ public extension CharcoalToast {
             toastView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
         ]
         
+        var screenEdgeSpacingConstraint: NSLayoutConstraint
+        
         switch screenEdge {
         case .top:
-            
+            screenEdgeSpacingConstraint = toastView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: -screenEdgeSpacing*screenEdge.direction)
         case .bottom:
-            
+            screenEdgeSpacingConstraint = toastView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -screenEdgeSpacing*screenEdge.direction)
         }
+        
+        constraints.append(screenEdgeSpacingConstraint)
         
         NSLayoutConstraint.activate(constraints)
         
         containerView.showAction = { actionCallback in
-            UIView.animate(withDuration: 0.25, animations: {
-                containerView.alpha = 1
+            containerView.alpha = 1
+            UIView.animate(withDuration: 0.6, animations: {
+                screenEdgeSpacingConstraint.constant = screenEdgeSpacingConstraint.constant * -1
+                containerView.layoutIfNeeded()
             }) { completion in
                 actionCallback?(completion)
             }
@@ -55,8 +61,10 @@ public extension CharcoalToast {
         
         containerView.dismissAction = { actionCallback in
             UIView.animate(withDuration: 0.25, animations: {
-                containerView.alpha = 0
+                screenEdgeSpacingConstraint.constant = screenEdgeSpacingConstraint.constant * -1
+                containerView.layoutIfNeeded()
             }) { completion in
+                containerView.alpha = 0
                 actionCallback?(completion)
             }
         }
