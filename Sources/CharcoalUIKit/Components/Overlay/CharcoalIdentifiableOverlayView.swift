@@ -4,10 +4,10 @@ protocol CharcoalIdentifiableOverlayDelegate: AnyObject {
     func overlayViewDidDismiss(_ overlayView: CharcoalIdentifiableOverlayView)
 }
 
-class CharcoalIdentifiableOverlayView: UIView, Identifiable {
-    typealias IDValue = UUID
+public class CharcoalIdentifiableOverlayView: UIView, Identifiable {
+    public typealias IDValue = UUID
 
-    let id = IDValue()
+    public let id = IDValue()
 
     let interactionMode: CharcoalOverlayInteractionMode
 
@@ -28,7 +28,7 @@ class CharcoalIdentifiableOverlayView: UIView, Identifiable {
         }
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
 
         // Dismiss on tap or scroll
