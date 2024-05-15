@@ -18,6 +18,8 @@ final class ButtonsViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+    let cellReuseIdentifier = "cell"
 
     private var buttons: [ButtonExample] = [
         // Primary
