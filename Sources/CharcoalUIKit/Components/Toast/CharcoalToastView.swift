@@ -37,7 +37,7 @@ class CharcoalToastView: UIView {
     /// Text frame size
     private var textFrameSize: CGSize = .zero
 
-    init(text: String, targetPoint: CGPoint, maxWidth: CGFloat = 312, appearance: CharcoalToastAppearance = .success) {
+    init(text: String, maxWidth: CGFloat = 312, appearance: CharcoalToastAppearance = .success) {
         self.maxWidth = maxWidth
         self.text = text
         self.appearance = appearance
@@ -95,13 +95,13 @@ class CharcoalToastView: UIView {
     stackView.alignment = .center
     stackView.spacing = 8.0
 
-    let tooltip = CharcoalToastView(text: "Hello World", targetPoint: CGPoint(x: 15, y: -5))
+    let tooltip = CharcoalToastView(text: "Hello World")
 
-    let tooltip2 = CharcoalToastView(text: "Hello World This is a tooltip", targetPoint: CGPoint(x: 110, y: 10), appearance: .error)
+    let tooltip2 = CharcoalToastView(text: "Hello World This is a tooltip", appearance: .error)
 
-    let tooltip3 = CharcoalToastView(text: "here is testing it's multiple line feature", targetPoint: CGPoint(x: 50, y: 55))
+    let tooltip3 = CharcoalToastView(text: "here is testing it's multiple line feature")
 
-    let tooltip4 = CharcoalToastView(text: "こんにちは This is a tooltip and here is testing it's multiple line feature", targetPoint: CGPoint(x: -10, y: 25))
+    let tooltip4 = CharcoalToastView(text: "こんにちは This is a tooltip and here is testing it's multiple line feature")
 
     stackView.addArrangedSubview(tooltip)
     stackView.addArrangedSubview(tooltip2)
