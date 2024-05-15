@@ -19,17 +19,51 @@ public extension CharcoalToast {
      CharcoalToast.show(text: "This is a toast")
      ```
      */
+    @discardableResult
     static func show(text: String,
                      maxWidth: CGFloat = 312,
                      appearance: CharcoalToastAppearance = .success,
                      screenEdge: CharcoalPopupViewEdge = .bottom,
                      screenEdgeSpacing: CGFloat = 120,
-                     on: UIView? = nil) {
+                     on: UIView? = nil) -> CharcoalIdentifiableOverlayView.IDValue {
         let toastView = CharcoalToastView(text: text, maxWidth: maxWidth, appearance: appearance)
 
         toastView.translatesAutoresizingMaskIntoConstraints = false
 
         let containerView = ChacoalOverlayManager.shared.layout(view: toastView, interactionMode: .passThrough, on: on)
+        
+        var constraints = [
+            toastView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
+        ]
+        
+        switch screenEdge {
+        case .top:
+            
+        case .bottom:
+            
+        }
+        
+        NSLayoutConstraint.activate(constraints)
+        
+        containerView.showAction = { actionCallback in
+            UIView.animate(withDuration: 0.25, animations: {
+                containerView.alpha = 1
+            }) { completion in
+                actionCallback?(completion)
+            }
+        }
+        
+        containerView.dismissAction = { actionCallback in
+            UIView.animate(withDuration: 0.25, animations: {
+                containerView.alpha = 0
+            }) { completion in
+                actionCallback?(completion)
+            }
+        }
+        
+        ChacoalOverlayManager.shared.display(view: containerView)
+
+        return containerView.id
     }
 }
 
@@ -38,42 +72,9 @@ public extension CharcoalToast {
     let view = UIView()
     view.backgroundColor = UIColor.lightGray
 
-    let button = CharcoalPrimaryMButton()
-    button.setTitle("OK", for: .normal)
-    button.translatesAutoresizingMaskIntoConstraints = false
-    view.addSubview(button)
-
-    NSLayoutConstraint.activate([
-        button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-    ])
-
-    let button2 = CharcoalPrimaryMButton()
-    button2.setTitle("OK", for: .normal)
-    button2.translatesAutoresizingMaskIntoConstraints = false
-    view.addSubview(button2)
-
-    NSLayoutConstraint.activate([
-        button2.topAnchor.constraint(equalTo: view.topAnchor),
-        button2.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-    ])
-
-    let button3 = CharcoalPrimaryMButton()
-    button3.setTitle("OK", for: .normal)
-    button3.translatesAutoresizingMaskIntoConstraints = false
-    view.addSubview(button3)
-
-    NSLayoutConstraint.activate([
-        button3.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        button3.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-    ])
-
     DispatchQueue.main.async {
-        CharcoalTooltip.show(text: "Hello World", anchorView: button)
-
-        CharcoalTooltip.show(text: "Hello World This is a tooltip", anchorView: button2)
-
-        CharcoalTooltip.show(text: "こんにちは This is a tooltip and here is testing it's multiple line feature", anchorView: button3)
+        CharcoalToast.show(text: "Hello World", appearance: .success, screenEdge: .top)
+        CharcoalToast.show(text: "こんにちは This is a tooltip and here is testing it's multiple line feature", appearance: .error, screenEdge: .bottom)
     }
 
     return view
