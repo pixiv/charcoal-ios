@@ -43,9 +43,9 @@ public extension CharcoalTooltip {
             tooltip.topAnchor.constraint(equalTo: containerView.topAnchor, constant: viewTopConstant)
         ]
         NSLayoutConstraint.activate(constraints)
-        
+
         ChacoalOverlayManager.shared.display(view: containerView)
-        
+
         return containerView.id
     }
 
@@ -54,7 +54,7 @@ public extension CharcoalTooltip {
         let containerView = ChacoalOverlayManager.shared.overlayContainerViews.first { $0.id == id }
         containerView?.dismiss()
     }
-    
+
     static func tooltipX(anchorFrame: CGRect, tooltipSize: CGSize, canvasGeometrySize: CGSize, spacingToScreen: CGFloat) -> CGFloat {
         let minX = anchorFrame.midX - (tooltipSize.width / 2.0)
 

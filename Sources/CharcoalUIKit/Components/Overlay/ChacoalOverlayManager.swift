@@ -96,7 +96,7 @@ extension ChacoalOverlayManager {
         transparentBackground: Bool = false,
         interactionMode: CharcoalOverlayInteractionMode = .dimissOnTouch,
         on superView: UIView? = nil
-    ) ->  CharcoalIdentifiableOverlayView {
+    ) -> CharcoalIdentifiableOverlayView {
         setupSuperView(view: superView)
         setupBackground()
         let containerView = setupContainer(interactionMode)
