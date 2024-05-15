@@ -11,7 +11,7 @@ class CharcoalToastView: UIView {
     }()
 
     let text: String
-    
+
     /// The appearance of the Toast
     let appearance: CharcoalToastAppearance
 
@@ -23,7 +23,7 @@ class CharcoalToastView: UIView {
 
     /// The corner radius of the tooltip
     let cornerRadius: CGFloat = 32
-    
+
     let borderColor: ColorAsset.Color
 
     let borderLineWidth: CGFloat = 2
@@ -41,7 +41,7 @@ class CharcoalToastView: UIView {
         self.maxWidth = maxWidth
         self.text = text
         self.appearance = appearance
-        self.borderColor = CharcoalAsset.ColorPaletteGenerated.background1.color
+        borderColor = CharcoalAsset.ColorPaletteGenerated.background1.color
         super.init(frame: .zero)
         textFrameSize = text.calculateFrame(font: label.font, maxWidth: maxWidth)
         setupLayer()

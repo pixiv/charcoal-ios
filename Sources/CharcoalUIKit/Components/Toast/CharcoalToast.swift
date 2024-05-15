@@ -20,48 +20,56 @@ public extension CharcoalToast {
      ```
      */
     @discardableResult
-    static func show(text: String,
-                     maxWidth: CGFloat = 312,
-                     appearance: CharcoalToastAppearance = .success,
-                     screenEdge: CharcoalPopupViewEdge = .bottom,
-                     screenEdgeSpacing: CGFloat = 120,
-                     on: UIView? = nil) -> CharcoalIdentifiableOverlayView.IDValue {
+    static func show(
+        text: String,
+        maxWidth: CGFloat = 312,
+        appearance: CharcoalToastAppearance = .success,
+        screenEdge: CharcoalPopupViewEdge = .bottom,
+        screenEdgeSpacing: CGFloat = 120,
+        on: UIView? = nil
+    ) -> CharcoalIdentifiableOverlayView.IDValue {
         let toastView = CharcoalToastView(text: text, maxWidth: maxWidth, appearance: appearance)
 
         toastView.translatesAutoresizingMaskIntoConstraints = false
 
         let containerView = ChacoalOverlayManager.shared.layout(view: toastView, interactionMode: .passThrough, on: on)
         containerView.alpha = 1
-        
+
         var constraints = [
             toastView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
         ]
-        
+
         var screenEdgeSpacingConstraint: NSLayoutConstraint
-        
+
         switch screenEdge {
         case .top:
-            screenEdgeSpacingConstraint = toastView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: -screenEdgeSpacing*screenEdge.direction)
+            screenEdgeSpacingConstraint = toastView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: -screenEdgeSpacing * screenEdge.direction)
         case .bottom:
-            screenEdgeSpacingConstraint = toastView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -screenEdgeSpacing*screenEdge.direction)
+            screenEdgeSpacingConstraint = toastView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -screenEdgeSpacing * screenEdge.direction)
         }
-        
+
         constraints.append(screenEdgeSpacingConstraint)
-        
+
         NSLayoutConstraint.activate(constraints)
-        
+
         containerView.layoutIfNeeded()
-        
+
         containerView.showAction = { actionCallback in
             screenEdgeSpacingConstraint.constant = screenEdgeSpacingConstraint.constant * -1
-            UIView.animate(withDuration: 0.65, delay: 0,
-            usingSpringWithDamping: 0.75, initialSpringVelocity: 0.0, options: [], animations: {
-                containerView.layoutIfNeeded()
-            }) { completion in
+            UIView.animate(
+                withDuration: 0.65,
+                delay: 0,
+                usingSpringWithDamping: 0.75,
+                initialSpringVelocity: 0.0,
+                options: [],
+                animations: {
+                    containerView.layoutIfNeeded()
+                }
+            ) { completion in
                 actionCallback?(completion)
             }
         }
-        
+
         containerView.dismissAction = { actionCallback in
             screenEdgeSpacingConstraint.constant = screenEdgeSpacingConstraint.constant * -1
             UIView.animate(withDuration: 0.3, animations: {
@@ -71,12 +79,12 @@ public extension CharcoalToast {
                 actionCallback?(completion)
             }
         }
-        
+
         ChacoalOverlayManager.shared.display(view: containerView)
 
         return containerView.id
     }
-    
+
     /// Dismisses the toast with the given identifier.
     static func dismiss(id: CharcoalIdentifiableOverlayView.IDValue) {
         ChacoalOverlayManager.shared.dismiss(id: id)
@@ -92,7 +100,7 @@ public extension CharcoalToast {
         CharcoalToast.show(text: "Hello World", appearance: .success, screenEdge: .top)
         CharcoalToast.show(text: "こんにちは This is a tooltip and here is testing it's multiple line feature", appearance: .error, screenEdge: .bottom)
     }
-    
+
     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
         ChacoalOverlayManager.shared.dismiss()
     }

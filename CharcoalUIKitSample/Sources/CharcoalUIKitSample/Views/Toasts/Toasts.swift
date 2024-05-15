@@ -28,9 +28,9 @@ public final class ToastsViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+
     let cellReuseIdentifier = "cell"
-    
+
     private enum Sections: Int, CaseIterable {
         case components
 
@@ -95,17 +95,17 @@ extension ToastsViewController: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let titleCase = ToastsTitles.allCases[indexPath.row]
-        
+
         var toastID: CharcoalIdentifiableOverlayView.IDValue
         switch titleCase {
         case .top:
             toastID = CharcoalToast.show(text: titleCase.text, screenEdge: .top)
         case .bottom:
-            toastID =  CharcoalToast.show(text: titleCase.text, appearance: .error, screenEdge: .bottom)
+            toastID = CharcoalToast.show(text: titleCase.text, appearance: .error, screenEdge: .bottom)
         case .multiline:
             toastID = CharcoalToast.show(text: titleCase.text, screenEdge: .bottom)
         }
-        
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             CharcoalToast.dismiss(id: toastID)
         }
