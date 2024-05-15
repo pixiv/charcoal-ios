@@ -29,9 +29,7 @@ public extension CharcoalToast {
 
         toastView.translatesAutoresizingMaskIntoConstraints = false
 
-        DispatchQueue.main.async {
-            ChacoalOverlayManager.shared.show(view: toastView, interactionMode: .passThrough, on: on)
-        }
+        let containerView = ChacoalOverlayManager.shared.layout(view: toastView, interactionMode: .passThrough, on: on)
     }
 }
 
