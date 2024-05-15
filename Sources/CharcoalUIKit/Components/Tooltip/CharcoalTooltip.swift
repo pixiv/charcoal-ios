@@ -51,8 +51,7 @@ public extension CharcoalTooltip {
 
     /// Dismisses the tooltip with the given identifier.
     static func dismiss(id: CharcoalIdentifiableOverlayView.IDValue) {
-        let containerView = ChacoalOverlayManager.shared.overlayContainerViews.first { $0.id == id }
-        containerView?.dismiss()
+        ChacoalOverlayManager.shared.dismiss(id: id)
     }
 
     static func tooltipX(anchorFrame: CGRect, tooltipSize: CGSize, canvasGeometrySize: CGSize, spacingToScreen: CGFloat) -> CGFloat {
