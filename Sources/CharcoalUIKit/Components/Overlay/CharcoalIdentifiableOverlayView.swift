@@ -6,10 +6,20 @@ protocol CharcoalIdentifiableOverlayDelegate: AnyObject {
 
 public class CharcoalIdentifiableOverlayView: UIView, Identifiable {
     public typealias IDValue = UUID
+    
+    public typealias ActionComplete = (Bool) -> Void
+    
+    public typealias ActionContent = (ActionComplete?) -> Void
 
     public let id = IDValue()
 
     let interactionMode: CharcoalOverlayInteractionMode
+    
+    /// Action to show the overlay.
+    var showAction: ActionContent?
+    
+    /// Action to dismiss the overlay.
+    var dismissAction: ActionContent?
 
     weak var delegate: CharcoalIdentifiableOverlayDelegate?
 
@@ -43,16 +53,11 @@ public class CharcoalIdentifiableOverlayView: UIView, Identifiable {
     }
 
     func display() {
-        UIView.animate(withDuration: 0.25, animations: { [weak self] in
-            self?.alpha = 1
-        })
+        showAction?(nil)
     }
 
     @objc func dismiss() {
-        UIView.animate(withDuration: 0.25, animations: { [weak self] in
-            self?.alpha = 0
-        }) {
-            [weak self] _ in
+        dismissAction?() { [weak self] finished in
             guard let self = self else { return }
             self.removeFromSuperview()
             self.delegate?.overlayViewDidDismiss(self)
