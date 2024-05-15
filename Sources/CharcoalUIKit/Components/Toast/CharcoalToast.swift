@@ -64,7 +64,7 @@ public extension CharcoalToast {
         
         containerView.dismissAction = { actionCallback in
             screenEdgeSpacingConstraint.constant = screenEdgeSpacingConstraint.constant * -1
-            UIView.animate(withDuration: 0.25, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                 containerView.layoutIfNeeded()
             }) { completion in
                 containerView.alpha = 0
@@ -76,6 +76,11 @@ public extension CharcoalToast {
 
         return containerView.id
     }
+    
+    /// Dismisses the toast with the given identifier.
+    static func dismiss(id: CharcoalIdentifiableOverlayView.IDValue) {
+        ChacoalOverlayManager.shared.dismiss(id: id)
+    }
 }
 
 @available(iOS 17.0, *)
@@ -86,6 +91,10 @@ public extension CharcoalToast {
     DispatchQueue.main.async {
         CharcoalToast.show(text: "Hello World", appearance: .success, screenEdge: .top)
         CharcoalToast.show(text: "こんにちは This is a tooltip and here is testing it's multiple line feature", appearance: .error, screenEdge: .bottom)
+    }
+    
+    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        ChacoalOverlayManager.shared.dismiss()
     }
 
     return view
