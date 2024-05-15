@@ -31,6 +31,7 @@ public extension CharcoalToast {
         toastView.translatesAutoresizingMaskIntoConstraints = false
 
         let containerView = ChacoalOverlayManager.shared.layout(view: toastView, interactionMode: .passThrough, on: on)
+        containerView.alpha = 1
         
         var constraints = [
             toastView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
@@ -49,10 +50,12 @@ public extension CharcoalToast {
         
         NSLayoutConstraint.activate(constraints)
         
+        containerView.layoutIfNeeded()
+        
         containerView.showAction = { actionCallback in
-            containerView.alpha = 1
-            UIView.animate(withDuration: 0.6, animations: {
-                screenEdgeSpacingConstraint.constant = screenEdgeSpacingConstraint.constant * -1
+            screenEdgeSpacingConstraint.constant = screenEdgeSpacingConstraint.constant * -1
+            UIView.animate(withDuration: 0.65, delay: 0,
+            usingSpringWithDamping: 0.75, initialSpringVelocity: 0.0, options: [], animations: {
                 containerView.layoutIfNeeded()
             }) { completion in
                 actionCallback?(completion)
@@ -60,8 +63,8 @@ public extension CharcoalToast {
         }
         
         containerView.dismissAction = { actionCallback in
+            screenEdgeSpacingConstraint.constant = screenEdgeSpacingConstraint.constant * -1
             UIView.animate(withDuration: 0.25, animations: {
-                screenEdgeSpacingConstraint.constant = screenEdgeSpacingConstraint.constant * -1
                 containerView.layoutIfNeeded()
             }) { completion in
                 containerView.alpha = 0
