@@ -43,6 +43,22 @@ public extension CharcoalTooltip {
             tooltip.topAnchor.constraint(equalTo: containerView.topAnchor, constant: viewTopConstant)
         ]
         NSLayoutConstraint.activate(constraints)
+        
+        containerView.showAction = { actionCallback in
+            UIView.animate(withDuration: 0.25, animations: {
+                containerView.alpha = 1
+            }) { completion in
+                actionCallback?(completion)
+            }
+        }
+        
+        containerView.dismissAction = { actionCallback in
+            UIView.animate(withDuration: 0.25, animations: {
+                containerView.alpha = 0
+            }) { completion in
+                actionCallback?(completion)
+            }
+        }
 
         ChacoalOverlayManager.shared.display(view: containerView)
 
