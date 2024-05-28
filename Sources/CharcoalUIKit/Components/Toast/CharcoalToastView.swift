@@ -47,10 +47,6 @@ class CharcoalToastView: UIView {
         setupLayer()
     }
 
-    func updateTargetPoint(point: CGPoint) {
-        setNeedsLayout()
-    }
-
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
