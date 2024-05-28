@@ -7,12 +7,12 @@ public extension CharcoalSnackBar {
         Show a snackbar.
 
      - Parameters:
-        - text: The text to be displayed in the toast.
-        - maxWidth: The maximum width of the toast.
-        - thumbnailImage: The thumbnail image to be displayed in the toast.
-        - screenEdge: The edge of the screen where the toast will be displayed.
-        - screenEdgeSpacing: The spacing between the toast and the screen edge.
-        - on: The view on which the toast will be displayed.
+        - text: The text to be displayed in the snackbar.
+        - maxWidth: The maximum width of the snackbar.
+        - thumbnailImage: The thumbnail image to be displayed in the snackbar.
+        - screenEdge: The edge of the screen where the snackbar will be displayed.
+        - screenEdgeSpacing: The spacing between the snackbar and the screen edge.
+        - on: The view on which the snackbar will be displayed.
      
      # Example #
      ```swift
@@ -104,10 +104,10 @@ public extension CharcoalSnackBar {
             print("Tapped 編集")
         }))
     }
-
-    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-        ChacoalOverlayManager.shared.dismiss()
-    }
+//
+//    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//        ChacoalOverlayManager.shared.dismiss()
+//    }
 
     return view
 }
