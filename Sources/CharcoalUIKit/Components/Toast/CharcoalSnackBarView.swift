@@ -1,8 +1,13 @@
 import UIKit
 
+public typealias ActionCallback = () -> Void
+
+public struct CharcoalAction {
+    let title: String
+    let actionCallback: ActionCallback
+}
+
 class CharcoalSnackBarView: UIView {
-    typealias ActionCallback = () -> Void
-    
     lazy var hStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -36,9 +41,7 @@ class CharcoalSnackBarView: UIView {
     
     let thumbnailImage: UIImage?
     
-    var action: ActionCallback?
-    
-    let actionTitle: String?
+    var action: CharcoalAction?
 
     let text: String
 
@@ -70,14 +73,16 @@ class CharcoalSnackBarView: UIView {
     
     private var textWidthConstraint: NSLayoutConstraint!
 
-    init(text: String, thumbnailImage: UIImage? = nil, maxWidth: CGFloat = 312, actionTitle: String? = nil, action: ActionCallback? = nil) {
+    init(text: String, thumbnailImage: UIImage? = nil, maxWidth: CGFloat = 312, action: CharcoalAction? = nil) {
         self.action = action
-        self.actionTitle = actionTitle
         self.thumbnailImage = thumbnailImage
         self.maxWidth = maxWidth
         self.text = text
         borderColor = CharcoalAsset.ColorPaletteGenerated.border.color
         super.init(frame: .zero)
+        if let action = action {
+            actionButton.setTitle(action.title, for: .normal)
+        }
         textFrameSize = text.calculateFrame(font: label.font, maxWidth: preferredTextMaxWidth)
         textWidthConstraint = label.widthAnchor.constraint(equalToConstant: textFrameSize.width)
         setupLayer()
@@ -128,7 +133,6 @@ class CharcoalSnackBarView: UIView {
         textWidthConstraint.isActive = true
         // Add action button
         if let _ = action {
-            actionButton.setTitle(actionTitle, for: .normal)
             actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
             hStackView.addArrangedSubview(actionButton)
             let rightPaddingView = UIView()
@@ -138,7 +142,7 @@ class CharcoalSnackBarView: UIView {
     }
     
     @objc func actionButtonTapped() {
-        action?()
+        action?.actionCallback()
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -201,14 +205,14 @@ class CharcoalSnackBarView: UIView {
 
     let tooltip2 = CharcoalSnackBarView(text: "ブックマークしました", thumbnailImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64))
 
-    let tooltip3 = CharcoalSnackBarView(text: "ブックマークしました", actionTitle: "編集") {
+    let tooltip3 = CharcoalSnackBarView(text: "ブックマークしました", action: CharcoalAction(title: "編集", actionCallback: {
         print("編集 taped")
-    }
+    }))
 
     let tooltip4 = CharcoalSnackBarView(text: "こんにちは This is a tooltip and here is testing it's multiple line feature",
-                                        thumbnailImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64), actionTitle: "編集") {
+                                        thumbnailImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64), action: CharcoalAction(title: "編集", actionCallback: {
         print("編集 taped")
-    }
+    }))
     
     let tooltip5 = CharcoalSnackBarView(text: "こんにちは This is a tooltip and here is testing it's multiple line feature")
 
