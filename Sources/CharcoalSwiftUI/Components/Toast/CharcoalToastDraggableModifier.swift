@@ -27,7 +27,7 @@ struct CharcoalToastDraggableModifier: ViewModifier, CharcoalToastDraggable {
                                 height: gesture.translation.height
                             )
                         } else {
-                            // the less the faster resistance
+                            // Rubber band effect
                             let limit: CGFloat = 60
                             let yOff = gesture.translation.height
                             let dist = sqrt(yOff * yOff)
