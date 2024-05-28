@@ -21,7 +21,6 @@ class CharcoalSnackBarView: UIView {
         let label = CharcoalTypography14()
         label.numberOfLines = 1
         label.isBold = true
-        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = CharcoalAsset.ColorPaletteGenerated.text1.color
         return label
@@ -65,13 +64,7 @@ class CharcoalSnackBarView: UIView {
     let padding = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
 
     /// Text frame size
-    private var textFrameSize: CGSize = .zero {
-        didSet {
-            textWidthConstraint.constant = textFrameSize.width
-        }
-    }
-    
-    private var textWidthConstraint: NSLayoutConstraint!
+    private var textFrameSize: CGSize = .zero
 
     init(text: String, thumbnailImage: UIImage? = nil, maxWidth: CGFloat = 312, action: CharcoalAction? = nil) {
         self.action = action
@@ -84,7 +77,6 @@ class CharcoalSnackBarView: UIView {
             actionButton.setTitle(action.title, for: .normal)
         }
         textFrameSize = text.calculateFrame(font: label.font, maxWidth: preferredTextMaxWidth)
-        textWidthConstraint = label.widthAnchor.constraint(equalToConstant: textFrameSize.width)
         setupLayer()
     }
 
@@ -92,15 +84,53 @@ class CharcoalSnackBarView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    private func setupLayer() {
-        // Setup Bubble Shape
+    
+    private func setupCapsuleShape() {
         addSubview(capsuleShape)
         layer.backgroundColor = CharcoalAsset.ColorPaletteGenerated.background1.color.cgColor
         layer.borderColor = borderColor.cgColor
         layer.borderWidth = borderLineWidth
         layer.masksToBounds = true
         layer.cornerCurve = .continuous
+    }
+    
+    private func addThumbnailView() {
+        if let thumbnailImage = thumbnailImage {
+            thumbnailImageView.image = thumbnailImage
+            hStackView.addArrangedSubview(thumbnailImageView)
+            NSLayoutConstraint.activate([
+                thumbnailImageView.widthAnchor.constraint(equalToConstant: 64),
+                thumbnailImageView.heightAnchor.constraint(equalToConstant: 64)
+            ])
+        }
+    }
+    
+    private func addTextLabel() {
+        let leftPaddingView = UIView()
+        let rightPaddingView = UIView()
+        leftPaddingView.widthAnchor.constraint(equalToConstant: padding.left).isActive = true
+        rightPaddingView.widthAnchor.constraint(equalToConstant: padding.right).isActive = true
+        // Setup Label
+        hStackView.addArrangedSubview(leftPaddingView)
+        hStackView.addArrangedSubview(label)
+        hStackView.addArrangedSubview(rightPaddingView)
+        label.text = text
+    }
+    
+    private func addActionButton() {
+        if let _ = action {
+            actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
+            hStackView.addArrangedSubview(actionButton)
+            actionButton.widthAnchor.constraint(equalToConstant: actionButton.intrinsicContentSize.width).isActive = true
+            let rightPaddingView = UIView()
+            rightPaddingView.widthAnchor.constraint(equalToConstant: padding.right).isActive = true
+            hStackView.addArrangedSubview(rightPaddingView)
+        }
+    }
+
+    private func setupLayer() {
+        // Setup Bubble Shape
+        setupCapsuleShape()
         
         // Add HStack
         addSubview(hStackView)
@@ -112,33 +142,14 @@ class CharcoalSnackBarView: UIView {
             hStackView.widthAnchor.constraint(lessThanOrEqualToConstant: maxWidth)
         ])
         
-        if let thumbnailImage = thumbnailImage {
-            thumbnailImageView.image = thumbnailImage
-            hStackView.addArrangedSubview(thumbnailImageView)
-            NSLayoutConstraint.activate([
-                thumbnailImageView.widthAnchor.constraint(equalToConstant: 64),
-                thumbnailImageView.heightAnchor.constraint(equalToConstant: 64)
-            ])
-        }
+        // Add thumbnail view
+        addThumbnailView()
         
-        let leftPaddingView = UIView()
-        let rightPaddingView = UIView()
-        leftPaddingView.widthAnchor.constraint(equalToConstant: padding.left).isActive = true
-        rightPaddingView.widthAnchor.constraint(equalToConstant: padding.right).isActive = true
-        // Setup Label
-        hStackView.addArrangedSubview(leftPaddingView)
-        hStackView.addArrangedSubview(label)
-        hStackView.addArrangedSubview(rightPaddingView)
-        label.text = text
-        textWidthConstraint.isActive = true
+        // Add text label with padding view
+        addTextLabel()
+        
         // Add action button
-        if let _ = action {
-            actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
-            hStackView.addArrangedSubview(actionButton)
-            let rightPaddingView = UIView()
-            rightPaddingView.widthAnchor.constraint(equalToConstant: padding.right).isActive = true
-            hStackView.addArrangedSubview(rightPaddingView)
-        }
+        addActionButton()
     }
     
     @objc func actionButtonTapped() {
