@@ -21,14 +21,14 @@ class CharcoalToastView: UIView {
         return view
     }()
 
-    /// The corner radius of the tooltip
+    /// The corner radius of the toast
     let cornerRadius: CGFloat = 32
 
     let borderColor: ColorAsset.Color
 
     let borderLineWidth: CGFloat = 2
 
-    /// The max width of the tooltip
+    /// The max width of the toast
     let maxWidth: CGFloat
 
     /// Padding around the bubble
@@ -91,18 +91,18 @@ class CharcoalToastView: UIView {
     stackView.alignment = .center
     stackView.spacing = 8.0
 
-    let tooltip = CharcoalToastView(text: "Hello World")
+    let toast = CharcoalToastView(text: "Hello World")
 
-    let tooltip2 = CharcoalToastView(text: "Hello World This is a tooltip", appearance: .error)
+    let toast2 = CharcoalToastView(text: "Hello World This is a toast", appearance: .error)
 
-    let tooltip3 = CharcoalToastView(text: "here is testing it's multiple line feature")
+    let toast3 = CharcoalToastView(text: "here is testing it's multiple line feature")
 
-    let tooltip4 = CharcoalToastView(text: "こんにちは This is a tooltip and here is testing it's multiple line feature")
+    let toast4 = CharcoalToastView(text: "こんにちは This is a toast and here is testing it's multiple line feature")
 
-    stackView.addArrangedSubview(tooltip)
-    stackView.addArrangedSubview(tooltip2)
-    stackView.addArrangedSubview(tooltip3)
-    stackView.addArrangedSubview(tooltip4)
+    stackView.addArrangedSubview(toast)
+    stackView.addArrangedSubview(toast2)
+    stackView.addArrangedSubview(toast3)
+    stackView.addArrangedSubview(toast4)
 
     return stackView
 }

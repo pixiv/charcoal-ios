@@ -50,14 +50,14 @@ class CharcoalSnackBarView: UIView {
         return view
     }()
 
-    /// The corner radius of the tooltip
+    /// The corner radius of the snackbar
     let cornerRadius: CGFloat = 32
 
     let borderColor: ColorAsset.Color
 
     let borderLineWidth: CGFloat = 1
 
-    /// The max width of the tooltip
+    /// The max width of the snackbar
     let maxWidth: CGFloat
 
     /// Padding around the bubble
@@ -162,12 +162,16 @@ class CharcoalSnackBarView: UIView {
         textFrameSize = text.calculateFrame(font: label.font, maxWidth: preferredTextMaxWidth)
     }
     
+    /// The max width of the text label
     var preferredTextMaxWidth: CGFloat {
         var width = maxWidth - padding.left - padding.right
+        
+        // Check if has thumbnail image
         if let _ = thumbnailImage {
              width = width - 64
         }
         
+        // Check if has action button
         if let _ = action {
             width = width - actionButton.intrinsicContentSize.width - padding.right
         }
@@ -212,26 +216,26 @@ class CharcoalSnackBarView: UIView {
     stackView.alignment = .center
     stackView.spacing = 8.0
 
-    let tooltip = CharcoalSnackBarView(text: "Hello World")
+    let snackbar = CharcoalSnackBarView(text: "Hello World")
 
-    let tooltip2 = CharcoalSnackBarView(text: "ブックマークしました", thumbnailImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64))
+    let snackbar2 = CharcoalSnackBarView(text: "ブックマークしました", thumbnailImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64))
 
-    let tooltip3 = CharcoalSnackBarView(text: "ブックマークしました", action: CharcoalAction(title: "編集", actionCallback: {
+    let snackbar3 = CharcoalSnackBarView(text: "ブックマークしました", action: CharcoalAction(title: "編集", actionCallback: {
         print("編集 taped")
     }))
 
-    let tooltip4 = CharcoalSnackBarView(text: "こんにちは This is a tooltip and here is testing it's multiple line feature",
+    let snackbar4 = CharcoalSnackBarView(text: "こんにちは This is a snackbar and here is testing it's multiple line feature",
                                         thumbnailImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64), action: CharcoalAction(title: "編集", actionCallback: {
         print("編集 taped")
     }))
     
-    let tooltip5 = CharcoalSnackBarView(text: "こんにちは This is a tooltip and here is testing it's multiple line feature")
+    let snackbar5 = CharcoalSnackBarView(text: "こんにちは This is a snackbar and here is testing it's multiple line feature")
 
-    stackView.addArrangedSubview(tooltip)
-    stackView.addArrangedSubview(tooltip2)
-    stackView.addArrangedSubview(tooltip3)
-    stackView.addArrangedSubview(tooltip4)
-    stackView.addArrangedSubview(tooltip5)
+    stackView.addArrangedSubview(snackbar)
+    stackView.addArrangedSubview(snackbar2)
+    stackView.addArrangedSubview(snackbar3)
+    stackView.addArrangedSubview(snackbar4)
+    stackView.addArrangedSubview(snackbar5)
 
     return stackView
 }
