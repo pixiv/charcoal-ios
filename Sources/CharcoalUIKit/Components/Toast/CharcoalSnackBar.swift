@@ -16,7 +16,7 @@ public extension CharcoalSnackBar {
      
      # Example #
      ```swift
-     CharcoalToast.show(text: "This is a toast")
+        CharcoalSnackBar.show(text: "Hello")
      ```
      */
     @discardableResult
