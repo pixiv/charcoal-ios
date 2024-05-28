@@ -1,11 +1,12 @@
 import UIKit
 
 class CharcoalSnackBarView: UIView {
+    typealias ActionCallback = () -> Void
+    
     lazy var hStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .center
-        stackView.distribution = .fill
         stackView.spacing = 0
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
@@ -28,7 +29,16 @@ class CharcoalSnackBarView: UIView {
         return imageView
     }()
     
-    var thumbnailImage: UIImage?
+    lazy var actionButton: CharcoalDefaultSButton = {
+        let button = CharcoalDefaultSButton()
+        return button
+    }()
+    
+    let thumbnailImage: UIImage?
+    
+    var action: ActionCallback?
+    
+    let actionTitle: String?
 
     let text: String
 
@@ -52,15 +62,24 @@ class CharcoalSnackBarView: UIView {
     let padding = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
 
     /// Text frame size
-    private var textFrameSize: CGSize = .zero
+    private var textFrameSize: CGSize = .zero {
+        didSet {
+            textWidthConstraint.constant = textFrameSize.width
+        }
+    }
+    
+    private var textWidthConstraint: NSLayoutConstraint!
 
-    init(text: String, thumbnailImage: UIImage? = nil, maxWidth: CGFloat = 312) {
+    init(text: String, thumbnailImage: UIImage? = nil, maxWidth: CGFloat = 312, actionTitle: String? = nil, action: ActionCallback? = nil) {
+        self.action = action
+        self.actionTitle = actionTitle
         self.thumbnailImage = thumbnailImage
         self.maxWidth = maxWidth
         self.text = text
         borderColor = CharcoalAsset.ColorPaletteGenerated.border.color
         super.init(frame: .zero)
         textFrameSize = text.calculateFrame(font: label.font, maxWidth: preferredTextMaxWidth)
+        textWidthConstraint = label.widthAnchor.constraint(equalToConstant: textFrameSize.width)
         setupLayer()
     }
 
@@ -106,6 +125,20 @@ class CharcoalSnackBarView: UIView {
         hStackView.addArrangedSubview(label)
         hStackView.addArrangedSubview(rightPaddingView)
         label.text = text
+        textWidthConstraint.isActive = true
+        // Add action button
+        if let _ = action {
+            actionButton.setTitle(actionTitle, for: .normal)
+            actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
+            hStackView.addArrangedSubview(actionButton)
+            let rightPaddingView = UIView()
+            rightPaddingView.widthAnchor.constraint(equalToConstant: padding.right).isActive = true
+            hStackView.addArrangedSubview(rightPaddingView)
+        }
+    }
+    
+    @objc func actionButtonTapped() {
+        action?()
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -115,11 +148,16 @@ class CharcoalSnackBarView: UIView {
     }
     
     var preferredTextMaxWidth: CGFloat {
+        var width = maxWidth - padding.left - padding.right
         if let _ = thumbnailImage {
-            return maxWidth - padding.left - padding.right - 64
-        } else {
-            return maxWidth - padding.left - padding.right
+             width = width - 64
         }
+        
+        if let _ = action {
+            width = width - actionButton.intrinsicContentSize.width - padding.right
+        }
+        
+        return width
     }
     
     var preferredLayoutWidth: CGFloat {
@@ -133,8 +171,10 @@ class CharcoalSnackBarView: UIView {
     var preferredLayoutHeight: CGFloat {
         if let _ = thumbnailImage {
             return 64
+        } else if let _ = action {
+            return max(padding.top + label.font.lineHeight + padding.bottom, padding.top + actionButton.intrinsicContentSize.height + padding.bottom)
         } else {
-            return padding.top + textFrameSize.height + padding.bottom
+            return padding.top + label.font.lineHeight + padding.bottom
         }
     }
 
@@ -146,7 +186,6 @@ class CharcoalSnackBarView: UIView {
         super.layoutSubviews()
         capsuleShape.frame = bounds
         layer.cornerRadius = min(cornerRadius, bounds.height / 2.0)
-        label.frame = CGRect(x: padding.left, y: padding.top, width: textFrameSize.width, height: textFrameSize.height)
     }
 }
 
@@ -162,14 +201,22 @@ class CharcoalSnackBarView: UIView {
 
     let tooltip2 = CharcoalSnackBarView(text: "ブックマークしました", thumbnailImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64))
 
-    let tooltip3 = CharcoalSnackBarView(text: "here is testing it's multiple line feature")
+    let tooltip3 = CharcoalSnackBarView(text: "ブックマークしました", actionTitle: "編集") {
+        print("編集 taped")
+    }
 
-    let tooltip4 = CharcoalSnackBarView(text: "こんにちは This is a tooltip and here is testing it's multiple line feature")
+    let tooltip4 = CharcoalSnackBarView(text: "こんにちは This is a tooltip and here is testing it's multiple line feature",
+                                        thumbnailImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64), actionTitle: "編集") {
+        print("編集 taped")
+    }
+    
+    let tooltip5 = CharcoalSnackBarView(text: "こんにちは This is a tooltip and here is testing it's multiple line feature")
 
     stackView.addArrangedSubview(tooltip)
     stackView.addArrangedSubview(tooltip2)
     stackView.addArrangedSubview(tooltip3)
     stackView.addArrangedSubview(tooltip4)
+    stackView.addArrangedSubview(tooltip5)
 
     return stackView
 }
