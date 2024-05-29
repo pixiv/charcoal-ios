@@ -59,13 +59,9 @@ public class CharcoalIdentifiableOverlayView: UIView, Identifiable {
     @objc func dismiss() {
         dismissAction?() { [weak self] _ in
             guard let self = self else { return }
-            self.removeFromSuperview()
             self.delegate?.overlayViewDidDismiss(self.id)
+            self.removeFromSuperview()
         }
-    }
-
-    deinit {
-        print("deinit CharcoalIdentifiableOverlayView")
     }
 
     /// Make sure that the view is not blocking the touch events of the subview.
