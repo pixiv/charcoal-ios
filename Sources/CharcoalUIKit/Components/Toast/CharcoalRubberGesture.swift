@@ -25,7 +25,6 @@ class CharcoalRubberGesture: NSObject, CharcoalGesture {
     }
     
     @objc func handlePan(_ gesture: UIPanGestureRecognizer) {
-        print("Pan")
         guard let view = gesture.view else { return }
         
         let translation = gesture.translation(in: gesture.view)
@@ -33,6 +32,11 @@ class CharcoalRubberGesture: NSObject, CharcoalGesture {
         let translationInDirection = translation.y * screenEdge.direction
         let movingVelocityInDirection = velocity.y * screenEdge.direction
         let offsetInDirection = offset.height * screenEdge.direction
+        
+        // Rubber band effect
+        let damping: CGFloat = 0.75
+        let initialSpringVelocity: CGFloat = 0.0
+        let duration: TimeInterval = 0.65
         
         switch gesture.state {
         case .began:
@@ -50,11 +54,6 @@ class CharcoalRubberGesture: NSObject, CharcoalGesture {
                 view.transform = CGAffineTransform(translationX: 0, y:  translation.y * factor)
             }
         case .ended, .cancelled:
-            let damping: CGFloat = 0.75
-            let initialSpringVelocity: CGFloat = 0.0
-            let duration: TimeInterval = 0.65
-            let completion: ((Bool) -> Void)? = nil
-            
             isDragging = false
             if offsetInDirection < -50 || movingVelocityInDirection < -100 {
                 // Dismiss
@@ -69,7 +68,7 @@ class CharcoalRubberGesture: NSObject, CharcoalGesture {
                     animations: {
                         view.transform = .identity
                     },
-                    completion: completion
+                    completion: nil
                 )
             }
         default:
