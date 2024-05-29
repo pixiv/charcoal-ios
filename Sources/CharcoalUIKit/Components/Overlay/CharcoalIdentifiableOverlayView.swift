@@ -63,8 +63,22 @@ public class CharcoalIdentifiableOverlayView: UIView, Identifiable {
             self.delegate?.overlayViewDidDismiss(self.id)
         }
     }
-    
+
     deinit {
         print("deinit CharcoalIdentifiableOverlayView")
+    }
+
+    /// Make sure that the view is not blocking the touch events of the subview.
+    override public func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if !isUserInteractionEnabled {
+            for subview in subviews {
+                let convertedPoint = subview.convert(point, from: self)
+                if let hitView = subview.hitTest(convertedPoint, with: event) {
+                    return hitView
+                }
+            }
+            return nil
+        }
+        return super.hitTest(point, with: event)
     }
 }

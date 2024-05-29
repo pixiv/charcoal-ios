@@ -16,7 +16,7 @@ class CharcoalSnackBarView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-    
+
     lazy var label: CharcoalTypography14 = {
         let label = CharcoalTypography14()
         label.numberOfLines = 1
@@ -25,21 +25,21 @@ class CharcoalSnackBarView: UIView {
         label.textColor = CharcoalAsset.ColorPaletteGenerated.text1.color
         return label
     }()
-    
+
     lazy var thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
-    
+
     lazy var actionButton: CharcoalDefaultSButton = {
         let button = CharcoalDefaultSButton()
         return button
     }()
-    
+
     let thumbnailImage: UIImage?
-    
+
     var action: CharcoalAction?
 
     let text: String
@@ -65,7 +65,7 @@ class CharcoalSnackBarView: UIView {
 
     /// Text frame size
     private var textFrameSize: CGSize = .zero
-    
+
     var gesture: CharcoalGesture?
 
     init(text: String, thumbnailImage: UIImage? = nil, maxWidth: CGFloat = 312, action: CharcoalAction? = nil) {
@@ -86,7 +86,7 @@ class CharcoalSnackBarView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func setupCapsuleShape() {
         addSubview(capsuleShape)
         layer.backgroundColor = CharcoalAsset.ColorPaletteGenerated.background1.color.cgColor
@@ -95,7 +95,7 @@ class CharcoalSnackBarView: UIView {
         layer.masksToBounds = true
         layer.cornerCurve = .continuous
     }
-    
+
     private func addThumbnailView() {
         if let thumbnailImage = thumbnailImage {
             thumbnailImageView.image = thumbnailImage
@@ -106,7 +106,7 @@ class CharcoalSnackBarView: UIView {
             ])
         }
     }
-    
+
     private func addTextLabel() {
         let leftPaddingView = UIView()
         let rightPaddingView = UIView()
@@ -118,7 +118,7 @@ class CharcoalSnackBarView: UIView {
         hStackView.addArrangedSubview(rightPaddingView)
         label.text = text
     }
-    
+
     private func addActionButton() {
         if let _ = action {
             actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
@@ -133,7 +133,7 @@ class CharcoalSnackBarView: UIView {
     private func setupLayer() {
         // Setup Bubble Shape
         setupCapsuleShape()
-        
+
         // Add HStack
         addSubview(hStackView)
         NSLayoutConstraint.activate([
@@ -143,17 +143,17 @@ class CharcoalSnackBarView: UIView {
             hStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             hStackView.widthAnchor.constraint(lessThanOrEqualToConstant: maxWidth)
         ])
-        
+
         // Add thumbnail view
         addThumbnailView()
-        
+
         // Add text label with padding view
         addTextLabel()
-        
+
         // Add action button
         addActionButton()
     }
-    
+
     @objc func actionButtonTapped() {
         action?.actionCallback()
     }
@@ -163,24 +163,24 @@ class CharcoalSnackBarView: UIView {
 
         textFrameSize = text.calculateFrame(font: label.font, maxWidth: preferredTextMaxWidth)
     }
-    
+
     /// The max width of the text label
     var preferredTextMaxWidth: CGFloat {
         var width = maxWidth - padding.left - padding.right
-        
+
         // Check if has thumbnail image
         if let _ = thumbnailImage {
-             width = width - 64
+            width = width - 64
         }
-        
+
         // Check if has action button
         if let _ = action {
             width = width - actionButton.intrinsicContentSize.width - padding.right
         }
-        
+
         return width
     }
-    
+
     var preferredLayoutWidth: CGFloat {
         if let _ = thumbnailImage {
             return 64 + padding.left + textFrameSize.width + padding.right
@@ -188,7 +188,7 @@ class CharcoalSnackBarView: UIView {
             return padding.left + textFrameSize.width + padding.right
         }
     }
-    
+
     var preferredLayoutHeight: CGFloat {
         if let _ = thumbnailImage {
             return 64
@@ -208,7 +208,7 @@ class CharcoalSnackBarView: UIView {
         capsuleShape.frame = bounds
         layer.cornerRadius = min(cornerRadius, bounds.height / 2.0)
     }
-    
+
     /// Add gesture to this view
     func addGesture(_ gesture: CharcoalGesture) {
         self.gesture = gesture
@@ -232,11 +232,14 @@ class CharcoalSnackBarView: UIView {
         print("編集 taped")
     }))
 
-    let snackbar4 = CharcoalSnackBarView(text: "こんにちは This is a snackbar and here is testing it's multiple line feature",
-                                        thumbnailImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64), action: CharcoalAction(title: "編集", actionCallback: {
-        print("編集 taped")
-    }))
-    
+    let snackbar4 = CharcoalSnackBarView(
+        text: "こんにちは This is a snackbar and here is testing it's multiple line feature",
+        thumbnailImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64),
+        action: CharcoalAction(title: "編集", actionCallback: {
+            print("編集 taped")
+        })
+    )
+
     let snackbar5 = CharcoalSnackBarView(text: "こんにちは This is a snackbar and here is testing it's multiple line feature")
 
     stackView.addArrangedSubview(snackbar)

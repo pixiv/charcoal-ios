@@ -13,7 +13,7 @@ public extension CharcoalSnackBar {
         - screenEdge: The edge of the screen where the snackbar will be displayed.
         - screenEdgeSpacing: The spacing between the snackbar and the screen edge.
         - on: The view on which the snackbar will be displayed.
-     
+
      # Example #
      ```swift
         CharcoalSnackBar.show(text: "Hello")
@@ -35,14 +35,14 @@ public extension CharcoalSnackBar {
 
         let containerView = ChacoalOverlayManager.shared.layout(view: toastView, interactionMode: .passThrough, on: on)
         containerView.alpha = 1
-        containerView.isUserInteractionEnabled = true
-        
+        containerView.isUserInteractionEnabled = false
+
         let rubberGesture = CharcoalRubberGesture(screenEdge: screenEdge)
         toastView.addGesture(rubberGesture)
         rubberGesture.dismiss = {
             ChacoalOverlayManager.shared.dismiss(id: containerView.id)
         }
-        
+
         var constraints = [
             toastView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
         ]

@@ -6,38 +6,38 @@ protocol CharcoalGesture {
 
 class CharcoalRubberGesture: NSObject, CharcoalGesture {
     let screenEdge: CharcoalPopupViewEdge
-    
+
     var gesture: UIGestureRecognizer
-    
+
     var dragVelocity: CGPoint = .zero
-    
+
     var isDragging: Bool = false
-    
+
     var offset: CGSize = .zero
-    
+
     var dismiss: (() -> Void)?
-    
+
     init(screenEdge: CharcoalPopupViewEdge) {
         self.screenEdge = screenEdge
-        self.gesture = UIPanGestureRecognizer()
+        gesture = UIPanGestureRecognizer()
         super.init()
         gesture.addTarget(self, action: #selector(handlePan(_:)))
     }
-    
+
     @objc func handlePan(_ gesture: UIPanGestureRecognizer) {
         guard let view = gesture.view else { return }
-        
+
         let translation = gesture.translation(in: gesture.view)
         let velocity = gesture.velocity(in: gesture.view)
         let translationInDirection = translation.y * screenEdge.direction
         let movingVelocityInDirection = velocity.y * screenEdge.direction
         let offsetInDirection = offset.height * screenEdge.direction
-        
+
         // Rubber band effect
         let damping: CGFloat = 0.75
         let initialSpringVelocity: CGFloat = 0.0
         let duration: TimeInterval = 0.65
-        
+
         switch gesture.state {
         case .began:
             isDragging = true
@@ -51,7 +51,7 @@ class CharcoalRubberGesture: NSObject, CharcoalGesture {
                 let dist = sqrt(translation.y * translation.y)
                 let factor = 1 / (dist / limit + 1)
                 offset = CGSize(width: 0, height: translation.y * factor)
-                view.transform = CGAffineTransform(translationX: 0, y:  translation.y * factor)
+                view.transform = CGAffineTransform(translationX: 0, y: translation.y * factor)
             }
         case .ended, .cancelled:
             isDragging = false
