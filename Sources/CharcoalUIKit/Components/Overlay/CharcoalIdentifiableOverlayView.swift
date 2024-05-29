@@ -63,7 +63,7 @@ public class CharcoalIdentifiableOverlayView: UIView, Identifiable {
             self.removeFromSuperview()
         }
     }
-
+    
     /// Make sure that the view is not blocking the touch events of the subview.
     override public func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         if !isUserInteractionEnabled {

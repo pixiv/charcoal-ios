@@ -34,6 +34,7 @@ public extension CharcoalToast {
 
         let containerView = ChacoalOverlayManager.shared.layout(view: toastView, interactionMode: .passThrough, on: on)
         containerView.alpha = 1
+        containerView.delegate = ChacoalOverlayManager.shared
 
         var constraints = [
             toastView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
@@ -54,7 +55,7 @@ public extension CharcoalToast {
 
         containerView.layoutIfNeeded()
 
-        containerView.showAction = { actionCallback in
+        containerView.showAction = {[weak containerView] actionCallback in
             screenEdgeSpacingConstraint.constant = screenEdgeSpacingConstraint.constant * -1
             UIView.animate(
                 withDuration: 0.65,
@@ -63,19 +64,19 @@ public extension CharcoalToast {
                 initialSpringVelocity: 0.0,
                 options: [],
                 animations: {
-                    containerView.layoutIfNeeded()
+                    containerView?.layoutIfNeeded()
                 }
             ) { completion in
                 actionCallback?(completion)
             }
         }
 
-        containerView.dismissAction = { actionCallback in
+        containerView.dismissAction = {[weak containerView] actionCallback in
             screenEdgeSpacingConstraint.constant = screenEdgeSpacingConstraint.constant * -1
             UIView.animate(withDuration: 0.3, animations: {
-                containerView.layoutIfNeeded()
+                containerView?.layoutIfNeeded()
             }) { completion in
-                containerView.alpha = 0
+                containerView?.alpha = 0
                 actionCallback?(completion)
             }
         }
