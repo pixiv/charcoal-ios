@@ -27,6 +27,7 @@ class CharcoalSnackBarView: UIView {
         label.numberOfLines = 1
         label.isBold = true
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
         label.textColor = CharcoalAsset.ColorPaletteGenerated.text1.color
         return label
     }()

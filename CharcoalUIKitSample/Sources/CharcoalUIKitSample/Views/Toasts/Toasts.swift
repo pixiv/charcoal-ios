@@ -150,7 +150,7 @@ extension ToastsViewController: UITableViewDelegate, UITableViewDataSource {
                     print("Tapped 編集")
                 }))
             case .withActionAndThumbnail:
-                toastID = CharcoalSnackBar.show(text: titleCase.text, thumbnailImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64), screenEdge: .bottom, action: CharcoalAction(title: "編集", actionCallback: {
+                toastID = CharcoalSnackBar.show(text: titleCase.text, thumbnailImage: UIImage(named: "SnackbarDemo", in: Bundle.module, with: nil), screenEdge: .bottom, action: CharcoalAction(title: "編集", actionCallback: {
                     print("Tapped 編集")
                 }))
             }
