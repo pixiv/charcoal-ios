@@ -1,6 +1,21 @@
 import Charcoal
 import UIKit
 
+enum SnackbarTitles: String, CaseIterable {
+    case normal = "Normal"
+    case withAction = "with Action"
+    case withActionAndThumbnail = "with Action and Thumbnail"
+
+    var text: String {
+        return "ブックマークしました"
+    }
+
+    func configCell(cell: UITableViewCell) {
+        cell.textLabel!.text = "SnackBar"
+        cell.detailTextLabel?.text = rawValue
+    }
+}
+
 enum ToastsTitles: String, CaseIterable {
     case top = "Top"
     case bottom = "Bottom"
@@ -32,19 +47,24 @@ public final class ToastsViewController: UIViewController {
     let cellReuseIdentifier = "cell"
 
     private enum Sections: Int, CaseIterable {
-        case components
+        case toasts
+        case snackbars
 
         var title: String {
             switch self {
-            case .components:
+            case .toasts:
                 return "Toasts"
+            case .snackbars:
+                return "Snackbars"
             }
         }
 
         var items: [any CaseIterable] {
             switch self {
-            case .components:
-                return TooltipTitles.allCases
+            case .toasts:
+                return ToastsTitles.allCases
+            case .snackbars:
+                return SnackbarTitles.allCases
             }
         }
     }
@@ -78,11 +98,15 @@ extension ToastsViewController: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = Sections.allCases[indexPath.section]
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell? ?? UITableViewCell(style: .default, reuseIdentifier: cellReuseIdentifier)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell? ?? UITableViewCell(style: .subtitle, reuseIdentifier: cellReuseIdentifier)
 
         switch section {
-        case .components:
+        case .toasts:
             let titleCase = ToastsTitles.allCases[indexPath.row]
+            titleCase.configCell(cell: cell)
+            return cell
+        case .snackbars:
+            let titleCase = SnackbarTitles.allCases[indexPath.row]
             titleCase.configCell(cell: cell)
             return cell
         }
@@ -94,20 +118,46 @@ extension ToastsViewController: UITableViewDelegate, UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let titleCase = ToastsTitles.allCases[indexPath.row]
 
-        var toastID: CharcoalIdentifiableOverlayView.IDValue
-        switch titleCase {
-        case .top:
-            toastID = CharcoalToast.show(text: titleCase.text, screenEdge: .top)
-        case .bottom:
-            toastID = CharcoalToast.show(text: titleCase.text, appearance: .error, screenEdge: .bottom)
-        case .multiline:
-            toastID = CharcoalToast.show(text: titleCase.text, screenEdge: .bottom)
-        }
+        let section = Sections.allCases[indexPath.section]
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            CharcoalToast.dismiss(id: toastID)
+        switch section {
+        case .toasts:
+            let titleCase = ToastsTitles.allCases[indexPath.row]
+
+            var toastID: CharcoalIdentifiableOverlayView.IDValue
+            switch titleCase {
+            case .top:
+                toastID = CharcoalToast.show(text: titleCase.text, screenEdge: .top)
+            case .bottom:
+                toastID = CharcoalToast.show(text: titleCase.text, appearance: .error, screenEdge: .bottom)
+            case .multiline:
+                toastID = CharcoalToast.show(text: titleCase.text, screenEdge: .bottom)
+            }
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                CharcoalToast.dismiss(id: toastID)
+            }
+        case .snackbars:
+            let titleCase = SnackbarTitles.allCases[indexPath.row]
+
+            var toastID: CharcoalIdentifiableOverlayView.IDValue
+            switch titleCase {
+            case .normal:
+                toastID = CharcoalSnackBar.show(text: titleCase.text, screenEdge: .top)
+            case .withAction:
+                toastID = CharcoalSnackBar.show(text: titleCase.text, screenEdge: .bottom, action: CharcoalAction(title: "編集", actionCallback: {
+                    print("Tapped 編集")
+                }))
+            case .withActionAndThumbnail:
+                toastID = CharcoalSnackBar.show(text: titleCase.text, thumbnailImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64), screenEdge: .bottom, action: CharcoalAction(title: "編集", actionCallback: {
+                    print("Tapped 編集")
+                }))
+            }
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                CharcoalSnackBar.dismiss(id: toastID)
+            }
         }
     }
 

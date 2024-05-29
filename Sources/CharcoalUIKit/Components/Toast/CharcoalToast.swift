@@ -55,7 +55,7 @@ public extension CharcoalToast {
 
         containerView.layoutIfNeeded()
 
-        containerView.showAction = {[weak containerView] actionCallback in
+        containerView.showAction = { [weak containerView] actionCallback in
             screenEdgeSpacingConstraint.constant = screenEdgeSpacingConstraint.constant * -1
             UIView.animate(
                 withDuration: 0.65,
@@ -71,7 +71,7 @@ public extension CharcoalToast {
             }
         }
 
-        containerView.dismissAction = {[weak containerView] actionCallback in
+        containerView.dismissAction = { [weak containerView] actionCallback in
             screenEdgeSpacingConstraint.constant = screenEdgeSpacingConstraint.constant * -1
             UIView.animate(withDuration: 0.3, animations: {
                 containerView?.layoutIfNeeded()
