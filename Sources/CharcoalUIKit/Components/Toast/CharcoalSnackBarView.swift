@@ -65,6 +65,8 @@ class CharcoalSnackBarView: UIView {
 
     /// Text frame size
     private var textFrameSize: CGSize = .zero
+    
+    var gesture: CharcoalGesture?
 
     init(text: String, thumbnailImage: UIImage? = nil, maxWidth: CGFloat = 312, action: CharcoalAction? = nil) {
         self.action = action
@@ -205,6 +207,12 @@ class CharcoalSnackBarView: UIView {
         super.layoutSubviews()
         capsuleShape.frame = bounds
         layer.cornerRadius = min(cornerRadius, bounds.height / 2.0)
+    }
+    
+    /// Add gesture to this view
+    func addGesture(_ gesture: CharcoalGesture) {
+        self.gesture = gesture
+        addGestureRecognizer(gesture.gesture)
     }
 }
 

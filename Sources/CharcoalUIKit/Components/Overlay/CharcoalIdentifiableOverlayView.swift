@@ -1,7 +1,7 @@
 import UIKit
 
 protocol CharcoalIdentifiableOverlayDelegate: AnyObject {
-    func overlayViewDidDismiss(_ overlayView: CharcoalIdentifiableOverlayView)
+    func overlayViewDidDismiss(_ id: CharcoalIdentifiableOverlayView.IDValue)
 }
 
 public class CharcoalIdentifiableOverlayView: UIView, Identifiable {
@@ -22,8 +22,6 @@ public class CharcoalIdentifiableOverlayView: UIView, Identifiable {
     var dismissAction: ActionContent?
 
     weak var delegate: CharcoalIdentifiableOverlayDelegate?
-    
-    var gesture: CharcoalGesture?
 
     init(interactionMode: CharcoalOverlayInteractionMode) {
         self.interactionMode = interactionMode
@@ -62,13 +60,11 @@ public class CharcoalIdentifiableOverlayView: UIView, Identifiable {
         dismissAction?() { [weak self] _ in
             guard let self = self else { return }
             self.removeFromSuperview()
-            self.delegate?.overlayViewDidDismiss(self)
+            self.delegate?.overlayViewDidDismiss(self.id)
         }
     }
     
-    /// Add gesture to this view
-    func addGesture(_ gesture: CharcoalGesture) {
-        self.gesture = gesture
-        addGestureRecognizer(gesture.gesture)
+    deinit {
+        print("deinit CharcoalIdentifiableOverlayView")
     }
 }

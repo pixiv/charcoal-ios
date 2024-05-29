@@ -30,15 +30,19 @@ public extension CharcoalSnackBar {
         on: UIView? = nil
     ) -> CharcoalIdentifiableOverlayView.IDValue {
         let toastView = CharcoalSnackBarView(text: text, thumbnailImage: thumbnailImage, maxWidth: maxWidth, action: action)
-
+        toastView.isUserInteractionEnabled = true
         toastView.translatesAutoresizingMaskIntoConstraints = false
 
         let containerView = ChacoalOverlayManager.shared.layout(view: toastView, interactionMode: .passThrough, on: on)
         containerView.alpha = 1
         containerView.isUserInteractionEnabled = true
         
-        addRubberGesture(view: containerView)
-
+        let rubberGesture = CharcoalRubberGesture(screenEdge: screenEdge)
+        toastView.addGesture(rubberGesture)
+        rubberGesture.dismiss = {
+            ChacoalOverlayManager.shared.dismiss(id: containerView.id)
+        }
+        
         var constraints = [
             toastView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
         ]
@@ -88,12 +92,6 @@ public extension CharcoalSnackBar {
 
         return containerView.id
     }
-    
-    /// Adds a rubber gesture to the given view.
-    static func addRubberGesture(view: CharcoalIdentifiableOverlayView) {
-        let rubberGesture = CharcoalRubberGesture()
-        view.addGesture(rubberGesture)
-    }
 
     /// Dismisses the toast with the given identifier.
     static func dismiss(id: CharcoalIdentifiableOverlayView.IDValue) {
@@ -113,7 +111,7 @@ public extension CharcoalSnackBar {
             print("Tapped 編集")
         }))
     }
-//
+
 //    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
 //        ChacoalOverlayManager.shared.dismiss()
 //    }
