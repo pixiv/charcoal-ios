@@ -22,6 +22,8 @@ public class CharcoalIdentifiableOverlayView: UIView, Identifiable {
     var dismissAction: ActionContent?
 
     weak var delegate: CharcoalIdentifiableOverlayDelegate?
+    
+    var gesture: CharcoalGesture?
 
     init(interactionMode: CharcoalOverlayInteractionMode) {
         self.interactionMode = interactionMode
@@ -62,5 +64,11 @@ public class CharcoalIdentifiableOverlayView: UIView, Identifiable {
             self.removeFromSuperview()
             self.delegate?.overlayViewDidDismiss(self)
         }
+    }
+    
+    /// Add gesture to this view
+    func addGesture(_ gesture: CharcoalGesture) {
+        self.gesture = gesture
+        addGestureRecognizer(gesture.gesture)
     }
 }

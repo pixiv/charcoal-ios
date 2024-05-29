@@ -35,6 +35,9 @@ public extension CharcoalSnackBar {
 
         let containerView = ChacoalOverlayManager.shared.layout(view: toastView, interactionMode: .passThrough, on: on)
         containerView.alpha = 1
+        containerView.isUserInteractionEnabled = true
+        
+        addRubberGesture(view: containerView)
 
         var constraints = [
             toastView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
@@ -84,6 +87,12 @@ public extension CharcoalSnackBar {
         ChacoalOverlayManager.shared.display(view: containerView)
 
         return containerView.id
+    }
+    
+    /// Adds a rubber gesture to the given view.
+    static func addRubberGesture(view: CharcoalIdentifiableOverlayView) {
+        let rubberGesture = CharcoalRubberGesture()
+        view.addGesture(rubberGesture)
     }
 
     /// Dismisses the toast with the given identifier.
