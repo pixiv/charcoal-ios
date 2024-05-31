@@ -298,6 +298,7 @@ public enum CharcoalAsset {
       public static let pauseAsset = ImageAsset(name: "24/Pause")
       public static let pauseAltAsset = ImageAsset(name: "24/PauseAlt")
       public static let pencilAsset = ImageAsset(name: "24/Pencil")
+      public static let pencilAddAsset = ImageAsset(name: "24/PencilAdd")
       public static let pencilDrawAsset = ImageAsset(name: "24/PencilDraw")
       public static let pencilLiveAsset = ImageAsset(name: "24/PencilLive")
       public static let pencilTextAsset = ImageAsset(name: "24/PencilText")
@@ -566,6 +567,7 @@ public enum CharcoalAsset {
     case pause24
     case pauseAlt24
     case pencil24
+    case pencilAdd24
     case pencilDraw24
     case pencilLive24
     case pencilText24
@@ -972,6 +974,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.pauseAltAsset
         case .pencil24:
           return CharcoalAsset.Images._24.pencilAsset
+        case .pencilAdd24:
+          return CharcoalAsset.Images._24.pencilAddAsset
         case .pencilDraw24:
           return CharcoalAsset.Images._24.pencilDrawAsset
         case .pencilLive24:
