@@ -81,7 +81,7 @@
 				24651B2727043658005AD842 /* Sources */,
 				24651B2827043658005AD842 /* Frameworks */,
 				24651B2927043658005AD842 /* Resources */,
-				242CCCD62771748B00897251 /* SwiftLint */,
+				9F0036972C0A0399003BE2C2 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -141,7 +141,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		242CCCD62771748B00897251 /* SwiftLint */ = {
+		9F0036972C0A0399003BE2C2 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -157,6 +157,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
+			shellScript = "unset SDKROOT\nswift run -c release --package-path ../../BuildTools swiftlint --config ../../.swiftlint.yml\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
