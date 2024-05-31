@@ -45,9 +45,9 @@ class CharcoalHintView: UIView {
 
     var gesture: CharcoalGesture?
 
-    init(text: String, thumbnailImage: UIImage? = CharcoalAsset.Images.info16.image, action: CharcoalAction? = nil) {
+    init(text: String, iconImage: UIImage? = CharcoalAsset.Images.info16.image, action: CharcoalAction? = nil) {
         self.action = action
-        self.thumbnailImage = thumbnailImage
+        self.thumbnailImage = iconImage
         self.text = text
         super.init(frame: .zero)
         self.hStackView.spacing = 5
@@ -143,7 +143,7 @@ class CharcoalHintView: UIView {
     let snackbar = CharcoalHintView(text: "Hello World")
     stackView.addArrangedSubview(snackbar)
     
-    let snackbar2 = CharcoalHintView(text: "ブックマークしました", thumbnailImage: CharcoalAsset.Images.info16.image)
+    let snackbar2 = CharcoalHintView(text: "ブックマークしました", iconImage: CharcoalAsset.Images.info16.image)
     stackView.addArrangedSubview(snackbar2)
     snackbar2.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
 
@@ -154,7 +154,7 @@ class CharcoalHintView: UIView {
 
     let snackbar4 = CharcoalHintView(
         text: "こんにちは",
-        thumbnailImage: CharcoalAsset.Images.info16.image,
+        iconImage: CharcoalAsset.Images.info16.image,
         action: CharcoalAction(title: "編集", actionCallback: {
             print("編集 taped")
         })
