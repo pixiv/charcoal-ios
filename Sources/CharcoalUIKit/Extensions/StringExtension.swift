@@ -1,6 +1,7 @@
 import UIKit
 
 extension String {
+    // swiftformat:disable redundantSelf
     func calculateFrame(font: UIFont, maxWidth: CGFloat) -> CGSize {
         let size = CGSize(width: maxWidth, height: .greatestFiniteMagnitude)
         let options: NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading]
