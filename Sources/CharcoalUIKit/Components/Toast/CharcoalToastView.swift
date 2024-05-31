@@ -60,7 +60,7 @@ class CharcoalToastView: UIView {
         addSubview(label)
         label.text = text
         label.preferredMaxLayoutWidth = maxWidth - padding.left - padding.right
-        
+
         NSLayoutConstraint.activate([
             label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding.left),
             label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding.right),

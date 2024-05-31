@@ -1,17 +1,5 @@
 import UIKit
 
-public typealias ActionCallback = () -> Void
-
-public struct CharcoalAction {
-    let title: String
-    let actionCallback: ActionCallback
-
-    public init(title: String, actionCallback: @escaping ActionCallback) {
-        self.title = title
-        self.actionCallback = actionCallback
-    }
-}
-
 class CharcoalSnackBarView: UIView {
     lazy var hStackView: UIStackView = {
         let stackView = UIStackView()
@@ -22,13 +10,13 @@ class CharcoalSnackBarView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-    
+
     lazy var buttonContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+
     lazy var labelContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -125,16 +113,16 @@ class CharcoalSnackBarView: UIView {
 
     private func addTextLabel() {
         hStackView.addArrangedSubview(labelContainer)
-        
+
         labelContainer.addSubview(label)
-        
+
         NSLayoutConstraint.activate([
             label.leadingAnchor.constraint(equalTo: labelContainer.leadingAnchor, constant: padding.left),
-            label.trailingAnchor.constraint(equalTo: labelContainer.trailingAnchor, constant:  -padding.right),
+            label.trailingAnchor.constraint(equalTo: labelContainer.trailingAnchor, constant: -padding.right),
             label.topAnchor.constraint(equalTo: labelContainer.topAnchor, constant: padding.top),
             label.bottomAnchor.constraint(equalTo: labelContainer.bottomAnchor, constant: -padding.bottom)
         ])
-        
+
         label.text = text
         label.preferredMaxLayoutWidth = preferredTextMaxWidth
         label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
@@ -146,12 +134,12 @@ class CharcoalSnackBarView: UIView {
             actionButton.alpha = 1
             hStackView.addArrangedSubview(buttonContainer)
             buttonContainer.addSubview(actionButton)
-           
+
             NSLayoutConstraint.activate([
                 actionButton.leadingAnchor.constraint(equalTo: buttonContainer.leadingAnchor),
                 actionButton.trailingAnchor.constraint(equalTo: buttonContainer.trailingAnchor, constant: -padding.right),
                 actionButton.topAnchor.constraint(equalTo: buttonContainer.topAnchor, constant: padding.top),
-                actionButton.bottomAnchor.constraint(equalTo: buttonContainer.bottomAnchor, constant: -padding.bottom),
+                actionButton.bottomAnchor.constraint(equalTo: buttonContainer.bottomAnchor, constant: -padding.bottom)
             ])
         }
     }
