@@ -1,6 +1,6 @@
 import UIKit
 
-class CharcoalHintView: UIView {
+public class CharcoalHintView: UIView {
     lazy var hStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -45,7 +45,7 @@ class CharcoalHintView: UIView {
 
     var gesture: CharcoalGesture?
 
-    init(text: String, iconImage: UIImage? = CharcoalAsset.Images.info16.image, action: CharcoalAction? = nil) {
+    public init(text: String, iconImage: UIImage? = CharcoalAsset.Images.info16.image, action: CharcoalAction? = nil) {
         self.action = action
         self.thumbnailImage = iconImage
         self.text = text
