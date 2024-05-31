@@ -142,7 +142,6 @@ class CharcoalHintView: UIView {
 
     let snackbar = CharcoalHintView(text: "Hello World")
     stackView.addArrangedSubview(snackbar)
-    snackbar.widthAnchor.constraint(equalTo: stackView.widthAnchor,  multiplier: 0.5).isActive = true
     
     let snackbar2 = CharcoalHintView(text: "ブックマークしました", thumbnailImage: CharcoalAsset.Images.info16.image)
     stackView.addArrangedSubview(snackbar2)
