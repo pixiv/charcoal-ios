@@ -23,10 +23,12 @@ public extension CharcoalTooltip {
         tooltip.translatesAutoresizingMaskIntoConstraints = false
 
         let containerView = ChacoalOverlayManager.shared.layout(view: tooltip, interactionMode: .dimissOnTouch, on: on)
+
         let mainView = ChacoalOverlayManager.shared.mainView!
         let spacingToScreen: CGFloat = 16
         let gap: CGFloat = 4
         let viewSize = tooltip.intrinsicContentSize
+
         let anchorPoint = anchorView.superview!.convert(anchorView.frame.origin, to: containerView)
         let targetPoint = anchorView.superview!.convert(anchorView.center, to: tooltip)
         let newAnchorRect = CGRect(x: anchorPoint.x, y: anchorPoint.y, width: anchorView.frame.width, height: anchorView.frame.height)
@@ -43,7 +45,7 @@ public extension CharcoalTooltip {
             tooltip.topAnchor.constraint(equalTo: containerView.topAnchor, constant: viewTopConstant)
         ]
         NSLayoutConstraint.activate(constraints)
-        
+
         containerView.showAction = { actionCallback in
             UIView.animate(withDuration: 0.25, animations: {
                 containerView.alpha = 1
@@ -51,7 +53,7 @@ public extension CharcoalTooltip {
                 actionCallback?(completion)
             }
         }
-        
+
         containerView.dismissAction = { actionCallback in
             UIView.animate(withDuration: 0.25, animations: {
                 containerView.alpha = 0
