@@ -30,4 +30,4 @@
 --wraparguments before-first
 --wrapcollections before-first
 
---exclude Sources/Charcoal/Generated
+--exclude Sources/CharcoalShared/Generated
