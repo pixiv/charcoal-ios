@@ -1,25 +1,26 @@
 import UIKit
 
-public typealias ActionCallback = () -> Void
-
-public struct CharcoalAction {
-    let title: String
-    let actionCallback: ActionCallback
-
-    public init(title: String, actionCallback: @escaping ActionCallback) {
-        self.title = title
-        self.actionCallback = actionCallback
-    }
-}
-
 class CharcoalSnackBarView: UIView {
     lazy var hStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .center
+        stackView.distribution = .fill
         stackView.spacing = 0
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
+    }()
+
+    lazy var buttonContainer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    lazy var labelContainer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
 
     lazy var label: CharcoalTypography14 = {
@@ -41,6 +42,7 @@ class CharcoalSnackBarView: UIView {
 
     lazy var actionButton: CharcoalDefaultSButton = {
         let button = CharcoalDefaultSButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
@@ -69,9 +71,6 @@ class CharcoalSnackBarView: UIView {
     /// Padding around the bubble
     let padding = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
 
-    /// Text frame size
-    private var textFrameSize: CGSize = .zero
-
     var gesture: CharcoalGesture?
 
     init(text: String, thumbnailImage: UIImage? = nil, maxWidth: CGFloat = 312, action: CharcoalAction? = nil) {
@@ -84,7 +83,6 @@ class CharcoalSnackBarView: UIView {
         if let action = action {
             actionButton.setTitle(action.title, for: .normal)
         }
-        textFrameSize = text.calculateFrame(font: label.font, maxWidth: preferredTextMaxWidth)
         setupLayer()
     }
 
@@ -114,25 +112,35 @@ class CharcoalSnackBarView: UIView {
     }
 
     private func addTextLabel() {
-        let leftPaddingView = UIView()
-        let rightPaddingView = UIView()
-        leftPaddingView.widthAnchor.constraint(equalToConstant: padding.left).isActive = true
-        rightPaddingView.widthAnchor.constraint(equalToConstant: padding.right).isActive = true
-        // Setup Label
-        hStackView.addArrangedSubview(leftPaddingView)
-        hStackView.addArrangedSubview(label)
-        hStackView.addArrangedSubview(rightPaddingView)
+        hStackView.addArrangedSubview(labelContainer)
+
+        labelContainer.addSubview(label)
+
+        NSLayoutConstraint.activate([
+            label.leadingAnchor.constraint(equalTo: labelContainer.leadingAnchor, constant: padding.left),
+            label.trailingAnchor.constraint(equalTo: labelContainer.trailingAnchor, constant: -padding.right),
+            label.topAnchor.constraint(equalTo: labelContainer.topAnchor, constant: padding.top),
+            label.bottomAnchor.constraint(equalTo: labelContainer.bottomAnchor, constant: -padding.bottom)
+        ])
+
         label.text = text
+        label.preferredMaxLayoutWidth = preferredTextMaxWidth
+        label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
     }
 
     private func addActionButton() {
         if let _ = action {
             actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
-            hStackView.addArrangedSubview(actionButton)
-            actionButton.widthAnchor.constraint(equalToConstant: actionButton.intrinsicContentSize.width).isActive = true
-            let rightPaddingView = UIView()
-            rightPaddingView.widthAnchor.constraint(equalToConstant: padding.right).isActive = true
-            hStackView.addArrangedSubview(rightPaddingView)
+            actionButton.alpha = 1
+            hStackView.addArrangedSubview(buttonContainer)
+            buttonContainer.addSubview(actionButton)
+
+            NSLayoutConstraint.activate([
+                actionButton.leadingAnchor.constraint(equalTo: buttonContainer.leadingAnchor),
+                actionButton.trailingAnchor.constraint(equalTo: buttonContainer.trailingAnchor, constant: -padding.right),
+                actionButton.topAnchor.constraint(equalTo: buttonContainer.topAnchor, constant: padding.top),
+                actionButton.bottomAnchor.constraint(equalTo: buttonContainer.bottomAnchor, constant: -padding.bottom)
+            ])
         }
     }
 
@@ -164,12 +172,6 @@ class CharcoalSnackBarView: UIView {
         action?.actionCallback()
     }
 
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-
-        textFrameSize = text.calculateFrame(font: label.font, maxWidth: preferredTextMaxWidth)
-    }
-
     /// The max width of the text label
     var preferredTextMaxWidth: CGFloat {
         var width = maxWidth - padding.left - padding.right
@@ -185,28 +187,6 @@ class CharcoalSnackBarView: UIView {
         }
 
         return width
-    }
-
-    var preferredLayoutWidth: CGFloat {
-        if let _ = thumbnailImage {
-            return 64 + padding.left + textFrameSize.width + padding.right
-        } else {
-            return padding.left + textFrameSize.width + padding.right
-        }
-    }
-
-    var preferredLayoutHeight: CGFloat {
-        if let _ = thumbnailImage {
-            return 64
-        } else if let _ = action {
-            return max(padding.top + label.font.lineHeight + padding.bottom, padding.top + actionButton.intrinsicContentSize.height + padding.bottom)
-        } else {
-            return padding.top + label.font.lineHeight + padding.bottom
-        }
-    }
-
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: preferredLayoutWidth, height: preferredLayoutHeight)
     }
 
     override func layoutSubviews() {
