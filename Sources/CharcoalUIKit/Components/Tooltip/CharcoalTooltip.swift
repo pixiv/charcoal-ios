@@ -23,6 +23,7 @@ public extension CharcoalTooltip {
         tooltip.translatesAutoresizingMaskIntoConstraints = false
 
         let containerView = ChacoalOverlayManager.shared.layout(view: tooltip, interactionMode: .dimissOnTouch, on: on)
+        containerView.delegate = ChacoalOverlayManager.shared
 
         let mainView = ChacoalOverlayManager.shared.mainView!
         let spacingToScreen: CGFloat = 16
@@ -46,17 +47,17 @@ public extension CharcoalTooltip {
         ]
         NSLayoutConstraint.activate(constraints)
 
-        containerView.showAction = { actionCallback in
+        containerView.showAction = { [weak containerView] actionCallback in
             UIView.animate(withDuration: 0.25, animations: {
-                containerView.alpha = 1
+                containerView?.alpha = 1
             }) { completion in
                 actionCallback?(completion)
             }
         }
 
-        containerView.dismissAction = { actionCallback in
+        containerView.dismissAction = { [weak containerView] actionCallback in
             UIView.animate(withDuration: 0.25, animations: {
-                containerView.alpha = 0
+                containerView?.alpha = 0
             }) { completion in
                 actionCallback?(completion)
             }
