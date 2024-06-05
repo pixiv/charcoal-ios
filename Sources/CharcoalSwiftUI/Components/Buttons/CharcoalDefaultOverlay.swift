@@ -86,6 +86,11 @@ struct CharcoalDefaultOverlayButtonStyleModifier: ViewModifier {
 }
 
 public extension View {
+    /// Set the style of the button to Charcoal's default overlay button style
+    ///
+    /// - Parameters:
+    ///   - size: The size of the button
+    ///   - isFixed: Whether the button should have a fixed width
     @warn_unqualified_access
     func charcoalDefaultOverlayButton(size: CharcoalButtonSize = .medium, isFixed: Bool = true) -> some View {
         return modifier(CharcoalDefaultOverlayButtonStyleModifier(size: size, isFixed: isFixed))

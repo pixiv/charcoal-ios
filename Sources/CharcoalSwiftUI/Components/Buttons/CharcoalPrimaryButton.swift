@@ -94,6 +94,12 @@ struct CharcoalPrimaryButtonStyleModifier: ViewModifier {
 }
 
 public extension View {
+    /// Set the style of the button to Charcoal's primary button style.
+    /// 
+    /// - Parameters:
+    ///   - size: The size of the button.
+    ///   - isFixed: Whether the button should have a fixed width.
+    ///   - primaryColor: The primary color of the button.
     @warn_unqualified_access
     func charcoalPrimaryButton(
         size: CharcoalButtonSize = .medium,

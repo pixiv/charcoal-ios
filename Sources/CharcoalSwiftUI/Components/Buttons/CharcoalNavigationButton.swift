@@ -91,6 +91,11 @@ struct CharcoalNavigationButtonStyleModifier: ViewModifier {
 }
 
 public extension View {
+    /// Set the style of the button to Charcoal's navigation button
+    /// 
+    /// - Parameters:
+    ///   - size: The size of the button
+    ///   - isFixed: Whether the button should have a fixed width
     @warn_unqualified_access
     func charcoalNavigationButton(size: CharcoalButtonSize = .medium, isFixed: Bool = true) -> some View {
         return modifier(CharcoalNavigationButtonStyleModifier(size: size, isFixed: isFixed))
