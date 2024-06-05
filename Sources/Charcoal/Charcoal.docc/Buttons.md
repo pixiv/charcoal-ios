@@ -36,12 +36,12 @@ Charcoal buttons are designed to be used in a variety of contexts and are highly
 
 - ``CharcoalLinkButton``
 
-``CharcoalNavigationMButton``
+- ``CharcoalNavigationMButton``
 
-``CharcoalNavigationSButton``
+- ``CharcoalNavigationSButton``
 
-``CharcoalPrimaryMButton``
+- ``CharcoalPrimaryMButton``
 
-``CharcoalPrimarySButton``
+- ``CharcoalPrimarySButton``
 
-``CharcoalSwitchingButton``
+- ``CharcoalSwitchingButton``

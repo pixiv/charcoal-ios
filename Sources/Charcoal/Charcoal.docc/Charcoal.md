@@ -22,5 +22,6 @@ dependencies: [
 
 ## Topics
 
+- <doc:Typographies>
 - <doc:Buttons>
 - <doc:DynamicType>
