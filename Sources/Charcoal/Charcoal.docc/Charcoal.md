@@ -24,4 +24,5 @@ dependencies: [
 
 - <doc:Typographies>
 - <doc:Buttons>
+- <doc:Tooltips>
 - <doc:DynamicType>
