@@ -95,7 +95,7 @@ struct CharcoalPrimaryButtonStyleModifier: ViewModifier {
 
 public extension View {
     /// Set the style of the button to Charcoal's primary button style.
-    /// 
+    ///
     /// - Parameters:
     ///   - size: The size of the button.
     ///   - isFixed: Whether the button should have a fixed width.

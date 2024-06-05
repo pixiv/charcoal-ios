@@ -10,6 +10,21 @@ Charcoal typographies are designed to be used in a variety of contexts and are h
         alt: "A technology icon representing the Charcoal framework.")
 }
 
+## Usage
+
+### SwiftUI Typographies
+
+```swift
+Text("Charcoal Typography 10 Bold")
+    .charcoalTypography10Bold()
+```
+
+### UIKit Typographies
+
+```swift
+let typography = CharcoalTypography10()
+```
+
 ## Topics
 
 ### Creating SwiftUI Typographies
@@ -42,7 +57,6 @@ Charcoal typographies are designed to be used in a variety of contexts and are h
 
 ### Creating UIKit Typographies
 
-- ``CharcoalTypographyLabel``
 - ``CharcoalTypography10``
 - ``CharcoalTypography12``
 - ``CharcoalTypography14``
