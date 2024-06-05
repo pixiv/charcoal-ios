@@ -15,7 +15,7 @@ Charcoal Tooltips can be used to provide additional information about an element
 ### SwiftUI Tooltips
 
 ```swift
-Button("Primary Button") {}
+VStack {}
     .charcoalTooltip(isPresenting: $isPresenting, text: "This is a tooltip", dismissAfter: 2)
 ```
 

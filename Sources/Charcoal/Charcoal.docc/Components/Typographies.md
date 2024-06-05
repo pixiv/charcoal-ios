@@ -22,7 +22,9 @@ Text("Charcoal Typography 10 Bold")
 ### UIKit Typographies
 
 ```swift
-let typography = CharcoalTypography10()
+let label = CharcoalTypography10()
+label.isMono = true
+label.isBold = false
 ```
 
 ## Topics

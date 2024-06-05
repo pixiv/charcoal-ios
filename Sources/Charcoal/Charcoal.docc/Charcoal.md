@@ -25,4 +25,5 @@ dependencies: [
 - <doc:Typographies>
 - <doc:Buttons>
 - <doc:Tooltips>
+- <doc:Spinners>
 - <doc:DynamicType>
