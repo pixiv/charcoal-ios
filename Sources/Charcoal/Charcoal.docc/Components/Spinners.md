@@ -34,3 +34,4 @@ CharcoalSpinner.show(spinnerSize: .medium, transparentBackground: true, interact
 ### Creating UIKit Typographies
 
 - ``CharcoalSpinner/show(spinnerSize:transparentBackground:interactionPassthrough:on:)``
+- ``CharcoalSpinner/dismiss()``
