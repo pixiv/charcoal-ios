@@ -27,3 +27,4 @@ dependencies: [
 - <doc:Tooltips>
 - <doc:Spinners>
 - <doc:DynamicType>
+- <doc:Toasts>

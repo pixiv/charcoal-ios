@@ -185,7 +185,7 @@ public extension View {
 
      # Example #
      ```swift
-     Text("Hello").charcoalToast(isPresenting: $isPresenting, text: "Hello")
+     Text("Hello").charcoalToast(isPresenting: $isPresenting, text: "Hello", dismissAfter: 2)
      ```
      */
     func charcoalToast<Content>(

@@ -1,6 +1,6 @@
 # Charocal Typographies
 
-Charcoal typographies are designed to be used in a variety of contexts and are highly customizable.
+Charcoal Typographies are designed to be used in a variety of contexts and are highly customizable.
 
 @Metadata {
     @DocumentationExtension(mergeBehavior: append)
