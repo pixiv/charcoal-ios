@@ -28,3 +28,4 @@ dependencies: [
 - <doc:Spinners>
 - <doc:DynamicType>
 - <doc:Toasts>
+- <doc:Balloons>
