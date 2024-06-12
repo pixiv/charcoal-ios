@@ -32,4 +32,5 @@ dependencies: [
     - <doc:Textfields>
     - <doc:Modals>
     - <doc:Hints>
+    - <doc:Switch>
 }
