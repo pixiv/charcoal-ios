@@ -5,9 +5,9 @@ Charcoal spinners are designed to display a loading state.
 @Metadata {
     @DocumentationExtension(mergeBehavior: append)
     @PageImage(
-        purpose: icon, 
-        source: "charcoal-icon", 
-        alt: "A technology icon representing the Charcoal framework.")
+        purpose: card, 
+        source: "Spinners", 
+        alt: "Charcoal spinners are designed to display a loading state.")
 }
 
 ## Usage

@@ -5,9 +5,9 @@ Charcoal Toasts can be used to display a message and Snackbar to the user.
 @Metadata {
     @DocumentationExtension(mergeBehavior: append)
     @PageImage(
-        purpose: icon, 
-        source: "charcoal-icon", 
-        alt: "A technology icon representing the Charcoal framework.")
+        purpose: card, 
+        source: "Toasts", 
+        alt: "Charcoal Toasts can be used to display a message and Snackbar to the user.")
 }
 
 ## Usage

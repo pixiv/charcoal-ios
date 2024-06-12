@@ -20,12 +20,14 @@ dependencies: [
 ]
 ```
 
-## Topics
+### Featured
 
-- <doc:Typographies>
-- <doc:Buttons>
-- <doc:Tooltips>
-- <doc:Spinners>
-- <doc:DynamicType>
-- <doc:Toasts>
-- <doc:Balloons>
+@Links(visualStyle: detailedGrid) {
+    - <doc:Typographies>
+    - <doc:Buttons>
+    - <doc:Tooltips>
+    - <doc:Spinners>
+    - <doc:Toasts>
+    - <doc:Balloons>
+    - <doc:Textfields>
+}

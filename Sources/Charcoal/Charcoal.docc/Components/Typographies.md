@@ -5,9 +5,9 @@ Charcoal Typographies are designed to be used in a variety of contexts and are h
 @Metadata {
     @DocumentationExtension(mergeBehavior: append)
     @PageImage(
-        purpose: icon, 
-        source: "charcoal-icon", 
-        alt: "A technology icon representing the Charcoal framework.")
+        purpose: card, 
+        source: "Typographies", 
+        alt: "Charcoal Typographies are designed to be used in a variety of contexts and are highly customizable.")
 }
 
 ## Usage

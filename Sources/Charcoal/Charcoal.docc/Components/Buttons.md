@@ -5,9 +5,9 @@ Charcoal buttons are designed to be used in a variety of contexts and are highly
 @Metadata {
     @DocumentationExtension(mergeBehavior: append)
     @PageImage(
-        purpose: icon, 
-        source: "charcoal-icon", 
-        alt: "A technology icon representing the Charcoal framework.")
+        purpose: card, 
+        source: "Buttons", 
+        alt: "Charcoal buttons are designed to be used in a variety of contexts and are highly customizable.")
 }
 
 ## Usage

@@ -5,10 +5,11 @@ Charcoal Balloons are designed to show a message in a balloon-shaped container.
 @Metadata {
     @DocumentationExtension(mergeBehavior: append)
     @PageImage(
-        purpose: icon, 
-        source: "charcoal-icon", 
-        alt: "A technology icon representing the Charcoal framework.")
+        purpose: card, 
+        source: "Balloon", 
+        alt: "Charcoal Balloons are designed to show a message in a balloon-shaped container.")
 }
+
 
 ## Usage
 
