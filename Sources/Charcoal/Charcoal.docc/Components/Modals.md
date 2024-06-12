@@ -38,16 +38,8 @@ Charcoal Modals are designed to show a message in a modal container.
 
 ```
 
-### UIKit
-
-```swift
-
-```
-
 ## Topics
 
 ### Creating SwiftUI Modals
 
 - ``SwiftUI/View/charcoalModal(title:style:tapBackgroundToDismiss:duration:maxWidth:isPresented:actions:content:)``
-
-### Creating UIKit Modals
