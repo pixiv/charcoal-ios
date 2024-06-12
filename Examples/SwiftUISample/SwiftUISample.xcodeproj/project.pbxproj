@@ -157,7 +157,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "unset SDKROOT\n#swift run -c release --package-path ../../BuildTools swiftlint --config ../../.swiftlint.yml\n";
+			shellScript = "unset SDKROOT\nswift run -c release --package-path ../../BuildTools swiftlint --config ../../.swiftlint.yml\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
