@@ -31,4 +31,5 @@ dependencies: [
     - <doc:Balloons>
     - <doc:Textfields>
     - <doc:Modals>
+    - <doc:Hints>
 }

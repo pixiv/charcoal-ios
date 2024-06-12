@@ -31,7 +31,7 @@ CharcoalSpinner.show(spinnerSize: .medium, transparentBackground: true, interact
 
 - ``SwiftUI/View/charcoalSpinner(isPresenting:spinnerSize:transparentBackground:interactionPassthrough:)``
 
-### Creating UIKit Typographies
+### Creating UIKit Spinners
 
 - ``CharcoalSpinner/show(spinnerSize:transparentBackground:interactionPassthrough:on:)``
 - ``CharcoalSpinner/dismiss()``

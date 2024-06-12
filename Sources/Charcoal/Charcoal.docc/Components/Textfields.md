@@ -31,10 +31,10 @@ let textField = CharcoalTextField()
 
 ## Topics
 
-### Creating SwiftUI buttons
+### Creating SwiftUI TextFields
 
 - ``SwiftUI/View/charcoalTextField(label:countLabel:assistiveText:hasError:)``
 
-### Creating UIKit buttons
+### Creating UIKit TextFields
 
 - ``CharcoalTextField``
