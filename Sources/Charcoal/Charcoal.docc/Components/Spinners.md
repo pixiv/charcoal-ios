@@ -1,6 +1,6 @@
 # Charocal Spinners
 
-Charcoal spinners are designed to display a loading state.
+Charcoal Spinners are designed to display a loading state.
 
 @Metadata {
     @DocumentationExtension(mergeBehavior: append)

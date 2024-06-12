@@ -1,6 +1,6 @@
 # Charocal Buttons
 
-Charcoal buttons are designed to be used in a variety of contexts and are highly customizable.
+Charcoal Buttons are designed to be used in a variety of contexts and are highly customizable.
 
 @Metadata {
     @DocumentationExtension(mergeBehavior: append)
