@@ -7,7 +7,7 @@ Charcoal Textfields are designed to be used in a variety of contexts and are hig
     @PageImage(
         purpose: card, 
         source: "TextFields", 
-        alt: "")
+        alt: "Charcoal Textfields are designed to be used in a variety of contexts and are highly customizable.")
 }
 
 ## Usage

@@ -30,4 +30,5 @@ dependencies: [
     - <doc:Toasts>
     - <doc:Balloons>
     - <doc:Textfields>
+    - <doc:Modals>
 }
