@@ -62,7 +62,7 @@ public struct CharcoalBorderRadius: Codable {
     public let the4, the8, the16, the24: Int
     public let none, oval: Int
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case the4 = "4"
         case the8 = "8"
         case the16 = "16"
@@ -131,7 +131,7 @@ public struct CharcoalSpacing: Codable {
     public let the24, the40, the64, the104: Int
     public let the168, the272, the440: Int
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case the0 = "0"
         case the4 = "4"
         case the8 = "8"
@@ -264,7 +264,7 @@ public struct CharcoalSize: Codable {
     public let the12, the14, the16, the20: CharcoalThe12
     public let the32: CharcoalThe12
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case the12 = "12"
         case the14 = "14"
         case the16 = "16"

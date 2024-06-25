@@ -2,10 +2,7 @@ import SwiftUI
 
 typealias CharcoalPopupProtocol = Equatable & Identifiable & View
 
-public enum CharcoalPopupViewEdge {
-    case top
-    case bottom
-
+extension CharcoalPopupViewEdge {
     var alignment: Alignment {
         switch self {
         case .top:

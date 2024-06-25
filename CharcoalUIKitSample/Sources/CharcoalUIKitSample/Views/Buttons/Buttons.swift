@@ -19,6 +19,8 @@ final class ButtonsViewController: UIViewController {
         return view
     }()
 
+    let cellReuseIdentifier = "cell"
+
     private var buttons: [ButtonExample] = [
         // Primary
         ButtonExample(title: "Primary Button M", buttonStyle: CharcoalPrimaryMButton.self, isEnabled: true),
