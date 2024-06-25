@@ -33,7 +33,7 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
     private var textFrameSize: CGSize = .zero
 
     init(text: String, targetPoint: CGPoint, maxWidth: CGFloat = 184) {
-        bubbleShape = CharcoalBubbleShape(targetPoint: targetPoint, arrowHeight: arrowHeight, bubbleRadius: cornerRadius, arrowWidth: arrowWidth, fillColor: CharcoalAsset.ColorPaletteGenerated.brand.color)
+        bubbleShape = CharcoalBubbleShape(targetPoint: targetPoint, arrowHeight: arrowHeight, bubbleRadius: cornerRadius, arrowWidth: arrowWidth, fillColor: CharcoalAsset.ColorPaletteGenerated.brand.color, strokeColor: UIColor.white, lineWidth: 2)
         self.maxWidth = maxWidth
         self.text = text
         super.init(frame: .zero)
@@ -79,6 +79,7 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
 @available(iOS 17.0, *)
 #Preview(traits: .sizeThatFitsLayout) {
     let stackView = UIStackView()
+    stackView.backgroundColor = UIColor.lightGray
     stackView.axis = .vertical
     stackView.distribution = .fill
     stackView.alignment = .center

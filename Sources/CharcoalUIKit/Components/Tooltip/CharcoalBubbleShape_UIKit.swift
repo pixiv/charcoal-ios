@@ -13,13 +13,19 @@ class CharcoalBubbleShape: CAShapeLayer {
     var bubbleRadius: CGFloat
     var arrowWidth: CGFloat
 
-    init(targetPoint: CGPoint, arrowHeight: CGFloat, bubbleRadius: CGFloat, arrowWidth: CGFloat, fillColor: UIColor = CharcoalAsset.ColorPaletteGenerated.surface8.color) {
+    init(targetPoint: CGPoint, arrowHeight: CGFloat, bubbleRadius: CGFloat, arrowWidth: CGFloat, fillColor: UIColor = CharcoalAsset.ColorPaletteGenerated.surface8.color, strokeColor: UIColor? = nil, lineWidth: CGFloat? = nil) {
         self.targetPoint = targetPoint
         self.arrowHeight = arrowHeight
         self.bubbleRadius = bubbleRadius
         self.arrowWidth = arrowWidth
         super.init()
         self.fillColor = fillColor.cgColor
+        if let strokeColor = strokeColor {
+            self.strokeColor = strokeColor.cgColor
+        }
+        if let lineWidth = lineWidth {
+            self.lineWidth = lineWidth
+        }
         updatePath()
     }
 
