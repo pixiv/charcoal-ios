@@ -59,7 +59,7 @@ struct CharcoalTooltip: CharcoalPopupView {
     }
 
     public var body: some View {
-        GeometryReader(content: { canvasGeometry in
+        GeometryReader(content: { proxy in
             VStack {
                 Text(text)
                     .charcoalTypography12Regular()
@@ -67,8 +67,8 @@ struct CharcoalTooltip: CharcoalPopupView {
                     .fixedSize(horizontal: false, vertical: true)
                     .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
                     .padding(EdgeInsets(top: 4, leading: 12, bottom: 4, trailing: 12))
-                    .background(GeometryReader(content: { tooltipGeometry in
-                        let tooltipOrigin = tooltipGeometry.frame(in: .global).origin
+                    .background(GeometryReader(content: { proxy in
+                        let tooltipOrigin = proxy.frame(in: .global).origin
                         TooltipBubbleShape(
                             targetPoint:
                             CGPoint(
@@ -79,11 +79,11 @@ struct CharcoalTooltip: CharcoalPopupView {
                             cornerRadius: cornerRadius
                         )
                         .fill(Color(CharcoalAsset.ColorPaletteGenerated.surface8.color))
-                        .preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
+                        .preference(key: TooltipSizeKey.self, value: proxy.size)
                     }))
                     .offset(CGSize(
-                        width: tooltipX(canvasGeometrySize: canvasGeometry.size),
-                        height: tooltipY(canvasGeometrySize: canvasGeometry.size)
+                        width: tooltipX(canvasGeometrySize: proxy.size),
+                        height: tooltipY(canvasGeometrySize: proxy.size)
                     ))
                     .onPreferenceChange(TooltipSizeKey.self, perform: { value in
                         tooltipSize = value
@@ -158,7 +158,7 @@ private struct TooltipsPreviewView: View {
     @State var textOfLabel = "Hello"
 
     var body: some View {
-        GeometryReader(content: { geometry in
+        GeometryReader(content: { proxy in
             ScrollView {
                 ZStack(alignment: .topLeading) {
                     Color.clear
@@ -197,7 +197,7 @@ private struct TooltipsPreviewView: View {
                     }
                     .charcoalPrimaryButton(size: .medium)
                     .charcoalTooltip(isPresenting: $isPresenting3, text: "here is testing it's multiple line feature")
-                    .offset(CGSize(width: geometry.size.width - 100, height: 100.0))
+                    .offset(CGSize(width: proxy.size.width - 100, height: 100.0))
 
                     Button {
                         isPresenting4.toggle()
@@ -205,7 +205,7 @@ private struct TooltipsPreviewView: View {
                         Image(charocalIcon: .question24)
                     }
                     .charcoalTooltip(isPresenting: $isPresenting4, text: "Hello World This is a tooltip and here is testing it's multiple line feature")
-                    .offset(CGSize(width: geometry.size.width - 30, height: geometry.size.height - 40))
+                    .offset(CGSize(width: proxy.size.width - 30, height: proxy.size.height - 40))
 
                     Button {
                         isPresenting5.toggle()
@@ -214,7 +214,7 @@ private struct TooltipsPreviewView: View {
                     }
                     .charcoalPrimaryButton(size: .medium)
                     .charcoalTooltip(isPresenting: $isPresenting5, text: "Hello World This is a tooltip and here is testing it's multiple line feature")
-                    .offset(CGSize(width: geometry.size.width - 240, height: geometry.size.height - 40))
+                    .offset(CGSize(width: proxy.size.width - 240, height: proxy.size.height - 40))
 
                     Button {
                         isPresenting6.toggle()
@@ -222,7 +222,7 @@ private struct TooltipsPreviewView: View {
                         Image(charocalIcon: .question24)
                     }
                     .charcoalTooltip(isPresenting: $isPresenting6, text: "Hello World This is a tooltip and here is testing it's multiple line feature")
-                    .offset(CGSize(width: geometry.size.width - 380, height: geometry.size.height - 240))
+                    .offset(CGSize(width: proxy.size.width - 380, height: proxy.size.height - 240))
                 }
             }
         })
