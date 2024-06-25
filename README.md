@@ -21,7 +21,7 @@ let label = CharcoalTypography20()
 label.isBold = true
 label.text = "Hello"
 
-let buttton = CharcoalPrimaryMButton()
+let button = CharcoalPrimaryMButton()
 button.setTitle("OK", for: .normal)
 ```
 
