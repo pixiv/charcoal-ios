@@ -3,7 +3,7 @@ import UIKit
 class CharcoalBalloonView: UIView, CharcoalAnchorable {
     lazy var vStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .horizontal
+        stackView.axis = .vertical
         stackView.alignment = .center
         stackView.distribution = .fill
         stackView.spacing = 0
@@ -20,9 +20,16 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
         return label
     }()
     
-    lazy var actionButton: CharcoalDefaultSButton = {
-        let button = CharcoalDefaultSButton()
+    lazy var actionButton: UIButton = {
+        let button = UIButton()
+        let label = CharcoalTypography14()
+        label.isBold = true
+        button.titleLabel?.font = label.font
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.setBackgroundImage(UIColor.black.withAlphaComponent(0.35).image(), for: .normal)
+        button.setBackgroundImage(UIColor.black.withAlphaComponent(0.39).image(), for: .highlighted)
+        button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 16, bottom: 5, right: 16)
+        button.clipsToBounds = true
         return button
     }()
     
@@ -47,6 +54,13 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+    lazy var buttonContainer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
     
     let action: CharcoalAction?
 
@@ -82,6 +96,7 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
         super.init(frame: .zero)
         setupLayer()
         addTextLabel()
+        addActionButton()
     }
 
     func updateTargetPoint(point: CGPoint) {
@@ -136,8 +151,30 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
             closeButton.heightAnchor.constraint(equalToConstant: closeButtonSize)
         ])
     }
-
     
+    func addActionButton() {
+        if let action = action {
+            vStackView.addArrangedSubview(buttonContainer)
+            
+            actionButton.setTitle(action.title, for: .normal)
+            actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
+            buttonContainer.addSubview(actionButton)
+            
+            NSLayoutConstraint.activate([
+                actionButton.leadingAnchor.constraint(equalTo: buttonContainer.leadingAnchor),
+                actionButton.trailingAnchor.constraint(equalTo: buttonContainer.trailingAnchor),
+                actionButton.topAnchor.constraint(equalTo: buttonContainer.topAnchor),
+                actionButton.bottomAnchor.constraint(equalTo: buttonContainer.bottomAnchor, constant: -padding.bottom)
+            ])
+            
+            actionButton.sizeToFit()
+        }
+        
+    }
+
+    @objc func actionButtonTapped() {
+        action?.actionCallback()
+    }
     /// The max width of the text label
     var preferredTextMaxWidth: CGFloat {
         let width = maxWidth - padding.left - padding.right - closeButtonSize - padding.right
@@ -153,6 +190,9 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
     override func layoutSubviews() {
         super.layoutSubviews()
         bubbleShape.frame = bounds
+        
+        actionButton.layer.cornerRadius = actionButton.frame.height / 2.0
+        print("layout \(actionButton.frame.height / 2.0)")
     }
 }
 
@@ -165,7 +205,9 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
     stackView.alignment = .center
     stackView.spacing = 8.0
 
-    let tooltip = CharcoalBalloonView(text: "Hello World", targetPoint: CGPoint(x: 15, y: -5))
+    let tooltip = CharcoalBalloonView(text: "Hello World", targetPoint: CGPoint(x: 15, y: -5), action: CharcoalAction(title: "詳しく", actionCallback: {
+        print("Clicked on the action button")
+    }))
 
     let tooltip2 = CharcoalBalloonView(text: "Hello World This is a tooltip", targetPoint: CGPoint(x: 110, y: 10))
 
