@@ -21,13 +21,13 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
     let arrowHeight: CGFloat = 4
 
     /// The width of the arrow
-    let arrowWidth: CGFloat = 8
+    let arrowWidth: CGFloat = 7
 
     /// The max width of the tooltip
     let maxWidth: CGFloat
 
     /// Padding around the bubble
-    let padding = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
+    let padding = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
 
     /// Text frame size
     private var textFrameSize: CGSize = .zero
