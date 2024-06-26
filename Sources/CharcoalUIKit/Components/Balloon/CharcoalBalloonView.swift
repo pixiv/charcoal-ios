@@ -142,14 +142,28 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
         label.preferredMaxLayoutWidth = preferredTextMaxWidth
         label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         
+        let labelFrame = label.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        
+        // Label's frame might smaller than lineheight
+        // In this case, we need to adjust the offset
+        var offset = 0.0
+        
+        if labelFrame.height < label.lineHeight {
+            offset = (label.lineHeight - labelFrame.height)/2.0
+        }
+
         labelContainer.addSubview(closeButton)
         NSLayoutConstraint.activate([
+            // Make sure the label's height is at least the line height
+            label.heightAnchor.constraint(greaterThanOrEqualToConstant: label.lineHeight),
             closeButton.trailingAnchor.constraint(equalTo: labelContainer.trailingAnchor, constant: -padding.right),
-            closeButton.firstBaselineAnchor.constraint(equalTo: label.firstBaselineAnchor, constant:0),
+            closeButton.firstBaselineAnchor.constraint(equalTo: label.firstBaselineAnchor, constant: offset),
             closeButton.leadingAnchor.constraint(equalTo: label.trailingAnchor, constant: padding.right),
             closeButton.widthAnchor.constraint(equalToConstant: closeButtonSize),
             closeButton.heightAnchor.constraint(equalToConstant: closeButtonSize)
         ])
+        
+        setNeedsLayout()
     }
     
     func addActionButton() {
@@ -186,7 +200,6 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
         bubbleShape.frame = bounds
         
         actionButton.layer.cornerRadius = actionButton.frame.height / 2.0
-        print("layout \(actionButton.frame.height / 2.0)")
     }
 }
 
@@ -208,11 +221,14 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
     let tooltip3 = CharcoalBalloonView(text: "here is testing it's multiple line feature", targetPoint: CGPoint(x: 50, y: 55))
 
     let tooltip4 = CharcoalBalloonView(text: "こんにちは This is a tooltip and here is testing it's multiple line feature", targetPoint: CGPoint(x: -10, y: 25))
+    
+    let tooltip5 = CharcoalBalloonView(text: "こんにちは", targetPoint: CGPoint(x: -10, y: 25))
 
     stackView.addArrangedSubview(tooltip)
     stackView.addArrangedSubview(tooltip2)
     stackView.addArrangedSubview(tooltip3)
     stackView.addArrangedSubview(tooltip4)
+    stackView.addArrangedSubview(tooltip5)
 
     return stackView
 }
