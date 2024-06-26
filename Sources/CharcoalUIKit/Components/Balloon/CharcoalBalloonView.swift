@@ -144,7 +144,7 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
         
         let labelFrame = label.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         
-        // Label's frame might smaller than lineheight
+        // Label's frame might smaller than line height
         // In this case, we need to adjust the offset
         var offset = 0.0
         
