@@ -101,7 +101,9 @@ public extension CharcoalBalloon {
         let tooltipRect = CGRect(x: 0, y: 0, width: tooltipSize.width, height: tooltipSize.height)
         
         // Get the ideal layout plan
-        let layoutPlan = priorities.first(where: { $0.spaceArea.width >= tooltipSize.width && $0.spaceArea.height >= tooltipSize.height }) ?? priorities.sorted(by: { $0.rect.intersectionArea(tooltipRect) > $1.rect.intersectionArea(tooltipRect)}).first!
+        let layoutPlan = priorities.filter({ $0.spaceArea.width >= tooltipSize.width && $0.spaceArea.height >= tooltipSize.height }).sorted(by: { $0.priority.order < $1.priority.order }).first ?? priorities.sorted(by: { $0.rect.intersectionArea(tooltipRect) > $1.rect.intersectionArea(tooltipRect)}).first!
+        
+        print("layoutPlan.priority \(layoutPlan.priority) \(tooltipSize)")
         
         switch layoutPlan.priority {
         case .bottom:
@@ -166,10 +168,8 @@ public extension CharcoalBalloon {
     ])
 
     DispatchQueue.main.async {
-        CharcoalBalloon.show(text: "Hello World", anchorView: button)
-
         CharcoalBalloon.show(text: "Hello World This is a tooltip", anchorView: button2)
-
+        CharcoalBalloon.show(text: "Hello World", anchorView: button)
         CharcoalBalloon.show(text: "こんにちは This is a tooltip and here is testing it's multiple line feature", anchorView: button3)
     }
 

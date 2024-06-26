@@ -5,6 +5,19 @@ public enum CharcoalTooltipLayoutPriority: Codable {
     case top
     case right
     case left
+    
+    public var order: Int {
+        switch self {
+        case .bottom:
+            return 0
+        case .top:
+            return 1
+        case .right:
+            return 2
+        case .left:
+            return 3
+        }
+    }
 }
 
 public struct LayoutPriority {
