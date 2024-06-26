@@ -1,27 +1,5 @@
 import SwiftUI
 
-enum CharcoalTooltipLayoutPriority: Codable {
-    case bottom
-    case top
-    case right
-    case left
-}
-
-struct LayoutPriority {
-    var priority: CharcoalTooltipLayoutPriority
-    var spaceArea: CGSize
-    
-    var rect: CGRect {
-        return CGRect(x: 0, y: 0, width: spaceArea.width, height: spaceArea.height)
-    }
-}
-
-extension CGSize {
-    var area: CGFloat {
-        return width * height
-    }
-}
-
 struct CharcoalBalloon<ActionContent:View>: CharcoalPopupProtocol, CharcoalToastActionable {
     
     typealias IDValue = UUID
