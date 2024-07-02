@@ -26,6 +26,9 @@ class CharcoalAnchorPointView: UIView {
     
     deinit {
         print("deinit point view")
+    }
+    
+    func invalidate() {
         displayLink?.invalidate()
         displayLink = nil
     }
@@ -69,28 +72,18 @@ public extension CharcoalBalloon {
         let mainView = ChacoalOverlayManager.shared.mainView!
         let spacingToScreen: CGFloat = 16
         let gap: CGFloat = 4
-        let anchorPoint = anchorView.superview!.convert(anchorView.frame.origin, to: containerView)
-        let targetPoint = anchorView.superview!.convert(anchorView.center, to: tooltip)
-        let newAnchorRect = CGRect(x: anchorPoint.x, y: anchorPoint.y, width: anchorView.frame.width, height: anchorView.frame.height)
 
-        let layoutPosition = positionOfOverlay(targetFrame: newAnchorRect, tooltipSize: viewSize, canvasGeometrySize: mainView.frame.size, spacingToScreen: spacingToScreen, arrowHeight: tooltip.arrowHeight, spacingToTarget: gap)
+        let viewLeadingConstraint = tooltip.leadingAnchor.constraint(equalTo: containerView.leadingAnchor)
         
-        let viewLeadingConstant = layoutPosition.width
-
-        let viewTopConstant = layoutPosition.height
-
-        let newTargetPoint = CGPoint(x: targetPoint.x - viewLeadingConstant, y: targetPoint.y - viewTopConstant)
-        tooltip.updateTargetPoint(point: newTargetPoint)
-        
-        let viewLeadingConstraint = tooltip.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: viewLeadingConstant)
-        
-        let topLeadingConstraint = tooltip.topAnchor.constraint(equalTo: containerView.topAnchor, constant: viewTopConstant)
+        let topLeadingConstraint = tooltip.topAnchor.constraint(equalTo: containerView.topAnchor)
 
         let constraints: [NSLayoutConstraint] = [
             viewLeadingConstraint,
             topLeadingConstraint
         ]
         NSLayoutConstraint.activate(constraints)
+        
+        updateConstraint(anchorView: anchorView, anchorViewSuperView: anchorView.superview!, containerView: containerView, tooltip: tooltip, mainView: mainView, gap: gap, spacingToScreen: spacingToScreen, tooltipViewSize: viewSize, viewLeadingConstraint: viewLeadingConstraint, topLeadingConstraint: topLeadingConstraint)
 
         containerView.showAction = { [weak containerView] actionCallback in
             UIView.animate(withDuration: 0.25, animations: {
@@ -103,6 +96,7 @@ public extension CharcoalBalloon {
         containerView.dismissAction = {[weak containerView, weak anchorPointView] actionCallback in
             UIView.animate(withDuration: 0.25, animations: {
                 containerView?.alpha = 0
+                anchorPointView?.invalidate()
                 anchorPointView?.removeFromSuperview()
             }) { completion in
                 actionCallback?(completion)
@@ -117,26 +111,34 @@ public extension CharcoalBalloon {
 
         ChacoalOverlayManager.shared.display(view: containerView)
         
-//        anchorPointView.locationDidUpdated = { [weak viewLeadingConstraint, weak topLeadingConstraint, weak tooltip, weak mainView] anchorView in
-//            if let anchorView, let anchorViewSuperView = anchorView.superview, let tooltip, let viewLeadingConstraint, let topLeadingConstraint, let mainView {
-//                let anchorPoint = anchorViewSuperView.convert(anchorView.frame.origin, to: containerView)
-//                let targetPoint = anchorViewSuperView.convert(anchorView.center, to: tooltip)
-//                let newAnchorRect = CGRect(x: anchorPoint.x, y: anchorPoint.y, width: anchorView.frame.width, height: anchorView.frame.height)
-//                
-//                let layoutPosition = positionOfOverlay(targetFrame: newAnchorRect, tooltipSize: viewSize, canvasGeometrySize: mainView.frame.size, spacingToScreen: spacingToScreen, arrowHeight: tooltip.arrowHeight, spacingToTarget: gap)
-//                
-//                viewLeadingConstraint.constant = layoutPosition.width
-//
-//                topLeadingConstraint.constant = layoutPosition.height
-//
-//                let newTargetPoint = CGPoint(x: targetPoint.x - viewLeadingConstant, y: targetPoint.y - viewTopConstant)
-//                
-//                tooltip.updateTargetPoint(point: newTargetPoint)
-//                
-//            }
-//        }
+        anchorPointView.locationDidUpdated = { [weak viewLeadingConstraint, weak topLeadingConstraint, weak tooltip, weak mainView] anchorView in
+            if let anchorView, let anchorViewSuperView = anchorView.superview, let tooltip, let viewLeadingConstraint, let topLeadingConstraint, let mainView {
+                
+                updateConstraint(anchorView: anchorView, anchorViewSuperView: anchorViewSuperView, containerView: containerView, tooltip: tooltip, mainView: mainView, gap: gap, spacingToScreen: spacingToScreen, tooltipViewSize: viewSize, viewLeadingConstraint: viewLeadingConstraint, topLeadingConstraint: topLeadingConstraint)
+            }
+        }
 
         return containerView.id
+    }
+    
+    private static func updateConstraint(anchorView: UIView, anchorViewSuperView: UIView, containerView: UIView, tooltip: CharcoalBalloonView, mainView: UIView, gap: CGFloat, spacingToScreen: CGFloat, tooltipViewSize: CGSize, viewLeadingConstraint: NSLayoutConstraint, topLeadingConstraint: NSLayoutConstraint) {
+        let anchorPoint = anchorViewSuperView.convert(anchorView.frame.origin, to: containerView)
+        let targetPoint = anchorViewSuperView.convert(anchorView.center, to: tooltip)
+        let newAnchorRect = CGRect(x: anchorPoint.x, y: anchorPoint.y, width: anchorView.frame.width, height: anchorView.frame.height)
+        
+        let layoutPosition = positionOfOverlay(targetFrame: newAnchorRect, tooltipSize: tooltipViewSize, canvasGeometrySize: mainView.frame.size, spacingToScreen: spacingToScreen, arrowHeight: tooltip.arrowHeight, spacingToTarget: gap)
+        
+        let viewLeadingConstant = layoutPosition.width
+
+        let viewTopConstant = layoutPosition.height
+        
+        viewLeadingConstraint.constant = viewLeadingConstant
+
+        topLeadingConstraint.constant = viewTopConstant
+
+        let newTargetPoint = CGPoint(x: targetPoint.x - viewLeadingConstant, y: targetPoint.y - viewTopConstant)
+        
+        tooltip.updateTargetPoint(point: newTargetPoint)
     }
 
     /// Dismisses the tooltip with the given identifier.
