@@ -20,8 +20,10 @@ public struct BalloonsView: View {
                     } label: {
                         Image(charocalIcon: .question24)
                     }
-                    .charcoalBalloon(isPresenting: $isPresented,
-                                     text: "作品中の特定単語について")
+                    .charcoalBalloon(
+                        isPresenting: $isPresented,
+                        text: "作品中の特定単語について"
+                    )
                 }
 
                 HStack {
@@ -32,9 +34,7 @@ public struct BalloonsView: View {
                         Image(charocalIcon: .question24)
                     }
                     .charcoalBalloon(isPresenting: $isPresented2, text: "作品中の特定単語について、単語変換をして読めるようになりました") {
-                        Button(action: {
-                            
-                        }, label: {
+                        Button(action: {}, label: {
                             Text("詳しく")
                         })
                     }
@@ -48,8 +48,10 @@ public struct BalloonsView: View {
                     } label: {
                         Image(charocalIcon: .question24)
                     }
-                    .charcoalBalloon(isPresenting: $isPresented3,
-                                     text: "作品中の特定単語について")
+                    .charcoalBalloon(
+                        isPresenting: $isPresented3,
+                        text: "作品中の特定単語について"
+                    )
                 }
             }
             Spacer()
@@ -60,8 +62,10 @@ public struct BalloonsView: View {
                 } label: {
                     Image(charocalIcon: .question24)
                 }
-                .charcoalBalloon(isPresenting: $isPresented4,
-                                 text: "作品中の特定単語について、単語変換をして読めるようになりました")
+                .charcoalBalloon(
+                    isPresenting: $isPresented4,
+                    text: "作品中の特定単語について、単語変換をして読めるようになりました"
+                )
             }
         }
         .navigationBarTitle("Tooltips")
@@ -71,4 +75,3 @@ public struct BalloonsView: View {
 #Preview {
     BalloonsView().charcoalOverlayContainer()
 }
-

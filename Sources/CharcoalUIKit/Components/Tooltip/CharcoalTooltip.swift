@@ -27,7 +27,7 @@ public extension CharcoalTooltip {
         let spacingToScreen: CGFloat = 16
         let gap: CGFloat = 4
         let viewSize = tooltip.intrinsicContentSize
-        
+
         let anchorPoint = anchorView.superview!.convert(anchorView.frame.origin, to: containerView)
         let targetPoint = anchorView.superview!.convert(anchorView.center, to: tooltip)
         let newAnchorRect = CGRect(x: anchorPoint.x, y: anchorPoint.y, width: anchorView.frame.width, height: anchorView.frame.height)

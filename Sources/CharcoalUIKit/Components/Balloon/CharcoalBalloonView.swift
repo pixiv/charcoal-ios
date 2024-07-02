@@ -10,7 +10,7 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-    
+
     lazy var label: CharcoalTypography14 = {
         let label = CharcoalTypography14()
         label.numberOfLines = 0
@@ -19,7 +19,7 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
         label.textColor = CharcoalAsset.ColorPaletteGenerated.text5.color
         return label
     }()
-    
+
     lazy var actionButton: UIButton = {
         let button = UIButton()
         let label = CharcoalTypography14()
@@ -32,7 +32,7 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
         button.clipsToBounds = true
         return button
     }()
-    
+
     lazy var closeButton: UIButton = {
         let button = UIButton()
         let closeImage = CharcoalAsset.Images.remove16.image.withRenderingMode(.alwaysTemplate)
@@ -48,20 +48,19 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
         button.clipsToBounds = true
         return button
     }()
-    
+
     lazy var labelContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+
     lazy var buttonContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
-    
     let action: CharcoalAction?
 
     let text: String
@@ -82,12 +81,12 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
 
     /// Padding around the bubble
     let padding = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
-    
+
     let closeButtonSize = 20.0
 
     /// Text frame size
     private var textFrameSize: CGSize = .zero
-    
+
     /// Close Action
     var closeAction: (() -> Void)?
 
@@ -118,7 +117,7 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
         // Setup Label
         addSubview(label)
         label.text = text
-        
+
         addSubview(vStackView)
         NSLayoutConstraint.activate([
             vStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -127,9 +126,8 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
             vStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             vStackView.widthAnchor.constraint(lessThanOrEqualToConstant: maxWidth)
         ])
-
     }
-    
+
     private func addTextLabel() {
         vStackView.addArrangedSubview(labelContainer)
 
@@ -144,15 +142,15 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
         label.text = text
         label.preferredMaxLayoutWidth = preferredTextMaxWidth
         label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-        
+
         let labelFrame = label.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-        
+
         // Label's frame might smaller than line height
         // In this case, we need to adjust the offset
         var offset = 0.0
-        
+
         if labelFrame.height < label.lineHeight {
-            offset = (label.lineHeight - labelFrame.height)/2.0
+            offset = (label.lineHeight - labelFrame.height) / 2.0
         }
 
         labelContainer.addSubview(closeButton)
@@ -165,39 +163,39 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
             closeButton.widthAnchor.constraint(equalToConstant: closeButtonSize),
             closeButton.heightAnchor.constraint(equalToConstant: closeButtonSize)
         ])
-        
+
         closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
-        
+
         setNeedsLayout()
     }
-    
+
     @objc func closeButtonTapped() {
         closeAction?()
     }
-    
+
     func addActionButton() {
         if let action = action {
             vStackView.addArrangedSubview(buttonContainer)
-            
+
             actionButton.setTitle(action.title, for: .normal)
             actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
             buttonContainer.addSubview(actionButton)
-            
+
             NSLayoutConstraint.activate([
                 actionButton.leadingAnchor.constraint(equalTo: buttonContainer.leadingAnchor),
                 actionButton.trailingAnchor.constraint(equalTo: buttonContainer.trailingAnchor),
                 actionButton.topAnchor.constraint(equalTo: buttonContainer.topAnchor),
                 actionButton.bottomAnchor.constraint(equalTo: buttonContainer.bottomAnchor, constant: -padding.bottom)
             ])
-            
+
             actionButton.sizeToFit()
         }
-        
     }
 
     @objc func actionButtonTapped() {
         action?.actionCallback()
     }
+
     /// The max width of the text label
     var preferredTextMaxWidth: CGFloat {
         let width = maxWidth - padding.left - padding.right - closeButtonSize - padding.right
@@ -206,12 +204,12 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+
         bubbleShape.frame = bounds
-        
+
         actionButton.layer.cornerRadius = actionButton.frame.height / 2.0
     }
-    
+
     deinit {
         print("deinit balloon view")
     }
@@ -235,7 +233,7 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
     let tooltip3 = CharcoalBalloonView(text: "here is testing it's multiple line feature", targetPoint: CGPoint(x: 50, y: 55))
 
     let tooltip4 = CharcoalBalloonView(text: "こんにちは This is a tooltip and here is testing it's multiple line feature", targetPoint: CGPoint(x: -10, y: 25))
-    
+
     let tooltip5 = CharcoalBalloonView(text: "こんにちは", targetPoint: CGPoint(x: -10, y: 25))
 
     stackView.addArrangedSubview(tooltip)
