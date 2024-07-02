@@ -87,6 +87,9 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
 
     /// Text frame size
     private var textFrameSize: CGSize = .zero
+    
+    /// Close Action
+    var closeAction: (() -> Void)?
 
     init(text: String, targetPoint: CGPoint, maxWidth: CGFloat = 240, action: CharcoalAction? = nil) {
         bubbleShape = CharcoalBubbleShape(targetPoint: targetPoint, arrowHeight: arrowHeight, bubbleRadius: cornerRadius, arrowWidth: arrowWidth, fillColor: CharcoalAsset.ColorPaletteGenerated.brand.color, strokeColor: UIColor.white, lineWidth: 2)
@@ -163,7 +166,13 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
             closeButton.heightAnchor.constraint(equalToConstant: closeButtonSize)
         ])
         
+        closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        
         setNeedsLayout()
+    }
+    
+    @objc func closeButtonTapped() {
+        closeAction?()
     }
     
     func addActionButton() {
@@ -197,9 +206,14 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
 
     override func layoutSubviews() {
         super.layoutSubviews()
+        
         bubbleShape.frame = bounds
         
         actionButton.layer.cornerRadius = actionButton.frame.height / 2.0
+    }
+    
+    deinit {
+        print("deinit balloon view")
     }
 }
 

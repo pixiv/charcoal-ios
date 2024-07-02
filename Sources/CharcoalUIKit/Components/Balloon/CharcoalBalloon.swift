@@ -1,5 +1,40 @@
 import UIKit
 
+class CharcoalAnchorPointView: UIView {
+    private var displayLink: CADisplayLink?
+    private var lastFrame: CGRect?
+    
+    var locationDidUpdated: ((UIView?) -> Void)?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        addObserver(self, forKeyPath: "frame", options: [.new, .old], context: nil)
+        
+        displayLink = CADisplayLink(target: self, selector: #selector(checkPosition))
+        displayLink?.add(to: .main, forMode: .common)
+    }
+    
+    @objc func checkPosition() {
+        let globalFrame = convert(bounds, to: nil)
+        
+        if lastFrame != globalFrame {
+            lastFrame = globalFrame
+            locationDidUpdated?(superview)
+        }
+    }
+    
+    deinit {
+        print("deinit point view")
+        displayLink?.invalidate()
+        displayLink = nil
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
 public class CharcoalBalloon {}
 
 public extension CharcoalBalloon {
@@ -21,11 +56,16 @@ public extension CharcoalBalloon {
         let tooltip = CharcoalBalloonView(text: text, targetPoint: .zero)
 
         tooltip.translatesAutoresizingMaskIntoConstraints = false
+        
+        let anchorPointView = CharcoalAnchorPointView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+        anchorPointView.translatesAutoresizingMaskIntoConstraints = false
+        
+        anchorView.addSubview(anchorPointView)
 
         let viewSize = tooltip.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         
         let containerView = ChacoalOverlayManager.shared.layout(view: tooltip, interactionMode: .passThrough, on: on)
-     
+        containerView.delegate = ChacoalOverlayManager.shared
         let mainView = ChacoalOverlayManager.shared.mainView!
         let spacingToScreen: CGFloat = 16
         let gap: CGFloat = 4
@@ -41,30 +81,60 @@ public extension CharcoalBalloon {
 
         let newTargetPoint = CGPoint(x: targetPoint.x - viewLeadingConstant, y: targetPoint.y - viewTopConstant)
         tooltip.updateTargetPoint(point: newTargetPoint)
+        
+        let viewLeadingConstraint = tooltip.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: viewLeadingConstant)
+        
+        let topLeadingConstraint = tooltip.topAnchor.constraint(equalTo: containerView.topAnchor, constant: viewTopConstant)
 
         let constraints: [NSLayoutConstraint] = [
-            tooltip.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: viewLeadingConstant),
-            tooltip.topAnchor.constraint(equalTo: containerView.topAnchor, constant: viewTopConstant)
+            viewLeadingConstraint,
+            topLeadingConstraint
         ]
         NSLayoutConstraint.activate(constraints)
 
-        containerView.showAction = { actionCallback in
+        containerView.showAction = { [weak containerView] actionCallback in
             UIView.animate(withDuration: 0.25, animations: {
-                containerView.alpha = 1
+                containerView?.alpha = 1
             }) { completion in
                 actionCallback?(completion)
             }
         }
 
-        containerView.dismissAction = { actionCallback in
+        containerView.dismissAction = {[weak containerView, weak anchorPointView] actionCallback in
             UIView.animate(withDuration: 0.25, animations: {
-                containerView.alpha = 0
+                containerView?.alpha = 0
+                anchorPointView?.removeFromSuperview()
             }) { completion in
                 actionCallback?(completion)
+            }
+        }
+        
+        tooltip.closeAction = { [weak containerView] in
+            if let containerView {
+                containerView.dismiss()
             }
         }
 
         ChacoalOverlayManager.shared.display(view: containerView)
+        
+//        anchorPointView.locationDidUpdated = { [weak viewLeadingConstraint, weak topLeadingConstraint, weak tooltip, weak mainView] anchorView in
+//            if let anchorView, let anchorViewSuperView = anchorView.superview, let tooltip, let viewLeadingConstraint, let topLeadingConstraint, let mainView {
+//                let anchorPoint = anchorViewSuperView.convert(anchorView.frame.origin, to: containerView)
+//                let targetPoint = anchorViewSuperView.convert(anchorView.center, to: tooltip)
+//                let newAnchorRect = CGRect(x: anchorPoint.x, y: anchorPoint.y, width: anchorView.frame.width, height: anchorView.frame.height)
+//                
+//                let layoutPosition = positionOfOverlay(targetFrame: newAnchorRect, tooltipSize: viewSize, canvasGeometrySize: mainView.frame.size, spacingToScreen: spacingToScreen, arrowHeight: tooltip.arrowHeight, spacingToTarget: gap)
+//                
+//                viewLeadingConstraint.constant = layoutPosition.width
+//
+//                topLeadingConstraint.constant = layoutPosition.height
+//
+//                let newTargetPoint = CGPoint(x: targetPoint.x - viewLeadingConstant, y: targetPoint.y - viewTopConstant)
+//                
+//                tooltip.updateTargetPoint(point: newTargetPoint)
+//                
+//            }
+//        }
 
         return containerView.id
     }
@@ -103,7 +173,7 @@ public extension CharcoalBalloon {
         // Get the ideal layout plan
         let layoutPlan = priorities.filter({ $0.spaceArea.width >= tooltipSize.width && $0.spaceArea.height >= tooltipSize.height }).sorted(by: { $0.priority.order < $1.priority.order }).first ?? priorities.sorted(by: { $0.rect.intersectionArea(tooltipRect) > $1.rect.intersectionArea(tooltipRect)}).first!
         
-        print("layoutPlan.priority \(layoutPlan.priority) \(tooltipSize)")
+//        print("layoutPlan.priority \(layoutPlan.priority) \(tooltipSize)")
         
         switch layoutPlan.priority {
         case .bottom:
