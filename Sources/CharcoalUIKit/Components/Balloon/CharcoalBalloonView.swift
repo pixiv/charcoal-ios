@@ -209,10 +209,6 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
 
         actionButton.layer.cornerRadius = actionButton.frame.height / 2.0
     }
-
-    deinit {
-        print("deinit balloon view")
-    }
 }
 
 @available(iOS 17.0, *)

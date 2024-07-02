@@ -1,44 +1,5 @@
 import UIKit
 
-class CharcoalAnchorTrackingView: UIView {
-    private var displayLink: CADisplayLink?
-    private var lastFrame: CGRect?
-
-    var locationDidUpdated: ((UIView?) -> Void)?
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-
-        addObserver(self, forKeyPath: "frame", options: [.new, .old], context: nil)
-
-        displayLink = CADisplayLink(target: self, selector: #selector(checkPosition))
-        displayLink?.add(to: .main, forMode: .common)
-    }
-
-    @objc func checkPosition() {
-        let globalFrame = convert(bounds, to: nil)
-
-        if lastFrame != globalFrame {
-            lastFrame = globalFrame
-            locationDidUpdated?(superview)
-        }
-    }
-
-    deinit {
-        print("deinit point view")
-    }
-
-    func invalidate() {
-        displayLink?.invalidate()
-        displayLink = nil
-    }
-
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
 public class CharcoalBalloon {}
 
 public extension CharcoalBalloon {
@@ -56,19 +17,14 @@ public extension CharcoalBalloon {
      ```
      */
     @discardableResult
-    static func show(text: String, anchorView: UIView, on: UIView? = nil) -> CharcoalIdentifiableOverlayView.IDValue {
+    static func show(text: String, anchorView: UIView, interactionMode: CharcoalOverlayInteractionMode = .passThrough, on: UIView? = nil) -> CharcoalIdentifiableOverlayView.IDValue {
         let tooltip = CharcoalBalloonView(text: text, targetPoint: .zero)
 
         tooltip.translatesAutoresizingMaskIntoConstraints = false
 
-        let anchorPointView = CharcoalAnchorTrackingView(frame: .zero)
-        anchorPointView.translatesAutoresizingMaskIntoConstraints = false
-
-        anchorView.addSubview(anchorPointView)
-
         let viewSize = tooltip.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
 
-        let containerView = ChacoalOverlayManager.shared.layout(view: tooltip, interactionMode: .passThrough, on: on)
+        let containerView = ChacoalOverlayManager.shared.layout(view: tooltip, interactionMode: interactionMode, on: on)
         containerView.delegate = ChacoalOverlayManager.shared
         let mainView = ChacoalOverlayManager.shared.mainView!
         let spacingToScreen: CGFloat = 16
@@ -94,6 +50,25 @@ public extension CharcoalBalloon {
             }
         }
 
+        // If the interaction mode is passThrough, we need to add a tracking view to update the tooltip position
+        var anchorPointView: CharcoalAnchorTrackingView?
+
+        if interactionMode == .passThrough {
+            anchorPointView = CharcoalAnchorTrackingView(frame: .zero)
+
+            if let anchorPointView {
+                anchorPointView.translatesAutoresizingMaskIntoConstraints = false
+
+                anchorView.addSubview(anchorPointView)
+
+                anchorPointView.locationDidUpdated = { [weak viewLeadingConstraint, weak topLeadingConstraint, weak tooltip, weak mainView] anchorView in
+                    if let anchorView, let anchorViewSuperView = anchorView.superview, let tooltip, let viewLeadingConstraint, let topLeadingConstraint, let mainView {
+                        updateConstraint(anchorView: anchorView, anchorViewSuperView: anchorViewSuperView, containerView: containerView, tooltip: tooltip, mainView: mainView, gap: gap, spacingToScreen: spacingToScreen, tooltipViewSize: viewSize, viewLeadingConstraint: viewLeadingConstraint, topLeadingConstraint: topLeadingConstraint)
+                    }
+                }
+            }
+        }
+
         containerView.dismissAction = { [weak containerView, weak anchorPointView] actionCallback in
             UIView.animate(withDuration: 0.25, animations: {
                 containerView?.alpha = 0
@@ -111,12 +86,6 @@ public extension CharcoalBalloon {
         }
 
         ChacoalOverlayManager.shared.display(view: containerView)
-
-        anchorPointView.locationDidUpdated = { [weak viewLeadingConstraint, weak topLeadingConstraint, weak tooltip, weak mainView] anchorView in
-            if let anchorView, let anchorViewSuperView = anchorView.superview, let tooltip, let viewLeadingConstraint, let topLeadingConstraint, let mainView {
-                updateConstraint(anchorView: anchorView, anchorViewSuperView: anchorViewSuperView, containerView: containerView, tooltip: tooltip, mainView: mainView, gap: gap, spacingToScreen: spacingToScreen, tooltipViewSize: viewSize, viewLeadingConstraint: viewLeadingConstraint, topLeadingConstraint: topLeadingConstraint)
-            }
-        }
 
         return containerView.id
     }
