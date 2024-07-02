@@ -1,6 +1,6 @@
 import UIKit
 
-class CharcoalAnchorPointView: UIView {
+class CharcoalAnchorTrackingView: UIView {
     private var displayLink: CADisplayLink?
     private var lastFrame: CGRect?
     
@@ -60,7 +60,7 @@ public extension CharcoalBalloon {
 
         tooltip.translatesAutoresizingMaskIntoConstraints = false
         
-        let anchorPointView = CharcoalAnchorPointView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+        let anchorPointView = CharcoalAnchorTrackingView(frame: .zero)
         anchorPointView.translatesAutoresizingMaskIntoConstraints = false
         
         anchorView.addSubview(anchorPointView)
