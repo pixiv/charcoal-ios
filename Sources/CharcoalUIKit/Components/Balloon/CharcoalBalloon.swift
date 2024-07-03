@@ -9,6 +9,9 @@ public extension CharcoalBalloon {
      - Parameters:
         - text: The text to be displayed in the tooltip.
         - anchorView: The view to which the tooltip will be anchored.
+        - interactionMode: The interaction mode of the tooltip. The default value is `.passThrough`.
+        - spacingToScreen: The spacing between the tooltip and the screen. The default value is `16`.
+        - gap: The spacing between the tooltip and the anchor view. The default value is `4`.
         - on: The view on which the tooltip will be displayed. If not provided, the tooltip will be displayed on the window.
 
      # Example #
@@ -17,19 +20,25 @@ public extension CharcoalBalloon {
      ```
      */
     @discardableResult
-    static func show(text: String, anchorView: UIView, interactionMode: CharcoalOverlayInteractionMode = .passThrough, on: UIView? = nil) -> CharcoalIdentifiableOverlayView.IDValue {
+    static func show(
+        text: String,
+        anchorView: UIView,
+        interactionMode: CharcoalOverlayInteractionMode = .passThrough,
+        spacingToScreen: CGFloat = 16,
+        gap: CGFloat = 4,
+        on: UIView? = nil
+    ) -> CharcoalIdentifiableOverlayView.IDValue {
         let tooltip = CharcoalBalloonView(text: text, targetPoint: .zero)
 
         tooltip.translatesAutoresizingMaskIntoConstraints = false
 
-        let viewSize = tooltip.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        let tooltipViewSize = tooltip.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
 
         let containerView = ChacoalOverlayManager.shared.layout(view: tooltip, interactionMode: interactionMode, on: on)
         containerView.delegate = ChacoalOverlayManager.shared
         let mainView = ChacoalOverlayManager.shared.mainView!
-        let spacingToScreen: CGFloat = 16
-        let gap: CGFloat = 4
 
+        // viewLeadingConstraint and topLeadingConstraint are used to update the tooltip position
         let viewLeadingConstraint = tooltip.leadingAnchor.constraint(equalTo: containerView.leadingAnchor)
 
         let topLeadingConstraint = tooltip.topAnchor.constraint(equalTo: containerView.topAnchor)
@@ -40,7 +49,7 @@ public extension CharcoalBalloon {
         ]
         NSLayoutConstraint.activate(constraints)
 
-        updateConstraint(anchorView: anchorView, anchorViewSuperView: anchorView.superview!, containerView: containerView, tooltip: tooltip, mainView: mainView, gap: gap, spacingToScreen: spacingToScreen, tooltipViewSize: viewSize, viewLeadingConstraint: viewLeadingConstraint, topLeadingConstraint: topLeadingConstraint)
+        updateConstraint(anchorView: anchorView, containerView: containerView, tooltip: tooltip, mainView: mainView, gap: gap, spacingToScreen: spacingToScreen, tooltipViewSize: tooltipViewSize, viewLeadingConstraint: viewLeadingConstraint, topLeadingConstraint: topLeadingConstraint)
 
         containerView.showAction = { [weak containerView] actionCallback in
             UIView.animate(withDuration: 0.25, animations: {
@@ -61,9 +70,19 @@ public extension CharcoalBalloon {
 
                 anchorView.addSubview(anchorPointView)
 
-                anchorPointView.locationDidUpdated = { [weak viewLeadingConstraint, weak topLeadingConstraint, weak tooltip, weak mainView] anchorView in
-                    if let anchorView, let anchorViewSuperView = anchorView.superview, let tooltip, let viewLeadingConstraint, let topLeadingConstraint, let mainView {
-                        updateConstraint(anchorView: anchorView, anchorViewSuperView: anchorViewSuperView, containerView: containerView, tooltip: tooltip, mainView: mainView, gap: gap, spacingToScreen: spacingToScreen, tooltipViewSize: viewSize, viewLeadingConstraint: viewLeadingConstraint, topLeadingConstraint: topLeadingConstraint)
+                anchorPointView.locationDidUpdated = { [
+                    weak viewLeadingConstraint,
+                    weak topLeadingConstraint,
+                    weak tooltip,
+                    weak mainView
+                ] anchorView in
+                    if let anchorView,
+                       let tooltip,
+                       let viewLeadingConstraint,
+                       let topLeadingConstraint,
+                       let mainView
+                    {
+                        updateConstraint(anchorView: anchorView, containerView: containerView, tooltip: tooltip, mainView: mainView, gap: gap, spacingToScreen: spacingToScreen, tooltipViewSize: tooltipViewSize, viewLeadingConstraint: viewLeadingConstraint, topLeadingConstraint: topLeadingConstraint)
                     }
                 }
             }
@@ -90,7 +109,10 @@ public extension CharcoalBalloon {
         return containerView.id
     }
 
-    private static func updateConstraint(anchorView: UIView, anchorViewSuperView: UIView, containerView: UIView, tooltip: CharcoalBalloonView, mainView: UIView, gap: CGFloat, spacingToScreen: CGFloat, tooltipViewSize: CGSize, viewLeadingConstraint: NSLayoutConstraint, topLeadingConstraint: NSLayoutConstraint) {
+    private static func updateConstraint(anchorView: UIView, containerView: UIView, tooltip: CharcoalBalloonView, mainView: UIView, gap: CGFloat, spacingToScreen: CGFloat, tooltipViewSize: CGSize, viewLeadingConstraint: NSLayoutConstraint, topLeadingConstraint: NSLayoutConstraint) {
+        guard let anchorViewSuperView = anchorView.superview else {
+            return
+        }
         let anchorPoint = anchorViewSuperView.convert(anchorView.frame.origin, to: containerView)
         let targetPoint = anchorViewSuperView.convert(anchorView.center, to: tooltip)
         let newAnchorRect = CGRect(x: anchorPoint.x, y: anchorPoint.y, width: anchorView.frame.width, height: anchorView.frame.height)
