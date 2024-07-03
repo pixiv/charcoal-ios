@@ -6,15 +6,17 @@ public extension CharcoalBalloon {
     /**
         Show a balloon anchored to a view.
 
-     - Parameters:
-        - text: The text to be displayed in the tooltip.
-        - anchorView: The view to which the tooltip will be anchored.
-        - interactionMode: The interaction mode of the tooltip. The default value is `.passThrough`.
-        - spacingToScreen: The spacing between the tooltip and the screen. The default value is `16`.
-        - gap: The spacing between the tooltip and the anchor view. The default value is `4`.
-        - on: The view on which the tooltip will be displayed. If not provided, the tooltip will be displayed on the window.
-
-     # Example #
+        - Parameters:
+          - text: The text to be displayed in the tooltip.
+          - anchorView: The view to which the tooltip will be anchored.
+          - interactionMode: The interaction mode of the tooltip. The default value is `.passThrough`.
+          - spacingToScreen: The spacing between the tooltip and the screen. The default value is `16`.
+          - gap: The spacing between the tooltip and the anchor view. The default value is `4`.
+          - on: The view on which the tooltip will be displayed. If not provided, the tooltip will be displayed on the window.
+     
+        - Returns: The identifier of the tooltip.
+     
+     # Example
      ```swift
      CharcoalTooltip.show(text: "This is a tooltip", anchorView: someView)
      ```
@@ -91,8 +93,7 @@ public extension CharcoalBalloon {
         containerView.dismissAction = { [weak containerView, weak anchorPointView] actionCallback in
             UIView.animate(withDuration: 0.25, animations: {
                 containerView?.alpha = 0
-                anchorPointView?.invalidate()
-                anchorPointView?.removeFromSuperview()
+                anchorPointView?.tearDown()
             }) { completion in
                 actionCallback?(completion)
             }

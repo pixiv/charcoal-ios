@@ -28,6 +28,11 @@ class CharcoalAnchorTrackingView: UIView {
         displayLink?.invalidate()
         displayLink = nil
     }
+    
+    func tearDown() {
+        invalidate()
+        removeFromSuperview()
+    }
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
