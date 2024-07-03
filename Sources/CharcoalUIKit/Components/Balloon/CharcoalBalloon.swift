@@ -16,10 +16,10 @@ public extension CharcoalBalloon {
      
         - Returns: The identifier of the tooltip.
      
-     # Example
-     ```swift
-     CharcoalTooltip.show(text: "This is a tooltip", anchorView: someView)
-     ```
+        # Example
+        ```swift
+        CharcoalTooltip.show(text: "This is a tooltip", anchorView: someView)
+        ```
      */
     @discardableResult
     static func show(
