@@ -99,9 +99,7 @@ public extension CharcoalBalloon {
         }
 
         tooltip.closeAction = { [weak containerView] in
-            if let containerView {
-                containerView.dismiss()
-            }
+            containerView?.dismiss()
         }
 
         ChacoalOverlayManager.shared.display(view: containerView)
