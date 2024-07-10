@@ -73,7 +73,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
     }
 
     var body: some View {
-        return GeometryReader(content: { proxy in
+        return GeometryReader(content: { geometry in
             ZStack(alignment: style.alignment, content: {
                 Rectangle()
                     .foregroundColor(Color.black.opacity(0.6))
@@ -101,7 +101,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
                         }
                         .padding(EdgeInsets(top: 20, leading: 20, bottom: style == .center ? 20 : indicatorInset, trailing: 20))
                         .onAppear {
-                            indicatorInset = max(proxy.safeAreaInsets.bottom, 30)
+                            indicatorInset = max(geometry.safeAreaInsets.bottom, 30)
                         }
                     }
                 }
