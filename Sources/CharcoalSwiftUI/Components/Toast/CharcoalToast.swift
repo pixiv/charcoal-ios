@@ -186,10 +186,10 @@ struct CharcoalToastModifier<ActionContent: View>: ViewModifier {
 
 public extension View {
     /**
-     Add a tooltip to the view
+     Add a Toast to the view
 
      - Parameters:
-        - isPresenting: A binding to whether the Tooltip  is presented.
+        - isPresenting: A binding to whether the Toast  is presented.
         - dismissAfter: The overlay will be dismissed after a certain time interval.
         - screenEdge: The edge of the screen where the snackbar will be presented
         - screenEdgeSpacing: The spacing between the snackbar and the screen edge

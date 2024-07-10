@@ -164,10 +164,10 @@ struct CharcoalSnackBarModifier<ActionContent: View>: ViewModifier {
 
 public extension View {
     /**
-     Add a tooltip to the view
+     Add a Snackbar to the view
 
      - Parameters:
-     - isPresenting: A binding to whether the Tooltip  is presented.
+     - isPresenting: A binding to whether the Snackbar  is presented.
      - text: The text to be displayed in the snackbar.
      - thumbnailImage: The thumbnail image to be displayed in the snackbar.
      - dismissAfter: The overlay will be dismissed after a certain time interval.
