@@ -176,14 +176,14 @@ struct CharcoalTooltipModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .overlay(GeometryReader(content: { geometry in
+            .overlay(GeometryReader(content: { proxy in
                 Color.clear
                     .modifier(CharcoalOverlayUpdaterContainer(
                         isPresenting: $isPresenting,
                         view: CharcoalTooltip(
                             id: viewID,
                             text: text,
-                            targetFrame: geometry.frame(in: .global),
+                            targetFrame: proxy.frame(in: .global),
                             isPresenting: $isPresenting,
                             dismissAfter: dismissAfter
                         ),
