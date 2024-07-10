@@ -2,7 +2,7 @@ import Combine
 import SwiftUI
 
 struct CharcoalToastAnimatableModifier: ViewModifier, CharcoalToastBase {
-    var text: String
+    var text: String = ""
 
     var maxWidth: CGFloat
 
@@ -82,6 +82,6 @@ extension View {
         dismissAfter: TimeInterval? = nil,
         animationConfiguration: CharcoalToastAnimationConfiguration
     ) -> some View {
-        modifier(CharcoalToastAnimatableModifier(text: "", maxWidth: 0, isPresenting: isPresenting, cornerRadius: cornerRadius, borderColor: borderColor, borderLineWidth: borderLineWidth, screenEdge: screenEdge, screenEdgeSpacing: screenEdgeSpacing, tooltipSize: tooltipSize, isActuallyPresenting: isActuallyPresenting, animationConfiguration: animationConfiguration, dismissAfter: dismissAfter, isDragging: isDragging))
+        modifier(CharcoalToastAnimatableModifier(maxWidth: 0, isPresenting: isPresenting, cornerRadius: cornerRadius, borderColor: borderColor, borderLineWidth: borderLineWidth, screenEdge: screenEdge, screenEdgeSpacing: screenEdgeSpacing, tooltipSize: tooltipSize, isActuallyPresenting: isActuallyPresenting, animationConfiguration: animationConfiguration, dismissAfter: dismissAfter, isDragging: isDragging))
     }
 }
