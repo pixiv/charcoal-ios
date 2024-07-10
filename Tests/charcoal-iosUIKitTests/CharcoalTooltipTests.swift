@@ -14,7 +14,7 @@ final class CharcoalTooltipTests: XCTestCase {
     let spacingToTarget: CGFloat = 2
     // The size of the anchor view
     let anchorViewSize = CGSize(width: 100, height: 100)
-   
+
     func testLayoutTopLeft() throws {
         // Here we put the anchor frame at top left corner
         let anchorFrame = CGRect(x: 0, y: 0, width: anchorViewSize.width, height: anchorViewSize.height)
@@ -25,12 +25,12 @@ final class CharcoalTooltipTests: XCTestCase {
         XCTAssertEqual(x, spacingToScreen)
         XCTAssertEqual(y, anchorFrame.maxY + spacingToTarget + arrowHeight)
     }
-    
+
     func testLayoutCenter() throws {
         // Here we put the anchor frame at the center of the canvas
         let canvasCenter = CGPoint(x: canvasGeometryRect.midX, y: canvasGeometryRect.midY)
         let anchorFrame = CGRect(x: canvasCenter.x - anchorViewSize.width / 2.0, y: canvasCenter.y - anchorViewSize.height / 2.0, width: anchorViewSize.width, height: anchorViewSize.height)
-    
+
         let x = CharcoalTooltip.tooltipX(anchorFrame: anchorFrame, tooltipSize: tooltipSize, canvasGeometrySize: canvasGeometryRect.size, spacingToScreen: spacingToScreen)
         let y = CharcoalTooltip.tooltipY(anchorFrame: anchorFrame, arrowHeight: arrowHeight, tooltipSize: tooltipSize, canvasGeometrySize: canvasGeometryRect.size, spacingToTarget: spacingToTarget)
 
@@ -38,7 +38,7 @@ final class CharcoalTooltipTests: XCTestCase {
         XCTAssertEqual(x, canvasCenter.x - tooltipSize.width / 2.0)
         XCTAssertEqual(y, anchorFrame.maxY + spacingToTarget + arrowHeight)
     }
-    
+
     func testLayoutBottomRight() throws {
         // Here we put the anchor frame at the bottom right corner
         let anchorFrame = CGRect(x: canvasGeometryRect.maxX - anchorViewSize.width, y: canvasGeometryRect.maxY - anchorViewSize.height, width: anchorViewSize.width, height: anchorViewSize.height)

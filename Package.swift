@@ -45,7 +45,8 @@ let package = Package(
             dependencies: ["CharcoalShared"]
         ),
         .testTarget(
-                    name: "charcoal-iosUIKitTests",
-                    dependencies: ["CharcoalUIKit"])
+            name: "charcoal-iosUIKitTests",
+            dependencies: ["CharcoalUIKit"]
+        )
     ]
 )
