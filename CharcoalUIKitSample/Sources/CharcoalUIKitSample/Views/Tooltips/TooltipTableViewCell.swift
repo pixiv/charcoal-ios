@@ -1,5 +1,5 @@
-import UIKit
 import CharcoalShared
+import UIKit
 
 class TooltipTableViewCell: UITableViewCell {
     static let identifier = "TooltipCell"
@@ -48,7 +48,7 @@ class TooltipTableViewCell: UITableViewCell {
             accessoryImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }
-    
+
     func configCell(type: TooltipTitles) {
         titleLabel.text = type.rawValue
         switch type {

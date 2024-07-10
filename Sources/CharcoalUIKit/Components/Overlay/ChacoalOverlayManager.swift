@@ -45,7 +45,7 @@ extension ChacoalOverlayManager {
         guard backgroundView == nil else {
             return
         }
-        
+
         backgroundView = UIView(frame: .zero)
         backgroundView?.isUserInteractionEnabled = false
         guard let backgroundView = backgroundView else {
