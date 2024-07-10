@@ -72,8 +72,10 @@ public extension CharcoalTooltip {
     static func dismiss(id: CharcoalIdentifiableOverlayView.IDValue) {
         ChacoalOverlayManager.shared.dismiss(id: id)
     }
+}
 
-    private static func tooltipX(anchorFrame: CGRect, tooltipSize: CGSize, canvasGeometrySize: CGSize, spacingToScreen: CGFloat) -> CGFloat {
+extension CharcoalTooltip {
+    static func tooltipX(anchorFrame: CGRect, tooltipSize: CGSize, canvasGeometrySize: CGSize, spacingToScreen: CGFloat) -> CGFloat {
         let minX = anchorFrame.midX - (tooltipSize.width / 2.0)
 
         var edgeLeft = minX
@@ -87,7 +89,7 @@ public extension CharcoalTooltip {
         return edgeLeft
     }
 
-    private static func tooltipY(anchorFrame: CGRect, arrowHeight: CGFloat, tooltipSize: CGSize, canvasGeometrySize: CGSize, spacingToTarget: CGFloat) -> CGFloat {
+    static func tooltipY(anchorFrame: CGRect, arrowHeight: CGFloat, tooltipSize: CGSize, canvasGeometrySize: CGSize, spacingToTarget: CGFloat) -> CGFloat {
         let minX = anchorFrame.maxY + spacingToTarget + arrowHeight
         var edgeBottom = anchorFrame.maxY + spacingToTarget + anchorFrame.height
         if edgeBottom + tooltipSize.height >= canvasGeometrySize.height {
