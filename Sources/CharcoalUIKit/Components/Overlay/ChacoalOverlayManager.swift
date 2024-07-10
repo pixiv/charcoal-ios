@@ -3,7 +3,7 @@ import UIKit
 /**
  Displays a overlay on the screen.
  */
-public class ChacoalOverlayManager: UIView {
+class ChacoalOverlayManager: UIView {
     /// The window to display the overlays in.
     var mainView: UIView!
     /// The background view of the overlays.
