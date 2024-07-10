@@ -46,14 +46,9 @@ extension ChacoalOverlayManager {
             return
         }
 
-        backgroundView = UIView(frame: .zero)
-        backgroundView?.isUserInteractionEnabled = false
-        guard let backgroundView = backgroundView else {
-            fatalError("Background view is nil.")
-        }
-
+        let backgroundView = UIView(frame: .zero)
+        backgroundView.isUserInteractionEnabled = false
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
-
         mainView.addSubview(backgroundView)
 
         let constraints: [NSLayoutConstraint] = [
@@ -64,6 +59,8 @@ extension ChacoalOverlayManager {
         ]
 
         NSLayoutConstraint.activate(constraints)
+
+        self.backgroundView = backgroundView
     }
 }
 
