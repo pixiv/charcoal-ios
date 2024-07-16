@@ -1,38 +1,6 @@
 {
   "source": ["json/**/*.json"],
   "platforms": {
-    "ios-swift": {
-      "transformGroup": "ios-swift",
-      "buildPath": "build/ios-swift/",
-      "transforms": ["swift/color", "swift/font"],
-      "prefix": "charcoal",
-      "files": [
-        {
-          "destination": "StyleDictionary+Class.swift",
-          "format": "ios-swift/class.swift",
-          "options": {
-            "className": "StyleDictionaryClass"
-          }
-        },
-        {
-          "destination": "StyleDictionary+Enum.swift",
-          "format": "ios-swift/enum.swift",
-          "options": {
-            "className": "StyleDictionaryEnum"
-          }
-        },
-        {
-          "destination": "StyleDictionary+Struct.swift",
-          "format": "ios-swift/any.swift",
-          "options": {
-            "className": "StyleDictionaryStruct",
-            "imports": "SwiftUI",
-            "objectType": "struct",
-            "accessControl": "internal"
-          }
-        }
-      ]
-    },
     "ios-swift-separate-enums": {
       "transformGroup": "ios-swift-separate",
       "buildPath": "build/ios-swift/",

@@ -29,7 +29,6 @@ StyleDictionary.registerTransform({
   name: "swift/font",
   type: "value",
   filter: function (token) {
-    console.log(token.attributes.type);
     return (
       token.attributes.category === "Text" &&
       token.attributes.type.includes("font-family")
@@ -54,7 +53,6 @@ StyleDictionary.registerFilter({
 StyleDictionary.registerFilter({
   name: "charcoal-border-radius-filter",
   filter: function (token) {
-    console.log(token);
     return token.attributes.category === "Border radius";
   },
 });
@@ -62,15 +60,16 @@ StyleDictionary.registerFilter({
 StyleDictionary.registerFilter({
   name: "charcoal-spacings-filter",
   filter: function (token) {
-    console.log(token);
-    return token.attributes.category === "Spacings";
+    return (
+      token.attributes.category === "Spacings" ||
+      token.attributes.category === "Space"
+    );
   },
 });
 
 StyleDictionary.registerFilter({
   name: "charcoal-text-filter",
   filter: function (token) {
-    console.log(token);
     return token.attributes.category === "Text";
   },
 });
