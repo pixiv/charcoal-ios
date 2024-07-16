@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "foundation-gen": "node src/index.js"
+    "foundation-gen": "node src/index.js",
+    "build": "node build.js"
   },
   "type": "module",
   "author": "pixiv",
@@ -12,5 +13,8 @@
     "lodash": "^4.17.21",
     "quicktype-core": "^23.0.47",
     "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "style-dictionary": "^4.0.0"
   }
 }

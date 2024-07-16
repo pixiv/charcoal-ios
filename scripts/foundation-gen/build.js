@@ -1,0 +1,68 @@
+import Color from "tinycolor2";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import StyleDictionary from "style-dictionary";
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+StyleDictionary.registerTransform({
+  name: "swift/color",
+  type: "value",
+  filter: function (token) {
+    return (
+      token.attributes.category === "Color" ||
+      token.attributes.category === "Colors" ||
+      token.attributes.category === "Brand color"
+    );
+  },
+  transform: function (token, _, options) {
+    const { r, g, b, a } = Color(
+      options.usesDtcg ? token.$value : token.value
+    ).toRgb();
+    const rFixed = (r / 255.0).toFixed(3);
+    const gFixed = (g / 255.0).toFixed(3);
+    const bFixed = (b / 255.0).toFixed(3);
+    return `UIColor(red: ${rFixed}, green: ${gFixed}, blue: ${bFixed}, alpha: ${a})`;
+  },
+});
+
+StyleDictionary.registerTransform({
+  name: "swift/font",
+  type: "value",
+  filter: function (token) {
+    console.log(token.attributes.type);
+    return (
+      token.attributes.category === "Text" &&
+      token.attributes.type.includes("font-family")
+    );
+  },
+  transform: function (token, _, options) {
+    return `"${token.value}"`;
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: "charcoal-color-filter",
+  filter: function (token) {
+    return (
+      token.attributes.category === "Color" ||
+      token.attributes.category === "Colors" ||
+      token.attributes.category === "Brand color"
+    );
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: "charcoal-dimension-filter",
+  filter: function (token) {
+    console.log(token);
+    return (
+      token.attributes.category === "Border radius" ||
+      token.attributes.category === "Spacings"
+    );
+  },
+});
+
+const sd = new StyleDictionary(__dirname + "/config.json");
+
+// FINALLY, BUILD ALL THE PLATFORMS
+await sd.buildAllPlatforms();
