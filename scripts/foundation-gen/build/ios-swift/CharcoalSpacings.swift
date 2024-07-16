@@ -1,6 +1,6 @@
 
 //
-// StyleDictionarySize.swift
+// CharcoalSpacings.swift
 //
 
 // Do not edit directly, this file was auto-generated.
@@ -8,13 +8,7 @@
 
 import UIKit
 
-public enum StyleDictionarySize {
-    public static let borderRadius16 = 16
-    public static let borderRadius24 = 24
-    public static let borderRadius4 = 4
-    public static let borderRadius8 = 8
-    public static let borderRadiusNone = 0
-    public static let borderRadiusOval = 999999
+public enum CharcoalSpacings {
     public static let spacingsSpace0 = 0
     public static let spacingsSpace1 = 2
     public static let spacingsSpace10 = 4

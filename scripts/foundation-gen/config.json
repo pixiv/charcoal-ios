@@ -39,20 +39,36 @@
       "transforms": ["swift/color", "swift/font"],
       "files": [
         {
-          "destination": "StyleDictionaryColor.swift",
+          "destination": "CharcoalTexts.swift",
           "format": "ios-swift/enum.swift",
           "options": {
-            "className": "StyleDictionaryColor"
+            "className": "CharcoalTexts"
+          },
+          "filter": "charcoal-text-filter"
+        },
+        {
+          "destination": "CharcoalColors.swift",
+          "format": "ios-swift/enum.swift",
+          "options": {
+            "className": "CharcoalColors"
           },
           "filter": "charcoal-color-filter"
         },
         {
-          "destination": "StyleDictionarySize.swift",
+          "destination": "CharcoalBorderRadius.swift",
           "format": "ios-swift/enum.swift",
           "options": {
-            "className": "StyleDictionarySize"
+            "className": "CharcoalBorderRadius"
           },
-          "filter": "charcoal-dimension-filter"
+          "filter": "charcoal-border-radius-filter"
+        },
+        {
+          "destination": "CharcoalSpacings.swift",
+          "format": "ios-swift/enum.swift",
+          "options": {
+            "className": "CharcoalSpacings"
+          },
+          "filter": "charcoal-spacings-filter"
         }
       ]
     }

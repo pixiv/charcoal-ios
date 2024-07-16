@@ -1,6 +1,6 @@
 
 //
-// StyleDictionaryColor.swift
+// CharcoalColors.swift
 //
 
 // Do not edit directly, this file was auto-generated.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public enum StyleDictionaryColor {
+public enum CharcoalColors {
     public static let brandColorBooth = UIColor(red: 0.988, green: 0.302, blue: 0.314, alpha: 1)
     public static let brandColorComic = UIColor(red: 1.000, green: 0.769, blue: 0.000, alpha: 1)
     public static let brandColorPixiv = UIColor(red: 0.000, green: 0.588, blue: 0.980, alpha: 1)
