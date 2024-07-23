@@ -87,19 +87,19 @@ struct CharcoalTooltip: CharcoalPopupProtocol {
         ZStack {
             if dismissOnTouchOutside && isPresenting {
                 Color.clear
-                        .contentShape(Rectangle())
-                            .simultaneousGesture(
-                                TapGesture()
-                                    .onEnded { _ in
-                                        isPresenting = false
-                                    }
-                            )
-                            .simultaneousGesture(
-                                DragGesture()
-                                    .onChanged { _ in
-                                        isPresenting = false
-                                    }
-                            )
+                    .contentShape(Rectangle())
+                    .simultaneousGesture(
+                        TapGesture()
+                            .onEnded { _ in
+                                isPresenting = false
+                            }
+                    )
+                    .simultaneousGesture(
+                        DragGesture()
+                            .onChanged { _ in
+                                isPresenting = false
+                            }
+                    )
             } else {
                 Color.clear
             }
