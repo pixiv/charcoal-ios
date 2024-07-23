@@ -85,22 +85,24 @@ struct CharcoalTooltip: CharcoalPopupProtocol {
 
     var body: some View {
         ZStack {
-            Color.clear
-                .if(dismissOnTouchOutside && isPresenting) { view in
-                    view.contentShape(Rectangle())
-                        .simultaneousGesture(
-                            TapGesture()
-                                .onEnded { _ in
-                                    isPresenting = false
-                                }
-                        )
-                        .simultaneousGesture(
-                            DragGesture()
-                                .onChanged { _ in
-                                    isPresenting = false
-                                }
-                        )
-                }
+            if dismissOnTouchOutside && isPresenting {
+                Color.clear
+                        .contentShape(Rectangle())
+                            .simultaneousGesture(
+                                TapGesture()
+                                    .onEnded { _ in
+                                        isPresenting = false
+                                    }
+                            )
+                            .simultaneousGesture(
+                                DragGesture()
+                                    .onChanged { _ in
+                                        isPresenting = false
+                                    }
+                            )
+            } else {
+                Color.clear
+            }
             if isPresenting {
                 GeometryReader(content: { canvasGeometry in
                     VStack {
