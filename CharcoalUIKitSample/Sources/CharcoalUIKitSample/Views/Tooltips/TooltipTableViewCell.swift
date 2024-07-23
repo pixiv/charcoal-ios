@@ -1,3 +1,4 @@
+import CharcoalShared
 import UIKit
 
 class TooltipTableViewCell: UITableViewCell {
@@ -46,6 +47,18 @@ class TooltipTableViewCell: UITableViewCell {
             accessoryImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             accessoryImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
+    }
+
+    func configCell(type: TooltipTitles) {
+        titleLabel.text = type.rawValue
+        switch type {
+        case .leading:
+            leadingImageView.image = CharcoalAsset.Images.info24.image
+        case .trailing:
+            accessoryImageView.image = CharcoalAsset.Images.info24.image
+        case .bottom:
+            break
+        }
     }
 
     @available(*, unavailable)

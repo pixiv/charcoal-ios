@@ -3,7 +3,7 @@ import UIKit
 /**
  Displays a overlay on the screen.
  */
-public class ChacoalOverlayManager: UIView {
+class ChacoalOverlayManager: UIView {
     /// The window to display the overlays in.
     var mainView: UIView!
     /// The background view of the overlays.
@@ -42,26 +42,25 @@ extension ChacoalOverlayManager {
     }
 
     private func setupBackground() {
-        if backgroundView == nil {
-            backgroundView = UIView(frame: .zero)
-            backgroundView?.isUserInteractionEnabled = false
-            guard let backgroundView = backgroundView else {
-                fatalError("Background view is nil.")
-            }
-
-            backgroundView.translatesAutoresizingMaskIntoConstraints = false
-
-            mainView.addSubview(backgroundView)
-
-            let constraints: [NSLayoutConstraint] = [
-                backgroundView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 0),
-                backgroundView.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 0),
-                backgroundView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: 0),
-                backgroundView.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: 0)
-            ]
-
-            NSLayoutConstraint.activate(constraints)
+        guard backgroundView == nil else {
+            return
         }
+
+        let backgroundView = UIView(frame: .zero)
+        backgroundView.isUserInteractionEnabled = false
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        mainView.addSubview(backgroundView)
+
+        let constraints: [NSLayoutConstraint] = [
+            backgroundView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 0),
+            backgroundView.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 0),
+            backgroundView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: 0),
+            backgroundView.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: 0)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
+
+        self.backgroundView = backgroundView
     }
 }
 
