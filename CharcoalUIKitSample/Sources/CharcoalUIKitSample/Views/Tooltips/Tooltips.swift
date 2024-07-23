@@ -16,18 +16,6 @@ enum TooltipTitles: String, CaseIterable {
             return "こんにちは This is a tooltip and here is testing it's multiple line feature"
         }
     }
-
-    func configCell(cell: TooltipTableViewCell) {
-        cell.titleLabel.text = rawValue
-        switch self {
-        case .leading:
-            cell.leadingImageView.image = CharcoalAsset.Images.info24.image
-        case .trailing:
-            cell.accessoryImageView.image = CharcoalAsset.Images.info24.image
-        case .bottom:
-            break
-        }
-    }
 }
 
 public final class TooltipsViewController: UIViewController {
@@ -108,7 +96,7 @@ extension TooltipsViewController: UITableViewDelegate, UITableViewDataSource {
         switch section {
         case .components:
             let titleCase = TooltipTitles.allCases[indexPath.row]
-            titleCase.configCell(cell: cell)
+            cell.configCell(type: titleCase)
             return cell
         }
     }
