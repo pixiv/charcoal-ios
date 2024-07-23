@@ -51,7 +51,7 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalToa
         thumbnailImage: Image?,
         @ViewBuilder action: () -> ActionContent?,
         isPresenting: Binding<Bool>,
-        dismissAfter: TimeInterval? = nil,
+        dismissAfter: TimeInterval?,
         animationConfiguration: CharcoalToastAnimationConfiguration = .default
     ) {
         self.id = id
@@ -186,7 +186,7 @@ public extension View {
         screenEdgeSpacing: CGFloat = 120,
         text: String,
         thumbnailImage: Image? = nil,
-        dismissAfter: TimeInterval? = nil,
+        dismissAfter: TimeInterval? = 2,
         @ViewBuilder action: @escaping () -> Content = { EmptyView() }
     ) -> some View where Content: View {
         return modifier(

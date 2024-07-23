@@ -45,7 +45,7 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalToastB
         screenEdgeSpacing: CGFloat,
         @ViewBuilder action: () -> ActionContent?,
         isPresenting: Binding<Bool>,
-        dismissAfter: TimeInterval? = nil,
+        dismissAfter: TimeInterval?,
         appearance: CharcoalToastAppearance = .success,
         animationConfiguration: CharcoalToastAnimationConfiguration
     ) {
@@ -207,7 +207,7 @@ public extension View {
         screenEdge: CharcoalPopupViewEdge = .bottom,
         screenEdgeSpacing: CGFloat = 96,
         text: String,
-        dismissAfter: TimeInterval? = nil,
+        dismissAfter: TimeInterval? = 2,
         appearance: CharcoalToastAppearance = .success,
         animationConfiguration: CharcoalToastAnimationConfiguration = .default,
         @ViewBuilder action: @escaping () -> Content = { EmptyView() }
