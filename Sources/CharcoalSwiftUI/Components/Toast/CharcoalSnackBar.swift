@@ -203,6 +203,7 @@ public extension View {
     }
 }
 
+
 private struct SnackBarsPreviewView: View {
     @State var isPresenting = true
 
@@ -241,6 +242,7 @@ private struct SnackBarsPreviewView: View {
                         isPresenting: $isPresenting2,
                         screenEdge: .bottom,
                         text: "ブックマークしました",
+                        dismissAfter: 2,
                         action: {
                             Button {
                                 print("Tapped")
