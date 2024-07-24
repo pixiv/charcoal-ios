@@ -51,7 +51,7 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalToa
         thumbnailImage: Image?,
         @ViewBuilder action: () -> ActionContent?,
         isPresenting: Binding<Bool>,
-        dismissAfter: TimeInterval? = nil,
+        dismissAfter: TimeInterval?,
         animationConfiguration: CharcoalToastAnimationConfiguration = .default
     ) {
         self.id = id
@@ -164,10 +164,10 @@ struct CharcoalSnackBarModifier<ActionContent: View>: ViewModifier {
 
 public extension View {
     /**
-     Add a tooltip to the view
+     Add a Snackbar to the view
 
      - Parameters:
-     - isPresenting: A binding to whether the Tooltip  is presented.
+     - isPresenting: A binding to whether the Snackbar  is presented.
      - text: The text to be displayed in the snackbar.
      - thumbnailImage: The thumbnail image to be displayed in the snackbar.
      - dismissAfter: The overlay will be dismissed after a certain time interval.
@@ -186,7 +186,7 @@ public extension View {
         screenEdgeSpacing: CGFloat = 150,
         text: String,
         thumbnailImage: Image? = nil,
-        dismissAfter: TimeInterval? = nil,
+        dismissAfter: TimeInterval? = 2,
         @ViewBuilder action: @escaping () -> Content = { EmptyView() }
     ) -> some View where Content: View {
         return modifier(
@@ -202,6 +202,7 @@ public extension View {
         )
     }
 }
+
 
 private struct SnackBarsPreviewView: View {
     @State var isPresenting = true
@@ -241,6 +242,7 @@ private struct SnackBarsPreviewView: View {
                         isPresenting: $isPresenting2,
                         screenEdge: .bottom,
                         text: "ブックマークしました",
+                        dismissAfter: 2,
                         action: {
                             Button {
                                 print("Tapped")

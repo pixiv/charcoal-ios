@@ -28,15 +28,11 @@ class CharcoalTooltipView: UIView, CharcoalAnchorable {
     /// Padding around the bubble
     let padding = UIEdgeInsets(top: 4, left: 12, bottom: 4, right: 12)
 
-    /// Text frame size
-    private var textFrameSize: CGSize = .zero
-
     init(text: String, targetPoint: CGPoint, maxWidth: CGFloat = 184) {
         bubbleShape = CharcoalBubbleShape(targetPoint: targetPoint, arrowHeight: arrowHeight, bubbleRadius: cornerRadius, arrowWidth: arrowWidth)
         self.maxWidth = maxWidth
         self.text = text
         super.init(frame: .zero)
-        textFrameSize = text.calculateFrame(font: label.font, maxWidth: maxWidth)
         setupLayer()
     }
 
@@ -56,22 +52,27 @@ class CharcoalTooltipView: UIView, CharcoalAnchorable {
         // Setup Label
         addSubview(label)
         label.text = text
-    }
 
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
+        label.preferredMaxLayoutWidth = maxWidth - padding.left - padding.right
 
-        textFrameSize = text.calculateFrame(font: label.font, maxWidth: maxWidth)
+        NSLayoutConstraint.activate([
+            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding.left),
+            label.topAnchor.constraint(equalTo: topAnchor, constant: padding.top),
+            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding.right),
+            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding.bottom)
+        ])
+
+        setNeedsLayout()
     }
 
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: padding.left + textFrameSize.width + padding.right, height: padding.top + textFrameSize.height + padding.bottom)
+        let labelSize = label.intrinsicContentSize
+        return CGSize(width: padding.left + labelSize.width + padding.right, height: padding.top + labelSize.height + padding.bottom)
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
         bubbleShape.frame = bounds
-        label.frame = CGRect(x: padding.left, y: padding.top, width: textFrameSize.width, height: textFrameSize.height)
     }
 }
 
