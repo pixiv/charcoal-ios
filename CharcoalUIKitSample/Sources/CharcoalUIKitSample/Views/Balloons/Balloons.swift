@@ -49,7 +49,7 @@ public final class BalloonsViewController: UIViewController {
         var title: String {
             switch self {
             case .components:
-                return "Tooltips"
+                return "Balloons"
             }
         }
 
