@@ -46,12 +46,16 @@ public struct ContentView: View {
                 NavigationLink(destination: TooltipsView()) {
                     Text("Tooltips")
                 }
+                NavigationLink(destination: ToastsView()) {
+                    Text("Toasts")
+                }
                 NavigationLink(destination: SpinnersView()) {
                     Text("Spinners")
                 }
             }
             .navigationBarTitle("Charcoal")
         }
+        .charcoalOverlayContainer()
         .preferredColorScheme(isDarkModeOn ? .dark : .light)
     }
 }
