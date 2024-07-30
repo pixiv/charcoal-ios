@@ -24,6 +24,7 @@ const formats = {
     const { allTokens, tokens, unfilteredTokens } = dictionary;
     const { outputReferences, formatting, usesDtcg } = options;
     options = setSwiftFileProperties(options, "enum", platform.transformGroup);
+
     const formatProperty = createPropertyFormatter({
       outputReferences,
       dictionary,
@@ -43,6 +44,14 @@ const formats = {
     const themeDataTokens = allTokens.filter(
       (token) => token.attributes.type != darkThemeKey
     );
+
+    for (const token of themeDataTokens) {
+      const number = Number(token.attributes.type.split("/").pop());
+
+      if (number < 0) {
+        token.name = `${token.name}Negative`;
+      }
+    }
 
     for (const token of themeDataTokens) {
       const darkThemeToken = darkThemeDataTokens.find(

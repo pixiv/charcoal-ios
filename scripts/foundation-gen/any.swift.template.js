@@ -36,7 +36,7 @@ ${options.accessControl ? `${options.accessControl} ` : ""}${
      .join("\n    ")}
 
 }
-     
+
 extension UIColor {
     convenience init(
         light lightModeColor: @escaping @autoclosure () -> UIColor,
@@ -46,7 +46,7 @@ extension UIColor {
             switch traitCollection.userInterfaceStyle {
             case .light:
                 return lightModeColor()
-            case .dark:
+            case .dark, .unspecified:
                 return darkModeColor()
             @unknown default:
                 return lightModeColor()
