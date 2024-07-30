@@ -2,7 +2,11 @@ import Color from "tinycolor2";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import StyleDictionary from "style-dictionary";
+import formats from "./formats.js";
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+var log = false;
 
 StyleDictionary.registerTransform({
   name: "swift/color",
@@ -18,6 +22,7 @@ StyleDictionary.registerTransform({
     const { r, g, b, a } = Color(
       options.usesDtcg ? token.$value : token.value
     ).toRgb();
+
     const rFixed = (r / 255.0).toFixed(3);
     const gFixed = (g / 255.0).toFixed(3);
     const bFixed = (b / 255.0).toFixed(3);
@@ -72,6 +77,11 @@ StyleDictionary.registerFilter({
   filter: function (token) {
     return token.attributes.category === "Text";
   },
+});
+
+StyleDictionary.registerFormat({
+  name: "charcoalColorFormat",
+  format: formats["ios-swift/charcoal-enum.swift"],
 });
 
 const sd = new StyleDictionary(__dirname + "/config.json");

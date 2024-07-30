@@ -16,7 +16,7 @@
         },
         {
           "destination": "CharcoalColors.swift",
-          "format": "ios-swift/enum.swift",
+          "format": "charcoalColorFormat",
           "options": {
             "className": "CharcoalColors"
           },
