@@ -8,7 +8,7 @@
 
 import UIKit
 
-public enum CharcoalColors {
+public enum CharcoalColors: CaseIterable  {
    public static let brandColorBooth = UIColor(red: 0.988, green: 0.302, blue: 0.314, alpha: 1)
     public static let brandColorComic = UIColor(red: 1.000, green: 0.769, blue: 0.000, alpha: 1)
     public static let brandColorPixiv = UIColor(red: 0.000, green: 0.588, blue: 0.980, alpha: 1)
@@ -392,22 +392,4 @@ public enum CharcoalColors {
     public static let colorsLightYellow80 = UIColor(red: 0.290, green: 0.200, blue: 0.027, alpha: 1)
     public static let colorsLightYellow90 = UIColor(red: 0.173, green: 0.110, blue: 0.000, alpha: 1)
 
-}
-
-extension UIColor {
-    convenience init(
-        light lightModeColor: @escaping @autoclosure () -> UIColor,
-        dark darkModeColor: @escaping @autoclosure () -> UIColor
-     ) {
-        self.init { traitCollection in
-            switch traitCollection.userInterfaceStyle {
-            case .light:
-                return lightModeColor()
-            case .dark, .unspecified:
-                return darkModeColor()
-            @unknown default:
-                return lightModeColor()
-            }
-        }
-    }
 }

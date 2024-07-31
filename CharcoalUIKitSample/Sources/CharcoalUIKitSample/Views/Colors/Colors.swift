@@ -10,7 +10,7 @@ final class ColorsViewController: UIViewController {
 
     private let colorsCollectionViewCellIdentifier = "ColorsCollectionViewCell"
 
-    private let colors = CharcoalAsset.ColorPaletteGenerated.allCases.map { $0.color }
+    private let colors = CharcoalColors.allCases
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ extension ColorsViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return colors.count
+        return CharcoalColors.allCases.count
     }
 }
 
@@ -65,7 +65,9 @@ extension ColorsViewController: UICollectionViewDelegate {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: colorsCollectionViewCellIdentifier, for: indexPath) as? ColorsCollectionViewCell else {
             fatalError()
         }
-        cell.configure(with: colors[indexPath.item])
+        let color = colors[indexPath.item]
+        print(color)
+//        cell.configure(with: colors[indexPath.item])
         return cell
     }
 }

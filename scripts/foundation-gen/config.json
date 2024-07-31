@@ -10,7 +10,7 @@
           "destination": "CharcoalTypography.swift",
           "format": "ios-swift/enum.swift",
           "options": {
-            "className": "CharcoalTypography"
+            "className": "CharcoalTypography: CaseIterable"
           },
           "filter": "charcoal-text-filter"
         },
@@ -18,7 +18,7 @@
           "destination": "CharcoalColors.swift",
           "format": "charcoalColorFormat",
           "options": {
-            "className": "CharcoalColors"
+            "className": "CharcoalColors: CaseIterable, UIColor"
           },
           "filter": "charcoal-color-filter"
         },
@@ -26,7 +26,7 @@
           "destination": "CharcoalBorderRadius.swift",
           "format": "ios-swift/enum.swift",
           "options": {
-            "className": "CharcoalBorderRadius"
+            "className": "CharcoalBorderRadius: CaseIterable"
           },
           "filter": "charcoal-border-radius-filter"
         },
@@ -34,7 +34,7 @@
           "destination": "CharcoalSpacings.swift",
           "format": "ios-swift/enum.swift",
           "options": {
-            "className": "CharcoalSpacings"
+            "className": "CharcoalSpacings: CaseIterable"
           },
           "filter": "charcoal-spacings-filter"
         }

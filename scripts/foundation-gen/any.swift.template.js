@@ -25,33 +25,15 @@ ${options.import
 
 ${options.accessControl ? `${options.accessControl} ` : ""}${
   options.objectType ? `${options.objectType} ` : ""
-}${options.className ? `${options.className} ` : ""}{
+}${options.className ? `${options.className} ` : ""} {
    ${allTokens
      .map(
        (token) =>
-         `${
-           options.accessControl ? `${options.accessControl} ` : ""
-         }static let ${formatProperty(token)}`
+         `${options.accessControl ? `${options.accessControl} ` : ""}case ${
+           token.name
+         }`
      )
      .join("\n    ")}
 
-}
-
-extension UIColor {
-    convenience init(
-        light lightModeColor: @escaping @autoclosure () -> UIColor,
-        dark darkModeColor: @escaping @autoclosure () -> UIColor
-     ) {
-        self.init { traitCollection in
-            switch traitCollection.userInterfaceStyle {
-            case .light:
-                return lightModeColor()
-            case .dark, .unspecified:
-                return darkModeColor()
-            @unknown default:
-                return lightModeColor()
-            }
-        }
-    }
-}     
+}  
 `;
