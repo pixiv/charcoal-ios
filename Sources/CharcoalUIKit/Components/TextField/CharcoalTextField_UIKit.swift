@@ -79,7 +79,7 @@ public class CharcoalTextField: UITextField {
         layer.masksToBounds = false
         layer.cornerRadius = 4.0
 
-        let scaledFont = UIFont.systemFont(ofSize: CGFloat(charcoalFoundation.typography.size.the14.fontSize)).scaledFont
+        let scaledFont = UIFont.systemFont(ofSize: CGFloat(CharcoalTypography.textFontSize5)).scaledFont
 
         defaultTextAttributes = [
             .font: scaledFont,
@@ -108,7 +108,7 @@ public class CharcoalTextField: UITextField {
             return
         }
 
-        countLabel.font = UIFont.monospacedSystemFont(ofSize: CGFloat(charcoalFoundation.typography.size.the14.fontSize), weight: .regular).scaledFont
+        countLabel.font = UIFont.monospacedSystemFont(ofSize: CGFloat(CharcoalTypography.textFontSize5), weight: .regular).scaledFont
         countLabel.adjustsFontForContentSizeCategory = true
         countLabel.textColor = CharcoalAsset.ColorPaletteGenerated.text3.color
         countLabel.textAlignment = .left

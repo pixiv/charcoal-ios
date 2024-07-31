@@ -1,7 +1,7 @@
 import SwiftUI
 
-private let fontSize = CGFloat(charcoalFoundation.typography.size.the20.fontSize)
-private let lineHeight = CGFloat(charcoalFoundation.typography.size.the20.lineHeight)
+private let fontSize = CGFloat(CharcoalTypography.textFontSize30)
+private let lineHeight = CGFloat(CharcoalTypography.textLineHeight30)
 
 public extension View {
     @warn_unqualified_access

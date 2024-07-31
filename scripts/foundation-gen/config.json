@@ -7,10 +7,10 @@
       "transforms": ["swift/color", "swift/font"],
       "files": [
         {
-          "destination": "CharcoalTexts.swift",
+          "destination": "CharcoalTypography.swift",
           "format": "ios-swift/enum.swift",
           "options": {
-            "className": "CharcoalTexts"
+            "className": "CharcoalTypography"
           },
           "filter": "charcoal-text-filter"
         },
