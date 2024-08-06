@@ -74,7 +74,7 @@ class CharcoalToastView: UIView {
         borderColor = CharcoalAsset.ColorPaletteGenerated.background1.color
         super.init(frame: .zero)
         
-        if let action = action {
+        if let _ = action {
             actionButton.setImage(CharcoalAsset.Images.remove16.image.withRenderingMode(.alwaysTemplate), for: .normal)
         }
         
