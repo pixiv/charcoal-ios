@@ -29,7 +29,6 @@ public extension CharcoalToast {
         actionCallback: ActionCallback? = nil,
         on: UIView? = nil
     ) -> CharcoalIdentifiableOverlayView.IDValue {
-        
         let toastView = CharcoalToastView(text: text, maxWidth: maxWidth, appearance: appearance, actionCallback: {})
 
         toastView.translatesAutoresizingMaskIntoConstraints = false
@@ -37,9 +36,9 @@ public extension CharcoalToast {
         let containerView = ChacoalOverlayManager.shared.layout(view: toastView, interactionMode: .passThrough, on: on)
         containerView.alpha = 1
         containerView.delegate = ChacoalOverlayManager.shared
-        
+
         let toastID = containerView.id
-        
+
         toastView.actionCallback = {
             actionCallback?()
             CharcoalToast.dismiss(id: toastID)

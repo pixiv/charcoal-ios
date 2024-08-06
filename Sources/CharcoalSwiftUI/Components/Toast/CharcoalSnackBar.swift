@@ -203,7 +203,6 @@ public extension View {
     }
 }
 
-
 private struct SnackBarsPreviewView: View {
     @State var isPresenting = true
 
@@ -212,7 +211,6 @@ private struct SnackBarsPreviewView: View {
     @State var isPresenting3 = true
 
     @State var textOfLabel = "Hello"
-    
 
     var body: some View {
         NavigationView(content: {

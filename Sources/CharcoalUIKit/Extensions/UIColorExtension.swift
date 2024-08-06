@@ -35,7 +35,7 @@ extension UIColor {
             return UIColor(red: r, green: g, blue: b, alpha: a)
         }()
     }
-    
+
     func imageWithColor(width: Int, height: Int) -> UIImage {
         let size = CGSize(width: width, height: height)
         return UIGraphicsImageRenderer(size: size).image { rendererContext in

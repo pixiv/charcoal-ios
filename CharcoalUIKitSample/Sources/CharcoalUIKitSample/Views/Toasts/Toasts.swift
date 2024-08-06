@@ -135,10 +135,14 @@ extension ToastsViewController: UITableViewDelegate, UITableViewDataSource {
                     print("Clicked on action")
                 })
             case .errorWithAction:
-                toastID = CharcoalToast.show(text: titleCase.text,
-                                             appearance: .error, screenEdge: .bottom, actionCallback: {
-                    print("Clicked on action")
-                })
+                toastID = CharcoalToast.show(
+                    text: titleCase.text,
+                    appearance: .error,
+                    screenEdge: .bottom,
+                    actionCallback: {
+                        print("Clicked on action")
+                    }
+                )
             }
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {

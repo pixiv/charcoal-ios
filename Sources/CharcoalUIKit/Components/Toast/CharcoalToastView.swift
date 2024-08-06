@@ -10,7 +10,7 @@ class CharcoalToastView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-    
+
     lazy var buttonContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -22,14 +22,13 @@ class CharcoalToastView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+
     lazy var actionButton: UIButton = {
         let button = UIButton(type: .custom)
         button.tintColor = UIColor.white
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-
 
     lazy var label: CharcoalTypography14 = {
         let label = CharcoalTypography14()
@@ -63,7 +62,7 @@ class CharcoalToastView: UIView {
 
     /// Padding around the bubble
     let padding = UIEdgeInsets(top: 8, left: 24, bottom: 8, right: 24)
-    
+
     var actionCallback: ActionCallback?
 
     init(text: String, maxWidth: CGFloat = 312, appearance: CharcoalToastAppearance = .success, actionCallback: ActionCallback? = nil) {
@@ -73,11 +72,11 @@ class CharcoalToastView: UIView {
         self.actionCallback = actionCallback
         borderColor = CharcoalAsset.ColorPaletteGenerated.background1.color
         super.init(frame: .zero)
-        
+
         if let _ = actionCallback {
             actionButton.setImage(CharcoalAsset.Images.remove16.image.withRenderingMode(.alwaysTemplate), for: .normal)
         }
-        
+
         setupLayer()
     }
 
@@ -94,7 +93,7 @@ class CharcoalToastView: UIView {
         layer.borderWidth = borderLineWidth
         layer.masksToBounds = true
         layer.cornerCurve = .continuous
-        
+
         // Add HStack
         addSubview(hStackView)
         NSLayoutConstraint.activate([
@@ -104,12 +103,12 @@ class CharcoalToastView: UIView {
             hStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             hStackView.widthAnchor.constraint(lessThanOrEqualToConstant: maxWidth)
         ])
-        
+
         addTextLabel()
-        
+
         addActionButton()
     }
-    
+
     private func addTextLabel() {
         hStackView.addArrangedSubview(labelContainer)
 
@@ -126,7 +125,7 @@ class CharcoalToastView: UIView {
         label.preferredMaxLayoutWidth = preferredTextMaxWidth
         label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
     }
-    
+
     private func addActionButton() {
         if let _ = actionCallback {
             actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
@@ -142,11 +141,11 @@ class CharcoalToastView: UIView {
             ])
         }
     }
-    
+
     @objc func actionButtonTapped() {
         actionCallback?()
     }
-    
+
     /// The max width of the text label
     var preferredTextMaxWidth: CGFloat {
         var width = maxWidth - padding.left - padding.right
