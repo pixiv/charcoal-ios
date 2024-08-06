@@ -37,14 +37,11 @@ public extension CharcoalSnackBar {
         containerView.alpha = 1
         containerView.isUserInteractionEnabled = false
         containerView.delegate = ChacoalOverlayManager.shared
-
-        let rubberGesture = CharcoalRubberGesture(screenEdge: screenEdge)
-        toastView.addGesture(rubberGesture)
-
         let containerID = containerView.id
-        rubberGesture.dismiss = {
+
+        toastView.setupGestureAnimator(screenEdge, gestureDismissCallback: {
             ChacoalOverlayManager.shared.dismiss(id: containerID)
-        }
+        })
 
         var constraints = [
             toastView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)

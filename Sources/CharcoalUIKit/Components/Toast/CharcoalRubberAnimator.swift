@@ -1,13 +1,7 @@
 import UIKit
 
-protocol CharcoalGesture {
-    var gesture: UIGestureRecognizer { get }
-}
-
-class CharcoalRubberGesture: NSObject, CharcoalGesture {
+class CharcoalRubberAnimator: NSObject {
     let screenEdge: CharcoalPopupViewEdge
-
-    var gesture: UIGestureRecognizer
 
     var dragVelocity: CGPoint = .zero
 
@@ -19,9 +13,7 @@ class CharcoalRubberGesture: NSObject, CharcoalGesture {
 
     init(screenEdge: CharcoalPopupViewEdge) {
         self.screenEdge = screenEdge
-        gesture = UIPanGestureRecognizer()
         super.init()
-        gesture.addTarget(self, action: #selector(handlePan(_:)))
     }
 
     @objc func handlePan(_ gesture: UIPanGestureRecognizer) {
@@ -74,5 +66,9 @@ class CharcoalRubberGesture: NSObject, CharcoalGesture {
         default:
             break
         }
+    }
+
+    deinit {
+        print("CharcoalRubberAnimator deinit")
     }
 }
