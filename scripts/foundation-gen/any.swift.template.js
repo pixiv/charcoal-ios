@@ -25,15 +25,15 @@ ${options.import
 
 ${options.accessControl ? `${options.accessControl} ` : ""}${
   options.objectType ? `${options.objectType} ` : ""
-}${options.className ? `${options.className} ` : ""} {
-   ${allTokens
-     .map(
-       (token) =>
-         `${options.accessControl ? `${options.accessControl} ` : ""}case ${
-           token.name
-         }`
-     )
-     .join("\n    ")}
+}${options.className ? `${options.className} ` : ""}{
+    ${allTokens.map((token) => `case ${token.name}`).join("\n    ")}
 
+    var color: UIColor {
+        switch self {
+            ${allTokens
+              .map((token) => `case .${token.name}: return ${token.value};`)
+              .join("\n            ")}
+        }
+    }
 }  
 `;
