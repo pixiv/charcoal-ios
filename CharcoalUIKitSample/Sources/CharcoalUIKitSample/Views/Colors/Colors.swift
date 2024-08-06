@@ -65,9 +65,7 @@ extension ColorsViewController: UICollectionViewDelegate {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: colorsCollectionViewCellIdentifier, for: indexPath) as? ColorsCollectionViewCell else {
             fatalError()
         }
-        let color = colors[indexPath.item]
-        print(color)
-//        cell.configure(with: colors[indexPath.item])
+        cell.configure(with: colors[indexPath.item])
         return cell
     }
 }

@@ -28,7 +28,9 @@ ${options.accessControl ? `${options.accessControl} ` : ""}${
 }${options.className ? `${options.className} ` : ""}{
     ${allTokens.map((token) => `case ${token.name}`).join("\n    ")}
 
-    var color: UIColor {
+    ${
+      options.accessControl ? `${options.accessControl} ` : ""
+    }var color: UIColor {
         switch self {
             ${allTokens
               .map((token) => `case .${token.name}: return ${token.value};`)
