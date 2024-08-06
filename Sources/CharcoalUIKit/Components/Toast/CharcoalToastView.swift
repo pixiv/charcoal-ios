@@ -66,15 +66,15 @@ class CharcoalToastView: UIView {
     
     var actionCallback: ActionCallback?
 
-    init(text: String, maxWidth: CGFloat = 312, appearance: CharcoalToastAppearance = .success, action: ActionCallback? = nil) {
+    init(text: String, maxWidth: CGFloat = 312, appearance: CharcoalToastAppearance = .success, actionCallback: ActionCallback? = nil) {
         self.maxWidth = maxWidth
         self.text = text
         self.appearance = appearance
-        self.actionCallback = action
+        self.actionCallback = actionCallback
         borderColor = CharcoalAsset.ColorPaletteGenerated.background1.color
         super.init(frame: .zero)
         
-        if let _ = action {
+        if let _ = actionCallback {
             actionButton.setImage(CharcoalAsset.Images.remove16.image.withRenderingMode(.alwaysTemplate), for: .normal)
         }
         
