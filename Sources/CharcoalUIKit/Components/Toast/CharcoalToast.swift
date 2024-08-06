@@ -12,6 +12,7 @@ public extension CharcoalToast {
         - appearance: The appearance of the toast.
         - screenEdge: The edge of the screen where the toast will be displayed.
         - screenEdgeSpacing: The spacing between the toast and the screen edge.
+        - actionCallback: The callback to be called when the action button is tapped
         - on: The view on which the toast will be displayed.
 
      # Example #
