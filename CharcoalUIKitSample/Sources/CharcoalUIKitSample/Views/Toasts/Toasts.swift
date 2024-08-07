@@ -17,23 +17,24 @@ enum SnackbarTitles: String, CaseIterable {
 }
 
 enum ToastsTitles: String, CaseIterable {
-    case top = "Top"
-    case bottom = "Bottom"
-    case multiline = "Multiline"
+    case normal = "Normal"
+    case normalWithAction = "with Action"
+    case errorWithAction = "error with Action"
 
     var text: String {
         switch self {
-        case .top:
+        case .normal:
             return "Hello World"
-        case .bottom:
+        case .normalWithAction:
             return "Hello World This is a tooltip with mutiple line"
-        case .multiline:
+        case .errorWithAction:
             return "こんにちは This is a tooltip and here is testing it's multiple line feature"
         }
     }
 
     func configCell(cell: UITableViewCell) {
-        cell.textLabel!.text = rawValue
+        cell.textLabel!.text = "Toast"
+        cell.detailTextLabel?.text = rawValue
     }
 }
 
@@ -47,8 +48,8 @@ public final class ToastsViewController: UIViewController {
     let cellReuseIdentifier = "cell"
 
     private enum Sections: Int, CaseIterable {
-        case toasts
         case snackbars
+        case toasts
 
         var title: String {
             switch self {
@@ -127,12 +128,21 @@ extension ToastsViewController: UITableViewDelegate, UITableViewDataSource {
 
             var toastID: CharcoalIdentifiableOverlayView.IDValue
             switch titleCase {
-            case .top:
+            case .normal:
                 toastID = CharcoalToast.show(text: titleCase.text, screenEdge: .top)
-            case .bottom:
-                toastID = CharcoalToast.show(text: titleCase.text, appearance: .error, screenEdge: .bottom)
-            case .multiline:
-                toastID = CharcoalToast.show(text: titleCase.text, screenEdge: .bottom)
+            case .normalWithAction:
+                toastID = CharcoalToast.show(text: titleCase.text, screenEdge: .bottom, actionCallback: {
+                    print("Clicked on action")
+                })
+            case .errorWithAction:
+                toastID = CharcoalToast.show(
+                    text: titleCase.text,
+                    appearance: .error,
+                    screenEdge: .bottom,
+                    actionCallback: {
+                        print("Clicked on action")
+                    }
+                )
             }
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
