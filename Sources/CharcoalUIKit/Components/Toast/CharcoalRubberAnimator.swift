@@ -67,8 +67,4 @@ class CharcoalRubberAnimator: NSObject {
             break
         }
     }
-
-    deinit {
-        print("CharcoalRubberAnimator deinit")
-    }
 }
