@@ -52,6 +52,7 @@ public final class ContentViewController: UIViewController {
         case tooltips = "Tooltips"
         case toasts = "Toasts"
         case spinners = "Spinners"
+        case balloons = "Balloons"
 
         var viewController: UIViewController {
             switch self {
@@ -73,6 +74,8 @@ public final class ContentViewController: UIViewController {
                 return ToastsViewController()
             case .spinners:
                 return SpinnersViewController()
+            case .balloons:
+                return BalloonsViewController()
             }
         }
     }
