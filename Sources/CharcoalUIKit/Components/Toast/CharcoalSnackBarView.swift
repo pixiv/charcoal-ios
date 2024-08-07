@@ -71,7 +71,9 @@ class CharcoalSnackBarView: UIView {
     /// Padding around the bubble
     let padding = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
 
-    var gesture: CharcoalGesture?
+    var gesture: UIGestureRecognizer?
+
+    var animator: CharcoalRubberAnimator?
 
     init(text: String, thumbnailImage: UIImage? = nil, maxWidth: CGFloat = 312, action: CharcoalAction? = nil) {
         self.action = action
@@ -196,9 +198,16 @@ class CharcoalSnackBarView: UIView {
     }
 
     /// Add gesture to this view
-    func addGesture(_ gesture: CharcoalGesture) {
+    func setupGestureAnimator(_ screenEdge: CharcoalPopupViewEdge, gestureDismissCallback: ActionCallback?) {
+        let gesture = UIPanGestureRecognizer()
+        let animator = CharcoalRubberAnimator(screenEdge: screenEdge)
+        animator.dismiss = gestureDismissCallback
+        gesture.addTarget(animator, action: #selector(CharcoalRubberAnimator.handlePan(_:)))
+
+        addGestureRecognizer(gesture)
+
+        self.animator = animator
         self.gesture = gesture
-        addGestureRecognizer(gesture.gesture)
     }
 }
 

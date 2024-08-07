@@ -12,6 +12,7 @@ public extension CharcoalToast {
         - appearance: The appearance of the toast.
         - screenEdge: The edge of the screen where the toast will be displayed.
         - screenEdgeSpacing: The spacing between the toast and the screen edge.
+        - actionCallback: The callback to be called when the action button is tapped
         - on: The view on which the toast will be displayed.
 
      # Example #
@@ -26,15 +27,23 @@ public extension CharcoalToast {
         appearance: CharcoalToastAppearance = .success,
         screenEdge: CharcoalPopupViewEdge = .bottom,
         screenEdgeSpacing: CGFloat = 120,
+        actionCallback: ActionCallback? = nil,
         on: UIView? = nil
     ) -> CharcoalIdentifiableOverlayView.IDValue {
-        let toastView = CharcoalToastView(text: text, maxWidth: maxWidth, appearance: appearance)
+        let toastView = CharcoalToastView(text: text, maxWidth: maxWidth, appearance: appearance, actionCallback: {})
 
         toastView.translatesAutoresizingMaskIntoConstraints = false
 
         let containerView = ChacoalOverlayManager.shared.layout(view: toastView, interactionMode: .passThrough, on: on)
         containerView.alpha = 1
         containerView.delegate = ChacoalOverlayManager.shared
+
+        let toastID = containerView.id
+
+        toastView.actionCallback = {
+            actionCallback?()
+            CharcoalToast.dismiss(id: toastID)
+        }
 
         var constraints = [
             toastView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
@@ -83,7 +92,7 @@ public extension CharcoalToast {
 
         ChacoalOverlayManager.shared.display(view: containerView)
 
-        return containerView.id
+        return toastID
     }
 
     /// Dismisses the toast with the given identifier.
