@@ -81,12 +81,12 @@ StyleDictionary.registerFilter({
 
 StyleDictionary.registerFormat({
   name: "charcoalColorEnumFormat",
-  format: formats["ios-swift/charcoal-enum.swift"],
+  format: formats["ios-swift/charcoal-enum-color.swift"],
 });
 
 StyleDictionary.registerFormat({
   name: "charcoalSturctFormat",
-  format: formats["ios-swift/charcoal-struct.swift"],
+  format: formats["ios-swift/charcoal-enum.swift"],
 });
 
 const sd = new StyleDictionary(__dirname + "/config.json");

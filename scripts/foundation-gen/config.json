@@ -10,7 +10,9 @@
           "destination": "CharcoalTypography.swift",
           "format": "charcoalSturctFormat",
           "options": {
-            "className": "CharcoalTypography"
+            "className": "CharcoalTypography: CaseIterable",
+            "enumPropertyName": "value",
+            "enumPropertyType": "Int"
           },
           "filter": "charcoal-text-filter"
         },
@@ -18,7 +20,9 @@
           "destination": "CharcoalColors.swift",
           "format": "charcoalColorEnumFormat",
           "options": {
-            "className": "CharcoalColors: CaseIterable"
+            "className": "CharcoalColors: CaseIterable",
+            "enumPropertyName": "value",
+            "enumPropertyType": "UIColor"
           },
           "filter": "charcoal-color-filter"
         },
@@ -26,7 +30,9 @@
           "destination": "CharcoalBorderRadius.swift",
           "format": "charcoalSturctFormat",
           "options": {
-            "className": "CharcoalBorderRadius"
+            "className": "CharcoalBorderRadius: CaseIterable",
+            "enumPropertyName": "value",
+            "enumPropertyType": "Int"
           },
           "filter": "charcoal-border-radius-filter"
         },
@@ -34,7 +40,9 @@
           "destination": "CharcoalSpacings.swift",
           "format": "charcoalSturctFormat",
           "options": {
-            "className": "CharcoalSpacings"
+            "className": "CharcoalSpacings: CaseIterable",
+            "enumPropertyName": "value",
+            "enumPropertyType": "Int"
           },
           "filter": "charcoal-spacings-filter"
         }

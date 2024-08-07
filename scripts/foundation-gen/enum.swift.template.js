@@ -14,6 +14,7 @@
  *   header: string
  * }} opts
  */
+
 export default ({ allTokens, file, formatProperty, options, header }) => `
 //
 // ${file.destination}
@@ -28,9 +29,9 @@ ${options.accessControl ? `${options.accessControl} ` : ""}${
 }${options.className ? `${options.className} ` : ""}{
     ${allTokens.map((token) => `case ${token.name}`).join("\n    ")}
 
-    ${
-      options.accessControl ? `${options.accessControl} ` : ""
-    }var color: UIColor {
+    ${options.accessControl ? `${options.accessControl} ` : ""}var ${
+  options.enumPropertyName ? `${options.enumPropertyName} ` : "value"
+}: ${options.enumPropertyType ? `${options.enumPropertyType} ` : "Any"} {
         switch self {
             ${allTokens
               .map((token) => `case .${token.name}: return ${token.value};`)
