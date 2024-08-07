@@ -33,7 +33,7 @@ public class CharcoalTextFieldView: UIStackView {
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: CGFloat(CharcoalTypography.textFontSize5)).scaledFont
+        label.font = UIFont.systemFont(ofSize: CGFloat(CharcoalTypography.textFontSize5.value)).scaledFont
         label.textColor = CharcoalAsset.ColorPaletteGenerated.text1.color
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -43,7 +43,7 @@ public class CharcoalTextFieldView: UIStackView {
 
     private lazy var assertiveTextLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: CGFloat(CharcoalTypography.textFontSize5)).scaledFont
+        label.font = UIFont.systemFont(ofSize: CGFloat(CharcoalTypography.textFontSize5.value)).scaledFont
         label.textColor = CharcoalAsset.ColorPaletteGenerated.text2.color
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false

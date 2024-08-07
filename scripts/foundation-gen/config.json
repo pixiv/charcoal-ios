@@ -12,7 +12,8 @@
           "options": {
             "className": "CharcoalTypography: CaseIterable",
             "enumPropertyName": "value",
-            "enumPropertyType": "Int"
+            "enumPropertyType": "Int",
+            "enumPropertyJSTypeGuard": "number"
           },
           "filter": "charcoal-text-filter"
         },
@@ -32,7 +33,8 @@
           "options": {
             "className": "CharcoalBorderRadius: CaseIterable",
             "enumPropertyName": "value",
-            "enumPropertyType": "Int"
+            "enumPropertyType": "Int",
+            "enumPropertyJSTypeGuard": "number"
           },
           "filter": "charcoal-border-radius-filter"
         },
@@ -42,7 +44,8 @@
           "options": {
             "className": "CharcoalSpacings: CaseIterable",
             "enumPropertyName": "value",
-            "enumPropertyType": "Int"
+            "enumPropertyType": "Int",
+            "enumPropertyJSTypeGuard": "number"
           },
           "filter": "charcoal-spacings-filter"
         }

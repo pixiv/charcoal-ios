@@ -9,7 +9,7 @@
 import UIKit
 
 public enum CharcoalColors: CaseIterable {
-    case brandColorBooth
+  case brandColorBooth
     case brandColorComic
     case brandColorPixiv
     case brandColorPremium
@@ -392,7 +392,7 @@ public enum CharcoalColors: CaseIterable {
     case colorsLightYellow80
     case colorsLightYellow90
 
-    public var color: UIColor {
+    public var value : UIColor  {
         switch self {
             case .brandColorBooth: return UIColor(red: 0.988, green: 0.302, blue: 0.314, alpha: 1);
             case .brandColorComic: return UIColor(red: 1.000, green: 0.769, blue: 0.000, alpha: 1);

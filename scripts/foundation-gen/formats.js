@@ -114,8 +114,6 @@ const formats = {
       sortedTokens = [...allTokens].sort(sortByName);
     }
 
-    console.log(sortedTokens[0]);
-
     const header = await fileHeader({
       file,
       commentStyle: "short",

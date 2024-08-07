@@ -8,36 +8,71 @@
 
 import UIKit
 
-public struct CharcoalTypography {
+public enum CharcoalTypography: CaseIterable {
     public static let textFontFamilySans = "Sarasa UI J"
-    public static let textFontSize0 = 11
-    public static let textFontSize1 = 12
-    public static let textFontSize10 = 16
-    public static let textFontSize100 = 45
-    public static let textFontSize110 = 50
-    public static let textFontSize120 = 60
-    public static let textFontSize20 = 18
-    public static let textFontSize30 = 20
-    public static let textFontSize40 = 22
-    public static let textFontSize5 = 14
-    public static let textFontSize50 = 25
-    public static let textFontSize60 = 28
-    public static let textFontSize70 = 32
-    public static let textFontSize80 = 36
-    public static let textFontSize90 = 40
-    public static let textFontWeight40 = 400
-    public static let textFontWeight70 = 700
-    public static let textLineHeight0 = 16
-    public static let textLineHeight1 = 18
-    public static let textLineHeight10 = 24
-    public static let textLineHeight100 = 72
-    public static let textLineHeight20 = 28
-    public static let textLineHeight30 = 32
-    public static let textLineHeight40 = 36
-    public static let textLineHeight5 = 20
-    public static let textLineHeight50 = 40
-    public static let textLineHeight60 = 44
-    public static let textLineHeight70 = 52
-    public static let textLineHeight80 = 56
-    public static let textLineHeight90 = 64
+    case textFontSize0
+    case textFontSize1
+    case textFontSize10
+    case textFontSize100
+    case textFontSize110
+    case textFontSize120
+    case textFontSize20
+    case textFontSize30
+    case textFontSize40
+    case textFontSize5
+    case textFontSize50
+    case textFontSize60
+    case textFontSize70
+    case textFontSize80
+    case textFontSize90
+    case textFontWeight40
+    case textFontWeight70
+    case textLineHeight0
+    case textLineHeight1
+    case textLineHeight10
+    case textLineHeight100
+    case textLineHeight20
+    case textLineHeight30
+    case textLineHeight40
+    case textLineHeight5
+    case textLineHeight50
+    case textLineHeight60
+    case textLineHeight70
+    case textLineHeight80
+    case textLineHeight90
+
+    public var value : Int  {
+        switch self {
+            case .textFontSize0: return 11;
+            case .textFontSize1: return 12;
+            case .textFontSize10: return 16;
+            case .textFontSize100: return 45;
+            case .textFontSize110: return 50;
+            case .textFontSize120: return 60;
+            case .textFontSize20: return 18;
+            case .textFontSize30: return 20;
+            case .textFontSize40: return 22;
+            case .textFontSize5: return 14;
+            case .textFontSize50: return 25;
+            case .textFontSize60: return 28;
+            case .textFontSize70: return 32;
+            case .textFontSize80: return 36;
+            case .textFontSize90: return 40;
+            case .textFontWeight40: return 400;
+            case .textFontWeight70: return 700;
+            case .textLineHeight0: return 16;
+            case .textLineHeight1: return 18;
+            case .textLineHeight10: return 24;
+            case .textLineHeight100: return 72;
+            case .textLineHeight20: return 28;
+            case .textLineHeight30: return 32;
+            case .textLineHeight40: return 36;
+            case .textLineHeight5: return 20;
+            case .textLineHeight50: return 40;
+            case .textLineHeight60: return 44;
+            case .textLineHeight70: return 52;
+            case .textLineHeight80: return 56;
+            case .textLineHeight90: return 64;
+        }
+    }
 }  

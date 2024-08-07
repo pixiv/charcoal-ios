@@ -27,14 +27,45 @@ ${options.import
 ${options.accessControl ? `${options.accessControl} ` : ""}${
   options.objectType ? `${options.objectType} ` : ""
 }${options.className ? `${options.className} ` : ""}{
-    ${allTokens.map((token) => `case ${token.name}`).join("\n    ")}
+  ${allTokens
+    .map((token) => {
+      if (options.enumPropertyJSTypeGuard) {
+        if (
+          options.enumPropertyJSTypeGuard === "number" &&
+          !isNaN(parseInt(token.value))
+        ) {
+          return `case ${token.name}`;
+        } else {
+          return `${
+            options.accessControl ? `  ${options.accessControl} ` : ""
+          }static let ${formatProperty(token)}`;
+        }
+      }
+      return `case ${token.name}`;
+    })
+    .filter((item) => item !== null)
+    .join("\n    ")}
 
     ${options.accessControl ? `${options.accessControl} ` : ""}var ${
   options.enumPropertyName ? `${options.enumPropertyName} ` : "value"
 }: ${options.enumPropertyType ? `${options.enumPropertyType} ` : "Any"} {
         switch self {
             ${allTokens
-              .map((token) => `case .${token.name}: return ${token.value};`)
+              .map((token) => {
+                if (options.enumPropertyJSTypeGuard) {
+                  if (
+                    options.enumPropertyJSTypeGuard === "number" &&
+                    !isNaN(parseInt(token.value))
+                  ) {
+                    return `case .${token.name}: return ${token.value};`;
+                  } else {
+                    console.log("obmitting token", token);
+                    return null;
+                  }
+                }
+                return `case .${token.name}: return ${token.value};`;
+              })
+              .filter((item) => item !== null)
               .join("\n            ")}
         }
     }

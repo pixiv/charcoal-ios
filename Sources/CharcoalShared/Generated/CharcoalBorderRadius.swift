@@ -8,11 +8,22 @@
 
 import UIKit
 
-public struct CharcoalBorderRadius {
-    public static let borderRadius16 = 16
-    public static let borderRadius24 = 24
-    public static let borderRadius4 = 4
-    public static let borderRadius8 = 8
-    public static let borderRadiusNone = 0
-    public static let borderRadiusOval = 999999
+public enum CharcoalBorderRadius: CaseIterable {
+  case borderRadius16
+    case borderRadius24
+    case borderRadius4
+    case borderRadius8
+    case borderRadiusNone
+    case borderRadiusOval
+
+    public var value : Int  {
+        switch self {
+            case .borderRadius16: return 16;
+            case .borderRadius24: return 24;
+            case .borderRadius4: return 4;
+            case .borderRadius8: return 8;
+            case .borderRadiusNone: return 0;
+            case .borderRadiusOval: return 999999;
+        }
+    }
 }  
