@@ -166,5 +166,7 @@ public struct ToastsView: View {
 }
 
 #Preview {
-    ToastsView().charcoalOverlayContainer()
+    NavigationView {
+        ToastsView()
+    }.charcoalOverlayContainer()
 }
