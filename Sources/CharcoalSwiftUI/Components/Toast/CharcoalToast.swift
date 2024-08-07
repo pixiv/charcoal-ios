@@ -79,7 +79,7 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalToastB
                 .padding(EdgeInsets(top: 8, leading: 24, bottom: 8, trailing: 24))
             }
             .background(
-                appearance.background
+                Color(appearance.background)
             )
             .charcoalAnimatableToast(
                 isPresenting: $isPresenting,
@@ -108,20 +108,6 @@ struct PopupViewSizeKey: PreferenceKey {
     }
 
     static var defaultValue: CGSize = .zero
-}
-
-public enum CharcoalToastAppearance {
-    case success
-    case error
-
-    var background: Color {
-        switch self {
-        case .success:
-            return Color(CharcoalAsset.ColorPaletteGenerated.success.color)
-        case .error:
-            return Color(CharcoalAsset.ColorPaletteGenerated.assertive.color)
-        }
-    }
 }
 
 public struct CharcoalToastAnimationConfiguration {
