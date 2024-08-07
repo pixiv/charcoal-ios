@@ -8,7 +8,7 @@
 
 import UIKit
 
-public enum CharcoalSpacings {
+public struct CharcoalSpacings {
     public static let spaceComponentComponent0 = 0
     public static let spaceComponentComponent1 = 2
     public static let spaceComponentComponent10 = 4
@@ -64,4 +64,4 @@ public enum CharcoalSpacings {
     public static let spacingsSpace80 = 168
     public static let spacingsSpace90 = 272
     public static let spacingsSpace999 = 999999
-}
+}  

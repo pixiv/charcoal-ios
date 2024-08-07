@@ -27,7 +27,12 @@ ${options.accessControl ? `${options.accessControl} ` : ""}${
   options.objectType ? `${options.objectType} ` : ""
 }${options.className ? `${options.className} ` : ""}{
     ${allTokens
-      .map((token) => `static let ${formatProperty(token)}`)
+      .map(
+        (token) =>
+          `${
+            options.accessControl ? `${options.accessControl} ` : ""
+          }static let ${formatProperty(token)}`
+      )
       .join("\n    ")}
 }  
 `;

@@ -8,7 +8,7 @@
 
 import UIKit
 
-public enum CharcoalTypography {
+public struct CharcoalTypography {
     public static let textFontFamilySans = "Sarasa UI J"
     public static let textFontSize0 = 11
     public static let textFontSize1 = 12
@@ -40,4 +40,4 @@ public enum CharcoalTypography {
     public static let textLineHeight70 = 52
     public static let textLineHeight80 = 56
     public static let textLineHeight90 = 64
-}
+}  
