@@ -26,8 +26,16 @@ ${options.import
 ${options.accessControl ? `${options.accessControl} ` : ""}${
   options.objectType ? `${options.objectType} ` : ""
 }${options.className ? `${options.className} ` : ""}{
-    ${allTokens
-      .map((token) => `static let ${formatProperty(token)}`)
-      .join("\n    ")}
+    ${allTokens.map((token) => `case ${token.name}`).join("\n    ")}
+
+    ${
+      options.accessControl ? `${options.accessControl} ` : ""
+    }var color: UIColor {
+        switch self {
+            ${allTokens
+              .map((token) => `case .${token.name}: return ${token.value};`)
+              .join("\n            ")}
+        }
+    }
 }  
 `;

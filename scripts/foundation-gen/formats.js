@@ -6,7 +6,8 @@ import {
   sortByName,
 } from "./node_modules/style-dictionary/lib/common/formatHelpers/index.js";
 
-import iosSwiftAny from "./any.swift.template.js";
+import iosSwiftEnum from "./enum.swift.template.js";
+import iosSwiftStruct from "./any.swift.template.js";
 
 function getFormattingCloneWithoutPrefix(formatting) {
   const formattingWithoutPrefix = structuredClone(formatting) ?? {};
@@ -76,7 +77,54 @@ const formats = {
       formatting: getFormattingCloneWithoutPrefix(formatting),
       options,
     });
-    return iosSwiftAny({
+    return iosSwiftEnum({
+      allTokens: sortedTokens,
+      file,
+      options,
+      formatProperty,
+      header,
+    });
+  },
+
+  "ios-swift/charcoal-struct.swift": async function ({
+    dictionary,
+    options,
+    file,
+    platform,
+  }) {
+    const { allTokens, tokens, unfilteredTokens } = dictionary;
+    const { outputReferences, formatting, usesDtcg } = options;
+    options = setSwiftFileProperties(
+      options,
+      "struct",
+      platform.transformGroup
+    );
+
+    const formatProperty = createPropertyFormatter({
+      outputReferences,
+      dictionary,
+      formatting: {
+        suffix: "",
+        ...formatting,
+      },
+      usesDtcg,
+    });
+
+    let sortedTokens;
+    if (outputReferences) {
+      sortedTokens = [...allTokens].sort(
+        sortByReference(tokens, { unfilteredTokens })
+      );
+    } else {
+      sortedTokens = [...allTokens].sort(sortByName);
+    }
+    const header = await fileHeader({
+      file,
+      commentStyle: "short",
+      formatting: getFormattingCloneWithoutPrefix(formatting),
+      options,
+    });
+    return iosSwiftStruct({
       allTokens: sortedTokens,
       file,
       options,

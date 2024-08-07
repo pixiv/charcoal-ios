@@ -8,7 +8,7 @@
       "files": [
         {
           "destination": "CharcoalTypography.swift",
-          "format": "ios-swift/enum.swift",
+          "format": "charcoalSturctFormat",
           "options": {
             "className": "CharcoalTypography"
           },
@@ -16,7 +16,7 @@
         },
         {
           "destination": "CharcoalColors.swift",
-          "format": "charcoalColorFormat",
+          "format": "charcoalColorEnumFormat",
           "options": {
             "className": "CharcoalColors: CaseIterable"
           },
@@ -24,7 +24,7 @@
         },
         {
           "destination": "CharcoalBorderRadius.swift",
-          "format": "ios-swift/enum.swift",
+          "format": "charcoalSturctFormat",
           "options": {
             "className": "CharcoalBorderRadius"
           },
@@ -32,7 +32,7 @@
         },
         {
           "destination": "CharcoalSpacings.swift",
-          "format": "ios-swift/enum.swift",
+          "format": "charcoalSturctFormat",
           "options": {
             "className": "CharcoalSpacings"
           },
