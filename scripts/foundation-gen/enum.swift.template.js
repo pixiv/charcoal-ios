@@ -24,27 +24,28 @@ ${options.import
   .map(/** @param {string} item */ (item) => `import ${item}`)
   .join("\n")}
 
-${options.accessControl ? `${options.accessControl} ` : ""}${
+${options.nameSpacing ? `extension ${options.nameSpacing} {` : ""}
+  ${options.accessControl ? `${options.accessControl} ` : ""}${
   options.objectType ? `${options.objectType} ` : ""
 }${options.className ? `${options.className} ` : ""}{
-  ${allTokens
-    .map((token) => {
-      if (options.enumPropertyJSTypeGuard) {
-        if (
-          options.enumPropertyJSTypeGuard === "number" &&
-          !isNaN(parseInt(token.value))
-        ) {
-          return `case ${token.name}`;
-        } else {
-          return `${
-            options.accessControl ? `  ${options.accessControl} ` : ""
-          }static let ${formatProperty(token)}`;
+    ${allTokens
+      .map((token) => {
+        if (options.enumPropertyJSTypeGuard) {
+          if (
+            options.enumPropertyJSTypeGuard === "number" &&
+            !isNaN(parseInt(token.value))
+          ) {
+            return `case ${token.name}`;
+          } else {
+            return `${
+              options.accessControl ? `${options.accessControl} ` : ""
+            }static let ${formatProperty(token)}`;
+          }
         }
-      }
-      return `case ${token.name}`;
-    })
-    .filter((item) => item !== null)
-    .join("\n    ")}
+        return `case ${token.name}`;
+      })
+      .filter((item) => item !== null)
+      .join("\n    ")}
 
     ${options.accessControl ? `${options.accessControl} ` : ""}var ${
   options.enumPropertyName ? `${options.enumPropertyName} ` : "value"
@@ -69,5 +70,6 @@ ${options.accessControl ? `${options.accessControl} ` : ""}${
               .join("\n            ")}
         }
     }
-}  
+  }  
+${options.nameSpacing ? `}` : ""}
 `;

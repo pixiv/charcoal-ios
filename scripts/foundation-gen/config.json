@@ -10,7 +10,8 @@
           "destination": "CharcoalTypography.swift",
           "format": "charcoalSturctFormat",
           "options": {
-            "className": "CharcoalTypography: CaseIterable",
+            "nameSpacing": "CharcoalFoundation",
+            "className": "Typography: CaseIterable",
             "enumPropertyName": "value",
             "enumPropertyType": "Int",
             "enumPropertyJSTypeGuard": "number"
@@ -21,7 +22,8 @@
           "destination": "CharcoalColors.swift",
           "format": "charcoalColorEnumFormat",
           "options": {
-            "className": "CharcoalColors: CaseIterable",
+            "nameSpacing": "CharcoalFoundation",
+            "className": "Colors: CaseIterable",
             "enumPropertyName": "value",
             "enumPropertyType": "UIColor"
           },
@@ -31,7 +33,8 @@
           "destination": "CharcoalBorderRadius.swift",
           "format": "charcoalSturctFormat",
           "options": {
-            "className": "CharcoalBorderRadius: CaseIterable",
+            "nameSpacing": "CharcoalFoundation",
+            "className": "BorderRadius: CaseIterable",
             "enumPropertyName": "value",
             "enumPropertyType": "Int",
             "enumPropertyJSTypeGuard": "number"
@@ -42,7 +45,8 @@
           "destination": "CharcoalSpacings.swift",
           "format": "charcoalSturctFormat",
           "options": {
-            "className": "CharcoalSpacings: CaseIterable",
+            "nameSpacing": "CharcoalFoundation",
+            "className": "Spacings: CaseIterable",
             "enumPropertyName": "value",
             "enumPropertyType": "Int",
             "enumPropertyJSTypeGuard": "number"

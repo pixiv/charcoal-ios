@@ -8,7 +8,8 @@
 
 import UIKit
 
-public enum CharcoalTypography: CaseIterable {
+extension CharcoalFoundation {
+  public enum Typography: CaseIterable {
     public static let textFontFamilySans = "Sarasa UI J"
     case textFontSize0
     case textFontSize1
@@ -75,4 +76,5 @@ public enum CharcoalTypography: CaseIterable {
             case .textLineHeight90: return 64;
         }
     }
-}  
+  }  
+}

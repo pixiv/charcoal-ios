@@ -8,8 +8,9 @@
 
 import UIKit
 
-public enum CharcoalSpacings: CaseIterable {
-  case spaceComponentComponent0
+extension CharcoalFoundation {
+  public enum Spacings: CaseIterable {
+    case spaceComponentComponent0
     case spaceComponentComponent1
     case spaceComponentComponent10
     case spaceComponentComponent15
@@ -124,4 +125,5 @@ public enum CharcoalSpacings: CaseIterable {
             case .spacingsSpace999: return 999999;
         }
     }
-}  
+  }  
+}

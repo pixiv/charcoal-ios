@@ -8,8 +8,9 @@
 
 import UIKit
 
-public enum CharcoalBorderRadius: CaseIterable {
-  case borderRadius16
+extension CharcoalFoundation {
+  public enum BorderRadius: CaseIterable {
+    case borderRadius16
     case borderRadius24
     case borderRadius4
     case borderRadius8
@@ -26,4 +27,5 @@ public enum CharcoalBorderRadius: CaseIterable {
             case .borderRadiusOval: return 999999;
         }
     }
-}  
+  }  
+}

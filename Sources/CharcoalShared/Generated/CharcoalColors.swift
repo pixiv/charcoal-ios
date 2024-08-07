@@ -8,8 +8,9 @@
 
 import UIKit
 
-public enum CharcoalColors: CaseIterable {
-  case brandColorBooth
+extension CharcoalFoundation {
+  public enum Colors: CaseIterable {
+    case brandColorBooth
     case brandColorComic
     case brandColorPixiv
     case brandColorPremium
@@ -778,4 +779,5 @@ public enum CharcoalColors: CaseIterable {
             case .colorsLightYellow90: return UIColor(red: 0.173, green: 0.110, blue: 0.000, alpha: 1);
         }
     }
-}  
+  }  
+}

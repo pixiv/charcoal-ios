@@ -2,11 +2,11 @@ import UIKit
 
 public class CharcoalTypography14: CharcoalTypographyLabel {
     override public var fontSize: CGFloat {
-        return CGFloat(CharcoalTypography.textFontSize5.value)
+        return CGFloat(CharcoalFoundation.Typography.textFontSize5.value)
     }
 
     override public var lineHeight: CGFloat {
-        return CGFloat(CharcoalTypography.textLineHeight5.value)
+        return CGFloat(CharcoalFoundation.Typography.textLineHeight5.value)
     }
 }
 
