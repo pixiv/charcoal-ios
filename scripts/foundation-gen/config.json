@@ -4,7 +4,7 @@
     "ios-swift-separate-enums": {
       "transformGroup": "ios-swift-separate",
       "buildPath": "build/ios-swift/",
-      "transforms": ["swift/color", "swift/font"],
+      "transforms": ["name/ti/camel", "swift/color", "swift/font"],
       "files": [
         {
           "destination": "CharcoalTypography.swift",

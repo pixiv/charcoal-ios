@@ -10,119 +10,119 @@ import UIKit
 
 extension CharcoalFoundation {
   public enum Spacings: CaseIterable {
-    case spaceComponentComponent0
-    case spaceComponentComponent1
-    case spaceComponentComponent10
-    case spaceComponentComponent15
-    case spaceComponentComponent20
-    case spaceComponentComponent25
-    case spaceComponentComponent30
-    case spaceComponentComponent35
-    case spaceComponentComponent40
-    case spaceComponentComponent43
-    case spaceComponentComponent46
-    case spaceComponentComponent50
-    case spaceComponentComponent55
-    case spaceComponentComponent60
-    case spaceComponentComponent63
-    case spaceComponentComponent66
-    case spaceGapGapButtons
-    case spaceGapGapFormItems
-    case spaceLayoutLayout0
-    case spaceLayoutLayout10
-    case spaceLayoutLayout100
-    case spaceLayoutLayout20
-    case spaceLayoutLayout30
-    case spaceLayoutLayout40
-    case spaceLayoutLayout50
-    case spaceLayoutLayout60
-    case spaceLayoutLayout70
-    case spaceLayoutLayout80
-    case spaceLayoutLayout90
-    case spacePaddingPaddingCard
-    case spacePaddingPaddingModal
-    case spaceTargetSizeTargetSizeCompact
-    case spaceTargetSizeTargetSizeCozy
-    case spaceTargetSizeTargetSizeDefault
-    case spacingsSpace0
-    case spacingsSpace1
-    case spacingsSpace10
-    case spacingsSpace100
-    case spacingsSpace15
-    case spacingsSpace20
-    case spacingsSpace25
-    case spacingsSpace30
-    case spacingsSpace35
-    case spacingsSpace40
-    case spacingsSpace43
-    case spacingsSpace46
-    case spacingsSpace50
-    case spacingsSpace55
-    case spacingsSpace60
-    case spacingsSpace63
-    case spacingsSpace66
-    case spacingsSpace70
-    case spacingsSpace80
-    case spacingsSpace90
-    case spacingsSpace999
+    case componentComponent0
+    case componentComponent1
+    case componentComponent10
+    case componentComponent15
+    case componentComponent20
+    case componentComponent25
+    case componentComponent30
+    case componentComponent35
+    case componentComponent40
+    case componentComponent43
+    case componentComponent46
+    case componentComponent50
+    case componentComponent55
+    case componentComponent60
+    case componentComponent63
+    case componentComponent66
+    case gapGapButtons
+    case gapGapFormItems
+    case layoutLayout0
+    case layoutLayout10
+    case layoutLayout100
+    case layoutLayout20
+    case layoutLayout30
+    case layoutLayout40
+    case layoutLayout50
+    case layoutLayout60
+    case layoutLayout70
+    case layoutLayout80
+    case layoutLayout90
+    case paddingPaddingCard
+    case paddingPaddingModal
+    case space0
+    case space1
+    case space10
+    case space100
+    case space15
+    case space20
+    case space25
+    case space30
+    case space35
+    case space40
+    case space43
+    case space46
+    case space50
+    case space55
+    case space60
+    case space63
+    case space66
+    case space70
+    case space80
+    case space90
+    case space999
+    case targetSizeTargetSizeCompact
+    case targetSizeTargetSizeCozy
+    case targetSizeTargetSizeDefault
 
     public var value : Int  {
         switch self {
-            case .spaceComponentComponent0: return 0;
-            case .spaceComponentComponent1: return 2;
-            case .spaceComponentComponent10: return 4;
-            case .spaceComponentComponent15: return 6;
-            case .spaceComponentComponent20: return 8;
-            case .spaceComponentComponent25: return 12;
-            case .spaceComponentComponent30: return 16;
-            case .spaceComponentComponent35: return 20;
-            case .spaceComponentComponent40: return 24;
-            case .spaceComponentComponent43: return 28;
-            case .spaceComponentComponent46: return 32;
-            case .spaceComponentComponent50: return 40;
-            case .spaceComponentComponent55: return 48;
-            case .spaceComponentComponent60: return 64;
-            case .spaceComponentComponent63: return 80;
-            case .spaceComponentComponent66: return 96;
-            case .spaceGapGapButtons: return 8;
-            case .spaceGapGapFormItems: return 24;
-            case .spaceLayoutLayout0: return 0;
-            case .spaceLayoutLayout10: return 4;
-            case .spaceLayoutLayout100: return 440;
-            case .spaceLayoutLayout20: return 8;
-            case .spaceLayoutLayout30: return 16;
-            case .spaceLayoutLayout40: return 24;
-            case .spaceLayoutLayout50: return 40;
-            case .spaceLayoutLayout60: return 64;
-            case .spaceLayoutLayout70: return 104;
-            case .spaceLayoutLayout80: return 168;
-            case .spaceLayoutLayout90: return 272;
-            case .spacePaddingPaddingCard: return 24;
-            case .spacePaddingPaddingModal: return 24;
-            case .spaceTargetSizeTargetSizeCompact: return 24;
-            case .spaceTargetSizeTargetSizeCozy: return 48;
-            case .spaceTargetSizeTargetSizeDefault: return 32;
-            case .spacingsSpace0: return 0;
-            case .spacingsSpace1: return 2;
-            case .spacingsSpace10: return 4;
-            case .spacingsSpace100: return 440;
-            case .spacingsSpace15: return 6;
-            case .spacingsSpace20: return 8;
-            case .spacingsSpace25: return 12;
-            case .spacingsSpace30: return 16;
-            case .spacingsSpace35: return 20;
-            case .spacingsSpace40: return 24;
-            case .spacingsSpace43: return 28;
-            case .spacingsSpace46: return 32;
-            case .spacingsSpace50: return 40;
-            case .spacingsSpace55: return 48;
-            case .spacingsSpace60: return 64;
-            case .spacingsSpace63: return 80;
-            case .spacingsSpace66: return 96;
-            case .spacingsSpace70: return 104;
-            case .spacingsSpace80: return 168;
-            case .spacingsSpace90: return 272;
-            case .spacingsSpace999: return 999999;
+            case .componentComponent0: return 0;
+            case .componentComponent1: return 2;
+            case .componentComponent10: return 4;
+            case .componentComponent15: return 6;
+            case .componentComponent20: return 8;
+            case .componentComponent25: return 12;
+            case .componentComponent30: return 16;
+            case .componentComponent35: return 20;
+            case .componentComponent40: return 24;
+            case .componentComponent43: return 28;
+            case .componentComponent46: return 32;
+            case .componentComponent50: return 40;
+            case .componentComponent55: return 48;
+            case .componentComponent60: return 64;
+            case .componentComponent63: return 80;
+            case .componentComponent66: return 96;
+            case .gapGapButtons: return 8;
+            case .gapGapFormItems: return 24;
+            case .layoutLayout0: return 0;
+            case .layoutLayout10: return 4;
+            case .layoutLayout100: return 440;
+            case .layoutLayout20: return 8;
+            case .layoutLayout30: return 16;
+            case .layoutLayout40: return 24;
+            case .layoutLayout50: return 40;
+            case .layoutLayout60: return 64;
+            case .layoutLayout70: return 104;
+            case .layoutLayout80: return 168;
+            case .layoutLayout90: return 272;
+            case .paddingPaddingCard: return 24;
+            case .paddingPaddingModal: return 24;
+            case .space0: return 0;
+            case .space1: return 2;
+            case .space10: return 4;
+            case .space100: return 440;
+            case .space15: return 6;
+            case .space20: return 8;
+            case .space25: return 12;
+            case .space30: return 16;
+            case .space35: return 20;
+            case .space40: return 24;
+            case .space43: return 28;
+            case .space46: return 32;
+            case .space50: return 40;
+            case .space55: return 48;
+            case .space60: return 64;
+            case .space63: return 80;
+            case .space66: return 96;
+            case .space70: return 104;
+            case .space80: return 168;
+            case .space90: return 272;
+            case .space999: return 999999;
+            case .targetSizeTargetSizeCompact: return 24;
+            case .targetSizeTargetSizeCozy: return 48;
+            case .targetSizeTargetSizeDefault: return 32;
         }
     }
   }  

@@ -10,70 +10,70 @@ import UIKit
 
 extension CharcoalFoundation {
   public enum Typography: CaseIterable {
-    public static let textFontFamilySans = "Sarasa UI J"
-    case textFontSize0
-    case textFontSize1
-    case textFontSize10
-    case textFontSize100
-    case textFontSize110
-    case textFontSize120
-    case textFontSize20
-    case textFontSize30
-    case textFontSize40
-    case textFontSize5
-    case textFontSize50
-    case textFontSize60
-    case textFontSize70
-    case textFontSize80
-    case textFontSize90
-    case textFontWeight40
-    case textFontWeight70
-    case textLineHeight0
-    case textLineHeight1
-    case textLineHeight10
-    case textLineHeight100
-    case textLineHeight20
-    case textLineHeight30
-    case textLineHeight40
-    case textLineHeight5
-    case textLineHeight50
-    case textLineHeight60
-    case textLineHeight70
-    case textLineHeight80
-    case textLineHeight90
+    public static let fontFamilySans = "Sarasa UI J"
+    case fontSize0
+    case fontSize1
+    case fontSize10
+    case fontSize100
+    case fontSize110
+    case fontSize120
+    case fontSize20
+    case fontSize30
+    case fontSize40
+    case fontSize5
+    case fontSize50
+    case fontSize60
+    case fontSize70
+    case fontSize80
+    case fontSize90
+    case fontWeight40
+    case fontWeight70
+    case lineHeight0
+    case lineHeight1
+    case lineHeight10
+    case lineHeight100
+    case lineHeight20
+    case lineHeight30
+    case lineHeight40
+    case lineHeight5
+    case lineHeight50
+    case lineHeight60
+    case lineHeight70
+    case lineHeight80
+    case lineHeight90
 
     public var value : Int  {
         switch self {
-            case .textFontSize0: return 11;
-            case .textFontSize1: return 12;
-            case .textFontSize10: return 16;
-            case .textFontSize100: return 45;
-            case .textFontSize110: return 50;
-            case .textFontSize120: return 60;
-            case .textFontSize20: return 18;
-            case .textFontSize30: return 20;
-            case .textFontSize40: return 22;
-            case .textFontSize5: return 14;
-            case .textFontSize50: return 25;
-            case .textFontSize60: return 28;
-            case .textFontSize70: return 32;
-            case .textFontSize80: return 36;
-            case .textFontSize90: return 40;
-            case .textFontWeight40: return 400;
-            case .textFontWeight70: return 700;
-            case .textLineHeight0: return 16;
-            case .textLineHeight1: return 18;
-            case .textLineHeight10: return 24;
-            case .textLineHeight100: return 72;
-            case .textLineHeight20: return 28;
-            case .textLineHeight30: return 32;
-            case .textLineHeight40: return 36;
-            case .textLineHeight5: return 20;
-            case .textLineHeight50: return 40;
-            case .textLineHeight60: return 44;
-            case .textLineHeight70: return 52;
-            case .textLineHeight80: return 56;
-            case .textLineHeight90: return 64;
+            case .fontSize0: return 11;
+            case .fontSize1: return 12;
+            case .fontSize10: return 16;
+            case .fontSize100: return 45;
+            case .fontSize110: return 50;
+            case .fontSize120: return 60;
+            case .fontSize20: return 18;
+            case .fontSize30: return 20;
+            case .fontSize40: return 22;
+            case .fontSize5: return 14;
+            case .fontSize50: return 25;
+            case .fontSize60: return 28;
+            case .fontSize70: return 32;
+            case .fontSize80: return 36;
+            case .fontSize90: return 40;
+            case .fontWeight40: return 400;
+            case .fontWeight70: return 700;
+            case .lineHeight0: return 16;
+            case .lineHeight1: return 18;
+            case .lineHeight10: return 24;
+            case .lineHeight100: return 72;
+            case .lineHeight20: return 28;
+            case .lineHeight30: return 32;
+            case .lineHeight40: return 36;
+            case .lineHeight5: return 20;
+            case .lineHeight50: return 40;
+            case .lineHeight60: return 44;
+            case .lineHeight70: return 52;
+            case .lineHeight80: return 56;
+            case .lineHeight90: return 64;
         }
     }
   }  

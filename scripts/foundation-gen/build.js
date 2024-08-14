@@ -3,10 +3,29 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import StyleDictionary from "style-dictionary";
 import formats from "./formats.js";
+import { camelCase } from "change-case";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 var log = false;
+
+const camelOpts = {
+  mergeAmbiguousCharacters: true,
+};
+
+StyleDictionary.registerTransform({
+  name: "name/ti/camel",
+  type: "name",
+  filter: function (token) {
+    return token.attributes.category != "Border radius";
+  },
+  transform: function (token, options) {
+    return camelCase(
+      [options.prefix].concat(token.path.slice(1, token.path.length)).join(" "),
+      camelOpts
+    );
+  },
+});
 
 StyleDictionary.registerTransform({
   name: "swift/color",
@@ -22,6 +41,8 @@ StyleDictionary.registerTransform({
     const { r, g, b, a } = Color(
       options.usesDtcg ? token.$value : token.value
     ).toRgb();
+
+    console.log(token);
 
     const rFixed = (r / 255.0).toFixed(3);
     const gFixed = (g / 255.0).toFixed(3);
