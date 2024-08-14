@@ -26,15 +26,11 @@ struct CharcoalPrimaryButtonStyleView: View {
     var body: some View {
         label
             .font(.system(size: fontSize, weight: .bold))
-            .charcoalOnSurfaceText5()
+            .foregroundColor(isPressed ? Color(CharcoalFoundation.Colors.textOnPrimaryHover.value) : Color(CharcoalFoundation.Colors.textOnPrimaryDefault.value))
             .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
-            .background(primaryColor)
+            .background(isPressed ? Color(CharcoalFoundation.Colors.containerPrimaryPress.value) : primaryColor)
             .opacity(isEnabled ? 1.0 : 0.32)
-            .overlay(
-                Rectangle()
-                    .backport.foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
-            )
             .cornerRadius(cornerRadius)
     }
 }
@@ -98,7 +94,7 @@ public extension View {
     func charcoalPrimaryButton(
         size: CharcoalButtonSize = .medium,
         isFixed: Bool = true,
-        primaryColor: Color = Color(CharcoalAsset.ColorPaletteGenerated.brand.color)
+        primaryColor: Color = Color(CharcoalFoundation.Colors.containerPrimaryDefault.value)
     ) -> some View {
         return modifier(CharcoalPrimaryButtonStyleModifier(size: size, isFixed: isFixed, primaryColor: primaryColor))
     }
