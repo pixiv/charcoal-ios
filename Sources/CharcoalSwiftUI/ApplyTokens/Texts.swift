@@ -7,21 +7,25 @@ extension CharcoalApplyTokens {
 }
 
 extension CharcoalApplyTokens.Texts {
-    struct modifier: ViewModifier {
+    struct apply: ViewModifier {
         let isPressed: Bool
+        let foregroundColor: Color
+        let foregroundPressedColor: Color
         func body(content: Content) -> some View {
             content
-                .foregroundColor(isPressed ? Color(CharcoalFoundation.Colors.textOnPrimaryPress.value) : Color(CharcoalFoundation.Colors.textOnPrimaryDefault.value))
+                .foregroundColor(isPressed ? foregroundColor : foregroundPressedColor)
         }
     }
 }
 
 public extension View {
     @warn_unqualified_access
-    func charcoalText(applyToken: CharcoalApplyTokens.Texts, isPressed: Bool) -> some View {
-        switch applyToken {
+    func charcoalApplyToken(token: CharcoalApplyTokens.Texts, isPressed: Bool) -> some View {
+        switch token {
         case .onPrimary:
-            return modifier(CharcoalApplyTokens.Texts.modifier(isPressed: isPressed))
+            return modifier(CharcoalApplyTokens.Texts.apply(isPressed: isPressed,
+                                                               foregroundColor: Color(CharcoalFoundation.Colors.textOnPrimaryDefault.value),
+                                                               foregroundPressedColor: Color(CharcoalFoundation.Colors.textOnPrimaryPress.value)))
         }
     }
 }

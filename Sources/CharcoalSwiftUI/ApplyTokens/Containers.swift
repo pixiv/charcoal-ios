@@ -7,7 +7,7 @@ extension CharcoalApplyTokens {
 }
 
 extension CharcoalApplyTokens.Containers {
-    struct modifier: ViewModifier {
+    struct apply: ViewModifier {
         let isPressed: Bool
         let backgroundColor: Color
         let backgroundPressedColor: Color
@@ -21,10 +21,10 @@ extension CharcoalApplyTokens.Containers {
 
 public extension View {
     @warn_unqualified_access
-    func charcoalContainer(applyToken: CharcoalApplyTokens.Containers, isPressed: Bool) -> some View {
-        switch applyToken {
+    func charcoalApplyToken(token: CharcoalApplyTokens.Containers, isPressed: Bool) -> some View {
+        switch token {
         case .primary:
-            return modifier(CharcoalApplyTokens.Containers.modifier(isPressed: isPressed, 
+            return modifier(CharcoalApplyTokens.Containers.apply(isPressed: isPressed, 
                                                                     backgroundColor: Color(CharcoalFoundation.Colors.containerPrimaryPress.value),
                                                                     backgroundPressedColor: Color(CharcoalFoundation.Colors.containerPrimaryDefault.value)))
         }
