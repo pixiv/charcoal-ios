@@ -17,7 +17,7 @@ struct ColorsView: View {
                                         .frame(width: 64, height: 64)
                                         .foregroundColor(Color(colors[row * 4 + column].value))
                                         .cornerRadius(8)
-                                    Text(String(describing: colors[row * 4 + column])).font(.caption)
+                                    Text(String(describing: colors[row * 4 + column])).font(.caption).frame(width: 64, height: 40)
                                 }
                             } else {
                                 Rectangle()
