@@ -26,10 +26,10 @@ struct CharcoalPrimaryButtonStyleView: View {
     var body: some View {
         label
             .font(.system(size: fontSize, weight: .bold))
-            .foregroundColor(isPressed ? Color(CharcoalFoundation.Colors.textOnPrimaryHover.value) : Color(CharcoalFoundation.Colors.textOnPrimaryDefault.value))
+            .charcoalText(applyToken: .onPrimary, isPressed: isPressed)
             .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
-            .background(isPressed ? Color(CharcoalFoundation.Colors.containerPrimaryPress.value) : primaryColor)
+            .charcoalContainer(applyToken: .primary, isPressed: isPressed)
             .opacity(isEnabled ? 1.0 : 0.32)
             .cornerRadius(cornerRadius)
     }
