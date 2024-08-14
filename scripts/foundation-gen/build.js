@@ -42,8 +42,6 @@ StyleDictionary.registerTransform({
       options.usesDtcg ? token.$value : token.value
     ).toRgb();
 
-    console.log(token);
-
     const rFixed = (r / 255.0).toFixed(3);
     const gFixed = (g / 255.0).toFixed(3);
     const bFixed = (b / 255.0).toFixed(3);
