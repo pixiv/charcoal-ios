@@ -3,6 +3,7 @@ import SwiftUI
 extension CharcoalApplyTokens {
     public enum Containers {
         case primary
+        case hud
         case `default`
         
         func color(state: CharcoalApplyTokens.Containers.States) -> Color {
@@ -13,6 +14,13 @@ extension CharcoalApplyTokens {
                     return Color(CharcoalFoundation.Colors.containerPrimaryPress.value)
                 default:
                     return Color(CharcoalFoundation.Colors.containerPrimaryDefault.value)
+                }
+            case .hud:
+                switch state {
+                case .press:
+                    return Color(CharcoalFoundation.Colors.containerHudPress.value)
+                default:
+                    return Color(CharcoalFoundation.Colors.containerHudDefault.value)
                 }
             default:
                 switch state {
