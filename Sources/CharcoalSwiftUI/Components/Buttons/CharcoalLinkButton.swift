@@ -12,7 +12,7 @@ struct CharcoalLinkButtonStyleView: View {
             .font(.system(size: fontSize, weight: .bold))
             // swiftlint:disable line_length
             .padding(EdgeInsets(top: 11.5, leading: 0, bottom: 11.5, trailing: 0))
-            .foregroundStyle(charcoalColor: isPressed ? .text3 : .text1)
+            .backport.foregroundStyle(isPressed ? Color(CharcoalFoundation.Colors.textTertiaryDefault.value) : Color(CharcoalFoundation.Colors.textDefault.value))
             .opacity(isEnabled ? 1.0 : 0.32)
     }
 }
