@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "foundation-gen": "node src/index.js",
-    "build": "node build.js"
+    "build": "node src/build.js"
   },
   "type": "module",
   "author": "pixiv",

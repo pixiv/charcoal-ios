@@ -2,7 +2,7 @@ import Color from "tinycolor2";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import StyleDictionary from "style-dictionary";
-import formats from "./formats.js";
+import formats from "./formater/formats.js";
 import { camelCase } from "change-case";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));

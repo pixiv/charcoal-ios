@@ -6,7 +6,7 @@ import {
   sortByName,
 } from "style-dictionary/utils";
 
-import iosSwiftEnum from "./enum.swift.template.js";
+import iosSwiftEnum from "../template/enum.swift.template.js";
 
 function getFormattingCloneWithoutPrefix(formatting) {
   const formattingWithoutPrefix = structuredClone(formatting) ?? {};
