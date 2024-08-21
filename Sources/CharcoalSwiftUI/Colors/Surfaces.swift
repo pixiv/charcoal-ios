@@ -3,28 +3,28 @@ import SwiftUI
 struct CharcoalSurface1: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .background(Color(CharcoalAsset.ColorPaletteGenerated.surface1.color))
+            .background(Color(CharcoalFoundation.Colors.containerDefault.value))
     }
 }
 
 struct CharcoalSurface2: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .background(Color(CharcoalAsset.ColorPaletteGenerated.surface2.color))
+            .background(Color(CharcoalFoundation.Colors.containerTertiaryDefault.value))
     }
 }
 
 struct CharcoalSurface3: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .background(Color(CharcoalAsset.ColorPaletteGenerated.surface3.color))
+            .background(Color(CharcoalFoundation.Colors.containerSecondaryDefault.value))
     }
 }
 
 struct CharcoalSurface4: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .background(Color(CharcoalAsset.ColorPaletteGenerated.surface4.color))
+            .background(Color(CharcoalFoundation.Colors.containerNeutralDefault.value))
     }
 }
 
@@ -34,8 +34,8 @@ struct CharcoalSurface5: ViewModifier {
             .background(
                 LinearGradient(
                     gradient: Gradient(colors: [
-                        Color(CharcoalAsset.ColorPaletteGenerated.surface50.color),
-                        Color(CharcoalAsset.ColorPaletteGenerated.surface5100.color)
+                        Color(CharcoalFoundation.Colors.containerNeutralDefault.value.withAlphaComponent(0.4)),
+                        Color(CharcoalFoundation.Colors.containerNeutralDefault.value)
                     ]),
                     startPoint: .top,
                     endPoint: .bottom
@@ -47,28 +47,28 @@ struct CharcoalSurface5: ViewModifier {
 struct CharcoalSurface6: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .background(Color(CharcoalAsset.ColorPaletteGenerated.surface6.color))
+            .background(Color(CharcoalFoundation.Colors.containerHudDefault.value))
     }
 }
 
 struct CharcoalSurface7: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .background(Color(CharcoalAsset.ColorPaletteGenerated.surface7.color))
+            .background(Color(CharcoalFoundation.Colors.containerTertiaryDefault.value))
     }
 }
 
 struct CharcoalSurface8: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .background(Color(CharcoalAsset.ColorPaletteGenerated.surface8.color))
+            .background(Color(CharcoalFoundation.Colors.containerHudDefault.value))
     }
 }
 
 struct CharcoalSurface9: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .background(Color(CharcoalAsset.ColorPaletteGenerated.surface9.color))
+            .background(Color(CharcoalFoundation.Colors.containerDefault.value))
     }
 }
 
