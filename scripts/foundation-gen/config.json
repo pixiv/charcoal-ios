@@ -36,8 +36,7 @@
             "nameSpacing": "CharcoalFoundation",
             "className": "BorderRadius: CaseIterable",
             "enumPropertyName": "value",
-            "enumPropertyType": "Int",
-            "enumPropertyJSTypeGuard": "number"
+            "enumPropertyType": "Int"
           },
           "filter": "charcoal-border-radius-filter"
         },

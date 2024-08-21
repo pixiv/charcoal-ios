@@ -17,7 +17,7 @@ StyleDictionary.registerTransform({
   name: "name/ti/camel",
   type: "name",
   filter: function (token) {
-    return token.attributes.category != "Border radius";
+    return token.attributes.category != "space";
   },
   transform: function (token, options) {
     return camelCase(
@@ -32,9 +32,8 @@ StyleDictionary.registerTransform({
   type: "value",
   filter: function (token) {
     return (
-      token.attributes.category === "Color" ||
-      token.attributes.category === "Colors" ||
-      token.attributes.category === "Brand color"
+      token.attributes.category === "color" ||
+      token.attributes.category === "brand-color"
     );
   },
   transform: function (token, _, options) {
@@ -54,7 +53,7 @@ StyleDictionary.registerTransform({
   type: "value",
   filter: function (token) {
     return (
-      token.attributes.category === "Text" &&
+      token.attributes.category === "text" &&
       token.attributes.type.includes("font-family")
     );
   },
@@ -67,9 +66,8 @@ StyleDictionary.registerFilter({
   name: "charcoal-color-filter",
   filter: function (token) {
     return (
-      token.attributes.category === "Color" ||
-      token.attributes.category === "Colors" ||
-      token.attributes.category === "Brand color"
+      token.attributes.category === "color" ||
+      token.attributes.category === "brand-color"
     );
   },
 });
@@ -77,24 +75,21 @@ StyleDictionary.registerFilter({
 StyleDictionary.registerFilter({
   name: "charcoal-border-radius-filter",
   filter: function (token) {
-    return token.attributes.category === "Border radius";
+    return token.attributes.category === "radius";
   },
 });
 
 StyleDictionary.registerFilter({
   name: "charcoal-spacings-filter",
   filter: function (token) {
-    return (
-      token.attributes.category === "Spacings" ||
-      token.attributes.category === "Space"
-    );
+    return token.attributes.category === "space";
   },
 });
 
 StyleDictionary.registerFilter({
   name: "charcoal-text-filter",
   filter: function (token) {
-    return token.attributes.category === "Text";
+    return token.attributes.category === "text";
   },
 });
 
