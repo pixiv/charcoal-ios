@@ -103,6 +103,20 @@ StyleDictionary.registerFormat({
   format: formats["ios-swift/charcoal-enum.swift"],
 });
 
+StyleDictionary.registerParser({
+  name: "json-parser",
+  pattern: /\.json$/,
+  parser: ({ filePath, contents }) => {
+    if (filePath.includes("pixiv-dark")) {
+      var json = JSON.parse(contents);
+      json.color = { "pixiv-dark": json.color };
+      console.log(json);
+      return json;
+    }
+    return JSON.parse(contents);
+  },
+});
+
 const sd = new StyleDictionary(__dirname + "/config.json");
 
 // FINALLY, BUILD ALL THE PLATFORMS

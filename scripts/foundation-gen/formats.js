@@ -35,14 +35,14 @@ const formats = {
       usesDtcg,
     });
 
-    const darkThemeKey = "pixiv/dark";
+    const darkThemeKey = "pixiv-dark";
 
-    const darkThemeDataTokens = allTokens.filter(
-      (token) => token.attributes.type == darkThemeKey
+    const darkThemeDataTokens = allTokens.filter((token) =>
+      token.filePath.includes(darkThemeKey)
     );
 
     const themeDataTokens = allTokens.filter(
-      (token) => token.attributes.type != darkThemeKey
+      (token) => !token.filePath.includes(darkThemeKey)
     );
 
     for (const token of themeDataTokens) {

@@ -1,5 +1,6 @@
 {
   "source": ["json/**/*.json"],
+  "parsers": ["json-parser"],
   "platforms": {
     "ios-swift-separate-enums": {
       "transformGroup": "ios-swift-separate",
