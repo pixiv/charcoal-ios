@@ -1,15 +1,15 @@
 import SwiftUI
 
 struct CharcoalForegroundStyle: ViewModifier {
-    let charcoalColor: CharcoalAsset.ColorPaletteGenerated
+    let charcoalColor: CharcoalFoundation.Colors
 
     func body(content: Content) -> some View {
-        content.backport.foregroundStyle(Color(charcoalColor.color))
+        content.backport.foregroundStyle(Color(charcoalColor.value))
     }
 }
 
 public extension View {
-    func foregroundStyle(charcoalColor: CharcoalAsset.ColorPaletteGenerated) -> some View {
+    func foregroundStyle(charcoalColor: CharcoalFoundation.Colors) -> some View {
         modifier(CharcoalForegroundStyle(charcoalColor: charcoalColor))
     }
 }
@@ -20,7 +20,7 @@ private struct ForegroundView: View {
     var body: some View {
         ZStack {
             Text("Charcoal")
-                .foregroundStyle(charcoalColor: .brand)
+                .foregroundStyle(charcoalColor: .pixiv)
         }
     }
 }
