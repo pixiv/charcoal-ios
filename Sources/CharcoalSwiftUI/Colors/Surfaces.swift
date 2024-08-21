@@ -30,9 +30,6 @@ struct CharcoalSurface4: ViewModifier {
 
 struct CharcoalSurface5: ViewModifier {
     func body(content: Content) -> some View {
-        
-        
-        
         content
             .background(
                 LinearGradient(

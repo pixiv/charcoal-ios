@@ -16,8 +16,7 @@ struct CharcoalOnSurfaceLink1: ViewModifier {
 
 struct CharcoalOnSurfaceLink2: ViewModifier {
     func body(content: Content) -> some View {
-        content
-            .foregroundStyle(charcoalColor: .textInfoDefault)
+        content.backport.foregroundStyle(Color(CharcoalAsset.ColorPaletteGenerated.link2.color))
     }
 }
 
