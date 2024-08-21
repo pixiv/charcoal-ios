@@ -1,25 +1,25 @@
 import SwiftUI
 
 struct CharcoalBackground: ViewModifier {
-    let charcoalColor: CharcoalAsset.ColorPaletteGenerated
+    let charcoalColor: CharcoalFoundation.Colors
     let edges: Edge.Set
 
     func body(content: Content) -> some View {
-        content.backport.background(Color(charcoalColor.color), ignoresSafeAreaEdges: edges)
+        content.backport.background(Color(charcoalColor.value), ignoresSafeAreaEdges: edges)
     }
 }
 
 struct CharcoalBackground1: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .background(charcoalColor: .background1)
+            .background(charcoalColor: .backgroundDefault)
     }
 }
 
 struct CharcoalBackground2: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .background(charcoalColor: .background2)
+            .background(charcoalColor: .backgroundSecondary)
     }
 }
 
@@ -38,7 +38,7 @@ public extension View {
 }
 
 public extension View {
-    func background(charcoalColor: CharcoalAsset.ColorPaletteGenerated, ignoresSafeAreaEdges edges: Edge.Set = .all) -> some View {
+    func background(charcoalColor: CharcoalFoundation.Colors, ignoresSafeAreaEdges edges: Edge.Set = .all) -> some View {
         modifier(CharcoalBackground(charcoalColor: charcoalColor, edges: edges))
     }
 }
@@ -51,7 +51,7 @@ private struct BackgroundView: View {
             Text("Charcoal")
             Color.clear
         }
-        .background(charcoalColor: .warning)
+        .background(charcoalColor: .backgroundDefault)
     }
 }
 
