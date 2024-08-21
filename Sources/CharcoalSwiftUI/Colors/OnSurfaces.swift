@@ -3,63 +3,63 @@ import SwiftUI
 struct CharcoalOnSurfaceBorder: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(charcoalColor: .border)
+            .foregroundStyle(charcoalColor: .borderDefault)
     }
 }
 
 struct CharcoalOnSurfaceLink1: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(charcoalColor: .link1)
+            .foregroundStyle(charcoalColor: .textInfoDefault)
     }
 }
 
 struct CharcoalOnSurfaceLink2: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(charcoalColor: .link2)
+            .foregroundStyle(charcoalColor: .textInfoDefault)
     }
 }
 
 struct CharcoalOnSurfaceText1: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(charcoalColor: .text1)
+            .foregroundStyle(charcoalColor: .textDefault)
     }
 }
 
 struct CharcoalOnSurfaceText2: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(charcoalColor: .text2)
+            .foregroundStyle(charcoalColor: .textSecondaryDefault)
     }
 }
 
 struct CharcoalOnSurfaceText3: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(charcoalColor: .text3)
+            .foregroundStyle(charcoalColor: .textTertiaryDefault)
     }
 }
 
 struct CharcoalOnSurfaceText4: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(charcoalColor: .text4)
+            .foregroundStyle(charcoalColor: .textTertiaryDefault)
     }
 }
 
 struct CharcoalOnSurfaceText5: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(charcoalColor: .text5)
+            .foregroundStyle(charcoalColor: .textOnPrimaryDefault)
     }
 }
 
 struct CharcoalOnSurfaceIcon6: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(charcoalColor: .icon6)
+            .foregroundStyle(charcoalColor: .iconDefault)
     }
 }
 
