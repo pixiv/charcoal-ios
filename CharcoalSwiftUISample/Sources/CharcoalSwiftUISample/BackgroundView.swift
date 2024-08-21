@@ -5,7 +5,7 @@ struct BackgroundView: View {
 
     var body: some View {
         ZStack {
-            Color.clear.background(charcoalColor: .background2, ignoresSafeAreaEdges: isOn ? .all : [])
+            Color.clear.background(charcoalColor: .backgroundSecondary, ignoresSafeAreaEdges: isOn ? .all : [])
             ScrollView {
                 Toggle(isOn: $isOn) {
                     Text("Ignores SafeArea Edges")
