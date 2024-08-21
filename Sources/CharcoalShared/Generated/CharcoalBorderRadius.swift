@@ -10,21 +10,25 @@ import UIKit
 
 extension CharcoalFoundation {
   public enum BorderRadius: CaseIterable {
-    case borderRadius16
-    case borderRadius24
-    case borderRadius4
-    case borderRadius8
-    case borderRadiusNone
-    case borderRadiusOval
+    case l
+    case m
+    case none
+    case oval
+    case s
+    case xl
+    case xs
+    case xxl
 
     public var value : Int  {
         switch self {
-            case .borderRadius16: return 16;
-            case .borderRadius24: return 24;
-            case .borderRadius4: return 4;
-            case .borderRadius8: return 8;
-            case .borderRadiusNone: return 0;
-            case .borderRadiusOval: return 999999;
+            case .l: return 12;
+            case .m: return 8;
+            case .none: return 0;
+            case .oval: return 999999;
+            case .s: return 4;
+            case .xl: return 16;
+            case .xs: return 2;
+            case .xxl: return 24;
         }
     }
   }  

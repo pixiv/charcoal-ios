@@ -10,37 +10,6 @@ import UIKit
 
 extension CharcoalFoundation {
   public enum Spacings: CaseIterable {
-    case componentComponent0
-    case componentComponent1
-    case componentComponent10
-    case componentComponent15
-    case componentComponent20
-    case componentComponent25
-    case componentComponent30
-    case componentComponent35
-    case componentComponent40
-    case componentComponent43
-    case componentComponent46
-    case componentComponent50
-    case componentComponent55
-    case componentComponent60
-    case componentComponent63
-    case componentComponent66
-    case gapGapButtons
-    case gapGapFormItems
-    case layoutLayout0
-    case layoutLayout10
-    case layoutLayout100
-    case layoutLayout20
-    case layoutLayout30
-    case layoutLayout40
-    case layoutLayout50
-    case layoutLayout60
-    case layoutLayout70
-    case layoutLayout80
-    case layoutLayout90
-    case paddingPaddingCard
-    case paddingPaddingModal
     case space0
     case space1
     case space10
@@ -62,43 +31,40 @@ extension CharcoalFoundation {
     case space80
     case space90
     case space999
-    case targetSizeTargetSizeCompact
-    case targetSizeTargetSizeCozy
-    case targetSizeTargetSizeDefault
+    case spaceComponent0
+    case spaceComponent1
+    case spaceComponent10
+    case spaceComponent15
+    case spaceComponent20
+    case spaceComponent25
+    case spaceComponent30
+    case spaceComponent35
+    case spaceComponent40
+    case spaceComponent43
+    case spaceComponent46
+    case spaceComponent50
+    case spaceComponent55
+    case spaceComponent60
+    case spaceComponent63
+    case spaceComponent66
+    case spaceLayout0
+    case spaceLayout10
+    case spaceLayout100
+    case spaceLayout20
+    case spaceLayout30
+    case spaceLayout40
+    case spaceLayout50
+    case spaceLayout60
+    case spaceLayout70
+    case spaceLayout80
+    case spaceLayout90
+    case spaceTargetL
+    case spaceTargetM
+    case spaceTargetS
+    case spaceTargetXs
 
     public var value : Int  {
         switch self {
-            case .componentComponent0: return 0;
-            case .componentComponent1: return 2;
-            case .componentComponent10: return 4;
-            case .componentComponent15: return 6;
-            case .componentComponent20: return 8;
-            case .componentComponent25: return 12;
-            case .componentComponent30: return 16;
-            case .componentComponent35: return 20;
-            case .componentComponent40: return 24;
-            case .componentComponent43: return 28;
-            case .componentComponent46: return 32;
-            case .componentComponent50: return 40;
-            case .componentComponent55: return 48;
-            case .componentComponent60: return 64;
-            case .componentComponent63: return 80;
-            case .componentComponent66: return 96;
-            case .gapGapButtons: return 8;
-            case .gapGapFormItems: return 24;
-            case .layoutLayout0: return 0;
-            case .layoutLayout10: return 4;
-            case .layoutLayout100: return 440;
-            case .layoutLayout20: return 8;
-            case .layoutLayout30: return 16;
-            case .layoutLayout40: return 24;
-            case .layoutLayout50: return 40;
-            case .layoutLayout60: return 64;
-            case .layoutLayout70: return 104;
-            case .layoutLayout80: return 168;
-            case .layoutLayout90: return 272;
-            case .paddingPaddingCard: return 24;
-            case .paddingPaddingModal: return 24;
             case .space0: return 0;
             case .space1: return 2;
             case .space10: return 4;
@@ -120,9 +86,37 @@ extension CharcoalFoundation {
             case .space80: return 168;
             case .space90: return 272;
             case .space999: return 999999;
-            case .targetSizeTargetSizeCompact: return 24;
-            case .targetSizeTargetSizeCozy: return 48;
-            case .targetSizeTargetSizeDefault: return 32;
+            case .spaceComponent0: return 0;
+            case .spaceComponent1: return 2;
+            case .spaceComponent10: return 4;
+            case .spaceComponent15: return 6;
+            case .spaceComponent20: return 8;
+            case .spaceComponent25: return 12;
+            case .spaceComponent30: return 16;
+            case .spaceComponent35: return 20;
+            case .spaceComponent40: return 24;
+            case .spaceComponent43: return 28;
+            case .spaceComponent46: return 32;
+            case .spaceComponent50: return 40;
+            case .spaceComponent55: return 48;
+            case .spaceComponent60: return 64;
+            case .spaceComponent63: return 80;
+            case .spaceComponent66: return 96;
+            case .spaceLayout0: return 0;
+            case .spaceLayout10: return 4;
+            case .spaceLayout100: return 440;
+            case .spaceLayout20: return 8;
+            case .spaceLayout30: return 16;
+            case .spaceLayout40: return 24;
+            case .spaceLayout50: return 40;
+            case .spaceLayout60: return 64;
+            case .spaceLayout70: return 104;
+            case .spaceLayout80: return 168;
+            case .spaceLayout90: return 272;
+            case .spaceTargetL: return 48;
+            case .spaceTargetM: return 40;
+            case .spaceTargetS: return 32;
+            case .spaceTargetXs: return 24;
         }
     }
   }  
