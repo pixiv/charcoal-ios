@@ -26,7 +26,7 @@ struct IconsView: View {
                                         Rectangle()
                                             .frame(width: 64, height: 64)
                                             .cornerRadius(8)
-                                            .foregroundStyle(charcoalColor: .background2)
+                                            .foregroundStyle(charcoalColor: .backgroundSecondary)
                                         Image(charocalIcon: icon)
                                     }
                                     Text(icon.description)
