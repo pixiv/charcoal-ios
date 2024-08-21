@@ -27,15 +27,17 @@ StyleDictionary.registerTransform({
   },
 });
 
+const colorFilter = function (token) {
+  return (
+    token.attributes.category === "color" ||
+    token.attributes.category === "brand-color"
+  );
+};
+
 StyleDictionary.registerTransform({
   name: "swift/color",
   type: "value",
-  filter: function (token) {
-    return (
-      token.attributes.category === "color" ||
-      token.attributes.category === "brand-color"
-    );
-  },
+  filter: colorFilter,
   transform: function (token, _, options) {
     const { r, g, b, a } = Color(
       options.usesDtcg ? token.$value : token.value
@@ -64,12 +66,7 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerFilter({
   name: "charcoal-color-filter",
-  filter: function (token) {
-    return (
-      token.attributes.category === "color" ||
-      token.attributes.category === "brand-color"
-    );
-  },
+  filter: colorFilter,
 });
 
 StyleDictionary.registerFilter({
@@ -107,6 +104,7 @@ StyleDictionary.registerParser({
   name: "json-parser",
   pattern: /\.json$/,
   parser: ({ filePath, contents }) => {
+    // hotfix for pixiv-dark to prevent from token collision
     if (filePath.includes("pixiv-dark")) {
       var json = JSON.parse(contents);
       json.color = { "pixiv-dark": json.color };
