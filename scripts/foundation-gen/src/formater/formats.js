@@ -61,6 +61,11 @@ const formats = {
       return parts.slice(1).join(delimiter);
     }
 
+    function lowerCaseFirstLetter(string) {
+      if (!string) return string; // 如果字符串为空或null，返回原值
+      return string.charAt(0).toLowerCase() + string.slice(1);
+    }
+
     let dynamicPrimitiveColors = [];
     // Map apply token
     for (const token of themeDataTokens) {
@@ -80,7 +85,9 @@ const formats = {
         console.log(getSecondHalf(token.attributes.type, "/"), darkToken.name);
 
         let newToken = Object.assign({}, token);
-        newToken.name = newToken.name.replace("light", "");
+        newToken.name = lowerCaseFirstLetter(
+          newToken.name.replace("light", "")
+        );
         newToken.value = `UIColor(light:${newToken.value}, dark:${darkToken.value})`;
         dynamicPrimitiveColors.push(newToken);
       }
