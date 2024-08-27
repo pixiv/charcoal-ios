@@ -67,6 +67,7 @@ const formats = {
     }
 
     let dynamicPrimitiveColors = [];
+    let processedTokens = [];
     // Map apply token
     for (const token of themeDataTokens) {
       const darkThemeToken = darkThemeDataTokens.find((darkToken) => {
@@ -78,11 +79,9 @@ const formats = {
 
       if (token.name.includes("light")) {
         let tokenName = getSecondHalf(token.attributes.type, "/");
-        console.log();
         let darkToken = themeDataTokens.find((darkToken) => {
           return darkToken.attributes.type.includes(`dark/${tokenName}`);
         });
-        console.log(getSecondHalf(token.attributes.type, "/"), darkToken.name);
 
         let newToken = Object.assign({}, token);
         newToken.name = lowerCaseFirstLetter(
@@ -90,16 +89,18 @@ const formats = {
         );
         newToken.value = `UIColor(light:${newToken.value}, dark:${darkToken.value})`;
         dynamicPrimitiveColors.push(newToken);
+      } else if (!token.name.includes("dark")) {
+        processedTokens.push(token);
       }
     }
 
     let sortedTokens;
     if (outputReferences) {
-      sortedTokens = [...themeDataTokens, ...dynamicPrimitiveColors].sort(
+      sortedTokens = [...processedTokens, ...dynamicPrimitiveColors].sort(
         sortByReference(tokens, { unfilteredTokens })
       );
     } else {
-      sortedTokens = [...themeDataTokens, ...dynamicPrimitiveColors].sort(
+      sortedTokens = [...processedTokens, ...dynamicPrimitiveColors].sort(
         sortByName
       );
     }
