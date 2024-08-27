@@ -13,9 +13,9 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
     func _body(configuration: TextField<_Label>) -> some View {
         var borderColor: Color = .clear
         if hasError {
-            borderColor = Color(CharcoalAsset.ColorPaletteGenerated.assertive.color.withAlphaComponent(0.32))
+            borderColor = Color(CharcoalFoundation.Colors.containerNegativeDefault.value.withAlphaComponent(0.32))
         } else if isFocused {
-            borderColor = Color(CharcoalAsset.ColorPaletteGenerated.brand.color.withAlphaComponent(0.32))
+            borderColor = Color(CharcoalFoundation.Colors.pixiv.value.withAlphaComponent(0.32))
         }
         return VStack(alignment: .leading, spacing: 8) {
             if !label.isEmpty {
