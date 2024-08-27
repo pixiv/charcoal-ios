@@ -34,8 +34,8 @@ struct CharcoalSurface5: ViewModifier {
             .background(
                 LinearGradient(
                     gradient: Gradient(colors: [
-                        Color(CharcoalAsset.ColorPaletteGenerated.surface50.color),
-                        Color(CharcoalAsset.ColorPaletteGenerated.surface5100.color)
+                        Color(CharcoalFoundation.Colors.neutralA40.value),
+                        Color(CharcoalFoundation.Colors.neutral0.value)
                     ]),
                     startPoint: .top,
                     endPoint: .bottom
