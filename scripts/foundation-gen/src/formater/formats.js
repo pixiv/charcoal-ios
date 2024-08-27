@@ -53,22 +53,48 @@ const formats = {
       }
     }
 
+    function getSecondHalf(str, delimiter) {
+      const parts = str.split(delimiter);
+      // 如果字符串中没有分隔符，返回整个字符串
+      if (parts.length === 1) return str;
+      // 取出后半部分
+      return parts.slice(1).join(delimiter);
+    }
+
+    let dynamicPrimitiveColors = [];
+    // Map apply token
     for (const token of themeDataTokens) {
-      const darkThemeToken = darkThemeDataTokens.find(
-        (darkToken) => darkToken.attributes.item === token.attributes.type
-      );
+      const darkThemeToken = darkThemeDataTokens.find((darkToken) => {
+        return darkToken.attributes.item === token.attributes.type;
+      });
       if (darkThemeToken) {
         token.value = `UIColor(light:${token.value}, dark:${darkThemeToken.value})`;
+      }
+
+      if (token.name.includes("light")) {
+        let tokenName = getSecondHalf(token.attributes.type, "/");
+        console.log();
+        let darkToken = themeDataTokens.find((darkToken) => {
+          return darkToken.attributes.type.includes(`dark/${tokenName}`);
+        });
+        console.log(getSecondHalf(token.attributes.type, "/"), darkToken.name);
+
+        let newToken = Object.assign({}, token);
+        newToken.name = newToken.name.replace("light", "");
+        newToken.value = `UIColor(light:${newToken.value}, dark:${darkToken.value})`;
+        dynamicPrimitiveColors.push(newToken);
       }
     }
 
     let sortedTokens;
     if (outputReferences) {
-      sortedTokens = [...themeDataTokens].sort(
+      sortedTokens = [...themeDataTokens, ...dynamicPrimitiveColors].sort(
         sortByReference(tokens, { unfilteredTokens })
       );
     } else {
-      sortedTokens = [...themeDataTokens].sort(sortByName);
+      sortedTokens = [...themeDataTokens, ...dynamicPrimitiveColors].sort(
+        sortByName
+      );
     }
     const header = await fileHeader({
       file,
