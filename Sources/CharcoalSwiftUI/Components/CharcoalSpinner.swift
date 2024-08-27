@@ -20,7 +20,7 @@ public struct CharcoalSpinner: View {
     public var body: some View {
         ZStack {
             Circle()
-                .fill(Color(CharcoalAsset.ColorPaletteGenerated.surface4.color))
+                .fill(Color(CharcoalFoundation.Colors.containerNeutralDefault.value))
                 .frame(width: radius, height: radius)
                 .opacity(opacity)
                 .onAppear {
@@ -32,7 +32,7 @@ public struct CharcoalSpinner: View {
         }
         .frame(width: spinnerSize, height: spinnerSize)
         .padding(16)
-        .background(transparentBackground ? nil : Color(CharcoalAsset.ColorPaletteGenerated.background1.color))
+        .background(transparentBackground ? nil : Color(CharcoalFoundation.Colors.backgroundDefault.value))
         .cornerRadius(8, corners: .allCorners)
         .shadow(color: Color.black.opacity(0.1), radius: 8, x: 0, y: 0)
     }
