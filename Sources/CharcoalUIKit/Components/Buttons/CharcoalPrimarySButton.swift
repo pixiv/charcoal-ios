@@ -2,7 +2,7 @@ import UIKit
 
 public class CharcoalPrimarySButton: UIButton, CharcoalButton {
     public var isFixed: Bool = false
-    public var primaryColor: UIColor = CharcoalAsset.ColorPaletteGenerated.brand.color
+    public var primaryColor: UIColor = CharcoalFoundation.Colors.pixiv.value
 
     override public var intrinsicContentSize: CGSize {
         let contentSize = super.intrinsicContentSize
@@ -44,16 +44,16 @@ public class CharcoalPrimarySButton: UIButton, CharcoalButton {
     private func setupStyle() {
         if #available(iOS 15, *) {
             configuration = generateUIButtonConfiguration(
-                textColor: CharcoalAsset.ColorPaletteGenerated.text5.color,
+                textColor: CharcoalFoundation.Colors.textOnPrimaryDefault.value,
                 enabledBackgroundColor: primaryColor,
-                pressedOverlayColor: CharcoalAsset.ColorPaletteGenerated.surface10.color,
+                pressedOverlayColor: CharcoalFoundation.Colors.containerHover.value,
                 size: .small
             )
         } else {
             setupButtonStyle(
-                textColor: CharcoalAsset.ColorPaletteGenerated.text5.color,
+                textColor: CharcoalFoundation.Colors.textOnPrimaryDefault.value,
                 enabledBackgroundColor: primaryColor,
-                pressedOverlayColor: CharcoalAsset.ColorPaletteGenerated.surface10.color,
+                pressedOverlayColor: CharcoalFoundation.Colors.containerHover.value,
                 size: .small
             )
         }

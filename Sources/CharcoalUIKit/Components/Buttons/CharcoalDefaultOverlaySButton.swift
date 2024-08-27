@@ -43,16 +43,16 @@ public class CharcoalDefaultOverlaySButton: UIButton, CharcoalButton {
     private func setupStyle() {
         if #available(iOS 15, *) {
             configuration = generateUIButtonConfiguration(
-                textColor: CharcoalAsset.ColorPaletteGenerated.text5.color,
-                enabledBackgroundColor: CharcoalAsset.ColorPaletteGenerated.surface4.color,
-                pressedOverlayColor: CharcoalAsset.ColorPaletteGenerated.surface10.color,
+                textColor: CharcoalFoundation.Colors.textOnPrimaryDefault.value,
+                enabledBackgroundColor: CharcoalFoundation.Colors.containerNeutralDefault.value,
+                pressedOverlayColor: CharcoalFoundation.Colors.containerHover.value,
                 size: .small
             )
         } else {
             setupButtonStyle(
-                textColor: CharcoalAsset.ColorPaletteGenerated.text5.color,
-                enabledBackgroundColor: CharcoalAsset.ColorPaletteGenerated.surface4.color,
-                pressedOverlayColor: CharcoalAsset.ColorPaletteGenerated.surface10.color,
+                textColor: CharcoalFoundation.Colors.textOnPrimaryDefault.value,
+                enabledBackgroundColor: CharcoalFoundation.Colors.containerNeutralDefault.value,
+                pressedOverlayColor: CharcoalFoundation.Colors.containerHover.value,
                 size: .small
             )
         }

@@ -34,7 +34,7 @@ public class CharcoalTextFieldView: UIStackView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: CGFloat(CharcoalFoundation.Typography.fontSize5.value)).scaledFont
-        label.textColor = CharcoalAsset.ColorPaletteGenerated.text1.color
+        label.textColor = CharcoalFoundation.Colors.textDefault.value
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
@@ -44,7 +44,7 @@ public class CharcoalTextFieldView: UIStackView {
     private lazy var assertiveTextLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: CGFloat(CharcoalFoundation.Typography.fontSize5.value)).scaledFont
-        label.textColor = CharcoalAsset.ColorPaletteGenerated.text2.color
+        label.textColor = CharcoalFoundation.Colors.textSecondaryDefault.value
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.heightAnchor.constraint(greaterThanOrEqualToConstant: 20).isActive = true
@@ -101,7 +101,7 @@ public class CharcoalTextFieldView: UIStackView {
     }
 
     private func setupStackView() {
-        backgroundColor = CharcoalAsset.ColorPaletteGenerated.surface1.color
+        backgroundColor = CharcoalFoundation.Colors.containerDefault.value
         distribution = .fill
         alignment = .fill
         axis = .vertical
@@ -128,17 +128,17 @@ public class CharcoalTextFieldView: UIStackView {
     open func updateCountLabel(text: String, hasError: Bool) {
         charcoalTextField.countLabel.text = text
         // swiftlint:disable line_length
-        charcoalTextField.countLabel.textColor = hasError ? CharcoalAsset.ColorPaletteGenerated.assertive.color : CharcoalAsset.ColorPaletteGenerated.text3.color
+        charcoalTextField.countLabel.textColor = hasError ? CharcoalFoundation.Colors.containerNegativeDefault.value : CharcoalFoundation.Colors.textTertiaryDefault.value
         charcoalTextField.countLabel.sizeToFit()
     }
 
     open func setHasError(_ hasError: Bool) {
         if hasError {
             charcoalTextField.setAssertiveBorder()
-            assertiveTextLabel.textColor = CharcoalAsset.ColorPaletteGenerated.assertive.color
+            assertiveTextLabel.textColor = CharcoalFoundation.Colors.containerNegativeDefault.value
         } else {
             charcoalTextField.setBrandBorder()
-            assertiveTextLabel.textColor = CharcoalAsset.ColorPaletteGenerated.text2.color
+            assertiveTextLabel.textColor = CharcoalFoundation.Colors.textSecondaryDefault.value
         }
     }
 }

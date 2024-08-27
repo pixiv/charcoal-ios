@@ -19,7 +19,7 @@ class CharcoalBubbleShape: CAShapeLayer {
         self.bubbleRadius = bubbleRadius
         self.arrowWidth = arrowWidth
         super.init()
-        fillColor = CharcoalAsset.ColorPaletteGenerated.surface8.color.cgColor
+        fillColor = CharcoalFoundation.Colors.containerHudDefault.value.cgColor
         updatePath()
     }
 

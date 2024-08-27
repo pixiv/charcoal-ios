@@ -29,8 +29,8 @@ public class CharcoalSwitch: UISwitch {
     }
 
     private func setupStyle() {
-        onTintColor = CharcoalAsset.ColorPaletteGenerated.brand.color
-        subviews.first?.subviews.first?.backgroundColor = CharcoalAsset.ColorPaletteGenerated.text3.color
+        onTintColor = CharcoalFoundation.Colors.pixiv.value
+        subviews.first?.subviews.first?.backgroundColor = CharcoalFoundation.Colors.textTertiaryDefault.value
         addTarget(self, action: #selector(valueChanged), for: .valueChanged)
         updateStyle()
     }

@@ -31,7 +31,7 @@ struct CharcoalDefaultOverlayButtonStyleView: View {
             .opacity(isEnabled ? 1.0 : 0.32)
             .overlay(
                 Rectangle()
-                    .backport.foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
+                    .backport.foregroundStyle(isPressed ? Color(CharcoalFoundation.Colors.containerHover.value) : .clear)
             )
             .cornerRadius(cornerRadius)
     }

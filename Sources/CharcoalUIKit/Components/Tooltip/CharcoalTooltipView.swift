@@ -5,7 +5,7 @@ class CharcoalTooltipView: UIView, CharcoalAnchorable {
         let label = CharcoalTypography12()
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = CharcoalAsset.ColorPaletteGenerated.text5.color
+        label.textColor = CharcoalFoundation.Colors.textOnPrimaryDefault.value
         return label
     }()
 

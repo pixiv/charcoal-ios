@@ -18,7 +18,7 @@ class CharcoalSpinnerView: UIView {
 
     private func setupLayer() {
         circleLayer = CAShapeLayer()
-        circleLayer.fillColor = CharcoalAsset.ColorPaletteGenerated.surface4.color.cgColor
+        circleLayer.fillColor = CharcoalFoundation.Colors.containerNeutralDefault.value.cgColor
         circleLayer.opacity = 1.0
 
         layer.addSublayer(circleLayer)

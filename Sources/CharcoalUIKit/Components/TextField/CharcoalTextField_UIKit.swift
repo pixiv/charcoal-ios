@@ -72,7 +72,7 @@ public class CharcoalTextField: UITextField {
     }
 
     private func setupStyle() {
-        backgroundColor = CharcoalAsset.ColorPaletteGenerated.surface3.color
+        backgroundColor = CharcoalFoundation.Colors.textSecondaryDefault.value
         borderStyle = .none
         rightViewMode = .always
 
@@ -83,12 +83,12 @@ public class CharcoalTextField: UITextField {
 
         defaultTextAttributes = [
             .font: scaledFont,
-            .foregroundColor: CharcoalAsset.ColorPaletteGenerated.text2.color
+            .foregroundColor: CharcoalFoundation.Colors.textSecondaryDefault.value
         ]
 
         let placeholderAttributedString: [NSAttributedString.Key: Any] = [
             .font: scaledFont,
-            .foregroundColor: CharcoalAsset.ColorPaletteGenerated.text3.color
+            .foregroundColor: CharcoalFoundation.Colors.textTertiaryDefault.value
         ]
 
         if let placeholder = placeholder {
@@ -110,7 +110,7 @@ public class CharcoalTextField: UITextField {
 
         countLabel.font = UIFont.monospacedSystemFont(ofSize: CGFloat(CharcoalFoundation.Typography.fontSize5.value), weight: .regular).scaledFont
         countLabel.adjustsFontForContentSizeCategory = true
-        countLabel.textColor = CharcoalAsset.ColorPaletteGenerated.text3.color
+        countLabel.textColor = CharcoalFoundation.Colors.textTertiaryDefault.value
         countLabel.textAlignment = .left
         countLabel.contentMode = .center
         countLabel.numberOfLines = 1
@@ -154,14 +154,14 @@ public class CharcoalTextField: UITextField {
 
     public func setAssertiveBorder() {
         updateBorderColor(
-            borderColor: CharcoalAsset.ColorPaletteGenerated.assertive.color,
+            borderColor: CharcoalFoundation.Colors.containerNegativeDefault.value,
             layerName: borderIdentifireAssertive
         )
     }
 
     public func setBrandBorder() {
         updateBorderColor(
-            borderColor: CharcoalAsset.ColorPaletteGenerated.brand.color,
+            borderColor: CharcoalFoundation.Colors.pixiv.value,
             layerName: borderIdentifireBrand
         )
     }
