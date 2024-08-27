@@ -7,9 +7,9 @@ extension UIColor {
      ) {
         self.init { traitCollection in
             switch traitCollection.userInterfaceStyle {
-            case .light:
+            case .light, .unspecified:
                 return lightModeColor()
-            case .dark, .unspecified:
+            case .dark:
                 return darkModeColor()
             @unknown default:
                 return lightModeColor()
