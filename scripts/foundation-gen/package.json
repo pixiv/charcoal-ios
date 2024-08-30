@@ -2,9 +2,7 @@
   "name": "foundation-gen",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "foundation-gen": "node src/index.js",
     "build": "node src/build.js"
   },
   "type": "module",
