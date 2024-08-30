@@ -30,12 +30,15 @@ jobs:
         run: |
           cd scripts/foundation-gen/
 
-          curl -L https://unpkg.com/@charcoal-ui/theme@latest/theme.json -o theme.json
+          mkdir jsons
+
+          curl -L https://unpkg.com/@charcoal-ui/theme@3.14.0/src/json/base.json -o jsons/base.json
+          curl -L https://unpkg.com/@charcoal-ui/theme@3.14.0/src/json/pixiv-dark.json -o jsons/pixiv-dark.json
+          curl -L https://unpkg.com/@charcoal-ui/theme@3.14.0/src/json/pixiv-light.json -o jsons/pixiv-light.json
 
           npm install
-          npm run foundation-gen generate -- --input="theme.json" --outputJson="../../Sources/CharcoalShared/Generated" --outputSwift="../../Sources/CharcoalShared/Generated" --outputColorAsset="../../Sources/CharcoalShared/ColorPalette.generated.xcassets"
-          rm theme.json
-
+          npm run build
+          rm -rf jsons
       - name: Update icon
         run: |
           cd scripts/xcasset-gen

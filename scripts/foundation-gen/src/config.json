@@ -1,10 +1,10 @@
 {
-  "source": ["src/json/**/*.json"],
+  "source": ["jsons/**/*.json"],
   "parsers": ["json-parser"],
   "platforms": {
     "ios-swift-separate-enums": {
       "transformGroup": "ios-swift-separate",
-      "buildPath": "build/ios-swift/",
+      "buildPath": "../../Sources/CharcoalShared/Generated/",
       "transforms": ["name/ti/camel", "swift/color", "swift/font"],
       "files": [
         {
