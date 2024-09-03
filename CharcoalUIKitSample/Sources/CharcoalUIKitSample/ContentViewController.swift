@@ -176,7 +176,6 @@ extension ContentViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension ContentViewController {
-    
     private func performActionFor(setting: SettingsTitles, sender: UISwitch) {
         switch setting {
         case .darkMode:

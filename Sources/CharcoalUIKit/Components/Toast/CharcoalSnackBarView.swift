@@ -209,7 +209,7 @@ class CharcoalSnackBarView: UIView {
         self.animator = animator
         self.gesture = gesture
     }
-    
+
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         /// cgColor needs manually update
