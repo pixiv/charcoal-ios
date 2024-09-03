@@ -95,7 +95,7 @@ class CharcoalSnackBarView: UIView {
 
     private func setupCapsuleShape() {
         addSubview(capsuleShape)
-        layer.backgroundColor = CharcoalAsset.ColorPaletteGenerated.background1.color.cgColor
+        backgroundColor = CharcoalAsset.ColorPaletteGenerated.background1.color
         layer.borderColor = borderColor.cgColor
         layer.borderWidth = borderLineWidth
         layer.masksToBounds = true
