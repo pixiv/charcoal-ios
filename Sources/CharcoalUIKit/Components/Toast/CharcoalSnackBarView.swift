@@ -209,6 +209,11 @@ class CharcoalSnackBarView: UIView {
         self.animator = animator
         self.gesture = gesture
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        /// cgColor needs manually update if targeting iOS 17
+        layer.borderColor = borderColor.cgColor
+    }
 }
 
 @available(iOS 17.0, *)
@@ -244,4 +249,18 @@ class CharcoalSnackBarView: UIView {
     stackView.addArrangedSubview(snackbar5)
 
     return stackView
+}
+
+func printColorComponents(of color: UIColor) {
+    var red: CGFloat = 0
+    var green: CGFloat = 0
+    var blue: CGFloat = 0
+    var alpha: CGFloat = 0
+
+    // Extract the RGBA components
+    if color.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+        print(String(format: "Red: %.2f, Green: %.2f, Blue: %.2f, Alpha: %.2f", red, green, blue, alpha))
+    } else {
+        print("Failed to retrieve color components.")
+    }
 }
