@@ -68,6 +68,12 @@ class CharcoalSpinnerView: UIView {
     override var intrinsicContentSize: CGSize {
         return CGSize(width: spinnerSize, height: spinnerSize)
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        /// cgColor needs manually update
+        circleLayer.fillColor = CharcoalAsset.ColorPaletteGenerated.surface4.color.cgColor
+    }
 }
 
 @available(iOS 17.0, *)
