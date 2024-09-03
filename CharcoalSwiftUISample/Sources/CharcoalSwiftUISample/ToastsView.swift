@@ -22,7 +22,8 @@ public struct ToastsView: View {
                 }
                 .charcoalSnackBar(
                     isPresenting: $isPresenting,
-                    text: "ブックマークしました"
+                    text: "ブックマークしました",
+                    dismissAfter: 4
                 )
 
                 VStack(alignment: .leading) {
@@ -37,6 +38,7 @@ public struct ToastsView: View {
                     isPresenting: $isPresenting2,
                     screenEdge: .top,
                     text: "ブックマークしました",
+                    dismissAfter: 4,
                     action: {
                         Button {
                             print("Tapped")
@@ -58,6 +60,7 @@ public struct ToastsView: View {
                     isPresenting: $isPresenting3,
                     text: "ブックマークしました",
                     thumbnailImage: Image("SnackbarDemo", bundle: Bundle.module),
+                    dismissAfter: 4,
                     action: {
                         Button {
                             print("Tapped")
@@ -73,13 +76,13 @@ public struct ToastsView: View {
                     } label: {
                         Text("SnackBar")
                     }
-                    Text("Auto dismiss after 2 seconds")
+                    Text("Auto dismiss after 4 seconds")
                 }
                 .charcoalSnackBar(
                     isPresenting: $isPresenting4,
                     text: "ブックマークしました",
                     thumbnailImage: Image("SnackbarDemo", bundle: Bundle.module),
-                    dismissAfter: 2,
+                    dismissAfter: 4,
                     action: {
                         Button {
                             print("Tapped")
@@ -98,7 +101,8 @@ public struct ToastsView: View {
                 }
                 .charcoalToast(
                     isPresenting: $isPresentingToast,
-                    text: "テキストメッセージ"
+                    text: "テキストメッセージ",
+                    dismissAfter: 4
                 )
 
                 VStack(alignment: .leading) {
@@ -113,6 +117,7 @@ public struct ToastsView: View {
                     isPresenting: $isPresentingToast2,
                     screenEdge: .top,
                     text: "テキストメッセージ",
+                    dismissAfter: 4,
                     action: {
                         Button {
                             isPresentingToast2 = false
@@ -134,6 +139,7 @@ public struct ToastsView: View {
                 .charcoalToast(
                     isPresenting: $isPresentingToast3,
                     text: "ブックマークしました",
+                    dismissAfter: 4,
                     appearance: .error,
                     animationConfiguration: CharcoalToastAnimationConfiguration(enablePositionAnimation: false, animation: .easeInOut),
                     action: {
@@ -152,12 +158,12 @@ public struct ToastsView: View {
                     } label: {
                         Text("Toast(Error Appearance)")
                     }
-                    Text("Auto dismiss after 2 seconds")
+                    Text("Auto dismiss after 4 seconds")
                 }
                 .charcoalToast(
                     isPresenting: $isPresentingToast4,
                     text: "ブックマークしました",
-                    dismissAfter: 2,
+                    dismissAfter: 4,
                     appearance: .error
                 )
             }
