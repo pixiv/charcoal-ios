@@ -145,7 +145,7 @@ extension ToastsViewController: UITableViewDelegate, UITableViewDataSource {
                 )
             }
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                 CharcoalToast.dismiss(id: toastID)
             }
         case .snackbars:
@@ -165,7 +165,7 @@ extension ToastsViewController: UITableViewDelegate, UITableViewDataSource {
                 }))
             }
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                 CharcoalSnackBar.dismiss(id: toastID)
             }
         }
