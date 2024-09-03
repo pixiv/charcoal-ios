@@ -211,6 +211,7 @@ class CharcoalSnackBarView: UIView {
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
         /// cgColor needs manually update if targeting iOS 17
         layer.borderColor = borderColor.cgColor
     }
