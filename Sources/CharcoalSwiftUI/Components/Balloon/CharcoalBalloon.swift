@@ -313,16 +313,6 @@ private struct BalloonsPreviewView: View {
             ScrollView {
                 ZStack(alignment: .topLeading) {
                     Color.clear
-//                    VStack {
-//                        Text(textOfLabel)
-//
-//                        Button {
-//                            textOfLabel = ["Changed", "Hello"].randomElement()!
-//                        } label: {
-//                            Text("Change Label")
-//                        }
-//                    }
-
                     Button {
                         isPresenting.toggle()
                     } label: {
