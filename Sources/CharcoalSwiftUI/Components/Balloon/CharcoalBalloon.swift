@@ -158,7 +158,7 @@ struct CharcoalBalloon<ActionContent: View>: CharcoalPopupProtocol, CharcoalToas
                 Color.clear
             }
             if isPresenting {
-                GeometryReader(content: { canvasGeometry in
+                GeometryReader { proxy in
                     ZStack {
                         VStack {
                             HStack(alignment: .firstTextBaseline, spacing: 5) {
@@ -210,7 +210,7 @@ struct CharcoalBalloon<ActionContent: View>: CharcoalPopupProtocol, CharcoalToas
                             // GeometryReader size is zero in background, so we use overlay instead
                             Color.clear.preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
                         }))
-                        .offset(positionOfOverlay(canvasGeometrySize: canvasGeometry.size))
+                        .offset(positionOfOverlay(canvasGeometrySize: proxy.size))
                         .onPreferenceChange(TooltipSizeKey.self, perform: { value in
                             tooltipSize = value
                         })
@@ -218,7 +218,7 @@ struct CharcoalBalloon<ActionContent: View>: CharcoalPopupProtocol, CharcoalToas
                         .animation(.none, value: targetFrame)
                     }
                     .frame(minWidth: 0, maxWidth: maxWidth, alignment: .leading)
-                })
+                }
                 .onAppear {
                     if let dismissAfter = dismissAfter {
                         timer = Timer.scheduledTimer(withTimeInterval: dismissAfter, repeats: false, block: { _ in
@@ -256,7 +256,7 @@ struct CharcoalBalloonModifier<ActionContent: View>: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .overlay(GeometryReader(content: { proxy in
+            .overlay(GeometryReader { proxy in
                 Color.clear
                     .modifier(CharcoalOverlayUpdaterContainer(
                         isPresenting: $isPresenting,
@@ -270,7 +270,7 @@ struct CharcoalBalloonModifier<ActionContent: View>: ViewModifier {
                         ),
                         viewID: viewID
                     ))
-            }))
+            })
     }
 }
 
