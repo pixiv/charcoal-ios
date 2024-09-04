@@ -95,7 +95,7 @@ class CharcoalSnackBarView: UIView {
 
     private func setupCapsuleShape() {
         addSubview(capsuleShape)
-        layer.backgroundColor = CharcoalAsset.ColorPaletteGenerated.background1.color.cgColor
+        backgroundColor = CharcoalAsset.ColorPaletteGenerated.background1.color
         layer.borderColor = borderColor.cgColor
         layer.borderWidth = borderLineWidth
         layer.masksToBounds = true
@@ -208,6 +208,12 @@ class CharcoalSnackBarView: UIView {
 
         self.animator = animator
         self.gesture = gesture
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        /// cgColor needs manually update
+        layer.borderColor = borderColor.cgColor
     }
 }
 
