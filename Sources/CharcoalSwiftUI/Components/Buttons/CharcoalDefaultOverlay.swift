@@ -11,7 +11,10 @@ struct CharcoalDefaultOverlayButtonStyleView: View {
 
     @ScaledMetric var cornerRadius: CGFloat
 
-    init(label: ButtonStyleConfiguration.Label, isPressed: Bool, isEnabled: Bool, size: CharcoalButtonSize, isFixed: Bool) {
+    init(
+        label: ButtonStyleConfiguration.Label, isPressed: Bool, isEnabled: Bool,
+        size: CharcoalButtonSize, isFixed: Bool
+    ) {
         self.label = label
         self.isPressed = isPressed
         self.isEnabled = isEnabled
@@ -31,7 +34,9 @@ struct CharcoalDefaultOverlayButtonStyleView: View {
             .opacity(isEnabled ? 1.0 : 0.32)
             .overlay(
                 Rectangle()
-                    .backport.foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
+                    .backport.foregroundStyle(
+                        isPressed
+                            ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
             )
             .cornerRadius(cornerRadius)
     }
@@ -78,16 +83,21 @@ struct CharcoalDefaultOverlayButtonStyleModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         if #available(iOS 15, *) {
-            content.buttonStyle(CharcoalDefaultOverlayButtonStyleIos15(size: size, isFixed: isFixed))
+            content.buttonStyle(
+                CharcoalDefaultOverlayButtonStyleIos15(size: size, isFixed: isFixed))
         } else {
-            content.buttonStyle(CharcoalDefaultOverlayButtonStyle(isEnabled: isEnabled, size: size, isFixed: isFixed))
+            content.buttonStyle(
+                CharcoalDefaultOverlayButtonStyle(
+                    isEnabled: isEnabled, size: size, isFixed: isFixed
+                ))
         }
     }
 }
 
 public extension View {
-    @warn_unqualified_access
-    func charcoalDefaultOverlayButton(size: CharcoalButtonSize = .medium, isFixed: Bool = true) -> some View {
+    func charcoalDefaultOverlayButton(
+        size: CharcoalButtonSize = .medium, isFixed: Bool = true
+    ) -> some View {
         return modifier(CharcoalDefaultOverlayButtonStyleModifier(size: size, isFixed: isFixed))
     }
 }

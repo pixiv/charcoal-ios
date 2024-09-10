@@ -13,9 +13,11 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
     func _body(configuration: TextField<_Label>) -> some View {
         var borderColor: Color = .clear
         if hasError {
-            borderColor = Color(CharcoalAsset.ColorPaletteGenerated.assertive.color.withAlphaComponent(0.32))
+            borderColor = Color(
+                CharcoalAsset.ColorPaletteGenerated.assertive.color.withAlphaComponent(0.32))
         } else if isFocused {
-            borderColor = Color(CharcoalAsset.ColorPaletteGenerated.brand.color.withAlphaComponent(0.32))
+            borderColor = Color(
+                CharcoalAsset.ColorPaletteGenerated.brand.color.withAlphaComponent(0.32))
         }
         return VStack(alignment: .leading, spacing: 8) {
             if !label.isEmpty {
@@ -62,30 +64,31 @@ struct CharcoalTextFieldStyleModifier: ViewModifier {
     @Binding var hasError: Bool
 
     func body(content: Content) -> some View {
-        return content.textFieldStyle(CharcoalTextFieldStyle(
-            label: $label,
-            countLabel: $countLabel,
-            assistiveText: $assistiveText,
-            hasError: $hasError
-        ))
+        return content.textFieldStyle(
+            CharcoalTextFieldStyle(
+                label: $label,
+                countLabel: $countLabel,
+                assistiveText: $assistiveText,
+                hasError: $hasError
+            ))
     }
 }
 
 @available(iOS 15, *)
 public extension View {
-    @warn_unqualified_access
     func charcoalTextField(
         label: Binding<String> = .constant(""),
         countLabel: Binding<String> = .constant(""),
         assistiveText: Binding<String> = .constant(""),
         hasError: Binding<Bool> = .constant(false)
     ) -> some View {
-        return modifier(CharcoalTextFieldStyleModifier(
-            label: label,
-            countLabel: countLabel,
-            assistiveText: assistiveText,
-            hasError: hasError
-        ))
+        return modifier(
+            CharcoalTextFieldStyleModifier(
+                label: label,
+                countLabel: countLabel,
+                assistiveText: assistiveText,
+                hasError: hasError
+            ))
     }
 }
 

@@ -5,7 +5,10 @@ struct CharcoalToggleWrapper: UIViewRepresentable {
 
     func makeUIView(context: Context) -> UISwitch {
         let uiSwitch = UISwitch()
-        uiSwitch.addTarget(context.coordinator, action: #selector(Coordinator.handleValueChanged(_:)), for: .valueChanged)
+        uiSwitch.addTarget(
+            context.coordinator, action: #selector(Coordinator.handleValueChanged(_:)),
+            for: .valueChanged
+        )
         return uiSwitch
     }
 
@@ -66,7 +69,6 @@ struct CharcoalToggleStyleModifier: ViewModifier {
 }
 
 public extension View {
-    @warn_unqualified_access
     func charcoalToggle() -> some View {
         return modifier(CharcoalToggleStyleModifier())
     }
