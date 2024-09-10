@@ -35,9 +35,9 @@ struct CharcoalToastAnimatableModifier: ViewModifier, CharcoalToastBase {
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .overlay(RoundedRectangle(cornerRadius: cornerRadius).stroke(borderColor, lineWidth: borderLineWidth))
             .overlay(
-                GeometryReader(content: { proxy in
+                GeometryReader { proxy in
                     Color.clear.preference(key: PopupViewSizeKey.self, value: proxy.size)
-                })
+                }
             )
             .offset(CGSize(width: 0, height: animationConfiguration.enablePositionAnimation ? (isActuallyPresenting ? screenEdge.direction * screenEdgeSpacing : -screenEdge.direction * (tooltipSize.height)) : screenEdge.direction * screenEdgeSpacing))
             .opacity(isActuallyPresenting ? 1 : 0)

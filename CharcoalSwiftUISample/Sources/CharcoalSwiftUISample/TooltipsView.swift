@@ -57,5 +57,5 @@ public struct TooltipsView: View {
 }
 
 #Preview {
-    TooltipsView()
+    TooltipsView().charcoalOverlayContainer()
 }

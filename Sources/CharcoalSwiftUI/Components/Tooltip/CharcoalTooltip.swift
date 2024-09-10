@@ -37,10 +37,6 @@ struct CharcoalTooltip: CharcoalPopupProtocol {
     /// The overlay will be dismissed after a certain time interval.
     let dismissAfter: TimeInterval?
 
-    var offset: CGSize {
-        CGSize(width: targetFrame.midX - (tooltipSize.width / 2.0), height: targetFrame.maxY)
-    }
-
     init(
         id: IDValue,
         text: String,
@@ -104,7 +100,7 @@ struct CharcoalTooltip: CharcoalPopupProtocol {
                 Color.clear
             }
             if isPresenting {
-                GeometryReader(content: { canvasGeometry in
+                GeometryReader { proxy in
                     VStack {
                         Text(text)
                             .charcoalTypography12Regular()
@@ -121,14 +117,15 @@ struct CharcoalTooltip: CharcoalPopupProtocol {
                                         y: targetFrame.maxY - tooltipOrigin.y
                                     ),
                                     arrowHeight: arrowHeight,
-                                    cornerRadius: cornerRadius
+                                    cornerRadius: cornerRadius,
+                                    arrowWidth: 5
                                 )
                                 .fill(Color(CharcoalAsset.ColorPaletteGenerated.surface8.color))
                                 .preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
                             }))
                             .offset(CGSize(
-                                width: tooltipX(canvasGeometrySize: canvasGeometry.size),
-                                height: tooltipY(canvasGeometrySize: canvasGeometry.size)
+                                width: tooltipX(canvasGeometrySize: proxy.size),
+                                height: tooltipY(canvasGeometrySize: proxy.size)
                             ))
                             .onPreferenceChange(TooltipSizeKey.self, perform: { value in
                                 tooltipSize = value
@@ -137,7 +134,7 @@ struct CharcoalTooltip: CharcoalPopupProtocol {
                             .animation(.none, value: targetFrame)
                     }
                     .frame(minWidth: 0, maxWidth: maxWidth, alignment: .leading)
-                })
+                }
                 .onAppear {
                     if let dismissAfter = dismissAfter {
                         DispatchQueue.main.asyncAfter(deadline: .now() + dismissAfter) {
@@ -178,7 +175,7 @@ struct CharcoalTooltipModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .overlay(GeometryReader(content: { proxy in
+            .overlay(GeometryReader { proxy in
                 Color.clear
                     .modifier(CharcoalOverlayUpdaterContainer(
                         isPresenting: $isPresenting,
@@ -191,7 +188,7 @@ struct CharcoalTooltipModifier: ViewModifier {
                         ),
                         viewID: viewID
                     ))
-            }))
+            })
     }
 }
 
@@ -228,7 +225,7 @@ private struct TooltipsPreviewView: View {
     @State var textOfLabel = "Hello"
 
     var body: some View {
-        GeometryReader(content: { proxy in
+        GeometryReader { proxy in
             ScrollView {
                 ZStack(alignment: .topLeading) {
                     Color.clear
@@ -299,7 +296,7 @@ private struct TooltipsPreviewView: View {
                     .offset(CGSize(width: proxy.size.width - 380, height: proxy.size.height - 240))
                 }
             }
-        })
+        }
         .charcoalOverlayContainer()
     }
 }
