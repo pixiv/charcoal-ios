@@ -93,7 +93,7 @@ public extension View {
 struct CharcoalTextFieldPreview: View {
     @State var text1 = ""
     @State var text2 = ""
-    
+
     var body: some View {
         VStack(spacing: 16) {
             TextField("Simple text field", text: $text1)

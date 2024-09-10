@@ -218,7 +218,7 @@ public extension View {
 struct CharcoalModalViewPreview: View {
     @State var isPresented = true
     @State var text1: String = ""
-    
+
     var body: some View {
         ZStack {
             Button(action: {
