@@ -12,10 +12,7 @@ struct CharcoalPrimaryButtonStyleView: View {
 
     @ScaledMetric var cornerRadius: CGFloat
 
-    init(
-        label: ButtonStyleConfiguration.Label, isPressed: Bool, isEnabled: Bool,
-        size: CharcoalButtonSize, isFixed: Bool, primaryColor: Color
-    ) {
+    init(label: ButtonStyleConfiguration.Label, isPressed: Bool, isEnabled: Bool, size: CharcoalButtonSize, isFixed: Bool, primaryColor: Color) {
         self.label = label
         self.isPressed = isPressed
         self.isEnabled = isEnabled
@@ -36,9 +33,7 @@ struct CharcoalPrimaryButtonStyleView: View {
             .opacity(isEnabled ? 1.0 : 0.32)
             .overlay(
                 Rectangle()
-                    .backport.foregroundStyle(
-                        isPressed
-                            ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
+                    .backport.foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
             )
             .cornerRadius(cornerRadius)
     }
@@ -90,30 +85,22 @@ struct CharcoalPrimaryButtonStyleModifier: ViewModifier {
     func body(content: Content) -> some View {
         if #available(iOS 15, *) {
             // swiftlint:disable line_length
-            content.buttonStyle(
-                CharcoalPrimaryButtonStyleIos15(
-                    size: size, isFixed: isFixed, primaryColor: primaryColor
-                ))
+            content.buttonStyle(CharcoalPrimaryButtonStyleIos15(size: size, isFixed: isFixed, primaryColor: primaryColor))
         } else {
             // swiftlint:disable line_length
-            content.buttonStyle(
-                CharcoalPrimaryButtonStyle(
-                    isEnabled: isEnabled, size: size, isFixed: isFixed, primaryColor: primaryColor
-                ))
+            content.buttonStyle(CharcoalPrimaryButtonStyle(isEnabled: isEnabled, size: size, isFixed: isFixed, primaryColor: primaryColor))
         }
     }
 }
 
 public extension View {
+    @warn_unqualified_access
     func charcoalPrimaryButton(
         size: CharcoalButtonSize = .medium,
         isFixed: Bool = true,
         primaryColor: Color = Color(CharcoalAsset.ColorPaletteGenerated.brand.color)
     ) -> some View {
-        return modifier(
-            CharcoalPrimaryButtonStyleModifier(
-                size: size, isFixed: isFixed, primaryColor: primaryColor
-            ))
+        return modifier(CharcoalPrimaryButtonStyleModifier(size: size, isFixed: isFixed, primaryColor: primaryColor))
     }
 }
 

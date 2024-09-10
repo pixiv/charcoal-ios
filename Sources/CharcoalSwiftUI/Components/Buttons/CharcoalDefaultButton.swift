@@ -11,10 +11,7 @@ struct CharcoalDefaultButtonStyleView: View {
 
     @ScaledMetric var cornerRadius: CGFloat
 
-    init(
-        label: ButtonStyleConfiguration.Label, isPressed: Bool, isEnabled: Bool,
-        size: CharcoalButtonSize, isFixed: Bool
-    ) {
+    init(label: ButtonStyleConfiguration.Label, isPressed: Bool, isEnabled: Bool, size: CharcoalButtonSize, isFixed: Bool) {
         self.label = label
         self.isPressed = isPressed
         self.isEnabled = isEnabled
@@ -34,9 +31,7 @@ struct CharcoalDefaultButtonStyleView: View {
             .opacity(isEnabled ? 1.0 : 0.32)
             .overlay(
                 Rectangle()
-                    .backport.foregroundStyle(
-                        isPressed
-                            ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
+                    .backport.foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
             )
             .cornerRadius(cornerRadius)
     }
@@ -84,16 +79,14 @@ struct CharcoalDefaultButtonStyleModifier: ViewModifier {
         if #available(iOS 15, *) {
             content.buttonStyle(CharcoalDefaultButtonStyleIos15(size: size, isFixed: isFixed))
         } else {
-            content.buttonStyle(
-                CharcoalDefaultButtonStyle(isEnabled: isEnabled, size: size, isFixed: isFixed))
+            content.buttonStyle(CharcoalDefaultButtonStyle(isEnabled: isEnabled, size: size, isFixed: isFixed))
         }
     }
 }
 
 public extension View {
-    func charcoalDefaultButton(size: CharcoalButtonSize = .medium, isFixed: Bool = true)
-        -> some View
-    {
+    @warn_unqualified_access
+    func charcoalDefaultButton(size: CharcoalButtonSize = .medium, isFixed: Bool = true) -> some View {
         return modifier(CharcoalDefaultButtonStyleModifier(size: size, isFixed: isFixed))
     }
 }

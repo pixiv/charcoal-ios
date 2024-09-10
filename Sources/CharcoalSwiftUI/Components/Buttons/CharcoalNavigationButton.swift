@@ -11,10 +11,7 @@ struct CharcoalNavigationButtonStyleView: View {
 
     @ScaledMetric var cornerRadius: CGFloat
 
-    init(
-        label: ButtonStyleConfiguration.Label, isPressed: Bool, isEnabled: Bool,
-        size: CharcoalButtonSize, isFixed: Bool
-    ) {
+    init(label: ButtonStyleConfiguration.Label, isPressed: Bool, isEnabled: Bool, size: CharcoalButtonSize, isFixed: Bool) {
         self.label = label
         self.isPressed = isPressed
         self.isEnabled = isEnabled
@@ -31,21 +28,17 @@ struct CharcoalNavigationButtonStyleView: View {
                     .frame(height: size == .medium ? 40 : 32)
             )
         }
-        return AnyView(
-            label
-                .font(.system(size: fontSize, weight: .bold))
-                .charcoalOnSurfaceText5()
-                .padding(size.padding)
-                .frame(maxWidth: isFixed ? nil : .infinity)
-                .charcoalSurface6()
-                .overlay(
-                    Rectangle()
-                        .backport.foregroundStyle(
-                            isPressed
-                                ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color)
-                                : .clear)
-                )
-                .cornerRadius(cornerRadius)
+        return AnyView(label
+            .font(.system(size: fontSize, weight: .bold))
+            .charcoalOnSurfaceText5()
+            .padding(size.padding)
+            .frame(maxWidth: isFixed ? nil : .infinity)
+            .charcoalSurface6()
+            .overlay(
+                Rectangle()
+                    .backport.foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
+            )
+            .cornerRadius(cornerRadius)
         )
     }
 }
@@ -92,16 +85,14 @@ struct CharcoalNavigationButtonStyleModifier: ViewModifier {
         if #available(iOS 15, *) {
             content.buttonStyle(CharcoalNavigationButtonStyleIos15(size: size, isFixed: isFixed))
         } else {
-            content.buttonStyle(
-                CharcoalNavigationButtonStyle(isEnabled: isEnabled, size: size, isFixed: isFixed))
+            content.buttonStyle(CharcoalNavigationButtonStyle(isEnabled: isEnabled, size: size, isFixed: isFixed))
         }
     }
 }
 
 public extension View {
-    func charcoalNavigationButton(size: CharcoalButtonSize = .medium, isFixed: Bool = true)
-        -> some View
-    {
+    @warn_unqualified_access
+    func charcoalNavigationButton(size: CharcoalButtonSize = .medium, isFixed: Bool = true) -> some View {
         return modifier(CharcoalNavigationButtonStyleModifier(size: size, isFixed: isFixed))
     }
 }
