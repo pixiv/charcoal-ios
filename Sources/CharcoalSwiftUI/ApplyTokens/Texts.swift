@@ -54,7 +54,6 @@ extension CharcoalApplyTokens.Texts {
 }
 
 public extension View {
-    @warn_unqualified_access
     func charcoalText(applyToken: CharcoalApplyTokens.Texts, state: CharcoalApplyTokens.Texts.States) -> some View {
         modifier(CharcoalApplyTokens.Texts.apply(color: applyToken.color(state: state)))
     }
