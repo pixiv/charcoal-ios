@@ -1,6 +1,10 @@
 import SwiftUI
 
-struct CharcoalTooltip: CharcoalPopupView {
+struct CharcoalTooltip: CharcoalPopupProtocol {
+    typealias IDValue = UUID
+
+    /// The unique ID of the overlay.
+    let id: IDValue
     /// The text of the tooltip
     let text: String
 
@@ -24,14 +28,31 @@ struct CharcoalTooltip: CharcoalPopupView {
 
     @State private var tooltipSize: CGSize = .zero
 
-    var offset: CGSize {
-        CGSize(width: targetFrame.midX - (tooltipSize.width / 2.0), height: targetFrame.maxY)
-    }
+    /// A binding to whether the overlay is presented.
+    @Binding var isPresenting: Bool
 
-    init(text: String, targetFrame: CGRect, maxWidth: CGFloat = 184) {
+    /// If true, the overlay will be dismissed when the user taps outside of the overlay.
+    let dismissOnTouchOutside: Bool
+
+    /// The overlay will be dismissed after a certain time interval.
+    let dismissAfter: TimeInterval?
+
+    init(
+        id: IDValue,
+        text: String,
+        targetFrame: CGRect,
+        maxWidth: CGFloat = 184,
+        isPresenting: Binding<Bool>,
+        dismissOnTouchOutside: Bool = true,
+        dismissAfter: TimeInterval? = nil
+    ) {
+        self.id = id
         self.text = text
         self.targetFrame = targetFrame
         self.maxWidth = maxWidth
+        _isPresenting = isPresenting
+        self.dismissOnTouchOutside = dismissOnTouchOutside
+        self.dismissAfter = dismissAfter
     }
 
     func tooltipX(canvasGeometrySize: CGSize) -> CGFloat {
@@ -58,43 +79,75 @@ struct CharcoalTooltip: CharcoalPopupView {
         return min(minX, edgeBottom)
     }
 
-    public var body: some View {
-        GeometryReader(content: { proxy in
-            VStack {
-                Text(text)
-                    .charcoalTypography12Regular()
-                    .multilineTextAlignment(.center)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .foregroundColor(Color(CharcoalFoundation.Colors.textOnPrimaryDefault.value))
-                    .padding(EdgeInsets(top: 4, leading: 12, bottom: 4, trailing: 12))
-                    .background(GeometryReader(content: { proxy in
-                        let tooltipOrigin = proxy.frame(in: .global).origin
-                        TooltipBubbleShape(
-                            targetPoint:
-                            CGPoint(
-                                x: targetFrame.midX - tooltipOrigin.x,
-                                y: targetFrame.maxY - tooltipOrigin.y
-                            ),
-                            arrowHeight: arrowHeight,
-                            cornerRadius: cornerRadius
-                        )
-                        .fill(Color(CharcoalFoundation.Colors.containerHudDefault.value))
-                        .preference(key: TooltipSizeKey.self, value: proxy.size)
-                    }))
-                    .offset(CGSize(
-                        width: tooltipX(canvasGeometrySize: proxy.size),
-                        height: tooltipY(canvasGeometrySize: proxy.size)
-                    ))
-                    .onPreferenceChange(TooltipSizeKey.self, perform: { value in
-                        tooltipSize = value
-                    })
-                    .animation(.none, value: tooltipSize)
-                    .animation(.none, value: targetFrame)
-            }.frame(minWidth: 0, maxWidth: maxWidth, alignment: .leading)
-        })
+    var body: some View {
+        ZStack {
+            if dismissOnTouchOutside && isPresenting {
+                Color.clear
+                    .contentShape(Rectangle())
+                    .simultaneousGesture(
+                        TapGesture()
+                            .onEnded { _ in
+                                isPresenting = false
+                            }
+                    )
+                    .simultaneousGesture(
+                        DragGesture()
+                            .onChanged { _ in
+                                isPresenting = false
+                            }
+                    )
+            } else {
+                Color.clear
+            }
+            if isPresenting {
+                GeometryReader { proxy in
+                    VStack {
+                        Text(text)
+                            .charcoalTypography12Regular()
+                            .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
+                            .padding(EdgeInsets(top: 4, leading: 12, bottom: 4, trailing: 12))
+                            .background(GeometryReader(content: { tooltipGeometry in
+                                let tooltipOrigin = tooltipGeometry.frame(in: .global).origin
+                                TooltipBubbleShape(
+                                    targetPoint:
+                                    CGPoint(
+                                        x: targetFrame.midX - tooltipOrigin.x,
+                                        y: targetFrame.maxY - tooltipOrigin.y
+                                    ),
+                                    arrowHeight: arrowHeight,
+                                    cornerRadius: cornerRadius,
+                                    arrowWidth: 5
+                                )
+                                .fill(Color(CharcoalAsset.ColorPaletteGenerated.surface8.color))
+                                .preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
+                            }))
+                            .offset(CGSize(
+                                width: tooltipX(canvasGeometrySize: proxy.size),
+                                height: tooltipY(canvasGeometrySize: proxy.size)
+                            ))
+                            .onPreferenceChange(TooltipSizeKey.self, perform: { value in
+                                tooltipSize = value
+                            })
+                            .animation(.none, value: tooltipSize)
+                            .animation(.none, value: targetFrame)
+                    }
+                    .frame(minWidth: 0, maxWidth: maxWidth, alignment: .leading)
+                }
+                .onAppear {
+                    if let dismissAfter = dismissAfter {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + dismissAfter) {
+                            isPresenting = false
+                        }
+                    }
+                }
+            }
+        }
+        .animation(.easeInOut(duration: 0.2), value: isPresenting)
     }
 
-    public static func == (lhs: CharcoalTooltip, rhs: CharcoalTooltip) -> Bool {
+    static func == (lhs: CharcoalTooltip, rhs: CharcoalTooltip) -> Bool {
         return lhs.text == rhs.text && lhs.targetFrame == rhs.targetFrame && lhs.maxWidth == rhs.maxWidth && lhs.tooltipSize == rhs.tooltipSize
     }
 }
@@ -117,12 +170,25 @@ struct CharcoalTooltipModifier: ViewModifier {
     /// Assign a unique ID to the view
     @State var viewID = UUID()
 
+    /// The overlay will be dismissed after a certain time interval.
+    let dismissAfter: TimeInterval?
+
     func body(content: Content) -> some View {
         content
-            .overlay(GeometryReader(content: { proxy in
+            .overlay(GeometryReader { proxy in
                 Color.clear
-                    .modifier(CharcoalOverlayContainerChild(isPresenting: $isPresenting, view: CharcoalTooltip(text: text, targetFrame: proxy.frame(in: .global)), viewID: viewID))
-            }))
+                    .modifier(CharcoalOverlayUpdaterContainer(
+                        isPresenting: $isPresenting,
+                        view: CharcoalTooltip(
+                            id: viewID,
+                            text: text,
+                            targetFrame: proxy.frame(in: .global),
+                            isPresenting: $isPresenting,
+                            dismissAfter: dismissAfter
+                        ),
+                        viewID: viewID
+                    ))
+            })
     }
 }
 
@@ -141,9 +207,10 @@ public extension View {
      */
     func charcoalTooltip(
         isPresenting: Binding<Bool>,
-        text: String
+        text: String,
+        dismissAfter: TimeInterval? = nil
     ) -> some View {
-        return modifier(CharcoalTooltipModifier(isPresenting: isPresenting, text: text))
+        return modifier(CharcoalTooltipModifier(isPresenting: isPresenting, text: text, dismissAfter: dismissAfter))
     }
 }
 
@@ -158,7 +225,7 @@ private struct TooltipsPreviewView: View {
     @State var textOfLabel = "Hello"
 
     var body: some View {
-        GeometryReader(content: { proxy in
+        GeometryReader { proxy in
             ScrollView {
                 ZStack(alignment: .topLeading) {
                     Color.clear
@@ -213,7 +280,11 @@ private struct TooltipsPreviewView: View {
                         Text("Bottom")
                     }
                     .charcoalPrimaryButton(size: .medium)
-                    .charcoalTooltip(isPresenting: $isPresenting5, text: "Hello World This is a tooltip and here is testing it's multiple line feature")
+                    .charcoalTooltip(
+                        isPresenting: $isPresenting5,
+                        text: "Hello World This is a tooltip and here is testing it's multiple line feature",
+                        dismissAfter: 2
+                    )
                     .offset(CGSize(width: proxy.size.width - 240, height: proxy.size.height - 40))
 
                     Button {
@@ -225,7 +296,7 @@ private struct TooltipsPreviewView: View {
                     .offset(CGSize(width: proxy.size.width - 380, height: proxy.size.height - 240))
                 }
             }
-        })
+        }
         .charcoalOverlayContainer()
     }
 }

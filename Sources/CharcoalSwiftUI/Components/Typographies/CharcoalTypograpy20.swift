@@ -4,7 +4,6 @@ private let fontSize = CGFloat(CharcoalFoundation.Typography.fontSize30.value)
 private let lineHeight = CGFloat(CharcoalFoundation.Typography.lineHeight30.value)
 
 public extension View {
-    @warn_unqualified_access
     func charcoalTypography20Bold(isSingleLine: Bool = false) -> some View {
         return modifier(CharcoalFontModifier(
             size: fontSize,
@@ -14,7 +13,6 @@ public extension View {
         ))
     }
 
-    @warn_unqualified_access
     func charcoalTypography20Regular(isSingleLine: Bool = false) -> some View {
         return modifier(CharcoalFontModifier(
             size: fontSize,
@@ -24,7 +22,6 @@ public extension View {
         ))
     }
 
-    @warn_unqualified_access
     func charcoalTypography20BoldMono() -> some View {
         return modifier(CharcoalMonoFontModifier(
             size: fontSize,
@@ -32,7 +29,6 @@ public extension View {
         ))
     }
 
-    @warn_unqualified_access
     func charcoalTypography20RegularMono() -> some View {
         return modifier(CharcoalMonoFontModifier(
             size: fontSize,

@@ -130,8 +130,8 @@ extension ChacoalOverlayManager {
 // MARK: - CharcoalIdentifiableOverlayDelegate
 
 extension ChacoalOverlayManager: CharcoalIdentifiableOverlayDelegate {
-    func overlayViewDidDismiss(_ overlayView: CharcoalIdentifiableOverlayView) {
-        overlayContainerViews = overlayContainerViews.filter { $0.id != overlayView.id }
+    func overlayViewDidDismiss(_ overlayID: CharcoalIdentifiableOverlayView.ID) {
+        overlayContainerViews = overlayContainerViews.filter { $0.id != overlayID }
         if overlayContainerViews.isEmpty {
             removeBackground()
         }

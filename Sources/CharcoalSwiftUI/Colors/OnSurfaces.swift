@@ -63,56 +63,48 @@ struct CharcoalOnSurfaceIcon6: ViewModifier {
 }
 
 public extension View {
-    @warn_unqualified_access
     func charcoalOnSurfaceBorder() -> some View {
         modifier(CharcoalOnSurfaceBorder())
     }
 }
 
 public extension View {
-    @warn_unqualified_access
     func charcoalOnSurfaceLink1() -> some View {
         modifier(CharcoalOnSurfaceLink1())
     }
 }
 
 public extension View {
-    @warn_unqualified_access
     func charcoalOnSurfaceLink2() -> some View {
         modifier(CharcoalOnSurfaceLink2())
     }
 }
 
 public extension View {
-    @warn_unqualified_access
     func charcoalOnSurfaceText1() -> some View {
         modifier(CharcoalOnSurfaceText1())
     }
 }
 
 public extension View {
-    @warn_unqualified_access
     func charcoalOnSurfaceText2() -> some View {
         modifier(CharcoalOnSurfaceText2())
     }
 }
 
 public extension View {
-    @warn_unqualified_access
     func charcoalOnSurfaceText3() -> some View {
         modifier(CharcoalOnSurfaceText3())
     }
 }
 
 public extension View {
-    @warn_unqualified_access
     func charcoalOnSurfaceText4() -> some View {
         modifier(CharcoalOnSurfaceText4())
     }
 }
 
 public extension View {
-    @warn_unqualified_access
     func charcoalOnSurfaceText5() -> some View {
         modifier(CharcoalOnSurfaceText5())
     }

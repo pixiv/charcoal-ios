@@ -1,7 +1,7 @@
 import UIKit
 
 protocol CharcoalIdentifiableOverlayDelegate: AnyObject {
-    func overlayViewDidDismiss(_ overlayView: CharcoalIdentifiableOverlayView)
+    func overlayViewDidDismiss(_ id: CharcoalIdentifiableOverlayView.IDValue)
 }
 
 public class CharcoalIdentifiableOverlayView: UIView, Identifiable {
@@ -59,8 +59,22 @@ public class CharcoalIdentifiableOverlayView: UIView, Identifiable {
     @objc func dismiss() {
         dismissAction?() { [weak self] _ in
             guard let self = self else { return }
+            self.delegate?.overlayViewDidDismiss(self.id)
             self.removeFromSuperview()
-            self.delegate?.overlayViewDidDismiss(self)
         }
+    }
+
+    /// Make sure that the view is not blocking the touch events of the subview.
+    override public func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if !isUserInteractionEnabled {
+            for subview in subviews {
+                let convertedPoint = subview.convert(point, from: self)
+                if let hitView = subview.hitTest(convertedPoint, with: event) {
+                    return hitView
+                }
+            }
+            return nil
+        }
+        return super.hitTest(point, with: event)
     }
 }

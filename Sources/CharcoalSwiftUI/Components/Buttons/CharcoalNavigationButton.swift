@@ -87,7 +87,6 @@ struct CharcoalNavigationButtonStyleModifier: ViewModifier {
 }
 
 public extension View {
-    @warn_unqualified_access
     func charcoalNavigationButton(size: CharcoalButtonSize = .medium, isFixed: Bool = true) -> some View {
         return modifier(CharcoalNavigationButtonStyleModifier(size: size, isFixed: isFixed))
     }

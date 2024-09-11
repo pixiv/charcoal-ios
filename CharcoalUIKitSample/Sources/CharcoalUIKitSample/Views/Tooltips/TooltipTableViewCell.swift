@@ -7,7 +7,7 @@ class TooltipTableViewCell: UITableViewCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        label.textColor = UIColor.black
+        label.textColor = UIColor.label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

@@ -55,7 +55,6 @@ struct CharcoalLinkButtonStyleModifier: ViewModifier {
 }
 
 public extension View {
-    @warn_unqualified_access
     func charcoalLinkButton() -> some View {
         return modifier(CharcoalLinkButtonStyleModifier())
     }

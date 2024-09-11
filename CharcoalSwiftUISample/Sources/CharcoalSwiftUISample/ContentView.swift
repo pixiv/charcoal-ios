@@ -43,11 +43,17 @@ public struct ContentView: View {
                 NavigationLink(destination: ModalsView()) {
                     Text("Modal")
                 }
-                NavigationLink(destination: TooltipsView()) {
+                NavigationLink(destination: TooltipsView().charcoalOverlayContainer()) {
                     Text("Tooltips")
+                }
+                NavigationLink(destination: ToastsView().charcoalOverlayContainer()) {
+                    Text("Toasts")
                 }
                 NavigationLink(destination: SpinnersView()) {
                     Text("Spinners")
+                }
+                NavigationLink(destination: BalloonsView().charcoalOverlayContainer()) {
+                    Text("Balloons")
                 }
             }
             .navigationBarTitle("Charcoal")
