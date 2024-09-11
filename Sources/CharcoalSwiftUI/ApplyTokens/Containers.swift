@@ -3,6 +3,7 @@ import SwiftUI
 extension CharcoalApplyTokens {
     public enum Containers {
         case `default`
+        case disable
         case primary
         case hud
         case secondary
@@ -38,6 +39,8 @@ extension CharcoalApplyTokens {
                 default:
                     return Color(CharcoalFoundation.Colors.containerOnImgDefault.value)
                 }
+            case .disable:
+                return Color(CharcoalFoundation.Colors.containerDisable.value)
             default:
                 switch state {
                 case .press:
