@@ -6,6 +6,7 @@ extension CharcoalApplyTokens {
         case primary
         case hud
         case secondary
+        case onImg
         
         func color(state: CharcoalApplyTokens.Containers.States) -> Color {
             switch self {
@@ -29,6 +30,13 @@ extension CharcoalApplyTokens {
                     return Color(CharcoalFoundation.Colors.containerHudPress.value)
                 default:
                     return Color(CharcoalFoundation.Colors.containerHudDefault.value)
+                }
+            case .onImg:
+                switch state {
+                case .press:
+                    return Color(CharcoalFoundation.Colors.containerOnImgPress.value)
+                default:
+                    return Color(CharcoalFoundation.Colors.containerOnImgDefault.value)
                 }
             default:
                 switch state {

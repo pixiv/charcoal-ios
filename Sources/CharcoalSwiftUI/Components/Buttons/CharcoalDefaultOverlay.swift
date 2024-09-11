@@ -24,15 +24,11 @@ struct CharcoalDefaultOverlayButtonStyleView: View {
     var body: some View {
         label
             .font(.system(size: fontSize, weight: .bold))
-            .charcoalOnSurfaceText2()
+            .charcoalText(applyToken: .onOnImg, state: isPressed ? .press : .default)
             .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
-            .charcoalSurface3()
+            .charcoalContainer(applyToken: .onImg, state: isPressed ? .press : .default)
             .opacity(isEnabled ? 1.0 : 0.32)
-            .overlay(
-                Rectangle()
-                    .backport.foregroundStyle(isPressed ? Color(CharcoalFoundation.Colors.containerHover.value) : .clear)
-            )
             .cornerRadius(cornerRadius)
     }
 }
