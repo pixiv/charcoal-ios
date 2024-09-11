@@ -30,10 +30,10 @@ struct CharcoalNavigationButtonStyleView: View {
         }
         return AnyView(label
             .font(.system(size: fontSize, weight: .bold))
-            .charcoalApplyToken(text: .onHUD, state: isPressed ? .press : .default)
+            .charcoalText(applyToken: .onHUD, state: isPressed ? .press : .default)
             .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
-            .charcoalApplyToken(container: .hud, state: isPressed ? .press : .default)
+            .charcoalContainer(applyToken: .hud, state: isPressed ? .press : .default)
             .cornerRadius(cornerRadius)
         )
     }

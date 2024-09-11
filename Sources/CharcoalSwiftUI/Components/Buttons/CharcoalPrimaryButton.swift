@@ -26,10 +26,10 @@ struct CharcoalPrimaryButtonStyleView: View {
     var body: some View {
         label
             .font(.system(size: fontSize, weight: .bold))
-            .charcoalApplyToken(text: .onPrimary, state: isPressed ? .press : .default)
+            .charcoalText(applyToken: .onPrimary, state: isPressed ? .press : .default)
             .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
-            .charcoalApplyToken(container: .primary, state: isPressed ? .press : .default)
+            .charcoalContainer(applyToken: .primary, state: isPressed ? .press : .default)
             .opacity(isEnabled ? 1.0 : 0.32)
             .cornerRadius(cornerRadius)
     }

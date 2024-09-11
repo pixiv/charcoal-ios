@@ -57,7 +57,7 @@ extension CharcoalApplyTokens.Containers {
 
 public extension View {
     @warn_unqualified_access
-    func charcoalApplyToken(container: CharcoalApplyTokens.Containers, state: CharcoalApplyTokens.Containers.States) -> some View {
-        modifier(CharcoalApplyTokens.Containers.apply(color: container.color(state: state)))
+    func charcoalContainer(applyToken: CharcoalApplyTokens.Containers, state: CharcoalApplyTokens.Containers.States) -> some View {
+        modifier(CharcoalApplyTokens.Containers.apply(color: applyToken.color(state: state)))
     }
 }
