@@ -10,7 +10,7 @@ final class ColorsViewController: UIViewController {
 
     private let colorsCollectionViewCellIdentifier = "ColorsCollectionViewCell"
 
-    private let colors = CharcoalColors.allCases
+    private let colors = CharcoalFoundation.Colors.allCases
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ extension ColorsViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return CharcoalColors.allCases.count
+        return CharcoalFoundation.Colors.allCases.count
     }
 }
 

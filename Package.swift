@@ -31,10 +31,7 @@ let package = Package(
         ),
         .target(
             name: "CharcoalShared",
-            dependencies: [],
-            resources: [
-                .process("Generated/CharcoalFoundation.json")
-            ]
+            dependencies: []
         ),
         .target(
             name: "CharcoalSwiftUI",

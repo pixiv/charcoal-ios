@@ -5,7 +5,7 @@ class ColorsCollectionViewCell: UICollectionViewCell {
     @IBOutlet var palletView: UIView!
     @IBOutlet var colorNameLabel: UILabel!
     
-    var color: CharcoalColors?
+    var color: CharcoalFoundation.Colors?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,9 +27,9 @@ class ColorsCollectionViewCell: UICollectionViewCell {
         return 32
     }
 
-    func configure(with charcoalColor: CharcoalColors) {
+    func configure(with charcoalColor: CharcoalFoundation.Colors) {
         color = charcoalColor
-        palletView.backgroundColor = charcoalColor.color
+        palletView.backgroundColor = charcoalColor.value
         colorNameLabel.text = String(describing: charcoalColor)
     }
 }
