@@ -89,9 +89,7 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalToa
                 }
                 .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
             }
-            .background(
-                Color(CharcoalAsset.ColorPaletteGenerated.background1.color)
-            )
+            .charcoalBackground(applyToken: .default)
             .charcoalAnimatableToast(
                 isPresenting: $isPresenting,
                 isActuallyPresenting: $isActuallyPresenting,

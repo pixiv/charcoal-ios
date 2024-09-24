@@ -22,15 +22,16 @@ extension CharcoalApplyTokens {
 extension CharcoalApplyTokens.Backgrounds{
     struct apply: ViewModifier {
         let color: Color
+        let edges: Edge.Set
         
         func body(content: Content) -> some View {
-            content.background(color)
+            content.backport.background(color, ignoresSafeAreaEdges: edges)
         }
     }
 }
 
 public extension View {
-    func charcoalContainer(applyToken: CharcoalApplyTokens.Backgrounds) -> some View {
-        modifier(CharcoalApplyTokens.Backgrounds.apply(color: applyToken.color()))
+    func charcoalBackground(applyToken: CharcoalApplyTokens.Backgrounds, ignoresSafeAreaEdges edges: Edge.Set = .all) -> some View {
+        modifier(CharcoalApplyTokens.Backgrounds.apply(color: applyToken.color(), edges: edges))
     }
 }
