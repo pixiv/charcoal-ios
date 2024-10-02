@@ -88,7 +88,7 @@ class CharcoalToastView: UIView {
     private func setupLayer() {
         // Setup Bubble Shape
         addSubview(capsuleShape)
-        capsuleShape.backgroundColor = appearance.background
+        capsuleShape.backgroundColor = appearance.background.value
         layer.borderColor = borderColor.cgColor
         layer.borderWidth = borderLineWidth
         layer.masksToBounds = true
