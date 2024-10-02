@@ -11,17 +11,24 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
 
     // swiftlint:disable identifier_name
     func _body(configuration: TextField<_Label>) -> some View {
-        var borderColor: Color = .clear
+        var borderRingColor: Color = .clear
         if hasError {
-            borderColor = Color(CharcoalFoundation.Colors.containerNegativeDefault.value.withAlphaComponent(0.32))
+            borderRingColor = Color(CharcoalFoundation.Colors.borderNegative.value)
         } else if isFocused {
-            borderColor = Color(CharcoalFoundation.Colors.pixiv.value.withAlphaComponent(0.32))
+            borderRingColor = Color(CharcoalFoundation.Colors.borderFocus2.value)
         }
+        
+        var borderColor: Color = .clear
+        
+        if isFocused {
+            borderColor = Color(CharcoalFoundation.Colors.borderFocus1.value)
+        }
+        
         return VStack(alignment: .leading, spacing: 8) {
             if !label.isEmpty {
                 Text(label)
                     .charcoalTypography14Regular()
-                    .charcoalOnSurfaceText1()
+                    .charcoalText(applyToken: .default, state: .default)
                     .lineLimit(1)
             }
             HStack(spacing: 10) {
@@ -29,7 +36,7 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
                     .charcoalTypography14Regular(isSingleLine: true)
                     .focused($isFocused)
                     .frame(maxWidth: .infinity)
-                    .charcoalOnSurfaceText2()
+                    .charcoalText(applyToken: .onSecondary, state: .default)
                 if !countLabel.isEmpty {
                     Text(countLabel)
                         .charcoalTypography14Regular(isSingleLine: true)
@@ -38,11 +45,16 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
                 }
             }
             .padding(EdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8))
-            .charcoalSurface3()
+            .charcoalBackground(applyToken: .secondary)
             .cornerRadius(4.0)
             .overlay(
-                RoundedRectangle(cornerRadius: 8.0)
-                    .stroke(borderColor, lineWidth: 4)
+                RoundedRectangle(cornerRadius: 4.0)
+                    .stroke(borderRingColor, lineWidth: 4)
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 4.0)
+                    .stroke(borderColor, lineWidth: 1)
+                    .padding(1)
             )
             if !assistiveText.isEmpty {
                 Text(assistiveText)
