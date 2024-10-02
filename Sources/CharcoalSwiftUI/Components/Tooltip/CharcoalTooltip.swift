@@ -106,7 +106,7 @@ struct CharcoalTooltip: CharcoalPopupProtocol {
                             .charcoalTypography12Regular()
                             .multilineTextAlignment(.center)
                             .fixedSize(horizontal: false, vertical: true)
-                            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
+                            .charcoalText(applyToken: .onPrimary, state: .default)
                             .padding(EdgeInsets(top: 4, leading: 12, bottom: 4, trailing: 12))
                             .background(GeometryReader(content: { tooltipGeometry in
                                 let tooltipOrigin = tooltipGeometry.frame(in: .global).origin
@@ -120,7 +120,7 @@ struct CharcoalTooltip: CharcoalPopupProtocol {
                                     cornerRadius: cornerRadius,
                                     arrowWidth: 5
                                 )
-                                .fill(Color(CharcoalAsset.ColorPaletteGenerated.surface8.color))
+                                .fill(Color(CharcoalFoundation.Colors.containerHudDefault.value))
                                 .preference(key: TooltipSizeKey.self, value: tooltipGeometry.size)
                             }))
                             .offset(CGSize(
