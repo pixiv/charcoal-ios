@@ -45,7 +45,7 @@ struct CharcoalToggleStyle: ToggleStyle {
             HStack {
                 configuration.label
                     .charcoalTypography14Regular()
-                    .charcoalOnSurfaceText1()
+                    .charcoalText(applyToken: .default, state: .default)
                 Spacer()
             }
             .contentShape(Rectangle())
