@@ -8,6 +8,7 @@ extension CharcoalApplyTokens {
         case onHUD
         case onSecondary
         case onOnImg
+        case onPositive
         
         func color(state: CharcoalApplyTokens.Texts.States) -> Color {
             switch self {
@@ -41,6 +42,13 @@ extension CharcoalApplyTokens {
                 }
             case .disable:
                 return Color(CharcoalFoundation.Colors.textDisable.value)
+            case .onPositive:
+                switch state {
+                case .press:
+                    return Color(CharcoalFoundation.Colors.textOnPositivePress.value)
+                default:
+                    return Color(CharcoalFoundation.Colors.textOnPositiveDefault.value)
+                }
             default:
                 switch state {
                 case .press:

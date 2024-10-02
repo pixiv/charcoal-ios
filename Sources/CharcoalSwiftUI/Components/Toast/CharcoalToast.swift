@@ -69,17 +69,17 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalToastB
                 HStack(spacing: 8) {
                     Text(text)
                         .charcoalTypography14Bold(isSingleLine: true)
-                        .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.background1.color))
+                        .charcoalText(applyToken: .onPositive, state: .default)
 
                     if let action = action {
                         action
-                            .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.background1.color))
+                            .charcoalText(applyToken: .onPositive, state: .default)
                     }
                 }
                 .padding(EdgeInsets(top: 8, leading: 24, bottom: 8, trailing: 24))
             }
             .background(
-                Color(appearance.background)
+                Color(appearance.background.value)
             )
             .charcoalAnimatableToast(
                 isPresenting: $isPresenting,

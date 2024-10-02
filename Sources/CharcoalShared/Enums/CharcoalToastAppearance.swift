@@ -2,12 +2,12 @@ public enum CharcoalToastAppearance {
     case success
     case error
 
-    public var background: ColorAsset.Color {
+    public var background: CharcoalFoundation.Colors {
         switch self {
         case .success:
-            return CharcoalAsset.ColorPaletteGenerated.success.color
+            return CharcoalFoundation.Colors.containerPositiveDefault
         case .error:
-            return CharcoalAsset.ColorPaletteGenerated.assertive.color
+            return CharcoalFoundation.Colors.containerNegativeDefault
         }
     }
 }
