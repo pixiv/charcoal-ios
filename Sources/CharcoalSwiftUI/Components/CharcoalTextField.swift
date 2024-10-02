@@ -12,16 +12,12 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
     // swiftlint:disable identifier_name
     func _body(configuration: TextField<_Label>) -> some View {
         var borderRingColor: Color = .clear
+        var borderColor: Color = .clear
         if hasError {
             borderRingColor = Color(CharcoalFoundation.Colors.borderNegative.value)
         } else if isFocused {
-            borderRingColor = Color(CharcoalFoundation.Colors.borderFocus2.value)
-        }
-        
-        var borderColor: Color = .clear
-        
-        if isFocused {
             borderColor = Color(CharcoalFoundation.Colors.borderFocus1.value)
+            borderRingColor = Color(CharcoalFoundation.Colors.borderFocus2.value)
         }
         
         return VStack(alignment: .leading, spacing: 8) {
