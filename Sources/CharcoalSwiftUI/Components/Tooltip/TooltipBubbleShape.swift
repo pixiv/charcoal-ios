@@ -144,67 +144,61 @@ public extension Shape {
     }
 }
 
-private struct BubbleShapePreview: View {
-    var body: some View {
-        ZStack {
-            Color.gray
-            VStack {
-                TooltipBubbleShape(
-                    targetPoint:
-                    CGPoint(
-                        x: 0,
-                        y: -10
-                    ),
-                    arrowHeight: 4,
-                    cornerRadius: 16,
-                    arrowWidth: 8
-                )
-                .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
-                .frame(width: 240, height: 100)
-
-                TooltipBubbleShape(
-                    targetPoint:
-                    CGPoint(
-                        x: 200,
-                        y: 200
-                    ),
-                    arrowHeight: 4,
-                    cornerRadius: 16,
-                    arrowWidth: 8
-                )
-                .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
-                .frame(width: 240, height: 100)
-
-                TooltipBubbleShape(
-                    targetPoint:
-                    CGPoint(
-                        x: 300,
-                        y: 50
-                    ),
-                    arrowHeight: 4,
-                    cornerRadius: 16,
-                    arrowWidth: 8
-                )
-                .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
-                .frame(width: 240, height: 100)
-
-                TooltipBubbleShape(
-                    targetPoint:
-                    CGPoint(
-                        x: -10,
-                        y: 50
-                    ),
-                    arrowHeight: 4,
-                    cornerRadius: 16,
-                    arrowWidth: 8
-                )
-                .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
-                .frame(width: 240, height: 100)
-            }
-        }.ignoresSafeArea()
-    }
-}
-
 #Preview {
-    BubbleShapePreview()
+    ZStack {
+        Color.gray
+        VStack {
+            TooltipBubbleShape(
+                targetPoint:
+                CGPoint(
+                    x: 0,
+                    y: -10
+                ),
+                arrowHeight: 4,
+                cornerRadius: 16,
+                arrowWidth: 8
+            )
+            .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
+            .frame(width: 240, height: 100)
+
+            TooltipBubbleShape(
+                targetPoint:
+                CGPoint(
+                    x: 200,
+                    y: 200
+                ),
+                arrowHeight: 4,
+                cornerRadius: 16,
+                arrowWidth: 8
+            )
+            .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
+            .frame(width: 240, height: 100)
+
+            TooltipBubbleShape(
+                targetPoint:
+                CGPoint(
+                    x: 300,
+                    y: 50
+                ),
+                arrowHeight: 4,
+                cornerRadius: 16,
+                arrowWidth: 8
+            )
+            .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
+            .frame(width: 240, height: 100)
+
+            TooltipBubbleShape(
+                targetPoint:
+                CGPoint(
+                    x: -10,
+                    y: 50
+                ),
+                arrowHeight: 4,
+                cornerRadius: 16,
+                arrowWidth: 8
+            )
+            .fill(Color(CharcoalAsset.ColorPaletteGenerated.brand.color), strokeColor: Color.white, lineWidth: 2)
+            .frame(width: 240, height: 100)
+        }
+    }.ignoresSafeArea()
 }

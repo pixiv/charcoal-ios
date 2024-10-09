@@ -43,18 +43,10 @@ public extension View {
     }
 }
 
-// MARK: Development View
-
-private struct BackgroundView: View {
-    var body: some View {
-        ZStack {
-            Text("Charcoal")
-            Color.clear
-        }
-        .background(charcoalColor: .warning)
-    }
-}
-
 #Preview {
-    BackgroundView()
+    ZStack {
+        Text("Charcoal")
+        Color.clear
+    }
+    .background(charcoalColor: .warning)
 }

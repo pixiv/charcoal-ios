@@ -14,17 +14,9 @@ public extension View {
     }
 }
 
-// MARK: Development View
-
-private struct ForegroundView: View {
-    var body: some View {
-        ZStack {
-            Text("Charcoal")
-                .foregroundStyle(charcoalColor: .brand)
-        }
-    }
-}
-
 #Preview {
-    ForegroundView()
+    ZStack {
+        Text("Charcoal")
+            .foregroundStyle(charcoalColor: .brand)
+    }
 }
