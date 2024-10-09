@@ -1,7 +1,7 @@
 import Charcoal
 import UIKit
 
-enum TooltipTitles: String, CaseIterable {
+enum BalloonTitles: String, CaseIterable {
     case leading = "Leading"
     case trailing = "Trailing"
     case bottom = "Bottom"
@@ -16,9 +16,21 @@ enum TooltipTitles: String, CaseIterable {
             return "こんにちは This is a tooltip and here is testing it's multiple line feature"
         }
     }
+
+    func configCell(cell: BalloonTableViewCell) {
+        cell.titleLabel.text = rawValue
+        switch self {
+        case .leading:
+            cell.leadingImageView.image = CharcoalAsset.Images.info24.image
+        case .trailing:
+            cell.accessoryImageView.image = CharcoalAsset.Images.info24.image
+        case .bottom:
+            break
+        }
+    }
 }
 
-public final class TooltipsViewController: UIViewController {
+public final class BalloonsViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .insetGrouped)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -37,7 +49,7 @@ public final class TooltipsViewController: UIViewController {
         var title: String {
             switch self {
             case .components:
-                return "Tooltips"
+                return "Balloons"
             }
         }
 
@@ -86,17 +98,17 @@ public final class TooltipsViewController: UIViewController {
     }
 }
 
-extension TooltipsViewController: UITableViewDelegate, UITableViewDataSource {
+extension BalloonsViewController: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = Sections.allCases[indexPath.section]
 
-        let cellIdentifier = TooltipTableViewCell.identifier
-        let cell: TooltipTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? TooltipTableViewCell ?? TooltipTableViewCell(style: .default, reuseIdentifier: cellIdentifier)
+        let cellIdentifier = BalloonTableViewCell.identifier
+        let cell: BalloonTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? BalloonTableViewCell ?? BalloonTableViewCell(style: .default, reuseIdentifier: cellIdentifier)
 
         switch section {
         case .components:
-            let titleCase = TooltipTitles.allCases[indexPath.row]
-            cell.configCell(type: titleCase)
+            let titleCase = BalloonTitles.allCases[indexPath.row]
+            titleCase.configCell(cell: cell)
             return cell
         }
     }
@@ -106,16 +118,18 @@ extension TooltipsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! TooltipTableViewCell
+        let cell = tableView.cellForRow(at: indexPath) as! BalloonTableViewCell
         tableView.deselectRow(at: indexPath, animated: true)
-        let titleCase = TooltipTitles.allCases[indexPath.row]
+        let titleCase = BalloonTitles.allCases[indexPath.row]
         switch titleCase {
         case .leading:
-            CharcoalTooltip.show(text: titleCase.text, anchorView: cell.leadingImageView)
+            // use on: self.view to stick the balloon to the view
+            // so balloons will dismiss with the view
+            CharcoalBalloon.show(text: titleCase.text, anchorView: cell.leadingImageView, on: self.view)
         case .trailing:
-            CharcoalTooltip.show(text: titleCase.text, anchorView: cell.accessoryImageView)
+            CharcoalBalloon.show(text: titleCase.text, anchorView: cell.accessoryImageView, on: self.view)
         case .bottom:
-            CharcoalTooltip.show(text: titleCase.text, anchorView: bottomInfoImage)
+            CharcoalBalloon.show(text: titleCase.text, anchorView: bottomInfoImage, on: self.view)
         }
     }
 
@@ -130,6 +144,6 @@ extension TooltipsViewController: UITableViewDelegate, UITableViewDataSource {
 
 @available(iOS 17.0, *)
 #Preview {
-    let viewController = TooltipsViewController()
+    let viewController = BalloonsViewController()
     return viewController
 }

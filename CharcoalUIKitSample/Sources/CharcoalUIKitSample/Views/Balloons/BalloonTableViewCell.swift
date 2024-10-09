@@ -1,13 +1,12 @@
-import CharcoalShared
 import UIKit
 
-class TooltipTableViewCell: UITableViewCell {
+class BalloonTableViewCell: UITableViewCell {
     static let identifier = "TooltipCell"
 
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        label.textColor = UIColor.label
+        label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -47,18 +46,6 @@ class TooltipTableViewCell: UITableViewCell {
             accessoryImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             accessoryImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
-    }
-
-    func configCell(type: TooltipTitles) {
-        titleLabel.text = type.rawValue
-        switch type {
-        case .leading:
-            leadingImageView.image = CharcoalAsset.Images.info24.image
-        case .trailing:
-            accessoryImageView.image = CharcoalAsset.Images.info24.image
-        case .bottom:
-            break
-        }
     }
 
     @available(*, unavailable)

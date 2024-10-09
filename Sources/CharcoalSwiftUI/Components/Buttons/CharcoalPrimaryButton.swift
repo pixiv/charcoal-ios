@@ -94,7 +94,6 @@ struct CharcoalPrimaryButtonStyleModifier: ViewModifier {
 }
 
 public extension View {
-    @warn_unqualified_access
     func charcoalPrimaryButton(
         size: CharcoalButtonSize = .medium,
         isFixed: Bool = true,

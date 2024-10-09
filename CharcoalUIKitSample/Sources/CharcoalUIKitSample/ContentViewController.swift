@@ -53,6 +53,7 @@ public final class ContentViewController: UIViewController {
         case toasts = "Toasts"
         case spinners = "Spinners"
         case hints = "Hints"
+        case balloons = "Balloons"
 
         var viewController: UIViewController {
             switch self {
@@ -76,6 +77,8 @@ public final class ContentViewController: UIViewController {
                 return SpinnersViewController()
             case .hints:
                 return HintsViewController()
+            case .balloons:
+                return BalloonsViewController()
             }
         }
     }
@@ -182,7 +185,7 @@ extension ContentViewController {
     private func performActionFor(setting: SettingsTitles, sender: UISwitch) {
         switch setting {
         case .darkMode:
-            navigationController?.overrideUserInterfaceStyle = sender.isOn ? .dark : .light
+            navigationController?.topViewController?.view.window?.overrideUserInterfaceStyle = sender.isOn ? .dark : .light
         case .fixedSizeCategory:
             CharcoalConfig.configUIKit.fixedSizeCategory = sender.isOn ? .large : nil
 

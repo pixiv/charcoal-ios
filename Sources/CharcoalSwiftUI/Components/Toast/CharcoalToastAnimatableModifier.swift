@@ -2,7 +2,7 @@ import Combine
 import SwiftUI
 
 struct CharcoalToastAnimatableModifier: ViewModifier, CharcoalToastBase {
-    var text: String
+    var text: String = ""
 
     var maxWidth: CGFloat
 
@@ -35,9 +35,9 @@ struct CharcoalToastAnimatableModifier: ViewModifier, CharcoalToastBase {
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .overlay(RoundedRectangle(cornerRadius: cornerRadius).stroke(borderColor, lineWidth: borderLineWidth))
             .overlay(
-                GeometryReader(content: { geometry in
-                    Color.clear.preference(key: PopupViewSizeKey.self, value: geometry.size)
-                })
+                GeometryReader { proxy in
+                    Color.clear.preference(key: PopupViewSizeKey.self, value: proxy.size)
+                }
             )
             .offset(CGSize(width: 0, height: animationConfiguration.enablePositionAnimation ? (isActuallyPresenting ? screenEdge.direction * screenEdgeSpacing : -screenEdge.direction * (tooltipSize.height)) : screenEdge.direction * screenEdgeSpacing))
             .opacity(isActuallyPresenting ? 1 : 0)
@@ -82,6 +82,6 @@ extension View {
         dismissAfter: TimeInterval? = nil,
         animationConfiguration: CharcoalToastAnimationConfiguration
     ) -> some View {
-        modifier(CharcoalToastAnimatableModifier(text: "", maxWidth: 0, isPresenting: isPresenting, cornerRadius: cornerRadius, borderColor: borderColor, borderLineWidth: borderLineWidth, screenEdge: screenEdge, screenEdgeSpacing: screenEdgeSpacing, tooltipSize: tooltipSize, isActuallyPresenting: isActuallyPresenting, animationConfiguration: animationConfiguration, dismissAfter: dismissAfter, isDragging: isDragging))
+        modifier(CharcoalToastAnimatableModifier(maxWidth: 0, isPresenting: isPresenting, cornerRadius: cornerRadius, borderColor: borderColor, borderLineWidth: borderLineWidth, screenEdge: screenEdge, screenEdgeSpacing: screenEdgeSpacing, tooltipSize: tooltipSize, isActuallyPresenting: isActuallyPresenting, animationConfiguration: animationConfiguration, dismissAfter: dismissAfter, isDragging: isDragging))
     }
 }
