@@ -216,10 +216,10 @@ public extension View {
 
 @available(iOS 17, *)
 #Preview {
-    @State var isPresented = true
-    @State var text1: String = ""
+    @Previewable @State var isPresented = false
+    @Previewable @State var text1 = ""
 
-    return ZStack {
+    ZStack {
         Button(action: {
             isPresented = true
         }, label: {
