@@ -62,31 +62,26 @@ public struct CharcoalHint<ActionContent: View>: View {
     }
 }
 
-private struct HintsPreviewView: View {
-    @State var isPresenting = true
-    @State var isPresenting2 = true
-    @State var isPresenting3 = true
-
-    @State var textOfLabel = "Hello"
-
-    var body: some View {
-        VStack {
-            CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting) {
-                Button(action: {
-                    isPresenting = false
-                }) {
-                    Text("Button")
-                }
-            }
-
-            CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting2)
-
-            CharcoalHint(text: "ヒントテキストヒントテキスト", maxWidth: .infinity, isPresenting: $isPresenting3)
-
-        }.padding()
-    }
-}
-
+@available(iOS 17, *)
 #Preview {
-    HintsPreviewView()
+    @Previewable @State var isPresenting = true
+    @Previewable @State var isPresenting2 = true
+    @Previewable @State var isPresenting3 = true
+
+    @Previewable @State var textOfLabel = "Hello"
+
+    VStack {
+        CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting) {
+            Button(action: {
+                isPresenting = false
+            }) {
+                Text("Button")
+            }
+        }
+
+        CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting2)
+
+        CharcoalHint(text: "ヒントテキストヒントテキスト", maxWidth: .infinity, isPresenting: $isPresenting3)
+
+    }.padding()
 }
