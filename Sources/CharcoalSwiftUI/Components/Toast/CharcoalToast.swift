@@ -45,7 +45,7 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalToastB
         screenEdgeSpacing: CGFloat,
         @ViewBuilder action: () -> ActionContent?,
         isPresenting: Binding<Bool>,
-        dismissAfter: TimeInterval? = nil,
+        dismissAfter: TimeInterval?,
         appearance: CharcoalToastAppearance = .success,
         animationConfiguration: CharcoalToastAnimationConfiguration
     ) {
@@ -172,10 +172,10 @@ struct CharcoalToastModifier<ActionContent: View>: ViewModifier {
 
 public extension View {
     /**
-     Add a tooltip to the view
+     Add a Toast to the view
 
      - Parameters:
-        - isPresenting: A binding to whether the Tooltip  is presented.
+        - isPresenting: A binding to whether the Toast  is presented.
         - dismissAfter: The overlay will be dismissed after a certain time interval.
         - screenEdge: The edge of the screen where the snackbar will be presented
         - screenEdgeSpacing: The spacing between the snackbar and the screen edge
@@ -193,7 +193,7 @@ public extension View {
         screenEdge: CharcoalPopupViewEdge = .bottom,
         screenEdgeSpacing: CGFloat = 96,
         text: String,
-        dismissAfter: TimeInterval? = nil,
+        dismissAfter: TimeInterval? = 2,
         appearance: CharcoalToastAppearance = .success,
         animationConfiguration: CharcoalToastAnimationConfiguration = .default,
         @ViewBuilder action: @escaping () -> Content = { EmptyView() }

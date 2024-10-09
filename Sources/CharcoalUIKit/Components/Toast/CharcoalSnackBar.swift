@@ -29,34 +29,31 @@ public extension CharcoalSnackBar {
         action: CharcoalAction? = nil,
         on: UIView? = nil
     ) -> CharcoalIdentifiableOverlayView.IDValue {
-        let toastView = CharcoalSnackBarView(text: text, thumbnailImage: thumbnailImage, maxWidth: maxWidth, action: action)
-        toastView.isUserInteractionEnabled = true
-        toastView.translatesAutoresizingMaskIntoConstraints = false
+        let snackbarView = CharcoalSnackBarView(text: text, thumbnailImage: thumbnailImage, maxWidth: maxWidth, action: action)
+        snackbarView.isUserInteractionEnabled = true
+        snackbarView.translatesAutoresizingMaskIntoConstraints = false
 
-        let containerView = ChacoalOverlayManager.shared.layout(view: toastView, interactionMode: .passThrough, on: on)
+        let containerView = ChacoalOverlayManager.shared.layout(view: snackbarView, interactionMode: .passThrough, on: on)
         containerView.alpha = 1
         containerView.isUserInteractionEnabled = false
         containerView.delegate = ChacoalOverlayManager.shared
-
-        let rubberGesture = CharcoalRubberGesture(screenEdge: screenEdge)
-        toastView.addGesture(rubberGesture)
-
         let containerID = containerView.id
-        rubberGesture.dismiss = {
+
+        snackbarView.setupGestureAnimator(screenEdge, gestureDismissCallback: {
             ChacoalOverlayManager.shared.dismiss(id: containerID)
-        }
+        })
 
         var constraints = [
-            toastView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
+            snackbarView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
         ]
 
         var screenEdgeSpacingConstraint: NSLayoutConstraint
 
         switch screenEdge {
         case .top:
-            screenEdgeSpacingConstraint = toastView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: -screenEdgeSpacing * screenEdge.direction)
+            screenEdgeSpacingConstraint = snackbarView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: -screenEdgeSpacing * screenEdge.direction)
         case .bottom:
-            screenEdgeSpacingConstraint = toastView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -screenEdgeSpacing * screenEdge.direction)
+            screenEdgeSpacingConstraint = snackbarView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -screenEdgeSpacing * screenEdge.direction)
         }
 
         constraints.append(screenEdgeSpacingConstraint)

@@ -58,6 +58,9 @@ public struct ContentView: View {
                 NavigationLink(destination: SpinnersView()) {
                     Text("Spinners")
                 }
+                NavigationLink(destination: BalloonsView().charcoalOverlayContainer()) {
+                    Text("Balloons")
+                }
             }
             .navigationBarTitle("Charcoal")
         }

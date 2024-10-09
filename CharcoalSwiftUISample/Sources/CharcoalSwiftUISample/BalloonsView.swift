@@ -68,7 +68,7 @@ public struct BalloonsView: View {
                 )
             }
         }
-        .navigationBarTitle("Tooltips")
+        .navigationBarTitle("Balloons")
     }
 }
 

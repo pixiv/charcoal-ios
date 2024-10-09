@@ -73,7 +73,6 @@ struct CharcoalTextFieldStyleModifier: ViewModifier {
 
 @available(iOS 15, *)
 public extension View {
-    @warn_unqualified_access
     func charcoalTextField(
         label: Binding<String> = .constant(""),
         countLabel: Binding<String> = .constant(""),
