@@ -1,4 +1,5 @@
 import SwiftUI
+import CharcoalShared
 
 struct ButtonsView: View {
     var body: some View {
@@ -64,12 +65,11 @@ struct ButtonsView: View {
                         .disabled(true)
                 }
 
-                let premiumColor = Color(hue: 0.097, saturation: 0.91, brightness: 0.99)
                 VStack(spacing: 8) {
                     Button("Premium") {}
-                        .charcoalPrimaryButton(primaryColor: premiumColor)
+                        .charcoalPrimaryButton(containerToken: .premium)
                     Button("Premium") {}
-                        .charcoalPrimaryButton(primaryColor: premiumColor)
+                        .charcoalPrimaryButton(containerToken: .premium)
                         .disabled(true)
                 }
             }

@@ -6,19 +6,19 @@ struct CharcoalPrimaryButtonStyleView: View {
     let isEnabled: Bool
     let size: CharcoalButtonSize
     let isFixed: Bool
-    let primaryColor: Color
+    let containerToken: CharcoalApplyTokens.Containers
 
     @ScaledMetric var fontSize: CGFloat
 
     @ScaledMetric var cornerRadius: CGFloat
 
-    init(label: ButtonStyleConfiguration.Label, isPressed: Bool, isEnabled: Bool, size: CharcoalButtonSize, isFixed: Bool, primaryColor: Color) {
+    init(label: ButtonStyleConfiguration.Label, isPressed: Bool, isEnabled: Bool, size: CharcoalButtonSize, isFixed: Bool, containerToken: CharcoalApplyTokens.Containers) {
         self.label = label
         self.isPressed = isPressed
         self.isEnabled = isEnabled
         self.size = size
         self.isFixed = isFixed
-        self.primaryColor = primaryColor
+        self.containerToken = containerToken
         _fontSize = ScaledMetric(wrappedValue: size.fontSize)
         _cornerRadius = ScaledMetric(wrappedValue: size.cornerRadius)
     }
@@ -26,11 +26,12 @@ struct CharcoalPrimaryButtonStyleView: View {
     var body: some View {
         label
             .font(.system(size: fontSize, weight: .bold))
-            .charcoalText(applyToken: isEnabled ? .onPrimary : .disable, state: isPressed ? .press : .default)
+            .charcoalText(applyToken: .onPrimary, state: isPressed ? .press : .default)
             .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
-            .charcoalContainer(applyToken: isEnabled ? .primary : .disable, state: isPressed ? .press : .default)
+            .charcoalContainer(applyToken: containerToken, state: isPressed ? .press : .default)
             .cornerRadius(cornerRadius)
+            .opacity(isEnabled ? 1 : 0.32)
     }
 }
 
@@ -39,7 +40,7 @@ struct CharcoalPrimaryButtonStyleIos15: ButtonStyle {
     @Environment(\.isEnabled) var isEnabled
     let size: CharcoalButtonSize
     let isFixed: Bool
-    let primaryColor: Color
+    let containerToken: CharcoalApplyTokens.Containers
 
     func makeBody(configuration: Self.Configuration) -> some View {
         CharcoalPrimaryButtonStyleView(
@@ -48,7 +49,7 @@ struct CharcoalPrimaryButtonStyleIos15: ButtonStyle {
             isEnabled: isEnabled,
             size: size,
             isFixed: isFixed,
-            primaryColor: primaryColor
+            containerToken: containerToken
         )
     }
 }
@@ -57,7 +58,7 @@ struct CharcoalPrimaryButtonStyle: ButtonStyle {
     let isEnabled: Bool
     let size: CharcoalButtonSize
     let isFixed: Bool
-    let primaryColor: Color
+    let containerToken: CharcoalApplyTokens.Containers
 
     func makeBody(configuration: Self.Configuration) -> some View {
         CharcoalPrimaryButtonStyleView(
@@ -66,7 +67,7 @@ struct CharcoalPrimaryButtonStyle: ButtonStyle {
             isEnabled: isEnabled,
             size: size,
             isFixed: isFixed,
-            primaryColor: primaryColor
+            containerToken: containerToken
         )
     }
 }
@@ -75,15 +76,15 @@ struct CharcoalPrimaryButtonStyleModifier: ViewModifier {
     @Environment(\.isEnabled) var isEnabled
     let size: CharcoalButtonSize
     let isFixed: Bool
-    let primaryColor: Color
+    let containerToken: CharcoalApplyTokens.Containers
 
     func body(content: Content) -> some View {
         if #available(iOS 15, *) {
             // swiftlint:disable line_length
-            content.buttonStyle(CharcoalPrimaryButtonStyleIos15(size: size, isFixed: isFixed, primaryColor: primaryColor))
+            content.buttonStyle(CharcoalPrimaryButtonStyleIos15(size: size, isFixed: isFixed, containerToken: containerToken))
         } else {
             // swiftlint:disable line_length
-            content.buttonStyle(CharcoalPrimaryButtonStyle(isEnabled: isEnabled, size: size, isFixed: isFixed, primaryColor: primaryColor))
+            content.buttonStyle(CharcoalPrimaryButtonStyle(isEnabled: isEnabled, size: size, isFixed: isFixed, containerToken: containerToken))
         }
     }
 }
@@ -92,9 +93,9 @@ public extension View {
     func charcoalPrimaryButton(
         size: CharcoalButtonSize = .medium,
         isFixed: Bool = true,
-        primaryColor: Color = Color(CharcoalFoundation.Colors.containerPrimaryDefault.value)
+        containerToken: CharcoalApplyTokens.Containers = .primary
     ) -> some View {
-        return modifier(CharcoalPrimaryButtonStyleModifier(size: size, isFixed: isFixed, primaryColor: primaryColor))
+        return modifier(CharcoalPrimaryButtonStyleModifier(size: size, isFixed: isFixed, containerToken: containerToken))
     }
 }
 
