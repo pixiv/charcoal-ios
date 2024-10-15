@@ -8,9 +8,17 @@ extension CharcoalApplyTokens {
         case hud
         case secondary
         case onImg
+        case premium
         
         func color(state: CharcoalApplyTokens.Containers.States) -> Color {
             switch self {
+            case .premium:
+                switch state {
+                case .press:
+                    return Color(CharcoalFoundation.Colors.textBrandPremiumPress.value)
+                default:
+                    return Color(CharcoalFoundation.Colors.premium.value)
+                }
             case .primary:
                 switch state {
                 case .press:
