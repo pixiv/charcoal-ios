@@ -24,11 +24,12 @@ struct CharcoalNavigationButtonStyleView: View {
     var body: some View {
         return AnyView(label
             .font(.system(size: fontSize, weight: .bold))
-            .charcoalText(applyToken: isEnabled ? .onHUD : .disable, state: isPressed ? .press : .default)
+            .charcoalText(applyToken: .onHUD, state: isPressed ? .press : .default)
             .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
-            .charcoalContainer(applyToken: isEnabled ? .hud : .disable, state: isPressed ? .press : .default)
+            .charcoalContainer(applyToken: .hud, state: isPressed ? .press : .default)
             .cornerRadius(cornerRadius)
+            .opacity(isEnabled ? 1 : 0.32)
         )
     }
 }
