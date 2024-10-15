@@ -7,7 +7,7 @@ public struct CharcoalHint<ActionContent: View>: View {
     /// The text of the tooltip
     let subtitle: String?
 
-    let icon: CharcoalAsset.Images
+    let icon: CharcoalAsset.Images = .info16
 
     /// The corner radius of the tooltip
     let cornerRadius: CGFloat = 8
@@ -24,14 +24,12 @@ public struct CharcoalHint<ActionContent: View>: View {
     public init(
         text: String,
         subtitle: String? = nil,
-        icon: CharcoalAsset.Images = .info16,
         maxWidth: CGFloat? = nil,
         isPresenting: Binding<Bool>,
         @ViewBuilder action: () -> ActionContent? = { EmptyView() }
     ) {
         self.text = text
         self.subtitle = subtitle
-        self.icon = icon
         self.maxWidth = maxWidth
         _isPresenting = isPresenting
         self.action = action()
