@@ -114,38 +114,32 @@ public extension View {
     }
 }
 
-struct SpinnersPreview: View {
-    @State var isPresenting = true
-    @State var isBigPresenting = true
-    @State var isTransparentPresenting = true
-
-    var body: some View {
-        ZStack {
-            Color.gray.opacity(0.2)
-            VStack {
-                Button {
-                    isPresenting.toggle()
-                } label: {
-                    Text("Toggle Spinner")
-                }
-                VStack {}
-                    .frame(width: 100, height: 100)
-                    .charcoalSpinner(isPresenting: $isPresenting)
-
-                VStack {}
-                    .frame(width: 100, height: 150)
-                    .charcoalSpinner(isPresenting: $isBigPresenting, spinnerSize: 100)
-
-                VStack {}
-                    .frame(width: 100, height: 100)
-                    .charcoalSpinner(isPresenting: $isTransparentPresenting, transparentBackground: true)
-            }
-        }
-        .ignoresSafeArea()
-    }
-}
-
 @available(iOS 17, *)
 #Preview {
-    SpinnersPreview()
+    @Previewable @State var isPresenting = true
+    @Previewable @State var isBigPresenting = true
+    @Previewable @State var isTransparentPresenting = true
+
+    ZStack {
+        Color.gray.opacity(0.2)
+        VStack {
+            Button {
+                isPresenting.toggle()
+            } label: {
+                Text("Toggle Spinner")
+            }
+            VStack {}
+                .frame(width: 100, height: 100)
+                .charcoalSpinner(isPresenting: $isPresenting)
+
+            VStack {}
+                .frame(width: 100, height: 150)
+                .charcoalSpinner(isPresenting: $isBigPresenting, spinnerSize: 100)
+
+            VStack {}
+                .frame(width: 100, height: 100)
+                .charcoalSpinner(isPresenting: $isTransparentPresenting, transparentBackground: true)
+        }
+    }
+    .ignoresSafeArea()
 }
