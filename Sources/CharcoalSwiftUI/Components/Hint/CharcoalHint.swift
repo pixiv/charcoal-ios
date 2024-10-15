@@ -39,7 +39,7 @@ public struct CharcoalHint<ActionContent: View>: View {
 
     public var body: some View {
         if isPresenting {
-            HStack(spacing: 5) {
+            HStack(spacing: 4) {
                 Image(charocalIcon: icon)
 
                 VStack {
