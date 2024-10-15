@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct CharcoalHint<ActionContent: View>: View {
+public struct CharcoalHint: View {
     /// The text of the tooltip
     let text: String
 
@@ -17,7 +17,7 @@ public struct CharcoalHint<ActionContent: View>: View {
     /// A binding to whether the overlay is presented.
     @Binding var isPresenting: Bool
 
-    let action: ActionContent?
+    let action: CharcoalAction?
 
     @State var timer: Timer?
 
@@ -26,13 +26,13 @@ public struct CharcoalHint<ActionContent: View>: View {
         subtitle: String? = nil,
         maxWidth: CGFloat? = nil,
         isPresenting: Binding<Bool>,
-        @ViewBuilder action: () -> ActionContent? = { EmptyView() }
+        action: CharcoalAction? = nil
     ) {
         self.text = text
         self.subtitle = subtitle
         self.maxWidth = maxWidth
         _isPresenting = isPresenting
-        self.action = action()
+        self.action = action
     }
 
     public var body: some View {
@@ -47,9 +47,14 @@ public struct CharcoalHint<ActionContent: View>: View {
                     }
                 }
 
-                if let action = action, type(of: action) != EmptyView.self {
+                if let action = action {
                     Spacer()
-                    action.charcoalPrimaryButton(size: .small)
+                    Button(action: {
+                        action.actionCallback()
+                    }) {
+                        Text(action.title)
+                    }
+                    .charcoalPrimaryButton(size: .small)
                 }
             }
             .frame(maxWidth: maxWidth)
@@ -69,13 +74,9 @@ public struct CharcoalHint<ActionContent: View>: View {
     @Previewable @State var textOfLabel = "Hello"
 
     VStack {
-        CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting) {
-            Button(action: {
-                isPresenting = false
-            }) {
-                Text("Button")
-            }
-        }
+        CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting, action: CharcoalAction(title: "Button", actionCallback: {
+            isPresenting = false
+        }))
 
         CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting2)
 

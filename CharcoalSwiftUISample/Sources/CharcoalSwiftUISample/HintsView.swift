@@ -11,13 +11,9 @@ public struct HintsView: View {
     public var body: some View {
         ScrollView {
             VStack {
-                CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresented) {
-                    Button(action: {
-                        isPresented = false
-                    }) {
-                        Text("Button")
-                    }
-                }
+                CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresented, action: CharcoalAction(title: "Button", actionCallback: {
+                    isPresented = false
+                }))
 
                 CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresented2)
 
