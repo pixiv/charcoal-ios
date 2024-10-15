@@ -203,83 +203,78 @@ public extension View {
     }
 }
 
-private struct SnackBarsPreviewView: View {
-    @State var isPresenting = true
-
-    @State var isPresenting2 = true
-
-    @State var isPresenting3 = true
-
-    @State var textOfLabel = "Hello"
-
-    var body: some View {
-        NavigationView(content: {
-            TabView {
-                ZStack {
-                    ZStack {
-                        Button {
-                            isPresenting.toggle()
-                            isPresenting3.toggle()
-                        } label: {
-                            Text("Toggle SnackBar")
-                        }
-                    }
-                    .charcoalSnackBar(
-                        isPresenting: $isPresenting,
-                        screenEdge: .top,
-                        text: "ブックマークしました",
-                        thumbnailImage: Image(uiImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64)),
-                        action: {
-                            Button {
-                                print("Tapped")
-                            } label: {
-                                Text("編集")
-                            }
-                        }
-                    )
-                    .charcoalSnackBar(
-                        isPresenting: $isPresenting2,
-                        screenEdge: .bottom,
-                        text: "ブックマークしました",
-                        dismissAfter: 2,
-                        action: {
-                            Button {
-                                print("Tapped")
-                            } label: {
-                                Text("編集")
-                            }
-                        }
-                    )
-                    .charcoalSnackBar(
-                        isPresenting: $isPresenting3,
-                        screenEdgeSpacing: 275,
-                        text: "ブックマークしました"
-                    )
-                }
-
-                .tabItem {
-                    Image(systemName: "1.circle")
-                    Text("First")
-                }
-
-                Text("Second Tab")
-                    .tabItem {
-                        Image(systemName: "2.circle")
-                        Text("Second")
-                    }
-
-                Text("Third Tab")
-                    .tabItem {
-                        Image(systemName: "3.circle")
-                        Text("Third")
-                    }
-            }
-            .navigationTitle("Snackbar")
-        })
-        .charcoalOverlayContainer()
-    }
-}
-
+@available(iOS 17, *)
 #Preview {
-    SnackBarsPreviewView()
+    @Previewable @State var isPresenting = true
+
+    @Previewable @State var isPresenting2 = true
+
+    @Previewable @State var isPresenting3 = true
+
+    @Previewable @State var textOfLabel = "Hello"
+
+    NavigationView(content: {
+        TabView {
+            ZStack {
+                ZStack {
+                    Button {
+                        isPresenting.toggle()
+                        isPresenting3.toggle()
+                    } label: {
+                        Text("Toggle SnackBar")
+                    }
+                }
+                .charcoalSnackBar(
+                    isPresenting: $isPresenting,
+                    screenEdge: .top,
+                    text: "ブックマークしました",
+                    thumbnailImage: Image(uiImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64)),
+                    action: {
+                        Button {
+                            print("Tapped")
+                        } label: {
+                            Text("編集")
+                        }
+                    }
+                )
+                .charcoalSnackBar(
+                    isPresenting: $isPresenting2,
+                    screenEdge: .bottom,
+                    text: "ブックマークしました",
+                    dismissAfter: 2,
+                    action: {
+                        Button {
+                            print("Tapped")
+                        } label: {
+                            Text("編集")
+                        }
+                    }
+                )
+                .charcoalSnackBar(
+                    isPresenting: $isPresenting3,
+                    screenEdgeSpacing: 275,
+                    text: "ブックマークしました"
+                )
+            }
+
+            .tabItem {
+                Image(systemName: "1.circle")
+                Text("First")
+            }
+
+            Text("Second Tab")
+                .tabItem {
+                    Image(systemName: "2.circle")
+                    Text("Second")
+                }
+
+            Text("Third Tab")
+                .tabItem {
+                    Image(systemName: "3.circle")
+                    Text("Third")
+                }
+        }
+        .navigationTitle("Snackbar")
+    })
+    .charcoalOverlayContainer()
 }

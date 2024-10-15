@@ -1,13 +1,13 @@
 import SwiftUI
 
-public struct CharcoalHint<ActionContent: View>: View {
+public struct CharcoalHint: View {
     /// The text of the tooltip
     let text: String
 
     /// The text of the tooltip
     let subtitle: String?
 
-    let icon: CharcoalAsset.Images
+    let icon: CharcoalAsset.Images = .info16
 
     /// The corner radius of the tooltip
     let cornerRadius: CGFloat = 8
@@ -17,29 +17,27 @@ public struct CharcoalHint<ActionContent: View>: View {
     /// A binding to whether the overlay is presented.
     @Binding var isPresenting: Bool
 
-    let action: ActionContent?
+    let action: CharcoalAction?
 
     @State var timer: Timer?
 
     public init(
         text: String,
         subtitle: String? = nil,
-        icon: CharcoalAsset.Images = .info16,
         maxWidth: CGFloat? = nil,
         isPresenting: Binding<Bool>,
-        @ViewBuilder action: () -> ActionContent? = { EmptyView() }
+        action: CharcoalAction? = nil
     ) {
         self.text = text
         self.subtitle = subtitle
-        self.icon = icon
         self.maxWidth = maxWidth
         _isPresenting = isPresenting
-        self.action = action()
+        self.action = action
     }
 
     public var body: some View {
         if isPresenting {
-            HStack(spacing: 5) {
+            HStack(spacing: 4) {
                 Image(charocalIcon: icon)
 
                 VStack {
@@ -49,9 +47,14 @@ public struct CharcoalHint<ActionContent: View>: View {
                     }
                 }
 
-                if let action = action, type(of: action) != EmptyView.self {
+                if let action = action {
                     Spacer()
-                    action.charcoalPrimaryButton(size: .small)
+                    Button(action: {
+                        action.actionCallback()
+                    }) {
+                        Text(action.title)
+                    }
+                    .charcoalPrimaryButton(size: .small)
                 }
             }
             .frame(maxWidth: maxWidth)
@@ -62,31 +65,22 @@ public struct CharcoalHint<ActionContent: View>: View {
     }
 }
 
-private struct HintsPreviewView: View {
-    @State var isPresenting = true
-    @State var isPresenting2 = true
-    @State var isPresenting3 = true
-
-    @State var textOfLabel = "Hello"
-
-    var body: some View {
-        VStack {
-            CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting) {
-                Button(action: {
-                    isPresenting = false
-                }) {
-                    Text("Button")
-                }
-            }
-
-            CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting2)
-
-            CharcoalHint(text: "ヒントテキストヒントテキスト", maxWidth: .infinity, isPresenting: $isPresenting3)
-
-        }.padding()
-    }
-}
-
+@available(iOS 17, *)
 #Preview {
-    HintsPreviewView()
+    @Previewable @State var isPresenting = true
+    @Previewable @State var isPresenting2 = true
+    @Previewable @State var isPresenting3 = true
+
+    @Previewable @State var textOfLabel = "Hello"
+
+    VStack {
+        CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting, action: CharcoalAction(title: "Button", actionCallback: {
+            isPresenting = false
+        }))
+
+        CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting2)
+
+        CharcoalHint(text: "ヒントテキストヒントテキスト", maxWidth: .infinity, isPresenting: $isPresenting3)
+
+    }.padding()
 }

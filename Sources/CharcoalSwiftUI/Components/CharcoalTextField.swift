@@ -88,12 +88,12 @@ public extension View {
     }
 }
 
-@available(iOS 15, *)
+@available(iOS 17, *)
 #Preview {
-    @State var text1 = ""
-    @State var text2 = ""
+    @Previewable @State var text1 = ""
+    @Previewable @State var text2 = ""
 
-    return VStack(spacing: 16) {
+    VStack(spacing: 16) {
         TextField("Simple text field", text: $text1)
             .charcoalTextField()
         TextField("Placeholder", text: $text2)
