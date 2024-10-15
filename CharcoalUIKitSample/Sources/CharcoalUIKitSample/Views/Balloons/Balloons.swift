@@ -125,11 +125,11 @@ extension BalloonsViewController: UITableViewDelegate, UITableViewDataSource {
         case .leading:
             // use on: self.view to stick the balloon to the view
             // so balloons will dismiss with the view
-            CharcoalBalloon.show(text: titleCase.text, anchorView: cell.leadingImageView, on: self.view)
+            CharcoalBalloon.show(text: titleCase.text, anchorView: cell.leadingImageView, on: view)
         case .trailing:
-            CharcoalBalloon.show(text: titleCase.text, anchorView: cell.accessoryImageView, on: self.view)
+            CharcoalBalloon.show(text: titleCase.text, anchorView: cell.accessoryImageView, on: view)
         case .bottom:
-            CharcoalBalloon.show(text: titleCase.text, anchorView: bottomInfoImage, on: self.view)
+            CharcoalBalloon.show(text: titleCase.text, anchorView: bottomInfoImage, on: view)
         }
     }
 
