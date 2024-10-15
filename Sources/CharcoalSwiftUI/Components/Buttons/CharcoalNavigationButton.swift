@@ -22,18 +22,12 @@ struct CharcoalNavigationButtonStyleView: View {
     }
 
     var body: some View {
-        guard isEnabled else {
-            return AnyView(
-                Spacer()
-                    .frame(height: size == .medium ? 40 : 32)
-            )
-        }
         return AnyView(label
             .font(.system(size: fontSize, weight: .bold))
-            .charcoalText(applyToken: .onHUD, state: isPressed ? .press : .default)
+            .charcoalText(applyToken: isEnabled ? .onHUD : .disable, state: isPressed ? .press : .default)
             .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
-            .charcoalContainer(applyToken: .hud, state: isPressed ? .press : .default)
+            .charcoalContainer(applyToken: isEnabled ? .hud : .disable, state: isPressed ? .press : .default)
             .cornerRadius(cornerRadius)
         )
     }
