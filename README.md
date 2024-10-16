@@ -40,7 +40,7 @@ Button("Default Button M") {}
 ```
 
 #### UIKit
-デフォルトでは、CharocalUIKitはUITraitCollectionのpreferredContentSizeCategory属性に従いますので、UITraitCollectionを変更することでSizeCategoryを指定できます。
+デフォルトでは、CharcoalUIKitはUITraitCollectionのpreferredContentSizeCategory属性に従いますので、UITraitCollectionを変更することでSizeCategoryを指定できます。
 
 ```swift
 let trait = UITraitCollection(preferredContentSizeCategory: .large)
