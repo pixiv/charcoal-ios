@@ -23,13 +23,12 @@ final class HintsViewController: UIViewController {
 
     private var hints: [CharcoalHintView] = [
         CharcoalHintView(text: "Hello World"),
-        CharcoalHintView(text: "ブックマークしました", iconImage: CharcoalAsset.Images.info16.image),
+        CharcoalHintView(text: "ブックマークしました"),
         CharcoalHintView(text: "ブックマークしました", action: CharcoalAction(title: "Button", actionCallback: {
             print("Button taped")
         })),
         CharcoalHintView(
             text: "こんにちは",
-            iconImage: CharcoalAsset.Images.info16.image,
             action: CharcoalAction(title: "Button", actionCallback: {
                 print("Button taped")
             })

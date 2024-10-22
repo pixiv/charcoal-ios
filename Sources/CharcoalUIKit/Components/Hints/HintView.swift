@@ -31,7 +31,7 @@ public class CharcoalHintView: UIView {
         return button
     }()
 
-    let thumbnailImage: UIImage?
+    let thumbnailImage: UIImage = CharcoalAsset.Images.info16.image
 
     var action: CharcoalAction?
 
@@ -45,12 +45,11 @@ public class CharcoalHintView: UIView {
 
     var gesture: CharcoalGesture?
 
-    public init(text: String, iconImage: UIImage? = CharcoalAsset.Images.info16.image, action: CharcoalAction? = nil) {
+    public init(text: String, action: CharcoalAction? = nil) {
         self.action = action
-        self.thumbnailImage = iconImage
         self.text = text
         super.init(frame: .zero)
-        self.hStackView.spacing = 5
+        self.hStackView.spacing = 4
         if let action = action {
             actionButton.setTitle(action.title, for: .normal)
         }
@@ -70,14 +69,12 @@ public class CharcoalHintView: UIView {
     }
 
     private func addThumbnailView() {
-        if let thumbnailImage = thumbnailImage {
-            thumbnailImageView.image = thumbnailImage
-            hStackView.addArrangedSubview(thumbnailImageView)
-            NSLayoutConstraint.activate([
-                thumbnailImageView.widthAnchor.constraint(equalToConstant: 16),
-                thumbnailImageView.heightAnchor.constraint(equalToConstant: 16)
-            ])
-        }
+        thumbnailImageView.image = thumbnailImage
+        hStackView.addArrangedSubview(thumbnailImageView)
+        NSLayoutConstraint.activate([
+            thumbnailImageView.widthAnchor.constraint(equalToConstant: 16),
+            thumbnailImageView.heightAnchor.constraint(equalToConstant: 16)
+        ])
     }
 
     private func addTextLabel() {
@@ -143,7 +140,7 @@ public class CharcoalHintView: UIView {
     let snackbar = CharcoalHintView(text: "Hello World")
     stackView.addArrangedSubview(snackbar)
     
-    let snackbar2 = CharcoalHintView(text: "ブックマークしました", iconImage: CharcoalAsset.Images.info16.image)
+    let snackbar2 = CharcoalHintView(text: "ブックマークしました")
     stackView.addArrangedSubview(snackbar2)
     snackbar2.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
 
@@ -154,7 +151,6 @@ public class CharcoalHintView: UIView {
 
     let snackbar4 = CharcoalHintView(
         text: "こんにちは",
-        iconImage: CharcoalAsset.Images.info16.image,
         action: CharcoalAction(title: "編集", actionCallback: {
             print("編集 taped")
         })
