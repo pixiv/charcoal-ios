@@ -1,16 +1,16 @@
 import SwiftUI
 
 public extension Image {
-    @inlinable init(charocalIcon: CharcoalAsset.Images) {
-        self.init(asset: charocalIcon.imageAsset)
+    @inlinable init(charcoalIcon: CharcoalAsset.Images) {
+        self.init(asset: charcoalIcon.imageAsset)
     }
 }
 
 #Preview {
     VStack {
-        Image(charocalIcon: .add24)
-        Image(charocalIcon: .delete32)
-        Image(charocalIcon: .addInline)
-        Image(charocalIcon: .codes24)
+        Image(charcoalIcon: .add24)
+        Image(charcoalIcon: .delete32)
+        Image(charcoalIcon: .addInline)
+        Image(charcoalIcon: .codes24)
     }
 }

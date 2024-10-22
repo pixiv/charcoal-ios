@@ -18,7 +18,7 @@ public struct BalloonsView: View {
                     Button {
                         isPresented.toggle()
                     } label: {
-                        Image(charocalIcon: .question24)
+                        Image(charcoalIcon: .question24)
                     }
                     .charcoalBalloon(
                         isPresenting: $isPresented,
@@ -31,7 +31,7 @@ public struct BalloonsView: View {
                     Button {
                         isPresented2.toggle()
                     } label: {
-                        Image(charocalIcon: .question24)
+                        Image(charcoalIcon: .question24)
                     }
                     .charcoalBalloon(isPresenting: $isPresented2, text: "作品中の特定単語について、単語変換をして読めるようになりました") {
                         Button(action: {}, label: {
@@ -46,7 +46,7 @@ public struct BalloonsView: View {
                     Button {
                         isPresented3.toggle()
                     } label: {
-                        Image(charocalIcon: .question24)
+                        Image(charcoalIcon: .question24)
                     }
                     .charcoalBalloon(
                         isPresenting: $isPresented3,
@@ -60,7 +60,7 @@ public struct BalloonsView: View {
                 Button {
                     isPresented4.toggle()
                 } label: {
-                    Image(charocalIcon: .question24)
+                    Image(charcoalIcon: .question24)
                 }
                 .charcoalBalloon(
                     isPresenting: $isPresented4,
