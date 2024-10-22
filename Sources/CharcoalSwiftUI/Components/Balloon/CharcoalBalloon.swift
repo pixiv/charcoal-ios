@@ -146,7 +146,7 @@ struct CharcoalBalloon<ActionContent: View>: CharcoalPopupProtocol, CharcoalToas
                                     .fixedSize(horizontal: false, vertical: true)
                                     .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
 
-                                Image(charocalIcon: .remove16)
+                                Image(charcoalIcon: .remove16)
                                     .renderingMode(.template)
                                     .foregroundColor(Color.white)
                                     .frame(width: 16 + 6)
@@ -294,7 +294,7 @@ private struct BalloonsPreviewView: View {
                     Button {
                         isPresenting.toggle()
                     } label: {
-                        Image(charocalIcon: .question24)
+                        Image(charcoalIcon: .question24)
                     }
                     .charcoalBalloon(
                         isPresenting: $isPresenting,
@@ -328,7 +328,7 @@ private struct BalloonsPreviewView: View {
                     Button {
                         isPresenting4.toggle()
                     } label: {
-                        Image(charocalIcon: .question24)
+                        Image(charcoalIcon: .question24)
                     }
                     .charcoalBalloon(isPresenting: $isPresenting4, text: "Hello World This is a tooltip and here is testing it's multiple line feature")
                     .offset(CGSize(width: geometry.size.width - 30, height: geometry.size.height - 40))
@@ -349,7 +349,7 @@ private struct BalloonsPreviewView: View {
                     Button {
                         isPresenting6.toggle()
                     } label: {
-                        Image(charocalIcon: .question24)
+                        Image(charcoalIcon: .question24)
                     }
                     .charcoalBalloon(isPresenting: $isPresenting6, text: "Hello World This is a tooltip and here is testing it's multiple line feature")
                     .offset(CGSize(width: geometry.size.width - 380, height: geometry.size.height - 240))

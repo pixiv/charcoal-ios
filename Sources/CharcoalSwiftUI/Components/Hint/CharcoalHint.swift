@@ -38,7 +38,7 @@ public struct CharcoalHint: View {
     public var body: some View {
         if isPresenting {
             HStack(spacing: 4) {
-                Image(charocalIcon: icon)
+                Image(charcoalIcon: icon)
 
                 VStack {
                     Text(text).charcoalTypography14Regular()

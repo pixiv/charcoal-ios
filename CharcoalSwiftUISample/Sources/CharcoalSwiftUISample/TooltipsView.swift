@@ -18,7 +18,7 @@ public struct TooltipsView: View {
                     Button(action: {
                         isPresented.toggle()
                     }, label: {
-                        Image(charocalIcon: .question16)
+                        Image(charcoalIcon: .question16)
                     }).charcoalTooltip(isPresenting: $isPresented, text: "Tooltip created by Charcoal")
                 }
 
@@ -27,7 +27,7 @@ public struct TooltipsView: View {
                     Button(action: {
                         isPresented2.toggle()
                     }, label: {
-                        Image(charocalIcon: .question16)
+                        Image(charcoalIcon: .question16)
                     }).charcoalTooltip(isPresenting: $isPresented2, text: "Tooltip created by Charcoal and here is testing it's multiple line feature")
                 }
 
@@ -37,7 +37,7 @@ public struct TooltipsView: View {
                     Button(action: {
                         isPresented4.toggle()
                     }, label: {
-                        Image(charocalIcon: .question16)
+                        Image(charcoalIcon: .question16)
                     }).charcoalTooltip(isPresenting: $isPresented4, text: "Tooltip created by Charcoal and here is testing Auto-Positioning")
                 }
             }
@@ -47,7 +47,7 @@ public struct TooltipsView: View {
                 Button(action: {
                     isPresented3.toggle()
                 }, label: {
-                    Image(charocalIcon: .question16)
+                    Image(charcoalIcon: .question16)
                 }).charcoalTooltip(isPresenting: $isPresented3, text: "Tooltip created by Charcoal and here is testing Auto-Positioning")
             }
         }
