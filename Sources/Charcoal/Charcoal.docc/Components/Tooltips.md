@@ -3,7 +3,6 @@
 Charcoal Tooltips can be used to provide additional information about an element when the user click on it.
 
 @Metadata {
-    @DocumentationExtension(mergeBehavior: append)
     @PageImage(
         purpose: card, 
         source: "Tooltips", 

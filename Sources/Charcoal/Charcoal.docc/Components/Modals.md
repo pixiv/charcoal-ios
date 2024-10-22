@@ -3,7 +3,6 @@
 Charcoal Modals are designed to show a message in a modal container.
 
 @Metadata {
-    @DocumentationExtension(mergeBehavior: append)
     @PageImage(
         purpose: card, 
         source: "Modals", 

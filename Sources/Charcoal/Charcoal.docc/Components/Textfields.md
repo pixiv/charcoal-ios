@@ -3,7 +3,6 @@
 Charcoal Textfields are designed to be used in a variety of contexts and are highly customizable.
 
 @Metadata {
-    @DocumentationExtension(mergeBehavior: append)
     @PageImage(
         purpose: card, 
         source: "TextFields", 

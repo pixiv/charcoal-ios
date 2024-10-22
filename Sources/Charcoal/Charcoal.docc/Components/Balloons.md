@@ -3,7 +3,6 @@
 Charcoal Balloons are designed to show a message in a balloon-shaped container.
 
 @Metadata {
-    @DocumentationExtension(mergeBehavior: append)
     @PageImage(
         purpose: card, 
         source: "Balloon", 

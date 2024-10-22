@@ -3,7 +3,6 @@
 Charcoal Hints are designed to display in page hints and tips to the user.
 
 @Metadata {
-    @DocumentationExtension(mergeBehavior: append)
     @PageImage(
         purpose: card, 
         source: "Hints", 
@@ -15,13 +14,7 @@ Charcoal Hints are designed to display in page hints and tips to the user.
 ### SwiftUI Hints
 
 ```swift
-CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting) {
-    Button(action: {
-        isPresenting = false
-    }) {
-        Text("Button")
-    }
-}
+CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting2)
 ```
 
 ### UIKit Hints

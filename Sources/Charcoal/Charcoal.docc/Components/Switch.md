@@ -3,7 +3,6 @@
 Charcoal Switches are designed to allow the user to toggle between two states.
 
 @Metadata {
-    @DocumentationExtension(mergeBehavior: append)
     @PageImage(
         purpose: card, 
         source: "Switch", 

@@ -3,7 +3,6 @@
 Charcoal Toasts can be used to display a message and Snackbar to the user.
 
 @Metadata {
-    @DocumentationExtension(mergeBehavior: append)
     @PageImage(
         purpose: card, 
         source: "Toasts", 

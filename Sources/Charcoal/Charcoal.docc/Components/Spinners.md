@@ -3,7 +3,6 @@
 Charcoal Spinners are designed to display a loading state.
 
 @Metadata {
-    @DocumentationExtension(mergeBehavior: append)
     @PageImage(
         purpose: card, 
         source: "Spinners", 

@@ -3,7 +3,6 @@
 CharcoalはデフォルトでDynamic Typeをサポートしています。この機能を無効にしたい場合は、以下の手順をご参照ください。
 
 @Metadata {
-    @DocumentationExtension(mergeBehavior: append)
     @PageImage(
         purpose: icon, 
         source: "charcoal-icon", 
