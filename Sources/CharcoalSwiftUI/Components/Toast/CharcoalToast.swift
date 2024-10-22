@@ -240,7 +240,7 @@ public extension View {
                 Button {
                     isPresenting = false
                 } label: {
-                    Image(charocalIcon: .remove16)
+                    Image(charcoalIcon: .remove16)
                         .renderingMode(.template)
                 }
             }
@@ -255,7 +255,7 @@ public extension View {
                 Button {
                     isPresenting2 = false
                 } label: {
-                    Image(charocalIcon: .remove16)
+                    Image(charcoalIcon: .remove16)
                         .renderingMode(.template)
                 }
             }

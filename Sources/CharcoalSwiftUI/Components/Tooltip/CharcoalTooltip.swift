@@ -243,7 +243,7 @@ public extension View {
                 Button {
                     isPresenting.toggle()
                 } label: {
-                    Image(charocalIcon: .question24)
+                    Image(charcoalIcon: .question24)
                 }
                 .charcoalTooltip(isPresenting: $isPresenting, text: "Hello World")
                 .offset(CGSize(width: 20.0, height: 80.0))
@@ -269,7 +269,7 @@ public extension View {
                 Button {
                     isPresenting4.toggle()
                 } label: {
-                    Image(charocalIcon: .question24)
+                    Image(charcoalIcon: .question24)
                 }
                 .charcoalTooltip(isPresenting: $isPresenting4, text: "Hello World This is a tooltip and here is testing it's multiple line feature")
                 .offset(CGSize(width: proxy.size.width - 30, height: proxy.size.height - 40))
@@ -290,7 +290,7 @@ public extension View {
                 Button {
                     isPresenting6.toggle()
                 } label: {
-                    Image(charocalIcon: .question24)
+                    Image(charcoalIcon: .question24)
                 }
                 .charcoalTooltip(isPresenting: $isPresenting6, text: "Hello World This is a tooltip and here is testing it's multiple line feature")
                 .offset(CGSize(width: proxy.size.width - 380, height: proxy.size.height - 240))

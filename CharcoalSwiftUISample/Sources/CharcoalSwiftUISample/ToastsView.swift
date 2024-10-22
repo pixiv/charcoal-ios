@@ -122,7 +122,7 @@ public struct ToastsView: View {
                         Button {
                             isPresentingToast2 = false
                         } label: {
-                            Image(charocalIcon: .remove16)
+                            Image(charcoalIcon: .remove16)
                                 .renderingMode(.template)
                         }
                     }
@@ -146,7 +146,7 @@ public struct ToastsView: View {
                         Button {
                             isPresentingToast3 = false
                         } label: {
-                            Image(charocalIcon: .remove16)
+                            Image(charcoalIcon: .remove16)
                                 .renderingMode(.template)
                         }
                     }
