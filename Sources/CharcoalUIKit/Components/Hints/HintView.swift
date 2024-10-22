@@ -43,8 +43,6 @@ public class CharcoalHintView: UIView {
     /// Padding around the bubble
     let padding = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
 
-    var gesture: CharcoalGesture?
-
     public init(text: String, action: CharcoalAction? = nil) {
         self.action = action
         self.text = text
@@ -118,12 +116,6 @@ public class CharcoalHintView: UIView {
 
     @objc func actionButtonTapped() {
         action?.actionCallback()
-    }
-
-    /// Add gesture to this view
-    func addGesture(_ gesture: CharcoalGesture) {
-        self.gesture = gesture
-        addGestureRecognizer(gesture.gesture)
     }
 }
 
