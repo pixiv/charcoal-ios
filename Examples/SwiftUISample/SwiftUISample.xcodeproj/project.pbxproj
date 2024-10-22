@@ -103,7 +103,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					24651B2A27043658005AD842 = {
 						CreatedOnToolsVersion = 13.0;
@@ -157,7 +157,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "unset SDKROOT\nswift run -c release --package-path ../../BuildTools swiftlint --config ../../.swiftlint.yml\n";
+			shellScript = "unset SDKROOT\nif [ -e ../../BuildTools/.build/release/swiftlint ]; then\n    echo \"swiftlint exists.\"\nelse\n    swift build -c release --package-path ../../BuildTools --product swiftlint\nfi\n../../BuildTools/.build/release/swiftlint --config ../../.swiftlint.yml\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -419,6 +419,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = DebugMaxDeploymentTarget;

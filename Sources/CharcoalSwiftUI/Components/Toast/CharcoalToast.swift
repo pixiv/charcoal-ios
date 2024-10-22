@@ -45,7 +45,7 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalToastB
         screenEdgeSpacing: CGFloat,
         @ViewBuilder action: () -> ActionContent?,
         isPresenting: Binding<Bool>,
-        dismissAfter: TimeInterval? = nil,
+        dismissAfter: TimeInterval?,
         appearance: CharcoalToastAppearance = .success,
         animationConfiguration: CharcoalToastAnimationConfiguration
     ) {
@@ -172,10 +172,10 @@ struct CharcoalToastModifier<ActionContent: View>: ViewModifier {
 
 public extension View {
     /**
-     Add a tooltip to the view
+     Add a Toast to the view
 
      - Parameters:
-        - isPresenting: A binding to whether the Tooltip  is presented.
+        - isPresenting: A binding to whether the Toast  is presented.
         - dismissAfter: The overlay will be dismissed after a certain time interval.
         - screenEdge: The edge of the screen where the snackbar will be presented
         - screenEdgeSpacing: The spacing between the snackbar and the screen edge
@@ -185,7 +185,7 @@ public extension View {
 
      # Example #
      ```swift
-     Text("Hello").charcoalToast(isPresenting: $isPresenting, text: "Hello", dismissAfter: 2)
+     Text("Hello").charcoalToast(isPresenting: $isPresenting, text: "Hello")
      ```
      */
     func charcoalToast<Content>(
@@ -193,7 +193,7 @@ public extension View {
         screenEdge: CharcoalPopupViewEdge = .bottom,
         screenEdgeSpacing: CGFloat = 96,
         text: String,
-        dismissAfter: TimeInterval? = nil,
+        dismissAfter: TimeInterval? = 2,
         appearance: CharcoalToastAppearance = .success,
         animationConfiguration: CharcoalToastAnimationConfiguration = .default,
         @ViewBuilder action: @escaping () -> Content = { EmptyView() }
@@ -212,65 +212,60 @@ public extension View {
     }
 }
 
-private struct ToastsPreviewView: View {
-    @State var isPresenting = true
+@available(iOS 17, *)
+#Preview {
+    @Previewable @State var isPresenting = true
 
-    @State var isPresenting2 = true
+    @Previewable @State var isPresenting2 = true
 
-    @State var isPresenting3 = true
+    @Previewable @State var isPresenting3 = true
 
-    @State var textOfLabel = "Hello"
+    @Previewable @State var textOfLabel = "Hello"
 
-    var body: some View {
+    ZStack {
+        Color.clear
         ZStack {
-            Color.clear
-            ZStack {
+            Button {
+                isPresenting.toggle()
+                isPresenting3.toggle()
+            } label: {
+                Text("Toggle SnackBar")
+            }
+        }
+        .charcoalToast(
+            isPresenting: $isPresenting,
+            screenEdge: .top,
+            text: "テキストメッセージ",
+            action: {
                 Button {
-                    isPresenting.toggle()
-                    isPresenting3.toggle()
+                    isPresenting = false
                 } label: {
-                    Text("Toggle SnackBar")
+                    Image(charocalIcon: .remove16)
+                        .renderingMode(.template)
                 }
             }
-            .charcoalToast(
-                isPresenting: $isPresenting,
-                screenEdge: .top,
-                text: "テキストメッセージ",
-                action: {
-                    Button {
-                        isPresenting = false
-                    } label: {
-                        Image(charocalIcon: .remove16)
-                            .renderingMode(.template)
-                    }
+        )
+        .charcoalToast(
+            isPresenting: $isPresenting2,
+            screenEdgeSpacing: 192,
+            text: "テキストメッセージ",
+            dismissAfter: 2,
+            appearance: .error,
+            action: {
+                Button {
+                    isPresenting2 = false
+                } label: {
+                    Image(charocalIcon: .remove16)
+                        .renderingMode(.template)
                 }
-            )
-            .charcoalToast(
-                isPresenting: $isPresenting2,
-                screenEdgeSpacing: 192,
-                text: "テキストメッセージ",
-                dismissAfter: 2,
-                appearance: .error,
-                action: {
-                    Button {
-                        isPresenting2 = false
-                    } label: {
-                        Image(charocalIcon: .remove16)
-                            .renderingMode(.template)
-                    }
-                }
-            )
-            .charcoalToast(
-                isPresenting: $isPresenting3,
-                screenEdgeSpacing: 275,
-                text: "テキストメッセージ",
-                animationConfiguration: .init(enablePositionAnimation: false, animation: .easeInOut(duration: 0.2))
-            )
-        }
-        .charcoalOverlayContainer()
+            }
+        )
+        .charcoalToast(
+            isPresenting: $isPresenting3,
+            screenEdgeSpacing: 275,
+            text: "テキストメッセージ",
+            animationConfiguration: .init(enablePositionAnimation: false, animation: .easeInOut(duration: 0.2))
+        )
     }
-}
-
-#Preview {
-    ToastsPreviewView()
+    .charcoalOverlayContainer()
 }

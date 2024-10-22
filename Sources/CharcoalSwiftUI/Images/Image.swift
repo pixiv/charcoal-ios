@@ -6,19 +6,11 @@ public extension Image {
     }
 }
 
-// MARK: Development View
-
-private struct ImageView: View {
-    var body: some View {
-        VStack {
-            Image(charocalIcon: .add24)
-            Image(charocalIcon: .delete32)
-            Image(charocalIcon: .addInline)
-            Image(charocalIcon: .codes24)
-        }
-    }
-}
-
 #Preview {
-    ImageView()
+    VStack {
+        Image(charocalIcon: .add24)
+        Image(charocalIcon: .delete32)
+        Image(charocalIcon: .addInline)
+        Image(charocalIcon: .codes24)
+    }
 }

@@ -25,10 +25,11 @@ struct CharcoalFullScreenCoverViewModifier<SubContent: View>: ViewModifier {
                     if newValue {
                         hostingViewController = UIHostingController(rootView: subContent())
 
-                        if let hostingViewController {
+                        if let hostingViewController, let rootViewController = windowScene.windows.filter({ $0.isKeyWindow }).first?.rootViewController {
+                            hostingViewController.overrideUserInterfaceStyle = rootViewController.traitCollection.userInterfaceStyle
                             hostingViewController.view.backgroundColor = UIColor.clear
                             hostingViewController.modalPresentationStyle = .overFullScreen
-                            windowScene.windows.filter { $0.isKeyWindow }.first?.rootViewController?.present(hostingViewController, animated: false)
+                            rootViewController.present(hostingViewController, animated: false)
                         }
                     } else {
                         Task {

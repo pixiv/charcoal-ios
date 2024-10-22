@@ -23,10 +23,12 @@ public extension CharcoalTooltip {
         tooltip.translatesAutoresizingMaskIntoConstraints = false
 
         let containerView = ChacoalOverlayManager.shared.layout(view: tooltip, interactionMode: .dimissOnTouch, on: on)
+        containerView.delegate = ChacoalOverlayManager.shared
         let mainView = ChacoalOverlayManager.shared.mainView!
         let spacingToScreen: CGFloat = 16
         let gap: CGFloat = 4
         let viewSize = tooltip.intrinsicContentSize
+
         let anchorPoint = anchorView.superview!.convert(anchorView.frame.origin, to: containerView)
         let targetPoint = anchorView.superview!.convert(anchorView.center, to: tooltip)
         let newAnchorRect = CGRect(x: anchorPoint.x, y: anchorPoint.y, width: anchorView.frame.width, height: anchorView.frame.height)
@@ -44,17 +46,17 @@ public extension CharcoalTooltip {
         ]
         NSLayoutConstraint.activate(constraints)
 
-        containerView.showAction = { actionCallback in
+        containerView.showAction = { [weak containerView] actionCallback in
             UIView.animate(withDuration: 0.25, animations: {
-                containerView.alpha = 1
+                containerView?.alpha = 1
             }) { completion in
                 actionCallback?(completion)
             }
         }
 
-        containerView.dismissAction = { actionCallback in
+        containerView.dismissAction = { [weak containerView] actionCallback in
             UIView.animate(withDuration: 0.25, animations: {
-                containerView.alpha = 0
+                containerView?.alpha = 0
             }) { completion in
                 actionCallback?(completion)
             }
@@ -69,7 +71,9 @@ public extension CharcoalTooltip {
     static func dismiss(id: CharcoalIdentifiableOverlayView.IDValue) {
         ChacoalOverlayManager.shared.dismiss(id: id)
     }
+}
 
+extension CharcoalTooltip {
     static func tooltipX(anchorFrame: CGRect, tooltipSize: CGSize, canvasGeometrySize: CGSize, spacingToScreen: CGFloat) -> CGFloat {
         let minX = anchorFrame.midX - (tooltipSize.width / 2.0)
 

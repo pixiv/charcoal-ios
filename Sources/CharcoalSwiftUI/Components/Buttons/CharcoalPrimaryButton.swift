@@ -100,7 +100,6 @@ public extension View {
     ///   - size: The size of the button.
     ///   - isFixed: Whether the button should have a fixed width.
     ///   - primaryColor: The primary color of the button.
-    @warn_unqualified_access
     func charcoalPrimaryButton(
         size: CharcoalButtonSize = .medium,
         isFixed: Bool = true,

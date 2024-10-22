@@ -90,7 +90,6 @@ public extension View {
     /// - Parameters:
     ///   - size: The size of the button.
     ///   - isFixed: A Boolean value that indicates whether the button has a fixed width.
-    @warn_unqualified_access
     func charcoalDefaultButton(size: CharcoalButtonSize = .medium, isFixed: Bool = true) -> some View {
         return modifier(CharcoalDefaultButtonStyleModifier(size: size, isFixed: isFixed))
     }

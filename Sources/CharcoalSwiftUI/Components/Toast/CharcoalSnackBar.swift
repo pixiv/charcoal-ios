@@ -51,7 +51,7 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalToa
         thumbnailImage: Image?,
         @ViewBuilder action: () -> ActionContent?,
         isPresenting: Binding<Bool>,
-        dismissAfter: TimeInterval? = nil,
+        dismissAfter: TimeInterval?,
         animationConfiguration: CharcoalToastAnimationConfiguration = .default
     ) {
         self.id = id
@@ -164,10 +164,10 @@ struct CharcoalSnackBarModifier<ActionContent: View>: ViewModifier {
 
 public extension View {
     /**
-     Add a tooltip to the view
+     Add a Snackbar to the view
 
      - Parameters:
-     - isPresenting: A binding to whether the Tooltip  is presented.
+     - isPresenting: A binding to whether the Snackbar  is presented.
      - text: The text to be displayed in the snackbar.
      - thumbnailImage: The thumbnail image to be displayed in the snackbar.
      - dismissAfter: The overlay will be dismissed after a certain time interval.
@@ -183,10 +183,10 @@ public extension View {
     func charcoalSnackBar<Content>(
         isPresenting: Binding<Bool>,
         screenEdge: CharcoalPopupViewEdge = .bottom,
-        screenEdgeSpacing: CGFloat = 150,
+        screenEdgeSpacing: CGFloat = 120,
         text: String,
         thumbnailImage: Image? = nil,
-        dismissAfter: TimeInterval? = nil,
+        dismissAfter: TimeInterval? = 2,
         @ViewBuilder action: @escaping () -> Content = { EmptyView() }
     ) -> some View where Content: View {
         return modifier(
@@ -203,82 +203,78 @@ public extension View {
     }
 }
 
-private struct SnackBarsPreviewView: View {
-    @State var isPresenting = true
-
-    @State var isPresenting2 = true
-
-    @State var isPresenting3 = true
-
-    @State var textOfLabel = "Hello"
-
-    var body: some View {
-        NavigationView(content: {
-            TabView {
-                ZStack {
-                    ZStack {
-                        Button {
-                            isPresenting.toggle()
-                            isPresenting3.toggle()
-                        } label: {
-                            Text("Toggle SnackBar")
-                        }
-                    }
-                    .charcoalSnackBar(
-                        isPresenting: $isPresenting,
-                        screenEdge: .top,
-                        text: "ブックマークしました",
-                        thumbnailImage: Image(uiImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64)),
-                        action: {
-                            Button {
-                                print("Tapped")
-                            } label: {
-                                Text("編集")
-                            }
-                        }
-                    )
-                    .charcoalSnackBar(
-                        isPresenting: $isPresenting2,
-                        screenEdge: .bottom,
-                        text: "ブックマークしました",
-                        action: {
-                            Button {
-                                print("Tapped")
-                            } label: {
-                                Text("編集")
-                            }
-                        }
-                    )
-                    .charcoalSnackBar(
-                        isPresenting: $isPresenting3,
-                        screenEdgeSpacing: 275,
-                        text: "ブックマークしました"
-                    )
-                }
-
-                .tabItem {
-                    Image(systemName: "1.circle")
-                    Text("First")
-                }
-
-                Text("Second Tab")
-                    .tabItem {
-                        Image(systemName: "2.circle")
-                        Text("Second")
-                    }
-
-                Text("Third Tab")
-                    .tabItem {
-                        Image(systemName: "3.circle")
-                        Text("Third")
-                    }
-            }
-            .navigationTitle("Snackbar")
-        })
-        .charcoalOverlayContainer()
-    }
-}
-
+@available(iOS 17, *)
 #Preview {
-    SnackBarsPreviewView()
+    @Previewable @State var isPresenting = true
+
+    @Previewable @State var isPresenting2 = true
+
+    @Previewable @State var isPresenting3 = true
+
+    @Previewable @State var textOfLabel = "Hello"
+
+    NavigationView(content: {
+        TabView {
+            ZStack {
+                ZStack {
+                    Button {
+                        isPresenting.toggle()
+                        isPresenting3.toggle()
+                    } label: {
+                        Text("Toggle SnackBar")
+                    }
+                }
+                .charcoalSnackBar(
+                    isPresenting: $isPresenting,
+                    screenEdge: .top,
+                    text: "ブックマークしました",
+                    thumbnailImage: Image(uiImage: CharcoalAsset.ColorPaletteGenerated.border.color.imageWithColor(width: 64, height: 64)),
+                    action: {
+                        Button {
+                            print("Tapped")
+                        } label: {
+                            Text("編集")
+                        }
+                    }
+                )
+                .charcoalSnackBar(
+                    isPresenting: $isPresenting2,
+                    screenEdge: .bottom,
+                    text: "ブックマークしました",
+                    dismissAfter: 2,
+                    action: {
+                        Button {
+                            print("Tapped")
+                        } label: {
+                            Text("編集")
+                        }
+                    }
+                )
+                .charcoalSnackBar(
+                    isPresenting: $isPresenting3,
+                    screenEdgeSpacing: 275,
+                    text: "ブックマークしました"
+                )
+            }
+
+            .tabItem {
+                Image(systemName: "1.circle")
+                Text("First")
+            }
+
+            Text("Second Tab")
+                .tabItem {
+                    Image(systemName: "2.circle")
+                    Text("Second")
+                }
+
+            Text("Third Tab")
+                .tabItem {
+                    Image(systemName: "3.circle")
+                    Text("Third")
+                }
+        }
+        .navigationTitle("Snackbar")
+    })
+    .charcoalOverlayContainer()
 }
