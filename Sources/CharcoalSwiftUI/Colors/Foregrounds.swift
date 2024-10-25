@@ -14,9 +14,21 @@ public extension View {
     }
 }
 
+public extension Text {
+    func foregroundStyle(charcoalColor: CharcoalAsset.ColorPaletteGenerated) -> Text {
+        self.backport.foregroundStyle(charcoalColor.colorAsset.swiftUIColor)
+    }
+}
+
 #Preview {
-    ZStack {
+    VStack {
         Text("Charcoal")
             .foregroundStyle(charcoalColor: .brand)
+
+        Text("Attributed")
+            .foregroundStyle(charcoalColor: .brand)
+        +
+        Text("String")
+            .foregroundStyle(charcoalColor: .text3)
     }
 }
