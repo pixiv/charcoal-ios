@@ -65,6 +65,7 @@ public struct CharcoalHint: View {
     }
 }
 
+#if compiler(>=6.0)
 @available(iOS 17, *)
 #Preview {
     @Previewable @State var isPresenting = true
@@ -84,3 +85,4 @@ public struct CharcoalHint: View {
 
     }.padding()
 }
+#endif
