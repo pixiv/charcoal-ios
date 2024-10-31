@@ -214,6 +214,7 @@ public extension View {
     }
 }
 
+#if compiler(>=6.0)
 @available(iOS 17, *)
 #Preview {
     @Previewable @State var isPresented = false
@@ -258,3 +259,4 @@ public extension View {
         }
     }
 }
+#endif

@@ -114,6 +114,7 @@ public extension View {
     }
 }
 
+#if compiler(>=6.0)
 @available(iOS 17, *)
 #Preview {
     @Previewable @State var isPresenting = true
@@ -143,3 +144,4 @@ public extension View {
     }
     .ignoresSafeArea()
 }
+#endif
