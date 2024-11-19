@@ -22,4 +22,9 @@ VStack {}
 ## Topics
 
 ### Creating SwiftUI Balloons
-- ``SwiftUI/View/charcoalBalloon(isPresenting:text:dismissAfter:action:)``
+
+- ``SwiftUICore/View/charcoalBalloon(isPresenting:text:dismissAfter:action:)``
+
+### Creating UIKit Balloons
+
+- ``CharcoalBalloon/show(text:anchorView:interactionMode:spacingToScreen:gap:on:)``

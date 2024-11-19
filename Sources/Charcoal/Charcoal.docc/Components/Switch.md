@@ -30,7 +30,7 @@ let button = CharcoalSwitch()
 
 ### Creating SwiftUI Toggle
 
-- ``SwiftUI/View/charcoalToggle()``
+- ``SwiftUICore/View/charcoalToggle()``
 
 
 ### Creating UIKit Switch

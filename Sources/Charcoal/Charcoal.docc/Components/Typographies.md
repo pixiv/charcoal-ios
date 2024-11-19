@@ -30,30 +30,30 @@ label.isBold = false
 
 ### Creating SwiftUI Typographies
 
-- ``SwiftUI/View/charcoalTypography10Bold(isSingleLine:)``
-- ``SwiftUI/View/charcoalTypography10Regular(isSingleLine:)``
-- ``SwiftUI/View/charcoalTypography10BoldMono()``
-- ``SwiftUI/View/charcoalTypography10RegularMono()``
+- ``SwiftUICore/View/charcoalTypography10Bold(isSingleLine:)``
+- ``SwiftUICore/View/charcoalTypography10Regular(isSingleLine:)``
+- ``SwiftUICore/View/charcoalTypography10BoldMono()``
+- ``SwiftUICore/View/charcoalTypography10RegularMono()``
 
-- ``SwiftUI/View/charcoalTypography12Bold(isSingleLine:)``
-- ``SwiftUI/View/charcoalTypography12Regular(isSingleLine:)``
-- ``SwiftUI/View/charcoalTypography12BoldMono()``
-- ``SwiftUI/View/charcoalTypography12RegularMono()``
+- ``SwiftUICore/View/charcoalTypography12Bold(isSingleLine:)``
+- ``SwiftUICore/View/charcoalTypography12Regular(isSingleLine:)``
+- ``SwiftUICore/View/charcoalTypography12BoldMono()``
+- ``SwiftUICore/View/charcoalTypography12RegularMono()``
 
-- ``SwiftUI/View/charcoalTypography14Bold(isSingleLine:)``
-- ``SwiftUI/View/charcoalTypography14Regular(isSingleLine:)``
-- ``SwiftUI/View/charcoalTypography14BoldMono()``
-- ``SwiftUI/View/charcoalTypography14RegularMono()``
+- ``SwiftUICore/View/charcoalTypography14Bold(isSingleLine:)``
+- ``SwiftUICore/View/charcoalTypography14Regular(isSingleLine:)``
+- ``SwiftUICore/View/charcoalTypography14BoldMono()``
+- ``SwiftUICore/View/charcoalTypography14RegularMono()``
 
-- ``SwiftUI/View/charcoalTypography16Bold(isSingleLine:)``
-- ``SwiftUI/View/charcoalTypography16Regular(isSingleLine:)``
-- ``SwiftUI/View/charcoalTypography16BoldMono()``
-- ``SwiftUI/View/charcoalTypography16RegularMono()``
+- ``SwiftUICore/View/charcoalTypography16Bold(isSingleLine:)``
+- ``SwiftUICore/View/charcoalTypography16Regular(isSingleLine:)``
+- ``SwiftUICore/View/charcoalTypography16BoldMono()``
+- ``SwiftUICore/View/charcoalTypography16RegularMono()``
 
-- ``SwiftUI/View/charcoalTypography20Bold(isSingleLine:)``
-- ``SwiftUI/View/charcoalTypography20Regular(isSingleLine:)``
-- ``SwiftUI/View/charcoalTypography20BoldMono()``
-- ``SwiftUI/View/charcoalTypography20RegularMono()``
+- ``SwiftUICore/View/charcoalTypography20Bold(isSingleLine:)``
+- ``SwiftUICore/View/charcoalTypography20Regular(isSingleLine:)``
+- ``SwiftUICore/View/charcoalTypography20BoldMono()``
+- ``SwiftUICore/View/charcoalTypography20RegularMono()``
 
 
 ### Creating UIKit Typographies
