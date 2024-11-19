@@ -55,6 +55,7 @@ struct CharcoalLinkButtonStyleModifier: ViewModifier {
 }
 
 public extension View {
+    /// Set the style of the button to Charcoal's link button
     func charcoalLinkButton() -> some View {
         return modifier(CharcoalLinkButtonStyleModifier())
     }

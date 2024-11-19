@@ -9,30 +9,20 @@ PIXIV Design System
         alt: "A technology icon representing the Charcoal framework.")
 }
 
-## Usage
+### Featured
 
-### SwiftUI
-
-```swift
-Text("Hello")
-  .charcoalTypography20Bold()
-
-Button("OK") {}
-  .charcoalPrimaryButton(size: .medium)
-```
-
-### UIKit
-
-Storyboardとコードから利用可能です。
-
-```swift
-let label = CharcoalTypography20()
-label.isBold = true
-label.text = "Hello"
-
-let button = CharcoalPrimaryMButton()
-button.setTitle("OK", for: .normal)
-```
+@Links(visualStyle: detailedGrid) {
+    - <doc:Typographies>
+    - <doc:Buttons>
+    - <doc:Tooltips>
+    - <doc:Spinners>
+    - <doc:Toasts>
+    - <doc:Balloons>
+    - <doc:Textfields>
+    - <doc:Modals>
+    - <doc:Hints>
+    - <doc:Switch>
+}
 
 ### Installation
 

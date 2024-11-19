@@ -85,6 +85,11 @@ struct CharcoalDefaultButtonStyleModifier: ViewModifier {
 }
 
 public extension View {
+    /// Set the style of the button to Charcoal's default button style.
+    ///
+    /// - Parameters:
+    ///   - size: The size of the button.
+    ///   - isFixed: A Boolean value that indicates whether the button has a fixed width.
     func charcoalDefaultButton(size: CharcoalButtonSize = .medium, isFixed: Bool = true) -> some View {
         return modifier(CharcoalDefaultButtonStyleModifier(size: size, isFixed: isFixed))
     }
