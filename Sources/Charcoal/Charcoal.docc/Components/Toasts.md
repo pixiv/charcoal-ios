@@ -41,11 +41,11 @@ CharcoalSnackBar.show(text: "Hello", on: view)
 
 ### Creating SwiftUI Toasts
 
-- ``SwiftUI/View/charcoalToast(isPresenting:screenEdge:screenEdgeSpacing:text:dismissAfter:appearance:animationConfiguration:action:)``
+- ``SwiftUICore/View/charcoalToast(isPresenting:screenEdge:screenEdgeSpacing:text:dismissAfter:appearance:animationConfiguration:action:)``
 
 ### Creating SwiftUI Snackbars
 
-- ``SwiftUI/View/charcoalSnackBar(isPresenting:screenEdge:screenEdgeSpacing:text:thumbnailImage:dismissAfter:action:)``
+- ``SwiftUICore/View/charcoalSnackBar(isPresenting:screenEdge:screenEdgeSpacing:text:thumbnailImage:dismissAfter:action:)``
 
 
 ### Creating UIKit Toasts

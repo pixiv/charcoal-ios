@@ -28,11 +28,11 @@ let button = CharcoalPrimaryMButton()
 
 ### Creating SwiftUI buttons
 
-- ``SwiftUI/View/charcoalPrimaryButton(size:isFixed:primaryColor:)``
-- ``SwiftUI/View/charcoalDefaultButton(size:isFixed:)``
-- ``SwiftUI/View/charcoalDefaultOverlayButton(size:isFixed:)``
-- ``SwiftUI/View/charcoalLinkButton()``
-- ``SwiftUI/View/charcoalNavigationButton(size:isFixed:)``
+- ``SwiftUICore/View/charcoalPrimaryButton(size:isFixed:primaryColor:)``
+- ``SwiftUICore/View/charcoalDefaultButton(size:isFixed:)``
+- ``SwiftUICore/View/charcoalDefaultOverlayButton(size:isFixed:)``
+- ``SwiftUICore/View/charcoalLinkButton()``
+- ``SwiftUICore/View/charcoalNavigationButton(size:isFixed:)``
 
 ### Creating UIKit buttons
 

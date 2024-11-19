@@ -28,8 +28,8 @@ CharcoalTooltip.show(text: "This is a tooltip", anchorView: view)
 
 ### Creating SwiftUI Tooltips
 
-- ``SwiftUI/View``
-- ``SwiftUI/View/charcoalTooltip(isPresenting:text:dismissAfter:)``
+- ``SwiftUICore/View``
+- ``SwiftUICore/View/charcoalTooltip(isPresenting:text:dismissAfter:)``
 
 ### Creating UIKit Tooltips
 
