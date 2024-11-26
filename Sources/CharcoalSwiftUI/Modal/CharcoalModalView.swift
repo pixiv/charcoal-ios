@@ -215,48 +215,48 @@ public extension View {
 }
 
 #if compiler(>=6.0)
-@available(iOS 17, *)
-#Preview {
-    @Previewable @State var isPresented = false
-    @Previewable @State var text1 = ""
+    @available(iOS 17, *)
+    #Preview {
+        @Previewable @State var isPresented = false
+        @Previewable @State var text1 = ""
 
-    ZStack {
-        Button(action: {
-            isPresented = true
-        }, label: {
-            Text("Show")
-                .padding()
-        })
-        .charcoalModal(
-            title: "Title",
-            style: .center,
-            isPresented: $isPresented,
-            actions: {
-                Button(action: {
-                    isPresented = false
-                }, label: {
-                    Text("OK").frame(maxWidth: .infinity)
-                }).charcoalPrimaryButton(size: .medium)
+        ZStack {
+            Button(action: {
+                isPresented = true
+            }, label: {
+                Text("Show")
+                    .padding()
+            })
+            .charcoalModal(
+                title: "Title",
+                style: .center,
+                isPresented: $isPresented,
+                actions: {
+                    Button(action: {
+                        isPresented = false
+                    }, label: {
+                        Text("OK").frame(maxWidth: .infinity)
+                    }).charcoalPrimaryButton(size: .medium)
 
-                Button(action: {
-                    isPresented = false
-                }, label: {
-                    Text("Dismiss").frame(maxWidth: .infinity)
-                }).charcoalDefaultButton(size: .medium)
-            }
-        ) {
-            NavigationView {
-                VStack(spacing: 10) {
-                    Text("Hello This is a center dialog from Charcoal")
-                        .charcoalTypography16Regular()
-                        .frame(maxWidth: .infinity)
+                    Button(action: {
+                        isPresented = false
+                    }, label: {
+                        Text("Dismiss").frame(maxWidth: .infinity)
+                    }).charcoalDefaultButton(size: .medium)
+                }
+            ) {
+                NavigationView {
+                    VStack(spacing: 10) {
+                        Text("Hello This is a center dialog from Charcoal")
+                            .charcoalTypography16Regular()
+                            .frame(maxWidth: .infinity)
 
-                    TextField("Simple text field", text: $text1).charcoalTextField()
-                }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-                    .navigationTitle("SwiftUI")
-                    .navigationBarTitleDisplayMode(.inline)
+                        TextField("Simple text field", text: $text1).charcoalTextField()
+                    }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                        .navigationTitle("SwiftUI")
+                        .navigationBarTitleDisplayMode(.inline)
+                }
             }
         }
     }
-}
 #endif

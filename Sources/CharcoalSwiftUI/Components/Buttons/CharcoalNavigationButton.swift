@@ -92,7 +92,7 @@ struct CharcoalNavigationButtonStyleModifier: ViewModifier {
 
 public extension View {
     /// Set the style of the button to Charcoal's navigation button
-    /// 
+    ///
     /// - Parameters:
     ///   - size: The size of the button
     ///   - isFixed: Whether the button should have a fixed width

@@ -18,9 +18,11 @@ public struct CharcoalHint: View {
     @Binding var isPresenting: Bool
 
     let action: CharcoalAction?
-    
+
     /// The alignment of hint view
     let alignment: Alignment
+
+    let buttonStyle: CharcoalButtonStyle
 
     public init(
         text: String,
@@ -28,7 +30,8 @@ public struct CharcoalHint: View {
         maxWidth: CGFloat? = nil,
         isPresenting: Binding<Bool>,
         action: CharcoalAction? = nil,
-        alignment: Alignment = .center
+        alignment: Alignment = .center,
+        buttonStyle: CharcoalButtonStyle = .primary(Color(CharcoalAsset.ColorPaletteGenerated.brand.color))
     ) {
         self.text = text
         self.subtitle = subtitle
@@ -36,6 +39,7 @@ public struct CharcoalHint: View {
         _isPresenting = isPresenting
         self.action = action
         self.alignment = alignment
+        self.buttonStyle = buttonStyle
     }
 
     public var body: some View {
@@ -56,8 +60,7 @@ public struct CharcoalHint: View {
                         action.actionCallback()
                     }) {
                         Text(action.title)
-                    }
-                    .charcoalPrimaryButton(size: .small)
+                    }.charcoalButtonStyle(buttonStyle)
                 }
             }
             .frame(maxWidth: maxWidth, alignment: alignment)
@@ -69,23 +72,27 @@ public struct CharcoalHint: View {
 }
 
 #if compiler(>=6.0)
-@available(iOS 17, *)
-#Preview {
-    @Previewable @State var isPresenting = true
-    @Previewable @State var isPresenting2 = true
-    @Previewable @State var isPresenting3 = true
+    @available(iOS 17, *)
+    #Preview {
+        @Previewable @State var isPresenting = true
+        @Previewable @State var isPresenting2 = true
+        @Previewable @State var isPresenting3 = true
+        @Previewable @State var isPresenting4 = true
+        @Previewable @State var textOfLabel = "Hello"
 
-    @Previewable @State var textOfLabel = "Hello"
+        VStack {
+            CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting, action: CharcoalAction(title: "Button", actionCallback: {
+                isPresenting = false
+            }))
 
-    VStack {
-        CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting, action: CharcoalAction(title: "Button", actionCallback: {
-            isPresenting = false
-        }))
+            CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting2, action: CharcoalAction(title: "Button", actionCallback: {
+                isPresenting2 = false
+            }), buttonStyle: .default)
 
-        CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting2)
+            CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting3)
 
-        CharcoalHint(text: "ヒントテキストヒントテキスト", maxWidth: .infinity, isPresenting: $isPresenting3, alignment: .leading)
+            CharcoalHint(text: "ヒントテキストヒントテキスト", maxWidth: .infinity, isPresenting: $isPresenting4, alignment: .leading)
 
-    }.padding()
-}
+        }.padding()
+    }
 #endif

@@ -73,7 +73,6 @@ final class HintsViewController: UIViewController {
             hint.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
         }
     }
-
 }
 
 @available(iOS 17.0, *)
