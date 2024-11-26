@@ -29,9 +29,9 @@ public struct CharcoalHint: View {
         subtitle: String? = nil,
         maxWidth: CGFloat? = nil,
         isPresenting: Binding<Bool>,
-        action: CharcoalAction? = nil,
         alignment: Alignment = .center,
-        buttonStyle: CharcoalButtonStyle = .primary(Color(CharcoalAsset.ColorPaletteGenerated.brand.color))
+        buttonStyle: CharcoalButtonStyle = .primary(Color(CharcoalAsset.ColorPaletteGenerated.brand.color)),
+        action: CharcoalAction? = nil
     ) {
         self.text = text
         self.subtitle = subtitle
@@ -85,9 +85,9 @@ public struct CharcoalHint: View {
                 isPresenting = false
             }))
 
-            CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting2, action: CharcoalAction(title: "Button", actionCallback: {
+            CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting2, buttonStyle: .default, action: CharcoalAction(title: "Button", actionCallback: {
                 isPresenting2 = false
-            }), buttonStyle: .default)
+            }))
 
             CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting3)
 
