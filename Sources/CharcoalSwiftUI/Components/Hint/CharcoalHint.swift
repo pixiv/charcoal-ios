@@ -1,15 +1,15 @@
 import SwiftUI
 
 public struct CharcoalHint: View {
-    /// The text of the tooltip
+    /// The text of the  hint view
     let text: String
 
-    /// The text of the tooltip
+    /// The subtitle text of the  hint view
     let subtitle: String?
 
     let icon: CharcoalAsset.Images = .info16
 
-    /// The corner radius of the tooltip
+    /// The corner radius of the  hint view
     let cornerRadius: CGFloat = 8
 
     let maxWidth: CGFloat?
@@ -18,21 +18,24 @@ public struct CharcoalHint: View {
     @Binding var isPresenting: Bool
 
     let action: CharcoalAction?
-
-    @State var timer: Timer?
+    
+    /// The alignment of hint view
+    let alignment: Alignment
 
     public init(
         text: String,
         subtitle: String? = nil,
         maxWidth: CGFloat? = nil,
         isPresenting: Binding<Bool>,
-        action: CharcoalAction? = nil
+        action: CharcoalAction? = nil,
+        alignment: Alignment = .center
     ) {
         self.text = text
         self.subtitle = subtitle
         self.maxWidth = maxWidth
         _isPresenting = isPresenting
         self.action = action
+        self.alignment = alignment
     }
 
     public var body: some View {
@@ -57,7 +60,7 @@ public struct CharcoalHint: View {
                     .charcoalPrimaryButton(size: .small)
                 }
             }
-            .frame(maxWidth: maxWidth)
+            .frame(maxWidth: maxWidth, alignment: alignment)
             .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
             .background(charcoalColor: .surface3)
             .cornerRadius(cornerRadius, corners: .allCorners)
@@ -81,7 +84,7 @@ public struct CharcoalHint: View {
 
         CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting2)
 
-        CharcoalHint(text: "ヒントテキストヒントテキスト", maxWidth: .infinity, isPresenting: $isPresenting3)
+        CharcoalHint(text: "ヒントテキストヒントテキスト", maxWidth: .infinity, isPresenting: $isPresenting3, alignment: .leading)
 
     }.padding()
 }
