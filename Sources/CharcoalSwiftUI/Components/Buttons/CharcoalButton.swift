@@ -20,7 +20,7 @@ public enum CharcoalButtonStyle {
 extension CharcoalButtonStyle {
     public struct Configuration {
         public var size: CharcoalButtonSize
-        public var isFixed = true
+        public var isFixed: Bool
         public var primaryColor: Color
         
         public init(size: CharcoalButtonSize = .medium, isFixed: Bool = true, primaryColor: Color) {
