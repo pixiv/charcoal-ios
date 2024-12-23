@@ -213,61 +213,61 @@ public extension View {
 }
 
 #if compiler(>=6.0)
-@available(iOS 17, *)
-#Preview {
-    @Previewable @State var isPresenting = true
+    @available(iOS 17, *)
+    #Preview {
+        @Previewable @State var isPresenting = true
 
-    @Previewable @State var isPresenting2 = true
+        @Previewable @State var isPresenting2 = true
 
-    @Previewable @State var isPresenting3 = true
+        @Previewable @State var isPresenting3 = true
 
-    @Previewable @State var textOfLabel = "Hello"
+        @Previewable @State var textOfLabel = "Hello"
 
-    ZStack {
-        Color.clear
         ZStack {
-            Button {
-                isPresenting.toggle()
-                isPresenting3.toggle()
-            } label: {
-                Text("Toggle SnackBar")
+            Color.clear
+            ZStack {
+                Button {
+                    isPresenting.toggle()
+                    isPresenting3.toggle()
+                } label: {
+                    Text("Toggle SnackBar")
+                }
             }
+            .charcoalToast(
+                isPresenting: $isPresenting,
+                screenEdge: .top,
+                text: "テキストメッセージ",
+                action: {
+                    Button {
+                        isPresenting = false
+                    } label: {
+                        Image(charcoalIcon: .remove16)
+                            .renderingMode(.template)
+                    }
+                }
+            )
+            .charcoalToast(
+                isPresenting: $isPresenting2,
+                screenEdgeSpacing: 192,
+                text: "テキストメッセージ",
+                dismissAfter: 2,
+                appearance: .error,
+                action: {
+                    Button {
+                        isPresenting2 = false
+                    } label: {
+                        Image(charcoalIcon: .remove16)
+                            .renderingMode(.template)
+                    }
+                }
+            )
+            .charcoalToast(
+                isPresenting: $isPresenting3,
+                screenEdgeSpacing: 275,
+                text: "テキストメッセージ",
+                animationConfiguration: .init(enablePositionAnimation: false, animation: .easeInOut(duration: 0.2))
+            )
         }
-        .charcoalToast(
-            isPresenting: $isPresenting,
-            screenEdge: .top,
-            text: "テキストメッセージ",
-            action: {
-                Button {
-                    isPresenting = false
-                } label: {
-                    Image(charcoalIcon: .remove16)
-                        .renderingMode(.template)
-                }
-            }
-        )
-        .charcoalToast(
-            isPresenting: $isPresenting2,
-            screenEdgeSpacing: 192,
-            text: "テキストメッセージ",
-            dismissAfter: 2,
-            appearance: .error,
-            action: {
-                Button {
-                    isPresenting2 = false
-                } label: {
-                    Image(charcoalIcon: .remove16)
-                        .renderingMode(.template)
-                }
-            }
-        )
-        .charcoalToast(
-            isPresenting: $isPresenting3,
-            screenEdgeSpacing: 275,
-            text: "テキストメッセージ",
-            animationConfiguration: .init(enablePositionAnimation: false, animation: .easeInOut(duration: 0.2))
-        )
+        .charcoalOverlayContainer()
     }
-    .charcoalOverlayContainer()
-}
 #endif

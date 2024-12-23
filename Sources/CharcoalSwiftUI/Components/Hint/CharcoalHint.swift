@@ -1,15 +1,15 @@
 import SwiftUI
 
 public struct CharcoalHint: View {
-    /// The text of the tooltip
+    /// The text of the  hint view
     let text: String
 
-    /// The text of the tooltip
+    /// The subtitle text of the  hint view
     let subtitle: String?
 
     let icon: CharcoalAsset.Images = .info16
 
-    /// The corner radius of the tooltip
+    /// The corner radius of the  hint view
     let cornerRadius: CGFloat = 8
 
     let maxWidth: CGFloat?
@@ -19,13 +19,18 @@ public struct CharcoalHint: View {
 
     let action: CharcoalAction?
 
-    @State var timer: Timer?
+    /// The alignment of hint view
+    let alignment: Alignment
+
+    let buttonStyle: CharcoalButtonStyle
 
     public init(
         text: String,
         subtitle: String? = nil,
         maxWidth: CGFloat? = nil,
         isPresenting: Binding<Bool>,
+        alignment: Alignment = .center,
+        buttonStyle: CharcoalButtonStyle = .primary(.init(primaryColor: Color(CharcoalAsset.ColorPaletteGenerated.brand.color))),
         action: CharcoalAction? = nil
     ) {
         self.text = text
@@ -33,6 +38,8 @@ public struct CharcoalHint: View {
         self.maxWidth = maxWidth
         _isPresenting = isPresenting
         self.action = action
+        self.alignment = alignment
+        self.buttonStyle = buttonStyle
     }
 
     public var body: some View {
@@ -53,11 +60,10 @@ public struct CharcoalHint: View {
                         action.actionCallback()
                     }) {
                         Text(action.title)
-                    }
-                    .charcoalPrimaryButton(size: .small)
+                    }.charcoalButtonStyle(buttonStyle)
                 }
             }
-            .frame(maxWidth: maxWidth)
+            .frame(maxWidth: maxWidth, alignment: alignment)
             .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
             .background(charcoalColor: .surface3)
             .cornerRadius(cornerRadius, corners: .allCorners)
@@ -66,23 +72,27 @@ public struct CharcoalHint: View {
 }
 
 #if compiler(>=6.0)
-@available(iOS 17, *)
-#Preview {
-    @Previewable @State var isPresenting = true
-    @Previewable @State var isPresenting2 = true
-    @Previewable @State var isPresenting3 = true
+    @available(iOS 17, *)
+    #Preview {
+        @Previewable @State var isPresenting = true
+        @Previewable @State var isPresenting2 = true
+        @Previewable @State var isPresenting3 = true
+        @Previewable @State var isPresenting4 = true
+        @Previewable @State var textOfLabel = "Hello"
 
-    @Previewable @State var textOfLabel = "Hello"
+        VStack {
+            CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting, action: CharcoalAction(title: "Button", actionCallback: {
+                isPresenting = false
+            }))
 
-    VStack {
-        CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting, action: CharcoalAction(title: "Button", actionCallback: {
-            isPresenting = false
-        }))
+            CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting2, buttonStyle: .default, action: CharcoalAction(title: "Button", actionCallback: {
+                isPresenting2 = false
+            }))
 
-        CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting2)
+            CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresenting3)
 
-        CharcoalHint(text: "ヒントテキストヒントテキスト", maxWidth: .infinity, isPresenting: $isPresenting3)
+            CharcoalHint(text: "ヒントテキストヒントテキスト", maxWidth: .infinity, isPresenting: $isPresenting4, alignment: .leading)
 
-    }.padding()
-}
+        }.padding()
+    }
 #endif

@@ -47,7 +47,7 @@ public class CharcoalHintView: UIView {
         self.action = action
         self.text = text
         super.init(frame: .zero)
-        self.hStackView.spacing = 4
+        hStackView.spacing = 4
         if let action = action {
             actionButton.setTitle(action.title, for: .normal)
         }
@@ -102,7 +102,6 @@ public class CharcoalHintView: UIView {
             hStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding.bottom),
             hStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding.right)
         ])
-        
 
         // Add thumbnail view
         addThumbnailView()
@@ -126,12 +125,12 @@ public class CharcoalHintView: UIView {
     stackView.distribution = .fill
     stackView.alignment = .center
     stackView.spacing = 8.0
-    
+
     stackView.widthAnchor.constraint(equalToConstant: 300).isActive = true
 
     let snackbar = CharcoalHintView(text: "Hello World")
     stackView.addArrangedSubview(snackbar)
-    
+
     let snackbar2 = CharcoalHintView(text: "ブックマークしました")
     stackView.addArrangedSubview(snackbar2)
     snackbar2.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
@@ -149,6 +148,6 @@ public class CharcoalHintView: UIView {
     )
     stackView.addArrangedSubview(snackbar4)
     snackbar4.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
-    
+
     return stackView
 }
