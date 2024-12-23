@@ -30,7 +30,7 @@ public struct CharcoalHint: View {
         maxWidth: CGFloat? = nil,
         isPresenting: Binding<Bool>,
         alignment: Alignment = .center,
-        buttonStyle: CharcoalButtonStyle = .primary(Color(CharcoalAsset.ColorPaletteGenerated.brand.color)),
+        buttonStyle: CharcoalButtonStyle = .primary(.init(primaryColor: Color(CharcoalAsset.ColorPaletteGenerated.brand.color))),
         action: CharcoalAction? = nil
     ) {
         self.text = text
