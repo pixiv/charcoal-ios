@@ -17,17 +17,25 @@ struct CharcoalFontModifier: ViewModifier {
         _fontSize = ScaledMetric(wrappedValue: size, relativeTo: textStyle)
         _lineHeight = ScaledMetric(wrappedValue: lineHeight, relativeTo: textStyle)
     }
-
-    func body(content: Content) -> some View {
-        let font: UIFont = .systemFont(ofSize: fontSize, weight: weight)
+    
+    func createFallbackFont(name: String) -> UIFontDescriptor {
         var attributes: [UIFontDescriptor.AttributeName : Any] = [:]
         var traits:  [UIFontDescriptor.TraitKey: Any] = [:]
         traits[.weight] = weight
         attributes[UIFontDescriptor.AttributeName.name] = nil
-        attributes[UIFontDescriptor.AttributeName.family] = "Hiragino Sans"
+        attributes[UIFontDescriptor.AttributeName.family] = name
         attributes[UIFontDescriptor.AttributeName.traits] = traits
-        let fallbackFont = UIFontDescriptor(fontAttributes: attributes)
-        let repaired = font.fontDescriptor.addingAttributes([UIFontDescriptor.AttributeName.cascadeList : [fallbackFont]])
+        return  UIFontDescriptor(fontAttributes: attributes)
+    }
+
+    func body(content: Content) -> some View {
+        let font: UIFont = .systemFont(ofSize: fontSize, weight: weight)
+        
+        let repaired = font.fontDescriptor.addingAttributes([UIFontDescriptor.AttributeName.cascadeList : [
+            createFallbackFont(name: "Hiragino Sans"),
+            createFallbackFont(name: "PingFang SC")
+        ]])
+        
         return content
             .font(Font(UIFont(descriptor: repaired, size: size)))
             .lineSpacing(isSingleLine ? 0 : lineHeight - font.lineHeight)
