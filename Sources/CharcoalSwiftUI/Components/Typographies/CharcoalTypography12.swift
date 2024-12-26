@@ -41,26 +41,35 @@ public extension View {
     }
 }
 
-#Preview {
-    VStack {
-        Text("Appleでの日本語Mix深圳")
-            .font(.custom(".AppleSystemUIFont", size: 12))
-            
-        VStack(alignment: .leading, spacing: 4) {
-            Text("Appleでの日本語Mix深圳")
-                .charcoalTypography12Regular(isSingleLine: false)
-            
-            Text("Appleでの日本語Mix深圳")
-                .charcoalTypography12Bold(isSingleLine: false)
-            
-            Text("Appleでの日本語Mix深圳")
-                .charcoalTypography12BoldMono()
-            
-            Text("Appleでの日本語Mix深圳")
-                .charcoalTypography12RegularMono()
-            
-            Text("Appleでの日本語Mix深圳")
-                .font(.custom("Hiragino Sans", size: 12))
-        }.background(charcoalColor: .background2)
+#if compiler(>=6.0)
+    @available(iOS 17, *)
+    #Preview {
+        
+        @Previewable @State var text = "123Appleでの日本語Mix한국어简体中文"
+        
+        VStack {
+            Text(text)
+                .font(.custom(".AppleSystemUIFont", size: 12))
+                
+            VStack(alignment: .leading, spacing: 4) {
+                Text(text)
+                    .charcoalTypography12Regular(isSingleLine: false)
+                
+                Text(text)
+                    .charcoalTypography12Bold(isSingleLine: false)
+                
+                Text(text)
+                    .charcoalTypography12BoldMono()
+                
+                Text(text)
+                    .charcoalTypography12RegularMono()
+                
+                Text(text)
+                    .font(.custom("Hiragino Sans", size: 12))
+                
+                Text(text)
+                    .font(.custom("PingFang SC", size: 12))
+            }.background(charcoalColor: .background2)
+        }
     }
-}
+#endif
