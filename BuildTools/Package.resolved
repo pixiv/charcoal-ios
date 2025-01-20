@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/krzyzanowskim/CryptoSwift.git",
         "state": {
           "branch": null,
-          "revision": "db51c407d3be4a051484a141bf0bff36c43d3b1e",
-          "version": "1.8.0"
+          "revision": "729e01bc9b9dab466ac85f21fb9ee2bc1c61b258",
+          "version": "1.8.4"
         }
       },
       {
@@ -141,8 +141,8 @@
         "repositoryURL": "https://github.com/realm/SwiftLint",
         "state": {
           "branch": null,
-          "revision": "25f2776977e663305bee71309ea1e34d435065f1",
-          "version": "0.57.1"
+          "revision": "eba420f77846e93beb98d516b225abeb2fef4ca2",
+          "version": "0.58.2"
         }
       },
       {
