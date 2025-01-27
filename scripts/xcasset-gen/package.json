@@ -11,7 +11,7 @@
   "type": "module",
   "dependencies": {
     "@babel/runtime": "^7.26.0",
-    "fs-extra": "^11.2.0",
+    "fs-extra": "^11.3.0",
     "globby": "^14.0.2",
     "yargs": "^17.7.2"
   }
