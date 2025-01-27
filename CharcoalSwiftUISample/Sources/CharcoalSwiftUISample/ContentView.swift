@@ -3,7 +3,7 @@ import SwiftUI
 
 public struct ContentView: View {
     @StateObject private var settings = CharcoalConfig.GlobalSettings()
-    
+
     @State var isDarkModeOn = false
 
     public init() {}

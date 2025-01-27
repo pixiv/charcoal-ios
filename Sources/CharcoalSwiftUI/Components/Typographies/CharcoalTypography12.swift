@@ -44,34 +44,33 @@ public extension View {
 #if compiler(>=6.0)
     @available(iOS 17, *)
     #Preview {
-        
         @Previewable @State var text = "123Appleでの日本語Mix深圳한국어简体中文"
-        
+
         VStack(alignment: .leading) {
             Text(text)
                 .font(.custom(".AppleSystemUIFont", size: 12))
-                
+
             VStack(alignment: .leading, spacing: 4) {
                 Text(text)
                     .charcoalTypography12Regular(isSingleLine: false)
                     .background(charcoalColor: .background2)
-                
+
                 Text(text)
                     .charcoalTypography12Bold(isSingleLine: false)
                     .background(charcoalColor: .background2)
-                
+
                 Text(text)
                     .charcoalTypography12BoldMono()
                     .background(charcoalColor: .background2)
-                
+
                 Text(text)
                     .charcoalTypography12RegularMono()
                     .background(charcoalColor: .background2)
-                
+
                 Text(text)
                     .font(.custom("Hiragino Sans", size: 12))
                     .background(charcoalColor: .background2)
-                
+
                 Text(text)
                     .font(.custom("PingFang SC", size: 12))
                     .background(charcoalColor: .background2)
