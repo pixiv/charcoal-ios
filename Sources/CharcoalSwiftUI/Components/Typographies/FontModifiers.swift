@@ -22,11 +22,18 @@ struct CharcoalFontModifier: ViewModifier, CharcoalFontModifierProtocol {
 
     func body(content: Content) -> some View {
         let font: UIFont = .systemFont(ofSize: fontSize, weight: weight)
-        let fontFallbacks = settings.fontFallback.compactMap({ createFallbackFont(name: $0, weight: weight) })
-        let repaired = font.fontDescriptor.addingAttributes([UIFontDescriptor.AttributeName.cascadeList : fontFallbacks])
+        
+        let fallbackableFont: UIFontDescriptor
+        
+        if _settings.hasValue {
+            let fontFallbacks = settings.fontFallback.compactMap({ createFallbackFont(name: $0, weight: weight) })
+            fallbackableFont = font.fontDescriptor.addingAttributes([UIFontDescriptor.AttributeName.cascadeList : fontFallbacks])
+        } else {
+            fallbackableFont = font.fontDescriptor
+        }
         
         return content
-            .font(Font(UIFont(descriptor: repaired, size: size)))
+            .font(Font(UIFont(descriptor: fallbackableFont, size: size)))
             .lineSpacing(isSingleLine ? 0 : lineHeight - font.lineHeight)
             .padding(.vertical, isSingleLine ? 0 : (lineHeight - font.lineHeight) / 2)
             .lineLimit(isSingleLine ? 1 : nil)
@@ -52,26 +59,18 @@ struct CharcoalMonoFontModifier: ViewModifier, CharcoalFontModifierProtocol {
 
     func body(content: Content) -> some View {
         let font: UIFont = .monospacedSystemFont(ofSize: fontSize, weight: weight)
-        let fontFallbacks = settings.monoFontFallback.compactMap({ createFallbackFont(name: $0, weight: weight) })
-        let repaired = font.fontDescriptor.addingAttributes([UIFontDescriptor.AttributeName.cascadeList : fontFallbacks])
+        
+        let fallbackableFont: UIFontDescriptor
+        
+        if _settings.hasValue {
+            let fontFallbacks = settings.monoFontFallback.compactMap({ createFallbackFont(name: $0, weight: weight) })
+            fallbackableFont = font.fontDescriptor.addingAttributes([UIFontDescriptor.AttributeName.cascadeList : fontFallbacks])
+        } else {
+            fallbackableFont = font.fontDescriptor
+        }
+        
         return content
-            .font(Font(UIFont(descriptor: repaired, size: size)))
+            .font(Font(UIFont(descriptor: fallbackableFont, size: size)))
             .lineLimit(1)
-    }
-}
-
-protocol CharcoalFontModifierProtocol {
-    func createFallbackFont(name: String, weight: UIFont.Weight) -> UIFontDescriptor
-}
-
-extension CharcoalFontModifierProtocol {
-    func createFallbackFont(name: String, weight: UIFont.Weight) -> UIFontDescriptor {
-        var attributes: [UIFontDescriptor.AttributeName : Any] = [:]
-        var traits:  [UIFontDescriptor.TraitKey: Any] = [:]
-        traits[.weight] = weight
-        attributes[UIFontDescriptor.AttributeName.name] = nil
-        attributes[UIFontDescriptor.AttributeName.family] = name
-        attributes[UIFontDescriptor.AttributeName.traits] = traits
-        return  UIFontDescriptor(fontAttributes: attributes)
     }
 }
