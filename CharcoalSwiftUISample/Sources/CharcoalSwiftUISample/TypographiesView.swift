@@ -42,6 +42,15 @@ struct TypographiesView: View {
                         Text(Const.numberText)
                             .charcoalTypography20RegularMono()
                     }
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("20 Attributed String")
+
+                        Text("Atributed")
+                            .font(charcoalTypography: .bold20)
+                        +
+                        Text("String")
+                            .font(charcoalTypography: .regular20)
+                    }
                 }
                 Group {
                     VStack(alignment: .leading, spacing: 4) {
@@ -73,6 +82,15 @@ struct TypographiesView: View {
                         Text("16 Regular Mono")
                         Text(Const.numberText)
                             .charcoalTypography16RegularMono()
+                    }
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("16 Attributed String")
+
+                        Text("Atributed")
+                            .font(charcoalTypography: .bold16)
+                        +
+                        Text("String")
+                            .font(charcoalTypography: .regular16)
                     }
                 }
                 Group {
@@ -106,6 +124,15 @@ struct TypographiesView: View {
                         Text(Const.numberText)
                             .charcoalTypography14RegularMono()
                     }
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("14 Attributed String")
+
+                        Text("Atributed")
+                            .font(charcoalTypography: .bold14)
+                        +
+                        Text("String")
+                            .font(charcoalTypography: .regular14)
+                    }
                 }
                 Group {
                     VStack(alignment: .leading, spacing: 4) {
@@ -138,6 +165,15 @@ struct TypographiesView: View {
                         Text(Const.numberText)
                             .charcoalTypography12RegularMono()
                     }
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("12 Attributed String")
+
+                        Text("Atributed")
+                            .font(charcoalTypography: .bold12)
+                        +
+                        Text("String")
+                            .font(charcoalTypography: .regular12)
+                    }
                 }
                 Group {
                     VStack(alignment: .leading, spacing: 4) {
@@ -169,6 +205,15 @@ struct TypographiesView: View {
                         Text("10 Regular Mono")
                         Text(Const.numberText)
                             .charcoalTypography10RegularMono()
+                    }
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("10 Attributed String")
+
+                        Text("Atributed")
+                            .font(charcoalTypography: .bold10)
+                        +
+                        Text("String")
+                            .font(charcoalTypography: .regular10)
                     }
                 }
             }
