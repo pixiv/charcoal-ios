@@ -1,6 +1,8 @@
 import SwiftUI
 
-struct CharcoalFontModifier: ViewModifier {
+struct CharcoalFontModifier: ViewModifier, CharcoalFontModifierProtocol {
+    @EnvironmentObject var settings: CharcoalConfig.GlobalSettings
+    
     let size: CGFloat
     let weight: UIFont.Weight
     let isSingleLine: Bool
@@ -17,24 +19,11 @@ struct CharcoalFontModifier: ViewModifier {
         _fontSize = ScaledMetric(wrappedValue: size, relativeTo: textStyle)
         _lineHeight = ScaledMetric(wrappedValue: lineHeight, relativeTo: textStyle)
     }
-    
-    func createFallbackFont(name: String) -> UIFontDescriptor {
-        var attributes: [UIFontDescriptor.AttributeName : Any] = [:]
-        var traits:  [UIFontDescriptor.TraitKey: Any] = [:]
-        traits[.weight] = weight
-        attributes[UIFontDescriptor.AttributeName.name] = nil
-        attributes[UIFontDescriptor.AttributeName.family] = name
-        attributes[UIFontDescriptor.AttributeName.traits] = traits
-        return  UIFontDescriptor(fontAttributes: attributes)
-    }
 
     func body(content: Content) -> some View {
         let font: UIFont = .systemFont(ofSize: fontSize, weight: weight)
-        
-        let repaired = font.fontDescriptor.addingAttributes([UIFontDescriptor.AttributeName.cascadeList : [
-            createFallbackFont(name: "Hiragino Sans"),
-            createFallbackFont(name: "PingFang SC")
-        ]])
+        let fontFallbacks = settings.fontFallback.compactMap({ createFallbackFont(name: $0, weight: weight) })
+        let repaired = font.fontDescriptor.addingAttributes([UIFontDescriptor.AttributeName.cascadeList : fontFallbacks])
         
         return content
             .font(Font(UIFont(descriptor: repaired, size: size)))
@@ -45,7 +34,9 @@ struct CharcoalFontModifier: ViewModifier {
     }
 }
 
-struct CharcoalMonoFontModifier: ViewModifier {
+struct CharcoalMonoFontModifier: ViewModifier, CharcoalFontModifierProtocol {
+    @EnvironmentObject var settings: CharcoalConfig.GlobalSettings
+    
     let size: CGFloat
     let weight: UIFont.Weight
     let textStyle: Font.TextStyle
@@ -61,16 +52,26 @@ struct CharcoalMonoFontModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         let font: UIFont = .monospacedSystemFont(ofSize: fontSize, weight: weight)
-        var attributes: [UIFontDescriptor.AttributeName : Any] = [:]
-        var traits: [UIFontDescriptor.TraitKey: Any] = [:]
-        traits[.weight] = weight
-        attributes[UIFontDescriptor.AttributeName.name] = nil
-        attributes[UIFontDescriptor.AttributeName.family] = "Hiragino Sans"
-        attributes[UIFontDescriptor.AttributeName.traits] = traits
-        let fallbackFont = UIFontDescriptor(fontAttributes: attributes)
-        let repaired = font.fontDescriptor.addingAttributes([UIFontDescriptor.AttributeName.cascadeList : [fallbackFont]])
+        let fontFallbacks = settings.monoFontFallback.compactMap({ createFallbackFont(name: $0, weight: weight) })
+        let repaired = font.fontDescriptor.addingAttributes([UIFontDescriptor.AttributeName.cascadeList : fontFallbacks])
         return content
             .font(Font(UIFont(descriptor: repaired, size: size)))
             .lineLimit(1)
+    }
+}
+
+protocol CharcoalFontModifierProtocol {
+    func createFallbackFont(name: String, weight: UIFont.Weight) -> UIFontDescriptor
+}
+
+extension CharcoalFontModifierProtocol {
+    func createFallbackFont(name: String, weight: UIFont.Weight) -> UIFontDescriptor {
+        var attributes: [UIFontDescriptor.AttributeName : Any] = [:]
+        var traits:  [UIFontDescriptor.TraitKey: Any] = [:]
+        traits[.weight] = weight
+        attributes[UIFontDescriptor.AttributeName.name] = nil
+        attributes[UIFontDescriptor.AttributeName.family] = name
+        attributes[UIFontDescriptor.AttributeName.traits] = traits
+        return  UIFontDescriptor(fontAttributes: attributes)
     }
 }
