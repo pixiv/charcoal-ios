@@ -59,7 +59,8 @@ function createUniversalImageJson(filename) {
                 'filename': filename
             }
         ],
-        ...createXCAssetInfoJSON()
+        ...createXCAssetInfoJSON(),
+        ...createPreservesVectorRepresentationJSON()
     }
 }
 
@@ -77,6 +78,14 @@ function createXCAssetInfoJSON() {
         'info': {
             'version': 1,
             'author': 'pixiv'
+        }
+    }
+}
+
+function createPreservesVectorRepresentationJSON() {
+    return {
+        'properties': {
+            "preserves-vector-representation" : true
         }
     }
 }
