@@ -17,12 +17,12 @@ public enum CharcoalButtonStyle {
     }
 }
 
-extension CharcoalButtonStyle {
-    public struct Configuration {
+public extension CharcoalButtonStyle {
+    struct Configuration {
         public var size: CharcoalButtonSize
         public var isFixed: Bool
         public var primaryColor: Color
-        
+
         public init(size: CharcoalButtonSize = .medium, isFixed: Bool = true, primaryColor: Color) {
             self.size = size
             self.isFixed = isFixed

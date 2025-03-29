@@ -7,7 +7,7 @@ public struct HintsView: View {
     @State var isPresented2 = true
 
     @State var isPresented3 = true
-    
+
     @State var isPresented4 = true
 
     public var body: some View {
@@ -20,7 +20,7 @@ public struct HintsView: View {
                 CharcoalHint(text: "ヒントテキストヒントテキスト", isPresenting: $isPresented2)
 
                 CharcoalHint(text: "ヒントテキストヒントテキスト", maxWidth: .infinity, isPresenting: $isPresented3, alignment: .leading)
-                
+
                 CharcoalHint(text: "ヒントテキストヒントテキスト", maxWidth: .infinity, isPresenting: $isPresented4, buttonStyle: .default, action: CharcoalAction(title: "Button") {
                     isPresented = false
                 })
