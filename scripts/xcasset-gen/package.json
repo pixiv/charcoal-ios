@@ -12,7 +12,7 @@
   "dependencies": {
     "@babel/runtime": "^7.26.0",
     "fs-extra": "^11.3.0",
-    "globby": "^14.0.2",
+    "globby": "^14.1.0",
     "yargs": "^17.7.2"
   }
 }
