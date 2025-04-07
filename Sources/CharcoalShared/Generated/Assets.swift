@@ -239,6 +239,7 @@ public enum CharcoalAsset {
       public static let filterAsset = ImageAsset(name: "24/Filter")
       public static let flareAsset = ImageAsset(name: "24/Flare")
       public static let formatAlignCenterAsset = ImageAsset(name: "24/FormatAlignCenter")
+      public static let formatAlignJustifiedAsset = ImageAsset(name: "24/FormatAlignJustified")
       public static let formatAlignLeftAsset = ImageAsset(name: "24/FormatAlignLeft")
       public static let formatAlignRightAsset = ImageAsset(name: "24/FormatAlignRight")
       public static let formatColorFillAsset = ImageAsset(name: "24/FormatColorFill")
@@ -285,6 +286,7 @@ public enum CharcoalAsset {
       public static let microphoneAsset = ImageAsset(name: "24/Microphone")
       public static let mobilePhoneAsset = ImageAsset(name: "24/MobilePhone")
       public static let move1Asset = ImageAsset(name: "24/Move1")
+      public static let multiSelectAsset = ImageAsset(name: "24/MultiSelect")
       public static let nextAsset = ImageAsset(name: "24/Next")
       public static let noImageAsset = ImageAsset(name: "24/NoImage")
       public static let notificationAsset = ImageAsset(name: "24/Notification")
@@ -315,6 +317,7 @@ public enum CharcoalAsset {
       public static let readHorizontalLeftAsset = ImageAsset(name: "24/ReadHorizontalLeft")
       public static let readHorizontalRightAsset = ImageAsset(name: "24/ReadHorizontalRight")
       public static let readVerticalAsset = ImageAsset(name: "24/ReadVertical")
+      public static let redoAsset = ImageAsset(name: "24/Redo")
       public static let reloadAsset = ImageAsset(name: "24/Reload")
       public static let reloadLoopAsset = ImageAsset(name: "24/ReloadLoop")
       public static let reorderAsset = ImageAsset(name: "24/Reorder")
@@ -342,6 +345,7 @@ public enum CharcoalAsset {
       public static let textAsset = ImageAsset(name: "24/Text")
       public static let trashAsset = ImageAsset(name: "24/Trash")
       public static let trashAltAsset = ImageAsset(name: "24/TrashAlt")
+      public static let undoAsset = ImageAsset(name: "24/Undo")
       public static let upAsset = ImageAsset(name: "24/Up")
       public static let uploadAsset = ImageAsset(name: "24/Upload")
       public static let uploadAltAsset = ImageAsset(name: "24/UploadAlt")
@@ -369,6 +373,7 @@ public enum CharcoalAsset {
       public static let giftAsset = ImageAsset(name: "32/Gift")
       public static let homeAsset = ImageAsset(name: "32/Home")
       public static let horizontalWritingAsset = ImageAsset(name: "32/HorizontalWriting")
+      public static let imageHiddenAsset = ImageAsset(name: "32/ImageHidden")
       public static let indexAsset = ImageAsset(name: "32/Index")
       public static let likeOffAsset = ImageAsset(name: "32/LikeOff")
       public static let likeOnAsset = ImageAsset(name: "32/LikeOn")
@@ -385,6 +390,7 @@ public enum CharcoalAsset {
       public static let readHorizontalLeftAsset = ImageAsset(name: "32/ReadHorizontalLeft")
       public static let readHorizontalRightAsset = ImageAsset(name: "32/ReadHorizontalRight")
       public static let readVerticalAsset = ImageAsset(name: "32/ReadVertical")
+      public static let redoAsset = ImageAsset(name: "32/Redo")
       public static let rollHorizontalAsset = ImageAsset(name: "32/RollHorizontal")
       public static let rollVerticalAsset = ImageAsset(name: "32/RollVertical")
       public static let sansSerifAsset = ImageAsset(name: "32/SansSerif")
@@ -392,6 +398,7 @@ public enum CharcoalAsset {
       public static let shareAndroidAsset = ImageAsset(name: "32/ShareAndroid")
       public static let shareIosAsset = ImageAsset(name: "32/ShareIos")
       public static let shoppingAsset = ImageAsset(name: "32/Shopping")
+      public static let undoAsset = ImageAsset(name: "32/Undo")
       public static let uploadAsset = ImageAsset(name: "32/Upload")
       public static let userAsset = ImageAsset(name: "32/User")
       public static let verticalWritingAsset = ImageAsset(name: "32/VerticalWriting")
@@ -399,6 +406,7 @@ public enum CharcoalAsset {
     }
     public enum Inline : CaseIterable {
       public static let addAsset = ImageAsset(name: "Inline/Add")
+      public static let backAsset = ImageAsset(name: "Inline/Back")
       public static let bookmarkOffAsset = ImageAsset(name: "Inline/BookmarkOff")
       public static let bookmarkOnAsset = ImageAsset(name: "Inline/BookmarkOn")
       public static let breadcrumbsAsset = ImageAsset(name: "Inline/Breadcrumbs")
@@ -410,12 +418,14 @@ public enum CharcoalAsset {
       public static let folderAsset = ImageAsset(name: "Inline/Folder")
       public static let imageResponseAsset = ImageAsset(name: "Inline/ImageResponse")
       public static let imagesAsset = ImageAsset(name: "Inline/Images")
+      public static let latestAsset = ImageAsset(name: "Inline/Latest")
       public static let likeAsset = ImageAsset(name: "Inline/Like")
       public static let likeOffAsset = ImageAsset(name: "Inline/LikeOff")
       public static let listAsset = ImageAsset(name: "Inline/List")
       public static let locationAsset = ImageAsset(name: "Inline/Location")
       public static let lockAsset = ImageAsset(name: "Inline/Lock")
       public static let moreAsset = ImageAsset(name: "Inline/More")
+      public static let multiSelectAsset = ImageAsset(name: "Inline/MultiSelect")
       public static let nextworksAsset = ImageAsset(name: "Inline/Nextworks")
       public static let openInNewAsset = ImageAsset(name: "Inline/OpenInNew")
       public static let pencilAsset = ImageAsset(name: "Inline/Pencil")
@@ -508,6 +518,7 @@ public enum CharcoalAsset {
     case filter24
     case flare24
     case formatAlignCenter24
+    case formatAlignJustified24
     case formatAlignLeft24
     case formatAlignRight24
     case formatColorFill24
@@ -554,6 +565,7 @@ public enum CharcoalAsset {
     case microphone24
     case mobilePhone24
     case move124
+    case multiSelect24
     case next24
     case noImage24
     case notification24
@@ -584,6 +596,7 @@ public enum CharcoalAsset {
     case readHorizontalLeft24
     case readHorizontalRight24
     case readVertical24
+    case redo24
     case reload24
     case reloadLoop24
     case reorder24
@@ -611,6 +624,7 @@ public enum CharcoalAsset {
     case text24
     case trash24
     case trashAlt24
+    case undo24
     case up24
     case upload24
     case uploadAlt24
@@ -636,6 +650,7 @@ public enum CharcoalAsset {
     case gift32
     case home32
     case horizontalWriting32
+    case imageHidden32
     case index32
     case likeOff32
     case likeOn32
@@ -652,6 +667,7 @@ public enum CharcoalAsset {
     case readHorizontalLeft32
     case readHorizontalRight32
     case readVertical32
+    case redo32
     case rollHorizontal32
     case rollVertical32
     case sansSerif32
@@ -659,11 +675,13 @@ public enum CharcoalAsset {
     case shareAndroid32
     case shareIos32
     case shopping32
+    case undo32
     case upload32
     case user32
     case verticalWriting32
     case zoomIn32
     case addInline
+    case backInline
     case bookmarkOffInline
     case bookmarkOnInline
     case breadcrumbsInline
@@ -675,12 +693,14 @@ public enum CharcoalAsset {
     case folderInline
     case imageResponseInline
     case imagesInline
+    case latestInline
     case likeInline
     case likeOffInline
     case listInline
     case locationInline
     case lockInline
     case moreInline
+    case multiSelectInline
     case nextworksInline
     case openInNewInline
     case pencilInline
@@ -856,6 +876,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.flareAsset
         case .formatAlignCenter24:
           return CharcoalAsset.Images._24.formatAlignCenterAsset
+        case .formatAlignJustified24:
+          return CharcoalAsset.Images._24.formatAlignJustifiedAsset
         case .formatAlignLeft24:
           return CharcoalAsset.Images._24.formatAlignLeftAsset
         case .formatAlignRight24:
@@ -948,6 +970,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.mobilePhoneAsset
         case .move124:
           return CharcoalAsset.Images._24.move1Asset
+        case .multiSelect24:
+          return CharcoalAsset.Images._24.multiSelectAsset
         case .next24:
           return CharcoalAsset.Images._24.nextAsset
         case .noImage24:
@@ -1008,6 +1032,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.readHorizontalRightAsset
         case .readVertical24:
           return CharcoalAsset.Images._24.readVerticalAsset
+        case .redo24:
+          return CharcoalAsset.Images._24.redoAsset
         case .reload24:
           return CharcoalAsset.Images._24.reloadAsset
         case .reloadLoop24:
@@ -1062,6 +1088,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.trashAsset
         case .trashAlt24:
           return CharcoalAsset.Images._24.trashAltAsset
+        case .undo24:
+          return CharcoalAsset.Images._24.undoAsset
         case .up24:
           return CharcoalAsset.Images._24.upAsset
         case .upload24:
@@ -1112,6 +1140,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._32.homeAsset
         case .horizontalWriting32:
           return CharcoalAsset.Images._32.horizontalWritingAsset
+        case .imageHidden32:
+          return CharcoalAsset.Images._32.imageHiddenAsset
         case .index32:
           return CharcoalAsset.Images._32.indexAsset
         case .likeOff32:
@@ -1144,6 +1174,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._32.readHorizontalRightAsset
         case .readVertical32:
           return CharcoalAsset.Images._32.readVerticalAsset
+        case .redo32:
+          return CharcoalAsset.Images._32.redoAsset
         case .rollHorizontal32:
           return CharcoalAsset.Images._32.rollHorizontalAsset
         case .rollVertical32:
@@ -1158,6 +1190,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._32.shareIosAsset
         case .shopping32:
           return CharcoalAsset.Images._32.shoppingAsset
+        case .undo32:
+          return CharcoalAsset.Images._32.undoAsset
         case .upload32:
           return CharcoalAsset.Images._32.uploadAsset
         case .user32:
@@ -1168,6 +1202,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._32.zoomInAsset
         case .addInline:
           return CharcoalAsset.Images.Inline.addAsset
+        case .backInline:
+          return CharcoalAsset.Images.Inline.backAsset
         case .bookmarkOffInline:
           return CharcoalAsset.Images.Inline.bookmarkOffAsset
         case .bookmarkOnInline:
@@ -1190,6 +1226,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images.Inline.imageResponseAsset
         case .imagesInline:
           return CharcoalAsset.Images.Inline.imagesAsset
+        case .latestInline:
+          return CharcoalAsset.Images.Inline.latestAsset
         case .likeInline:
           return CharcoalAsset.Images.Inline.likeAsset
         case .likeOffInline:
@@ -1202,6 +1240,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images.Inline.lockAsset
         case .moreInline:
           return CharcoalAsset.Images.Inline.moreAsset
+        case .multiSelectInline:
+          return CharcoalAsset.Images.Inline.multiSelectAsset
         case .nextworksInline:
           return CharcoalAsset.Images.Inline.nextworksAsset
         case .openInNewInline:
