@@ -10,10 +10,6 @@ extension CharcoalButtonSize {
         }
     }
 
-    var cornerRadius: CGFloat {
-        return padding.leading
-    }
-
     var fontSize: CGFloat {
         return 14
     }

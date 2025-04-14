@@ -9,8 +9,6 @@ struct CharcoalDefaultOverlayButtonStyleView: View {
 
     @ScaledMetric var fontSize: CGFloat
 
-    @ScaledMetric var cornerRadius: CGFloat
-
     init(label: ButtonStyleConfiguration.Label, isPressed: Bool, isEnabled: Bool, size: CharcoalButtonSize, isFixed: Bool) {
         self.label = label
         self.isPressed = isPressed
@@ -18,7 +16,6 @@ struct CharcoalDefaultOverlayButtonStyleView: View {
         self.size = size
         self.isFixed = isFixed
         _fontSize = ScaledMetric(wrappedValue: size.fontSize)
-        _cornerRadius = ScaledMetric(wrappedValue: size.cornerRadius)
     }
 
     var body: some View {
@@ -33,7 +30,8 @@ struct CharcoalDefaultOverlayButtonStyleView: View {
                 Rectangle()
                     .backport.foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
             )
-            .cornerRadius(cornerRadius)
+            .clipShape(.capsule)
+            .hoverEffect(.lift)
     }
 }
 

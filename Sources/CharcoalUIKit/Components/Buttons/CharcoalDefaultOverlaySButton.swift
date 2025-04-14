@@ -57,6 +57,8 @@ public class CharcoalDefaultOverlaySButton: UIButton, CharcoalButton {
             )
         }
 
+        isPointerInteractionEnabled = true
+
         updateStyle()
     }
 
