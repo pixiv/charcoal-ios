@@ -57,6 +57,8 @@ public class CharcoalNavigationMButton: UIButton, CharcoalButton {
             )
         }
 
+        isPointerInteractionEnabled = true
+
         updateStyle()
     }
 

@@ -11,9 +11,10 @@ struct CharcoalLinkButtonStyleView: View {
         label
             .font(.system(size: fontSize, weight: .bold))
             // swiftlint:disable line_length
-            .padding(EdgeInsets(top: 11.5, leading: 0, bottom: 11.5, trailing: 0))
+            .padding(EdgeInsets(top: 11.5, leading: 16, bottom: 11.5, trailing: 16))
             .foregroundStyle(charcoalColor: isPressed ? .text3 : .text1)
             .opacity(isEnabled ? 1.0 : 0.32)
+            .hoverEffect(.highlight)
     }
 }
 
