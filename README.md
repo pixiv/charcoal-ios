@@ -27,7 +27,7 @@ button.setTitle("OK", for: .normal)
 
 ### Dynamic Type
 
-charcoal-ios はデフォルトで Dynamic Type をサポートしています。この機能を無効にしたい場合は、以下の手順をご参照ください。
+charcoal-ios はデフォルトで Dynamic Type をサポートしています。この機能を無効にしたい場合は、以下の手順を参照してください。
 
 #### SwiftUI
 
@@ -40,7 +40,13 @@ Button("Default Button M") {}
 ```
 
 #### UIKit
-デフォルトでは、CharcoalUIKitはUITraitCollectionのpreferredContentSizeCategory属性に従いますので、UITraitCollectionを変更することでSizeCategoryを指定できます。
+`CharcoalConfig.configUIKit.fixedSizeCategory` を使用して Dynamic Type レベルを固定します。
+
+```swift
+CharcoalConfig.configUIKit.fixedSizeCategory = .large
+```
+
+デフォルトでは、 CharcoalUIKit は UITraitCollection の preferredContentSizeCategory に従うので、UITraitCollection を変更することで SizeCategory を指定できます。
 
 ```swift
 let trait = UITraitCollection(preferredContentSizeCategory: .large)
@@ -48,11 +54,7 @@ let trait = UITraitCollection(preferredContentSizeCategory: .large)
 setOverrideTraitCollection(trait, forChild: viewController)
 ```
 
-その他にも、`CharcoalConfig.configUIKit.fixedSizeCategory` を使用して Dynamic Type レベルを固定します。
 
-```swift
-CharcoalConfig.configUIKit.fixedSizeCategory = .large
-```
 
 ## Installation
 
