@@ -11,3 +11,15 @@ extension Backport where Content: View {
         }
     }
 }
+
+extension Backport where Content == Text {
+    func foregroundStyle(_ color: Color) -> Text {
+        if #available(iOS 17, *) {
+            content
+                .foregroundStyle(color)
+        } else {
+            content
+                .foregroundColor(color)
+        }
+    }
+}
