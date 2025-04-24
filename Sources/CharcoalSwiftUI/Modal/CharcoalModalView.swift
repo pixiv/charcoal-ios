@@ -259,17 +259,13 @@ public extension View {
                     }).charcoalDefaultButton(size: .medium)
                 }
             ) {
-                NavigationView {
-                    VStack(spacing: 10) {
-                        Text("Hello This is a center dialog from Charcoal")
-                            .charcoalTypography16Regular()
-                            .frame(maxWidth: .infinity)
+                VStack(spacing: 10) {
+                    Text("Hello This is a center dialog from Charcoal")
+                        .charcoalTypography16Regular()
+                        .frame(maxWidth: .infinity)
 
-                        TextField("Simple text field", text: $text1).charcoalTextField()
-                    }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-                        .navigationTitle("SwiftUI")
-                        .navigationBarTitleDisplayMode(.inline)
-                }
+                    TextField("Simple text field", text: $text1).charcoalTextField()
+                }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             }
         }
     }
