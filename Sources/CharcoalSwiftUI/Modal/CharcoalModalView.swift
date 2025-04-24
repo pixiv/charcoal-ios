@@ -87,36 +87,19 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
                     }
 
                 // Modal Content
-                VStack(spacing: 0) {
-                    if let title = title {
-                        Text(title).charcoalTypography20Bold(isSingleLine: true)
-                            .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
-                    }
-
-                    modalContent
-
-                    if let actions = actions {
-                        VStack {
-                            actions
-                        }
-                        .padding(EdgeInsets(top: 20, leading: 20, bottom: style == .center ? 20 : indicatorInset, trailing: 20))
-                        .onAppear {
-                            indicatorInset = max(proxy.safeAreaInsets.bottom, 30)
-                        }
-                    }
-                }
-                .frame(minWidth: 280, maxWidth: maxWidth)
-                .background(Rectangle().cornerRadius(32, corners: style.roundedCorners).foregroundStyle(charcoalColor: .surface1))
-                .opacity(modalOpacity)
-                .padding(style.padding)
-                .offset(modalOffset)
-                .animation(modalOffsetAnimation, value: modalOffset)
-                .animation(.easeInOut(duration: duration), value: modalOpacity)
-                .scaleEffect(modalScale)
-                .animation(UIAccessibility.isReduceMotionEnabled ? .none : .easeInOut(duration: duration * 0.5), value: modalScale)
-                .overlay(GeometryReader { modalGeomtry in
-                    Color.clear.preference(key: ModalViewHeightKey.self, value: modalGeomtry.size.height)
-                })
+                contentView(proxy: proxy)
+                    .frame(minWidth: 280, maxWidth: maxWidth)
+                    .background(Rectangle().cornerRadius(32, corners: style.roundedCorners).foregroundStyle(charcoalColor: .surface1))
+                    .opacity(modalOpacity)
+                    .padding(style.padding)
+                    .offset(modalOffset)
+                    .animation(modalOffsetAnimation, value: modalOffset)
+                    .animation(.easeInOut(duration: duration), value: modalOpacity)
+                    .scaleEffect(modalScale)
+                    .animation(UIAccessibility.isReduceMotionEnabled ? .none : .easeInOut(duration: duration * 0.5), value: modalScale)
+                    .overlay(GeometryReader { modalGeomtry in
+                        Color.clear.preference(key: ModalViewHeightKey.self, value: modalGeomtry.size.height)
+                    })
             })
             .onPreferenceChange(ModalViewHeightKey.self, perform: { value in
                 let offset = CGSize(width: 0, height: value)
@@ -144,6 +127,37 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
             DispatchQueue.main.async {
                 prepareAnimation()
             }
+        }
+    }
+
+    private func contentView(proxy: GeometryProxy) -> some View {
+        ZStack {
+            VStack(spacing: 0) {
+                if let title = title {
+                    Text(title).charcoalTypography20Bold(isSingleLine: true)
+                        .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
+                }
+
+                modalContent
+
+                if let actions = actions {
+                    VStack {
+                        actions
+                    }
+                    .padding(EdgeInsets(top: 20, leading: 20, bottom: style == .center ? 20 : indicatorInset, trailing: 20))
+                    .onAppear {
+                        indicatorInset = max(proxy.safeAreaInsets.bottom, 30)
+                    }
+                }
+            }
+
+            Button {
+                isPresented = false
+            } label: {
+                Image(charcoalIcon: .close24)
+            }
+            .padding(.all, 12)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
         }
     }
 }
