@@ -131,7 +131,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
     }
 
     private func contentView(proxy: GeometryProxy) -> some View {
-        ZStack {
+        ZStack(alignment: .topTrailing) {
             VStack(spacing: 0) {
                 if let title = title {
                     Text(title).charcoalTypography20Bold(isSingleLine: true)
@@ -157,7 +157,6 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
                 Image(charcoalIcon: .close24)
             }
             .padding(.all, 12)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
         }
     }
 }
