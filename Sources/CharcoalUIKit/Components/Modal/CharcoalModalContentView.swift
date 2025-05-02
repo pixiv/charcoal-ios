@@ -9,9 +9,13 @@ final class CharcoalModalContentView: UIView {
         stackView.spacing = 8
         stackView.alignment = .fill
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         return stackView
     }()
+
+    var contentEdgeInsets: UIEdgeInsets {
+        get { stackView.layoutMargins }
+        set { stackView.layoutMargins = newValue }
+    }
 
     init(message: String?, content: UIView?) {
         super.init(frame: .null)

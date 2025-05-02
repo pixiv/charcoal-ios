@@ -8,6 +8,7 @@ public final class CharcoalModalController: UIViewController {
     let content: UIView?
 
     public var tapBackgroundToDismiss: Bool = true
+    public var contentEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20)
 
     public init(title: String?, message: String?, content: UIView?) {
         titleText = title
@@ -63,6 +64,7 @@ public final class CharcoalModalController: UIViewController {
             content: content
         )
         contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.contentEdgeInsets = contentEdgeInsets
 
         actionsView.translatesAutoresizingMaskIntoConstraints = false
         actionsView.dismiss = { [weak self] in self?.dismiss(animated: true) }
