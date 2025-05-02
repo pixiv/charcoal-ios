@@ -35,12 +35,20 @@ public final class CharcoalModalController: UIViewController {
 
         view.backgroundColor = UIColor(white: 0, alpha: 0.6)
         view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(UITapGestureRecognizer(
+            target: self,
+            action: #selector(onBackgroundTapped(_:))
+        ))
 
         let modalBackgroundView = UIView()
         modalBackgroundView.translatesAutoresizingMaskIntoConstraints = false
         modalBackgroundView.backgroundColor = CharcoalAsset.ColorPaletteGenerated.surface1.color
         modalBackgroundView.clipsToBounds = true
         modalBackgroundView.layer.cornerRadius = 32
+        modalBackgroundView.addGestureRecognizer(UITapGestureRecognizer(
+            target: self,
+            action: #selector(onModalBackgroundTapped(_:))
+        ))
 
         let header = CharcoalModalHeader(
             title: titleText,
@@ -83,6 +91,14 @@ public final class CharcoalModalController: UIViewController {
             actionsView.bottomAnchor.constraint(equalTo: modalBackgroundView.bottomAnchor),
         ])
     }
+
+    @objc private func onBackgroundTapped(_ sender: UITapGestureRecognizer) {
+        if tapBackgroundToDismiss {
+            dismiss(animated: true)
+        }
+    }
+
+    @objc private func onModalBackgroundTapped(_ sender: UITapGestureRecognizer) {}
 }
 
 #if DEBUG
