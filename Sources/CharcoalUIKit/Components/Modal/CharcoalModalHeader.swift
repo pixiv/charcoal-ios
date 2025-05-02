@@ -14,7 +14,7 @@ final class CharcoalModalHeader: UIView {
 
         var configuration = UIButton.Configuration.plain()
         configuration.image = CharcoalAsset.Images.close24.image
-        configuration.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4)
         let closeButton = UIButton(configuration: configuration)
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         closeButton.addAction(
@@ -26,7 +26,7 @@ final class CharcoalModalHeader: UIView {
         addSubview(closeButton)
 
         NSLayoutConstraint.activate([
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -56),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -48),
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
 
