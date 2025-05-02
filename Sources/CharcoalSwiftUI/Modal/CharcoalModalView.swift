@@ -5,6 +5,8 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
     var title: String?
     /// The style of the modal view.
     var style: CharcoalModalStyle
+    /// Whether to show the close button on the modal view.
+    var showCloseButton: Bool
     /// Tap on background to dismiss.
     var tapBackgroundToDismiss: Bool
     /// The duration of the animation
@@ -32,6 +34,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
     init(
         title: String?,
         style: CharcoalModalStyle = .center,
+        showCloseButton: Bool,
         tapBackgroundToDismiss: Bool,
         duration: Double,
         maxWidth: CGFloat,
@@ -41,6 +44,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
     ) {
         self.title = title
         self.style = style
+        self.showCloseButton = showCloseButton
         self.tapBackgroundToDismiss = tapBackgroundToDismiss
         self.duration = duration
         self.maxWidth = maxWidth
@@ -151,12 +155,14 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
                 }
             }
 
-            Button {
-                isPresented = false
-            } label: {
-                Image(charcoalIcon: .close24)
+            if showCloseButton {
+                Button {
+                    isPresented = false
+                } label: {
+                    Image(charcoalIcon: .close24)
+                }
+                .padding(.all, 12)
             }
-            .padding(.all, 12)
         }
     }
 }
@@ -180,6 +186,7 @@ public extension View {
      - Parameters:
         - title: The title of the modal view.
         - style: The style of the modal view.
+        - showCloseButton: Whether to show the close button on the modal view.
         - tapBackgroundToDismiss: Tap on background to dismiss.
         - duration: The duration of the animation
         - maxWidth: The max width of the modal view.
@@ -214,6 +221,7 @@ public extension View {
     func charcoalModal(
         title: String? = nil,
         style: CharcoalModalStyle = .center,
+        showCloseButton: Bool = true,
         tapBackgroundToDismiss: Bool = true,
         duration: Double = 0.25,
         maxWidth: CGFloat = 440,
@@ -222,7 +230,7 @@ public extension View {
         @ViewBuilder content: @escaping () -> some View
     ) -> some View {
         charcoalFullScreenCover(isPresented: isPresented, duration: duration, content: {
-            CharcoalModalView(title: title, style: style, tapBackgroundToDismiss: tapBackgroundToDismiss, duration: duration, maxWidth: maxWidth, isPresented: isPresented, actions: actions, modalContent: content)
+            CharcoalModalView(title: title, style: style, showCloseButton: showCloseButton, tapBackgroundToDismiss: tapBackgroundToDismiss, duration: duration, maxWidth: maxWidth, isPresented: isPresented, actions: actions, modalContent: content)
         })
     }
 }
@@ -243,6 +251,7 @@ public extension View {
             .charcoalModal(
                 title: "Title",
                 style: .center,
+                showCloseButton: false,
                 isPresented: $isPresented,
                 actions: {
                     Button(action: {
