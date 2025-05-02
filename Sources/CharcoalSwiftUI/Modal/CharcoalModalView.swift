@@ -251,7 +251,7 @@ public extension View {
             .charcoalModal(
                 title: "Title",
                 style: .center,
-                showCloseButton: true,
+                showCloseButton: false,
                 isPresented: $isPresented,
                 actions: {
                     Button(action: {
