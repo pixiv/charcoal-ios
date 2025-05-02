@@ -139,7 +139,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
             VStack(spacing: 0) {
                 if let title = title {
                     Text(title).charcoalTypography20Bold(isSingleLine: true)
-                        .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
+                        .padding(EdgeInsets(top: 20, leading: 48, bottom: 20, trailing: 48))
                 }
 
                 modalContent
@@ -251,7 +251,7 @@ public extension View {
             .charcoalModal(
                 title: "Title",
                 style: .center,
-                showCloseButton: false,
+                showCloseButton: true,
                 isPresented: $isPresented,
                 actions: {
                     Button(action: {
