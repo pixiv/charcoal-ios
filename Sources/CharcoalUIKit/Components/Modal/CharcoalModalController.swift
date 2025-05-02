@@ -7,6 +7,7 @@ public final class CharcoalModalController: UIViewController {
     let message: String?
     let content: UIView?
 
+    public var isCloseButtonHidden: Bool = false
     public var tapBackgroundToDismiss: Bool = true
     public var contentEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20)
 
@@ -58,6 +59,7 @@ public final class CharcoalModalController: UIViewController {
             }
         )
         header.translatesAutoresizingMaskIntoConstraints = false
+        header.isCloseButtonHidden = isCloseButtonHidden
 
         let contentView = CharcoalModalContentView(
             message: message,
@@ -121,6 +123,7 @@ private final class RootViewController: UIViewController {
                     message: "message",
                     content: nil
                 )
+                charcoalModalController.isCloseButtonHidden = true
                 charcoalModalController.addAction(.init(
                     title: "Primary Action",
                     style: .primary {

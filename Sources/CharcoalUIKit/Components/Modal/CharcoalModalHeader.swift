@@ -3,6 +3,21 @@ import UIKit
 
 @available(iOS 15, *)
 final class CharcoalModalHeader: UIView {
+    private let closeButton: UIButton = {
+        var configuration = UIButton.Configuration.plain()
+        configuration.image = CharcoalAsset.Images.close24.image
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4)
+
+        let closeButton = UIButton(configuration: configuration)
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        return closeButton
+    }()
+
+    var isCloseButtonHidden: Bool {
+        get { closeButton.isHidden }
+        set { closeButton.isHidden = newValue }
+    }
+
     init(title: String?, closeButtonTapped: @escaping @Sendable () -> Void) {
         super.init(frame: .null)
 
@@ -12,11 +27,6 @@ final class CharcoalModalHeader: UIView {
         titleLabel.text = title
         titleLabel.textAlignment = .center
 
-        var configuration = UIButton.Configuration.plain()
-        configuration.image = CharcoalAsset.Images.close24.image
-        configuration.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4)
-        let closeButton = UIButton(configuration: configuration)
-        closeButton.translatesAutoresizingMaskIntoConstraints = false
         closeButton.addAction(
             .init { _ in closeButtonTapped() },
             for: .touchUpInside
