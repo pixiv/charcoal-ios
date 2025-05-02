@@ -10,6 +10,7 @@ final class CharcoalModalHeader: UIView {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.isBold = true
         titleLabel.text = title
+        titleLabel.textAlignment = .center
 
         var configuration = UIButton.Configuration.plain()
         configuration.image = CharcoalAsset.Images.close24.image
@@ -25,6 +26,7 @@ final class CharcoalModalHeader: UIView {
         addSubview(closeButton)
 
         NSLayoutConstraint.activate([
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -56),
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
 
@@ -55,7 +57,7 @@ final class CharcoalModalHeader: UIView {
 @available(iOS 17, *)
 #Preview {
     let header = CharcoalModalHeader(
-        title: "Title",
+        title: "TitleTitleTitleTitleTitleTitleTitleTitle",
         closeButtonTapped: { print("Close button tapped") }
     )
     header.backgroundColor = CharcoalAsset.ColorPaletteGenerated.surface3.color
