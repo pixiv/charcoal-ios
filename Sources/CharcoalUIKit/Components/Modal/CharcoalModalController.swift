@@ -123,9 +123,9 @@ private final class RootViewController: UIViewController {
                 )
                 charcoalModalController.addAction(.init(
                     title: "Primary Action",
-                    style: .primary({
+                    style: .primary {
                         print("Primary action tapped")
-                    })
+                    }
                 ))
                 charcoalModalController.addAction(.init(
                     title: "Cancel",
