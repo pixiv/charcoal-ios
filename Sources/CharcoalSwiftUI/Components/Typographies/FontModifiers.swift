@@ -1,8 +1,6 @@
 import SwiftUI
 
-struct CharcoalFontModifier: ViewModifier, CharcoalFontModifierProtocol {
-    @EnvironmentObject var settings: CharcoalConfig.GlobalSettings
-
+struct CharcoalFontModifier: ViewModifier {
     let size: CGFloat
     let weight: UIFont.Weight
     let isSingleLine: Bool
@@ -23,14 +21,8 @@ struct CharcoalFontModifier: ViewModifier, CharcoalFontModifierProtocol {
     func body(content: Content) -> some View {
         let font: UIFont = .systemFont(ofSize: fontSize, weight: weight)
 
-        let fallbackableFont: UIFontDescriptor
-
-        if _settings.hasValue {
-            let fontFallbacks = settings.fontFallback.compactMap { createFallbackFont(name: $0, weight: weight) }
-            fallbackableFont = font.fontDescriptor.addingAttributes([UIFontDescriptor.AttributeName.cascadeList: fontFallbacks])
-        } else {
-            fallbackableFont = font.fontDescriptor
-        }
+        let fontFallbacks = CharcoalConfig.GlobalSettings.fontFallback.compactMap { createFallbackFont(name: $0, weight: weight) }
+        let fallbackableFont = font.fontDescriptor.addingAttributes([UIFontDescriptor.AttributeName.cascadeList: fontFallbacks])
 
         return content
             .font(Font(UIFont(descriptor: fallbackableFont, size: size)))
@@ -41,9 +33,7 @@ struct CharcoalFontModifier: ViewModifier, CharcoalFontModifierProtocol {
     }
 }
 
-struct CharcoalMonoFontModifier: ViewModifier, CharcoalFontModifierProtocol {
-    @EnvironmentObject var settings: CharcoalConfig.GlobalSettings
-
+struct CharcoalMonoFontModifier: ViewModifier {
     let size: CGFloat
     let weight: UIFont.Weight
     let textStyle: Font.TextStyle
@@ -60,17 +50,21 @@ struct CharcoalMonoFontModifier: ViewModifier, CharcoalFontModifierProtocol {
     func body(content: Content) -> some View {
         let font: UIFont = .monospacedSystemFont(ofSize: fontSize, weight: weight)
 
-        let fallbackableFont: UIFontDescriptor
-
-        if _settings.hasValue {
-            let fontFallbacks = settings.monoFontFallback.compactMap { createFallbackFont(name: $0, weight: weight) }
-            fallbackableFont = font.fontDescriptor.addingAttributes([UIFontDescriptor.AttributeName.cascadeList: fontFallbacks])
-        } else {
-            fallbackableFont = font.fontDescriptor
-        }
+        let fontFallbacks = CharcoalConfig.GlobalSettings.monoFontFallback.compactMap { createFallbackFont(name: $0, weight: weight) }
+        let fallbackableFont = font.fontDescriptor.addingAttributes([UIFontDescriptor.AttributeName.cascadeList: fontFallbacks])
 
         return content
             .font(Font(UIFont(descriptor: fallbackableFont, size: size)))
             .lineLimit(1)
     }
+}
+
+private func createFallbackFont(name: String, weight: UIFont.Weight) -> UIFontDescriptor {
+    var attributes: [UIFontDescriptor.AttributeName: Any] = [:]
+    var traits: [UIFontDescriptor.TraitKey: Any] = [:]
+    traits[.weight] = weight
+    attributes[UIFontDescriptor.AttributeName.name] = nil
+    attributes[UIFontDescriptor.AttributeName.family] = name
+    attributes[UIFontDescriptor.AttributeName.traits] = traits
+    return UIFontDescriptor(fontAttributes: attributes)
 }
