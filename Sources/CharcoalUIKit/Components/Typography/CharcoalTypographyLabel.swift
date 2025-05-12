@@ -39,7 +39,7 @@ public class CharcoalTypographyLabel: UILabel, CharcoalTypographyStyle {
 
 extension CharcoalTypographyStyle where Self: UILabel {
     func setupStyle() {
-        setupFont(fontSize: fontSize, isBold: isBold, isMono: isMono)
+        setupFont(fontSize: fontSize, weight: isBold ? .bold : .regular, isMono: isMono)
         adjustsFontForContentSizeCategory = true
         if isMono {
             numberOfLines = 1

@@ -20,7 +20,6 @@ struct CharcoalFontModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         let font: UIFont = .systemFont(ofSize: fontSize, weight: weight)
-
         let fontFallbacks = CharcoalConfig.GlobalSettings.fontFallback.compactMap { createFallbackFont(name: $0, weight: weight) }
         let fallbackableFont = font.fontDescriptor.addingAttributes([UIFontDescriptor.AttributeName.cascadeList: fontFallbacks])
 
@@ -49,7 +48,6 @@ struct CharcoalMonoFontModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         let font: UIFont = .monospacedSystemFont(ofSize: fontSize, weight: weight)
-
         let fontFallbacks = CharcoalConfig.GlobalSettings.monoFontFallback.compactMap { createFallbackFont(name: $0, weight: weight) }
         let fallbackableFont = font.fontDescriptor.addingAttributes([UIFontDescriptor.AttributeName.cascadeList: fontFallbacks])
 
