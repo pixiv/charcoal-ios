@@ -206,6 +206,7 @@ public enum CharcoalAsset {
       public static let calendarAsset = ImageAsset(name: "24/Calendar")
       public static let cameraAsset = ImageAsset(name: "24/Camera")
       public static let cameraVideoAsset = ImageAsset(name: "24/CameraVideo")
+      public static let cartAsset = ImageAsset(name: "24/Cart")
       public static let changeCharactorAsset = ImageAsset(name: "24/ChangeCharactor")
       public static let chatBotAsset = ImageAsset(name: "24/ChatBot")
       public static let checkAsset = ImageAsset(name: "24/Check")
@@ -485,6 +486,7 @@ public enum CharcoalAsset {
     case calendar24
     case camera24
     case cameraVideo24
+    case cart24
     case changeCharactor24
     case chatBot24
     case check24
@@ -810,6 +812,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.cameraAsset
         case .cameraVideo24:
           return CharcoalAsset.Images._24.cameraVideoAsset
+        case .cart24:
+          return CharcoalAsset.Images._24.cartAsset
         case .changeCharactor24:
           return CharcoalAsset.Images._24.changeCharactorAsset
         case .chatBot24:
