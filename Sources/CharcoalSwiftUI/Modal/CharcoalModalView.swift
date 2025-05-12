@@ -20,8 +20,6 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
     private let modalContent: ModalContent
     /// The actual state of the modal view
     @State private var isActualPresented: Bool
-    /// The bottom inset of the safe area.
-    @State private var indicatorInset: CGFloat = .zero
     // Animation states
     @State private var modalOpacity: Double = 0.0
     @State private var modalScale: CGSize
@@ -145,10 +143,12 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
                     VStack {
                         actions
                     }
-                    .padding(EdgeInsets(top: 20, leading: 20, bottom: style == .center ? 20 : indicatorInset, trailing: 20))
-                    .onAppear {
-                        indicatorInset = max(proxy.safeAreaInsets.bottom, 30)
-                    }
+                    .padding(EdgeInsets(
+                        top: 20,
+                        leading: 20,
+                        bottom: style == .center ? 20 : max(proxy.safeAreaInsets.bottom, 30),
+                        trailing: 20
+                    ))
                 }
             }
 
