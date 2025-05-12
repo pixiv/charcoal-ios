@@ -2,7 +2,7 @@ import SwiftUI
 
 struct TypographiesView: View {
     enum Const {
-        static let shortText = "Heavy boxes perform quick waltzes and jigs"
+        static let shortText = "Hello world, こんにちは世界"
         // swiftlint:disable line_length
         static let longText = "Oh, wet Alex, a jar, a fag! Up, disk, curve by! Man Oz, Iraq, Arizona, my Bev? Ruck's id-pug, a far Ajax, elate? Who?"
         static let numberText = "0123456789"
