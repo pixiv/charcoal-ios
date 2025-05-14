@@ -20,8 +20,11 @@ struct CharcoalFontModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         let font: UIFont = .systemFont(ofSize: fontSize, weight: weight)
+        let fontFallbacks = CharcoalConfig.GlobalSettings.fontFallback.compactMap { createFallbackFont(name: $0, weight: weight) }
+        let fallbackableFont = font.fontDescriptor.addingAttributes([UIFontDescriptor.AttributeName.cascadeList: fontFallbacks])
+
         return content
-            .font(Font(font))
+            .font(Font(UIFont(descriptor: fallbackableFont, size: size)))
             .lineSpacing(isSingleLine ? 0 : lineHeight - font.lineHeight)
             .padding(.vertical, isSingleLine ? 0 : (lineHeight - font.lineHeight) / 2)
             .lineLimit(isSingleLine ? 1 : nil)
@@ -45,8 +48,21 @@ struct CharcoalMonoFontModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         let font: UIFont = .monospacedSystemFont(ofSize: fontSize, weight: weight)
+        let fontFallbacks = CharcoalConfig.GlobalSettings.monoFontFallback.compactMap { createFallbackFont(name: $0, weight: weight) }
+        let fallbackableFont = font.fontDescriptor.addingAttributes([UIFontDescriptor.AttributeName.cascadeList: fontFallbacks])
+
         return content
-            .font(Font(font))
+            .font(Font(UIFont(descriptor: fallbackableFont, size: size)))
             .lineLimit(1)
     }
+}
+
+private func createFallbackFont(name: String, weight: UIFont.Weight) -> UIFontDescriptor {
+    var attributes: [UIFontDescriptor.AttributeName: Any] = [:]
+    var traits: [UIFontDescriptor.TraitKey: Any] = [:]
+    traits[.weight] = weight
+    attributes[UIFontDescriptor.AttributeName.name] = nil
+    attributes[UIFontDescriptor.AttributeName.family] = name
+    attributes[UIFontDescriptor.AttributeName.traits] = traits
+    return UIFontDescriptor(fontAttributes: attributes)
 }
