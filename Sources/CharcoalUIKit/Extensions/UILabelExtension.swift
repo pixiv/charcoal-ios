@@ -18,7 +18,7 @@ extension UILabel {
     }
 
     func setupLineHeight(lineHeight: CGFloat) {
-        guard numberOfLines == 0, let text = text else {
+        guard let text else {
             return
         }
         let paragraphStyle = NSMutableParagraphStyle()
