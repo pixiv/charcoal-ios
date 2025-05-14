@@ -6,6 +6,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
     /// The style of the modal view.
     var style: CharcoalModalStyle
     /// Tap on background to dismiss.
+    /// When this value is true, a close button will also be displayed at the top right corner.
     var tapBackgroundToDismiss: Bool
     /// The duration of the animation
     let duration: Double
@@ -19,8 +20,6 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
     private let modalContent: ModalContent
     /// The actual state of the modal view
     @State private var isActualPresented: Bool
-    /// The bottom inset of the safe area.
-    @State private var indicatorInset: CGFloat = .zero
     // Animation states
     @State private var modalOpacity: Double = 0.0
     @State private var modalScale: CGSize
@@ -87,36 +86,19 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
                     }
 
                 // Modal Content
-                VStack(spacing: 0) {
-                    if let title = title {
-                        Text(title).charcoalTypography20Bold(isSingleLine: true)
-                            .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
-                    }
-
-                    modalContent
-
-                    if let actions = actions {
-                        VStack {
-                            actions
-                        }
-                        .padding(EdgeInsets(top: 20, leading: 20, bottom: style == .center ? 20 : indicatorInset, trailing: 20))
-                        .onAppear {
-                            indicatorInset = max(proxy.safeAreaInsets.bottom, 30)
-                        }
-                    }
-                }
-                .frame(minWidth: 280, maxWidth: maxWidth)
-                .background(Rectangle().cornerRadius(32, corners: style.roundedCorners).foregroundStyle(charcoalColor: .surface1))
-                .opacity(modalOpacity)
-                .padding(style.padding)
-                .offset(modalOffset)
-                .animation(modalOffsetAnimation, value: modalOffset)
-                .animation(.easeInOut(duration: duration), value: modalOpacity)
-                .scaleEffect(modalScale)
-                .animation(UIAccessibility.isReduceMotionEnabled ? .none : .easeInOut(duration: duration * 0.5), value: modalScale)
-                .overlay(GeometryReader { modalGeomtry in
-                    Color.clear.preference(key: ModalViewHeightKey.self, value: modalGeomtry.size.height)
-                })
+                contentView(proxy: proxy)
+                    .frame(minWidth: 280, maxWidth: maxWidth)
+                    .background(Rectangle().cornerRadius(32, corners: style.roundedCorners).foregroundStyle(charcoalColor: .surface1))
+                    .opacity(modalOpacity)
+                    .padding(style.padding)
+                    .offset(modalOffset)
+                    .animation(modalOffsetAnimation, value: modalOffset)
+                    .animation(.easeInOut(duration: duration), value: modalOpacity)
+                    .scaleEffect(modalScale)
+                    .animation(UIAccessibility.isReduceMotionEnabled ? .none : .easeInOut(duration: duration * 0.5), value: modalScale)
+                    .overlay(GeometryReader { modalGeomtry in
+                        Color.clear.preference(key: ModalViewHeightKey.self, value: modalGeomtry.size.height)
+                    })
             })
             .onPreferenceChange(ModalViewHeightKey.self, perform: { value in
                 let offset = CGSize(width: 0, height: value)
@@ -146,6 +128,40 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
             }
         }
     }
+
+    private func contentView(proxy: GeometryProxy) -> some View {
+        ZStack(alignment: .topTrailing) {
+            VStack(spacing: 0) {
+                if let title = title {
+                    Text(title).charcoalTypography20Bold(isSingleLine: true)
+                        .padding(EdgeInsets(top: 20, leading: 48, bottom: 20, trailing: 48))
+                }
+
+                modalContent
+
+                if let actions = actions {
+                    VStack {
+                        actions
+                    }
+                    .padding(EdgeInsets(
+                        top: 20,
+                        leading: 20,
+                        bottom: style == .center ? 20 : max(proxy.safeAreaInsets.bottom, 30),
+                        trailing: 20
+                    ))
+                }
+            }
+
+            if tapBackgroundToDismiss {
+                Button {
+                    isPresented = false
+                } label: {
+                    Image(charcoalIcon: .close24)
+                }
+                .padding(.all, 12)
+            }
+        }
+    }
 }
 
 private struct ModalTransactionKey: TransactionKey {
@@ -167,7 +183,7 @@ public extension View {
      - Parameters:
         - title: The title of the modal view.
         - style: The style of the modal view.
-        - tapBackgroundToDismiss: Tap on background to dismiss.
+        - tapBackgroundToDismiss: Tap on background to dismiss. When this value is true, a close button will also be displayed at the top right corner.
         - duration: The duration of the animation
         - maxWidth: The max width of the modal view.
         - isPresented: A binding to whether the modal view is presented.
@@ -245,17 +261,13 @@ public extension View {
                     }).charcoalDefaultButton(size: .medium)
                 }
             ) {
-                NavigationView {
-                    VStack(spacing: 10) {
-                        Text("Hello This is a center dialog from Charcoal")
-                            .charcoalTypography16Regular()
-                            .frame(maxWidth: .infinity)
+                VStack(spacing: 10) {
+                    Text("Hello This is a center dialog from Charcoal")
+                        .charcoalTypography16Regular()
+                        .frame(maxWidth: .infinity)
 
-                        TextField("Simple text field", text: $text1).charcoalTextField()
-                    }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-                        .navigationTitle("SwiftUI")
-                        .navigationBarTitleDisplayMode(.inline)
-                }
+                    TextField("Simple text field", text: $text1).charcoalTextField()
+                }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             }
         }
     }
