@@ -29,7 +29,8 @@ struct CharcoalFullScreenCoverViewModifier<SubContent: View>: ViewModifier {
                             hostingViewController.overrideUserInterfaceStyle = rootViewController.traitCollection.userInterfaceStyle
                             hostingViewController.view.backgroundColor = UIColor.clear
                             hostingViewController.modalPresentationStyle = .overFullScreen
-                            rootViewController.present(hostingViewController, animated: false)
+                            let presenter = rootViewController.presentedViewController ?? rootViewController
+                            presenter.present(hostingViewController, animated: false)
                         }
                     } else {
                         Task {
