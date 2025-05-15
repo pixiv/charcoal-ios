@@ -22,7 +22,7 @@ struct CharcoalFontModifier: ViewModifier {
         let font: UIFont = .systemFont(ofSize: fontSize, weight: weight)
         return content
             .font(Font(font))
-            .lineSpacing(isSingleLine ? 0 : lineHeight - font.lineHeight)
+            .lineSpacing(lineHeight - font.lineHeight)
             .padding(.vertical, isSingleLine ? 0 : (lineHeight - font.lineHeight) / 2)
             .lineLimit(isSingleLine ? 1 : nil)
             .fixedSize(horizontal: false, vertical: true)
