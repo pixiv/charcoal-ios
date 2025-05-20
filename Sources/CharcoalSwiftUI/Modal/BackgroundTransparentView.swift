@@ -1,29 +1,19 @@
 import SwiftUI
 
-// fullScreenCoverで背景透過するためのView
 struct BackgroundTransparentView: UIViewRepresentable {
     func makeUIView(context: Context) -> UIView {
         let view = UIView()
 
         DispatchQueue.main.async {
+            // viewが紐づくUIHostingViewの背景色を透過させることでfullScreenCoverで表示した際に背景を透過させられる
+            // SwiftUI._UIHostingView<SwiftUI.AnyView>
             view.superview?.superview?.backgroundColor = UIColor.black.withAlphaComponent(0.2)
 
-            // viewが紐づいているViewControllerのmodalTransitionStyleをcrossDissolveにしておくことで、presentされたviewを閉じるときのアニメーションが自然になるようにしている
-            let vc = firstAvailableUIViewController(from: view)
-            vc?.modalTransitionStyle = .crossDissolve
+            // viewが紐づいているPresentationHostingControllerのmodalTransitionStyleをcrossDissolveにしておくことで、fullScreenCoverを閉じるときのアニメーションを標準のslideから変更できる
+            // SwiftUI.PresentationHostingController<SwiftUI.AnyView>
+            (view.superview?.superview?.next as? UIViewController)?.modalTransitionStyle = .crossDissolve
         }
         return view
-    }
-
-    private func firstAvailableUIViewController(from view: UIView) -> UIViewController? {
-        var responder = view.next
-        while responder != nil {
-            if responder is UIViewController {
-                return responder as? UIViewController
-            }
-            responder = responder?.next
-        }
-        return nil
     }
 
     func updateUIView(_ uiView: UIView, context: Context) {}
