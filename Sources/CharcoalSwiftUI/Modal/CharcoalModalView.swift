@@ -81,7 +81,9 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
                     .ignoresSafeArea(.all)
                     .onTapGesture {
                         if tapBackgroundToDismiss {
-                            isPresented = false
+                            withAnimation {
+                                isPresented = false
+                            }
                         }
                     }
 
@@ -154,7 +156,9 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
 
             if tapBackgroundToDismiss {
                 Button {
-                    isPresented = false
+                    withAnimation {
+                        isPresented = false
+                    }
                 } label: {
                     Image(charcoalIcon: .close24)
                 }
@@ -224,9 +228,15 @@ public extension View {
         @ViewBuilder actions: @escaping () -> some View,
         @ViewBuilder content: @escaping () -> some View
     ) -> some View {
-        charcoalFullScreenCover(isPresented: isPresented, duration: duration, content: {
+        fullScreenCover(isPresented: isPresented) {
             CharcoalModalView(title: title, style: style, tapBackgroundToDismiss: tapBackgroundToDismiss, duration: duration, maxWidth: maxWidth, isPresented: isPresented, actions: actions, modalContent: content)
-        })
+                .background(BackgroundTransparentView())
+        }
+        .transaction { transaction in
+            // 非表示時にtransaction.disablesAnimations = trueになっていると、CharcoalModalViewのアニメーションも無効化されてしまうため、表示時のみdisablesAnimationsをtrueにしてある
+            // 非表示時にデフォルトのslideアニメーションが表示されないようにBackgroundTransparentView側でVCのmodalTransitionStyleを変更している
+            transaction.disablesAnimations = isPresented.wrappedValue
+        }
     }
 }
 
