@@ -18,39 +18,35 @@ struct CharcoalFullScreenCoverViewModifier<SubContent: View>: ViewModifier {
     func body(content: Content) -> some View {
         content
             .onChange(of: isPresented) { newValue in
-                UIView.setAnimationsEnabled(false)
-            }
-            .fullScreenCover(isPresented: $isPresented) {
-                subContent()
-                    .background(ClearBackgroundView())
-            }
-            .onAppear {
-                if !UIView.areAnimationsEnabled {
-                    UIView.setAnimationsEnabled(true)
+                let scene = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }
+                    .filter { $0.activationState == .foregroundActive }
+                    .first
+                if let windowScene = scene {
+                    if newValue {
+                        hostingViewController = UIHostingController(rootView: subContent())
+
+                        if let hostingViewController, let rootViewController = windowScene.windows.filter({ $0.isKeyWindow }).first?.rootViewController {
+                            hostingViewController.overrideUserInterfaceStyle = rootViewController.traitCollection.userInterfaceStyle
+                            hostingViewController.view.backgroundColor = UIColor.clear
+                            hostingViewController.modalPresentationStyle = .overFullScreen
+                            let presenter = { (vc : UIViewController) -> UIViewController in
+                                var topmost = vc
+                                while let presentedViewController = topmost.presentedViewController {
+                                    topmost = presentedViewController
+                                }
+                                return topmost
+                            }(rootViewController)
+                            presenter.present(hostingViewController, animated: false)
+                        }
+                    } else {
+                        Task {
+                            // Wait for the dismiss animation to finish
+                            try await Task.sleep(nanoseconds: UInt64(self.duration * 1000) * 1000000)
+                            hostingViewController?.dismiss(animated: false)
+                        }
+                    }
                 }
             }
-            .onDisappear {
-                if !UIView.areAnimationsEnabled {
-                    UIView.setAnimationsEnabled(true)
-                }
-            }
-    }
-}
-
-struct ClearBackgroundView: UIViewRepresentable {
-    func makeUIView(context: Context) -> UIView {
-        return InnerView()
-    }
-
-    func updateUIView(_ uiView: UIView, context: Context) {
-    }
-
-    private class InnerView: UIView {
-        override func didMoveToWindow() {
-            super.didMoveToWindow()
-
-            superview?.superview?.backgroundColor = .clear
-        }
     }
 }
 
