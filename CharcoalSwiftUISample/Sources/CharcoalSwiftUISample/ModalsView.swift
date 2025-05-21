@@ -44,7 +44,7 @@ public struct ModalsView: View {
                     } else {
                         TextField("Simple text field", text: $text1)
                     }
-                }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                }
             }
             // BottomSheet
             Button(action: {
@@ -80,7 +80,7 @@ public struct ModalsView: View {
                     } else {
                         TextField("Simple text field", text: $text2)
                     }
-                }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                }
             }
         }
         .navigationBarTitle("Modals")
