@@ -9,9 +9,19 @@ struct BackgroundTransparentView: UIViewRepresentable {
             // SwiftUI._UIHostingView<SwiftUI.AnyView>
             view.superview?.superview?.backgroundColor = UIColor.black.withAlphaComponent(0.2)
 
-            // viewが紐づいているPresentationHostingControllerのmodalTransitionStyleをcrossDissolveにしておくことで、fullScreenCoverを閉じるときのアニメーションを標準のslideから変更できる
-            // SwiftUI.PresentationHostingController<SwiftUI.AnyView>
-            (view.superview?.superview?.next as? UIViewController)?.modalTransitionStyle = .crossDissolve
+            // SwiftUI.PresentationHostingController<SwiftUI.AnyView> を取り出す
+            // iOS 17以前は SwiftUI._UIHostingView<SwiftUI.AnyView>のnextResponderはSwiftUI.PresentationHostingControllerになっているが
+            // iOS 18以降だと SwiftUI._UIHostingView<SwiftUI.AnyView> -> SwiftUI.UIKitKeyPressResponder -> SwiftUI.PresentationHostingController になるため、whileループをしている
+            var responder: UIResponder? = view.superview?.superview?.next
+            while responder != nil {
+                guard let responder, let vc = responder as? UIViewController else {
+                    responder = responder?.next
+                    continue
+                }
+                // viewが紐づいているPresentationHostingControllerのmodalTransitionStyleをcrossDissolveにしておくことで、fullScreenCoverを閉じるときのアニメーションを標準のslideから変更できる
+                vc.modalTransitionStyle = .crossDissolve
+                break
+            }
         }
         return view
     }
