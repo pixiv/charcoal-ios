@@ -30,7 +30,7 @@ struct CharcoalDefaultButtonStyleView: View {
                 Rectangle()
                     .backport.foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
             )
-            .clipShape(.capsule)
+            .clipShape(.charcoalCapsule)
             .hoverEffect(.lift)
     }
 }
