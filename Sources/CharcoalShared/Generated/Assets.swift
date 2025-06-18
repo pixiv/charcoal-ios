@@ -322,6 +322,7 @@ public enum CharcoalAsset {
       public static let reloadAsset = ImageAsset(name: "24/Reload")
       public static let reloadLoopAsset = ImageAsset(name: "24/ReloadLoop")
       public static let reorderAsset = ImageAsset(name: "24/Reorder")
+      public static let replyAsset = ImageAsset(name: "24/Reply")
       public static let rollAsset = ImageAsset(name: "24/Roll")
       public static let rotate90DegreesCAsset = ImageAsset(name: "24/Rotate90DegreesC")
       public static let rotate90DegreesCcAsset = ImageAsset(name: "24/Rotate90DegreesCc")
@@ -344,6 +345,7 @@ public enum CharcoalAsset {
       public static let sunAsset = ImageAsset(name: "24/Sun")
       public static let temperatureAsset = ImageAsset(name: "24/Temperature")
       public static let textAsset = ImageAsset(name: "24/Text")
+      public static let threadAsset = ImageAsset(name: "24/Thread")
       public static let trashAsset = ImageAsset(name: "24/Trash")
       public static let trashAltAsset = ImageAsset(name: "24/TrashAlt")
       public static let undoAsset = ImageAsset(name: "24/Undo")
@@ -602,6 +604,7 @@ public enum CharcoalAsset {
     case reload24
     case reloadLoop24
     case reorder24
+    case reply24
     case roll24
     case rotate90DegreesC24
     case rotate90DegreesCc24
@@ -624,6 +627,7 @@ public enum CharcoalAsset {
     case sun24
     case temperature24
     case text24
+    case thread24
     case trash24
     case trashAlt24
     case undo24
@@ -1044,6 +1048,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.reloadLoopAsset
         case .reorder24:
           return CharcoalAsset.Images._24.reorderAsset
+        case .reply24:
+          return CharcoalAsset.Images._24.replyAsset
         case .roll24:
           return CharcoalAsset.Images._24.rollAsset
         case .rotate90DegreesC24:
@@ -1088,6 +1094,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.temperatureAsset
         case .text24:
           return CharcoalAsset.Images._24.textAsset
+        case .thread24:
+          return CharcoalAsset.Images._24.threadAsset
         case .trash24:
           return CharcoalAsset.Images._24.trashAsset
         case .trashAlt24:
