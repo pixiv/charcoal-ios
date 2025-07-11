@@ -1,37 +1,37 @@
 import SwiftUI
 
-private let fontSize = CGFloat(charcoalFoundation.typography.size.the14.fontSize)
-private let lineHeight = CGFloat(charcoalFoundation.typography.size.the14.lineHeight)
+private let the14FontSize = CGFloat(charcoalFoundation.typography.size.the14.fontSize)
+private let the14LineHeight = CGFloat(charcoalFoundation.typography.size.the14.lineHeight)
 
 public extension View {
     func charcoalTypography14Bold(isSingleLine: Bool = false) -> some View {
         return modifier(CharcoalFontModifier(
-            size: fontSize,
+            size: the14FontSize,
             weight: .bold,
-            lineHeight: lineHeight,
+            lineHeight: the14LineHeight,
             isSingleLine: isSingleLine
         ))
     }
 
     func charcoalTypography14Regular(isSingleLine: Bool = false) -> some View {
         return modifier(CharcoalFontModifier(
-            size: fontSize,
+            size: the14FontSize,
             weight: .regular,
-            lineHeight: lineHeight,
+            lineHeight: the14LineHeight,
             isSingleLine: isSingleLine
         ))
     }
 
     func charcoalTypography14BoldMono() -> some View {
         return modifier(CharcoalMonoFontModifier(
-            size: fontSize,
+            size: the14FontSize,
             weight: .bold
         ))
     }
 
     func charcoalTypography14RegularMono() -> some View {
         return modifier(CharcoalMonoFontModifier(
-            size: fontSize,
+            size: the14FontSize,
             weight: .regular
         ))
     }
