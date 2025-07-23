@@ -90,7 +90,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
                 // Modal Content
                 contentView(proxy: proxy)
                     .frame(minWidth: 280, maxWidth: maxWidth)
-                    .background(Rectangle().cornerRadius(32, corners: style.roundedCorners).foregroundStyle(charcoalColor: .surface1))
+                    .background(Rectangle().cornerRadius(24, corners: style.roundedCorners).foregroundStyle(charcoalColor: .surface1))
                     .opacity(modalOpacity)
                     .padding(style.padding)
                     .offset(modalOffset)
@@ -132,37 +132,41 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
     }
 
     private func contentView(proxy: GeometryProxy) -> some View {
-        ZStack(alignment: .topTrailing) {
-            VStack(spacing: 0) {
-                if let title = title {
-                    Text(title).charcoalTypography20Bold(isSingleLine: true)
-                        .padding(EdgeInsets(top: 20, leading: 48, bottom: 20, trailing: 48))
-                }
-
-                modalContent
-
-                if let actions = actions {
-                    VStack {
-                        actions
+        VStack(spacing: 0) {
+            if style == .center {
+                HStack {
+                    Spacer()
+                        .background(charcoalColor: .warning)
+                    if tapBackgroundToDismiss {
+                        Button {
+                            withAnimation {
+                                isPresented = false
+                            }
+                        } label: {
+                            Image(charcoalIcon: .close24)
+                        }
+                        .frame(width: 32, height: 32)
+                        .padding(8)
                     }
-                    .padding(EdgeInsets(
-                        top: 20,
-                        leading: 20,
-                        bottom: style == .center ? 20 : max(proxy.safeAreaInsets.bottom, 30),
-                        trailing: 20
-                    ))
                 }
+                .frame(height: 64, alignment: .top)
             }
 
-            if tapBackgroundToDismiss {
-                Button {
-                    withAnimation {
-                        isPresented = false
-                    }
-                } label: {
-                    Image(charcoalIcon: .close24)
+            if let title {
+                Text(title).charcoalTypography20Bold(isSingleLine: true)
+                    .padding(.vertical, style == .center ? 0 : 13)
+                    .padding(.horizontal, 24)
+            }
+
+            modalContent
+                .padding(24)
+
+            if let actions {
+                VStack {
+                    actions
                 }
-                .padding(.all, 12)
+                .padding(.horizontal, 24)
+                .padding(.bottom, style == .center ? 40 : max(proxy.safeAreaInsets.bottom, 30))
             }
         }
     }
