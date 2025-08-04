@@ -35,6 +35,12 @@ public class CharcoalTypographyLabel: UILabel, CharcoalTypographyStyle {
         super.awakeFromNib()
         setupStyle()
     }
+
+    public override var numberOfLines: Int {
+        didSet {
+            setupStyle()
+        }
+    }
 }
 
 extension CharcoalTypographyStyle where Self: UILabel {
