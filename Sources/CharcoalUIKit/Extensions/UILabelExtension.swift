@@ -17,7 +17,7 @@ extension UILabel {
         }
     }
 
-    func setupLineHeight(lineHeight: CGFloat) {
+    func setupParagraphStyle(lineHeight: CGFloat, alignment: NSTextAlignment) {
         // If set for a single line, text truncation will not work.
         guard numberOfLines != 1, let text else {
             return
@@ -27,6 +27,7 @@ extension UILabel {
         let range = NSRange(location: 0, length: attributedText.length)
 
         paragraphStyle.lineSpacing = lineHeight - font.lineHeight
+        paragraphStyle.alignment = alignment
         attributedText.addAttribute(.paragraphStyle, value: paragraphStyle, range: range)
 
         self.attributedText = attributedText

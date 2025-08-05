@@ -44,7 +44,7 @@ extension CharcoalTypographyStyle where Self: UILabel {
         if isMono {
             numberOfLines = 1
         } else {
-            setupLineHeight(lineHeight: lineHeight)
+            setupParagraphStyle(lineHeight: lineHeight, alignment: textAlignment)
         }
     }
 }
