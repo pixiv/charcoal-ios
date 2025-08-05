@@ -10,6 +10,6 @@
   "author": "pixiv",
   "dependencies": {
     "@octokit/rest": "^22.0.0",
-    "yargs": "^17.7.2"
+    "yargs": "^18.0.0"
   }
 }
