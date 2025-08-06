@@ -35,6 +35,11 @@ public class CharcoalTypographyLabel: UILabel, CharcoalTypographyStyle {
         super.awakeFromNib()
         setupStyle()
     }
+
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        setupStyle()
+    }
 }
 
 extension CharcoalTypographyStyle where Self: UILabel {
