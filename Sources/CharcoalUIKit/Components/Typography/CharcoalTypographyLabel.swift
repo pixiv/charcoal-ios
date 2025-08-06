@@ -36,10 +36,9 @@ public class CharcoalTypographyLabel: UILabel, CharcoalTypographyStyle {
         setupStyle()
     }
 
-    public override var numberOfLines: Int {
-        didSet {
-            setupStyle()
-        }
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        setupStyle()
     }
 }
 
