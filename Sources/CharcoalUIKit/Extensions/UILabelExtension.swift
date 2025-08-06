@@ -17,19 +17,37 @@ extension UILabel {
         }
     }
 
-    func setupParagraphStyle(lineHeight: CGFloat, alignment: NSTextAlignment) {
-        // If set for a single line, text truncation will not work.
-        guard numberOfLines != 1, let text else {
+    func setupParagraphStyle(lineHeight: CGFloat) {
+        guard let text else {
             return
         }
-        let paragraphStyle = NSMutableParagraphStyle()
+
+        let paragraphStyle = makeMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineHeight - font.lineHeight
+
         let attributedText = NSMutableAttributedString(string: text)
         let range = NSRange(location: 0, length: attributedText.length)
-
-        paragraphStyle.lineSpacing = lineHeight - font.lineHeight
-        paragraphStyle.alignment = alignment
         attributedText.addAttribute(.paragraphStyle, value: paragraphStyle, range: range)
 
         self.attributedText = attributedText
+    }
+
+    private func makeMutableParagraphStyle() -> NSMutableParagraphStyle {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineBreakMode = lineBreakMode
+        paragraphStyle.lineBreakStrategy = lineBreakStrategy
+        paragraphStyle.allowsDefaultTighteningForTruncation = allowsDefaultTighteningForTruncation
+        paragraphStyle.alignment = textAlignment
+
+        switch effectiveUserInterfaceLayoutDirection {
+        case .rightToLeft:
+            paragraphStyle.baseWritingDirection = .rightToLeft
+        case .leftToRight:
+            paragraphStyle.baseWritingDirection = .natural
+        @unknown default:
+            paragraphStyle.baseWritingDirection = .natural
+        }
+
+        return paragraphStyle
     }
 }
