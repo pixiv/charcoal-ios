@@ -39,15 +39,6 @@ extension UILabel {
         paragraphStyle.allowsDefaultTighteningForTruncation = allowsDefaultTighteningForTruncation
         paragraphStyle.alignment = textAlignment
 
-        switch effectiveUserInterfaceLayoutDirection {
-        case .rightToLeft:
-            paragraphStyle.baseWritingDirection = .rightToLeft
-        case .leftToRight:
-            paragraphStyle.baseWritingDirection = .natural
-        @unknown default:
-            paragraphStyle.baseWritingDirection = .natural
-        }
-
         return paragraphStyle
     }
 }
