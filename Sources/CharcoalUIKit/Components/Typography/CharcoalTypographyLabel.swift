@@ -44,12 +44,12 @@ public class CharcoalTypographyLabel: UILabel, CharcoalTypographyStyle {
 
 extension CharcoalTypographyStyle where Self: UILabel {
     func setupStyle() {
-        setupFont(fontSize: fontSize, isBold: isBold, isMono: isMono)
-        adjustsFontForContentSizeCategory = true
         if isMono {
             numberOfLines = 1
-        } else {
-            setupParagraphStyle(lineHeight: lineHeight, alignment: textAlignment)
         }
+
+        setupParagraphStyle(lineHeight: lineHeight)
+        setupFont(fontSize: fontSize, isBold: isBold, isMono: isMono)
+        adjustsFontForContentSizeCategory = true
     }
 }
