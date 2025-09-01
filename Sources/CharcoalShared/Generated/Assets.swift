@@ -207,7 +207,7 @@ public enum CharcoalAsset {
       public static let cameraAsset = ImageAsset(name: "24/Camera")
       public static let cameraVideoAsset = ImageAsset(name: "24/CameraVideo")
       public static let cartAsset = ImageAsset(name: "24/Cart")
-      public static let changeCharactorAsset = ImageAsset(name: "24/ChangeCharactor")
+      public static let changeCharacterAsset = ImageAsset(name: "24/ChangeCharacter")
       public static let chatBotAsset = ImageAsset(name: "24/ChatBot")
       public static let checkAsset = ImageAsset(name: "24/Check")
       public static let chromaticAberrationAsset = ImageAsset(name: "24/ChromaticAberration")
@@ -215,6 +215,7 @@ public enum CharcoalAsset {
       public static let closeAsset = ImageAsset(name: "24/Close")
       public static let codesAsset = ImageAsset(name: "24/Codes")
       public static let collapseAsset = ImageAsset(name: "24/Collapse")
+      public static let collectionAsset = ImageAsset(name: "24/Collection")
       public static let commentFillAsset = ImageAsset(name: "24/CommentFill")
       public static let commentOutlineAsset = ImageAsset(name: "24/CommentOutline")
       public static let contestAsset = ImageAsset(name: "24/Contest")
@@ -258,6 +259,7 @@ public enum CharcoalAsset {
       public static let hairEditAsset = ImageAsset(name: "24/HairEdit")
       public static let hashtagAsset = ImageAsset(name: "24/Hashtag")
       public static let hideAsset = ImageAsset(name: "24/Hide")
+      public static let hightlightTextAsset = ImageAsset(name: "24/HightlightText")
       public static let homeAsset = ImageAsset(name: "24/Home")
       public static let hueAsset = ImageAsset(name: "24/Hue")
       public static let ideaAsset = ImageAsset(name: "24/Idea")
@@ -489,7 +491,7 @@ public enum CharcoalAsset {
     case camera24
     case cameraVideo24
     case cart24
-    case changeCharactor24
+    case changeCharacter24
     case chatBot24
     case check24
     case chromaticAberration24
@@ -497,6 +499,7 @@ public enum CharcoalAsset {
     case close24
     case codes24
     case collapse24
+    case collection24
     case commentFill24
     case commentOutline24
     case contest24
@@ -540,6 +543,7 @@ public enum CharcoalAsset {
     case hairEdit24
     case hashtag24
     case hide24
+    case hightlightText24
     case home24
     case hue24
     case idea24
@@ -818,8 +822,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.cameraVideoAsset
         case .cart24:
           return CharcoalAsset.Images._24.cartAsset
-        case .changeCharactor24:
-          return CharcoalAsset.Images._24.changeCharactorAsset
+        case .changeCharacter24:
+          return CharcoalAsset.Images._24.changeCharacterAsset
         case .chatBot24:
           return CharcoalAsset.Images._24.chatBotAsset
         case .check24:
@@ -834,6 +838,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.codesAsset
         case .collapse24:
           return CharcoalAsset.Images._24.collapseAsset
+        case .collection24:
+          return CharcoalAsset.Images._24.collectionAsset
         case .commentFill24:
           return CharcoalAsset.Images._24.commentFillAsset
         case .commentOutline24:
@@ -920,6 +926,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.hashtagAsset
         case .hide24:
           return CharcoalAsset.Images._24.hideAsset
+        case .hightlightText24:
+          return CharcoalAsset.Images._24.hightlightTextAsset
         case .home24:
           return CharcoalAsset.Images._24.homeAsset
         case .hue24:
