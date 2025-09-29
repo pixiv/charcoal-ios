@@ -19,7 +19,6 @@ struct CharcoalToggleWrapper: UIViewRepresentable {
 
     func updateUIView(_ uiView: UISwitch, context _: Context) {
         if uiView.isOn != isOn {
-            // SwiftUI側からの変化のみアニメーション（transactionに合わせるのも可）
             uiView.onTintColor = CharcoalAsset.ColorPaletteGenerated.brand.color
             uiView.backgroundColor = CharcoalAsset.ColorPaletteGenerated.surface4.color
             uiView.layer.cornerRadius = uiView.frame.size.height / 2.0
