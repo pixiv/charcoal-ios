@@ -6,6 +6,10 @@ struct CharcoalToggleWrapper: UIViewRepresentable {
     func makeUIView(context: Context) -> UISwitch {
         let uiSwitch = UISwitch()
         uiSwitch.addTarget(context.coordinator, action: #selector(Coordinator.handleValueChanged(_:)), for: .valueChanged)
+        uiSwitch.onTintColor = CharcoalAsset.ColorPaletteGenerated.brand.color
+        uiSwitch.backgroundColor = CharcoalAsset.ColorPaletteGenerated.surface4.color
+        uiSwitch.layer.cornerRadius = uiSwitch.frame.size.height / 2.0
+        uiSwitch.layer.cornerCurve = .continuous
         return uiSwitch
     }
 
@@ -14,11 +18,9 @@ struct CharcoalToggleWrapper: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: UISwitch, context _: Context) {
-        uiView.onTintColor = CharcoalAsset.ColorPaletteGenerated.brand.color
-        uiView.backgroundColor = CharcoalAsset.ColorPaletteGenerated.surface4.color
-        uiView.layer.cornerRadius = uiView.frame.size.height / 2.0
-        uiView.layer.cornerCurve = .continuous
-        uiView.isOn = isOn
+        if uiView.isOn != isOn {
+            uiView.isOn = isOn
+        }
     }
 
     class Coordinator: NSObject {
