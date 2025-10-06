@@ -19,7 +19,7 @@ struct CharcoalToggleWrapper: UIViewRepresentable {
 
     func updateUIView(_ uiView: UISwitch, context _: Context) {
         if uiView.isOn != isOn {
-            uiView.isOn = isOn
+            uiView.setOn(isOn, animated: true)
         }
     }
 
