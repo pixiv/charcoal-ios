@@ -10,7 +10,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@babel/runtime": "^7.28.3",
+    "@babel/runtime": "^7.28.6",
     "fs-extra": "^11.3.3",
     "globby": "^16.1.1",
     "yargs": "^18.0.0"
