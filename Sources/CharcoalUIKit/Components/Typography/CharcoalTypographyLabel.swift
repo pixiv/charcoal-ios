@@ -36,7 +36,7 @@ public class CharcoalTypographyLabel: UILabel, CharcoalTypographyStyle {
         setupStyle()
     }
 
-    public override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         setupStyle()
     }

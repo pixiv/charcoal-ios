@@ -42,11 +42,12 @@ public extension Text {
     }
 
     func font(charcoalTypography: CharcoalTypography) -> Text {
-        self
-            .font(
-                .custom(UIFont.monospacedSystemFont(ofSize: .zero, weight: charcoalTypography.value.weight).fontName,
-                          size: charcoalTypography.value.size,
-                          relativeTo: .body)
+        font(
+            .custom(
+                UIFont.monospacedSystemFont(ofSize: .zero, weight: charcoalTypography.value.weight).fontName,
+                size: charcoalTypography.value.size,
+                relativeTo: .body
             )
+        )
     }
 }

@@ -47,8 +47,8 @@ struct TypographiesView: View {
 
                         Text("Atributed")
                             .font(charcoalTypography: .bold20)
-                        +
-                        Text("String")
+                            +
+                            Text("String")
                             .font(charcoalTypography: .regular20)
                     }
                 }
@@ -88,8 +88,8 @@ struct TypographiesView: View {
 
                         Text("Atributed")
                             .font(charcoalTypography: .bold16)
-                        +
-                        Text("String")
+                            +
+                            Text("String")
                             .font(charcoalTypography: .regular16)
                     }
                 }
@@ -129,8 +129,8 @@ struct TypographiesView: View {
 
                         Text("Atributed")
                             .font(charcoalTypography: .bold14)
-                        +
-                        Text("String")
+                            +
+                            Text("String")
                             .font(charcoalTypography: .regular14)
                     }
                 }
@@ -170,8 +170,8 @@ struct TypographiesView: View {
 
                         Text("Atributed")
                             .font(charcoalTypography: .bold12)
-                        +
-                        Text("String")
+                            +
+                            Text("String")
                             .font(charcoalTypography: .regular12)
                     }
                 }
@@ -211,8 +211,8 @@ struct TypographiesView: View {
 
                         Text("Atributed")
                             .font(charcoalTypography: .bold10)
-                        +
-                        Text("String")
+                            +
+                            Text("String")
                             .font(charcoalTypography: .regular10)
                     }
                 }

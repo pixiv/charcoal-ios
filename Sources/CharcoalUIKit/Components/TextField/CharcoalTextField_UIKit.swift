@@ -103,7 +103,7 @@ public class CharcoalTextField: UITextField {
     }
 
     private func setupCountLabelIfNeeded() {
-        guard lengthLimit > 0 && rightView == nil else {
+        guard lengthLimit > 0, rightView == nil else {
             rightView = nil
             return
         }

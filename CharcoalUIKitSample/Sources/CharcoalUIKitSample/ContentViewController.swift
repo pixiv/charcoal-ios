@@ -190,8 +190,8 @@ extension ContentViewController {
             CharcoalConfig.configUIKit.fixedSizeCategory = sender.isOn ? .large : nil
 
             // Update current view controller as it is not controled by CharcoalConfig
-            self.view.maximumContentSizeCategory = CharcoalConfig.configUIKit.fixedSizeCategory
-            self.view.minimumContentSizeCategory = CharcoalConfig.configUIKit.fixedSizeCategory
+            view.maximumContentSizeCategory = CharcoalConfig.configUIKit.fixedSizeCategory
+            view.minimumContentSizeCategory = CharcoalConfig.configUIKit.fixedSizeCategory
         }
     }
 }

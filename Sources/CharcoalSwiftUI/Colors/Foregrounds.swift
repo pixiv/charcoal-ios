@@ -31,8 +31,8 @@ public extension Text {
 
         Text("Attributed")
             .foregroundStyle(charcoalColor: .brand)
-        +
-        Text("String")
+            +
+            Text("String")
             .foregroundStyle(charcoalColor: .text3)
     }
 }
