@@ -33,7 +33,7 @@ struct CharcoalNavigationButtonStyleView: View {
             .charcoalSurface6()
             .overlay(
                 Rectangle()
-                    .backport.foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
+                    .foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
             )
             .clipShape(.charcoalCapsule)
             .hoverEffect(.lift)
