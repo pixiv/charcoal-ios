@@ -41,25 +41,8 @@ struct CharcoalNavigationButtonStyleView: View {
     }
 }
 
-@available(iOS 15, *)
-struct CharcoalNavigationButtonStyleIos15: ButtonStyle {
-    @Environment(\.isEnabled) var isEnabled
-    let size: CharcoalButtonSize
-    let isFixed: Bool
-
-    func makeBody(configuration: Self.Configuration) -> some View {
-        CharcoalNavigationButtonStyleView(
-            label: configuration.label,
-            isPressed: configuration.isPressed,
-            isEnabled: isEnabled,
-            size: size,
-            isFixed: isFixed
-        )
-    }
-}
-
 struct CharcoalNavigationButtonStyle: ButtonStyle {
-    let isEnabled: Bool
+    @Environment(\.isEnabled) var isEnabled
     let size: CharcoalButtonSize
     let isFixed: Bool
 
@@ -75,16 +58,11 @@ struct CharcoalNavigationButtonStyle: ButtonStyle {
 }
 
 struct CharcoalNavigationButtonStyleModifier: ViewModifier {
-    @Environment(\.isEnabled) var isEnabled
     let size: CharcoalButtonSize
     let isFixed: Bool
 
     func body(content: Content) -> some View {
-        if #available(iOS 15, *) {
-            content.buttonStyle(CharcoalNavigationButtonStyleIos15(size: size, isFixed: isFixed))
-        } else {
-            content.buttonStyle(CharcoalNavigationButtonStyle(isEnabled: isEnabled, size: size, isFixed: isFixed))
-        }
+        content.buttonStyle(CharcoalNavigationButtonStyle(size: size, isFixed: isFixed))
     }
 }
 

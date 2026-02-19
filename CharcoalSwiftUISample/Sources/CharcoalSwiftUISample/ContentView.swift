@@ -17,13 +17,8 @@ public struct ContentView: View {
                 NavigationLink(destination: ButtonsView()) {
                     Text("Buttons")
                 }
-                if #available(iOS 15, *) {
-                    NavigationLink(destination: TextFieldsView()) {
-                        Text("Text Fields (iOS 15+)")
-                    }
-                } else {
-                    Text("Text Fields (iOS 15+)")
-                        .charcoalOnSurfaceText3()
+                NavigationLink(destination: TextFieldsView()) {
+                    Text("Text Fields")
                 }
                 NavigationLink(destination: SelectionsView()) {
                     Text("Selections")

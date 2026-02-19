@@ -23,11 +23,10 @@ extension ChacoalOverlayManager {
             mainView = view
         } else {
             if mainView == nil {
-                let scene = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }
-                    .filter { $0.activationState == .foregroundActive }
-                    .first
-                mainView = scene?.windows.filter { $0.isKeyWindow }.first ??
-                    UIApplication.shared.windows.first
+                let scene = UIApplication.shared.connectedScenes
+                    .compactMap { $0 as? UIWindowScene }
+                    .first { $0.activationState == .foregroundActive }
+                mainView = scene?.windows.first { $0.isKeyWindow } ?? scene?.windows.first
             }
         }
     }

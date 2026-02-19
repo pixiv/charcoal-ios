@@ -1,7 +1,6 @@
 import UIKit
 
 extension UIButton {
-    @available(iOS 15.0, *)
     func generateUIButtonConfiguration(
         textColor: UIColor,
         enabledBackgroundColor: UIColor,
@@ -32,7 +31,6 @@ extension UIButton {
         return configuration
     }
 
-    @available(iOS 15.0, *)
     func generateUIButtonConfiguration(
         textColor: UIColor,
         pressedTextColor: UIColor,
@@ -56,42 +54,5 @@ extension UIButton {
         }
 
         return configuration
-    }
-
-    func setupButtonStyle(
-        textColor: UIColor,
-        enabledBackgroundColor: UIColor,
-        pressedOverlayColor: UIColor,
-        size: CharcoalButtonSize
-    ) {
-        let pressedTextColor = textColor.blend(overlay: pressedOverlayColor)
-        let pressedBackgroundColor = enabledBackgroundColor.blend(overlay: pressedOverlayColor)
-
-        setBackgroundImage(enabledBackgroundColor.image(), for: .normal)
-        setBackgroundImage(pressedBackgroundColor.image(), for: .highlighted)
-        setBackgroundImage(enabledBackgroundColor.image(), for: .disabled)
-        setTitleColor(textColor, for: .normal)
-        setTitleColor(pressedTextColor, for: .highlighted)
-
-        isExclusiveTouch = true
-        titleLabel?.font = .systemFont(ofSize: UIFontMetrics.default.charcoalScaledValue(for: 14), weight: .bold)
-        // swiftlint:disable line_length
-        contentEdgeInsets = size == .medium ? UIEdgeInsets(top: 11.5, left: 24, bottom: 11.5, right: 24) : UIEdgeInsets(top: 7.5, left: 16, bottom: 7.5, right: 16)
-    }
-
-    func setupButtonStyle(
-        textColor: UIColor,
-        pressedTextColor: UIColor,
-        enabledBackgroundColor: UIColor
-    ) {
-        setBackgroundImage(enabledBackgroundColor.image(), for: .normal)
-        setBackgroundImage(enabledBackgroundColor.image(), for: .highlighted)
-        setBackgroundImage(enabledBackgroundColor.image(), for: .disabled)
-        setTitleColor(textColor, for: .normal)
-        setTitleColor(pressedTextColor, for: .highlighted)
-
-        isExclusiveTouch = true
-        titleLabel?.font = .systemFont(ofSize: UIFontMetrics.default.charcoalScaledValue(for: 14), weight: .bold)
-        contentEdgeInsets = UIEdgeInsets(top: 8, left: 24, bottom: 8, right: 24)
     }
 }
