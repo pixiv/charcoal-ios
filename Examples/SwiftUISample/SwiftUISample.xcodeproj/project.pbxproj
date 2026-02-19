@@ -81,7 +81,6 @@
 				24651B2727043658005AD842 /* Sources */,
 				24651B2827043658005AD842 /* Frameworks */,
 				24651B2927043658005AD842 /* Resources */,
-				9F0036972C0A0399003BE2C2 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -139,27 +138,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		9F0036972C0A0399003BE2C2 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "unset SDKROOT\nif [ -e ../../BuildTools/.build/release/swiftlint ]; then\n    echo \"swiftlint exists.\"\nelse\n    swift build -c release --package-path ../../BuildTools --product swiftlint\nfi\n../../BuildTools/.build/release/swiftlint --config ../../.swiftlint.yml\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		24651B2727043658005AD842 /* Sources */ = {
