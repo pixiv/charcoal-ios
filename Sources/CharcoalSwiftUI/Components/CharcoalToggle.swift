@@ -1,10 +1,17 @@
 import SwiftUI
 
 struct CharcoalToggleWrapper: UIViewRepresentable {
-    @Binding var isOn: Bool
+    @Binding var isOn: Bool {
+        didSet {
+            if uiSwitch.isOn != isOn {
+                uiSwitch.setOn(isOn, animated: true)
+            }
+        }
+    }
+
+    let uiSwitch = UISwitch()
 
     func makeUIView(context: Context) -> UISwitch {
-        let uiSwitch = UISwitch()
         uiSwitch.addTarget(context.coordinator, action: #selector(Coordinator.handleValueChanged(_:)), for: .valueChanged)
         uiSwitch.onTintColor = CharcoalAsset.ColorPaletteGenerated.brand.color
         uiSwitch.backgroundColor = CharcoalAsset.ColorPaletteGenerated.surface4.color
