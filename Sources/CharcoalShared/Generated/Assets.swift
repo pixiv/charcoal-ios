@@ -166,6 +166,7 @@ public enum CharcoalAsset {
       public static let checkAsset = ImageAsset(name: "16/Check")
       public static let commentAsset = ImageAsset(name: "16/Comment")
       public static let dotAsset = ImageAsset(name: "16/Dot")
+      public static let downAsset = ImageAsset(name: "16/Down")
       public static let errorAsset = ImageAsset(name: "16/Error")
       public static let filterAsset = ImageAsset(name: "16/Filter")
       public static let imageResponseAsset = ImageAsset(name: "16/ImageResponse")
@@ -181,6 +182,8 @@ public enum CharcoalAsset {
       public static let searchAsset = ImageAsset(name: "16/Search")
       public static let smileAsset = ImageAsset(name: "16/Smile")
       public static let speakerAsset = ImageAsset(name: "16/Speaker")
+      public static let trashAsset = ImageAsset(name: "16/Trash")
+      public static let upAsset = ImageAsset(name: "16/Up")
       public static let viewAsset = ImageAsset(name: "16/View")
       public static let warningAsset = ImageAsset(name: "16/Warning")
     }
@@ -220,6 +223,7 @@ public enum CharcoalAsset {
       public static let commentOutlineAsset = ImageAsset(name: "24/CommentOutline")
       public static let contestAsset = ImageAsset(name: "24/Contest")
       public static let contrastAsset = ImageAsset(name: "24/Contrast")
+      public static let copyAsset = ImageAsset(name: "24/Copy")
       public static let descriptionAsset = ImageAsset(name: "24/Description")
       public static let deviceRotationAsset = ImageAsset(name: "24/DeviceRotation")
       public static let discoveryAsset = ImageAsset(name: "24/Discovery")
@@ -282,6 +286,7 @@ public enum CharcoalAsset {
       public static let listAsset = ImageAsset(name: "24/List")
       public static let lockLockAsset = ImageAsset(name: "24/LockLock")
       public static let lockUnlockAsset = ImageAsset(name: "24/LockUnlock")
+      public static let loginAsset = ImageAsset(name: "24/Login")
       public static let logoutAsset = ImageAsset(name: "24/Logout")
       public static let mangaAsset = ImageAsset(name: "24/Manga")
       public static let menuAsset = ImageAsset(name: "24/Menu")
@@ -437,6 +442,7 @@ public enum CharcoalAsset {
       public static let removeAsset = ImageAsset(name: "Inline/Remove")
       public static let smileAsset = ImageAsset(name: "Inline/Smile")
       public static let smileOnAsset = ImageAsset(name: "Inline/SmileOn")
+      public static let trashAsset = ImageAsset(name: "Inline/Trash")
       public static let usersAsset = ImageAsset(name: "Inline/Users")
       public static let viewAsset = ImageAsset(name: "Inline/View")
       public static let viewOutlineAsset = ImageAsset(name: "Inline/ViewOutline")
@@ -452,6 +458,7 @@ public enum CharcoalAsset {
     case check16
     case comment16
     case dot16
+    case down16
     case error16
     case filter16
     case imageResponse16
@@ -467,6 +474,8 @@ public enum CharcoalAsset {
     case search16
     case smile16
     case speaker16
+    case trash16
+    case up16
     case view16
     case warning16
     case add24
@@ -504,6 +513,7 @@ public enum CharcoalAsset {
     case commentOutline24
     case contest24
     case contrast24
+    case copy24
     case description24
     case deviceRotation24
     case discovery24
@@ -566,6 +576,7 @@ public enum CharcoalAsset {
     case list24
     case lockLock24
     case lockUnlock24
+    case login24
     case logout24
     case manga24
     case menu24
@@ -717,6 +728,7 @@ public enum CharcoalAsset {
     case removeInline
     case smileInline
     case smileOnInline
+    case trashInline
     case usersInline
     case viewInline
     case viewOutlineInline
@@ -744,6 +756,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._16.commentAsset
         case .dot16:
           return CharcoalAsset.Images._16.dotAsset
+        case .down16:
+          return CharcoalAsset.Images._16.downAsset
         case .error16:
           return CharcoalAsset.Images._16.errorAsset
         case .filter16:
@@ -774,6 +788,10 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._16.smileAsset
         case .speaker16:
           return CharcoalAsset.Images._16.speakerAsset
+        case .trash16:
+          return CharcoalAsset.Images._16.trashAsset
+        case .up16:
+          return CharcoalAsset.Images._16.upAsset
         case .view16:
           return CharcoalAsset.Images._16.viewAsset
         case .warning16:
@@ -848,6 +866,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.contestAsset
         case .contrast24:
           return CharcoalAsset.Images._24.contrastAsset
+        case .copy24:
+          return CharcoalAsset.Images._24.copyAsset
         case .description24:
           return CharcoalAsset.Images._24.descriptionAsset
         case .deviceRotation24:
@@ -972,6 +992,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.lockLockAsset
         case .lockUnlock24:
           return CharcoalAsset.Images._24.lockUnlockAsset
+        case .login24:
+          return CharcoalAsset.Images._24.loginAsset
         case .logout24:
           return CharcoalAsset.Images._24.logoutAsset
         case .manga24:
@@ -1274,6 +1296,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images.Inline.smileAsset
         case .smileOnInline:
           return CharcoalAsset.Images.Inline.smileOnAsset
+        case .trashInline:
+          return CharcoalAsset.Images.Inline.trashAsset
         case .usersInline:
           return CharcoalAsset.Images.Inline.usersAsset
         case .viewInline:
