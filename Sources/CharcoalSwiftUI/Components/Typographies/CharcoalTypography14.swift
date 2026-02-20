@@ -4,6 +4,7 @@ private let the14FontSize = CGFloat(charcoalFoundation.typography.size.the14.fon
 private let the14LineHeight = CGFloat(charcoalFoundation.typography.size.the14.lineHeight)
 
 public extension View {
+    @available(*, deprecated, message: "Use font(charcoalSize:weight:mono:isSingleLine:textStyle:) instead.")
     func charcoalTypography14Bold(isSingleLine: Bool = false) -> some View {
         return modifier(CharcoalFontModifier(
             size: the14FontSize,
@@ -13,6 +14,7 @@ public extension View {
         ))
     }
 
+    @available(*, deprecated, message: "Use font(charcoalSize:weight:mono:isSingleLine:textStyle:) instead.")
     func charcoalTypography14Regular(isSingleLine: Bool = false) -> some View {
         return modifier(CharcoalFontModifier(
             size: the14FontSize,
@@ -22,6 +24,7 @@ public extension View {
         ))
     }
 
+    @available(*, deprecated, message: "Use font(charcoalSize:weight:mono:isSingleLine:textStyle:) instead.")
     func charcoalTypography14BoldMono() -> some View {
         return modifier(CharcoalMonoFontModifier(
             size: the14FontSize,
@@ -29,6 +32,7 @@ public extension View {
         ))
     }
 
+    @available(*, deprecated, message: "Use font(charcoalSize:weight:mono:isSingleLine:textStyle:) instead.")
     func charcoalTypography14RegularMono() -> some View {
         return modifier(CharcoalMonoFontModifier(
             size: the14FontSize,

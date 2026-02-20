@@ -4,6 +4,7 @@ private let the12FontSize = CGFloat(charcoalFoundation.typography.size.the12.fon
 private let the12LineHeight = CGFloat(charcoalFoundation.typography.size.the12.lineHeight)
 
 public extension View {
+    @available(*, deprecated, message: "Use font(charcoalSize:weight:mono:isSingleLine:textStyle:) instead.")
     func charcoalTypography12Bold(isSingleLine: Bool = false) -> some View {
         return modifier(CharcoalFontModifier(
             size: the12FontSize,
@@ -14,6 +15,7 @@ public extension View {
         ))
     }
 
+    @available(*, deprecated, message: "Use font(charcoalSize:weight:mono:isSingleLine:textStyle:) instead.")
     func charcoalTypography12Regular(isSingleLine: Bool = false) -> some View {
         return modifier(CharcoalFontModifier(
             size: the12FontSize,
@@ -24,6 +26,7 @@ public extension View {
         ))
     }
 
+    @available(*, deprecated, message: "Use font(charcoalSize:weight:mono:isSingleLine:textStyle:) instead.")
     func charcoalTypography12BoldMono() -> some View {
         return modifier(CharcoalMonoFontModifier(
             size: the12FontSize,
@@ -32,6 +35,7 @@ public extension View {
         ))
     }
 
+    @available(*, deprecated, message: "Use font(charcoalSize:weight:mono:isSingleLine:textStyle:) instead.")
     func charcoalTypography12RegularMono() -> some View {
         return modifier(CharcoalMonoFontModifier(
             size: the12FontSize,

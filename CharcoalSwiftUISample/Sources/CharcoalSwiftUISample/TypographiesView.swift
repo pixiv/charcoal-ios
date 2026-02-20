@@ -15,205 +15,205 @@ struct TypographiesView: View {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("20 Bold SingleLine")
                         Text(Const.shortText)
-                            .charcoalTypography20Bold(isSingleLine: true)
+                            .font(charcoalSize: .the20, weight: .bold, isSingleLine: true)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("20 Bold MultiLine")
                         Text(Const.longText)
-                            .charcoalTypography20Bold()
+                            .font(charcoalSize: .the20, weight: .bold)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("20 Regular SingleLine")
                         Text(Const.shortText)
-                            .charcoalTypography20Regular(isSingleLine: true)
+                            .font(charcoalSize: .the20, weight: .regular, isSingleLine: true)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("20 Regular MultiLine")
                         Text(Const.longText)
-                            .charcoalTypography20Regular()
+                            .font(charcoalSize: .the20, weight: .regular)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("20 Bold Mono")
                         Text(Const.numberText)
-                            .charcoalTypography20BoldMono()
+                            .font(charcoalSize: .the20, weight: .bold, mono: true)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("20 Regular Mono")
                         Text(Const.numberText)
-                            .charcoalTypography20RegularMono()
+                            .font(charcoalSize: .the20, weight: .regular, mono: true)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("20 Attributed String")
 
                         Text("Atributed")
-                            .font(charcoalTypography: .bold20)
+                            .font(charcoalSize: .the20, weight: .bold)
                             +
                             Text("String")
-                            .font(charcoalTypography: .regular20)
+                            .font(charcoalSize: .the20, weight: .regular)
                     }
                 }
                 Group {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("16 Bold SingleLine")
                         Text(Const.shortText)
-                            .charcoalTypography16Bold(isSingleLine: true)
+                            .font(charcoalSize: .the16, weight: .bold, isSingleLine: true)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("16 Bold MultiLine")
                         Text(Const.longText)
-                            .charcoalTypography16Bold()
+                            .font(charcoalSize: .the16, weight: .bold)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("16 Regular SingleLine")
                         Text(Const.shortText)
-                            .charcoalTypography16Regular(isSingleLine: true)
+                            .font(charcoalSize: .the16, weight: .regular, isSingleLine: true)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("16 Regular MultiLine")
                         Text(Const.longText)
-                            .charcoalTypography16Regular()
+                            .font(charcoalSize: .the16, weight: .regular)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("16 Bold Mono")
                         Text(Const.numberText)
-                            .charcoalTypography16BoldMono()
+                            .font(charcoalSize: .the16, weight: .bold, mono: true)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("16 Regular Mono")
                         Text(Const.numberText)
-                            .charcoalTypography16RegularMono()
+                            .font(charcoalSize: .the16, weight: .regular, mono: true)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("16 Attributed String")
 
                         Text("Atributed")
-                            .font(charcoalTypography: .bold16)
+                            .font(charcoalSize: .the16, weight: .bold)
                             +
                             Text("String")
-                            .font(charcoalTypography: .regular16)
+                            .font(charcoalSize: .the16, weight: .regular)
                     }
                 }
                 Group {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("14 Bold SingleLine")
                         Text(Const.shortText)
-                            .charcoalTypography14Bold(isSingleLine: true)
+                            .font(charcoalSize: .the14, weight: .bold, isSingleLine: true)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("14 Bold MultiLine")
                         Text(Const.longText)
-                            .charcoalTypography14Bold()
+                            .font(charcoalSize: .the14, weight: .bold)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("14 Regular SingleLine")
                         Text(Const.shortText)
-                            .charcoalTypography14Regular(isSingleLine: true)
+                            .font(charcoalSize: .the14, weight: .regular, isSingleLine: true)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("14 Regular MultiLine")
                         Text(Const.longText)
-                            .charcoalTypography14Regular()
+                            .font(charcoalSize: .the14, weight: .regular)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("14 Bold Mono")
                         Text(Const.numberText)
-                            .charcoalTypography14BoldMono()
+                            .font(charcoalSize: .the14, weight: .bold, mono: true)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("14 Regular Mono")
                         Text(Const.numberText)
-                            .charcoalTypography14RegularMono()
+                            .font(charcoalSize: .the14, weight: .regular, mono: true)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("14 Attributed String")
 
                         Text("Atributed")
-                            .font(charcoalTypography: .bold14)
+                            .font(charcoalSize: .the14, weight: .bold)
                             +
                             Text("String")
-                            .font(charcoalTypography: .regular14)
+                            .font(charcoalSize: .the14, weight: .regular)
                     }
                 }
                 Group {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("12 Bold SingleLine")
                         Text(Const.shortText)
-                            .charcoalTypography12Bold(isSingleLine: true)
+                            .font(charcoalSize: .the12, weight: .bold, isSingleLine: true)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("12 Bold MultiLine")
                         Text(Const.longText)
-                            .charcoalTypography12Bold()
+                            .font(charcoalSize: .the12, weight: .bold)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("12 Regular SingleLine")
                         Text(Const.shortText)
-                            .charcoalTypography12Regular(isSingleLine: true)
+                            .font(charcoalSize: .the12, weight: .regular, isSingleLine: true)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("12 Regular MultiLine")
                         Text(Const.longText)
-                            .charcoalTypography12Regular()
+                            .font(charcoalSize: .the12, weight: .regular)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("12 Bold Mono")
                         Text(Const.numberText)
-                            .charcoalTypography12BoldMono()
+                            .font(charcoalSize: .the12, weight: .bold, mono: true)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("12 Regular Mono")
                         Text(Const.numberText)
-                            .charcoalTypography12RegularMono()
+                            .font(charcoalSize: .the12, weight: .regular, mono: true)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("12 Attributed String")
 
                         Text("Atributed")
-                            .font(charcoalTypography: .bold12)
+                            .font(charcoalSize: .the12, weight: .bold)
                             +
                             Text("String")
-                            .font(charcoalTypography: .regular12)
+                            .font(charcoalSize: .the12, weight: .regular)
                     }
                 }
                 Group {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("10 Bold SingleLine")
                         Text(Const.shortText)
-                            .charcoalTypography10Bold(isSingleLine: true)
+                            .font(charcoalSize: .the10, weight: .bold, isSingleLine: true)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("10 Bold MultiLine")
                         Text(Const.longText)
-                            .charcoalTypography10Bold()
+                            .font(charcoalSize: .the10, weight: .bold)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("10 Regular SingleLine")
                         Text(Const.shortText)
-                            .charcoalTypography10Regular(isSingleLine: true)
+                            .font(charcoalSize: .the10, weight: .regular, isSingleLine: true)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("10 Regular MultiLine")
                         Text(Const.longText)
-                            .charcoalTypography10Regular()
+                            .font(charcoalSize: .the10, weight: .regular)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("10 Bold Mono")
                         Text(Const.numberText)
-                            .charcoalTypography10BoldMono()
+                            .font(charcoalSize: .the10, weight: .bold, mono: true)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("10 Regular Mono")
                         Text(Const.numberText)
-                            .charcoalTypography10RegularMono()
+                            .font(charcoalSize: .the10, weight: .regular, mono: true)
                     }
                     VStack(alignment: .leading, spacing: 4) {
                         Text("10 Attributed String")
 
                         Text("Atributed")
-                            .font(charcoalTypography: .bold10)
+                            .font(charcoalSize: .the10, weight: .bold)
                             +
                             Text("String")
-                            .font(charcoalTypography: .regular10)
+                            .font(charcoalSize: .the10, weight: .regular)
                     }
                 }
             }

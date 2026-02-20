@@ -41,6 +41,7 @@ public extension Text {
         }
     }
 
+    @available(*, deprecated, message: "Use font(charcoalSize:weight:mono:isSingleLine:textStyle:) instead.")
     func font(charcoalTypography: CharcoalTypography) -> Text {
         font(
             .custom(

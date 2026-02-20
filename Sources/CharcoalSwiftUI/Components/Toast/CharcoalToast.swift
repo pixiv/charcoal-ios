@@ -68,7 +68,7 @@ struct CharcoalToast<ActionContent: View>: CharcoalPopupProtocol, CharcoalToastB
             HStack(spacing: 0) {
                 HStack(spacing: 8) {
                     Text(text)
-                        .charcoalTypography14Bold(isSingleLine: true)
+                        .font(charcoalSize: .the14, weight: .bold, isSingleLine: true)
                         .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.background1.color))
 
                     if let action = action {
