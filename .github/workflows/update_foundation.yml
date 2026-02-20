@@ -47,9 +47,20 @@ jobs:
 
           rm -rf icons
 
+      - name: Cache SwiftPM for BuildTools
+        uses: actions/cache@v4
+        with:
+          path: |
+            BuildTools/.build
+            ~/.swiftpm
+          key: ${{ runner.os }}-swiftpm-${{ hashFiles('BuildTools/Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-swiftpm-
+
       - name: Generate Swift file
         run: |
-          swift run --package-path BuildTools swiftgen
+          swift build -c release --package-path BuildTools --product swiftgen
+          BuildTools/.build/release/swiftgen config run --config swiftgen.yml
           git restore BuildTools/Package.resolved
 
       - name: Create Pull Request
