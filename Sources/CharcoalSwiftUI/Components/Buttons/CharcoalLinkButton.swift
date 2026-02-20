@@ -12,7 +12,7 @@ struct CharcoalLinkButtonStyleView: View {
             .font(.system(size: fontSize, weight: .bold))
             // swiftlint:disable line_length
             .padding(EdgeInsets(top: 11.5, leading: 16, bottom: 11.5, trailing: 16))
-            .foregroundStyle(charcoalColor: isPressed ? .text3 : .text1)
+            .foregroundStyle(Color(charcoalColor: isPressed ? .text3 : .text1))
             .opacity(isEnabled ? 1.0 : 0.32)
             .hoverEffect(.highlight)
     }
@@ -38,17 +38,18 @@ struct CharcoalLinkButtonStyleModifier: ViewModifier {
 
 public extension View {
     /// Set the style of the button to Charcoal's link button
+    @available(*, deprecated, message: "Use buttonStyle(charcoalStyle:) instead.")
     func charcoalLinkButton() -> some View {
-        return modifier(CharcoalLinkButtonStyleModifier())
+        return buttonStyle(charcoalStyle: .link)
     }
 }
 
 #Preview {
     VStack(spacing: 8) {
         Button("Link") {}
-            .charcoalLinkButton()
+            .buttonStyle(charcoalStyle: .link)
         Button("Link") {}
-            .charcoalLinkButton()
+            .buttonStyle(charcoalStyle: .link)
             .disabled(true)
     }
 }

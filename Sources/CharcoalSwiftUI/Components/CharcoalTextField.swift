@@ -33,7 +33,7 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
                     Text(countLabel)
                         .charcoalTypography14Regular(isSingleLine: true)
                         // swiftlint:disable line_length
-                        .foregroundStyle(charcoalColor: hasError ? .assertive : .text3)
+                        .foregroundStyle(Color(charcoalColor: hasError ? .assertive : .text3))
                 }
             }
             .padding(EdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8))
@@ -46,7 +46,7 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
             if !assistiveText.isEmpty {
                 Text(assistiveText)
                     .charcoalTypography14Regular()
-                    .foregroundStyle(charcoalColor: hasError ? .assertive : .text2)
+                    .foregroundStyle(Color(charcoalColor: hasError ? .assertive : .text2))
             }
         }
         .opacity(isEnabled ? 1.0 : 0.32)

@@ -21,10 +21,10 @@ struct CharcoalDefaultOverlayButtonStyleView: View {
     var body: some View {
         label
             .font(.system(size: fontSize, weight: .bold))
-            .charcoalOnSurfaceText2()
+            .foregroundStyle(Color(charcoalColor: .text2))
             .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
-            .charcoalSurface3()
+            .background(charcoalColor: .surface3)
             .opacity(isEnabled ? 1.0 : 0.32)
             .overlay(
                 Rectangle()
@@ -67,22 +67,23 @@ public extension View {
     /// - Parameters:
     ///   - size: The size of the button
     ///   - isFixed: Whether the button should have a fixed width
+    @available(*, deprecated, message: "Use buttonStyle(charcoalStyle:) instead.")
     func charcoalDefaultOverlayButton(size: CharcoalButtonSize = .medium, isFixed: Bool = true) -> some View {
-        return modifier(CharcoalDefaultOverlayButtonStyleModifier(size: size, isFixed: isFixed))
+        return buttonStyle(charcoalStyle: .defaultOverlay(.init(size: size, isFixed: isFixed, primaryColor: Color(charcoalColor: .brand))))
     }
 }
 
 #Preview {
     VStack(spacing: 8) {
         Button("Default Overlay Button M") {}
-            .charcoalDefaultOverlayButton(size: .medium)
+            .buttonStyle(charcoalStyle: .defaultOverlay(.init(size: .medium, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
         Button("Default Overlay Button M") {}
-            .charcoalDefaultOverlayButton(size: .medium)
+            .buttonStyle(charcoalStyle: .defaultOverlay(.init(size: .medium, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
             .disabled(true)
         Button("Default Overlay Button S") {}
-            .charcoalDefaultOverlayButton(size: .small)
+            .buttonStyle(charcoalStyle: .defaultOverlay(.init(size: .small, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
         Button("Default Overlay Button S") {}
-            .charcoalDefaultOverlayButton(size: .small)
+            .buttonStyle(charcoalStyle: .defaultOverlay(.init(size: .small, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
             .disabled(true)
     }
 }

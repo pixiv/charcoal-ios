@@ -30,7 +30,7 @@ public struct CharcoalHint: View {
         maxWidth: CGFloat? = nil,
         isPresenting: Binding<Bool>,
         alignment: Alignment = .center,
-        buttonStyle: CharcoalButtonStyle = .primary(.init(primaryColor: Color(CharcoalAsset.ColorPaletteGenerated.brand.color))),
+        buttonStyle: CharcoalButtonStyle = .primary(.init(primaryColor: Color(charcoalColor: .brand))),
         action: CharcoalAction? = nil
     ) {
         self.text = text
@@ -48,9 +48,9 @@ public struct CharcoalHint: View {
                 Image(charcoalIcon: icon)
 
                 VStack {
-                    Text(text).charcoalTypography14Regular()
+                    Text(text).font(charcoalSize: .the14, weight: .regular)
                     if let subtitle = subtitle {
-                        Text(subtitle).charcoalTypography14Regular()
+                        Text(subtitle).font(charcoalSize: .the14, weight: .regular)
                     }
                 }
 
@@ -60,7 +60,7 @@ public struct CharcoalHint: View {
                         action.actionCallback()
                     }) {
                         Text(action.title)
-                    }.charcoalButtonStyle(buttonStyle)
+                    }.buttonStyle(charcoalStyle: buttonStyle)
                 }
             }
             .frame(maxWidth: maxWidth, alignment: alignment)

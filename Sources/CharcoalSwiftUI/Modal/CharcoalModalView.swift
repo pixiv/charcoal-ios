@@ -90,7 +90,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
                 // Modal Content
                 contentView(proxy: proxy)
                     .frame(minWidth: 280, maxWidth: maxWidth)
-                    .background(Rectangle().cornerRadius(32, corners: style.roundedCorners).foregroundStyle(charcoalColor: .surface1))
+                    .background(Rectangle().cornerRadius(32, corners: style.roundedCorners).foregroundStyle(Color(charcoalColor: .surface1)))
                     .opacity(modalOpacity)
                     .padding(style.padding)
                     .offset(modalOffset)
@@ -135,7 +135,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
         ZStack(alignment: .topTrailing) {
             VStack(spacing: 0) {
                 if let title = title {
-                    Text(title).charcoalTypography20Bold(isSingleLine: true)
+                    Text(title).font(charcoalSize: .the20, weight: .bold, isSingleLine: true)
                         .padding(EdgeInsets(top: 20, leading: 48, bottom: 20, trailing: 48))
                 }
 
@@ -205,13 +205,13 @@ public extension View {
                  isPresented = false
              }, label: {
                  Text("OK").frame(maxWidth: .infinity)
-             }).charcoalPrimaryButton(size: .medium)
+             }).buttonStyle(charcoalStyle: .primary(.init(size: .medium)))
 
              Button(action: {
                  isPresented = false
              }, label: {
                  Text("Dismiss").frame(maxWidth: .infinity)
-             }).charcoalDefaultButton(size: .medium)
+             }).buttonStyle(charcoalStyle: .defaultButton(.init(size: .medium)))
          }
      ) {
         Text("Hello This is a center dialog from Charcoal")
@@ -262,21 +262,21 @@ public extension View {
                         isPresented = false
                     }, label: {
                         Text("OK").frame(maxWidth: .infinity)
-                    }).charcoalPrimaryButton(size: .medium)
+                    }).buttonStyle(charcoalStyle: .primary(.init(size: .medium)))
 
                     Button(action: {
                         isPresented = false
                     }, label: {
                         Text("Dismiss").frame(maxWidth: .infinity)
-                    }).charcoalDefaultButton(size: .medium)
+                    }).buttonStyle(charcoalStyle: .defaultButton(.init(size: .medium)))
                 }
             ) {
                 VStack(spacing: 10) {
                     Text("Hello This is a center dialog from Charcoal")
-                        .charcoalTypography16Regular()
+                        .font(charcoalSize: .the16, weight: .regular)
                         .frame(maxWidth: .infinity)
 
-                    TextField("Simple text field", text: $text1).charcoalTextField()
+                    TextField("Simple text field", text: $text1).textFieldStyle(charcoalStyle: .default())
                 }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             }
         }

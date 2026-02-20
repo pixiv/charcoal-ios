@@ -25,21 +25,21 @@ public struct ModalsView: View {
                         isPresented = false
                     }, label: {
                         Text("OK")
-                    }).charcoalPrimaryButton(size: .medium, isFixed: false)
+                    }).buttonStyle(charcoalStyle: .primary(.init(size: .medium, isFixed: false)))
 
                     Button(action: {
                         isPresented = false
                     }, label: {
                         Text("Dismiss")
-                    }).charcoalDefaultButton(size: .medium, isFixed: false)
+                    }).buttonStyle(charcoalStyle: .defaultButton(.init(size: .medium, isFixed: false)))
                 }
             ) {
                 VStack {
                     Text("Hello This is a center dialog from Charcoal")
-                        .charcoalTypography16Regular()
+                        .font(charcoalSize: .the16, weight: .regular)
                         .frame(maxWidth: .infinity)
 
-                    TextField("Simple text field", text: $text1).charcoalTextField()
+                    TextField("Simple text field", text: $text1).textFieldStyle(charcoalStyle: .default())
                 }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             }
             // BottomSheet
@@ -57,21 +57,21 @@ public struct ModalsView: View {
                         isBottomPresented = false
                     }, label: {
                         Text("OK")
-                    }).charcoalPrimaryButton(size: .medium, isFixed: false)
+                    }).buttonStyle(charcoalStyle: .primary(.init(size: .medium, isFixed: false)))
 
                     Button(action: {
                         isBottomPresented = false
                     }, label: {
                         Text("Dismiss")
-                    }).charcoalDefaultButton(size: .medium, isFixed: false)
+                    }).buttonStyle(charcoalStyle: .defaultButton(.init(size: .medium, isFixed: false)))
                 }
             ) {
                 VStack {
                     Text("Hello This is a bottom dialog from Charcoal")
-                        .charcoalTypography16Regular()
+                        .font(charcoalSize: .the16, weight: .regular)
                         .frame(maxWidth: .infinity)
 
-                    TextField("Simple text field", text: $text2).charcoalTextField()
+                    TextField("Simple text field", text: $text2).textFieldStyle(charcoalStyle: .default())
                 }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             }
         }

@@ -141,7 +141,7 @@ struct CharcoalBalloon<ActionContent: View>: CharcoalPopupProtocol, CharcoalToas
                         VStack {
                             HStack(alignment: .firstTextBaseline, spacing: 5) {
                                 Text(text)
-                                    .charcoalTypography14Bold()
+                                    .font(charcoalSize: .the14, weight: .bold)
                                     .multilineTextAlignment(.leading)
                                     .fixedSize(horizontal: false, vertical: true)
                                     .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text5.color))
@@ -162,7 +162,7 @@ struct CharcoalBalloon<ActionContent: View>: CharcoalPopupProtocol, CharcoalToas
 
                             if let action = action {
                                 action
-                                    .charcoalTypography14Bold()
+                                    .font(charcoalSize: .the14, weight: .bold)
                                     .padding(EdgeInsets(top: 3, leading: 16, bottom: 3, trailing: 16))
                                     .background(Capsule()
                                         .fill(Color.black.opacity(0.35)))
@@ -307,7 +307,7 @@ private struct BalloonsPreviewView: View {
                     } label: {
                         Text("Help")
                     }
-                    .charcoalDefaultButton()
+                    .buttonStyle(charcoalStyle: .defaultButton(.init()))
                     .charcoalBalloon(isPresenting: $isPresenting2, text: "作品中の特定単語について、単語変換をして読めるようになりました") {
                         Button(action: {}, label: {
                             Text("詳しく")
@@ -321,7 +321,7 @@ private struct BalloonsPreviewView: View {
                     } label: {
                         Text("Right")
                     }
-                    .charcoalPrimaryButton(size: .medium)
+                    .buttonStyle(charcoalStyle: .primary(.init(size: .medium)))
                     .charcoalBalloon(isPresenting: $isPresenting3, text: "here is testing it's multiple line feature")
                     .offset(CGSize(width: geometry.size.width - 100, height: 100.0))
 
@@ -338,7 +338,7 @@ private struct BalloonsPreviewView: View {
                     } label: {
                         Text("Bottom")
                     }
-                    .charcoalPrimaryButton(size: .medium)
+                    .buttonStyle(charcoalStyle: .primary(.init(size: .medium)))
                     .charcoalBalloon(
                         isPresenting: $isPresenting5,
                         text: "Hello World This is a tooltip and here is testing it's multiple line feature",

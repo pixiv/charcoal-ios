@@ -3,63 +3,63 @@ import SwiftUI
 struct CharcoalOnSurfaceBorder: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(charcoalColor: .border)
+            .foregroundStyle(Color(charcoalColor: .border))
     }
 }
 
 struct CharcoalOnSurfaceLink1: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(charcoalColor: .link1)
+            .foregroundStyle(Color(charcoalColor: .link1))
     }
 }
 
 struct CharcoalOnSurfaceLink2: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(charcoalColor: .link2)
+            .foregroundStyle(Color(charcoalColor: .link2))
     }
 }
 
 struct CharcoalOnSurfaceText1: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(charcoalColor: .text1)
+            .foregroundStyle(Color(charcoalColor: .text1))
     }
 }
 
 struct CharcoalOnSurfaceText2: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(charcoalColor: .text2)
+            .foregroundStyle(Color(charcoalColor: .text2))
     }
 }
 
 struct CharcoalOnSurfaceText3: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(charcoalColor: .text3)
+            .foregroundStyle(Color(charcoalColor: .text3))
     }
 }
 
 struct CharcoalOnSurfaceText4: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(charcoalColor: .text4)
+            .foregroundStyle(Color(charcoalColor: .text4))
     }
 }
 
 struct CharcoalOnSurfaceText5: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(charcoalColor: .text5)
+            .foregroundStyle(Color(charcoalColor: .text5))
     }
 }
 
 struct CharcoalOnSurfaceIcon6: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(charcoalColor: .icon6)
+            .foregroundStyle(Color(charcoalColor: .icon6))
     }
 }
 

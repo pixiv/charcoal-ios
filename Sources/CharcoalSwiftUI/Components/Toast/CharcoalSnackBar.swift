@@ -79,12 +79,12 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalToa
                 }
                 HStack(spacing: 16) {
                     Text(text)
-                        .charcoalTypography14Bold(isSingleLine: true)
+                        .font(charcoalSize: .the14, weight: .bold, isSingleLine: true)
                         .foregroundColor(Color(CharcoalAsset.ColorPaletteGenerated.text1.color))
 
                     if let action = action {
                         action
-                            .charcoalDefaultButton(size: .small)
+                            .buttonStyle(charcoalStyle: .defaultButton(.init(size: .small)))
                     }
                 }
                 .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))

@@ -23,7 +23,7 @@ struct CharcoalPrimaryButtonStyleView: View {
     var body: some View {
         label
             .font(.system(size: fontSize, weight: .bold))
-            .charcoalOnSurfaceText5()
+            .foregroundStyle(Color(charcoalColor: .text5))
             .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
             .background(primaryColor)
@@ -73,26 +73,27 @@ public extension View {
     ///   - size: The size of the button.
     ///   - isFixed: Whether the button should have a fixed width.
     ///   - primaryColor: The primary color of the button.
+    @available(*, deprecated, message: "Use buttonStyle(charcoalStyle:) instead.")
     func charcoalPrimaryButton(
         size: CharcoalButtonSize = .medium,
         isFixed: Bool = true,
         primaryColor: Color = Color(CharcoalAsset.ColorPaletteGenerated.brand.color)
     ) -> some View {
-        return modifier(CharcoalPrimaryButtonStyleModifier(size: size, isFixed: isFixed, primaryColor: primaryColor))
+        return buttonStyle(charcoalStyle: .primary(.init(size: size, isFixed: isFixed, primaryColor: primaryColor)))
     }
 }
 
 #Preview {
     VStack(spacing: 8) {
         Button("Primary Button M") {}
-            .charcoalPrimaryButton(size: .medium)
+            .buttonStyle(charcoalStyle: .primary(.init(size: .medium, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
         Button("Primary Button M") {}
-            .charcoalPrimaryButton(size: .medium)
+            .buttonStyle(charcoalStyle: .primary(.init(size: .medium, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
             .disabled(true)
         Button("Primary Button S") {}
-            .charcoalPrimaryButton(size: .small)
+            .buttonStyle(charcoalStyle: .primary(.init(size: .small, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
         Button("Primary Button S") {}
-            .charcoalPrimaryButton(size: .small)
+            .buttonStyle(charcoalStyle: .primary(.init(size: .small, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
             .disabled(true)
     }
 }

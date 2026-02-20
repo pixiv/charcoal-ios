@@ -27,10 +27,10 @@ struct CharcoalNavigationButtonStyleView: View {
         }
         return AnyView(label
             .font(.system(size: fontSize, weight: .bold))
-            .charcoalOnSurfaceText5()
+            .foregroundStyle(Color(charcoalColor: .text5))
             .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
-            .charcoalSurface6()
+            .background(charcoalColor: .surface6)
             .overlay(
                 Rectangle()
                     .foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
@@ -72,22 +72,23 @@ public extension View {
     /// - Parameters:
     ///   - size: The size of the button
     ///   - isFixed: Whether the button should have a fixed width
+    @available(*, deprecated, message: "Use buttonStyle(charcoalStyle:) instead.")
     func charcoalNavigationButton(size: CharcoalButtonSize = .medium, isFixed: Bool = true) -> some View {
-        return modifier(CharcoalNavigationButtonStyleModifier(size: size, isFixed: isFixed))
+        return buttonStyle(charcoalStyle: .navigation(.init(size: size, isFixed: isFixed, primaryColor: Color(charcoalColor: .brand))))
     }
 }
 
 #Preview {
     VStack(spacing: 8) {
         Button("Navigation M") {}
-            .charcoalNavigationButton(size: .medium)
+            .buttonStyle(charcoalStyle: .navigation(.init(size: .medium, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
         Button("Navigation M") {}
-            .charcoalNavigationButton(size: .medium)
+            .buttonStyle(charcoalStyle: .navigation(.init(size: .medium, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
             .disabled(true)
         Button("Navigation S") {}
-            .charcoalNavigationButton(size: .small)
+            .buttonStyle(charcoalStyle: .navigation(.init(size: .small, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
         Button("Navigation S") {}
-            .charcoalNavigationButton(size: .small)
+            .buttonStyle(charcoalStyle: .navigation(.init(size: .small, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
             .disabled(true)
     }
 }

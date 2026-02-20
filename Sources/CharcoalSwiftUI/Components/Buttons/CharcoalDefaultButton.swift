@@ -21,10 +21,10 @@ struct CharcoalDefaultButtonStyleView: View {
     var body: some View {
         label
             .font(.system(size: fontSize, weight: .bold))
-            .charcoalOnSurfaceText2()
+            .foregroundStyle(Color(charcoalColor: .text2))
             .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
-            .charcoalSurface3()
+            .background(charcoalColor: .surface3)
             .opacity(isEnabled ? 1.0 : 0.32)
             .overlay(
                 Rectangle()
@@ -66,22 +66,23 @@ public extension View {
     /// - Parameters:
     ///   - size: The size of the button.
     ///   - isFixed: A Boolean value that indicates whether the button has a fixed width.
+    @available(*, deprecated, message: "Use buttonStyle(charcoalStyle:) instead.")
     func charcoalDefaultButton(size: CharcoalButtonSize = .medium, isFixed: Bool = true) -> some View {
-        return modifier(CharcoalDefaultButtonStyleModifier(size: size, isFixed: isFixed))
+        return buttonStyle(charcoalStyle: .defaultButton(.init(size: size, isFixed: isFixed, primaryColor: Color(charcoalColor: .brand))))
     }
 }
 
 #Preview {
     VStack(spacing: 8) {
         Button("Default Button M") {}
-            .charcoalDefaultButton(size: .medium)
+            .buttonStyle(charcoalStyle: .defaultButton(.init(size: .medium, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
         Button("Default Button M") {}
-            .charcoalDefaultButton(size: .medium)
+            .buttonStyle(charcoalStyle: .defaultButton(.init(size: .medium, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
             .disabled(true)
         Button("Default Button S") {}
-            .charcoalDefaultButton(size: .small)
+            .buttonStyle(charcoalStyle: .defaultButton(.init(size: .small, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
         Button("Default Button S") {}
-            .charcoalDefaultButton(size: .small)
+            .buttonStyle(charcoalStyle: .defaultButton(.init(size: .small, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
             .disabled(true)
     }
 }
