@@ -21,7 +21,7 @@ struct CharcoalDefaultOverlayButtonStyleView: View {
     var body: some View {
         label
             .font(.system(size: fontSize, weight: .bold))
-            .foregroundStyle(Color(charcoalColor: .text2))
+            .foregroundStyle(charcoalColor: .text2)
             .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
             .background(charcoalColor: .surface3)

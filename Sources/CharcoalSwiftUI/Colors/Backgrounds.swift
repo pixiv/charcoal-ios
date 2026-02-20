@@ -24,12 +24,14 @@ struct CharcoalBackground2: ViewModifier {
 }
 
 public extension View {
+    @available(*, deprecated, message: "Use background(charcoalColor:) instead.")
     func charcoalBackground1() -> some View {
         modifier(CharcoalBackground1())
     }
 }
 
 public extension View {
+    @available(*, deprecated, message: "Use background(charcoalColor:) instead.")
     func charcoalBackground2() -> some View {
         modifier(CharcoalBackground2())
     }

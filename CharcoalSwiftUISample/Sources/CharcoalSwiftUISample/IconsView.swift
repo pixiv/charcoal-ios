@@ -26,13 +26,13 @@ struct IconsView: View {
                                         Rectangle()
                                             .frame(width: 64, height: 64)
                                             .cornerRadius(8)
-                                            .foregroundStyle(Color(charcoalColor: .background2))
+                                            .foregroundStyle(charcoalColor: .background2)
                                         Image(charcoalIcon: icon)
                                     }
                                     Text(icon.description)
                                         .lineLimit(2)
-                                        .charcoalTypography12Regular()
-                                        .charcoalOnSurfaceText1()
+                                        .font(charcoalSize: .the12, weight: .regular)
+                                        .foregroundStyle(charcoalColor: .text1)
                                 }
                                 .frame(width: 64, height: 110, alignment: .top)
                             } else {

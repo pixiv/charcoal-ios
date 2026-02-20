@@ -23,7 +23,7 @@ struct CharcoalPrimaryButtonStyleView: View {
     var body: some View {
         label
             .font(.system(size: fontSize, weight: .bold))
-            .foregroundStyle(Color(charcoalColor: .text5))
+            .foregroundStyle(charcoalColor: .text5)
             .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
             .background(primaryColor)

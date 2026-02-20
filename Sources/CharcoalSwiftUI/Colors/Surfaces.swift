@@ -73,24 +73,28 @@ struct CharcoalSurface9: ViewModifier {
 }
 
 public extension View {
+    @available(*, deprecated, message: "Use background(charcoalColor:) instead.")
     func charcoalSurface1() -> some View {
         modifier(CharcoalSurface1())
     }
 }
 
 public extension View {
+    @available(*, deprecated, message: "Use background(charcoalColor:) instead.")
     func charcoalSurface2() -> some View {
         modifier(CharcoalSurface2())
     }
 }
 
 public extension View {
+    @available(*, deprecated, message: "Use background(charcoalColor:) instead.")
     func charcoalSurface3() -> some View {
         modifier(CharcoalSurface3())
     }
 }
 
 public extension View {
+    @available(*, deprecated, message: "Use background(charcoalColor:) instead.")
     func charcoalSurface4() -> some View {
         modifier(CharcoalSurface4())
     }
@@ -103,24 +107,28 @@ public extension View {
 }
 
 public extension View {
+    @available(*, deprecated, message: "Use background(charcoalColor:) instead.")
     func charcoalSurface6() -> some View {
         modifier(CharcoalSurface6())
     }
 }
 
 public extension View {
+    @available(*, deprecated, message: "Use background(charcoalColor:) instead.")
     func charcoalSurface7() -> some View {
         modifier(CharcoalSurface7())
     }
 }
 
 public extension View {
+    @available(*, deprecated, message: "Use background(charcoalColor:) instead.")
     func charcoalSurface8() -> some View {
         modifier(CharcoalSurface8())
     }
 }
 
 public extension View {
+    @available(*, deprecated, message: "Use background(charcoalColor:) instead.")
     func charcoalSurface9() -> some View {
         modifier(CharcoalSurface9())
     }

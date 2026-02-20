@@ -9,14 +9,12 @@ struct CharcoalForegroundStyle: ViewModifier {
 }
 
 public extension View {
-    @available(*, deprecated, message: "Use foregroundStyle(Color(charcoalColor:)) instead.")
     func foregroundStyle(charcoalColor: CharcoalAsset.ColorPaletteGenerated) -> some View {
         modifier(CharcoalForegroundStyle(charcoalColor: charcoalColor))
     }
 }
 
 public extension Text {
-    @available(*, deprecated, message: "Use foregroundStyle(Color(charcoalColor:)) instead.")
     func foregroundStyle(charcoalColor: CharcoalAsset.ColorPaletteGenerated) -> Text {
         if #available(iOS 17, *) {
             foregroundStyle(Color(charcoalColor: charcoalColor))
@@ -29,12 +27,12 @@ public extension Text {
 #Preview {
     VStack {
         Text("Charcoal")
-            .foregroundStyle(Color(charcoalColor: .brand))
+            .foregroundStyle(charcoalColor: .brand)
 
         Text("Attributed")
-            .foregroundStyle(Color(charcoalColor: .brand))
+            .foregroundStyle(charcoalColor: .brand)
 
         Text("String")
-            .foregroundStyle(Color(charcoalColor: .text3))
+            .foregroundStyle(charcoalColor: .text3)
     }
 }

@@ -29,7 +29,7 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
             if !label.isEmpty {
                 Text(label)
                     .font(charcoalSize: .the14, weight: .regular)
-                    .foregroundStyle(Color(charcoalColor: .text1))
+                    .foregroundStyle(charcoalColor: .text1)
                     .lineLimit(1)
             }
             HStack(spacing: 10) {
@@ -37,12 +37,12 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
                     .font(charcoalSize: .the14, weight: .regular, isSingleLine: true)
                     .focused($isFocused)
                     .frame(maxWidth: .infinity)
-                    .foregroundStyle(Color(charcoalColor: .text2))
+                    .foregroundStyle(charcoalColor: .text2)
                 if !countLabel.isEmpty {
                     Text(countLabel)
                         .font(charcoalSize: .the14, weight: .regular, isSingleLine: true)
                         // swiftlint:disable line_length
-                        .foregroundStyle(Color(charcoalColor: hasError ? .assertive : .text3))
+                        .foregroundStyle(charcoalColor: hasError ? .assertive : .text3)
                 }
             }
             .padding(EdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8))
@@ -55,7 +55,7 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
             if !assistiveText.isEmpty {
                 Text(assistiveText)
                     .font(charcoalSize: .the14, weight: .regular)
-                    .foregroundStyle(Color(charcoalColor: hasError ? .assertive : .text2))
+                    .foregroundStyle(charcoalColor: hasError ? .assertive : .text2)
             }
         }
         .opacity(isEnabled ? 1.0 : 0.32)

@@ -51,7 +51,7 @@ struct CharcoalToggleStyle: ToggleStyle {
             HStack {
                 configuration.label
                     .font(charcoalSize: .the14, weight: .regular)
-                    .foregroundStyle(Color(charcoalColor: .text1))
+                    .foregroundStyle(charcoalColor: .text1)
                 Spacer()
             }
             .contentShape(Rectangle())

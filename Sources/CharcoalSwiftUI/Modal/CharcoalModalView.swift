@@ -90,7 +90,7 @@ struct CharcoalModalView<ModalContent: View, ActionContent: View>: View {
                 // Modal Content
                 contentView(proxy: proxy)
                     .frame(minWidth: 280, maxWidth: maxWidth)
-                    .background(Rectangle().cornerRadius(32, corners: style.roundedCorners).foregroundStyle(Color(charcoalColor: .surface1)))
+                    .background(Rectangle().cornerRadius(32, corners: style.roundedCorners).foregroundStyle(charcoalColor: .surface1))
                     .opacity(modalOpacity)
                     .padding(style.padding)
                     .offset(modalOffset)

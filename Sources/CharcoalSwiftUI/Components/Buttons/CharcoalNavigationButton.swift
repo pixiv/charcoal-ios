@@ -27,7 +27,7 @@ struct CharcoalNavigationButtonStyleView: View {
         }
         return AnyView(label
             .font(.system(size: fontSize, weight: .bold))
-            .foregroundStyle(Color(charcoalColor: .text5))
+            .foregroundStyle(charcoalColor: .text5)
             .padding(size.padding)
             .frame(maxWidth: isFixed ? nil : .infinity)
             .background(charcoalColor: .surface6)
