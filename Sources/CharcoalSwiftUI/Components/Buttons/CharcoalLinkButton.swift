@@ -18,21 +18,8 @@ struct CharcoalLinkButtonStyleView: View {
     }
 }
 
-@available(iOS 15, *)
-struct CharcoalLinkButtonStyleIos15: ButtonStyle {
-    @Environment(\.isEnabled) var isEnabled
-
-    func makeBody(configuration: Self.Configuration) -> some View {
-        CharcoalLinkButtonStyleView(
-            label: configuration.label,
-            isPressed: configuration.isPressed,
-            isEnabled: isEnabled
-        )
-    }
-}
-
 struct CharcoalLinkButtonStyle: ButtonStyle {
-    let isEnabled: Bool
+    @Environment(\.isEnabled) var isEnabled
 
     func makeBody(configuration: Self.Configuration) -> some View {
         CharcoalLinkButtonStyleView(
@@ -44,14 +31,8 @@ struct CharcoalLinkButtonStyle: ButtonStyle {
 }
 
 struct CharcoalLinkButtonStyleModifier: ViewModifier {
-    @Environment(\.isEnabled) var isEnabled
-
     func body(content: Content) -> some View {
-        if #available(iOS 15, *) {
-            content.buttonStyle(CharcoalLinkButtonStyleIos15())
-        } else {
-            content.buttonStyle(CharcoalLinkButtonStyle(isEnabled: isEnabled))
-        }
+        content.buttonStyle(CharcoalLinkButtonStyle())
     }
 }
 

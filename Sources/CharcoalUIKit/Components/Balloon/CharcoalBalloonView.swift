@@ -28,7 +28,9 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setBackgroundImage(UIColor.black.withAlphaComponent(0.35).image(), for: .normal)
         button.setBackgroundImage(UIColor.black.withAlphaComponent(0.39).image(), for: .highlighted)
-        button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 16, bottom: 5, right: 16)
+        var configuration = UIButton.Configuration.plain()
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 16, bottom: 5, trailing: 16)
+        button.configuration = configuration
         button.clipsToBounds = true
         return button
     }()

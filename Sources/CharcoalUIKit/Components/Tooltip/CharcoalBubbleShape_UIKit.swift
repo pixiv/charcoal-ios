@@ -39,9 +39,9 @@ class CharcoalBubbleShape: CAShapeLayer {
 
         var pointPosition: CharcoalTooltipLayoutPriority
 
-        if targetPoint.x < rect.minX && targetPoint.y > rect.minY {
+        if targetPoint.x < rect.minX, targetPoint.y > rect.minY {
             pointPosition = .left
-        } else if targetPoint.x > rect.maxX && targetPoint.y > rect.minY {
+        } else if targetPoint.x > rect.maxX, targetPoint.y > rect.minY {
             pointPosition = .right
         } else if targetPoint.y < rect.minY {
             pointPosition = .top

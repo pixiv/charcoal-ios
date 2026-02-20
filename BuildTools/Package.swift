@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "BuildTools",
-    platforms: [.macOS(.v11)],
+    platforms: [.macOS(.v12)],
     dependencies: [
         .package(url: "https://github.com/nicklockwood/SwiftFormat", from: "0.52.4"),
         .package(url: "https://github.com/realm/SwiftLint", from: "0.52.4"),

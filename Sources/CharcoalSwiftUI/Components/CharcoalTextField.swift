@@ -1,6 +1,5 @@
 import SwiftUI
 
-@available(iOS 15, *)
 struct CharcoalTextFieldStyle: TextFieldStyle {
     @Environment(\.isEnabled) var isEnabled
     @Binding var label: String
@@ -54,7 +53,6 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
     }
 }
 
-@available(iOS 15, *)
 struct CharcoalTextFieldStyleModifier: ViewModifier {
     @Binding var label: String
     @Binding var countLabel: String
@@ -71,7 +69,6 @@ struct CharcoalTextFieldStyleModifier: ViewModifier {
     }
 }
 
-@available(iOS 15, *)
 public extension View {
     func charcoalTextField(
         label: Binding<String> = .constant(""),

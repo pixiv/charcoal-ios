@@ -6,8 +6,8 @@ import PackageDescription
 let package = Package(
     name: "Charcoal",
     platforms: [
-        .iOS(.v14),
-        .macOS(.v11)
+        .iOS(.v15),
+        .macOS(.v12)
     ],
     products: [
         .library(

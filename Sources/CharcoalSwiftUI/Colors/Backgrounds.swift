@@ -5,7 +5,7 @@ struct CharcoalBackground: ViewModifier {
     let edges: Edge.Set
 
     func body(content: Content) -> some View {
-        content.backport.background(Color(charcoalColor.color), ignoresSafeAreaEdges: edges)
+        content.background(Color(charcoalColor.color), ignoresSafeAreaEdges: edges)
     }
 }
 

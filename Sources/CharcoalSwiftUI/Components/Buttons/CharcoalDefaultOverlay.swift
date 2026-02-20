@@ -28,32 +28,15 @@ struct CharcoalDefaultOverlayButtonStyleView: View {
             .opacity(isEnabled ? 1.0 : 0.32)
             .overlay(
                 Rectangle()
-                    .backport.foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
+                    .foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
             )
             .clipShape(.charcoalCapsule)
             .hoverEffect(.lift)
     }
 }
 
-@available(iOS 15, *)
-struct CharcoalDefaultOverlayButtonStyleIos15: ButtonStyle {
-    @Environment(\.isEnabled) var isEnabled
-    let size: CharcoalButtonSize
-    let isFixed: Bool
-
-    func makeBody(configuration: Self.Configuration) -> some View {
-        CharcoalDefaultOverlayButtonStyleView(
-            label: configuration.label,
-            isPressed: configuration.isPressed,
-            isEnabled: isEnabled,
-            size: size,
-            isFixed: isFixed
-        )
-    }
-}
-
 struct CharcoalDefaultOverlayButtonStyle: ButtonStyle {
-    let isEnabled: Bool
+    @Environment(\.isEnabled) var isEnabled
     let size: CharcoalButtonSize
     let isFixed: Bool
 
@@ -70,16 +53,11 @@ struct CharcoalDefaultOverlayButtonStyle: ButtonStyle {
 
 // swiftlint:disable type_name
 struct CharcoalDefaultOverlayButtonStyleModifier: ViewModifier {
-    @Environment(\.isEnabled) var isEnabled
     let size: CharcoalButtonSize
     let isFixed: Bool
 
     func body(content: Content) -> some View {
-        if #available(iOS 15, *) {
-            content.buttonStyle(CharcoalDefaultOverlayButtonStyleIos15(size: size, isFixed: isFixed))
-        } else {
-            content.buttonStyle(CharcoalDefaultOverlayButtonStyle(isEnabled: isEnabled, size: size, isFixed: isFixed))
-        }
+        content.buttonStyle(CharcoalDefaultOverlayButtonStyle(size: size, isFixed: isFixed))
     }
 }
 

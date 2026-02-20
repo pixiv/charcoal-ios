@@ -41,21 +41,12 @@ public class CharcoalDefaultMButton: UIButton, CharcoalButton {
     }
 
     private func setupStyle() {
-        if #available(iOS 15, *) {
-            configuration = generateUIButtonConfiguration(
-                textColor: CharcoalAsset.ColorPaletteGenerated.text2.color,
-                enabledBackgroundColor: CharcoalAsset.ColorPaletteGenerated.surface3.color,
-                pressedOverlayColor: CharcoalAsset.ColorPaletteGenerated.surface10.color,
-                size: .medium
-            )
-        } else {
-            setupButtonStyle(
-                textColor: CharcoalAsset.ColorPaletteGenerated.text2.color,
-                enabledBackgroundColor: CharcoalAsset.ColorPaletteGenerated.surface3.color,
-                pressedOverlayColor: CharcoalAsset.ColorPaletteGenerated.surface10.color,
-                size: .medium
-            )
-        }
+        configuration = generateUIButtonConfiguration(
+            textColor: CharcoalAsset.ColorPaletteGenerated.text2.color,
+            enabledBackgroundColor: CharcoalAsset.ColorPaletteGenerated.surface3.color,
+            pressedOverlayColor: CharcoalAsset.ColorPaletteGenerated.surface10.color,
+            size: .medium
+        )
 
         isPointerInteractionEnabled = true
 

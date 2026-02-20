@@ -28,32 +28,15 @@ struct CharcoalDefaultButtonStyleView: View {
             .opacity(isEnabled ? 1.0 : 0.32)
             .overlay(
                 Rectangle()
-                    .backport.foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
+                    .foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
             )
             .clipShape(.charcoalCapsule)
             .hoverEffect(.lift)
     }
 }
 
-@available(iOS 15, *)
-struct CharcoalDefaultButtonStyleIos15: ButtonStyle {
-    @Environment(\.isEnabled) var isEnabled
-    let size: CharcoalButtonSize
-    let isFixed: Bool
-
-    func makeBody(configuration: Self.Configuration) -> some View {
-        CharcoalDefaultButtonStyleView(
-            label: configuration.label,
-            isPressed: configuration.isPressed,
-            isEnabled: isEnabled,
-            size: size,
-            isFixed: isFixed
-        )
-    }
-}
-
 struct CharcoalDefaultButtonStyle: ButtonStyle {
-    let isEnabled: Bool
+    @Environment(\.isEnabled) var isEnabled
     let size: CharcoalButtonSize
     let isFixed: Bool
 
@@ -69,16 +52,11 @@ struct CharcoalDefaultButtonStyle: ButtonStyle {
 }
 
 struct CharcoalDefaultButtonStyleModifier: ViewModifier {
-    @Environment(\.isEnabled) var isEnabled
     let size: CharcoalButtonSize
     let isFixed: Bool
 
     func body(content: Content) -> some View {
-        if #available(iOS 15, *) {
-            content.buttonStyle(CharcoalDefaultButtonStyleIos15(size: size, isFixed: isFixed))
-        } else {
-            content.buttonStyle(CharcoalDefaultButtonStyle(isEnabled: isEnabled, size: size, isFixed: isFixed))
-        }
+        content.buttonStyle(CharcoalDefaultButtonStyle(size: size, isFixed: isFixed))
     }
 }
 

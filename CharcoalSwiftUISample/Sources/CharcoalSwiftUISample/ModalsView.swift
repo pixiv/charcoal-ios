@@ -39,11 +39,7 @@ public struct ModalsView: View {
                         .charcoalTypography16Regular()
                         .frame(maxWidth: .infinity)
 
-                    if #available(iOS 15, *) {
-                        TextField("Simple text field", text: $text1).charcoalTextField()
-                    } else {
-                        TextField("Simple text field", text: $text1)
-                    }
+                    TextField("Simple text field", text: $text1).charcoalTextField()
                 }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             }
             // BottomSheet
@@ -75,11 +71,7 @@ public struct ModalsView: View {
                         .charcoalTypography16Regular()
                         .frame(maxWidth: .infinity)
 
-                    if #available(iOS 15, *) {
-                        TextField("Simple text field", text: $text2).charcoalTextField()
-                    } else {
-                        TextField("Simple text field", text: $text2)
-                    }
+                    TextField("Simple text field", text: $text2).charcoalTextField()
                 }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             }
         }
