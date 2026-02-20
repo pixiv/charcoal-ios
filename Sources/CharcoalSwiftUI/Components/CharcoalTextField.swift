@@ -1,5 +1,14 @@
 import SwiftUI
 
+public enum CharcoalTextFieldStyleToken {
+    case `default`(
+        label: Binding<String> = .constant(""),
+        countLabel: Binding<String> = .constant(""),
+        assistiveText: Binding<String> = .constant(""),
+        hasError: Binding<Bool> = .constant(false)
+    )
+}
+
 struct CharcoalTextFieldStyle: TextFieldStyle {
     @Environment(\.isEnabled) var isEnabled
     @Binding var label: String
@@ -19,25 +28,25 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
         return VStack(alignment: .leading, spacing: 8) {
             if !label.isEmpty {
                 Text(label)
-                    .charcoalTypography14Regular()
-                    .charcoalOnSurfaceText1()
+                    .font(charcoalSize: .the14, weight: .regular)
+                    .foregroundStyle(Color(charcoalColor: .text1))
                     .lineLimit(1)
             }
             HStack(spacing: 10) {
                 configuration
-                    .charcoalTypography14Regular(isSingleLine: true)
+                    .font(charcoalSize: .the14, weight: .regular, isSingleLine: true)
                     .focused($isFocused)
                     .frame(maxWidth: .infinity)
-                    .charcoalOnSurfaceText2()
+                    .foregroundStyle(Color(charcoalColor: .text2))
                 if !countLabel.isEmpty {
                     Text(countLabel)
-                        .charcoalTypography14Regular(isSingleLine: true)
+                        .font(charcoalSize: .the14, weight: .regular, isSingleLine: true)
                         // swiftlint:disable line_length
                         .foregroundStyle(Color(charcoalColor: hasError ? .assertive : .text3))
                 }
             }
             .padding(EdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8))
-            .charcoalSurface3()
+            .background(charcoalColor: .surface3)
             .cornerRadius(4.0)
             .overlay(
                 RoundedRectangle(cornerRadius: 8.0)
@@ -45,7 +54,7 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
             )
             if !assistiveText.isEmpty {
                 Text(assistiveText)
-                    .charcoalTypography14Regular()
+                    .font(charcoalSize: .the14, weight: .regular)
                     .foregroundStyle(Color(charcoalColor: hasError ? .assertive : .text2))
             }
         }
@@ -70,13 +79,26 @@ struct CharcoalTextFieldStyleModifier: ViewModifier {
 }
 
 public extension View {
+    func textFieldStyle(charcoalStyle: CharcoalTextFieldStyleToken) -> some View {
+        switch charcoalStyle {
+        case let .default(label, countLabel, assistiveText, hasError):
+            modifier(CharcoalTextFieldStyleModifier(
+                label: label,
+                countLabel: countLabel,
+                assistiveText: assistiveText,
+                hasError: hasError
+            ))
+        }
+    }
+
+    @available(*, deprecated, message: "Use textFieldStyle(charcoalStyle:) instead.")
     func charcoalTextField(
         label: Binding<String> = .constant(""),
         countLabel: Binding<String> = .constant(""),
         assistiveText: Binding<String> = .constant(""),
         hasError: Binding<Bool> = .constant(false)
     ) -> some View {
-        return modifier(CharcoalTextFieldStyleModifier(
+        textFieldStyle(charcoalStyle: .default(
             label: label,
             countLabel: countLabel,
             assistiveText: assistiveText,
@@ -93,9 +115,9 @@ public extension View {
 
         VStack(spacing: 16) {
             TextField("Simple text field", text: $text1)
-                .charcoalTextField()
+                .textFieldStyle(charcoalStyle: .default())
             TextField("Placeholder", text: $text2)
-                .charcoalTextField(
+                .textFieldStyle(charcoalStyle: .default(
                     label: .constant("Label"),
                     countLabel: .init(
                         get: { "\(text2.count)/10" },
@@ -109,14 +131,14 @@ public extension View {
                         get: { text2.count > 10 },
                         set: { _ in }
                     )
-                )
+                ))
             TextField("", text: .constant("Text"))
                 .disabled(true)
-                .charcoalTextField(
+                .textFieldStyle(charcoalStyle: .default(
                     label: .constant("Label"),
                     countLabel: .constant("0/10"),
                     assistiveText: .constant("Assistive text")
-                )
+                ))
         }.padding()
     }
 #endif

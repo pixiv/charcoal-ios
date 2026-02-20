@@ -9,12 +9,12 @@ struct SelectionsView: View {
                 Toggle(isOn: $isOn) {
                     Text("Toggle(\(isOn ? "On" : "Off"))")
                 }
-                .charcoalToggle()
+                .toggleStyle(charcoalStyle: .default)
                 Toggle(isOn: $isOn) {
                     Text("Toggle Disabled(\(isOn ? "On" : "Off"))")
                 }
                 .disabled(true)
-                .charcoalToggle()
+                .toggleStyle(charcoalStyle: .default)
             }
             .padding(16)
             .frame(maxWidth: .infinity)

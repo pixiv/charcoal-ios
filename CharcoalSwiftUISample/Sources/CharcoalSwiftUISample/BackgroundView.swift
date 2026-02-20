@@ -11,7 +11,7 @@ struct BackgroundView: View {
                     Text("Ignores SafeArea Edges")
                 }
                 .padding()
-                .charcoalToggle()
+                .toggleStyle(charcoalStyle: .default)
             }
         }
         .navigationBarTitle("Background")

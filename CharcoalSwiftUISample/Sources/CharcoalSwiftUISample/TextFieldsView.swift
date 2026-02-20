@@ -8,9 +8,9 @@ struct TextFieldsView: View {
         ScrollView {
             VStack(spacing: 16) {
                 TextField("Simple text field", text: $text1)
-                    .charcoalTextField()
+                    .textFieldStyle(charcoalStyle: .default())
                 TextField("Placeholder", text: $text2)
-                    .charcoalTextField(
+                    .textFieldStyle(charcoalStyle: .default(
                         label: .constant("Label"),
                         countLabel: .init(
                             get: { "\(text2.count)/10" },
@@ -24,14 +24,14 @@ struct TextFieldsView: View {
                             get: { text2.count > 10 },
                             set: { _ in }
                         )
-                    )
+                    ))
                 TextField("", text: .constant("Text"))
                     .disabled(true)
-                    .charcoalTextField(
+                    .textFieldStyle(charcoalStyle: .default(
                         label: .constant("Label"),
                         countLabel: .constant("0/10"),
                         assistiveText: .constant("Assistive text")
-                    )
+                    ))
             }
             .padding(16)
             .frame(maxWidth: .infinity)

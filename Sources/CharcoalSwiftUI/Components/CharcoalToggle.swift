@@ -1,5 +1,9 @@
 import SwiftUI
 
+public enum CharcoalToggleStyleToken {
+    case `default`
+}
+
 struct CharcoalToggleWrapper: UIViewRepresentable {
     @Binding var isOn: Bool
 
@@ -46,8 +50,8 @@ struct CharcoalToggleStyle: ToggleStyle {
         HStack {
             HStack {
                 configuration.label
-                    .charcoalTypography14Regular()
-                    .charcoalOnSurfaceText1()
+                    .font(charcoalSize: .the14, weight: .regular)
+                    .foregroundStyle(Color(charcoalColor: .text1))
                 Spacer()
             }
             .contentShape(Rectangle())
@@ -68,7 +72,15 @@ struct CharcoalToggleStyleModifier: ViewModifier {
 }
 
 public extension View {
+    func toggleStyle(charcoalStyle: CharcoalToggleStyleToken) -> some View {
+        switch charcoalStyle {
+        case .default:
+            toggleStyle(CharcoalToggleStyle())
+        }
+    }
+
+    @available(*, deprecated, message: "Use toggleStyle(charcoalStyle:) instead.")
     func charcoalToggle() -> some View {
-        return modifier(CharcoalToggleStyleModifier())
+        return toggleStyle(charcoalStyle: .default)
     }
 }
