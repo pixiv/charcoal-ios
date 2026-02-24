@@ -48,7 +48,7 @@ jobs:
           rm -rf icons
 
       - name: Cache SwiftPM for BuildTools
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             BuildTools/.build
