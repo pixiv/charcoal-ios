@@ -55,17 +55,6 @@ struct CharcoalPrimaryButtonStyle: ButtonStyle {
     }
 }
 
-struct CharcoalPrimaryButtonStyleModifier: ViewModifier {
-    let size: CharcoalButtonSize
-    let isFixed: Bool
-    let primaryColor: Color
-
-    func body(content: Content) -> some View {
-        // swiftlint:disable line_length
-        content.buttonStyle(CharcoalPrimaryButtonStyle(size: size, isFixed: isFixed, primaryColor: primaryColor))
-    }
-}
-
 public extension View {
     /// Set the style of the button to Charcoal's primary button style.
     ///

@@ -57,15 +57,6 @@ struct CharcoalNavigationButtonStyle: ButtonStyle {
     }
 }
 
-struct CharcoalNavigationButtonStyleModifier: ViewModifier {
-    let size: CharcoalButtonSize
-    let isFixed: Bool
-
-    func body(content: Content) -> some View {
-        content.buttonStyle(CharcoalNavigationButtonStyle(size: size, isFixed: isFixed))
-    }
-}
-
 public extension View {
     /// Set the style of the button to Charcoal's navigation button
     ///

@@ -1,7 +1,5 @@
 import SwiftUI
 
-public protocol CharcoalButtonModifier: ViewModifier {}
-
 public enum CharcoalButtonStyle: ButtonStyle {
     case primary(CharcoalConfiguration)
     case `default`
@@ -78,19 +76,5 @@ public extension ButtonStyle where Self == CharcoalButtonStyle {
 
     static var charcoalLink: Self {
         .link
-    }
-}
-
-extension View {
-    @available(*, deprecated, message: "Use buttonStyle(_:) with CharcoalButtonStyle instead.")
-    func charcoalButtonStyle(_ style: CharcoalButtonStyle) -> some View {
-        buttonStyle(style)
-    }
-}
-
-public extension View {
-    @available(*, deprecated, message: "Use buttonStyle(_:) with CharcoalButtonStyle instead.")
-    func buttonStyle(charcoalStyle: CharcoalButtonStyle) -> some View {
-        buttonStyle(charcoalStyle)
     }
 }

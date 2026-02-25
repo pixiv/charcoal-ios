@@ -51,15 +51,6 @@ struct CharcoalDefaultButtonStyle: ButtonStyle {
     }
 }
 
-struct CharcoalDefaultButtonStyleModifier: ViewModifier {
-    let size: CharcoalButtonSize
-    let isFixed: Bool
-
-    func body(content: Content) -> some View {
-        content.buttonStyle(CharcoalDefaultButtonStyle(size: size, isFixed: isFixed))
-    }
-}
-
 public extension View {
     /// Set the style of the button to Charcoal's default button style.
     ///

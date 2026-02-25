@@ -82,15 +82,7 @@ public extension ToggleStyle where Self == CharcoalToggleStyle {
 
 public extension View {
     @available(*, deprecated, message: "Use toggleStyle(_:) with CharcoalToggleStyle instead.")
-    func toggleStyle(charcoalStyle: CharcoalToggleStyle) -> some View {
-        toggleStyle(charcoalStyle)
-    }
-
-    @available(*, deprecated, message: "Use toggleStyle(_:) with CharcoalToggleStyle instead.")
     func charcoalToggle() -> some View {
         return toggleStyle(.charcoalDefault)
     }
 }
-
-@available(*, deprecated, renamed: "CharcoalToggleStyle")
-public typealias CharcoalToggleStyleToken = CharcoalToggleStyle

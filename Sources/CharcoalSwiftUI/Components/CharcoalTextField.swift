@@ -99,11 +99,6 @@ public extension TextFieldStyle where Self == CharcoalTextFieldStyle {
 
 public extension View {
     @available(*, deprecated, message: "Use textFieldStyle(_:) with CharcoalTextFieldStyle instead.")
-    func textFieldStyle(charcoalStyle: CharcoalTextFieldStyle) -> some View {
-        textFieldStyle(charcoalStyle)
-    }
-
-    @available(*, deprecated, message: "Use textFieldStyle(_:) with CharcoalTextFieldStyle instead.")
     func charcoalTextField(
         label: Binding<String> = .constant(""),
         countLabel: Binding<String> = .constant(""),
@@ -118,9 +113,6 @@ public extension View {
         ))
     }
 }
-
-@available(*, deprecated, renamed: "CharcoalTextFieldStyle")
-public typealias CharcoalTextFieldStyleToken = CharcoalTextFieldStyle
 
 #if compiler(>=6.0)
     @available(iOS 17, *)
