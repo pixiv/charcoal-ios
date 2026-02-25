@@ -1,4 +1,5 @@
 import SwiftUI
+import CharcoalSwiftUI
 
 struct ButtonsView: View {
     var body: some View {
@@ -6,70 +7,70 @@ struct ButtonsView: View {
             VStack(spacing: 16) {
                 VStack(spacing: 8) {
                     Button("Primary Button M") {}
-                        .buttonStyle(charcoalStyle: .primary(.init(size: .medium)))
+                        .buttonStyle(.charcoalPrimary(.init(size: .medium)))
                     Button("Primary Button M") {}
-                        .buttonStyle(charcoalStyle: .primary(.init(size: .medium)))
+                        .buttonStyle(.charcoalPrimary(.init(size: .medium)))
                         .disabled(true)
                     Button("Primary Button S") {}
-                        .buttonStyle(charcoalStyle: .primary(.init(size: .small)))
+                        .buttonStyle(.charcoalPrimary(.init(size: .small)))
                     Button("Primary Button S") {}
-                        .buttonStyle(charcoalStyle: .primary(.init(size: .small)))
+                        .buttonStyle(.charcoalPrimary(.init(size: .small)))
                         .disabled(true)
                 }
 
                 VStack(spacing: 8) {
                     Button("Default Button M") {}
-                        .buttonStyle(charcoalStyle: .defaultButton(.init(size: .medium)))
+                        .buttonStyle(.charcoalDefault(.init(size: .medium)))
                     Button("Default Button M") {}
-                        .buttonStyle(charcoalStyle: .defaultButton(.init(size: .medium)))
+                        .buttonStyle(.charcoalDefault(.init(size: .medium)))
                         .disabled(true)
                     Button("Default Button S") {}
-                        .buttonStyle(charcoalStyle: .defaultButton(.init(size: .small)))
+                        .buttonStyle(.charcoalDefault(.init(size: .small)))
                     Button("Default Button S") {}
-                        .buttonStyle(charcoalStyle: .defaultButton(.init(size: .small)))
+                        .buttonStyle(.charcoalDefault(.init(size: .small)))
                         .disabled(true)
                 }
 
                 VStack(spacing: 8) {
                     Button("Default Overlay Button M") {}
-                        .buttonStyle(charcoalStyle: .defaultOverlay(.init(size: .medium)))
+                        .buttonStyle(.charcoalDefaultOverlay(.init(size: .medium)))
                     Button("Default Overlay Button M") {}
-                        .buttonStyle(charcoalStyle: .defaultOverlay(.init(size: .medium)))
+                        .buttonStyle(.charcoalDefaultOverlay(.init(size: .medium)))
                         .disabled(true)
                     Button("Default Overlay Button S") {}
-                        .buttonStyle(charcoalStyle: .defaultOverlay(.init(size: .small)))
+                        .buttonStyle(.charcoalDefaultOverlay(.init(size: .small)))
                     Button("Default Overlay Button S") {}
-                        .buttonStyle(charcoalStyle: .defaultOverlay(.init(size: .small)))
+                        .buttonStyle(.charcoalDefaultOverlay(.init(size: .small)))
                         .disabled(true)
                 }
 
                 VStack(spacing: 8) {
                     Button("Navigation M") {}
-                        .buttonStyle(charcoalStyle: .navigation(.init(size: .medium)))
+                        .buttonStyle(.charcoalNavigation(.init(size: .medium)))
                     Button("Navigation M") {}
-                        .buttonStyle(charcoalStyle: .navigation(.init(size: .medium)))
+                        .buttonStyle(.charcoalNavigation(.init(size: .medium)))
                         .disabled(true)
                     Button("Navigation S") {}
-                        .buttonStyle(charcoalStyle: .navigation(.init(size: .small)))
+                        .buttonStyle(.charcoalNavigation(.init(size: .small)))
                     Button("Navigation S") {}
-                        .buttonStyle(charcoalStyle: .navigation(.init(size: .small)))
+                        .buttonStyle(.charcoalNavigation(.init(size: .small)))
                         .disabled(true)
                 }
 
                 VStack(spacing: 8) {
                     Button("Link") {}
-                        .buttonStyle(charcoalStyle: .link)
+                        .buttonStyle(.charcoalLink)
                     Button("Link") {}
-                        .buttonStyle(charcoalStyle: .link)
+                        .buttonStyle(.charcoalLink)
                         .disabled(true)
                 }
 
                 let premiumColor = Color(hue: 0.097, saturation: 0.91, brightness: 0.99)
                 VStack(spacing: 8) {
                     Button("Premium") {}
-                        .buttonStyle(charcoalStyle: .primary(.init(primaryColor: premiumColor)))
+                        .buttonStyle(.charcoalPrimary(.init(primaryColor: premiumColor)))
                     Button("Premium") {}
-                        .buttonStyle(charcoalStyle: .primary(.init(primaryColor: premiumColor)))
+                        .buttonStyle(.charcoalPrimary(.init(primaryColor: premiumColor)))
                         .disabled(true)
                 }
             }

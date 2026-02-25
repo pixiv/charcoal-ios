@@ -1,4 +1,5 @@
 import SwiftUI
+import CharcoalSwiftUI
 
 struct TextFieldsView: View {
     @State var text1: String = ""
@@ -8,9 +9,9 @@ struct TextFieldsView: View {
         ScrollView {
             VStack(spacing: 16) {
                 TextField("Simple text field", text: $text1)
-                    .textFieldStyle(charcoalStyle: .default())
+                    .textFieldStyle(.charcoalDefault)
                 TextField("Placeholder", text: $text2)
-                    .textFieldStyle(charcoalStyle: .default(
+                    .textFieldStyle(.charcoalDefault(
                         label: .constant("Label"),
                         countLabel: .init(
                             get: { "\(text2.count)/10" },
@@ -27,7 +28,7 @@ struct TextFieldsView: View {
                     ))
                 TextField("", text: .constant("Text"))
                     .disabled(true)
-                    .textFieldStyle(charcoalStyle: .default(
+                    .textFieldStyle(.charcoalDefault(
                         label: .constant("Label"),
                         countLabel: .constant("0/10"),
                         assistiveText: .constant("Assistive text")

@@ -1,4 +1,5 @@
 import SwiftUI
+import CharcoalSwiftUI
 
 struct SelectionsView: View {
     @State var isOn: Bool = false
@@ -9,12 +10,12 @@ struct SelectionsView: View {
                 Toggle(isOn: $isOn) {
                     Text("Toggle(\(isOn ? "On" : "Off"))")
                 }
-                .toggleStyle(charcoalStyle: .default)
+                .toggleStyle(.charcoalDefault)
                 Toggle(isOn: $isOn) {
                     Text("Toggle Disabled(\(isOn ? "On" : "Off"))")
                 }
                 .disabled(true)
-                .toggleStyle(charcoalStyle: .default)
+                .toggleStyle(.charcoalDefault)
             }
             .padding(16)
             .frame(maxWidth: .infinity)

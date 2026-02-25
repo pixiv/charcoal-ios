@@ -2,7 +2,7 @@
 
 ## 概要
 
-`charcoal-ios` のSwiftUI向けAPIを、SwiftUIのAPIに近い形に整理しました。従来の `charcoal...` 形式は互換のためにDepreacatedで残しつつ、段階的に新APIへ移行できます。
+`charcoal-ios` のSwiftUI向けAPIを、SwiftUIのAPIに近い形に整理しました。従来の `charcoal...` 形式と `xxStyle(charcoalStyle:)` 形式は互換のためにDeprecatedで残しつつ、段階的に新APIへ移行できます。
 
 ---
 
@@ -15,9 +15,9 @@
 
 ## 追加・整理したAPI
 
-- `buttonStyle(charcoalStyle:)`
-- `textFieldStyle(charcoalStyle:)`
-- `toggleStyle(charcoalStyle:)`
+- `buttonStyle(_ style: CharcoalButtonStyle)`
+- `textFieldStyle(_ style: CharcoalTextFieldStyle)`
+- `toggleStyle(_ style: CharcoalToggleStyle)`
 - `font(charcoalSize:weight:mono:isSingleLine:textStyle:)`
 - `Color(charcoalColor:)`
 - `UIColor(charcoalColor:)`
@@ -36,7 +36,7 @@ Button("OK") { ... }
 
 // After
 Button("OK") { ... }
-    .buttonStyle(charcoalStyle: .primary(.init(size: .medium, isFixed: false)))
+    .buttonStyle(.charcoalPrimary(.init(size: .medium, isFixed: false)))
 ```
 
 ### TextField
@@ -52,7 +52,7 @@ TextField("Placeholder", text: $text)
 
 // After
 TextField("Placeholder", text: $text)
-    .textFieldStyle(charcoalStyle: .default(
+    .textFieldStyle(.charcoalDefault(
         label: .constant("Label"),
         countLabel: .constant("0/10"),
         assistiveText: .constant("Assistive text")
@@ -68,7 +68,7 @@ Toggle("Enabled", isOn: $isOn)
 
 // After
 Toggle("Enabled", isOn: $isOn)
-    .toggleStyle(charcoalStyle: .default)
+    .toggleStyle(.charcoalDefault)
 ```
 
 ### Typography

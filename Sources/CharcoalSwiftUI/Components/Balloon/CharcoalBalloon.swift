@@ -307,7 +307,7 @@ private struct BalloonsPreviewView: View {
                     } label: {
                         Text("Help")
                     }
-                    .buttonStyle(charcoalStyle: .defaultButton(.init()))
+                    .buttonStyle(.charcoalDefault())
                     .charcoalBalloon(isPresenting: $isPresenting2, text: "作品中の特定単語について、単語変換をして読めるようになりました") {
                         Button(action: {}, label: {
                             Text("詳しく")
@@ -321,7 +321,7 @@ private struct BalloonsPreviewView: View {
                     } label: {
                         Text("Right")
                     }
-                    .buttonStyle(charcoalStyle: .primary(.init(size: .medium)))
+                    .buttonStyle(.charcoalPrimary(.init(size: .medium)))
                     .charcoalBalloon(isPresenting: $isPresenting3, text: "here is testing it's multiple line feature")
                     .offset(CGSize(width: geometry.size.width - 100, height: 100.0))
 
@@ -338,7 +338,7 @@ private struct BalloonsPreviewView: View {
                     } label: {
                         Text("Bottom")
                     }
-                    .buttonStyle(charcoalStyle: .primary(.init(size: .medium)))
+                    .buttonStyle(.charcoalPrimary(.init(size: .medium)))
                     .charcoalBalloon(
                         isPresenting: $isPresenting5,
                         text: "Hello World This is a tooltip and here is testing it's multiple line feature",

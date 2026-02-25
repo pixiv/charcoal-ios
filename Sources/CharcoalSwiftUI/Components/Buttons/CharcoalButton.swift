@@ -2,35 +2,39 @@ import SwiftUI
 
 public protocol CharcoalButtonModifier: ViewModifier {}
 
-public enum CharcoalButtonStyle {
-    case primary(Configuration)
+public enum CharcoalButtonStyle: ButtonStyle {
+    case primary(CharcoalConfiguration)
     case `default`
-    case defaultButton(Configuration)
-    case defaultOverlay(Configuration)
-    case navigation(Configuration)
+    case defaultButton(CharcoalConfiguration)
+    case defaultOverlay(CharcoalConfiguration)
+    case navigation(CharcoalConfiguration)
     case link
 
     @ViewBuilder
-    func apply<Content: View>(_ content: Content) -> some View {
+    public func makeBody(configuration: ButtonStyleConfiguration) -> some View {
         switch self {
-        case let .primary(configuration):
-            content.buttonStyle(CharcoalPrimaryButtonStyle(size: configuration.size, isFixed: configuration.isFixed, primaryColor: configuration.primaryColor))
+        case let .primary(styleConfiguration):
+            CharcoalPrimaryButtonStyle(
+                size: styleConfiguration.size,
+                isFixed: styleConfiguration.isFixed,
+                primaryColor: styleConfiguration.primaryColor
+            ).makeBody(configuration: configuration)
         case .default:
-            content.buttonStyle(CharcoalDefaultButtonStyle(size: .medium, isFixed: true))
-        case let .defaultButton(configuration):
-            content.buttonStyle(CharcoalDefaultButtonStyle(size: configuration.size, isFixed: configuration.isFixed))
-        case let .defaultOverlay(configuration):
-            content.buttonStyle(CharcoalDefaultOverlayButtonStyle(size: configuration.size, isFixed: configuration.isFixed))
-        case let .navigation(configuration):
-            content.buttonStyle(CharcoalNavigationButtonStyle(size: configuration.size, isFixed: configuration.isFixed))
+            CharcoalDefaultButtonStyle(size: .medium, isFixed: true).makeBody(configuration: configuration)
+        case let .defaultButton(styleConfiguration):
+            CharcoalDefaultButtonStyle(size: styleConfiguration.size, isFixed: styleConfiguration.isFixed).makeBody(configuration: configuration)
+        case let .defaultOverlay(styleConfiguration):
+            CharcoalDefaultOverlayButtonStyle(size: styleConfiguration.size, isFixed: styleConfiguration.isFixed).makeBody(configuration: configuration)
+        case let .navigation(styleConfiguration):
+            CharcoalNavigationButtonStyle(size: styleConfiguration.size, isFixed: styleConfiguration.isFixed).makeBody(configuration: configuration)
         case .link:
-            content.buttonStyle(CharcoalLinkButtonStyle())
+            CharcoalLinkButtonStyle().makeBody(configuration: configuration)
         }
     }
 }
 
 public extension CharcoalButtonStyle {
-    struct Configuration {
+    struct CharcoalConfiguration {
         public var size: CharcoalButtonSize
         public var isFixed: Bool
         public var primaryColor: Color
@@ -45,17 +49,48 @@ public extension CharcoalButtonStyle {
             self.primaryColor = primaryColor
         }
     }
+
+    @available(*, deprecated, renamed: "CharcoalButtonStyle.CharcoalConfiguration")
+    typealias Configuration = CharcoalConfiguration
+}
+
+public extension ButtonStyle where Self == CharcoalButtonStyle {
+    static func charcoalPrimary(_ configuration: CharcoalButtonStyle.CharcoalConfiguration = .init()) -> Self {
+        .primary(configuration)
+    }
+
+    static func charcoalDefault(_ configuration: CharcoalButtonStyle.CharcoalConfiguration = .init()) -> Self {
+        .defaultButton(configuration)
+    }
+
+    @available(*, deprecated, message: "Use charcoalDefault(_:) instead.")
+    static func charcoalDefaultButton(_ configuration: CharcoalButtonStyle.CharcoalConfiguration = .init()) -> Self {
+        .charcoalDefault(configuration)
+    }
+
+    static func charcoalDefaultOverlay(_ configuration: CharcoalButtonStyle.CharcoalConfiguration = .init()) -> Self {
+        .defaultOverlay(configuration)
+    }
+
+    static func charcoalNavigation(_ configuration: CharcoalButtonStyle.CharcoalConfiguration = .init()) -> Self {
+        .navigation(configuration)
+    }
+
+    static var charcoalLink: Self {
+        .link
+    }
 }
 
 extension View {
-    @available(*, deprecated, message: "Use buttonStyle(charcoalStyle:) instead.")
+    @available(*, deprecated, message: "Use buttonStyle(_:) with CharcoalButtonStyle instead.")
     func charcoalButtonStyle(_ style: CharcoalButtonStyle) -> some View {
-        style.apply(self)
+        buttonStyle(style)
     }
 }
 
 public extension View {
+    @available(*, deprecated, message: "Use buttonStyle(_:) with CharcoalButtonStyle instead.")
     func buttonStyle(charcoalStyle: CharcoalButtonStyle) -> some View {
-        charcoalStyle.apply(self)
+        buttonStyle(charcoalStyle)
     }
 }

@@ -29,7 +29,7 @@ Charcoal Modals are designed to show a message in a modal container.
             isPresented = false
         }, label: {
             Text("Dismiss").frame(maxWidth: .infinity)
-        }).charcoalDefaultButton(size: .medium)
+        }).charcoalDefault(size: .medium)
     }
 ) {
    Text("Hello This is a center dialog from Charcoal")

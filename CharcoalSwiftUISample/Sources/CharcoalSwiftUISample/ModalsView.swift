@@ -25,13 +25,13 @@ public struct ModalsView: View {
                         isPresented = false
                     }, label: {
                         Text("OK")
-                    }).buttonStyle(charcoalStyle: .primary(.init(size: .medium, isFixed: false)))
+                    }).buttonStyle(.charcoalPrimary(.init(size: .medium, isFixed: false)))
 
                     Button(action: {
                         isPresented = false
                     }, label: {
                         Text("Dismiss")
-                    }).buttonStyle(charcoalStyle: .defaultButton(.init(size: .medium, isFixed: false)))
+                    }).buttonStyle(.charcoalDefault(.init(size: .medium, isFixed: false)))
                 }
             ) {
                 VStack {
@@ -39,7 +39,7 @@ public struct ModalsView: View {
                         .font(charcoalSize: .the16, weight: .regular)
                         .frame(maxWidth: .infinity)
 
-                    TextField("Simple text field", text: $text1).textFieldStyle(charcoalStyle: .default())
+                    TextField("Simple text field", text: $text1).textFieldStyle(.charcoalDefault)
                 }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             }
             // BottomSheet
@@ -57,13 +57,13 @@ public struct ModalsView: View {
                         isBottomPresented = false
                     }, label: {
                         Text("OK")
-                    }).buttonStyle(charcoalStyle: .primary(.init(size: .medium, isFixed: false)))
+                    }).buttonStyle(.charcoalPrimary(.init(size: .medium, isFixed: false)))
 
                     Button(action: {
                         isBottomPresented = false
                     }, label: {
                         Text("Dismiss")
-                    }).buttonStyle(charcoalStyle: .defaultButton(.init(size: .medium, isFixed: false)))
+                    }).buttonStyle(.charcoalDefault(.init(size: .medium, isFixed: false)))
                 }
             ) {
                 VStack {
@@ -71,7 +71,7 @@ public struct ModalsView: View {
                         .font(charcoalSize: .the16, weight: .regular)
                         .frame(maxWidth: .infinity)
 
-                    TextField("Simple text field", text: $text2).textFieldStyle(charcoalStyle: .default())
+                    TextField("Simple text field", text: $text2).textFieldStyle(.charcoalDefault)
                 }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             }
         }

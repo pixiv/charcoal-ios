@@ -205,13 +205,13 @@ public extension View {
                  isPresented = false
              }, label: {
                  Text("OK").frame(maxWidth: .infinity)
-             }).buttonStyle(charcoalStyle: .primary(.init(size: .medium)))
+             }).buttonStyle(.charcoalPrimary(.init(size: .medium)))
 
              Button(action: {
                  isPresented = false
              }, label: {
                  Text("Dismiss").frame(maxWidth: .infinity)
-             }).buttonStyle(charcoalStyle: .defaultButton(.init(size: .medium)))
+             }).buttonStyle(.charcoalDefault(.init(size: .medium)))
          }
      ) {
         Text("Hello This is a center dialog from Charcoal")
@@ -262,13 +262,13 @@ public extension View {
                         isPresented = false
                     }, label: {
                         Text("OK").frame(maxWidth: .infinity)
-                    }).buttonStyle(charcoalStyle: .primary(.init(size: .medium)))
+                    }).buttonStyle(.charcoalPrimary(.init(size: .medium)))
 
                     Button(action: {
                         isPresented = false
                     }, label: {
                         Text("Dismiss").frame(maxWidth: .infinity)
-                    }).buttonStyle(charcoalStyle: .defaultButton(.init(size: .medium)))
+                    }).buttonStyle(.charcoalDefault(.init(size: .medium)))
                 }
             ) {
                 VStack(spacing: 10) {
@@ -276,7 +276,7 @@ public extension View {
                         .font(charcoalSize: .the16, weight: .regular)
                         .frame(maxWidth: .infinity)
 
-                    TextField("Simple text field", text: $text1).textFieldStyle(charcoalStyle: .default())
+                    TextField("Simple text field", text: $text1).textFieldStyle(.charcoalDefault)
                 }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             }
         }

@@ -1,6 +1,6 @@
 import SwiftUI
 
-public enum CharcoalTextFieldStyleToken {
+public enum CharcoalTextFieldStyle {
     case `default`(
         label: Binding<String> = .constant(""),
         countLabel: Binding<String> = .constant(""),
@@ -9,7 +9,7 @@ public enum CharcoalTextFieldStyleToken {
     )
 }
 
-struct CharcoalTextFieldStyle: TextFieldStyle {
+private struct CharcoalDefaultTextFieldStyle: TextFieldStyle {
     @Environment(\.isEnabled) var isEnabled
     @Binding var label: String
     @Binding var countLabel: String
@@ -62,43 +62,55 @@ struct CharcoalTextFieldStyle: TextFieldStyle {
     }
 }
 
-struct CharcoalTextFieldStyleModifier: ViewModifier {
-    @Binding var label: String
-    @Binding var countLabel: String
-    @Binding var assistiveText: String
-    @Binding var hasError: Bool
-
-    func body(content: Content) -> some View {
-        return content.textFieldStyle(CharcoalTextFieldStyle(
-            label: $label,
-            countLabel: $countLabel,
-            assistiveText: $assistiveText,
-            hasError: $hasError
-        ))
-    }
-}
-
-public extension View {
-    func textFieldStyle(charcoalStyle: CharcoalTextFieldStyleToken) -> some View {
-        switch charcoalStyle {
+extension CharcoalTextFieldStyle: TextFieldStyle {
+    // swiftlint:disable identifier_name
+    public func _body(configuration: TextField<_Label>) -> some View {
+        switch self {
         case let .default(label, countLabel, assistiveText, hasError):
-            modifier(CharcoalTextFieldStyleModifier(
+            CharcoalDefaultTextFieldStyle(
                 label: label,
                 countLabel: countLabel,
                 assistiveText: assistiveText,
                 hasError: hasError
-            ))
+            )._body(configuration: configuration)
         }
     }
+}
 
-    @available(*, deprecated, message: "Use textFieldStyle(charcoalStyle:) instead.")
+public extension TextFieldStyle where Self == CharcoalTextFieldStyle {
+    static var charcoalDefault: Self {
+        .default()
+    }
+
+    static func charcoalDefault(
+        label: Binding<String> = .constant(""),
+        countLabel: Binding<String> = .constant(""),
+        assistiveText: Binding<String> = .constant(""),
+        hasError: Binding<Bool> = .constant(false)
+    ) -> Self {
+        .default(
+            label: label,
+            countLabel: countLabel,
+            assistiveText: assistiveText,
+            hasError: hasError
+        )
+    }
+}
+
+public extension View {
+    @available(*, deprecated, message: "Use textFieldStyle(_:) with CharcoalTextFieldStyle instead.")
+    func textFieldStyle(charcoalStyle: CharcoalTextFieldStyle) -> some View {
+        textFieldStyle(charcoalStyle)
+    }
+
+    @available(*, deprecated, message: "Use textFieldStyle(_:) with CharcoalTextFieldStyle instead.")
     func charcoalTextField(
         label: Binding<String> = .constant(""),
         countLabel: Binding<String> = .constant(""),
         assistiveText: Binding<String> = .constant(""),
         hasError: Binding<Bool> = .constant(false)
     ) -> some View {
-        textFieldStyle(charcoalStyle: .default(
+        textFieldStyle(.charcoalDefault(
             label: label,
             countLabel: countLabel,
             assistiveText: assistiveText,
@@ -106,6 +118,9 @@ public extension View {
         ))
     }
 }
+
+@available(*, deprecated, renamed: "CharcoalTextFieldStyle")
+public typealias CharcoalTextFieldStyleToken = CharcoalTextFieldStyle
 
 #if compiler(>=6.0)
     @available(iOS 17, *)
@@ -115,9 +130,9 @@ public extension View {
 
         VStack(spacing: 16) {
             TextField("Simple text field", text: $text1)
-                .textFieldStyle(charcoalStyle: .default())
+                .textFieldStyle(.charcoalDefault)
             TextField("Placeholder", text: $text2)
-                .textFieldStyle(charcoalStyle: .default(
+                .textFieldStyle(.charcoalDefault(
                     label: .constant("Label"),
                     countLabel: .init(
                         get: { "\(text2.count)/10" },
@@ -134,7 +149,7 @@ public extension View {
                 ))
             TextField("", text: .constant("Text"))
                 .disabled(true)
-                .textFieldStyle(charcoalStyle: .default(
+                .textFieldStyle(.charcoalDefault(
                     label: .constant("Label"),
                     countLabel: .constant("0/10"),
                     assistiveText: .constant("Assistive text")

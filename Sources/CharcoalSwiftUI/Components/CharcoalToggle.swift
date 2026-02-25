@@ -1,6 +1,6 @@
 import SwiftUI
 
-public enum CharcoalToggleStyleToken {
+public enum CharcoalToggleStyle {
     case `default`
 }
 
@@ -43,7 +43,7 @@ struct CharcoalToggleWrapper: UIViewRepresentable {
 }
 
 // SwiftUIでToggleを自由にカスタマイズするのは難しいのでToggleStyleで書き換え
-struct CharcoalToggleStyle: ToggleStyle {
+private struct CharcoalDefaultToggleStyle: ToggleStyle {
     @Environment(\.isEnabled) var isEnabled
 
     func makeBody(configuration: Self.Configuration) -> some View {
@@ -65,22 +65,32 @@ struct CharcoalToggleStyle: ToggleStyle {
     }
 }
 
-struct CharcoalToggleStyleModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        return content.toggleStyle(CharcoalToggleStyle())
+extension CharcoalToggleStyle: ToggleStyle {
+    public func makeBody(configuration: Self.Configuration) -> some View {
+        switch self {
+        case .default:
+            CharcoalDefaultToggleStyle().makeBody(configuration: configuration)
+        }
+    }
+}
+
+public extension ToggleStyle where Self == CharcoalToggleStyle {
+    static var charcoalDefault: Self {
+        .default
     }
 }
 
 public extension View {
-    func toggleStyle(charcoalStyle: CharcoalToggleStyleToken) -> some View {
-        switch charcoalStyle {
-        case .default:
-            toggleStyle(CharcoalToggleStyle())
-        }
+    @available(*, deprecated, message: "Use toggleStyle(_:) with CharcoalToggleStyle instead.")
+    func toggleStyle(charcoalStyle: CharcoalToggleStyle) -> some View {
+        toggleStyle(charcoalStyle)
     }
 
-    @available(*, deprecated, message: "Use toggleStyle(charcoalStyle:) instead.")
+    @available(*, deprecated, message: "Use toggleStyle(_:) with CharcoalToggleStyle instead.")
     func charcoalToggle() -> some View {
-        return toggleStyle(charcoalStyle: .default)
+        return toggleStyle(.charcoalDefault)
     }
 }
+
+@available(*, deprecated, renamed: "CharcoalToggleStyle")
+public typealias CharcoalToggleStyleToken = CharcoalToggleStyle

@@ -1,4 +1,5 @@
 import SwiftUI
+import CharcoalSwiftUI
 
 struct BackgroundView: View {
     @State var isOn: Bool = false
@@ -11,7 +12,7 @@ struct BackgroundView: View {
                     Text("Ignores SafeArea Edges")
                 }
                 .padding()
-                .toggleStyle(charcoalStyle: .default)
+                .toggleStyle(.charcoalDefault)
             }
         }
         .navigationBarTitle("Background")

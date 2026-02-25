@@ -72,23 +72,23 @@ public extension View {
     /// - Parameters:
     ///   - size: The size of the button
     ///   - isFixed: Whether the button should have a fixed width
-    @available(*, deprecated, message: "Use buttonStyle(charcoalStyle:) instead.")
+    @available(*, deprecated, message: "Use buttonStyle(_:) with CharcoalButtonStyle instead.")
     func charcoalNavigationButton(size: CharcoalButtonSize = .medium, isFixed: Bool = true) -> some View {
-        return buttonStyle(charcoalStyle: .navigation(.init(size: size, isFixed: isFixed, primaryColor: Color(charcoalColor: .brand))))
+        return buttonStyle(.charcoalNavigation(.init(size: size, isFixed: isFixed)))
     }
 }
 
 #Preview {
     VStack(spacing: 8) {
         Button("Navigation M") {}
-            .buttonStyle(charcoalStyle: .navigation(.init(size: .medium, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
+            .buttonStyle(.charcoalNavigation(.init(size: .medium, isFixed: true)))
         Button("Navigation M") {}
-            .buttonStyle(charcoalStyle: .navigation(.init(size: .medium, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
+            .buttonStyle(.charcoalNavigation(.init(size: .medium, isFixed: true)))
             .disabled(true)
         Button("Navigation S") {}
-            .buttonStyle(charcoalStyle: .navigation(.init(size: .small, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
+            .buttonStyle(.charcoalNavigation(.init(size: .small, isFixed: true)))
         Button("Navigation S") {}
-            .buttonStyle(charcoalStyle: .navigation(.init(size: .small, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
+            .buttonStyle(.charcoalNavigation(.init(size: .small, isFixed: true)))
             .disabled(true)
     }
 }

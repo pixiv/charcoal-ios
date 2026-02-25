@@ -19,7 +19,7 @@ charcoal-ios はデフォルトで Dynamic Type をサポートしています�
 
 ```swift
 Button("Default Button M") {}
-    .charcoalDefaultButton(size: .medium)
+    .charcoalDefault(size: .medium)
     .environment(\.sizeCategory, .large)
 ```
 

@@ -38,18 +38,18 @@ struct CharcoalLinkButtonStyleModifier: ViewModifier {
 
 public extension View {
     /// Set the style of the button to Charcoal's link button
-    @available(*, deprecated, message: "Use buttonStyle(charcoalStyle:) instead.")
+    @available(*, deprecated, message: "Use buttonStyle(_:) with CharcoalButtonStyle instead.")
     func charcoalLinkButton() -> some View {
-        return buttonStyle(charcoalStyle: .link)
+        return buttonStyle(.charcoalLink)
     }
 }
 
 #Preview {
     VStack(spacing: 8) {
         Button("Link") {}
-            .buttonStyle(charcoalStyle: .link)
+            .buttonStyle(.charcoalLink)
         Button("Link") {}
-            .buttonStyle(charcoalStyle: .link)
+            .buttonStyle(.charcoalLink)
             .disabled(true)
     }
 }

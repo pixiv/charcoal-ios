@@ -84,7 +84,7 @@ struct CharcoalSnackBar<ActionContent: View>: CharcoalPopupProtocol, CharcoalToa
 
                     if let action = action {
                         action
-                            .buttonStyle(charcoalStyle: .defaultButton(.init(size: .small)))
+                            .buttonStyle(.charcoalDefault(.init(size: .small)))
                     }
                 }
                 .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))

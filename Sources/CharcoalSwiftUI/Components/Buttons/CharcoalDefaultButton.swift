@@ -66,23 +66,23 @@ public extension View {
     /// - Parameters:
     ///   - size: The size of the button.
     ///   - isFixed: A Boolean value that indicates whether the button has a fixed width.
-    @available(*, deprecated, message: "Use buttonStyle(charcoalStyle:) instead.")
+    @available(*, deprecated, message: "Use buttonStyle(_:) with CharcoalButtonStyle instead.")
     func charcoalDefaultButton(size: CharcoalButtonSize = .medium, isFixed: Bool = true) -> some View {
-        return buttonStyle(charcoalStyle: .defaultButton(.init(size: size, isFixed: isFixed, primaryColor: Color(charcoalColor: .brand))))
+        return buttonStyle(.charcoalDefault(.init(size: size, isFixed: isFixed)))
     }
 }
 
 #Preview {
     VStack(spacing: 8) {
         Button("Default Button M") {}
-            .buttonStyle(charcoalStyle: .defaultButton(.init(size: .medium, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
+            .buttonStyle(.charcoalDefault(.init(size: .medium, isFixed: true)))
         Button("Default Button M") {}
-            .buttonStyle(charcoalStyle: .defaultButton(.init(size: .medium, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
+            .buttonStyle(.charcoalDefault(.init(size: .medium, isFixed: true)))
             .disabled(true)
         Button("Default Button S") {}
-            .buttonStyle(charcoalStyle: .defaultButton(.init(size: .small, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
+            .buttonStyle(.charcoalDefault(.init(size: .small, isFixed: true)))
         Button("Default Button S") {}
-            .buttonStyle(charcoalStyle: .defaultButton(.init(size: .small, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
+            .buttonStyle(.charcoalDefault(.init(size: .small, isFixed: true)))
             .disabled(true)
     }
 }

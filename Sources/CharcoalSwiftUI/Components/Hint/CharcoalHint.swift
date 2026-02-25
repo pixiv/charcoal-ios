@@ -30,7 +30,7 @@ public struct CharcoalHint: View {
         maxWidth: CGFloat? = nil,
         isPresenting: Binding<Bool>,
         alignment: Alignment = .center,
-        buttonStyle: CharcoalButtonStyle = .primary(.init(primaryColor: Color(charcoalColor: .brand))),
+        buttonStyle: CharcoalButtonStyle = .primary(.init()),
         action: CharcoalAction? = nil
     ) {
         self.text = text
@@ -60,7 +60,7 @@ public struct CharcoalHint: View {
                         action.actionCallback()
                     }) {
                         Text(action.title)
-                    }.buttonStyle(charcoalStyle: buttonStyle)
+                    }.buttonStyle(buttonStyle)
                 }
             }
             .frame(maxWidth: maxWidth, alignment: alignment)

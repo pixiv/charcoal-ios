@@ -254,7 +254,7 @@ public extension View {
                     } label: {
                         Text("Help")
                     }
-                    .buttonStyle(charcoalStyle: .defaultButton(.init()))
+                    .buttonStyle(.charcoalDefault())
                     .charcoalTooltip(isPresenting: $isPresenting2, text: "Hello World This is a tooltip")
                     .offset(CGSize(width: 100.0, height: 150.0))
 
@@ -263,7 +263,7 @@ public extension View {
                     } label: {
                         Text("Right")
                     }
-                    .buttonStyle(charcoalStyle: .primary(.init(size: .medium)))
+                    .buttonStyle(.charcoalPrimary(.init(size: .medium)))
                     .charcoalTooltip(isPresenting: $isPresenting3, text: "here is testing it's multiple line feature")
                     .offset(CGSize(width: proxy.size.width - 100, height: 100.0))
 
@@ -280,7 +280,7 @@ public extension View {
                     } label: {
                         Text("Bottom")
                     }
-                    .buttonStyle(charcoalStyle: .primary(.init(size: .medium)))
+                    .buttonStyle(.charcoalPrimary(.init(size: .medium)))
                     .charcoalTooltip(
                         isPresenting: $isPresenting5,
                         text: "Hello World This is a tooltip and here is testing it's multiple line feature",

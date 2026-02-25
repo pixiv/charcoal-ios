@@ -67,23 +67,23 @@ public extension View {
     /// - Parameters:
     ///   - size: The size of the button
     ///   - isFixed: Whether the button should have a fixed width
-    @available(*, deprecated, message: "Use buttonStyle(charcoalStyle:) instead.")
+    @available(*, deprecated, message: "Use buttonStyle(_:) with CharcoalButtonStyle instead.")
     func charcoalDefaultOverlayButton(size: CharcoalButtonSize = .medium, isFixed: Bool = true) -> some View {
-        return buttonStyle(charcoalStyle: .defaultOverlay(.init(size: size, isFixed: isFixed, primaryColor: Color(charcoalColor: .brand))))
+        return buttonStyle(.charcoalDefaultOverlay(.init(size: size, isFixed: isFixed)))
     }
 }
 
 #Preview {
     VStack(spacing: 8) {
         Button("Default Overlay Button M") {}
-            .buttonStyle(charcoalStyle: .defaultOverlay(.init(size: .medium, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
+            .buttonStyle(.charcoalDefaultOverlay(.init(size: .medium, isFixed: true)))
         Button("Default Overlay Button M") {}
-            .buttonStyle(charcoalStyle: .defaultOverlay(.init(size: .medium, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
+            .buttonStyle(.charcoalDefaultOverlay(.init(size: .medium, isFixed: true)))
             .disabled(true)
         Button("Default Overlay Button S") {}
-            .buttonStyle(charcoalStyle: .defaultOverlay(.init(size: .small, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
+            .buttonStyle(.charcoalDefaultOverlay(.init(size: .small, isFixed: true)))
         Button("Default Overlay Button S") {}
-            .buttonStyle(charcoalStyle: .defaultOverlay(.init(size: .small, isFixed: true, primaryColor: Color(charcoalColor: .brand))))
+            .buttonStyle(.charcoalDefaultOverlay(.init(size: .small, isFixed: true)))
             .disabled(true)
     }
 }
