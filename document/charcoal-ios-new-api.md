@@ -19,8 +19,8 @@
 - `textFieldStyle(_ style: CharcoalTextFieldStyle)`
 - `toggleStyle(_ style: CharcoalToggleStyle)`
 - `font(charcoalSize:weight:mono:isSingleLine:textStyle:)`
-- `Color(charcoalColor:)`
-- `UIColor(charcoalColor:)`
+- `Color.charcoal(_:)`
+- `UIColor.charcoal(_:)`
 - `foregroundStyle(charcoalColor:)` // すでに存在している
 
 ---
@@ -101,9 +101,9 @@ Text("Label")
 Text("Label")
     .foregroundStyle(charcoalColor: .text1)
 
-// Color(charcoalColor:) でも呼べるように
+// Color.charcoal(_:) でも呼べるように
 Icon()
-    .tint(Color(charcoalColor: .icon1))
+    .tint(Color.charcoal(.icon1))
 ```
 
 ### Color（UIKit）
@@ -113,6 +113,6 @@ Icon()
 let color = CharcoalAsset.ColorPaletteGenerated.brand.color
 
 // After
-let color = UIColor(charcoalColor: .brand)
+let color = UIColor.charcoal(.brand)
 ```
 

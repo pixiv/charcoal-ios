@@ -1,8 +1,8 @@
 import UIKit
 
 extension UIColor {
-    public convenience init(charcoalColor: CharcoalAsset.ColorPaletteGenerated) {
-        self.init { traitCollection in
+    public static func charcoal(_ charcoalColor: CharcoalAsset.ColorPaletteGenerated) -> UIColor {
+        UIColor { traitCollection in
             charcoalColor.colorAsset.color(compatibleWith: traitCollection)
         }
     }

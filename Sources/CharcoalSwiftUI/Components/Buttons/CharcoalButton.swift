@@ -42,7 +42,7 @@ public extension CharcoalButtonStyle {
         public init(
             size: CharcoalButtonSize = .medium,
             isFixed: Bool = true,
-            primaryColor: Color = Color(charcoalColor: .brand)
+            primaryColor: Color = .charcoal(.brand)
         ) {
             self.size = size
             self.isFixed = isFixed

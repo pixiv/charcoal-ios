@@ -4,7 +4,7 @@ struct CharcoalForegroundStyle: ViewModifier {
     let charcoalColor: CharcoalAsset.ColorPaletteGenerated
 
     func body(content: Content) -> some View {
-        content.foregroundStyle(Color(charcoalColor: charcoalColor))
+        content.foregroundStyle(Color.charcoal(charcoalColor))
     }
 }
 
@@ -17,9 +17,9 @@ public extension View {
 public extension Text {
     func foregroundStyle(charcoalColor: CharcoalAsset.ColorPaletteGenerated) -> Text {
         if #available(iOS 17, *) {
-            foregroundStyle(Color(charcoalColor: charcoalColor))
+            foregroundStyle(Color.charcoal(charcoalColor))
         } else {
-            foregroundColor(Color(charcoalColor: charcoalColor))
+            foregroundColor(Color.charcoal(charcoalColor))
         }
     }
 }
