@@ -1,14 +1,14 @@
 import Charcoal
 import UIKit
 
-final class IconsViewController: UIViewController {
+final class IconsV2ViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
-    private let icons = CharcoalAsset.Images.allCases
+    private let icons = CharcoalAsset.ImagesV2.allCases
 
     private func iconPointSize(for name: String) -> CGFloat {
         if name.hasSuffix("24") {
@@ -46,7 +46,7 @@ final class IconsViewController: UIViewController {
 
 // MARK: - UICollectionViewDataSource
 
-extension IconsViewController: UICollectionViewDataSource {
+extension IconsV2ViewController: UICollectionViewDataSource {
     func numberOfSections(in _: UICollectionView) -> Int {
         return 1
     }
@@ -58,7 +58,7 @@ extension IconsViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 
-extension IconsViewController: UICollectionViewDelegate {
+extension IconsV2ViewController: UICollectionViewDelegate {
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
@@ -79,7 +79,7 @@ extension IconsViewController: UICollectionViewDelegate {
 
 // MARK: - UICollectionViewFlowLayout
 
-extension IconsViewController: UICollectionViewDelegateFlowLayout {
+extension IconsV2ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
         let marginBetweenCells: CGFloat = 8
         let marginFromTheEdge: CGFloat = 8
@@ -117,5 +117,5 @@ extension IconsViewController: UICollectionViewDelegateFlowLayout {
 
 @available(iOS 17.0, *)
 #Preview {
-    return IconsViewController()
+    return IconsV2ViewController()
 }

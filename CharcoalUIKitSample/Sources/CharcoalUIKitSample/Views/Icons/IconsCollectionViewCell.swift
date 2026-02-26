@@ -32,9 +32,20 @@ class IconsCollectionViewCell: UICollectionViewCell {
         iconImageView.image = icon.image
         colorNameLabel.text = icon.description
     }
+
+    func configure(with icon: CharcoalAsset.ImagesV2) {
+        iconImageView.image = icon.image
+        colorNameLabel.text = icon.description
+    }
 }
 
 extension CharcoalAsset.Images {
+    var description: String {
+        return String(String(reflecting: self).split(separator: ".").last ?? "")
+    }
+}
+
+extension CharcoalAsset.ImagesV2 {
     var description: String {
         return String(String(reflecting: self).split(separator: ".").last ?? "")
     }

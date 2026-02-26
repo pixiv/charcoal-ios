@@ -49,6 +49,7 @@ public final class ContentViewController: UIViewController {
         case colors = "Colors"
         case typographies = "Typographies"
         case icons = "Icons"
+        case iconsV2 = "Icons 2.0"
         case tooltips = "Tooltips"
         case toasts = "Toasts"
         case spinners = "Spinners"
@@ -65,6 +66,8 @@ public final class ContentViewController: UIViewController {
                 return ColorsViewController()
             case .icons:
                 return IconsViewController()
+            case .iconsV2:
+                return IconsV2ViewController()
             case .selections:
                 return SelectionsViewController()
             case .textFields:
