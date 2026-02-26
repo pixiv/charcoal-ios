@@ -10,7 +10,10 @@ permissions:
   pull-requests: write
 
 env:
-  FIGMA_FILE_URL: ${{secrets.FIGMA_FILE_URL}}
+  FIGMA_ICONS_FILE_URL_V1: ${{secrets.FIGMA_FILE_URL_V1}}
+  FIGMA_ICONS_FILE_URL_V2: ${{secrets.FIGMA_FILE_URL_V2}}
+  FIGMA_NODE_ID_APPLIEDS: ${{secrets.FIGMA_NODE_ID_APPLIEDS}}
+  FIGMA_NODE_ID_PRIMITIVES: ${{secrets.FIGMA_NODE_ID_PRIMITIVES}}
   FIGMA_TOKEN: ${{secrets.FIGMA_TOKEN}}
   GITHUB_ACCESS_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
@@ -30,22 +33,50 @@ jobs:
         run: |
           cd scripts/foundation-gen/
 
-          curl -L https://unpkg.com/@charcoal-ui/theme@latest/theme.json -o theme.json
+          curl -fL https://unpkg.com/@charcoal-ui/theme@latest/theme.json -o theme.json
+
+          if [ -z "$FIGMA_TOKEN" ]; then
+            echo "FIGMA_TOKEN is required for token-cli"
+            exit 1
+          fi
+
+          if [ -z "$FIGMA_NODE_ID_APPLIEDS" ] || [ -z "$FIGMA_NODE_ID_PRIMITIVES" ]; then
+            echo "FIGMA_NODE_ID_APPLIEDS and FIGMA_NODE_ID_PRIMITIVES are required for token-cli"
+            exit 1
+          fi
+
+          corepack enable
+
+          FIGMA_TOKEN="$FIGMA_TOKEN" FIGMA_FILE_ID="$FIGMA_NODE_ID_APPLIEDS" pnpm dlx @charcoal-ui/token-cli@5.6.0-beta.4 fetch --output applied-raw.json
+          FIGMA_TOKEN="$FIGMA_TOKEN" FIGMA_FILE_ID="$FIGMA_NODE_ID_PRIMITIVES" pnpm dlx @charcoal-ui/token-cli@5.6.0-beta.4 fetch --output primitives-raw.json
+
+          pnpm dlx @charcoal-ui/token-cli@5.6.0-beta.4 transform --source applied-raw.json --output applied-light.json --mode-name "pixiv/light" || \
+          pnpm dlx @charcoal-ui/token-cli@5.6.0-beta.4 transform --source applied-raw.json --output applied-light.json --mode-name "light"
+          pnpm dlx @charcoal-ui/token-cli@5.6.0-beta.4 transform --source applied-raw.json --output applied-dark.json --mode-name "pixiv/dark" || \
+          pnpm dlx @charcoal-ui/token-cli@5.6.0-beta.4 transform --source applied-raw.json --output applied-dark.json --mode-name "dark"
+          pnpm dlx @charcoal-ui/token-cli@5.6.0-beta.4 transform --source primitives-raw.json --output primitives-light.json --mode-name "pixiv/light" || \
+          pnpm dlx @charcoal-ui/token-cli@5.6.0-beta.4 transform --source primitives-raw.json --output primitives-light.json --mode-name "light"
+          pnpm dlx @charcoal-ui/token-cli@5.6.0-beta.4 transform --source primitives-raw.json --output primitives-dark.json --mode-name "pixiv/dark" || \
+          pnpm dlx @charcoal-ui/token-cli@5.6.0-beta.4 transform --source primitives-raw.json --output primitives-dark.json --mode-name "dark"
 
           npm install
-          npm run foundation-gen generate -- --input="theme.json" --outputJson="../../Sources/CharcoalShared/Generated" --outputSwift="../../Sources/CharcoalShared/Generated" --outputColorAsset="../../Sources/CharcoalShared/ColorPalette.generated.xcassets"
-          rm theme.json
+          npm run foundation-gen generate -- --schema="v1" --input="theme.json" --outputJson="../../Sources/CharcoalShared/Generated" --outputSwift="../../Sources/CharcoalShared/Generated" --outputColorAsset="../../Sources/CharcoalShared/ColorPalette.generated.xcassets"
+          npm run foundation-gen generate -- --schema="v2" --inputLightApplied="applied-light.json" --inputDarkApplied="applied-dark.json" --inputLightPrimitives="primitives-light.json" --inputDarkPrimitives="primitives-dark.json" --outputJson="../../Sources/CharcoalShared/Generated" --outputSwift="../../Sources/CharcoalShared/Generated" --outputColorAsset="../../Sources/CharcoalShared/ColorPaletteV2.generated.xcassets"
+
+          rm theme.json applied-raw.json primitives-raw.json applied-light.json applied-dark.json primitives-light.json primitives-dark.json
 
       - name: Update icon
         run: |
           cd scripts/xcasset-gen
 
-          OUTPUT_ROOT_DIR=icons npx @charcoal-ui/icons-cli@latest figma:export --format pdf
+          FIGMA_FILE_URL="$FIGMA_ICONS_FILE_URL_V1" OUTPUT_ROOT_DIR=icons-v1 npx @charcoal-ui/icons-cli@latest figma:export --format pdf --layout v1
+          FIGMA_FILE_URL="$FIGMA_ICONS_FILE_URL_V2" OUTPUT_ROOT_DIR=icons-v2 npx @charcoal-ui/icons-cli@latest figma:export --format pdf --layout v2
 
           npm install
-          npm run xcasset-gen generate -- --input icons/pdf --output ../../Sources/CharcoalShared/Images.xcassets
+          npm run xcasset-gen generate -- --schema="v1" --input icons-v1/pdf --output ../../Sources/CharcoalShared/Images.xcassets
+          npm run xcasset-gen generate -- --schema="v2" --input icons-v2/pdf --output ../../Sources/CharcoalShared/ImagesV2.xcassets
 
-          rm -rf icons
+          rm -rf icons-v1 icons-v2
 
       - name: Cache SwiftPM for BuildTools
         uses: actions/cache@v5
