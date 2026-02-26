@@ -88,70 +88,2819 @@ public enum CharcoalAsset {
     public var colorAsset: ColorAsset {
       switch (self) {
         case .assertive:
-          return CharcoalAsset.ColorPaletteGenerated.assertiveAsset
+          return Self.assertiveAsset
         case .background1:
-          return CharcoalAsset.ColorPaletteGenerated.background1Asset
+          return Self.background1Asset
         case .background2:
-          return CharcoalAsset.ColorPaletteGenerated.background2Asset
+          return Self.background2Asset
         case .border:
-          return CharcoalAsset.ColorPaletteGenerated.borderAsset
+          return Self.borderAsset
         case .brand:
-          return CharcoalAsset.ColorPaletteGenerated.brandAsset
+          return Self.brandAsset
         case .callToAction0:
-          return CharcoalAsset.ColorPaletteGenerated.callToAction0Asset
+          return Self.callToAction0Asset
         case .callToAction100:
-          return CharcoalAsset.ColorPaletteGenerated.callToAction100Asset
+          return Self.callToAction100Asset
         case .icon6:
-          return CharcoalAsset.ColorPaletteGenerated.icon6Asset
+          return Self.icon6Asset
         case .link1:
-          return CharcoalAsset.ColorPaletteGenerated.link1Asset
+          return Self.link1Asset
         case .link2:
-          return CharcoalAsset.ColorPaletteGenerated.link2Asset
+          return Self.link2Asset
         case .success:
-          return CharcoalAsset.ColorPaletteGenerated.successAsset
+          return Self.successAsset
         case .surface1:
-          return CharcoalAsset.ColorPaletteGenerated.surface1Asset
+          return Self.surface1Asset
         case .surface10:
-          return CharcoalAsset.ColorPaletteGenerated.surface10Asset
+          return Self.surface10Asset
         case .surface2:
-          return CharcoalAsset.ColorPaletteGenerated.surface2Asset
+          return Self.surface2Asset
         case .surface3:
-          return CharcoalAsset.ColorPaletteGenerated.surface3Asset
+          return Self.surface3Asset
         case .surface4:
-          return CharcoalAsset.ColorPaletteGenerated.surface4Asset
+          return Self.surface4Asset
         case .surface50:
-          return CharcoalAsset.ColorPaletteGenerated.surface50Asset
+          return Self.surface50Asset
         case .surface5100:
-          return CharcoalAsset.ColorPaletteGenerated.surface5100Asset
+          return Self.surface5100Asset
         case .surface6:
-          return CharcoalAsset.ColorPaletteGenerated.surface6Asset
+          return Self.surface6Asset
         case .surface7:
-          return CharcoalAsset.ColorPaletteGenerated.surface7Asset
+          return Self.surface7Asset
         case .surface8:
-          return CharcoalAsset.ColorPaletteGenerated.surface8Asset
+          return Self.surface8Asset
         case .surface9:
-          return CharcoalAsset.ColorPaletteGenerated.surface9Asset
+          return Self.surface9Asset
         case .text1:
-          return CharcoalAsset.ColorPaletteGenerated.text1Asset
+          return Self.text1Asset
         case .text2:
-          return CharcoalAsset.ColorPaletteGenerated.text2Asset
+          return Self.text2Asset
         case .text3:
-          return CharcoalAsset.ColorPaletteGenerated.text3Asset
+          return Self.text3Asset
         case .text4:
-          return CharcoalAsset.ColorPaletteGenerated.text4Asset
+          return Self.text4Asset
         case .text5:
-          return CharcoalAsset.ColorPaletteGenerated.text5Asset
+          return Self.text5Asset
         case .transparent:
-          return CharcoalAsset.ColorPaletteGenerated.transparentAsset
+          return Self.transparentAsset
         case .updatedItem:
-          return CharcoalAsset.ColorPaletteGenerated.updatedItemAsset
+          return Self.updatedItemAsset
         case .warning:
-          return CharcoalAsset.ColorPaletteGenerated.warningAsset
+          return Self.warningAsset
       }
     }
     public var color: ColorAsset.Color {
       return colorAsset.color
     }
+    public static let allColorAssets: [ColorAsset] = [
+      assertive.colorAsset,
+      background1.colorAsset,
+      background2.colorAsset,
+      border.colorAsset,
+      brand.colorAsset,
+      callToAction0.colorAsset,
+      callToAction100.colorAsset,
+      icon6.colorAsset,
+      link1.colorAsset,
+      link2.colorAsset,
+      success.colorAsset,
+      surface1.colorAsset,
+      surface10.colorAsset,
+      surface2.colorAsset,
+      surface3.colorAsset,
+      surface4.colorAsset,
+      surface50.colorAsset,
+      surface5100.colorAsset,
+      surface6.colorAsset,
+      surface7.colorAsset,
+      surface8.colorAsset,
+      surface9.colorAsset,
+      text1.colorAsset,
+      text2.colorAsset,
+      text3.colorAsset,
+      text4.colorAsset,
+      text5.colorAsset,
+      transparent.colorAsset,
+      updatedItem.colorAsset,
+      warning.colorAsset,
+    ]
+  }
+  public enum ColorPaletteV2Generated : CaseIterable {
+    public enum Background : CaseIterable {
+      static let defaultAsset = ColorAsset(name: "background/default")
+      static let overlayAsset = ColorAsset(name: "background/overlay")
+      static let secondaryAsset = ColorAsset(name: "background/secondary")
+      static let tertiaryAsset = ColorAsset(name: "background/tertiary")
+      case `default`
+      case overlay
+      case secondary
+      case tertiary
+      public var colorAsset: ColorAsset {
+        switch (self) {
+          case .`default`:
+            return Self.defaultAsset
+          case .overlay:
+            return Self.overlayAsset
+          case .secondary:
+            return Self.secondaryAsset
+          case .tertiary:
+            return Self.tertiaryAsset
+        }
+      }
+      public var color: ColorAsset.Color {
+        return colorAsset.color
+      }
+    }
+    public enum Border : CaseIterable {
+      static let defaultText3Asset = ColorAsset(name: "border/default-text3")
+      static let defaultAsset = ColorAsset(name: "border/default")
+      static let disableAsset = ColorAsset(name: "border/disable")
+      public enum Focus : CaseIterable {
+        static let _1Asset = ColorAsset(name: "border/focus/1")
+        static let _2Asset = ColorAsset(name: "border/focus/2")
+        static let legacyAsset = ColorAsset(name: "border/focus/legacy")
+        case _1
+        case _2
+        case legacy
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._1:
+              return Self._1Asset
+            case ._2:
+              return Self._2Asset
+            case .legacy:
+              return Self.legacyAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      static let hoverText3Asset = ColorAsset(name: "border/hover-text3")
+      static let hoverAsset = ColorAsset(name: "border/hover")
+      static let hudAsset = ColorAsset(name: "border/hud")
+      static let negativeAsset = ColorAsset(name: "border/negative")
+      static let pressText3Asset = ColorAsset(name: "border/press-text3")
+      static let pressAsset = ColorAsset(name: "border/press")
+      static let secondaryAsset = ColorAsset(name: "border/secondary")
+      static let selectedAsset = ColorAsset(name: "border/selected")
+      case defaultText3
+      case `default`
+      case disable
+      case hoverText3
+      case hover
+      case hud
+      case negative
+      case pressText3
+      case press
+      case secondary
+      case selected
+      public var colorAsset: ColorAsset {
+        switch (self) {
+          case .defaultText3:
+            return Self.defaultText3Asset
+          case .`default`:
+            return Self.defaultAsset
+          case .disable:
+            return Self.disableAsset
+          case .hoverText3:
+            return Self.hoverText3Asset
+          case .hover:
+            return Self.hoverAsset
+          case .hud:
+            return Self.hudAsset
+          case .negative:
+            return Self.negativeAsset
+          case .pressText3:
+            return Self.pressText3Asset
+          case .press:
+            return Self.pressAsset
+          case .secondary:
+            return Self.secondaryAsset
+          case .selected:
+            return Self.selectedAsset
+        }
+      }
+      public var color: ColorAsset.Color {
+        return colorAsset.color
+      }
+    }
+    public enum Container : CaseIterable {
+      static let defaultAAsset = ColorAsset(name: "container/default-a")
+      static let defaultAsset = ColorAsset(name: "container/default")
+      static let disableAsset = ColorAsset(name: "container/disable")
+      public enum Discovery : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "container/discovery/default")
+        static let hoverAsset = ColorAsset(name: "container/discovery/hover")
+        static let pressAsset = ColorAsset(name: "container/discovery/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      static let hoverAAsset = ColorAsset(name: "container/hover-a")
+      static let hoverAsset = ColorAsset(name: "container/hover")
+      public enum Hud : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "container/hud/default")
+        static let hoverAsset = ColorAsset(name: "container/hud/hover")
+        static let pressAsset = ColorAsset(name: "container/hud/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Negative : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "container/negative/default")
+        static let hoverAsset = ColorAsset(name: "container/negative/hover")
+        static let pressAsset = ColorAsset(name: "container/negative/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Neutral : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "container/neutral/default")
+        static let hoverAsset = ColorAsset(name: "container/neutral/hover")
+        static let pressAsset = ColorAsset(name: "container/neutral/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Notice : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "container/notice/default")
+        static let hoverAsset = ColorAsset(name: "container/notice/hover")
+        static let pressAsset = ColorAsset(name: "container/notice/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum OnImg : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "container/on-img/default")
+        static let hoverAsset = ColorAsset(name: "container/on-img/hover")
+        static let pressAsset = ColorAsset(name: "container/on-img/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Positive : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "container/positive/default")
+        static let hoverAsset = ColorAsset(name: "container/positive/hover")
+        static let pressAsset = ColorAsset(name: "container/positive/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      static let pressAAsset = ColorAsset(name: "container/press-a")
+      static let pressAsset = ColorAsset(name: "container/press")
+      public enum Primary : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "container/primary/default")
+        static let hoverAsset = ColorAsset(name: "container/primary/hover")
+        static let pressAsset = ColorAsset(name: "container/primary/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Secondary : CaseIterable {
+        static let defaultAAsset = ColorAsset(name: "container/secondary/default-a")
+        static let defaultAsset = ColorAsset(name: "container/secondary/default")
+        static let hoverAAsset = ColorAsset(name: "container/secondary/hover-a")
+        static let hoverAsset = ColorAsset(name: "container/secondary/hover")
+        static let pressAAsset = ColorAsset(name: "container/secondary/press-a")
+        static let pressAsset = ColorAsset(name: "container/secondary/press")
+        case defaultA
+        case `default`
+        case hoverA
+        case hover
+        case pressA
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .defaultA:
+              return Self.defaultAAsset
+            case .`default`:
+              return Self.defaultAsset
+            case .hoverA:
+              return Self.hoverAAsset
+            case .hover:
+              return Self.hoverAsset
+            case .pressA:
+              return Self.pressAAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      static let skeletonAsset = ColorAsset(name: "container/skeleton")
+      static let subtleAsset = ColorAsset(name: "container/subtle")
+      public enum Tertiary : CaseIterable {
+        static let defaultAAsset = ColorAsset(name: "container/tertiary/default-a")
+        static let defaultAsset = ColorAsset(name: "container/tertiary/default")
+        static let hoverAAsset = ColorAsset(name: "container/tertiary/hover-a")
+        static let hoverAsset = ColorAsset(name: "container/tertiary/hover")
+        static let pressAAsset = ColorAsset(name: "container/tertiary/press-a")
+        static let pressAsset = ColorAsset(name: "container/tertiary/press")
+        case defaultA
+        case `default`
+        case hoverA
+        case hover
+        case pressA
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .defaultA:
+              return Self.defaultAAsset
+            case .`default`:
+              return Self.defaultAsset
+            case .hoverA:
+              return Self.hoverAAsset
+            case .hover:
+              return Self.hoverAsset
+            case .pressA:
+              return Self.pressAAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      case defaultA
+      case `default`
+      case disable
+      case hoverA
+      case hover
+      case pressA
+      case press
+      case skeleton
+      case subtle
+      public var colorAsset: ColorAsset {
+        switch (self) {
+          case .defaultA:
+            return Self.defaultAAsset
+          case .`default`:
+            return Self.defaultAsset
+          case .disable:
+            return Self.disableAsset
+          case .hoverA:
+            return Self.hoverAAsset
+          case .hover:
+            return Self.hoverAsset
+          case .pressA:
+            return Self.pressAAsset
+          case .press:
+            return Self.pressAsset
+          case .skeleton:
+            return Self.skeletonAsset
+          case .subtle:
+            return Self.subtleAsset
+        }
+      }
+      public var color: ColorAsset.Color {
+        return colorAsset.color
+      }
+    }
+    public enum Dark : CaseIterable {
+      public enum Blue : CaseIterable {
+        static let _0Asset = ColorAsset(name: "dark/blue/0")
+        static let _10Asset = ColorAsset(name: "dark/blue/10")
+        static let _20Asset = ColorAsset(name: "dark/blue/20")
+        static let _30Asset = ColorAsset(name: "dark/blue/30")
+        static let _40Asset = ColorAsset(name: "dark/blue/40")
+        static let _5Asset = ColorAsset(name: "dark/blue/5")
+        static let _50Asset = ColorAsset(name: "dark/blue/50")
+        static let _60Asset = ColorAsset(name: "dark/blue/60")
+        static let _70Asset = ColorAsset(name: "dark/blue/70")
+        static let _80Asset = ColorAsset(name: "dark/blue/80")
+        static let _90Asset = ColorAsset(name: "dark/blue/90")
+        static let minus10Asset = ColorAsset(name: "dark/blue/minus10")
+        static let minus5Asset = ColorAsset(name: "dark/blue/minus5")
+        case _0
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        case minus10
+        case minus5
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._0:
+              return Self._0Asset
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+            case .minus10:
+              return Self.minus10Asset
+            case .minus5:
+              return Self.minus5Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Green : CaseIterable {
+        static let _0Asset = ColorAsset(name: "dark/green/0")
+        static let _10Asset = ColorAsset(name: "dark/green/10")
+        static let _20Asset = ColorAsset(name: "dark/green/20")
+        static let _30Asset = ColorAsset(name: "dark/green/30")
+        static let _40Asset = ColorAsset(name: "dark/green/40")
+        static let _5Asset = ColorAsset(name: "dark/green/5")
+        static let _50Asset = ColorAsset(name: "dark/green/50")
+        static let _60Asset = ColorAsset(name: "dark/green/60")
+        static let _70Asset = ColorAsset(name: "dark/green/70")
+        static let _80Asset = ColorAsset(name: "dark/green/80")
+        static let _90Asset = ColorAsset(name: "dark/green/90")
+        static let minus10Asset = ColorAsset(name: "dark/green/minus10")
+        static let minus5Asset = ColorAsset(name: "dark/green/minus5")
+        case _0
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        case minus10
+        case minus5
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._0:
+              return Self._0Asset
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+            case .minus10:
+              return Self.minus10Asset
+            case .minus5:
+              return Self.minus5Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Indigo : CaseIterable {
+        static let _0Asset = ColorAsset(name: "dark/indigo/0")
+        static let _10Asset = ColorAsset(name: "dark/indigo/10")
+        static let _20Asset = ColorAsset(name: "dark/indigo/20")
+        static let _30Asset = ColorAsset(name: "dark/indigo/30")
+        static let _40Asset = ColorAsset(name: "dark/indigo/40")
+        static let _5Asset = ColorAsset(name: "dark/indigo/5")
+        static let _50Asset = ColorAsset(name: "dark/indigo/50")
+        static let _60Asset = ColorAsset(name: "dark/indigo/60")
+        static let _70Asset = ColorAsset(name: "dark/indigo/70")
+        static let _80Asset = ColorAsset(name: "dark/indigo/80")
+        static let _90Asset = ColorAsset(name: "dark/indigo/90")
+        static let minus10Asset = ColorAsset(name: "dark/indigo/minus10")
+        static let minus5Asset = ColorAsset(name: "dark/indigo/minus5")
+        case _0
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        case minus10
+        case minus5
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._0:
+              return Self._0Asset
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+            case .minus10:
+              return Self.minus10Asset
+            case .minus5:
+              return Self.minus5Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Magenta : CaseIterable {
+        static let _0Asset = ColorAsset(name: "dark/magenta/0")
+        static let _10Asset = ColorAsset(name: "dark/magenta/10")
+        static let _20Asset = ColorAsset(name: "dark/magenta/20")
+        static let _30Asset = ColorAsset(name: "dark/magenta/30")
+        static let _40Asset = ColorAsset(name: "dark/magenta/40")
+        static let _5Asset = ColorAsset(name: "dark/magenta/5")
+        static let _50Asset = ColorAsset(name: "dark/magenta/50")
+        static let _60Asset = ColorAsset(name: "dark/magenta/60")
+        static let _70Asset = ColorAsset(name: "dark/magenta/70")
+        static let _80Asset = ColorAsset(name: "dark/magenta/80")
+        static let _90Asset = ColorAsset(name: "dark/magenta/90")
+        static let minus10Asset = ColorAsset(name: "dark/magenta/minus10")
+        static let minus5Asset = ColorAsset(name: "dark/magenta/minus5")
+        case _0
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        case minus10
+        case minus5
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._0:
+              return Self._0Asset
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+            case .minus10:
+              return Self.minus10Asset
+            case .minus5:
+              return Self.minus5Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Neutral : CaseIterable {
+        static let _0Asset = ColorAsset(name: "dark/neutral/0")
+        static let _10Asset = ColorAsset(name: "dark/neutral/10")
+        static let _20Asset = ColorAsset(name: "dark/neutral/20")
+        static let _30Asset = ColorAsset(name: "dark/neutral/30")
+        static let _40Asset = ColorAsset(name: "dark/neutral/40")
+        static let _5Asset = ColorAsset(name: "dark/neutral/5")
+        static let _50Asset = ColorAsset(name: "dark/neutral/50")
+        static let _60Asset = ColorAsset(name: "dark/neutral/60")
+        static let _70Asset = ColorAsset(name: "dark/neutral/70")
+        static let _80Asset = ColorAsset(name: "dark/neutral/80")
+        static let _90Asset = ColorAsset(name: "dark/neutral/90")
+        static let minus10Asset = ColorAsset(name: "dark/neutral/minus10")
+        static let minus5Asset = ColorAsset(name: "dark/neutral/minus5")
+        case _0
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        case minus10
+        case minus5
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._0:
+              return Self._0Asset
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+            case .minus10:
+              return Self.minus10Asset
+            case .minus5:
+              return Self.minus5Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum NeutralA : CaseIterable {
+        static let _0Asset = ColorAsset(name: "dark/neutral-a/0")
+        static let _10Asset = ColorAsset(name: "dark/neutral-a/10")
+        static let _20Asset = ColorAsset(name: "dark/neutral-a/20")
+        static let _30Asset = ColorAsset(name: "dark/neutral-a/30")
+        static let _40Asset = ColorAsset(name: "dark/neutral-a/40")
+        static let _5Asset = ColorAsset(name: "dark/neutral-a/5")
+        static let _50Asset = ColorAsset(name: "dark/neutral-a/50")
+        static let _60Asset = ColorAsset(name: "dark/neutral-a/60")
+        static let _70Asset = ColorAsset(name: "dark/neutral-a/70")
+        static let _80Asset = ColorAsset(name: "dark/neutral-a/80")
+        static let _90Asset = ColorAsset(name: "dark/neutral-a/90")
+        static let minus10Asset = ColorAsset(name: "dark/neutral-a/minus10")
+        static let minus5Asset = ColorAsset(name: "dark/neutral-a/minus5")
+        case _0
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        case minus10
+        case minus5
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._0:
+              return Self._0Asset
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+            case .minus10:
+              return Self.minus10Asset
+            case .minus5:
+              return Self.minus5Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Orange : CaseIterable {
+        static let _0Asset = ColorAsset(name: "dark/orange/0")
+        static let _10Asset = ColorAsset(name: "dark/orange/10")
+        static let _20Asset = ColorAsset(name: "dark/orange/20")
+        static let _30Asset = ColorAsset(name: "dark/orange/30")
+        static let _40Asset = ColorAsset(name: "dark/orange/40")
+        static let _5Asset = ColorAsset(name: "dark/orange/5")
+        static let _50Asset = ColorAsset(name: "dark/orange/50")
+        static let _60Asset = ColorAsset(name: "dark/orange/60")
+        static let _70Asset = ColorAsset(name: "dark/orange/70")
+        static let _80Asset = ColorAsset(name: "dark/orange/80")
+        static let _90Asset = ColorAsset(name: "dark/orange/90")
+        static let minus10Asset = ColorAsset(name: "dark/orange/minus10")
+        static let minus5Asset = ColorAsset(name: "dark/orange/minus5")
+        case _0
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        case minus10
+        case minus5
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._0:
+              return Self._0Asset
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+            case .minus10:
+              return Self.minus10Asset
+            case .minus5:
+              return Self.minus5Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Purple : CaseIterable {
+        static let _0Asset = ColorAsset(name: "dark/purple/0")
+        static let _10Asset = ColorAsset(name: "dark/purple/10")
+        static let _20Asset = ColorAsset(name: "dark/purple/20")
+        static let _30Asset = ColorAsset(name: "dark/purple/30")
+        static let _40Asset = ColorAsset(name: "dark/purple/40")
+        static let _5Asset = ColorAsset(name: "dark/purple/5")
+        static let _50Asset = ColorAsset(name: "dark/purple/50")
+        static let _60Asset = ColorAsset(name: "dark/purple/60")
+        static let _70Asset = ColorAsset(name: "dark/purple/70")
+        static let _80Asset = ColorAsset(name: "dark/purple/80")
+        static let _90Asset = ColorAsset(name: "dark/purple/90")
+        static let minus10Asset = ColorAsset(name: "dark/purple/minus10")
+        static let minus5Asset = ColorAsset(name: "dark/purple/minus5")
+        case _0
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        case minus10
+        case minus5
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._0:
+              return Self._0Asset
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+            case .minus10:
+              return Self.minus10Asset
+            case .minus5:
+              return Self.minus5Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Red : CaseIterable {
+        static let _0Asset = ColorAsset(name: "dark/red/0")
+        static let _10Asset = ColorAsset(name: "dark/red/10")
+        static let _20Asset = ColorAsset(name: "dark/red/20")
+        static let _30Asset = ColorAsset(name: "dark/red/30")
+        static let _40Asset = ColorAsset(name: "dark/red/40")
+        static let _5Asset = ColorAsset(name: "dark/red/5")
+        static let _50Asset = ColorAsset(name: "dark/red/50")
+        static let _60Asset = ColorAsset(name: "dark/red/60")
+        static let _70Asset = ColorAsset(name: "dark/red/70")
+        static let _80Asset = ColorAsset(name: "dark/red/80")
+        static let _90Asset = ColorAsset(name: "dark/red/90")
+        static let minus10Asset = ColorAsset(name: "dark/red/minus10")
+        static let minus5Asset = ColorAsset(name: "dark/red/minus5")
+        case _0
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        case minus10
+        case minus5
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._0:
+              return Self._0Asset
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+            case .minus10:
+              return Self.minus10Asset
+            case .minus5:
+              return Self.minus5Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Turquoise : CaseIterable {
+        static let _0Asset = ColorAsset(name: "dark/turquoise/0")
+        static let _10Asset = ColorAsset(name: "dark/turquoise/10")
+        static let _20Asset = ColorAsset(name: "dark/turquoise/20")
+        static let _30Asset = ColorAsset(name: "dark/turquoise/30")
+        static let _40Asset = ColorAsset(name: "dark/turquoise/40")
+        static let _5Asset = ColorAsset(name: "dark/turquoise/5")
+        static let _50Asset = ColorAsset(name: "dark/turquoise/50")
+        static let _60Asset = ColorAsset(name: "dark/turquoise/60")
+        static let _70Asset = ColorAsset(name: "dark/turquoise/70")
+        static let _80Asset = ColorAsset(name: "dark/turquoise/80")
+        static let _90Asset = ColorAsset(name: "dark/turquoise/90")
+        static let minus10Asset = ColorAsset(name: "dark/turquoise/minus10")
+        static let minus5Asset = ColorAsset(name: "dark/turquoise/minus5")
+        case _0
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        case minus10
+        case minus5
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._0:
+              return Self._0Asset
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+            case .minus10:
+              return Self.minus10Asset
+            case .minus5:
+              return Self.minus5Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Yellow : CaseIterable {
+        static let _0Asset = ColorAsset(name: "dark/yellow/0")
+        static let _10Asset = ColorAsset(name: "dark/yellow/10")
+        static let _20Asset = ColorAsset(name: "dark/yellow/20")
+        static let _30Asset = ColorAsset(name: "dark/yellow/30")
+        static let _40Asset = ColorAsset(name: "dark/yellow/40")
+        static let _5Asset = ColorAsset(name: "dark/yellow/5")
+        static let _50Asset = ColorAsset(name: "dark/yellow/50")
+        static let _60Asset = ColorAsset(name: "dark/yellow/60")
+        static let _70Asset = ColorAsset(name: "dark/yellow/70")
+        static let _80Asset = ColorAsset(name: "dark/yellow/80")
+        static let _90Asset = ColorAsset(name: "dark/yellow/90")
+        static let minus10Asset = ColorAsset(name: "dark/yellow/minus10")
+        static let minus5Asset = ColorAsset(name: "dark/yellow/minus5")
+        case _0
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        case minus10
+        case minus5
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._0:
+              return Self._0Asset
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+            case .minus10:
+              return Self.minus10Asset
+            case .minus5:
+              return Self.minus5Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+    }
+    public enum Icon : CaseIterable {
+      static let defaultAsset = ColorAsset(name: "icon/default")
+      static let disableAsset = ColorAsset(name: "icon/disable")
+      static let hoverAsset = ColorAsset(name: "icon/hover")
+      public enum Negative : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "icon/negative/default")
+        static let hoverAsset = ColorAsset(name: "icon/negative/hover")
+        static let pressAsset = ColorAsset(name: "icon/negative/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Notice : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "icon/notice/default")
+        static let hoverAsset = ColorAsset(name: "icon/notice/hover")
+        static let pressAsset = ColorAsset(name: "icon/notice/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum OnNegative : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "icon/on-negative/default")
+        static let hoverAsset = ColorAsset(name: "icon/on-negative/hover")
+        static let pressAsset = ColorAsset(name: "icon/on-negative/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum OnNeutral : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "icon/on-neutral/default")
+        static let hoverAsset = ColorAsset(name: "icon/on-neutral/hover")
+        static let pressAsset = ColorAsset(name: "icon/on-neutral/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum OnNotice : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "icon/on-notice/default")
+        static let hoverAsset = ColorAsset(name: "icon/on-notice/hover")
+        static let pressAsset = ColorAsset(name: "icon/on-notice/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum OnOnImg : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "icon/on-on-img/default")
+        static let hoverAsset = ColorAsset(name: "icon/on-on-img/hover")
+        static let pressAsset = ColorAsset(name: "icon/on-on-img/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum OnPositive : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "icon/on-positive/default")
+        static let hoverAsset = ColorAsset(name: "icon/on-positive/hover")
+        static let pressAsset = ColorAsset(name: "icon/on-positive/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum OnPrimary : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "icon/on-primary/default")
+        static let hoverAsset = ColorAsset(name: "icon/on-primary/hover")
+        static let pressAsset = ColorAsset(name: "icon/on-primary/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Positive : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "icon/positive/default")
+        static let hoverAsset = ColorAsset(name: "icon/positive/hover")
+        static let pressAsset = ColorAsset(name: "icon/positive/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      static let pressAsset = ColorAsset(name: "icon/press")
+      public enum Secondary : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "icon/secondary/default")
+        static let hoverAsset = ColorAsset(name: "icon/secondary/hover")
+        static let pressAsset = ColorAsset(name: "icon/secondary/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Tertiary : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "icon/tertiary/default")
+        static let hoverAsset = ColorAsset(name: "icon/tertiary/hover")
+        static let pressAsset = ColorAsset(name: "icon/tertiary/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      case `default`
+      case disable
+      case hover
+      case press
+      public var colorAsset: ColorAsset {
+        switch (self) {
+          case .`default`:
+            return Self.defaultAsset
+          case .disable:
+            return Self.disableAsset
+          case .hover:
+            return Self.hoverAsset
+          case .press:
+            return Self.pressAsset
+        }
+      }
+      public var color: ColorAsset.Color {
+        return colorAsset.color
+      }
+    }
+    public enum Light : CaseIterable {
+      public enum Cyan : CaseIterable {
+        static let _50Asset = ColorAsset(name: "light/Cyan/50")
+        case _50
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._50:
+              return Self._50Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Emerald : CaseIterable {
+        static let _10Asset = ColorAsset(name: "light/Emerald/10")
+        static let _20Asset = ColorAsset(name: "light/Emerald/20")
+        static let _30Asset = ColorAsset(name: "light/Emerald/30")
+        static let _40Asset = ColorAsset(name: "light/Emerald/40")
+        static let _5Asset = ColorAsset(name: "light/Emerald/5")
+        static let _50Asset = ColorAsset(name: "light/Emerald/50")
+        static let _60Asset = ColorAsset(name: "light/Emerald/60")
+        static let _70Asset = ColorAsset(name: "light/Emerald/70")
+        static let _80Asset = ColorAsset(name: "light/Emerald/80")
+        static let _90Asset = ColorAsset(name: "light/Emerald/90")
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Blue : CaseIterable {
+        static let _0Asset = ColorAsset(name: "light/blue/0")
+        static let _10Asset = ColorAsset(name: "light/blue/10")
+        static let _20Asset = ColorAsset(name: "light/blue/20")
+        static let _30Asset = ColorAsset(name: "light/blue/30")
+        static let _40Asset = ColorAsset(name: "light/blue/40")
+        static let _5Asset = ColorAsset(name: "light/blue/5")
+        static let _50Asset = ColorAsset(name: "light/blue/50")
+        static let _60Asset = ColorAsset(name: "light/blue/60")
+        static let _70Asset = ColorAsset(name: "light/blue/70")
+        static let _80Asset = ColorAsset(name: "light/blue/80")
+        static let _90Asset = ColorAsset(name: "light/blue/90")
+        case _0
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._0:
+              return Self._0Asset
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Green : CaseIterable {
+        static let _0Asset = ColorAsset(name: "light/green/0")
+        static let _10Asset = ColorAsset(name: "light/green/10")
+        static let _20Asset = ColorAsset(name: "light/green/20")
+        static let _30Asset = ColorAsset(name: "light/green/30")
+        static let _40Asset = ColorAsset(name: "light/green/40")
+        static let _5Asset = ColorAsset(name: "light/green/5")
+        static let _50Asset = ColorAsset(name: "light/green/50")
+        static let _60Asset = ColorAsset(name: "light/green/60")
+        static let _70Asset = ColorAsset(name: "light/green/70")
+        static let _80Asset = ColorAsset(name: "light/green/80")
+        static let _90Asset = ColorAsset(name: "light/green/90")
+        case _0
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._0:
+              return Self._0Asset
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Indigo : CaseIterable {
+        static let _10Asset = ColorAsset(name: "light/indigo/10")
+        static let _20Asset = ColorAsset(name: "light/indigo/20")
+        static let _30Asset = ColorAsset(name: "light/indigo/30")
+        static let _40Asset = ColorAsset(name: "light/indigo/40")
+        static let _5Asset = ColorAsset(name: "light/indigo/5")
+        static let _50Asset = ColorAsset(name: "light/indigo/50")
+        static let _60Asset = ColorAsset(name: "light/indigo/60")
+        static let _70Asset = ColorAsset(name: "light/indigo/70")
+        static let _80Asset = ColorAsset(name: "light/indigo/80")
+        static let _90Asset = ColorAsset(name: "light/indigo/90")
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Magenta : CaseIterable {
+        static let _10Asset = ColorAsset(name: "light/magenta/10")
+        static let _20Asset = ColorAsset(name: "light/magenta/20")
+        static let _30Asset = ColorAsset(name: "light/magenta/30")
+        static let _40Asset = ColorAsset(name: "light/magenta/40")
+        static let _5Asset = ColorAsset(name: "light/magenta/5")
+        static let _50Asset = ColorAsset(name: "light/magenta/50")
+        static let _60Asset = ColorAsset(name: "light/magenta/60")
+        static let _70Asset = ColorAsset(name: "light/magenta/70")
+        static let _80Asset = ColorAsset(name: "light/magenta/80")
+        static let _90Asset = ColorAsset(name: "light/magenta/90")
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Neutral : CaseIterable {
+        static let _0Asset = ColorAsset(name: "light/neutral/0")
+        static let _10Asset = ColorAsset(name: "light/neutral/10")
+        static let _20Asset = ColorAsset(name: "light/neutral/20")
+        static let _30Asset = ColorAsset(name: "light/neutral/30")
+        static let _40Asset = ColorAsset(name: "light/neutral/40")
+        static let _5Asset = ColorAsset(name: "light/neutral/5")
+        static let _50Asset = ColorAsset(name: "light/neutral/50")
+        static let _60Asset = ColorAsset(name: "light/neutral/60")
+        static let _70Asset = ColorAsset(name: "light/neutral/70")
+        static let _80Asset = ColorAsset(name: "light/neutral/80")
+        static let _90Asset = ColorAsset(name: "light/neutral/90")
+        case _0
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._0:
+              return Self._0Asset
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum NeutralA : CaseIterable {
+        static let _0Asset = ColorAsset(name: "light/neutral-a/0")
+        static let _10Asset = ColorAsset(name: "light/neutral-a/10")
+        static let _20Asset = ColorAsset(name: "light/neutral-a/20")
+        static let _30Asset = ColorAsset(name: "light/neutral-a/30")
+        static let _40Asset = ColorAsset(name: "light/neutral-a/40")
+        static let _5Asset = ColorAsset(name: "light/neutral-a/5")
+        static let _50Asset = ColorAsset(name: "light/neutral-a/50")
+        static let _60Asset = ColorAsset(name: "light/neutral-a/60")
+        static let _70Asset = ColorAsset(name: "light/neutral-a/70")
+        static let _80Asset = ColorAsset(name: "light/neutral-a/80")
+        static let _90Asset = ColorAsset(name: "light/neutral-a/90")
+        case _0
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._0:
+              return Self._0Asset
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Orange : CaseIterable {
+        static let _10Asset = ColorAsset(name: "light/orange/10")
+        static let _20Asset = ColorAsset(name: "light/orange/20")
+        static let _30Asset = ColorAsset(name: "light/orange/30")
+        static let _40Asset = ColorAsset(name: "light/orange/40")
+        static let _5Asset = ColorAsset(name: "light/orange/5")
+        static let _50Asset = ColorAsset(name: "light/orange/50")
+        static let _60Asset = ColorAsset(name: "light/orange/60")
+        static let _70Asset = ColorAsset(name: "light/orange/70")
+        static let _80Asset = ColorAsset(name: "light/orange/80")
+        static let _90Asset = ColorAsset(name: "light/orange/90")
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Purple : CaseIterable {
+        static let _10Asset = ColorAsset(name: "light/purple/10")
+        static let _20Asset = ColorAsset(name: "light/purple/20")
+        static let _30Asset = ColorAsset(name: "light/purple/30")
+        static let _40Asset = ColorAsset(name: "light/purple/40")
+        static let _5Asset = ColorAsset(name: "light/purple/5")
+        static let _50Asset = ColorAsset(name: "light/purple/50")
+        static let _60Asset = ColorAsset(name: "light/purple/60")
+        static let _70Asset = ColorAsset(name: "light/purple/70")
+        static let _80Asset = ColorAsset(name: "light/purple/80")
+        static let _90Asset = ColorAsset(name: "light/purple/90")
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Red : CaseIterable {
+        static let _0Asset = ColorAsset(name: "light/red/0")
+        static let _10Asset = ColorAsset(name: "light/red/10")
+        static let _20Asset = ColorAsset(name: "light/red/20")
+        static let _30Asset = ColorAsset(name: "light/red/30")
+        static let _40Asset = ColorAsset(name: "light/red/40")
+        static let _5Asset = ColorAsset(name: "light/red/5")
+        static let _50Asset = ColorAsset(name: "light/red/50")
+        static let _60Asset = ColorAsset(name: "light/red/60")
+        static let _70Asset = ColorAsset(name: "light/red/70")
+        static let _80Asset = ColorAsset(name: "light/red/80")
+        static let _90Asset = ColorAsset(name: "light/red/90")
+        case _0
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._0:
+              return Self._0Asset
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Turquoise : CaseIterable {
+        static let _0Asset = ColorAsset(name: "light/turquoise/0")
+        static let _10Asset = ColorAsset(name: "light/turquoise/10")
+        static let _20Asset = ColorAsset(name: "light/turquoise/20")
+        static let _30Asset = ColorAsset(name: "light/turquoise/30")
+        static let _40Asset = ColorAsset(name: "light/turquoise/40")
+        static let _5Asset = ColorAsset(name: "light/turquoise/5")
+        static let _50Asset = ColorAsset(name: "light/turquoise/50")
+        static let _60Asset = ColorAsset(name: "light/turquoise/60")
+        static let _70Asset = ColorAsset(name: "light/turquoise/70")
+        static let _80Asset = ColorAsset(name: "light/turquoise/80")
+        static let _90Asset = ColorAsset(name: "light/turquoise/90")
+        case _0
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._0:
+              return Self._0Asset
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Yellow : CaseIterable {
+        static let _0Asset = ColorAsset(name: "light/yellow/0")
+        static let _10Asset = ColorAsset(name: "light/yellow/10")
+        static let _20Asset = ColorAsset(name: "light/yellow/20")
+        static let _30Asset = ColorAsset(name: "light/yellow/30")
+        static let _40Asset = ColorAsset(name: "light/yellow/40")
+        static let _5Asset = ColorAsset(name: "light/yellow/5")
+        static let _50Asset = ColorAsset(name: "light/yellow/50")
+        static let _60Asset = ColorAsset(name: "light/yellow/60")
+        static let _70Asset = ColorAsset(name: "light/yellow/70")
+        static let _80Asset = ColorAsset(name: "light/yellow/80")
+        static let _90Asset = ColorAsset(name: "light/yellow/90")
+        case _0
+        case _10
+        case _20
+        case _30
+        case _40
+        case _5
+        case _50
+        case _60
+        case _70
+        case _80
+        case _90
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case ._0:
+              return Self._0Asset
+            case ._10:
+              return Self._10Asset
+            case ._20:
+              return Self._20Asset
+            case ._30:
+              return Self._30Asset
+            case ._40:
+              return Self._40Asset
+            case ._5:
+              return Self._5Asset
+            case ._50:
+              return Self._50Asset
+            case ._60:
+              return Self._60Asset
+            case ._70:
+              return Self._70Asset
+            case ._80:
+              return Self._80Asset
+            case ._90:
+              return Self._90Asset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+    }
+    public enum Text : CaseIterable {
+      static let defaultText1Asset = ColorAsset(name: "text/default-text1")
+      static let defaultAsset = ColorAsset(name: "text/default")
+      static let disableAsset = ColorAsset(name: "text/disable")
+      static let hoverText1Asset = ColorAsset(name: "text/hover-text1")
+      static let hoverAsset = ColorAsset(name: "text/hover")
+      public enum Info : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "text/info/default")
+        static let hoverAsset = ColorAsset(name: "text/info/hover")
+        static let pressAsset = ColorAsset(name: "text/info/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Negative : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "text/negative/default")
+        static let hoverAsset = ColorAsset(name: "text/negative/hover")
+        static let pressAsset = ColorAsset(name: "text/negative/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Notice : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "text/notice/default")
+        static let hoverAsset = ColorAsset(name: "text/notice/hover")
+        static let pressAsset = ColorAsset(name: "text/notice/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum OnDiscovery : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "text/on-discovery/default")
+        static let hoverAsset = ColorAsset(name: "text/on-discovery/hover")
+        static let pressAsset = ColorAsset(name: "text/on-discovery/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum OnHud : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "text/on-hud/default")
+        static let hoverAsset = ColorAsset(name: "text/on-hud/hover")
+        static let pressAsset = ColorAsset(name: "text/on-hud/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum OnNegative : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "text/on-negative/default")
+        static let hoverAsset = ColorAsset(name: "text/on-negative/hover")
+        static let pressAsset = ColorAsset(name: "text/on-negative/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum OnNotice : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "text/on-notice/default")
+        static let hoverAsset = ColorAsset(name: "text/on-notice/hover")
+        static let pressAsset = ColorAsset(name: "text/on-notice/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum OnOnImg : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "text/on-on-img/default")
+        static let hoverAsset = ColorAsset(name: "text/on-on-img/hover")
+        static let pressAsset = ColorAsset(name: "text/on-on-img/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum OnPositive : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "text/on-positive/default")
+        static let hoverAsset = ColorAsset(name: "text/on-positive/hover")
+        static let pressAsset = ColorAsset(name: "text/on-positive/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum OnPrimary : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "text/on-primary/default")
+        static let hoverAsset = ColorAsset(name: "text/on-primary/hover")
+        static let pressAsset = ColorAsset(name: "text/on-primary/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Placeholder : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "text/placeholder/default")
+        static let hoverAsset = ColorAsset(name: "text/placeholder/hover")
+        static let pressAsset = ColorAsset(name: "text/placeholder/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Positive : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "text/positive/default")
+        static let hoverAsset = ColorAsset(name: "text/positive/hover")
+        static let pressAsset = ColorAsset(name: "text/positive/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      static let pressText1Asset = ColorAsset(name: "text/press-text1")
+      static let pressAsset = ColorAsset(name: "text/press")
+      public enum Secondary : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "text/secondary/default")
+        static let hoverAsset = ColorAsset(name: "text/secondary/hover")
+        static let pressAsset = ColorAsset(name: "text/secondary/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Tertiary : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "text/tertiary/default")
+        static let hoverAsset = ColorAsset(name: "text/tertiary/hover")
+        static let pressAsset = ColorAsset(name: "text/tertiary/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      public enum Visited : CaseIterable {
+        static let defaultAsset = ColorAsset(name: "text/visited/default")
+        static let hoverAsset = ColorAsset(name: "text/visited/hover")
+        static let pressAsset = ColorAsset(name: "text/visited/press")
+        case `default`
+        case hover
+        case press
+        public var colorAsset: ColorAsset {
+          switch (self) {
+            case .`default`:
+              return Self.defaultAsset
+            case .hover:
+              return Self.hoverAsset
+            case .press:
+              return Self.pressAsset
+          }
+        }
+        public var color: ColorAsset.Color {
+          return colorAsset.color
+        }
+      }
+      case defaultText1
+      case `default`
+      case disable
+      case hoverText1
+      case hover
+      case pressText1
+      case press
+      public var colorAsset: ColorAsset {
+        switch (self) {
+          case .defaultText1:
+            return Self.defaultText1Asset
+          case .`default`:
+            return Self.defaultAsset
+          case .disable:
+            return Self.disableAsset
+          case .hoverText1:
+            return Self.hoverText1Asset
+          case .hover:
+            return Self.hoverAsset
+          case .pressText1:
+            return Self.pressText1Asset
+          case .press:
+            return Self.pressAsset
+        }
+      }
+      public var color: ColorAsset.Color {
+        return colorAsset.color
+      }
+    }
+    public static let allColorAssets: [ColorAsset] = [
+      Background.`default`.colorAsset,
+      Background.overlay.colorAsset,
+      Background.secondary.colorAsset,
+      Background.tertiary.colorAsset,
+      Border.defaultText3.colorAsset,
+      Border.`default`.colorAsset,
+      Border.disable.colorAsset,
+      Border.Focus._1.colorAsset,
+      Border.Focus._2.colorAsset,
+      Border.Focus.legacy.colorAsset,
+      Border.hoverText3.colorAsset,
+      Border.hover.colorAsset,
+      Border.hud.colorAsset,
+      Border.negative.colorAsset,
+      Border.pressText3.colorAsset,
+      Border.press.colorAsset,
+      Border.secondary.colorAsset,
+      Border.selected.colorAsset,
+      Container.defaultA.colorAsset,
+      Container.`default`.colorAsset,
+      Container.disable.colorAsset,
+      Container.Discovery.`default`.colorAsset,
+      Container.Discovery.hover.colorAsset,
+      Container.Discovery.press.colorAsset,
+      Container.hoverA.colorAsset,
+      Container.hover.colorAsset,
+      Container.Hud.`default`.colorAsset,
+      Container.Hud.hover.colorAsset,
+      Container.Hud.press.colorAsset,
+      Container.Negative.`default`.colorAsset,
+      Container.Negative.hover.colorAsset,
+      Container.Negative.press.colorAsset,
+      Container.Neutral.`default`.colorAsset,
+      Container.Neutral.hover.colorAsset,
+      Container.Neutral.press.colorAsset,
+      Container.Notice.`default`.colorAsset,
+      Container.Notice.hover.colorAsset,
+      Container.Notice.press.colorAsset,
+      Container.OnImg.`default`.colorAsset,
+      Container.OnImg.hover.colorAsset,
+      Container.OnImg.press.colorAsset,
+      Container.Positive.`default`.colorAsset,
+      Container.Positive.hover.colorAsset,
+      Container.Positive.press.colorAsset,
+      Container.pressA.colorAsset,
+      Container.press.colorAsset,
+      Container.Primary.`default`.colorAsset,
+      Container.Primary.hover.colorAsset,
+      Container.Primary.press.colorAsset,
+      Container.Secondary.defaultA.colorAsset,
+      Container.Secondary.`default`.colorAsset,
+      Container.Secondary.hoverA.colorAsset,
+      Container.Secondary.hover.colorAsset,
+      Container.Secondary.pressA.colorAsset,
+      Container.Secondary.press.colorAsset,
+      Container.skeleton.colorAsset,
+      Container.subtle.colorAsset,
+      Container.Tertiary.defaultA.colorAsset,
+      Container.Tertiary.`default`.colorAsset,
+      Container.Tertiary.hoverA.colorAsset,
+      Container.Tertiary.hover.colorAsset,
+      Container.Tertiary.pressA.colorAsset,
+      Container.Tertiary.press.colorAsset,
+      Dark.Blue._0.colorAsset,
+      Dark.Blue._10.colorAsset,
+      Dark.Blue._20.colorAsset,
+      Dark.Blue._30.colorAsset,
+      Dark.Blue._40.colorAsset,
+      Dark.Blue._5.colorAsset,
+      Dark.Blue._50.colorAsset,
+      Dark.Blue._60.colorAsset,
+      Dark.Blue._70.colorAsset,
+      Dark.Blue._80.colorAsset,
+      Dark.Blue._90.colorAsset,
+      Dark.Blue.minus10.colorAsset,
+      Dark.Blue.minus5.colorAsset,
+      Dark.Green._0.colorAsset,
+      Dark.Green._10.colorAsset,
+      Dark.Green._20.colorAsset,
+      Dark.Green._30.colorAsset,
+      Dark.Green._40.colorAsset,
+      Dark.Green._5.colorAsset,
+      Dark.Green._50.colorAsset,
+      Dark.Green._60.colorAsset,
+      Dark.Green._70.colorAsset,
+      Dark.Green._80.colorAsset,
+      Dark.Green._90.colorAsset,
+      Dark.Green.minus10.colorAsset,
+      Dark.Green.minus5.colorAsset,
+      Dark.Indigo._0.colorAsset,
+      Dark.Indigo._10.colorAsset,
+      Dark.Indigo._20.colorAsset,
+      Dark.Indigo._30.colorAsset,
+      Dark.Indigo._40.colorAsset,
+      Dark.Indigo._5.colorAsset,
+      Dark.Indigo._50.colorAsset,
+      Dark.Indigo._60.colorAsset,
+      Dark.Indigo._70.colorAsset,
+      Dark.Indigo._80.colorAsset,
+      Dark.Indigo._90.colorAsset,
+      Dark.Indigo.minus10.colorAsset,
+      Dark.Indigo.minus5.colorAsset,
+      Dark.Magenta._0.colorAsset,
+      Dark.Magenta._10.colorAsset,
+      Dark.Magenta._20.colorAsset,
+      Dark.Magenta._30.colorAsset,
+      Dark.Magenta._40.colorAsset,
+      Dark.Magenta._5.colorAsset,
+      Dark.Magenta._50.colorAsset,
+      Dark.Magenta._60.colorAsset,
+      Dark.Magenta._70.colorAsset,
+      Dark.Magenta._80.colorAsset,
+      Dark.Magenta._90.colorAsset,
+      Dark.Magenta.minus10.colorAsset,
+      Dark.Magenta.minus5.colorAsset,
+      Dark.Neutral._0.colorAsset,
+      Dark.Neutral._10.colorAsset,
+      Dark.Neutral._20.colorAsset,
+      Dark.Neutral._30.colorAsset,
+      Dark.Neutral._40.colorAsset,
+      Dark.Neutral._5.colorAsset,
+      Dark.Neutral._50.colorAsset,
+      Dark.Neutral._60.colorAsset,
+      Dark.Neutral._70.colorAsset,
+      Dark.Neutral._80.colorAsset,
+      Dark.Neutral._90.colorAsset,
+      Dark.Neutral.minus10.colorAsset,
+      Dark.Neutral.minus5.colorAsset,
+      Dark.NeutralA._0.colorAsset,
+      Dark.NeutralA._10.colorAsset,
+      Dark.NeutralA._20.colorAsset,
+      Dark.NeutralA._30.colorAsset,
+      Dark.NeutralA._40.colorAsset,
+      Dark.NeutralA._5.colorAsset,
+      Dark.NeutralA._50.colorAsset,
+      Dark.NeutralA._60.colorAsset,
+      Dark.NeutralA._70.colorAsset,
+      Dark.NeutralA._80.colorAsset,
+      Dark.NeutralA._90.colorAsset,
+      Dark.NeutralA.minus10.colorAsset,
+      Dark.NeutralA.minus5.colorAsset,
+      Dark.Orange._0.colorAsset,
+      Dark.Orange._10.colorAsset,
+      Dark.Orange._20.colorAsset,
+      Dark.Orange._30.colorAsset,
+      Dark.Orange._40.colorAsset,
+      Dark.Orange._5.colorAsset,
+      Dark.Orange._50.colorAsset,
+      Dark.Orange._60.colorAsset,
+      Dark.Orange._70.colorAsset,
+      Dark.Orange._80.colorAsset,
+      Dark.Orange._90.colorAsset,
+      Dark.Orange.minus10.colorAsset,
+      Dark.Orange.minus5.colorAsset,
+      Dark.Purple._0.colorAsset,
+      Dark.Purple._10.colorAsset,
+      Dark.Purple._20.colorAsset,
+      Dark.Purple._30.colorAsset,
+      Dark.Purple._40.colorAsset,
+      Dark.Purple._5.colorAsset,
+      Dark.Purple._50.colorAsset,
+      Dark.Purple._60.colorAsset,
+      Dark.Purple._70.colorAsset,
+      Dark.Purple._80.colorAsset,
+      Dark.Purple._90.colorAsset,
+      Dark.Purple.minus10.colorAsset,
+      Dark.Purple.minus5.colorAsset,
+      Dark.Red._0.colorAsset,
+      Dark.Red._10.colorAsset,
+      Dark.Red._20.colorAsset,
+      Dark.Red._30.colorAsset,
+      Dark.Red._40.colorAsset,
+      Dark.Red._5.colorAsset,
+      Dark.Red._50.colorAsset,
+      Dark.Red._60.colorAsset,
+      Dark.Red._70.colorAsset,
+      Dark.Red._80.colorAsset,
+      Dark.Red._90.colorAsset,
+      Dark.Red.minus10.colorAsset,
+      Dark.Red.minus5.colorAsset,
+      Dark.Turquoise._0.colorAsset,
+      Dark.Turquoise._10.colorAsset,
+      Dark.Turquoise._20.colorAsset,
+      Dark.Turquoise._30.colorAsset,
+      Dark.Turquoise._40.colorAsset,
+      Dark.Turquoise._5.colorAsset,
+      Dark.Turquoise._50.colorAsset,
+      Dark.Turquoise._60.colorAsset,
+      Dark.Turquoise._70.colorAsset,
+      Dark.Turquoise._80.colorAsset,
+      Dark.Turquoise._90.colorAsset,
+      Dark.Turquoise.minus10.colorAsset,
+      Dark.Turquoise.minus5.colorAsset,
+      Dark.Yellow._0.colorAsset,
+      Dark.Yellow._10.colorAsset,
+      Dark.Yellow._20.colorAsset,
+      Dark.Yellow._30.colorAsset,
+      Dark.Yellow._40.colorAsset,
+      Dark.Yellow._5.colorAsset,
+      Dark.Yellow._50.colorAsset,
+      Dark.Yellow._60.colorAsset,
+      Dark.Yellow._70.colorAsset,
+      Dark.Yellow._80.colorAsset,
+      Dark.Yellow._90.colorAsset,
+      Dark.Yellow.minus10.colorAsset,
+      Dark.Yellow.minus5.colorAsset,
+      Icon.`default`.colorAsset,
+      Icon.disable.colorAsset,
+      Icon.hover.colorAsset,
+      Icon.Negative.`default`.colorAsset,
+      Icon.Negative.hover.colorAsset,
+      Icon.Negative.press.colorAsset,
+      Icon.Notice.`default`.colorAsset,
+      Icon.Notice.hover.colorAsset,
+      Icon.Notice.press.colorAsset,
+      Icon.OnNegative.`default`.colorAsset,
+      Icon.OnNegative.hover.colorAsset,
+      Icon.OnNegative.press.colorAsset,
+      Icon.OnNeutral.`default`.colorAsset,
+      Icon.OnNeutral.hover.colorAsset,
+      Icon.OnNeutral.press.colorAsset,
+      Icon.OnNotice.`default`.colorAsset,
+      Icon.OnNotice.hover.colorAsset,
+      Icon.OnNotice.press.colorAsset,
+      Icon.OnOnImg.`default`.colorAsset,
+      Icon.OnOnImg.hover.colorAsset,
+      Icon.OnOnImg.press.colorAsset,
+      Icon.OnPositive.`default`.colorAsset,
+      Icon.OnPositive.hover.colorAsset,
+      Icon.OnPositive.press.colorAsset,
+      Icon.OnPrimary.`default`.colorAsset,
+      Icon.OnPrimary.hover.colorAsset,
+      Icon.OnPrimary.press.colorAsset,
+      Icon.Positive.`default`.colorAsset,
+      Icon.Positive.hover.colorAsset,
+      Icon.Positive.press.colorAsset,
+      Icon.press.colorAsset,
+      Icon.Secondary.`default`.colorAsset,
+      Icon.Secondary.hover.colorAsset,
+      Icon.Secondary.press.colorAsset,
+      Icon.Tertiary.`default`.colorAsset,
+      Icon.Tertiary.hover.colorAsset,
+      Icon.Tertiary.press.colorAsset,
+      Light.Cyan._50.colorAsset,
+      Light.Emerald._10.colorAsset,
+      Light.Emerald._20.colorAsset,
+      Light.Emerald._30.colorAsset,
+      Light.Emerald._40.colorAsset,
+      Light.Emerald._5.colorAsset,
+      Light.Emerald._50.colorAsset,
+      Light.Emerald._60.colorAsset,
+      Light.Emerald._70.colorAsset,
+      Light.Emerald._80.colorAsset,
+      Light.Emerald._90.colorAsset,
+      Light.Blue._0.colorAsset,
+      Light.Blue._10.colorAsset,
+      Light.Blue._20.colorAsset,
+      Light.Blue._30.colorAsset,
+      Light.Blue._40.colorAsset,
+      Light.Blue._5.colorAsset,
+      Light.Blue._50.colorAsset,
+      Light.Blue._60.colorAsset,
+      Light.Blue._70.colorAsset,
+      Light.Blue._80.colorAsset,
+      Light.Blue._90.colorAsset,
+      Light.Green._0.colorAsset,
+      Light.Green._10.colorAsset,
+      Light.Green._20.colorAsset,
+      Light.Green._30.colorAsset,
+      Light.Green._40.colorAsset,
+      Light.Green._5.colorAsset,
+      Light.Green._50.colorAsset,
+      Light.Green._60.colorAsset,
+      Light.Green._70.colorAsset,
+      Light.Green._80.colorAsset,
+      Light.Green._90.colorAsset,
+      Light.Indigo._10.colorAsset,
+      Light.Indigo._20.colorAsset,
+      Light.Indigo._30.colorAsset,
+      Light.Indigo._40.colorAsset,
+      Light.Indigo._5.colorAsset,
+      Light.Indigo._50.colorAsset,
+      Light.Indigo._60.colorAsset,
+      Light.Indigo._70.colorAsset,
+      Light.Indigo._80.colorAsset,
+      Light.Indigo._90.colorAsset,
+      Light.Magenta._10.colorAsset,
+      Light.Magenta._20.colorAsset,
+      Light.Magenta._30.colorAsset,
+      Light.Magenta._40.colorAsset,
+      Light.Magenta._5.colorAsset,
+      Light.Magenta._50.colorAsset,
+      Light.Magenta._60.colorAsset,
+      Light.Magenta._70.colorAsset,
+      Light.Magenta._80.colorAsset,
+      Light.Magenta._90.colorAsset,
+      Light.Neutral._0.colorAsset,
+      Light.Neutral._10.colorAsset,
+      Light.Neutral._20.colorAsset,
+      Light.Neutral._30.colorAsset,
+      Light.Neutral._40.colorAsset,
+      Light.Neutral._5.colorAsset,
+      Light.Neutral._50.colorAsset,
+      Light.Neutral._60.colorAsset,
+      Light.Neutral._70.colorAsset,
+      Light.Neutral._80.colorAsset,
+      Light.Neutral._90.colorAsset,
+      Light.NeutralA._0.colorAsset,
+      Light.NeutralA._10.colorAsset,
+      Light.NeutralA._20.colorAsset,
+      Light.NeutralA._30.colorAsset,
+      Light.NeutralA._40.colorAsset,
+      Light.NeutralA._5.colorAsset,
+      Light.NeutralA._50.colorAsset,
+      Light.NeutralA._60.colorAsset,
+      Light.NeutralA._70.colorAsset,
+      Light.NeutralA._80.colorAsset,
+      Light.NeutralA._90.colorAsset,
+      Light.Orange._10.colorAsset,
+      Light.Orange._20.colorAsset,
+      Light.Orange._30.colorAsset,
+      Light.Orange._40.colorAsset,
+      Light.Orange._5.colorAsset,
+      Light.Orange._50.colorAsset,
+      Light.Orange._60.colorAsset,
+      Light.Orange._70.colorAsset,
+      Light.Orange._80.colorAsset,
+      Light.Orange._90.colorAsset,
+      Light.Purple._10.colorAsset,
+      Light.Purple._20.colorAsset,
+      Light.Purple._30.colorAsset,
+      Light.Purple._40.colorAsset,
+      Light.Purple._5.colorAsset,
+      Light.Purple._50.colorAsset,
+      Light.Purple._60.colorAsset,
+      Light.Purple._70.colorAsset,
+      Light.Purple._80.colorAsset,
+      Light.Purple._90.colorAsset,
+      Light.Red._0.colorAsset,
+      Light.Red._10.colorAsset,
+      Light.Red._20.colorAsset,
+      Light.Red._30.colorAsset,
+      Light.Red._40.colorAsset,
+      Light.Red._5.colorAsset,
+      Light.Red._50.colorAsset,
+      Light.Red._60.colorAsset,
+      Light.Red._70.colorAsset,
+      Light.Red._80.colorAsset,
+      Light.Red._90.colorAsset,
+      Light.Turquoise._0.colorAsset,
+      Light.Turquoise._10.colorAsset,
+      Light.Turquoise._20.colorAsset,
+      Light.Turquoise._30.colorAsset,
+      Light.Turquoise._40.colorAsset,
+      Light.Turquoise._5.colorAsset,
+      Light.Turquoise._50.colorAsset,
+      Light.Turquoise._60.colorAsset,
+      Light.Turquoise._70.colorAsset,
+      Light.Turquoise._80.colorAsset,
+      Light.Turquoise._90.colorAsset,
+      Light.Yellow._0.colorAsset,
+      Light.Yellow._10.colorAsset,
+      Light.Yellow._20.colorAsset,
+      Light.Yellow._30.colorAsset,
+      Light.Yellow._40.colorAsset,
+      Light.Yellow._5.colorAsset,
+      Light.Yellow._50.colorAsset,
+      Light.Yellow._60.colorAsset,
+      Light.Yellow._70.colorAsset,
+      Light.Yellow._80.colorAsset,
+      Light.Yellow._90.colorAsset,
+      Text.defaultText1.colorAsset,
+      Text.`default`.colorAsset,
+      Text.disable.colorAsset,
+      Text.hoverText1.colorAsset,
+      Text.hover.colorAsset,
+      Text.Info.`default`.colorAsset,
+      Text.Info.hover.colorAsset,
+      Text.Info.press.colorAsset,
+      Text.Negative.`default`.colorAsset,
+      Text.Negative.hover.colorAsset,
+      Text.Negative.press.colorAsset,
+      Text.Notice.`default`.colorAsset,
+      Text.Notice.hover.colorAsset,
+      Text.Notice.press.colorAsset,
+      Text.OnDiscovery.`default`.colorAsset,
+      Text.OnDiscovery.hover.colorAsset,
+      Text.OnDiscovery.press.colorAsset,
+      Text.OnHud.`default`.colorAsset,
+      Text.OnHud.hover.colorAsset,
+      Text.OnHud.press.colorAsset,
+      Text.OnNegative.`default`.colorAsset,
+      Text.OnNegative.hover.colorAsset,
+      Text.OnNegative.press.colorAsset,
+      Text.OnNotice.`default`.colorAsset,
+      Text.OnNotice.hover.colorAsset,
+      Text.OnNotice.press.colorAsset,
+      Text.OnOnImg.`default`.colorAsset,
+      Text.OnOnImg.hover.colorAsset,
+      Text.OnOnImg.press.colorAsset,
+      Text.OnPositive.`default`.colorAsset,
+      Text.OnPositive.hover.colorAsset,
+      Text.OnPositive.press.colorAsset,
+      Text.OnPrimary.`default`.colorAsset,
+      Text.OnPrimary.hover.colorAsset,
+      Text.OnPrimary.press.colorAsset,
+      Text.Placeholder.`default`.colorAsset,
+      Text.Placeholder.hover.colorAsset,
+      Text.Placeholder.press.colorAsset,
+      Text.Positive.`default`.colorAsset,
+      Text.Positive.hover.colorAsset,
+      Text.Positive.press.colorAsset,
+      Text.pressText1.colorAsset,
+      Text.press.colorAsset,
+      Text.Secondary.`default`.colorAsset,
+      Text.Secondary.hover.colorAsset,
+      Text.Secondary.press.colorAsset,
+      Text.Tertiary.`default`.colorAsset,
+      Text.Tertiary.hover.colorAsset,
+      Text.Tertiary.press.colorAsset,
+      Text.Visited.`default`.colorAsset,
+      Text.Visited.hover.colorAsset,
+      Text.Visited.press.colorAsset,
+    ]
   }
   public enum Images : CaseIterable {
     public enum _16 : CaseIterable {
@@ -1310,6 +4059,8 @@ public enum CharcoalAsset {
       return imageAsset.image
     }
   }
+  public enum ImagesV2 : CaseIterable {
+  }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
@@ -1471,4 +4222,3 @@ private final class BundleToken {
   }()
 }
 // swiftlint:enable convenience_type
-
