@@ -4060,6 +4060,2149 @@ public enum CharcoalAsset {
     }
   }
   public enum ImagesV2 : CaseIterable {
+    public enum _16 : CaseIterable {
+      public enum Regular : CaseIterable {
+        public static let arrowLeftDownAsset = ImageAsset(name: "16/regular/arrow.left-down")
+        public static let chevronDownAsset = ImageAsset(name: "16/regular/chevron.down")
+        public static let chevronLeftAsset = ImageAsset(name: "16/regular/chevron.left")
+        public static let chevronRightAsset = ImageAsset(name: "16/regular/chevron.right")
+        public static let chevronUpAsset = ImageAsset(name: "16/regular/chevron.up")
+      }
+      public enum Solid : CaseIterable {
+        public static let arrowLeftDownAsset = ImageAsset(name: "16/solid/arrow.left-down")
+        public static let chevronDownAsset = ImageAsset(name: "16/solid/chevron.down")
+        public static let chevronLeftAsset = ImageAsset(name: "16/solid/chevron.left")
+        public static let chevronRightAsset = ImageAsset(name: "16/solid/chevron.right")
+        public static let chevronUpAsset = ImageAsset(name: "16/solid/chevron.up")
+      }
+    }
+    public enum _20 : CaseIterable {
+      public enum Regular : CaseIterable {
+        public static let xAsset = ImageAsset(name: "20/regular/x")
+      }
+      public enum Solid : CaseIterable {
+        public static let xAsset = ImageAsset(name: "20/solid/x")
+      }
+    }
+    public enum _24 : CaseIterable {
+      public enum Color : CaseIterable {
+        public static let colorMixtureAsset = ImageAsset(name: "24/color/color-mixture")
+      }
+      public enum Regular : CaseIterable {
+        public static let addCircleAsset = ImageAsset(name: "24/regular/add.circle")
+        public static let addAsset = ImageAsset(name: "24/regular/add")
+        public static let airbrushAsset = ImageAsset(name: "24/regular/airbrush")
+        public static let albumAddAsset = ImageAsset(name: "24/regular/album.add")
+        public static let albumAsset = ImageAsset(name: "24/regular/album")
+        public static let alertAsset = ImageAsset(name: "24/regular/alert")
+        public static let alignHorizontalAsset = ImageAsset(name: "24/regular/align.horizontal")
+        public static let alignVerticalAsset = ImageAsset(name: "24/regular/align.vertical")
+        public static let angleAsset = ImageAsset(name: "24/regular/angle")
+        public static let announceAsset = ImageAsset(name: "24/regular/announce")
+        public static let applePencilAsset = ImageAsset(name: "24/regular/apple-pencil")
+        public static let arAsset = ImageAsset(name: "24/regular/ar")
+        public static let archiveAsset = ImageAsset(name: "24/regular/archive")
+        public static let arrowCcwAsset = ImageAsset(name: "24/regular/arrow.ccw")
+        public static let arrowDownAsset = ImageAsset(name: "24/regular/arrow.down")
+        public static let arrowDownSquareAsset = ImageAsset(name: "24/regular/arrow.down.square")
+        public static let arrowLeftDownAsset = ImageAsset(name: "24/regular/arrow.left-down")
+        public static let arrowLeftAsset = ImageAsset(name: "24/regular/arrow.left")
+        public static let arrowLeftSquareAsset = ImageAsset(name: "24/regular/arrow.left.square")
+        public static let arrowRightAsset = ImageAsset(name: "24/regular/arrow.right")
+        public static let arrowUpAsset = ImageAsset(name: "24/regular/arrow.up")
+        public static let autoSelectAsset = ImageAsset(name: "24/regular/auto-select")
+        public static let bellAsset = ImageAsset(name: "24/regular/bell")
+        public static let bezierCurveAsset = ImageAsset(name: "24/regular/bezier-curve")
+        public static let blendModeAsset = ImageAsset(name: "24/regular/blend-mode")
+        public static let bodyAddAsset = ImageAsset(name: "24/regular/body.add")
+        public static let bodyEditAsset = ImageAsset(name: "24/regular/body.edit")
+        public static let bodyAsset = ImageAsset(name: "24/regular/body")
+        public static let boldAsset = ImageAsset(name: "24/regular/bold")
+        public static let bookAsset = ImageAsset(name: "24/regular/book")
+        public static let bookmarkAsset = ImageAsset(name: "24/regular/bookmark")
+        public static let bringBackwardAsset = ImageAsset(name: "24/regular/bring.backward")
+        public static let bringForwardAsset = ImageAsset(name: "24/regular/bring.forward")
+        public static let brushDecorationAsset = ImageAsset(name: "24/regular/brush.decoration")
+        public static let brushAsset = ImageAsset(name: "24/regular/brush")
+        public static let brushOpacityAsset = ImageAsset(name: "24/regular/brush.opacity")
+        public static let brushPressAsset = ImageAsset(name: "24/regular/brush.press")
+        public static let brushSizeAsset = ImageAsset(name: "24/regular/brush.size")
+        public static let brushStablizeAsset = ImageAsset(name: "24/regular/brush.stablize")
+        public static let bubbleAsset = ImageAsset(name: "24/regular/bubble")
+        public static let bulbShineAsset = ImageAsset(name: "24/regular/bulb.shine")
+        public static let calendarAsset = ImageAsset(name: "24/regular/calendar")
+        public static let cameraAsset = ImageAsset(name: "24/regular/camera")
+        public static let characterReplaceAsset = ImageAsset(name: "24/regular/character.replace")
+        public static let checkCircleAsset = ImageAsset(name: "24/regular/check.circle")
+        public static let checkAsset = ImageAsset(name: "24/regular/check")
+        public static let chevronDownAsset = ImageAsset(name: "24/regular/chevron.down")
+        public static let chevronLeftAsset = ImageAsset(name: "24/regular/chevron.left")
+        public static let chevronRightAsset = ImageAsset(name: "24/regular/chevron.right")
+        public static let chevronUpAsset = ImageAsset(name: "24/regular/chevron.up")
+        public static let circleAsset = ImageAsset(name: "24/regular/circle")
+        public static let clickAsset = ImageAsset(name: "24/regular/click")
+        public static let clippingAsset = ImageAsset(name: "24/regular/clipping")
+        public static let cloudCheckAsset = ImageAsset(name: "24/regular/cloud.check")
+        public static let cloudExclamationAsset = ImageAsset(name: "24/regular/cloud.exclamation")
+        public static let cloudAsset = ImageAsset(name: "24/regular/cloud")
+        public static let cloudSyncAsset = ImageAsset(name: "24/regular/cloud.sync")
+        public static let codeAsset = ImageAsset(name: "24/regular/code")
+        public static let colorSetsAsset = ImageAsset(name: "24/regular/color-sets")
+        public static let colorWheelRectangleAsset = ImageAsset(name: "24/regular/color-wheel.rectangle")
+        public static let colorWheelTriangleAsset = ImageAsset(name: "24/regular/color-wheel.triangle")
+        public static let colorAsset = ImageAsset(name: "24/regular/color")
+        public static let commandsCircleAsset = ImageAsset(name: "24/regular/commands.circle")
+        public static let compassAsset = ImageAsset(name: "24/regular/compass")
+        public static let contestAsset = ImageAsset(name: "24/regular/contest")
+        public static let contrastAsset = ImageAsset(name: "24/regular/contrast")
+        public static let copyAsset = ImageAsset(name: "24/regular/copy")
+        public static let crownAsset = ImageAsset(name: "24/regular/crown")
+        public static let curveAsset = ImageAsset(name: "24/regular/curve")
+        public static let curveNodesAsset = ImageAsset(name: "24/regular/curve.nodes")
+        public static let deleteAsset = ImageAsset(name: "24/regular/delete")
+        public static let deviceAsset = ImageAsset(name: "24/regular/device")
+        public static let deviceRotateAsset = ImageAsset(name: "24/regular/device.rotate")
+        public static let dialAsset = ImageAsset(name: "24/regular/dial")
+        public static let distortionAsset = ImageAsset(name: "24/regular/distortion")
+        public static let dotsHorizontalCircleAsset = ImageAsset(name: "24/regular/dots.horizontal.circle")
+        public static let dotsHorizontalAsset = ImageAsset(name: "24/regular/dots.horizontal")
+        public static let dotsVerticalCircleAsset = ImageAsset(name: "24/regular/dots.vertical.circle")
+        public static let dotsVerticalAsset = ImageAsset(name: "24/regular/dots.vertical")
+        public static let downloadAsset = ImageAsset(name: "24/regular/download")
+        public static let downloadIosAsset = ImageAsset(name: "24/regular/download.ios")
+        public static let dropperAsset = ImageAsset(name: "24/regular/dropper")
+        public static let duplicateAsset = ImageAsset(name: "24/regular/duplicate")
+        public static let emojiAsset = ImageAsset(name: "24/regular/emoji")
+        public static let eraserAsset = ImageAsset(name: "24/regular/eraser")
+        public static let expandAsset = ImageAsset(name: "24/regular/expand")
+        public static let eyeClosedAsset = ImageAsset(name: "24/regular/eye.closed")
+        public static let eyeAsset = ImageAsset(name: "24/regular/eye")
+        public static let eyeOffAsset = ImageAsset(name: "24/regular/eye.off")
+        public static let faceAsset = ImageAsset(name: "24/regular/face")
+        public static let feedAsset = ImageAsset(name: "24/regular/feed")
+        public static let fileAddAsset = ImageAsset(name: "24/regular/file.add")
+        public static let fileExportAsset = ImageAsset(name: "24/regular/file.export")
+        public static let fileAsset = ImageAsset(name: "24/regular/file")
+        public static let filePngAsset = ImageAsset(name: "24/regular/file.png")
+        public static let filePsdAsset = ImageAsset(name: "24/regular/file.psd")
+        public static let fileRestoreAsset = ImageAsset(name: "24/regular/file.restore")
+        public static let fillAsset = ImageAsset(name: "24/regular/fill")
+        public static let fillSquareAsset = ImageAsset(name: "24/regular/fill.square")
+        public static let flameAsset = ImageAsset(name: "24/regular/flame")
+        public static let flipHorizontalAsset = ImageAsset(name: "24/regular/flip.horizontal")
+        public static let flipVerticalAsset = ImageAsset(name: "24/regular/flip.vertical")
+        public static let folderAddAsset = ImageAsset(name: "24/regular/folder.add")
+        public static let folderAsset = ImageAsset(name: "24/regular/folder")
+        public static let folderOpenAsset = ImageAsset(name: "24/regular/folder.open")
+        public static let fontSizeAsset = ImageAsset(name: "24/regular/font-size")
+        public static let fovAsset = ImageAsset(name: "24/regular/fov")
+        public static let frameAsset = ImageAsset(name: "24/regular/frame")
+        public static let funnelAsset = ImageAsset(name: "24/regular/funnel")
+        public static let giftAsset = ImageAsset(name: "24/regular/gift")
+        public static let glowAsset = ImageAsset(name: "24/regular/glow")
+        public static let gradientAsset = ImageAsset(name: "24/regular/gradient")
+        public static let gridviewAsset = ImageAsset(name: "24/regular/gridview")
+        public static let groupAsset = ImageAsset(name: "24/regular/group")
+        public static let hairAsset = ImageAsset(name: "24/regular/hair")
+        public static let hashTagAsset = ImageAsset(name: "24/regular/hash-tag")
+        public static let heartAsset = ImageAsset(name: "24/regular/heart")
+        public static let historyAsset = ImageAsset(name: "24/regular/history")
+        public static let homeAsset = ImageAsset(name: "24/regular/home")
+        public static let imageAddAsset = ImageAsset(name: "24/regular/image.add")
+        public static let imageContainAsset = ImageAsset(name: "24/regular/image.contain")
+        public static let imageCoverAsset = ImageAsset(name: "24/regular/image.cover")
+        public static let imageEffectAsset = ImageAsset(name: "24/regular/image.effect")
+        public static let imageAsset = ImageAsset(name: "24/regular/image")
+        public static let imageOffAsset = ImageAsset(name: "24/regular/image.off")
+        public static let imageReplaceAsset = ImageAsset(name: "24/regular/image.replace")
+        public static let imagesAsset = ImageAsset(name: "24/regular/images")
+        public static let infoCircleAsset = ImageAsset(name: "24/regular/info.circle")
+        public static let invertSelectionAsset = ImageAsset(name: "24/regular/invert-selection")
+        public static let invoiceAsset = ImageAsset(name: "24/regular/invoice")
+        public static let italicAsset = ImageAsset(name: "24/regular/italic")
+        public static let keyboardAsset = ImageAsset(name: "24/regular/keyboard")
+        public static let lassoFillAsset = ImageAsset(name: "24/regular/lasso.fill")
+        public static let lassoAsset = ImageAsset(name: "24/regular/lasso")
+        public static let layerAddAsset = ImageAsset(name: "24/regular/layer.add")
+        public static let layerImageMaterialAsset = ImageAsset(name: "24/regular/layer.image-material")
+        public static let layerAsset = ImageAsset(name: "24/regular/layer")
+        public static let layerMergeAsset = ImageAsset(name: "24/regular/layer.merge")
+        public static let layerOpacityAsset = ImageAsset(name: "24/regular/layer.opacity")
+        public static let layerSetReferenceAsset = ImageAsset(name: "24/regular/layer.set-reference")
+        public static let layerSettingAsset = ImageAsset(name: "24/regular/layer.setting")
+        public static let layerTextAsset = ImageAsset(name: "24/regular/layer.text")
+        public static let layerVectorAsset = ImageAsset(name: "24/regular/layer.vector")
+        public static let layoutAsset = ImageAsset(name: "24/regular/layout")
+        public static let letterSpacingAsset = ImageAsset(name: "24/regular/letter-spacing")
+        public static let lineSpacingAsset = ImageAsset(name: "24/regular/line-spacing")
+        public static let lineAsset = ImageAsset(name: "24/regular/line")
+        public static let lineNodesAsset = ImageAsset(name: "24/regular/line.nodes")
+        public static let linkClearAsset = ImageAsset(name: "24/regular/link.clear")
+        public static let linkAsset = ImageAsset(name: "24/regular/link")
+        public static let listAsset = ImageAsset(name: "24/regular/list")
+        public static let locationAsset = ImageAsset(name: "24/regular/location")
+        public static let lockAsset = ImageAsset(name: "24/regular/lock")
+        public static let logoutAsset = ImageAsset(name: "24/regular/logout")
+        public static let mangaAsset = ImageAsset(name: "24/regular/manga")
+        public static let maskAsset = ImageAsset(name: "24/regular/mask")
+        public static let meshAsset = ImageAsset(name: "24/regular/mesh")
+        public static let messageAsset = ImageAsset(name: "24/regular/message")
+        public static let microphoneAsset = ImageAsset(name: "24/regular/microphone")
+        public static let moveAsset = ImageAsset(name: "24/regular/move")
+        public static let navigatorAsset = ImageAsset(name: "24/regular/navigator")
+        public static let newPostAsset = ImageAsset(name: "24/regular/new-post")
+        public static let novelAsset = ImageAsset(name: "24/regular/novel")
+        public static let opacityAsset = ImageAsset(name: "24/regular/opacity")
+        public static let opacityLockAsset = ImageAsset(name: "24/regular/opacity.lock")
+        public static let openInNewAsset = ImageAsset(name: "24/regular/open-in-new")
+        public static let outlineAsset = ImageAsset(name: "24/regular/outline")
+        public static let paletteAsset = ImageAsset(name: "24/regular/palette")
+        public static let pasteAsset = ImageAsset(name: "24/regular/paste")
+        public static let pauseAsset = ImageAsset(name: "24/regular/pause")
+        public static let penAddAsset = ImageAsset(name: "24/regular/pen.add")
+        public static let penDrawAsset = ImageAsset(name: "24/regular/pen.draw")
+        public static let penAsset = ImageAsset(name: "24/regular/pen")
+        public static let penTextAsset = ImageAsset(name: "24/regular/pen.text")
+        public static let personAddAsset = ImageAsset(name: "24/regular/person.add")
+        public static let personCircleAsset = ImageAsset(name: "24/regular/person.circle")
+        public static let personsAsset = ImageAsset(name: "24/regular/persons")
+        public static let playAsset = ImageAsset(name: "24/regular/play")
+        public static let polygonAsset = ImageAsset(name: "24/regular/polygon")
+        public static let polylineAsset = ImageAsset(name: "24/regular/polyline")
+        public static let polylineNodesAsset = ImageAsset(name: "24/regular/polyline.nodes")
+        public static let poseAsset = ImageAsset(name: "24/regular/pose")
+        public static let projectsAsset = ImageAsset(name: "24/regular/projects")
+        public static let questionBubbleAsset = ImageAsset(name: "24/regular/question.bubble")
+        public static let questionCircleAsset = ImageAsset(name: "24/regular/question.circle")
+        public static let rabbitEarBentAsset = ImageAsset(name: "24/regular/rabbit.ear-bent")
+        public static let rabbitAsset = ImageAsset(name: "24/regular/rabbit")
+        public static let redoAsset = ImageAsset(name: "24/regular/redo")
+        public static let renameAsset = ImageAsset(name: "24/regular/rename")
+        public static let resolutionAsset = ImageAsset(name: "24/regular/resolution")
+        public static let rotateCcwAsset = ImageAsset(name: "24/regular/rotate.ccw")
+        public static let rotateCwAsset = ImageAsset(name: "24/regular/rotate.cw")
+        public static let rotateAsset = ImageAsset(name: "24/regular/rotate")
+        public static let rulerAsset = ImageAsset(name: "24/regular/ruler")
+        public static let sansSerifAsset = ImageAsset(name: "24/regular/sans-serif")
+        public static let saturationAsset = ImageAsset(name: "24/regular/saturation")
+        public static let saveAsset = ImageAsset(name: "24/regular/save")
+        public static let scatterAsset = ImageAsset(name: "24/regular/scatter")
+        public static let scissorsAsset = ImageAsset(name: "24/regular/scissors")
+        public static let searchAsset = ImageAsset(name: "24/regular/search")
+        public static let selectClearAsset = ImageAsset(name: "24/regular/select.clear")
+        public static let selectImageAsset = ImageAsset(name: "24/regular/select.image")
+        public static let selectOffAsset = ImageAsset(name: "24/regular/select.off")
+        public static let selectionsAsset = ImageAsset(name: "24/regular/selections")
+        public static let sendAsset = ImageAsset(name: "24/regular/send")
+        public static let settingAsset = ImageAsset(name: "24/regular/setting")
+        public static let shapeAsset = ImageAsset(name: "24/regular/shape")
+        public static let shareAndroidAsset = ImageAsset(name: "24/regular/share.android")
+        public static let shareIosAsset = ImageAsset(name: "24/regular/share.ios")
+        public static let shoppingAsset = ImageAsset(name: "24/regular/shopping")
+        public static let shrinkAsset = ImageAsset(name: "24/regular/shrink")
+        public static let shutterAsset = ImageAsset(name: "24/regular/shutter")
+        public static let slidersAsset = ImageAsset(name: "24/regular/sliders")
+        public static let softEdgeAsset = ImageAsset(name: "24/regular/soft-edge")
+        public static let squareDashAsset = ImageAsset(name: "24/regular/square.dash")
+        public static let squareDashResizeAsset = ImageAsset(name: "24/regular/square.dash.resize")
+        public static let squareAsset = ImageAsset(name: "24/regular/square")
+        public static let squares2x2Asset = ImageAsset(name: "24/regular/squares.2x2")
+        public static let squares3x3Asset = ImageAsset(name: "24/regular/squares.3x3")
+        public static let starAsset = ImageAsset(name: "24/regular/star")
+        public static let strikeThroughAsset = ImageAsset(name: "24/regular/strike-through")
+        public static let strokeTaperAsset = ImageAsset(name: "24/regular/stroke-taper")
+        public static let strokeWidthAsset = ImageAsset(name: "24/regular/stroke-width")
+        public static let subtractAsset = ImageAsset(name: "24/regular/subtract")
+        public static let sunAsset = ImageAsset(name: "24/regular/sun")
+        public static let syncCircleAsset = ImageAsset(name: "24/regular/sync.circle")
+        public static let syncAsset = ImageAsset(name: "24/regular/sync")
+        public static let tShirtAsset = ImageAsset(name: "24/regular/t-shirt")
+        public static let tap1FingerAsset = ImageAsset(name: "24/regular/tap.1-finger")
+        public static let tap2FingersAsset = ImageAsset(name: "24/regular/tap.2-fingers")
+        public static let tap3FingersAsset = ImageAsset(name: "24/regular/tap.3-fingers")
+        public static let temperatureAsset = ImageAsset(name: "24/regular/temperature")
+        public static let textAlignCenterAsset = ImageAsset(name: "24/regular/text-align.center")
+        public static let textAlignJustifyAsset = ImageAsset(name: "24/regular/text-align.justify")
+        public static let textAlignLeftAsset = ImageAsset(name: "24/regular/text-align.left")
+        public static let textAlignRightAsset = ImageAsset(name: "24/regular/text-align.right")
+        public static let textRubyAsset = ImageAsset(name: "24/regular/text-ruby")
+        public static let textAsset = ImageAsset(name: "24/regular/text")
+        public static let textureAsset = ImageAsset(name: "24/regular/texture")
+        public static let toolsAsset = ImageAsset(name: "24/regular/tools")
+        public static let touchAsset = ImageAsset(name: "24/regular/touch")
+        public static let transformAsset = ImageAsset(name: "24/regular/transform")
+        public static let transformRotationHandleAsset = ImageAsset(name: "24/regular/transform.rotation-handle")
+        public static let underlineAsset = ImageAsset(name: "24/regular/underline")
+        public static let undoAsset = ImageAsset(name: "24/regular/undo")
+        public static let uploadAsset = ImageAsset(name: "24/regular/upload")
+        public static let userCampaignAsset = ImageAsset(name: "24/regular/user-campaign")
+        public static let videoCameraAsset = ImageAsset(name: "24/regular/video-camera")
+        public static let videoAsset = ImageAsset(name: "24/regular/video")
+        public static let viewFitAsset = ImageAsset(name: "24/regular/view.fit")
+        public static let viewFullAsset = ImageAsset(name: "24/regular/view.full")
+        public static let warnAsset = ImageAsset(name: "24/regular/warn")
+        public static let warnTriangleAsset = ImageAsset(name: "24/regular/warn.triangle")
+        public static let xCircleAsset = ImageAsset(name: "24/regular/x.circle")
+        public static let xAsset = ImageAsset(name: "24/regular/x")
+        public static let xOctagonAsset = ImageAsset(name: "24/regular/x.octagon")
+        public static let zoomInAsset = ImageAsset(name: "24/regular/zoom-in")
+        public static let zoomOutAsset = ImageAsset(name: "24/regular/zoom-out")
+      }
+      public enum Solid : CaseIterable {
+        public static let addCircleAsset = ImageAsset(name: "24/solid/add.circle")
+        public static let addAsset = ImageAsset(name: "24/solid/add")
+        public static let airbrushAsset = ImageAsset(name: "24/solid/airbrush")
+        public static let albumAddAsset = ImageAsset(name: "24/solid/album.add")
+        public static let albumAsset = ImageAsset(name: "24/solid/album")
+        public static let alertAsset = ImageAsset(name: "24/solid/alert")
+        public static let alignHorizontalAsset = ImageAsset(name: "24/solid/align.horizontal")
+        public static let alignVerticalAsset = ImageAsset(name: "24/solid/align.vertical")
+        public static let angleAsset = ImageAsset(name: "24/solid/angle")
+        public static let announceAsset = ImageAsset(name: "24/solid/announce")
+        public static let applePencilAsset = ImageAsset(name: "24/solid/apple-pencil")
+        public static let arAsset = ImageAsset(name: "24/solid/ar")
+        public static let archiveAsset = ImageAsset(name: "24/solid/archive")
+        public static let arrowCcwAsset = ImageAsset(name: "24/solid/arrow.ccw")
+        public static let arrowDownAsset = ImageAsset(name: "24/solid/arrow.down")
+        public static let arrowDownSquareAsset = ImageAsset(name: "24/solid/arrow.down.square")
+        public static let arrowLeftDownAsset = ImageAsset(name: "24/solid/arrow.left-down")
+        public static let arrowLeftAsset = ImageAsset(name: "24/solid/arrow.left")
+        public static let arrowLeftSquareAsset = ImageAsset(name: "24/solid/arrow.left.square")
+        public static let arrowRightAsset = ImageAsset(name: "24/solid/arrow.right")
+        public static let arrowUpAsset = ImageAsset(name: "24/solid/arrow.up")
+        public static let autoSelectAsset = ImageAsset(name: "24/solid/auto-select")
+        public static let bellAsset = ImageAsset(name: "24/solid/bell")
+        public static let bezierCurveAsset = ImageAsset(name: "24/solid/bezier-curve")
+        public static let blendModeAsset = ImageAsset(name: "24/solid/blend-mode")
+        public static let bodyAddAsset = ImageAsset(name: "24/solid/body.add")
+        public static let bodyEditAsset = ImageAsset(name: "24/solid/body.edit")
+        public static let bodyAsset = ImageAsset(name: "24/solid/body")
+        public static let boldAsset = ImageAsset(name: "24/solid/bold")
+        public static let bookAsset = ImageAsset(name: "24/solid/book")
+        public static let bookmarkAsset = ImageAsset(name: "24/solid/bookmark")
+        public static let bringBackwardAsset = ImageAsset(name: "24/solid/bring.backward")
+        public static let bringForwardAsset = ImageAsset(name: "24/solid/bring.forward")
+        public static let brushDecorationAsset = ImageAsset(name: "24/solid/brush.decoration")
+        public static let brushAsset = ImageAsset(name: "24/solid/brush")
+        public static let brushOpacityAsset = ImageAsset(name: "24/solid/brush.opacity")
+        public static let brushPressAsset = ImageAsset(name: "24/solid/brush.press")
+        public static let brushSizeAsset = ImageAsset(name: "24/solid/brush.size")
+        public static let brushStablizeAsset = ImageAsset(name: "24/solid/brush.stablize")
+        public static let bubbleAsset = ImageAsset(name: "24/solid/bubble")
+        public static let bulbShineAsset = ImageAsset(name: "24/solid/bulb.shine")
+        public static let calendarAsset = ImageAsset(name: "24/solid/calendar")
+        public static let cameraAsset = ImageAsset(name: "24/solid/camera")
+        public static let characterReplaceAsset = ImageAsset(name: "24/solid/character.replace")
+        public static let checkCircleAsset = ImageAsset(name: "24/solid/check.circle")
+        public static let checkAsset = ImageAsset(name: "24/solid/check")
+        public static let chevronDownAsset = ImageAsset(name: "24/solid/chevron.down")
+        public static let chevronLeftAsset = ImageAsset(name: "24/solid/chevron.left")
+        public static let chevronRightAsset = ImageAsset(name: "24/solid/chevron.right")
+        public static let chevronUpAsset = ImageAsset(name: "24/solid/chevron.up")
+        public static let circleAsset = ImageAsset(name: "24/solid/circle")
+        public static let clickAsset = ImageAsset(name: "24/solid/click")
+        public static let clippingAsset = ImageAsset(name: "24/solid/clipping")
+        public static let cloudCheckAsset = ImageAsset(name: "24/solid/cloud.check")
+        public static let cloudExclamationAsset = ImageAsset(name: "24/solid/cloud.exclamation")
+        public static let cloudAsset = ImageAsset(name: "24/solid/cloud")
+        public static let cloudSyncAsset = ImageAsset(name: "24/solid/cloud.sync")
+        public static let codeAsset = ImageAsset(name: "24/solid/code")
+        public static let colorSetsAsset = ImageAsset(name: "24/solid/color-sets")
+        public static let colorWheelRectangleAsset = ImageAsset(name: "24/solid/color-wheel.rectangle")
+        public static let colorWheelTriangleAsset = ImageAsset(name: "24/solid/color-wheel.triangle")
+        public static let colorAsset = ImageAsset(name: "24/solid/color")
+        public static let commandsCircleAsset = ImageAsset(name: "24/solid/commands.circle")
+        public static let compassAsset = ImageAsset(name: "24/solid/compass")
+        public static let contestAsset = ImageAsset(name: "24/solid/contest")
+        public static let contrastAsset = ImageAsset(name: "24/solid/contrast")
+        public static let copyAsset = ImageAsset(name: "24/solid/copy")
+        public static let crownAsset = ImageAsset(name: "24/solid/crown")
+        public static let curveAsset = ImageAsset(name: "24/solid/curve")
+        public static let curveNodesAsset = ImageAsset(name: "24/solid/curve.nodes")
+        public static let deleteAsset = ImageAsset(name: "24/solid/delete")
+        public static let deviceAsset = ImageAsset(name: "24/solid/device")
+        public static let deviceRotateAsset = ImageAsset(name: "24/solid/device.rotate")
+        public static let dialAsset = ImageAsset(name: "24/solid/dial")
+        public static let distortionAsset = ImageAsset(name: "24/solid/distortion")
+        public static let dotsHorizontalCircleAsset = ImageAsset(name: "24/solid/dots.horizontal.circle")
+        public static let dotsHorizontalAsset = ImageAsset(name: "24/solid/dots.horizontal")
+        public static let dotsVerticalCircleAsset = ImageAsset(name: "24/solid/dots.vertical.circle")
+        public static let dotsVerticalAsset = ImageAsset(name: "24/solid/dots.vertical")
+        public static let downloadAsset = ImageAsset(name: "24/solid/download")
+        public static let downloadIosAsset = ImageAsset(name: "24/solid/download.ios")
+        public static let dropperAsset = ImageAsset(name: "24/solid/dropper")
+        public static let duplicateAsset = ImageAsset(name: "24/solid/duplicate")
+        public static let emojiAsset = ImageAsset(name: "24/solid/emoji")
+        public static let eraserAsset = ImageAsset(name: "24/solid/eraser")
+        public static let expandAsset = ImageAsset(name: "24/solid/expand")
+        public static let eyeClosedAsset = ImageAsset(name: "24/solid/eye.closed")
+        public static let eyeAsset = ImageAsset(name: "24/solid/eye")
+        public static let eyeOffAsset = ImageAsset(name: "24/solid/eye.off")
+        public static let faceAsset = ImageAsset(name: "24/solid/face")
+        public static let feedAsset = ImageAsset(name: "24/solid/feed")
+        public static let fileAddAsset = ImageAsset(name: "24/solid/file.add")
+        public static let fileExportAsset = ImageAsset(name: "24/solid/file.export")
+        public static let fileAsset = ImageAsset(name: "24/solid/file")
+        public static let filePngAsset = ImageAsset(name: "24/solid/file.png")
+        public static let filePsdAsset = ImageAsset(name: "24/solid/file.psd")
+        public static let fileRestoreAsset = ImageAsset(name: "24/solid/file.restore")
+        public static let fillAsset = ImageAsset(name: "24/solid/fill")
+        public static let fillSquareAsset = ImageAsset(name: "24/solid/fill.square")
+        public static let flameAsset = ImageAsset(name: "24/solid/flame")
+        public static let flipHorizontalAsset = ImageAsset(name: "24/solid/flip.horizontal")
+        public static let flipVerticalAsset = ImageAsset(name: "24/solid/flip.vertical")
+        public static let folderAddAsset = ImageAsset(name: "24/solid/folder.add")
+        public static let folderAsset = ImageAsset(name: "24/solid/folder")
+        public static let folderOpenAsset = ImageAsset(name: "24/solid/folder.open")
+        public static let fontSizeAsset = ImageAsset(name: "24/solid/font-size")
+        public static let fovAsset = ImageAsset(name: "24/solid/fov")
+        public static let frameAsset = ImageAsset(name: "24/solid/frame")
+        public static let funnelAsset = ImageAsset(name: "24/solid/funnel")
+        public static let giftAsset = ImageAsset(name: "24/solid/gift")
+        public static let glowAsset = ImageAsset(name: "24/solid/glow")
+        public static let gradientAsset = ImageAsset(name: "24/solid/gradient")
+        public static let gridviewAsset = ImageAsset(name: "24/solid/gridview")
+        public static let groupAsset = ImageAsset(name: "24/solid/group")
+        public static let hairAsset = ImageAsset(name: "24/solid/hair")
+        public static let hashTagAsset = ImageAsset(name: "24/solid/hash-tag")
+        public static let heartAsset = ImageAsset(name: "24/solid/heart")
+        public static let historyAsset = ImageAsset(name: "24/solid/history")
+        public static let homeAsset = ImageAsset(name: "24/solid/home")
+        public static let imageAddAsset = ImageAsset(name: "24/solid/image.add")
+        public static let imageContainAsset = ImageAsset(name: "24/solid/image.contain")
+        public static let imageCoverAsset = ImageAsset(name: "24/solid/image.cover")
+        public static let imageEffectAsset = ImageAsset(name: "24/solid/image.effect")
+        public static let imageAsset = ImageAsset(name: "24/solid/image")
+        public static let imageOffAsset = ImageAsset(name: "24/solid/image.off")
+        public static let imageReplaceAsset = ImageAsset(name: "24/solid/image.replace")
+        public static let imagesAsset = ImageAsset(name: "24/solid/images")
+        public static let infoCircleAsset = ImageAsset(name: "24/solid/info.circle")
+        public static let invertSelectionAsset = ImageAsset(name: "24/solid/invert-selection")
+        public static let invoiceAsset = ImageAsset(name: "24/solid/invoice")
+        public static let italicAsset = ImageAsset(name: "24/solid/italic")
+        public static let keyboardAsset = ImageAsset(name: "24/solid/keyboard")
+        public static let lassoFillAsset = ImageAsset(name: "24/solid/lasso.fill")
+        public static let lassoAsset = ImageAsset(name: "24/solid/lasso")
+        public static let layerAddAsset = ImageAsset(name: "24/solid/layer.add")
+        public static let layerImageMaterialAsset = ImageAsset(name: "24/solid/layer.image-material")
+        public static let layerAsset = ImageAsset(name: "24/solid/layer")
+        public static let layerMergeAsset = ImageAsset(name: "24/solid/layer.merge")
+        public static let layerOpacityAsset = ImageAsset(name: "24/solid/layer.opacity")
+        public static let layerSetReferenceAsset = ImageAsset(name: "24/solid/layer.set-reference")
+        public static let layerSettingAsset = ImageAsset(name: "24/solid/layer.setting")
+        public static let layerTextAsset = ImageAsset(name: "24/solid/layer.text")
+        public static let layerVectorAsset = ImageAsset(name: "24/solid/layer.vector")
+        public static let layoutAsset = ImageAsset(name: "24/solid/layout")
+        public static let letterSpacingAsset = ImageAsset(name: "24/solid/letter-spacing")
+        public static let lineSpacingAsset = ImageAsset(name: "24/solid/line-spacing")
+        public static let lineAsset = ImageAsset(name: "24/solid/line")
+        public static let lineNodesAsset = ImageAsset(name: "24/solid/line.nodes")
+        public static let linkClearAsset = ImageAsset(name: "24/solid/link.clear")
+        public static let linkAsset = ImageAsset(name: "24/solid/link")
+        public static let listAsset = ImageAsset(name: "24/solid/list")
+        public static let locationAsset = ImageAsset(name: "24/solid/location")
+        public static let lockAsset = ImageAsset(name: "24/solid/lock")
+        public static let logoutAsset = ImageAsset(name: "24/solid/logout")
+        public static let mangaAsset = ImageAsset(name: "24/solid/manga")
+        public static let maskAsset = ImageAsset(name: "24/solid/mask")
+        public static let meshAsset = ImageAsset(name: "24/solid/mesh")
+        public static let messageAsset = ImageAsset(name: "24/solid/message")
+        public static let microphoneAsset = ImageAsset(name: "24/solid/microphone")
+        public static let moveAsset = ImageAsset(name: "24/solid/move")
+        public static let navigatorAsset = ImageAsset(name: "24/solid/navigator")
+        public static let newPostAsset = ImageAsset(name: "24/solid/new-post")
+        public static let novelAsset = ImageAsset(name: "24/solid/novel")
+        public static let opacityAsset = ImageAsset(name: "24/solid/opacity")
+        public static let opacityLockAsset = ImageAsset(name: "24/solid/opacity.lock")
+        public static let openInNewAsset = ImageAsset(name: "24/solid/open-in-new")
+        public static let outlineAsset = ImageAsset(name: "24/solid/outline")
+        public static let paletteAsset = ImageAsset(name: "24/solid/palette")
+        public static let pasteAsset = ImageAsset(name: "24/solid/paste")
+        public static let pauseAsset = ImageAsset(name: "24/solid/pause")
+        public static let penAddAsset = ImageAsset(name: "24/solid/pen.add")
+        public static let penDrawAsset = ImageAsset(name: "24/solid/pen.draw")
+        public static let penAsset = ImageAsset(name: "24/solid/pen")
+        public static let penTextAsset = ImageAsset(name: "24/solid/pen.text")
+        public static let personAddAsset = ImageAsset(name: "24/solid/person.add")
+        public static let personCircleAsset = ImageAsset(name: "24/solid/person.circle")
+        public static let personsAsset = ImageAsset(name: "24/solid/persons")
+        public static let playAsset = ImageAsset(name: "24/solid/play")
+        public static let polygonAsset = ImageAsset(name: "24/solid/polygon")
+        public static let polylineAsset = ImageAsset(name: "24/solid/polyline")
+        public static let polylineNodesAsset = ImageAsset(name: "24/solid/polyline.nodes")
+        public static let poseAsset = ImageAsset(name: "24/solid/pose")
+        public static let projectsAsset = ImageAsset(name: "24/solid/projects")
+        public static let questionBubbleAsset = ImageAsset(name: "24/solid/question.bubble")
+        public static let questionCircleAsset = ImageAsset(name: "24/solid/question.circle")
+        public static let rabbitEarBentAsset = ImageAsset(name: "24/solid/rabbit.ear-bent")
+        public static let rabbitAsset = ImageAsset(name: "24/solid/rabbit")
+        public static let redoAsset = ImageAsset(name: "24/solid/redo")
+        public static let renameAsset = ImageAsset(name: "24/solid/rename")
+        public static let resolutionAsset = ImageAsset(name: "24/solid/resolution")
+        public static let rotateCcwAsset = ImageAsset(name: "24/solid/rotate.ccw")
+        public static let rotateCwAsset = ImageAsset(name: "24/solid/rotate.cw")
+        public static let rotateAsset = ImageAsset(name: "24/solid/rotate")
+        public static let rulerAsset = ImageAsset(name: "24/solid/ruler")
+        public static let sansSerifAsset = ImageAsset(name: "24/solid/sans-serif")
+        public static let saturationAsset = ImageAsset(name: "24/solid/saturation")
+        public static let saveAsset = ImageAsset(name: "24/solid/save")
+        public static let scatterAsset = ImageAsset(name: "24/solid/scatter")
+        public static let scissorsAsset = ImageAsset(name: "24/solid/scissors")
+        public static let searchAsset = ImageAsset(name: "24/solid/search")
+        public static let selectClearAsset = ImageAsset(name: "24/solid/select.clear")
+        public static let selectImageAsset = ImageAsset(name: "24/solid/select.image")
+        public static let selectOffAsset = ImageAsset(name: "24/solid/select.off")
+        public static let selectionsAsset = ImageAsset(name: "24/solid/selections")
+        public static let sendAsset = ImageAsset(name: "24/solid/send")
+        public static let settingAsset = ImageAsset(name: "24/solid/setting")
+        public static let shapeAsset = ImageAsset(name: "24/solid/shape")
+        public static let shareAndroidAsset = ImageAsset(name: "24/solid/share.android")
+        public static let shareIosAsset = ImageAsset(name: "24/solid/share.ios")
+        public static let shoppingAsset = ImageAsset(name: "24/solid/shopping")
+        public static let shrinkAsset = ImageAsset(name: "24/solid/shrink")
+        public static let shutterAsset = ImageAsset(name: "24/solid/shutter")
+        public static let slidersAsset = ImageAsset(name: "24/solid/sliders")
+        public static let softEdgeAsset = ImageAsset(name: "24/solid/soft-edge")
+        public static let squareDashAsset = ImageAsset(name: "24/solid/square.dash")
+        public static let squareDashResizeAsset = ImageAsset(name: "24/solid/square.dash.resize")
+        public static let squareAsset = ImageAsset(name: "24/solid/square")
+        public static let squares2x2Asset = ImageAsset(name: "24/solid/squares.2x2")
+        public static let squares3x3Asset = ImageAsset(name: "24/solid/squares.3x3")
+        public static let starAsset = ImageAsset(name: "24/solid/star")
+        public static let strikeThroughAsset = ImageAsset(name: "24/solid/strike-through")
+        public static let strokeTaperAsset = ImageAsset(name: "24/solid/stroke-taper")
+        public static let strokeWidthAsset = ImageAsset(name: "24/solid/stroke-width")
+        public static let subtractAsset = ImageAsset(name: "24/solid/subtract")
+        public static let sunAsset = ImageAsset(name: "24/solid/sun")
+        public static let syncCircleAsset = ImageAsset(name: "24/solid/sync.circle")
+        public static let syncAsset = ImageAsset(name: "24/solid/sync")
+        public static let tShirtAsset = ImageAsset(name: "24/solid/t-shirt")
+        public static let tap1FingerAsset = ImageAsset(name: "24/solid/tap.1-finger")
+        public static let tap2FingersAsset = ImageAsset(name: "24/solid/tap.2-fingers")
+        public static let tap3FingersAsset = ImageAsset(name: "24/solid/tap.3-fingers")
+        public static let temperatureAsset = ImageAsset(name: "24/solid/temperature")
+        public static let textAlignCenterAsset = ImageAsset(name: "24/solid/text-align.center")
+        public static let textAlignJustifyAsset = ImageAsset(name: "24/solid/text-align.justify")
+        public static let textAlignLeftAsset = ImageAsset(name: "24/solid/text-align.left")
+        public static let textAlignRightAsset = ImageAsset(name: "24/solid/text-align.right")
+        public static let textRubyAsset = ImageAsset(name: "24/solid/text-ruby")
+        public static let textAsset = ImageAsset(name: "24/solid/text")
+        public static let textureAsset = ImageAsset(name: "24/solid/texture")
+        public static let toolsAsset = ImageAsset(name: "24/solid/tools")
+        public static let touchAsset = ImageAsset(name: "24/solid/touch")
+        public static let transformAsset = ImageAsset(name: "24/solid/transform")
+        public static let transformRotationHandleAsset = ImageAsset(name: "24/solid/transform.rotation-handle")
+        public static let underlineAsset = ImageAsset(name: "24/solid/underline")
+        public static let undoAsset = ImageAsset(name: "24/solid/undo")
+        public static let uploadAsset = ImageAsset(name: "24/solid/upload")
+        public static let userCampaignAsset = ImageAsset(name: "24/solid/user-campaign")
+        public static let videoCameraAsset = ImageAsset(name: "24/solid/video-camera")
+        public static let videoAsset = ImageAsset(name: "24/solid/video")
+        public static let viewFitAsset = ImageAsset(name: "24/solid/view.fit")
+        public static let viewFullAsset = ImageAsset(name: "24/solid/view.full")
+        public static let warnAsset = ImageAsset(name: "24/solid/warn")
+        public static let warnTriangleAsset = ImageAsset(name: "24/solid/warn.triangle")
+        public static let xCircleAsset = ImageAsset(name: "24/solid/x.circle")
+        public static let xAsset = ImageAsset(name: "24/solid/x")
+        public static let xOctagonAsset = ImageAsset(name: "24/solid/x.octagon")
+        public static let zoomInAsset = ImageAsset(name: "24/solid/zoom-in")
+        public static let zoomOutAsset = ImageAsset(name: "24/solid/zoom-out")
+      }
+    }
+    case arrowLeftDownRegular16
+    case chevronDownRegular16
+    case chevronLeftRegular16
+    case chevronRightRegular16
+    case chevronUpRegular16
+    case arrowLeftDownSolid16
+    case chevronDownSolid16
+    case chevronLeftSolid16
+    case chevronRightSolid16
+    case chevronUpSolid16
+    case xRegular20
+    case xSolid20
+    case colorMixtureColor24
+    case addCircleRegular24
+    case addRegular24
+    case airbrushRegular24
+    case albumAddRegular24
+    case albumRegular24
+    case alertRegular24
+    case alignHorizontalRegular24
+    case alignVerticalRegular24
+    case angleRegular24
+    case announceRegular24
+    case applePencilRegular24
+    case arRegular24
+    case archiveRegular24
+    case arrowCcwRegular24
+    case arrowDownRegular24
+    case arrowDownSquareRegular24
+    case arrowLeftDownRegular24
+    case arrowLeftRegular24
+    case arrowLeftSquareRegular24
+    case arrowRightRegular24
+    case arrowUpRegular24
+    case autoSelectRegular24
+    case bellRegular24
+    case bezierCurveRegular24
+    case blendModeRegular24
+    case bodyAddRegular24
+    case bodyEditRegular24
+    case bodyRegular24
+    case boldRegular24
+    case bookRegular24
+    case bookmarkRegular24
+    case bringBackwardRegular24
+    case bringForwardRegular24
+    case brushDecorationRegular24
+    case brushRegular24
+    case brushOpacityRegular24
+    case brushPressRegular24
+    case brushSizeRegular24
+    case brushStablizeRegular24
+    case bubbleRegular24
+    case bulbShineRegular24
+    case calendarRegular24
+    case cameraRegular24
+    case characterReplaceRegular24
+    case checkCircleRegular24
+    case checkRegular24
+    case chevronDownRegular24
+    case chevronLeftRegular24
+    case chevronRightRegular24
+    case chevronUpRegular24
+    case circleRegular24
+    case clickRegular24
+    case clippingRegular24
+    case cloudCheckRegular24
+    case cloudExclamationRegular24
+    case cloudRegular24
+    case cloudSyncRegular24
+    case codeRegular24
+    case colorSetsRegular24
+    case colorWheelRectangleRegular24
+    case colorWheelTriangleRegular24
+    case colorRegular24
+    case commandsCircleRegular24
+    case compassRegular24
+    case contestRegular24
+    case contrastRegular24
+    case copyRegular24
+    case crownRegular24
+    case curveRegular24
+    case curveNodesRegular24
+    case deleteRegular24
+    case deviceRegular24
+    case deviceRotateRegular24
+    case dialRegular24
+    case distortionRegular24
+    case dotsHorizontalCircleRegular24
+    case dotsHorizontalRegular24
+    case dotsVerticalCircleRegular24
+    case dotsVerticalRegular24
+    case downloadRegular24
+    case downloadIosRegular24
+    case dropperRegular24
+    case duplicateRegular24
+    case emojiRegular24
+    case eraserRegular24
+    case expandRegular24
+    case eyeClosedRegular24
+    case eyeRegular24
+    case eyeOffRegular24
+    case faceRegular24
+    case feedRegular24
+    case fileAddRegular24
+    case fileExportRegular24
+    case fileRegular24
+    case filePngRegular24
+    case filePsdRegular24
+    case fileRestoreRegular24
+    case fillRegular24
+    case fillSquareRegular24
+    case flameRegular24
+    case flipHorizontalRegular24
+    case flipVerticalRegular24
+    case folderAddRegular24
+    case folderRegular24
+    case folderOpenRegular24
+    case fontSizeRegular24
+    case fovRegular24
+    case frameRegular24
+    case funnelRegular24
+    case giftRegular24
+    case glowRegular24
+    case gradientRegular24
+    case gridviewRegular24
+    case groupRegular24
+    case hairRegular24
+    case hashTagRegular24
+    case heartRegular24
+    case historyRegular24
+    case homeRegular24
+    case imageAddRegular24
+    case imageContainRegular24
+    case imageCoverRegular24
+    case imageEffectRegular24
+    case imageRegular24
+    case imageOffRegular24
+    case imageReplaceRegular24
+    case imagesRegular24
+    case infoCircleRegular24
+    case invertSelectionRegular24
+    case invoiceRegular24
+    case italicRegular24
+    case keyboardRegular24
+    case lassoFillRegular24
+    case lassoRegular24
+    case layerAddRegular24
+    case layerImageMaterialRegular24
+    case layerRegular24
+    case layerMergeRegular24
+    case layerOpacityRegular24
+    case layerSetReferenceRegular24
+    case layerSettingRegular24
+    case layerTextRegular24
+    case layerVectorRegular24
+    case layoutRegular24
+    case letterSpacingRegular24
+    case lineSpacingRegular24
+    case lineRegular24
+    case lineNodesRegular24
+    case linkClearRegular24
+    case linkRegular24
+    case listRegular24
+    case locationRegular24
+    case lockRegular24
+    case logoutRegular24
+    case mangaRegular24
+    case maskRegular24
+    case meshRegular24
+    case messageRegular24
+    case microphoneRegular24
+    case moveRegular24
+    case navigatorRegular24
+    case newPostRegular24
+    case novelRegular24
+    case opacityRegular24
+    case opacityLockRegular24
+    case openInNewRegular24
+    case outlineRegular24
+    case paletteRegular24
+    case pasteRegular24
+    case pauseRegular24
+    case penAddRegular24
+    case penDrawRegular24
+    case penRegular24
+    case penTextRegular24
+    case personAddRegular24
+    case personCircleRegular24
+    case personsRegular24
+    case playRegular24
+    case polygonRegular24
+    case polylineRegular24
+    case polylineNodesRegular24
+    case poseRegular24
+    case projectsRegular24
+    case questionBubbleRegular24
+    case questionCircleRegular24
+    case rabbitEarBentRegular24
+    case rabbitRegular24
+    case redoRegular24
+    case renameRegular24
+    case resolutionRegular24
+    case rotateCcwRegular24
+    case rotateCwRegular24
+    case rotateRegular24
+    case rulerRegular24
+    case sansSerifRegular24
+    case saturationRegular24
+    case saveRegular24
+    case scatterRegular24
+    case scissorsRegular24
+    case searchRegular24
+    case selectClearRegular24
+    case selectImageRegular24
+    case selectOffRegular24
+    case selectionsRegular24
+    case sendRegular24
+    case settingRegular24
+    case shapeRegular24
+    case shareAndroidRegular24
+    case shareIosRegular24
+    case shoppingRegular24
+    case shrinkRegular24
+    case shutterRegular24
+    case slidersRegular24
+    case softEdgeRegular24
+    case squareDashRegular24
+    case squareDashResizeRegular24
+    case squareRegular24
+    case squares2x2Regular24
+    case squares3x3Regular24
+    case starRegular24
+    case strikeThroughRegular24
+    case strokeTaperRegular24
+    case strokeWidthRegular24
+    case subtractRegular24
+    case sunRegular24
+    case syncCircleRegular24
+    case syncRegular24
+    case tShirtRegular24
+    case tap1FingerRegular24
+    case tap2FingersRegular24
+    case tap3FingersRegular24
+    case temperatureRegular24
+    case textAlignCenterRegular24
+    case textAlignJustifyRegular24
+    case textAlignLeftRegular24
+    case textAlignRightRegular24
+    case textRubyRegular24
+    case textRegular24
+    case textureRegular24
+    case toolsRegular24
+    case touchRegular24
+    case transformRegular24
+    case transformRotationHandleRegular24
+    case underlineRegular24
+    case undoRegular24
+    case uploadRegular24
+    case userCampaignRegular24
+    case videoCameraRegular24
+    case videoRegular24
+    case viewFitRegular24
+    case viewFullRegular24
+    case warnRegular24
+    case warnTriangleRegular24
+    case xCircleRegular24
+    case xRegular24
+    case xOctagonRegular24
+    case zoomInRegular24
+    case zoomOutRegular24
+    case addCircleSolid24
+    case addSolid24
+    case airbrushSolid24
+    case albumAddSolid24
+    case albumSolid24
+    case alertSolid24
+    case alignHorizontalSolid24
+    case alignVerticalSolid24
+    case angleSolid24
+    case announceSolid24
+    case applePencilSolid24
+    case arSolid24
+    case archiveSolid24
+    case arrowCcwSolid24
+    case arrowDownSolid24
+    case arrowDownSquareSolid24
+    case arrowLeftDownSolid24
+    case arrowLeftSolid24
+    case arrowLeftSquareSolid24
+    case arrowRightSolid24
+    case arrowUpSolid24
+    case autoSelectSolid24
+    case bellSolid24
+    case bezierCurveSolid24
+    case blendModeSolid24
+    case bodyAddSolid24
+    case bodyEditSolid24
+    case bodySolid24
+    case boldSolid24
+    case bookSolid24
+    case bookmarkSolid24
+    case bringBackwardSolid24
+    case bringForwardSolid24
+    case brushDecorationSolid24
+    case brushSolid24
+    case brushOpacitySolid24
+    case brushPressSolid24
+    case brushSizeSolid24
+    case brushStablizeSolid24
+    case bubbleSolid24
+    case bulbShineSolid24
+    case calendarSolid24
+    case cameraSolid24
+    case characterReplaceSolid24
+    case checkCircleSolid24
+    case checkSolid24
+    case chevronDownSolid24
+    case chevronLeftSolid24
+    case chevronRightSolid24
+    case chevronUpSolid24
+    case circleSolid24
+    case clickSolid24
+    case clippingSolid24
+    case cloudCheckSolid24
+    case cloudExclamationSolid24
+    case cloudSolid24
+    case cloudSyncSolid24
+    case codeSolid24
+    case colorSetsSolid24
+    case colorWheelRectangleSolid24
+    case colorWheelTriangleSolid24
+    case colorSolid24
+    case commandsCircleSolid24
+    case compassSolid24
+    case contestSolid24
+    case contrastSolid24
+    case copySolid24
+    case crownSolid24
+    case curveSolid24
+    case curveNodesSolid24
+    case deleteSolid24
+    case deviceSolid24
+    case deviceRotateSolid24
+    case dialSolid24
+    case distortionSolid24
+    case dotsHorizontalCircleSolid24
+    case dotsHorizontalSolid24
+    case dotsVerticalCircleSolid24
+    case dotsVerticalSolid24
+    case downloadSolid24
+    case downloadIosSolid24
+    case dropperSolid24
+    case duplicateSolid24
+    case emojiSolid24
+    case eraserSolid24
+    case expandSolid24
+    case eyeClosedSolid24
+    case eyeSolid24
+    case eyeOffSolid24
+    case faceSolid24
+    case feedSolid24
+    case fileAddSolid24
+    case fileExportSolid24
+    case fileSolid24
+    case filePngSolid24
+    case filePsdSolid24
+    case fileRestoreSolid24
+    case fillSolid24
+    case fillSquareSolid24
+    case flameSolid24
+    case flipHorizontalSolid24
+    case flipVerticalSolid24
+    case folderAddSolid24
+    case folderSolid24
+    case folderOpenSolid24
+    case fontSizeSolid24
+    case fovSolid24
+    case frameSolid24
+    case funnelSolid24
+    case giftSolid24
+    case glowSolid24
+    case gradientSolid24
+    case gridviewSolid24
+    case groupSolid24
+    case hairSolid24
+    case hashTagSolid24
+    case heartSolid24
+    case historySolid24
+    case homeSolid24
+    case imageAddSolid24
+    case imageContainSolid24
+    case imageCoverSolid24
+    case imageEffectSolid24
+    case imageSolid24
+    case imageOffSolid24
+    case imageReplaceSolid24
+    case imagesSolid24
+    case infoCircleSolid24
+    case invertSelectionSolid24
+    case invoiceSolid24
+    case italicSolid24
+    case keyboardSolid24
+    case lassoFillSolid24
+    case lassoSolid24
+    case layerAddSolid24
+    case layerImageMaterialSolid24
+    case layerSolid24
+    case layerMergeSolid24
+    case layerOpacitySolid24
+    case layerSetReferenceSolid24
+    case layerSettingSolid24
+    case layerTextSolid24
+    case layerVectorSolid24
+    case layoutSolid24
+    case letterSpacingSolid24
+    case lineSpacingSolid24
+    case lineSolid24
+    case lineNodesSolid24
+    case linkClearSolid24
+    case linkSolid24
+    case listSolid24
+    case locationSolid24
+    case lockSolid24
+    case logoutSolid24
+    case mangaSolid24
+    case maskSolid24
+    case meshSolid24
+    case messageSolid24
+    case microphoneSolid24
+    case moveSolid24
+    case navigatorSolid24
+    case newPostSolid24
+    case novelSolid24
+    case opacitySolid24
+    case opacityLockSolid24
+    case openInNewSolid24
+    case outlineSolid24
+    case paletteSolid24
+    case pasteSolid24
+    case pauseSolid24
+    case penAddSolid24
+    case penDrawSolid24
+    case penSolid24
+    case penTextSolid24
+    case personAddSolid24
+    case personCircleSolid24
+    case personsSolid24
+    case playSolid24
+    case polygonSolid24
+    case polylineSolid24
+    case polylineNodesSolid24
+    case poseSolid24
+    case projectsSolid24
+    case questionBubbleSolid24
+    case questionCircleSolid24
+    case rabbitEarBentSolid24
+    case rabbitSolid24
+    case redoSolid24
+    case renameSolid24
+    case resolutionSolid24
+    case rotateCcwSolid24
+    case rotateCwSolid24
+    case rotateSolid24
+    case rulerSolid24
+    case sansSerifSolid24
+    case saturationSolid24
+    case saveSolid24
+    case scatterSolid24
+    case scissorsSolid24
+    case searchSolid24
+    case selectClearSolid24
+    case selectImageSolid24
+    case selectOffSolid24
+    case selectionsSolid24
+    case sendSolid24
+    case settingSolid24
+    case shapeSolid24
+    case shareAndroidSolid24
+    case shareIosSolid24
+    case shoppingSolid24
+    case shrinkSolid24
+    case shutterSolid24
+    case slidersSolid24
+    case softEdgeSolid24
+    case squareDashSolid24
+    case squareDashResizeSolid24
+    case squareSolid24
+    case squares2x2Solid24
+    case squares3x3Solid24
+    case starSolid24
+    case strikeThroughSolid24
+    case strokeTaperSolid24
+    case strokeWidthSolid24
+    case subtractSolid24
+    case sunSolid24
+    case syncCircleSolid24
+    case syncSolid24
+    case tShirtSolid24
+    case tap1FingerSolid24
+    case tap2FingersSolid24
+    case tap3FingersSolid24
+    case temperatureSolid24
+    case textAlignCenterSolid24
+    case textAlignJustifySolid24
+    case textAlignLeftSolid24
+    case textAlignRightSolid24
+    case textRubySolid24
+    case textSolid24
+    case textureSolid24
+    case toolsSolid24
+    case touchSolid24
+    case transformSolid24
+    case transformRotationHandleSolid24
+    case underlineSolid24
+    case undoSolid24
+    case uploadSolid24
+    case userCampaignSolid24
+    case videoCameraSolid24
+    case videoSolid24
+    case viewFitSolid24
+    case viewFullSolid24
+    case warnSolid24
+    case warnTriangleSolid24
+    case xCircleSolid24
+    case xSolid24
+    case xOctagonSolid24
+    case zoomInSolid24
+    case zoomOutSolid24
+    public var imageAsset: ImageAsset {
+      switch (self) {
+        case .arrowLeftDownRegular16:
+          return CharcoalAsset.ImagesV2._16.Regular.arrowLeftDownAsset
+        case .chevronDownRegular16:
+          return CharcoalAsset.ImagesV2._16.Regular.chevronDownAsset
+        case .chevronLeftRegular16:
+          return CharcoalAsset.ImagesV2._16.Regular.chevronLeftAsset
+        case .chevronRightRegular16:
+          return CharcoalAsset.ImagesV2._16.Regular.chevronRightAsset
+        case .chevronUpRegular16:
+          return CharcoalAsset.ImagesV2._16.Regular.chevronUpAsset
+        case .arrowLeftDownSolid16:
+          return CharcoalAsset.ImagesV2._16.Solid.arrowLeftDownAsset
+        case .chevronDownSolid16:
+          return CharcoalAsset.ImagesV2._16.Solid.chevronDownAsset
+        case .chevronLeftSolid16:
+          return CharcoalAsset.ImagesV2._16.Solid.chevronLeftAsset
+        case .chevronRightSolid16:
+          return CharcoalAsset.ImagesV2._16.Solid.chevronRightAsset
+        case .chevronUpSolid16:
+          return CharcoalAsset.ImagesV2._16.Solid.chevronUpAsset
+        case .xRegular20:
+          return CharcoalAsset.ImagesV2._20.Regular.xAsset
+        case .xSolid20:
+          return CharcoalAsset.ImagesV2._20.Solid.xAsset
+        case .colorMixtureColor24:
+          return CharcoalAsset.ImagesV2._24.Color.colorMixtureAsset
+        case .addCircleRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.addCircleAsset
+        case .addRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.addAsset
+        case .airbrushRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.airbrushAsset
+        case .albumAddRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.albumAddAsset
+        case .albumRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.albumAsset
+        case .alertRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.alertAsset
+        case .alignHorizontalRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.alignHorizontalAsset
+        case .alignVerticalRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.alignVerticalAsset
+        case .angleRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.angleAsset
+        case .announceRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.announceAsset
+        case .applePencilRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.applePencilAsset
+        case .arRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.arAsset
+        case .archiveRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.archiveAsset
+        case .arrowCcwRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.arrowCcwAsset
+        case .arrowDownRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.arrowDownAsset
+        case .arrowDownSquareRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.arrowDownSquareAsset
+        case .arrowLeftDownRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.arrowLeftDownAsset
+        case .arrowLeftRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.arrowLeftAsset
+        case .arrowLeftSquareRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.arrowLeftSquareAsset
+        case .arrowRightRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.arrowRightAsset
+        case .arrowUpRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.arrowUpAsset
+        case .autoSelectRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.autoSelectAsset
+        case .bellRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.bellAsset
+        case .bezierCurveRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.bezierCurveAsset
+        case .blendModeRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.blendModeAsset
+        case .bodyAddRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.bodyAddAsset
+        case .bodyEditRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.bodyEditAsset
+        case .bodyRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.bodyAsset
+        case .boldRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.boldAsset
+        case .bookRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.bookAsset
+        case .bookmarkRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.bookmarkAsset
+        case .bringBackwardRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.bringBackwardAsset
+        case .bringForwardRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.bringForwardAsset
+        case .brushDecorationRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.brushDecorationAsset
+        case .brushRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.brushAsset
+        case .brushOpacityRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.brushOpacityAsset
+        case .brushPressRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.brushPressAsset
+        case .brushSizeRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.brushSizeAsset
+        case .brushStablizeRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.brushStablizeAsset
+        case .bubbleRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.bubbleAsset
+        case .bulbShineRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.bulbShineAsset
+        case .calendarRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.calendarAsset
+        case .cameraRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.cameraAsset
+        case .characterReplaceRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.characterReplaceAsset
+        case .checkCircleRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.checkCircleAsset
+        case .checkRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.checkAsset
+        case .chevronDownRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.chevronDownAsset
+        case .chevronLeftRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.chevronLeftAsset
+        case .chevronRightRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.chevronRightAsset
+        case .chevronUpRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.chevronUpAsset
+        case .circleRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.circleAsset
+        case .clickRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.clickAsset
+        case .clippingRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.clippingAsset
+        case .cloudCheckRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.cloudCheckAsset
+        case .cloudExclamationRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.cloudExclamationAsset
+        case .cloudRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.cloudAsset
+        case .cloudSyncRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.cloudSyncAsset
+        case .codeRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.codeAsset
+        case .colorSetsRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.colorSetsAsset
+        case .colorWheelRectangleRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.colorWheelRectangleAsset
+        case .colorWheelTriangleRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.colorWheelTriangleAsset
+        case .colorRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.colorAsset
+        case .commandsCircleRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.commandsCircleAsset
+        case .compassRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.compassAsset
+        case .contestRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.contestAsset
+        case .contrastRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.contrastAsset
+        case .copyRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.copyAsset
+        case .crownRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.crownAsset
+        case .curveRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.curveAsset
+        case .curveNodesRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.curveNodesAsset
+        case .deleteRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.deleteAsset
+        case .deviceRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.deviceAsset
+        case .deviceRotateRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.deviceRotateAsset
+        case .dialRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.dialAsset
+        case .distortionRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.distortionAsset
+        case .dotsHorizontalCircleRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.dotsHorizontalCircleAsset
+        case .dotsHorizontalRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.dotsHorizontalAsset
+        case .dotsVerticalCircleRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.dotsVerticalCircleAsset
+        case .dotsVerticalRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.dotsVerticalAsset
+        case .downloadRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.downloadAsset
+        case .downloadIosRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.downloadIosAsset
+        case .dropperRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.dropperAsset
+        case .duplicateRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.duplicateAsset
+        case .emojiRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.emojiAsset
+        case .eraserRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.eraserAsset
+        case .expandRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.expandAsset
+        case .eyeClosedRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.eyeClosedAsset
+        case .eyeRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.eyeAsset
+        case .eyeOffRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.eyeOffAsset
+        case .faceRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.faceAsset
+        case .feedRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.feedAsset
+        case .fileAddRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.fileAddAsset
+        case .fileExportRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.fileExportAsset
+        case .fileRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.fileAsset
+        case .filePngRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.filePngAsset
+        case .filePsdRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.filePsdAsset
+        case .fileRestoreRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.fileRestoreAsset
+        case .fillRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.fillAsset
+        case .fillSquareRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.fillSquareAsset
+        case .flameRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.flameAsset
+        case .flipHorizontalRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.flipHorizontalAsset
+        case .flipVerticalRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.flipVerticalAsset
+        case .folderAddRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.folderAddAsset
+        case .folderRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.folderAsset
+        case .folderOpenRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.folderOpenAsset
+        case .fontSizeRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.fontSizeAsset
+        case .fovRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.fovAsset
+        case .frameRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.frameAsset
+        case .funnelRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.funnelAsset
+        case .giftRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.giftAsset
+        case .glowRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.glowAsset
+        case .gradientRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.gradientAsset
+        case .gridviewRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.gridviewAsset
+        case .groupRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.groupAsset
+        case .hairRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.hairAsset
+        case .hashTagRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.hashTagAsset
+        case .heartRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.heartAsset
+        case .historyRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.historyAsset
+        case .homeRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.homeAsset
+        case .imageAddRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.imageAddAsset
+        case .imageContainRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.imageContainAsset
+        case .imageCoverRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.imageCoverAsset
+        case .imageEffectRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.imageEffectAsset
+        case .imageRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.imageAsset
+        case .imageOffRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.imageOffAsset
+        case .imageReplaceRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.imageReplaceAsset
+        case .imagesRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.imagesAsset
+        case .infoCircleRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.infoCircleAsset
+        case .invertSelectionRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.invertSelectionAsset
+        case .invoiceRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.invoiceAsset
+        case .italicRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.italicAsset
+        case .keyboardRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.keyboardAsset
+        case .lassoFillRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.lassoFillAsset
+        case .lassoRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.lassoAsset
+        case .layerAddRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.layerAddAsset
+        case .layerImageMaterialRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.layerImageMaterialAsset
+        case .layerRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.layerAsset
+        case .layerMergeRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.layerMergeAsset
+        case .layerOpacityRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.layerOpacityAsset
+        case .layerSetReferenceRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.layerSetReferenceAsset
+        case .layerSettingRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.layerSettingAsset
+        case .layerTextRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.layerTextAsset
+        case .layerVectorRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.layerVectorAsset
+        case .layoutRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.layoutAsset
+        case .letterSpacingRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.letterSpacingAsset
+        case .lineSpacingRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.lineSpacingAsset
+        case .lineRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.lineAsset
+        case .lineNodesRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.lineNodesAsset
+        case .linkClearRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.linkClearAsset
+        case .linkRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.linkAsset
+        case .listRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.listAsset
+        case .locationRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.locationAsset
+        case .lockRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.lockAsset
+        case .logoutRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.logoutAsset
+        case .mangaRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.mangaAsset
+        case .maskRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.maskAsset
+        case .meshRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.meshAsset
+        case .messageRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.messageAsset
+        case .microphoneRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.microphoneAsset
+        case .moveRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.moveAsset
+        case .navigatorRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.navigatorAsset
+        case .newPostRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.newPostAsset
+        case .novelRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.novelAsset
+        case .opacityRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.opacityAsset
+        case .opacityLockRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.opacityLockAsset
+        case .openInNewRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.openInNewAsset
+        case .outlineRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.outlineAsset
+        case .paletteRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.paletteAsset
+        case .pasteRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.pasteAsset
+        case .pauseRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.pauseAsset
+        case .penAddRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.penAddAsset
+        case .penDrawRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.penDrawAsset
+        case .penRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.penAsset
+        case .penTextRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.penTextAsset
+        case .personAddRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.personAddAsset
+        case .personCircleRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.personCircleAsset
+        case .personsRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.personsAsset
+        case .playRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.playAsset
+        case .polygonRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.polygonAsset
+        case .polylineRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.polylineAsset
+        case .polylineNodesRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.polylineNodesAsset
+        case .poseRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.poseAsset
+        case .projectsRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.projectsAsset
+        case .questionBubbleRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.questionBubbleAsset
+        case .questionCircleRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.questionCircleAsset
+        case .rabbitEarBentRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.rabbitEarBentAsset
+        case .rabbitRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.rabbitAsset
+        case .redoRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.redoAsset
+        case .renameRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.renameAsset
+        case .resolutionRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.resolutionAsset
+        case .rotateCcwRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.rotateCcwAsset
+        case .rotateCwRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.rotateCwAsset
+        case .rotateRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.rotateAsset
+        case .rulerRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.rulerAsset
+        case .sansSerifRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.sansSerifAsset
+        case .saturationRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.saturationAsset
+        case .saveRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.saveAsset
+        case .scatterRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.scatterAsset
+        case .scissorsRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.scissorsAsset
+        case .searchRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.searchAsset
+        case .selectClearRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.selectClearAsset
+        case .selectImageRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.selectImageAsset
+        case .selectOffRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.selectOffAsset
+        case .selectionsRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.selectionsAsset
+        case .sendRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.sendAsset
+        case .settingRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.settingAsset
+        case .shapeRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.shapeAsset
+        case .shareAndroidRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.shareAndroidAsset
+        case .shareIosRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.shareIosAsset
+        case .shoppingRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.shoppingAsset
+        case .shrinkRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.shrinkAsset
+        case .shutterRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.shutterAsset
+        case .slidersRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.slidersAsset
+        case .softEdgeRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.softEdgeAsset
+        case .squareDashRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.squareDashAsset
+        case .squareDashResizeRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.squareDashResizeAsset
+        case .squareRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.squareAsset
+        case .squares2x2Regular24:
+          return CharcoalAsset.ImagesV2._24.Regular.squares2x2Asset
+        case .squares3x3Regular24:
+          return CharcoalAsset.ImagesV2._24.Regular.squares3x3Asset
+        case .starRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.starAsset
+        case .strikeThroughRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.strikeThroughAsset
+        case .strokeTaperRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.strokeTaperAsset
+        case .strokeWidthRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.strokeWidthAsset
+        case .subtractRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.subtractAsset
+        case .sunRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.sunAsset
+        case .syncCircleRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.syncCircleAsset
+        case .syncRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.syncAsset
+        case .tShirtRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.tShirtAsset
+        case .tap1FingerRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.tap1FingerAsset
+        case .tap2FingersRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.tap2FingersAsset
+        case .tap3FingersRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.tap3FingersAsset
+        case .temperatureRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.temperatureAsset
+        case .textAlignCenterRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.textAlignCenterAsset
+        case .textAlignJustifyRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.textAlignJustifyAsset
+        case .textAlignLeftRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.textAlignLeftAsset
+        case .textAlignRightRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.textAlignRightAsset
+        case .textRubyRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.textRubyAsset
+        case .textRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.textAsset
+        case .textureRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.textureAsset
+        case .toolsRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.toolsAsset
+        case .touchRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.touchAsset
+        case .transformRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.transformAsset
+        case .transformRotationHandleRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.transformRotationHandleAsset
+        case .underlineRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.underlineAsset
+        case .undoRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.undoAsset
+        case .uploadRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.uploadAsset
+        case .userCampaignRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.userCampaignAsset
+        case .videoCameraRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.videoCameraAsset
+        case .videoRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.videoAsset
+        case .viewFitRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.viewFitAsset
+        case .viewFullRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.viewFullAsset
+        case .warnRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.warnAsset
+        case .warnTriangleRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.warnTriangleAsset
+        case .xCircleRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.xCircleAsset
+        case .xRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.xAsset
+        case .xOctagonRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.xOctagonAsset
+        case .zoomInRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.zoomInAsset
+        case .zoomOutRegular24:
+          return CharcoalAsset.ImagesV2._24.Regular.zoomOutAsset
+        case .addCircleSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.addCircleAsset
+        case .addSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.addAsset
+        case .airbrushSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.airbrushAsset
+        case .albumAddSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.albumAddAsset
+        case .albumSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.albumAsset
+        case .alertSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.alertAsset
+        case .alignHorizontalSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.alignHorizontalAsset
+        case .alignVerticalSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.alignVerticalAsset
+        case .angleSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.angleAsset
+        case .announceSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.announceAsset
+        case .applePencilSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.applePencilAsset
+        case .arSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.arAsset
+        case .archiveSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.archiveAsset
+        case .arrowCcwSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.arrowCcwAsset
+        case .arrowDownSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.arrowDownAsset
+        case .arrowDownSquareSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.arrowDownSquareAsset
+        case .arrowLeftDownSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.arrowLeftDownAsset
+        case .arrowLeftSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.arrowLeftAsset
+        case .arrowLeftSquareSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.arrowLeftSquareAsset
+        case .arrowRightSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.arrowRightAsset
+        case .arrowUpSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.arrowUpAsset
+        case .autoSelectSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.autoSelectAsset
+        case .bellSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.bellAsset
+        case .bezierCurveSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.bezierCurveAsset
+        case .blendModeSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.blendModeAsset
+        case .bodyAddSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.bodyAddAsset
+        case .bodyEditSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.bodyEditAsset
+        case .bodySolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.bodyAsset
+        case .boldSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.boldAsset
+        case .bookSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.bookAsset
+        case .bookmarkSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.bookmarkAsset
+        case .bringBackwardSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.bringBackwardAsset
+        case .bringForwardSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.bringForwardAsset
+        case .brushDecorationSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.brushDecorationAsset
+        case .brushSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.brushAsset
+        case .brushOpacitySolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.brushOpacityAsset
+        case .brushPressSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.brushPressAsset
+        case .brushSizeSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.brushSizeAsset
+        case .brushStablizeSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.brushStablizeAsset
+        case .bubbleSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.bubbleAsset
+        case .bulbShineSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.bulbShineAsset
+        case .calendarSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.calendarAsset
+        case .cameraSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.cameraAsset
+        case .characterReplaceSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.characterReplaceAsset
+        case .checkCircleSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.checkCircleAsset
+        case .checkSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.checkAsset
+        case .chevronDownSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.chevronDownAsset
+        case .chevronLeftSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.chevronLeftAsset
+        case .chevronRightSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.chevronRightAsset
+        case .chevronUpSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.chevronUpAsset
+        case .circleSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.circleAsset
+        case .clickSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.clickAsset
+        case .clippingSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.clippingAsset
+        case .cloudCheckSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.cloudCheckAsset
+        case .cloudExclamationSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.cloudExclamationAsset
+        case .cloudSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.cloudAsset
+        case .cloudSyncSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.cloudSyncAsset
+        case .codeSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.codeAsset
+        case .colorSetsSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.colorSetsAsset
+        case .colorWheelRectangleSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.colorWheelRectangleAsset
+        case .colorWheelTriangleSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.colorWheelTriangleAsset
+        case .colorSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.colorAsset
+        case .commandsCircleSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.commandsCircleAsset
+        case .compassSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.compassAsset
+        case .contestSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.contestAsset
+        case .contrastSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.contrastAsset
+        case .copySolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.copyAsset
+        case .crownSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.crownAsset
+        case .curveSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.curveAsset
+        case .curveNodesSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.curveNodesAsset
+        case .deleteSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.deleteAsset
+        case .deviceSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.deviceAsset
+        case .deviceRotateSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.deviceRotateAsset
+        case .dialSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.dialAsset
+        case .distortionSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.distortionAsset
+        case .dotsHorizontalCircleSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.dotsHorizontalCircleAsset
+        case .dotsHorizontalSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.dotsHorizontalAsset
+        case .dotsVerticalCircleSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.dotsVerticalCircleAsset
+        case .dotsVerticalSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.dotsVerticalAsset
+        case .downloadSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.downloadAsset
+        case .downloadIosSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.downloadIosAsset
+        case .dropperSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.dropperAsset
+        case .duplicateSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.duplicateAsset
+        case .emojiSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.emojiAsset
+        case .eraserSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.eraserAsset
+        case .expandSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.expandAsset
+        case .eyeClosedSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.eyeClosedAsset
+        case .eyeSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.eyeAsset
+        case .eyeOffSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.eyeOffAsset
+        case .faceSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.faceAsset
+        case .feedSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.feedAsset
+        case .fileAddSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.fileAddAsset
+        case .fileExportSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.fileExportAsset
+        case .fileSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.fileAsset
+        case .filePngSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.filePngAsset
+        case .filePsdSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.filePsdAsset
+        case .fileRestoreSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.fileRestoreAsset
+        case .fillSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.fillAsset
+        case .fillSquareSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.fillSquareAsset
+        case .flameSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.flameAsset
+        case .flipHorizontalSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.flipHorizontalAsset
+        case .flipVerticalSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.flipVerticalAsset
+        case .folderAddSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.folderAddAsset
+        case .folderSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.folderAsset
+        case .folderOpenSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.folderOpenAsset
+        case .fontSizeSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.fontSizeAsset
+        case .fovSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.fovAsset
+        case .frameSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.frameAsset
+        case .funnelSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.funnelAsset
+        case .giftSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.giftAsset
+        case .glowSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.glowAsset
+        case .gradientSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.gradientAsset
+        case .gridviewSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.gridviewAsset
+        case .groupSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.groupAsset
+        case .hairSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.hairAsset
+        case .hashTagSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.hashTagAsset
+        case .heartSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.heartAsset
+        case .historySolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.historyAsset
+        case .homeSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.homeAsset
+        case .imageAddSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.imageAddAsset
+        case .imageContainSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.imageContainAsset
+        case .imageCoverSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.imageCoverAsset
+        case .imageEffectSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.imageEffectAsset
+        case .imageSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.imageAsset
+        case .imageOffSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.imageOffAsset
+        case .imageReplaceSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.imageReplaceAsset
+        case .imagesSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.imagesAsset
+        case .infoCircleSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.infoCircleAsset
+        case .invertSelectionSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.invertSelectionAsset
+        case .invoiceSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.invoiceAsset
+        case .italicSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.italicAsset
+        case .keyboardSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.keyboardAsset
+        case .lassoFillSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.lassoFillAsset
+        case .lassoSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.lassoAsset
+        case .layerAddSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.layerAddAsset
+        case .layerImageMaterialSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.layerImageMaterialAsset
+        case .layerSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.layerAsset
+        case .layerMergeSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.layerMergeAsset
+        case .layerOpacitySolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.layerOpacityAsset
+        case .layerSetReferenceSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.layerSetReferenceAsset
+        case .layerSettingSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.layerSettingAsset
+        case .layerTextSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.layerTextAsset
+        case .layerVectorSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.layerVectorAsset
+        case .layoutSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.layoutAsset
+        case .letterSpacingSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.letterSpacingAsset
+        case .lineSpacingSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.lineSpacingAsset
+        case .lineSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.lineAsset
+        case .lineNodesSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.lineNodesAsset
+        case .linkClearSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.linkClearAsset
+        case .linkSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.linkAsset
+        case .listSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.listAsset
+        case .locationSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.locationAsset
+        case .lockSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.lockAsset
+        case .logoutSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.logoutAsset
+        case .mangaSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.mangaAsset
+        case .maskSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.maskAsset
+        case .meshSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.meshAsset
+        case .messageSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.messageAsset
+        case .microphoneSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.microphoneAsset
+        case .moveSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.moveAsset
+        case .navigatorSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.navigatorAsset
+        case .newPostSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.newPostAsset
+        case .novelSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.novelAsset
+        case .opacitySolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.opacityAsset
+        case .opacityLockSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.opacityLockAsset
+        case .openInNewSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.openInNewAsset
+        case .outlineSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.outlineAsset
+        case .paletteSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.paletteAsset
+        case .pasteSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.pasteAsset
+        case .pauseSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.pauseAsset
+        case .penAddSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.penAddAsset
+        case .penDrawSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.penDrawAsset
+        case .penSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.penAsset
+        case .penTextSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.penTextAsset
+        case .personAddSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.personAddAsset
+        case .personCircleSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.personCircleAsset
+        case .personsSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.personsAsset
+        case .playSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.playAsset
+        case .polygonSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.polygonAsset
+        case .polylineSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.polylineAsset
+        case .polylineNodesSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.polylineNodesAsset
+        case .poseSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.poseAsset
+        case .projectsSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.projectsAsset
+        case .questionBubbleSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.questionBubbleAsset
+        case .questionCircleSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.questionCircleAsset
+        case .rabbitEarBentSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.rabbitEarBentAsset
+        case .rabbitSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.rabbitAsset
+        case .redoSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.redoAsset
+        case .renameSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.renameAsset
+        case .resolutionSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.resolutionAsset
+        case .rotateCcwSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.rotateCcwAsset
+        case .rotateCwSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.rotateCwAsset
+        case .rotateSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.rotateAsset
+        case .rulerSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.rulerAsset
+        case .sansSerifSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.sansSerifAsset
+        case .saturationSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.saturationAsset
+        case .saveSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.saveAsset
+        case .scatterSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.scatterAsset
+        case .scissorsSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.scissorsAsset
+        case .searchSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.searchAsset
+        case .selectClearSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.selectClearAsset
+        case .selectImageSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.selectImageAsset
+        case .selectOffSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.selectOffAsset
+        case .selectionsSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.selectionsAsset
+        case .sendSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.sendAsset
+        case .settingSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.settingAsset
+        case .shapeSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.shapeAsset
+        case .shareAndroidSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.shareAndroidAsset
+        case .shareIosSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.shareIosAsset
+        case .shoppingSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.shoppingAsset
+        case .shrinkSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.shrinkAsset
+        case .shutterSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.shutterAsset
+        case .slidersSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.slidersAsset
+        case .softEdgeSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.softEdgeAsset
+        case .squareDashSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.squareDashAsset
+        case .squareDashResizeSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.squareDashResizeAsset
+        case .squareSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.squareAsset
+        case .squares2x2Solid24:
+          return CharcoalAsset.ImagesV2._24.Solid.squares2x2Asset
+        case .squares3x3Solid24:
+          return CharcoalAsset.ImagesV2._24.Solid.squares3x3Asset
+        case .starSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.starAsset
+        case .strikeThroughSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.strikeThroughAsset
+        case .strokeTaperSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.strokeTaperAsset
+        case .strokeWidthSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.strokeWidthAsset
+        case .subtractSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.subtractAsset
+        case .sunSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.sunAsset
+        case .syncCircleSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.syncCircleAsset
+        case .syncSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.syncAsset
+        case .tShirtSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.tShirtAsset
+        case .tap1FingerSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.tap1FingerAsset
+        case .tap2FingersSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.tap2FingersAsset
+        case .tap3FingersSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.tap3FingersAsset
+        case .temperatureSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.temperatureAsset
+        case .textAlignCenterSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.textAlignCenterAsset
+        case .textAlignJustifySolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.textAlignJustifyAsset
+        case .textAlignLeftSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.textAlignLeftAsset
+        case .textAlignRightSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.textAlignRightAsset
+        case .textRubySolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.textRubyAsset
+        case .textSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.textAsset
+        case .textureSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.textureAsset
+        case .toolsSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.toolsAsset
+        case .touchSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.touchAsset
+        case .transformSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.transformAsset
+        case .transformRotationHandleSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.transformRotationHandleAsset
+        case .underlineSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.underlineAsset
+        case .undoSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.undoAsset
+        case .uploadSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.uploadAsset
+        case .userCampaignSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.userCampaignAsset
+        case .videoCameraSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.videoCameraAsset
+        case .videoSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.videoAsset
+        case .viewFitSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.viewFitAsset
+        case .viewFullSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.viewFullAsset
+        case .warnSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.warnAsset
+        case .warnTriangleSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.warnTriangleAsset
+        case .xCircleSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.xCircleAsset
+        case .xSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.xAsset
+        case .xOctagonSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.xOctagonAsset
+        case .zoomInSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.zoomInAsset
+        case .zoomOutSolid24:
+          return CharcoalAsset.ImagesV2._24.Solid.zoomOutAsset
+      }
+    }
+    public var image: ImageAsset.Image {
+      return imageAsset.image
+    }
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name

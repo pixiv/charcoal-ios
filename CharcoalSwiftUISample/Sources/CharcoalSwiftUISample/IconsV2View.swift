@@ -1,16 +1,16 @@
 import Charcoal
 import SwiftUI
 
-extension CharcoalAsset.Images {
+extension CharcoalAsset.ImagesV2 {
     var description: String {
         return String(String(reflecting: self).split(separator: ".").last ?? "")
     }
 }
 
-struct IconsView: View {
+struct IconsV2View: View {
     private struct IconItemView: View {
         let name: String
-        let icon: CharcoalAsset.Images
+        let icon: CharcoalAsset.ImagesV2
         @State private var isPresenting = false
 
         private var pointSize: CGFloat {
@@ -28,7 +28,7 @@ struct IconsView: View {
                 RoundedRectangle(cornerRadius: 6)
                     .frame(width: 32, height: 32)
                     .foregroundStyle(charcoalColor: .background2)
-                Image(charcoalIcon: icon)
+                Image(charcoalIconV2: icon)
                     .frame(width: pointSize, height: pointSize)
             }
             .contentShape(Rectangle())
@@ -39,7 +39,7 @@ struct IconsView: View {
         }
     }
 
-    let icons = CharcoalAsset.Images.allCases
+    let icons = CharcoalAsset.ImagesV2.allCases
     private let columns: [GridItem] = [GridItem(.adaptive(minimum: 32, maximum: 32), spacing: 8)]
 
     var body: some View {
@@ -52,11 +52,11 @@ struct IconsView: View {
             .padding(.horizontal, 8)
             .padding(.vertical, 12)
         }
-        .navigationBarTitle("Icons")
+        .navigationBarTitle("Icons 2.0")
         .charcoalOverlayContainer()
     }
 }
 
 #Preview {
-    IconsView()
+    IconsV2View()
 }

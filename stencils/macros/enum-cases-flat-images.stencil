@@ -1,26 +1,38 @@
 {% macro enumCasesFlatImagesBlock assets %}
+{% macro flatImageCasesBlock assets suffix %}
 {% for asset in assets %}
-{% if asset.items %}
-{% for item in asset.items %}
-case {{item.name | swiftIdentifier:"pretty"|lowerFirstWord}}{{asset.name}}
-{% endfor %}
+{% if asset.type == "image" %}
+case {{asset.name | swiftIdentifier:"pretty"|lowerFirstWord}}{{suffix}}
+{% elif asset.items %}
+{% set suffixPart %}{{asset.name | swiftIdentifier:"pretty" | replace:"_",""}}{% endset %}
+{% set nextSuffix %}{{suffixPart}}{{suffix}}{% endset %}
+{% call flatImageCasesBlock asset.items nextSuffix %}
 {% endif %}
 {% endfor %}
+{% endmacro %}
+
+{% macro flatImageSwitchBlock assets suffix enumPath %}
+{% for asset in assets %}
+{% if asset.type == "image" %}
+case .{{asset.name | swiftIdentifier:"pretty"|lowerFirstWord}}{{suffix}}:
+  return {{enumPath}}.{{asset.name|swiftIdentifier:"pretty"|lowerFirstWord}}Asset
+{% elif asset.items %}
+{% set suffixPart %}{{asset.name | swiftIdentifier:"pretty" | replace:"_",""}}{% endset %}
+{% set nextSuffix %}{{suffixPart}}{{suffix}}{% endset %}
+{% set nextEnumPath %}{{enumPath}}.{{asset.name|swiftIdentifier:"pretty"}}{% endset %}
+{% call flatImageSwitchBlock asset.items nextSuffix nextEnumPath %}
+{% endif %}
+{% endfor %}
+{% endmacro %}
+
+{% call flatImageCasesBlock assets "" %}
 
 {% set groupHasImage %}{% call hasValuesBlock assets "image" %}{% endset %}
 {% if groupHasImage %}
 {{accessModifier}} var imageAsset: ImageAsset {
   switch (self) {
-    {% for asset in assets %}
-    {% if asset.items %}
-    {% for item in asset.items %}
-    {% if item.type == "image" %}
-    case .{{item.name|swiftIdentifier:"pretty"|lowerFirstWord}}{{asset.name}}:
-      return {{enumName}}.{{catalog.name|swiftIdentifier:"pretty"}}.{{asset.name|swiftIdentifier:"pretty"}}.{{item.name|swiftIdentifier:"pretty"|lowerFirstWord}}Asset
-    {% endif %}
-    {% endfor %}
-    {% endif %}
-    {% endfor %}
+    {% set rootEnumPath %}{{enumName}}.{{catalog.name|swiftIdentifier:"pretty"}}{% endset %}
+    {% filter indent:4," ",true %}{% call flatImageSwitchBlock assets "" rootEnumPath %}{% endfilter %}
   }
 }
 {{accessModifier}} var image: ImageAsset.Image {

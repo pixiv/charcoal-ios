@@ -32,8 +32,11 @@ public struct ContentView: View {
                 NavigationLink(destination: BackgroundView()) {
                     Text("Background")
                 }
-                NavigationLink(destination: IconsView()) {
+                NavigationLink(destination: IconsView().charcoalOverlayContainer()) {
                     Text("Icons")
+                }
+                NavigationLink(destination: IconsV2View().charcoalOverlayContainer()) {
+                    Text("Icons 2.0")
                 }
                 NavigationLink(destination: ModalsView()) {
                     Text("Modal")
