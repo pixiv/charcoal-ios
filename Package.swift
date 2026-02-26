@@ -33,7 +33,8 @@ let package = Package(
             name: "CharcoalShared",
             dependencies: [],
             resources: [
-                .process("Generated/CharcoalFoundation.json")
+                .process("Generated/CharcoalFoundation.json"),
+                .process("Generated/CharcoalFoundationV2.json")
             ]
         ),
         .target(

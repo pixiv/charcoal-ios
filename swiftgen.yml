@@ -3,6 +3,7 @@ xcassets:
     - Sources/CharcoalShared/ColorPalette.generated.xcassets
     - Sources/CharcoalShared/ColorPaletteV2.generated.xcassets
     - Sources/CharcoalShared/Images.xcassets
+    - Sources/CharcoalShared/ImagesV2.xcassets
   outputs:
     - templatePath: ./stencils/assets-template.stencil
       output: Sources/CharcoalShared/Generated/Assets.swift
