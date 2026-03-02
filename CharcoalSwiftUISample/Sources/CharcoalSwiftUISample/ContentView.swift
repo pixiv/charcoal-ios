@@ -23,8 +23,11 @@ public struct ContentView: View {
                 NavigationLink(destination: SelectionsView()) {
                     Text("Selections")
                 }
-                NavigationLink(destination: ColorsView()) {
+                NavigationLink(destination: ColorsView().charcoalOverlayContainer()) {
                     Text("Colors")
+                }
+                NavigationLink(destination: ColorsV2View().charcoalOverlayContainer()) {
+                    Text("Colors 2.0")
                 }
                 NavigationLink(destination: TypographiesView()) {
                     Text("Typographies")
