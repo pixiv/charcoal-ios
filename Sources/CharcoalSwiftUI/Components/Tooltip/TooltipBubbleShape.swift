@@ -23,7 +23,7 @@ struct TooltipBubbleShape: Shape {
             pointPosition = .bottom
         }
 
-        let path = Path { p in
+        return Path { p in
             p.move(to: .init(x: rect.minX + cornerRadius, y: rect.minY))
             if pointPosition == .top {
                 let arrowY = rect.minY - arrowHeight
@@ -125,8 +125,6 @@ struct TooltipBubbleShape: Shape {
             )
             p.closeSubpath()
         }
-
-        return path
     }
 }
 

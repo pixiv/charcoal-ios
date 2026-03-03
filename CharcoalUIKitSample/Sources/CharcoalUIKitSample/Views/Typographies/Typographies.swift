@@ -149,6 +149,5 @@ extension TypographiesViewController {
 
 @available(iOS 17.0, *)
 #Preview {
-    let viewController = TypographiesViewController()
-    return viewController
+    return TypographiesViewController()
 }

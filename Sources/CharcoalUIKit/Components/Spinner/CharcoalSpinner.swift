@@ -227,6 +227,5 @@ class CharcoalSpinnerPreview: UIView {
 
 @available(iOS 17.0, *)
 #Preview {
-    let view = CharcoalSpinnerPreview()
-    return view
+    return CharcoalSpinnerPreview()
 }

@@ -77,6 +77,5 @@ final class HintsViewController: UIViewController {
 
 @available(iOS 17.0, *)
 #Preview {
-    let viewController = HintsViewController()
-    return viewController
+    return HintsViewController()
 }

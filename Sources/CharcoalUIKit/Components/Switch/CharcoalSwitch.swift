@@ -46,6 +46,5 @@ public class CharcoalSwitch: UISwitch {
 
 @available(iOS 17.0, *)
 #Preview {
-    let button = CharcoalSwitch()
-    return button
+    return CharcoalSwitch()
 }

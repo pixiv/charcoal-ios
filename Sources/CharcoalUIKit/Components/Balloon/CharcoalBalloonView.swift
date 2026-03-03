@@ -200,8 +200,7 @@ class CharcoalBalloonView: UIView, CharcoalAnchorable {
 
     /// The max width of the text label
     var preferredTextMaxWidth: CGFloat {
-        let width = maxWidth - padding.left - padding.right - closeButtonSize - padding.right
-        return width
+        return maxWidth - padding.left - padding.right - closeButtonSize - padding.right
     }
 
     override func layoutSubviews() {

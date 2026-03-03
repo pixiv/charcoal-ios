@@ -1,6 +1,6 @@
 import UIKit
 
-// NOTE: - ここにCharcoalTextFieldView特有の処理を追加する
+/// NOTE: - ここにCharcoalTextFieldView特有の処理を追加する
 public protocol CharcoalTextFieldViewDelegate: UITextFieldDelegate {}
 
 public class CharcoalTextFieldView: UIStackView {

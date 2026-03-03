@@ -149,24 +149,27 @@ struct CharcoalToastModifier<ActionContent: View>: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .overlay(Color.clear
-                .modifier(
-                    CharcoalOverlayUpdaterContainer(
-                        isPresenting: $isPresenting,
-
-                        view: CharcoalToast(
-                            id: viewID,
-                            text: text,
-                            screenEdge: screenEdge,
-                            screenEdgeSpacing: screenEdgeSpacing,
-                            action: action,
+            .overlay(
+                Color.clear
+                    .modifier(
+                        CharcoalOverlayUpdaterContainer(
                             isPresenting: $isPresenting,
-                            dismissAfter: dismissAfter,
-                            appearance: appearance,
-                            animationConfiguration: animationConfiguration
-                        ),
-                        viewID: viewID
-                    )))
+
+                            view: CharcoalToast(
+                                id: viewID,
+                                text: text,
+                                screenEdge: screenEdge,
+                                screenEdgeSpacing: screenEdgeSpacing,
+                                action: action,
+                                isPresenting: $isPresenting,
+                                dismissAfter: dismissAfter,
+                                appearance: appearance,
+                                animationConfiguration: animationConfiguration
+                            ),
+                            viewID: viewID
+                        )
+                    )
+            )
     }
 }
 
@@ -188,7 +191,7 @@ public extension View {
      Text("Hello").charcoalToast(isPresenting: $isPresenting, text: "Hello")
      ```
      */
-    func charcoalToast<Content>(
+    func charcoalToast<Content: View>(
         isPresenting: Binding<Bool>,
         screenEdge: CharcoalPopupViewEdge = .bottom,
         screenEdgeSpacing: CGFloat = 96,
@@ -197,7 +200,7 @@ public extension View {
         appearance: CharcoalToastAppearance = .success,
         animationConfiguration: CharcoalToastAnimationConfiguration = .default,
         @ViewBuilder action: @escaping () -> Content = { EmptyView() }
-    ) -> some View where Content: View {
+    ) -> some View {
         return modifier(
             CharcoalToastModifier(
                 isPresenting: isPresenting,

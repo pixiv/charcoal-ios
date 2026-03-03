@@ -261,6 +261,5 @@ extension TextFieldsViewController: CharcoalTextFieldViewDelegate {
 
 @available(iOS 17.0, *)
 #Preview {
-    let viewController = TextFieldsViewController()
-    return viewController
+    return TextFieldsViewController()
 }

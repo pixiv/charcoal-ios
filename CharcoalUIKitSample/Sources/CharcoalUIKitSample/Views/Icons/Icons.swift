@@ -110,6 +110,5 @@ extension IconsViewController: UICollectionViewDelegateFlowLayout {
 
 @available(iOS 17.0, *)
 #Preview {
-    let viewController = IconsViewController()
-    return viewController
+    return IconsViewController()
 }

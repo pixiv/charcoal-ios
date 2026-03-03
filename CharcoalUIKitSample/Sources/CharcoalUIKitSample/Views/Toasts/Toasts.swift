@@ -182,6 +182,5 @@ extension ToastsViewController: UITableViewDelegate, UITableViewDataSource {
 
 @available(iOS 17.0, *)
 #Preview {
-    let viewController = ToastsViewController()
-    return viewController
+    return ToastsViewController()
 }

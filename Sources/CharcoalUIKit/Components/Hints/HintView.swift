@@ -26,10 +26,7 @@ public class CharcoalHintView: UIView {
         return imageView
     }()
 
-    lazy var actionButton: CharcoalPrimarySButton = {
-        let button = CharcoalPrimarySButton()
-        return button
-    }()
+    lazy var actionButton: CharcoalPrimarySButton = .init()
 
     let thumbnailImage: UIImage = CharcoalAsset.Images.info16.image
 
