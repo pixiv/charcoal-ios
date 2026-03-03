@@ -38,7 +38,7 @@ struct CharcoalToggleWrapper: UIViewRepresentable {
     }
 }
 
-// SwiftUIでToggleを自由にカスタマイズするのは難しいのでToggleStyleで書き換え
+/// SwiftUIでToggleを自由にカスタマイズするのは難しいのでToggleStyleで書き換え
 struct CharcoalToggleStyle: ToggleStyle {
     @Environment(\.isEnabled) var isEnabled
 

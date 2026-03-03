@@ -132,6 +132,5 @@ extension ButtonsViewController {
 
 @available(iOS 17.0, *)
 #Preview {
-    let viewController = ButtonsViewController()
-    return viewController
+    return ButtonsViewController()
 }

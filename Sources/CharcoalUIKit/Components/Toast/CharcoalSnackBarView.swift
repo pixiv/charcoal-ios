@@ -212,7 +212,7 @@ class CharcoalSnackBarView: UIView {
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        /// cgColor needs manually update
+        // cgColor needs manually update
         layer.borderColor = borderColor.cgColor
     }
 }

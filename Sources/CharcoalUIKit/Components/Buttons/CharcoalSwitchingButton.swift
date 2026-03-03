@@ -27,10 +27,10 @@ public class CharcoalSwitchingButton: UIView {
         )
     }
 
-    public func register<T1: UIButton, T2: UIButton>(
+    public func register<T1: UIButton & CharcoalButton, T2: UIButton & CharcoalButton>(
         onButton: T1,
         offButton: T2
-    ) where T1: CharcoalButton, T2: CharcoalButton {
+    ) {
         self.onButton = onButton
         self.offButton = offButton
         // すでにStoryboard等でsubviewsに設定されている可能性を考慮する

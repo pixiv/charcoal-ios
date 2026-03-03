@@ -2,8 +2,7 @@ import SwiftUI
 
 struct BackgroundTransparentView: UIViewRepresentable {
     func makeUIView(context: Context) -> UIView {
-        let view = TransparentView()
-        return view
+        return TransparentView()
     }
 
     func updateUIView(_ uiView: UIView, context: Context) {}

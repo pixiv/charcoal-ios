@@ -142,23 +142,26 @@ struct CharcoalSnackBarModifier<ActionContent: View>: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .overlay(Color.clear
-                .modifier(
-                    CharcoalOverlayUpdaterContainer(
-                        isPresenting: $isPresenting,
-
-                        view: CharcoalSnackBar(
-                            id: viewID,
-                            text: text,
-                            screenEdge: screenEdge,
-                            screenEdgeSpacing: screenEdgeSpacing,
-                            thumbnailImage: thumbnailImage,
-                            action: action,
+            .overlay(
+                Color.clear
+                    .modifier(
+                        CharcoalOverlayUpdaterContainer(
                             isPresenting: $isPresenting,
-                            dismissAfter: dismissAfter
-                        ),
-                        viewID: viewID
-                    )))
+
+                            view: CharcoalSnackBar(
+                                id: viewID,
+                                text: text,
+                                screenEdge: screenEdge,
+                                screenEdgeSpacing: screenEdgeSpacing,
+                                thumbnailImage: thumbnailImage,
+                                action: action,
+                                isPresenting: $isPresenting,
+                                dismissAfter: dismissAfter
+                            ),
+                            viewID: viewID
+                        )
+                    )
+            )
     }
 }
 
@@ -180,7 +183,7 @@ public extension View {
      Text("Hello").charcoalSnackBar(isPresenting: $isPresenting, text: "Hello")
      ```
      */
-    func charcoalSnackBar<Content>(
+    func charcoalSnackBar<Content: View>(
         isPresenting: Binding<Bool>,
         screenEdge: CharcoalPopupViewEdge = .bottom,
         screenEdgeSpacing: CGFloat = 120,
@@ -188,7 +191,7 @@ public extension View {
         thumbnailImage: Image? = nil,
         dismissAfter: TimeInterval? = 2,
         @ViewBuilder action: @escaping () -> Content = { EmptyView() }
-    ) -> some View where Content: View {
+    ) -> some View {
         return modifier(
             CharcoalSnackBarModifier(
                 isPresenting: isPresenting,

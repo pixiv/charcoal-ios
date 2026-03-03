@@ -130,6 +130,5 @@ extension TooltipsViewController: UITableViewDelegate, UITableViewDataSource {
 
 @available(iOS 17.0, *)
 #Preview {
-    let viewController = TooltipsViewController()
-    return viewController
+    return TooltipsViewController()
 }

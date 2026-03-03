@@ -198,6 +198,5 @@ extension ContentViewController {
 
 @available(iOS 17.0, *)
 #Preview {
-    let viewController = ContentViewController()
-    return viewController
+    return ContentViewController()
 }

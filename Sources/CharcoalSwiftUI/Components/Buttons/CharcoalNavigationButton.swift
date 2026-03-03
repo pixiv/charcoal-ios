@@ -25,18 +25,19 @@ struct CharcoalNavigationButtonStyleView: View {
                     .frame(height: size == .medium ? 40 : 32)
             )
         }
-        return AnyView(label
-            .font(.system(size: fontSize, weight: .bold))
-            .charcoalOnSurfaceText5()
-            .padding(size.padding)
-            .frame(maxWidth: isFixed ? nil : .infinity)
-            .charcoalSurface6()
-            .overlay(
-                Rectangle()
-                    .foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
-            )
-            .clipShape(.charcoalCapsule)
-            .hoverEffect(.lift)
+        return AnyView(
+            label
+                .font(.system(size: fontSize, weight: .bold))
+                .charcoalOnSurfaceText5()
+                .padding(size.padding)
+                .frame(maxWidth: isFixed ? nil : .infinity)
+                .charcoalSurface6()
+                .overlay(
+                    Rectangle()
+                        .foregroundStyle(isPressed ? Color(CharcoalAsset.ColorPaletteGenerated.surface10.color) : .clear)
+                )
+                .clipShape(.charcoalCapsule)
+                .hoverEffect(.lift)
         )
     }
 }

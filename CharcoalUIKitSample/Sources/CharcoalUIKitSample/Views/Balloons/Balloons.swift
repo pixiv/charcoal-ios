@@ -144,6 +144,5 @@ extension BalloonsViewController: UITableViewDelegate, UITableViewDataSource {
 
 @available(iOS 17.0, *)
 #Preview {
-    let viewController = BalloonsViewController()
-    return viewController
+    return BalloonsViewController()
 }

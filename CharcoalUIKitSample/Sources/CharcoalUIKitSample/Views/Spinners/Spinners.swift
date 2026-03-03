@@ -102,6 +102,5 @@ extension SpinnersViewController: UITableViewDelegate, UITableViewDataSource {
 
 @available(iOS 17.0, *)
 #Preview {
-    let viewController = SpinnersViewController()
-    return viewController
+    return SpinnersViewController()
 }

@@ -150,22 +150,27 @@ struct CharcoalBalloon<ActionContent: View>: CharcoalPopupProtocol, CharcoalToas
                                     .renderingMode(.template)
                                     .foregroundColor(Color.white)
                                     .frame(width: 16 + 6)
-                                    .background(Circle()
-                                        .fill(Color.black.opacity(0.35))
-                                        .frame(width: 16 + 6, height: 16 + 6))
+                                    .background(
+                                        Circle()
+                                            .fill(Color.black.opacity(0.35))
+                                            .frame(width: 16 + 6, height: 16 + 6)
+                                    )
                                     .overlay(
                                         EmptyView().frame(width: 45, height: 45)
                                             .contentShape(Rectangle()).onTapGesture {
                                                 isPresenting = false
-                                            })
+                                            }
+                                    )
                             }
 
                             if let action = action {
                                 action
                                     .charcoalTypography14Bold()
                                     .padding(EdgeInsets(top: 3, leading: 16, bottom: 3, trailing: 16))
-                                    .background(Capsule()
-                                        .fill(Color.black.opacity(0.35)))
+                                    .background(
+                                        Capsule()
+                                            .fill(Color.black.opacity(0.35))
+                                    )
                                     .foregroundColor(Color.white)
                             }
                         }

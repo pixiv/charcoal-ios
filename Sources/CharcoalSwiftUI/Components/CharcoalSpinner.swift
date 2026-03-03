@@ -59,20 +59,22 @@ public struct CharcoalSpinnerModifier: ViewModifier {
 
     public func body(content: Content) -> some View {
         content
-            .overlay(ZStack {
-                if isPresenting {
-                    if interactionPassthrough == false {
-                        // Prevent user interaction passthrough needs non-clear color
-                        Color.white.opacity(0.01)
+            .overlay(
+                ZStack {
+                    if isPresenting {
+                        if interactionPassthrough == false {
+                            // Prevent user interaction passthrough needs non-clear color
+                            Color.white.opacity(0.01)
+                        }
+                        CharcoalSpinner(
+                            spinnerSize: spinnerSize,
+                            transparentBackground: transparentBackground
+                        )
                     }
-                    CharcoalSpinner(
-                        spinnerSize: spinnerSize,
-                        transparentBackground: transparentBackground
-                    )
                 }
-            }
-            .ignoresSafeArea()
-            .animation(.spring, value: isPresenting))
+                .ignoresSafeArea()
+                .animation(.spring, value: isPresenting)
+            )
     }
 }
 

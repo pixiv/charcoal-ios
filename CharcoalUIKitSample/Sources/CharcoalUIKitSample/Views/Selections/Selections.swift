@@ -72,6 +72,5 @@ final class SelectionsViewController: UIViewController {
 
 @available(iOS 17.0, *)
 #Preview {
-    let viewController = SelectionsViewController()
-    return viewController
+    return SelectionsViewController()
 }

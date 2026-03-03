@@ -110,6 +110,5 @@ extension ColorsViewController: UICollectionViewDelegateFlowLayout {
 
 @available(iOS 17.0, *)
 #Preview {
-    let viewController = ColorsViewController()
-    return viewController
+    return ColorsViewController()
 }

@@ -71,7 +71,7 @@ class CharcoalSpinnerView: UIView {
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        /// cgColor needs manually update
+        // cgColor needs manually update
         circleLayer.fillColor = CharcoalAsset.ColorPaletteGenerated.surface4.color.cgColor
     }
 }
