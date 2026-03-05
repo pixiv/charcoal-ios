@@ -5,6 +5,7 @@ enum SnackbarTitles: String, CaseIterable {
     case normal = "Normal"
     case withAction = "with Action"
     case withActionAndThumbnail = "with Action and Thumbnail"
+    case withoutAutoDismiss = "without Auto Dismiss"
 
     var text: String {
         return "ブックマークしました"
@@ -20,6 +21,7 @@ enum ToastsTitles: String, CaseIterable {
     case normal = "Normal"
     case normalWithAction = "with Action"
     case errorWithAction = "error with Action"
+    case withoutAutoDismiss = "without Auto Dismiss"
 
     var text: String {
         switch self {
@@ -29,6 +31,8 @@ enum ToastsTitles: String, CaseIterable {
             return "Hello World This is a tooltip with mutiple line"
         case .errorWithAction:
             return "こんにちは This is a tooltip and here is testing it's multiple line feature"
+        case .withoutAutoDismiss:
+            return "Hello World"
         }
     }
 
@@ -127,6 +131,7 @@ extension ToastsViewController: UITableViewDelegate, UITableViewDataSource {
             let titleCase = ToastsTitles.allCases[indexPath.row]
 
             var toastID: CharcoalIdentifiableOverlayView.IDValue
+            var shouldAutoDismiss = true
             switch titleCase {
             case .normal:
                 toastID = CharcoalToast.show(text: titleCase.text, screenEdge: .top)
@@ -143,15 +148,24 @@ extension ToastsViewController: UITableViewDelegate, UITableViewDataSource {
                         print("Clicked on action")
                     }
                 )
+            case .withoutAutoDismiss:
+                toastID = CharcoalToast.show(text: titleCase.text, screenEdge: .bottom, actionCallback: {
+                    print("Clicked on action")
+                })
+                shouldAutoDismiss = false
             }
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-                CharcoalToast.dismiss(id: toastID)
+            if shouldAutoDismiss {
+                Task { @MainActor in
+                    try? await Task.sleep(nanoseconds: 2_000_000_000)
+                    CharcoalToast.dismiss(id: toastID)
+                }
             }
         case .snackbars:
             let titleCase = SnackbarTitles.allCases[indexPath.row]
 
             var toastID: CharcoalIdentifiableOverlayView.IDValue
+            var shouldAutoDismiss = true
             switch titleCase {
             case .normal:
                 toastID = CharcoalSnackBar.show(text: titleCase.text, screenEdge: .top)
@@ -163,10 +177,18 @@ extension ToastsViewController: UITableViewDelegate, UITableViewDataSource {
                 toastID = CharcoalSnackBar.show(text: titleCase.text, thumbnailImage: UIImage(named: "SnackbarDemo", in: Bundle.module, with: nil), screenEdge: .bottom, action: CharcoalAction(title: "編集", actionCallback: {
                     print("Tapped 編集")
                 }))
+            case .withoutAutoDismiss:
+                toastID = CharcoalSnackBar.show(text: titleCase.text, thumbnailImage: UIImage(named: "SnackbarDemo", in: Bundle.module, with: nil), screenEdge: .bottom, action: CharcoalAction(title: "編集", actionCallback: {
+                    print("Tapped 編集")
+                }))
+                shouldAutoDismiss = false
             }
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-                CharcoalSnackBar.dismiss(id: toastID)
+            if shouldAutoDismiss {
+                Task { @MainActor in
+                    try? await Task.sleep(nanoseconds: 2_000_000_000)
+                    CharcoalSnackBar.dismiss(id: toastID)
+                }
             }
         }
     }
