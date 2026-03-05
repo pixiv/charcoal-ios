@@ -6,3 +6,9 @@ public let charcoalFoundation: CharcoalFoundation = {
     let data = try! Data(contentsOf: url)
     return try! newJSONDecoder().decode(CharcoalFoundation.self, from: data)
 }()
+
+public let charcoalFoundationV2: CharcoalFoundationV2 = {
+    let url = Bundle.module.url(forResource: "CharcoalFoundationV2", withExtension: "json")!
+    let data = try! Data(contentsOf: url)
+    return try! JSONDecoder().decode(CharcoalFoundationV2.self, from: data)
+}()

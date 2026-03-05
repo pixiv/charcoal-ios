@@ -23,8 +23,11 @@ public struct ContentView: View {
                 NavigationLink(destination: SelectionsView()) {
                     Text("Selections")
                 }
-                NavigationLink(destination: ColorsView()) {
+                NavigationLink(destination: ColorsView().charcoalOverlayContainer()) {
                     Text("Colors")
+                }
+                NavigationLink(destination: ColorsV2View().charcoalOverlayContainer()) {
+                    Text("Colors 2.0")
                 }
                 NavigationLink(destination: TypographiesView()) {
                     Text("Typographies")
@@ -32,8 +35,11 @@ public struct ContentView: View {
                 NavigationLink(destination: BackgroundView()) {
                     Text("Background")
                 }
-                NavigationLink(destination: IconsView()) {
+                NavigationLink(destination: IconsView().charcoalOverlayContainer()) {
                     Text("Icons")
+                }
+                NavigationLink(destination: IconsV2View().charcoalOverlayContainer()) {
+                    Text("Icons 2.0")
                 }
                 NavigationLink(destination: ModalsView()) {
                     Text("Modal")
