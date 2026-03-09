@@ -203,6 +203,7 @@ public enum CharcoalAsset {
       public static let binetAsset = ImageAsset(name: "24/Binet")
       public static let bodyAsset = ImageAsset(name: "24/Body")
       public static let bodyEditAsset = ImageAsset(name: "24/BodyEdit")
+      public static let boldAsset = ImageAsset(name: "24/Bold")
       public static let bookAsset = ImageAsset(name: "24/Book")
       public static let bringBackwardAsset = ImageAsset(name: "24/BringBackward")
       public static let bringForwardAsset = ImageAsset(name: "24/BringForward")
@@ -234,6 +235,8 @@ public enum CharcoalAsset {
       public static let duplicateAsset = ImageAsset(name: "24/Duplicate")
       public static let dustAsset = ImageAsset(name: "24/Dust")
       public static let emojiAsset = ImageAsset(name: "24/Emoji")
+      public static let emphasisMarkAsset = ImageAsset(name: "24/EmphasisMark")
+      public static let emphasisMarkJpAsset = ImageAsset(name: "24/EmphasisMarkJp")
       public static let errorAsset = ImageAsset(name: "24/Error")
       public static let errorOctagonAsset = ImageAsset(name: "24/ErrorOctagon")
       public static let eventsAsset = ImageAsset(name: "24/Events")
@@ -278,6 +281,7 @@ public enum CharcoalAsset {
       public static let infoAsset = ImageAsset(name: "24/Info")
       public static let invalidAsset = ImageAsset(name: "24/Invalid")
       public static let invoiceAsset = ImageAsset(name: "24/Invoice")
+      public static let italicAsset = ImageAsset(name: "24/Italic")
       public static let itemRemoveAsset = ImageAsset(name: "24/ItemRemove")
       public static let latestWorksAsset = ImageAsset(name: "24/LatestWorks")
       public static let likeOffAsset = ImageAsset(name: "24/LikeOff")
@@ -493,6 +497,7 @@ public enum CharcoalAsset {
     case binet24
     case body24
     case bodyEdit24
+    case bold24
     case book24
     case bringBackward24
     case bringForward24
@@ -524,6 +529,8 @@ public enum CharcoalAsset {
     case duplicate24
     case dust24
     case emoji24
+    case emphasisMark24
+    case emphasisMarkJp24
     case error24
     case errorOctagon24
     case events24
@@ -568,6 +575,7 @@ public enum CharcoalAsset {
     case info24
     case invalid24
     case invoice24
+    case italic24
     case itemRemove24
     case latestWorks24
     case likeOff24
@@ -826,6 +834,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.bodyAsset
         case .bodyEdit24:
           return CharcoalAsset.Images._24.bodyEditAsset
+        case .bold24:
+          return CharcoalAsset.Images._24.boldAsset
         case .book24:
           return CharcoalAsset.Images._24.bookAsset
         case .bringBackward24:
@@ -888,6 +898,10 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.dustAsset
         case .emoji24:
           return CharcoalAsset.Images._24.emojiAsset
+        case .emphasisMark24:
+          return CharcoalAsset.Images._24.emphasisMarkAsset
+        case .emphasisMarkJp24:
+          return CharcoalAsset.Images._24.emphasisMarkJpAsset
         case .error24:
           return CharcoalAsset.Images._24.errorAsset
         case .errorOctagon24:
@@ -976,6 +990,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.invalidAsset
         case .invoice24:
           return CharcoalAsset.Images._24.invoiceAsset
+        case .italic24:
+          return CharcoalAsset.Images._24.italicAsset
         case .itemRemove24:
           return CharcoalAsset.Images._24.itemRemoveAsset
         case .latestWorks24:
