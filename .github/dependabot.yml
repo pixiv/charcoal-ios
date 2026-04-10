@@ -4,23 +4,35 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 7
   - package-ecosystem: "bundler"
     directory: "/"
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 7
   - package-ecosystem: "npm"
     directory: "/scripts/create-pull-request"
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 7
   - package-ecosystem: "npm"
     directory: "/scripts/foundation-gen"
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 7
   - package-ecosystem: "npm"
     directory: "/scripts/xcasset-gen"
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 7
   - package-ecosystem: "swift"
     directory: "/BuildTools"
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 7
