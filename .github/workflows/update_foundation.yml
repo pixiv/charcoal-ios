@@ -79,7 +79,7 @@ jobs:
           rm -rf icons-v1 icons-v2
 
       - name: Cache SwiftPM for BuildTools
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: |
             BuildTools/.build
