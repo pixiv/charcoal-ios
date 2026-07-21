@@ -212,7 +212,6 @@ public enum CharcoalAsset {
       }
     }
     public enum Border : CaseIterable {
-      static let defaultText3Asset = ColorAsset(name: "border/default-text3")
       static let defaultAsset = ColorAsset(name: "border/default")
       static let disableAsset = ColorAsset(name: "border/disable")
       public enum Focus : CaseIterable {
@@ -236,43 +235,32 @@ public enum CharcoalAsset {
           return colorAsset.color
         }
       }
-      static let hoverText3Asset = ColorAsset(name: "border/hover-text3")
       static let hoverAsset = ColorAsset(name: "border/hover")
       static let hudAsset = ColorAsset(name: "border/hud")
       static let negativeAsset = ColorAsset(name: "border/negative")
-      static let pressText3Asset = ColorAsset(name: "border/press-text3")
       static let pressAsset = ColorAsset(name: "border/press")
       static let secondaryAsset = ColorAsset(name: "border/secondary")
       static let selectedAsset = ColorAsset(name: "border/selected")
-      case defaultText3
       case `default`
       case disable
-      case hoverText3
       case hover
       case hud
       case negative
-      case pressText3
       case press
       case secondary
       case selected
       public var colorAsset: ColorAsset {
         switch (self) {
-          case .defaultText3:
-            return Self.defaultText3Asset
           case .`default`:
             return Self.defaultAsset
           case .disable:
             return Self.disableAsset
-          case .hoverText3:
-            return Self.hoverText3Asset
           case .hover:
             return Self.hoverAsset
           case .hud:
             return Self.hudAsset
           case .negative:
             return Self.negativeAsset
-          case .pressText3:
-            return Self.pressText3Asset
           case .press:
             return Self.pressAsset
           case .secondary:
@@ -2481,17 +2469,14 @@ public enum CharcoalAsset {
       Background.overlay.colorAsset,
       Background.secondary.colorAsset,
       Background.tertiary.colorAsset,
-      Border.defaultText3.colorAsset,
       Border.`default`.colorAsset,
       Border.disable.colorAsset,
       Border.Focus._1.colorAsset,
       Border.Focus._2.colorAsset,
       Border.Focus.legacy.colorAsset,
-      Border.hoverText3.colorAsset,
       Border.hover.colorAsset,
       Border.hud.colorAsset,
       Border.negative.colorAsset,
-      Border.pressText3.colorAsset,
       Border.press.colorAsset,
       Border.secondary.colorAsset,
       Border.selected.colorAsset,
@@ -2914,6 +2899,7 @@ public enum CharcoalAsset {
       public static let bookmarkOnAsset = ImageAsset(name: "16/BookmarkOn")
       public static let checkAsset = ImageAsset(name: "16/Check")
       public static let commentAsset = ImageAsset(name: "16/Comment")
+      public static let descriptionAsset = ImageAsset(name: "16/Description")
       public static let dotAsset = ImageAsset(name: "16/Dot")
       public static let downAsset = ImageAsset(name: "16/Down")
       public static let errorAsset = ImageAsset(name: "16/Error")
@@ -2948,10 +2934,13 @@ public enum CharcoalAsset {
       public static let arAsset = ImageAsset(name: "24/Ar")
       public static let archiveAsset = ImageAsset(name: "24/Archive")
       public static let arrowDownAsset = ImageAsset(name: "24/ArrowDown")
+      public static let arrowLeftAsset = ImageAsset(name: "24/ArrowLeft")
+      public static let arrowRightAsset = ImageAsset(name: "24/ArrowRight")
       public static let arrowUpAsset = ImageAsset(name: "24/ArrowUp")
       public static let binetAsset = ImageAsset(name: "24/Binet")
       public static let bodyAsset = ImageAsset(name: "24/Body")
       public static let bodyEditAsset = ImageAsset(name: "24/BodyEdit")
+      public static let boldAsset = ImageAsset(name: "24/Bold")
       public static let bookAsset = ImageAsset(name: "24/Book")
       public static let bringBackwardAsset = ImageAsset(name: "24/BringBackward")
       public static let bringForwardAsset = ImageAsset(name: "24/BringForward")
@@ -2983,6 +2972,8 @@ public enum CharcoalAsset {
       public static let duplicateAsset = ImageAsset(name: "24/Duplicate")
       public static let dustAsset = ImageAsset(name: "24/Dust")
       public static let emojiAsset = ImageAsset(name: "24/Emoji")
+      public static let emphasisMarkAsset = ImageAsset(name: "24/EmphasisMark")
+      public static let emphasisMarkJpAsset = ImageAsset(name: "24/EmphasisMarkJp")
       public static let errorAsset = ImageAsset(name: "24/Error")
       public static let errorOctagonAsset = ImageAsset(name: "24/ErrorOctagon")
       public static let eventsAsset = ImageAsset(name: "24/Events")
@@ -3003,6 +2994,7 @@ public enum CharcoalAsset {
       public static let formatFontSizeAsset = ImageAsset(name: "24/FormatFontSize")
       public static let formatLetterSpacingAsset = ImageAsset(name: "24/FormatLetterSpacing")
       public static let formatLineSpacingAsset = ImageAsset(name: "24/FormatLineSpacing")
+      public static let formatTextAsset = ImageAsset(name: "24/FormatText")
       public static let fovAsset = ImageAsset(name: "24/Fov")
       public static let frameEffectAsset = ImageAsset(name: "24/FrameEffect")
       public static let frameSizeAsset = ImageAsset(name: "24/FrameSize")
@@ -3027,6 +3019,7 @@ public enum CharcoalAsset {
       public static let infoAsset = ImageAsset(name: "24/Info")
       public static let invalidAsset = ImageAsset(name: "24/Invalid")
       public static let invoiceAsset = ImageAsset(name: "24/Invoice")
+      public static let italicAsset = ImageAsset(name: "24/Italic")
       public static let itemRemoveAsset = ImageAsset(name: "24/ItemRemove")
       public static let latestWorksAsset = ImageAsset(name: "24/LatestWorks")
       public static let likeOffAsset = ImageAsset(name: "24/LikeOff")
@@ -3206,6 +3199,7 @@ public enum CharcoalAsset {
     case bookmarkOn16
     case check16
     case comment16
+    case description16
     case dot16
     case down16
     case error16
@@ -3238,10 +3232,13 @@ public enum CharcoalAsset {
     case ar24
     case archive24
     case arrowDown24
+    case arrowLeft24
+    case arrowRight24
     case arrowUp24
     case binet24
     case body24
     case bodyEdit24
+    case bold24
     case book24
     case bringBackward24
     case bringForward24
@@ -3273,6 +3270,8 @@ public enum CharcoalAsset {
     case duplicate24
     case dust24
     case emoji24
+    case emphasisMark24
+    case emphasisMarkJp24
     case error24
     case errorOctagon24
     case events24
@@ -3293,6 +3292,7 @@ public enum CharcoalAsset {
     case formatFontSize24
     case formatLetterSpacing24
     case formatLineSpacing24
+    case formatText24
     case fov24
     case frameEffect24
     case frameSize24
@@ -3317,6 +3317,7 @@ public enum CharcoalAsset {
     case info24
     case invalid24
     case invoice24
+    case italic24
     case itemRemove24
     case latestWorks24
     case likeOff24
@@ -3503,6 +3504,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._16.checkAsset
         case .comment16:
           return CharcoalAsset.Images._16.commentAsset
+        case .description16:
+          return CharcoalAsset.Images._16.descriptionAsset
         case .dot16:
           return CharcoalAsset.Images._16.dotAsset
         case .down16:
@@ -3567,6 +3570,10 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.archiveAsset
         case .arrowDown24:
           return CharcoalAsset.Images._24.arrowDownAsset
+        case .arrowLeft24:
+          return CharcoalAsset.Images._24.arrowLeftAsset
+        case .arrowRight24:
+          return CharcoalAsset.Images._24.arrowRightAsset
         case .arrowUp24:
           return CharcoalAsset.Images._24.arrowUpAsset
         case .binet24:
@@ -3575,6 +3582,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.bodyAsset
         case .bodyEdit24:
           return CharcoalAsset.Images._24.bodyEditAsset
+        case .bold24:
+          return CharcoalAsset.Images._24.boldAsset
         case .book24:
           return CharcoalAsset.Images._24.bookAsset
         case .bringBackward24:
@@ -3637,6 +3646,10 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.dustAsset
         case .emoji24:
           return CharcoalAsset.Images._24.emojiAsset
+        case .emphasisMark24:
+          return CharcoalAsset.Images._24.emphasisMarkAsset
+        case .emphasisMarkJp24:
+          return CharcoalAsset.Images._24.emphasisMarkJpAsset
         case .error24:
           return CharcoalAsset.Images._24.errorAsset
         case .errorOctagon24:
@@ -3677,6 +3690,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.formatLetterSpacingAsset
         case .formatLineSpacing24:
           return CharcoalAsset.Images._24.formatLineSpacingAsset
+        case .formatText24:
+          return CharcoalAsset.Images._24.formatTextAsset
         case .fov24:
           return CharcoalAsset.Images._24.fovAsset
         case .frameEffect24:
@@ -3725,6 +3740,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.invalidAsset
         case .invoice24:
           return CharcoalAsset.Images._24.invoiceAsset
+        case .italic24:
+          return CharcoalAsset.Images._24.italicAsset
         case .itemRemove24:
           return CharcoalAsset.Images._24.itemRemoveAsset
         case .latestWorks24:
