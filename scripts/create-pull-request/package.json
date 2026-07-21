@@ -7,8 +7,10 @@
     "create-pull-request": "node src/index.js"
   },
   "type": "module",
+  "packageManager": "pnpm@10.30.3",
   "author": "pixiv",
   "dependencies": {
+    "@octokit/plugin-retry": "^8.1.0",
     "@octokit/rest": "^22.0.0",
     "yargs": "^18.0.0"
   }

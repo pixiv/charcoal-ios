@@ -29,6 +29,9 @@ jobs:
         with:
           node-version: lts/*
 
+      - name: Enable corepack
+        run: corepack enable
+
       - name: Update foundation
         run: |
           cd scripts/foundation-gen/
@@ -45,8 +48,6 @@ jobs:
             exit 1
           fi
 
-          corepack enable
-
           FIGMA_TOKEN="$FIGMA_TOKEN" FIGMA_FILE_ID="$FIGMA_NODE_ID_APPLIEDS" pnpm dlx @charcoal-ui/token-cli@5.6.0-beta.4 fetch --output applied-raw.json
           FIGMA_TOKEN="$FIGMA_TOKEN" FIGMA_FILE_ID="$FIGMA_NODE_ID_PRIMITIVES" pnpm dlx @charcoal-ui/token-cli@5.6.0-beta.4 fetch --output primitives-raw.json
 
@@ -59,9 +60,9 @@ jobs:
           pnpm dlx @charcoal-ui/token-cli@5.6.0-beta.4 transform --source primitives-raw.json --output primitives-dark.json --mode-name "pixiv/dark" || \
           pnpm dlx @charcoal-ui/token-cli@5.6.0-beta.4 transform --source primitives-raw.json --output primitives-dark.json --mode-name "dark"
 
-          npm install
-          npm run foundation-gen generate -- --schema="v1" --input="theme.json" --outputJson="../../Sources/CharcoalShared/Generated" --outputSwift="../../Sources/CharcoalShared/Generated" --outputColorAsset="../../Sources/CharcoalShared/ColorPalette.generated.xcassets"
-          npm run foundation-gen generate -- --schema="v2" --inputLightApplied="applied-light.json" --inputDarkApplied="applied-dark.json" --inputLightPrimitives="primitives-light.json" --inputDarkPrimitives="primitives-dark.json" --outputJson="../../Sources/CharcoalShared/Generated" --outputSwift="../../Sources/CharcoalShared/Generated" --outputColorAsset="../../Sources/CharcoalShared/ColorPaletteV2.generated.xcassets"
+          pnpm install
+          pnpm run foundation-gen generate --schema="v1" --input="theme.json" --outputJson="../../Sources/CharcoalShared/Generated" --outputSwift="../../Sources/CharcoalShared/Generated" --outputColorAsset="../../Sources/CharcoalShared/ColorPalette.generated.xcassets"
+          pnpm run foundation-gen generate --schema="v2" --inputLightApplied="applied-light.json" --inputDarkApplied="applied-dark.json" --inputLightPrimitives="primitives-light.json" --inputDarkPrimitives="primitives-dark.json" --outputJson="../../Sources/CharcoalShared/Generated" --outputSwift="../../Sources/CharcoalShared/Generated" --outputColorAsset="../../Sources/CharcoalShared/ColorPaletteV2.generated.xcassets"
 
           rm theme.json applied-raw.json primitives-raw.json applied-light.json applied-dark.json primitives-light.json primitives-dark.json
 
@@ -69,12 +70,17 @@ jobs:
         run: |
           cd scripts/xcasset-gen
 
-          FIGMA_FILE_URL="$FIGMA_ICONS_FILE_URL_V1" OUTPUT_ROOT_DIR=icons-v1 npx @charcoal-ui/icons-cli@latest figma:export --format pdf --layout v1
-          FIGMA_FILE_URL="$FIGMA_ICONS_FILE_URL_V2" OUTPUT_ROOT_DIR=icons-v2 npx @charcoal-ui/icons-cli@latest figma:export --format pdf --layout v2
+          if [ -z "$FIGMA_ICONS_FILE_URL_V1" ] || [ -z "$FIGMA_ICONS_FILE_URL_V2" ]; then
+            echo "FIGMA_ICONS_FILE_URL_V1 and FIGMA_ICONS_FILE_URL_V2 are required for icons-cli"
+            exit 1
+          fi
 
-          npm install
-          npm run xcasset-gen generate -- --schema="v1" --input icons-v1/pdf --output ../../Sources/CharcoalShared/Images.xcassets
-          npm run xcasset-gen generate -- --schema="v2" --input icons-v2/pdf --output ../../Sources/CharcoalShared/ImagesV2.xcassets
+          FIGMA_FILE_URL="$FIGMA_ICONS_FILE_URL_V1" OUTPUT_ROOT_DIR=icons-v1 pnpm dlx @charcoal-ui/icons-cli@latest figma:export --format pdf --layout v1
+          FIGMA_FILE_URL="$FIGMA_ICONS_FILE_URL_V2" OUTPUT_ROOT_DIR=icons-v2 pnpm dlx @charcoal-ui/icons-cli@latest figma:export --format pdf --layout v2
+
+          pnpm install
+          pnpm run xcasset-gen generate --schema="v1" --input icons-v1/pdf --output ../../Sources/CharcoalShared/Images.xcassets
+          pnpm run xcasset-gen generate --schema="v2" --input icons-v2/pdf --output ../../Sources/CharcoalShared/ImagesV2.xcassets
 
           rm -rf icons-v1 icons-v2
 
@@ -97,5 +103,5 @@ jobs:
       - name: Create Pull Request
         run: |
           cd scripts/create-pull-request/
-          npm install
-          npm run create-pull-request -- --owner="${{github.repository_owner}}" --repo="${GITHUB_REPOSITORY#*/}" --baseBranch="main"
+          pnpm install
+          pnpm run create-pull-request --owner="${{github.repository_owner}}" --repo="${GITHUB_REPOSITORY#*/}" --baseBranch="main"
