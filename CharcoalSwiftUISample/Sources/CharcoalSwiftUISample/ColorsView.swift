@@ -1,61 +1,48 @@
 import Charcoal
 import SwiftUI
 
+extension CharcoalAsset.ColorPaletteGenerated {
+    var description: String {
+        return String(String(reflecting: self).split(separator: ".").last ?? "")
+    }
+}
+
 struct ColorsView: View {
-    let colors = [
-        CharcoalAsset.ColorPaletteGenerated.background1,
-        CharcoalAsset.ColorPaletteGenerated.background2,
-        CharcoalAsset.ColorPaletteGenerated.brand,
-        CharcoalAsset.ColorPaletteGenerated.border,
-        CharcoalAsset.ColorPaletteGenerated.link1,
-        CharcoalAsset.ColorPaletteGenerated.link2,
-        CharcoalAsset.ColorPaletteGenerated.text1,
-        CharcoalAsset.ColorPaletteGenerated.text2,
-        CharcoalAsset.ColorPaletteGenerated.text3,
-        CharcoalAsset.ColorPaletteGenerated.text4,
-        CharcoalAsset.ColorPaletteGenerated.text5,
-        CharcoalAsset.ColorPaletteGenerated.icon6,
-        CharcoalAsset.ColorPaletteGenerated.assertive,
-        CharcoalAsset.ColorPaletteGenerated.callToAction0,
-        CharcoalAsset.ColorPaletteGenerated.callToAction100,
-        CharcoalAsset.ColorPaletteGenerated.success,
-        CharcoalAsset.ColorPaletteGenerated.warning,
-        CharcoalAsset.ColorPaletteGenerated.updatedItem,
-        CharcoalAsset.ColorPaletteGenerated.surface1,
-        CharcoalAsset.ColorPaletteGenerated.surface2,
-        CharcoalAsset.ColorPaletteGenerated.surface3,
-        CharcoalAsset.ColorPaletteGenerated.surface4,
-        CharcoalAsset.ColorPaletteGenerated.surface50,
-        CharcoalAsset.ColorPaletteGenerated.surface5100,
-        CharcoalAsset.ColorPaletteGenerated.surface6,
-        CharcoalAsset.ColorPaletteGenerated.surface7,
-        CharcoalAsset.ColorPaletteGenerated.surface8,
-        CharcoalAsset.ColorPaletteGenerated.surface9,
-        CharcoalAsset.ColorPaletteGenerated.surface10
-    ].map { Color($0.color) }
-    let columns = 4
+    private struct ColorItemView: View {
+        let name: String
+        let color: UIColor
+        @State private var isPresenting = false
+
+        var body: some View {
+            RoundedRectangle(cornerRadius: 6)
+                .frame(width: 32, height: 32)
+                .foregroundColor(Color(color))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 6)
+                        .stroke(Color.black.opacity(0.08), lineWidth: 1)
+                )
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    isPresenting = true
+                }
+                .charcoalTooltip(isPresenting: $isPresenting, text: name)
+        }
+    }
+
+    let colors = CharcoalAsset.ColorPaletteGenerated.allCases
+    private let columns: [GridItem] = [GridItem(.adaptive(minimum: 32, maximum: 32), spacing: 8)]
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 16) {
-                ForEach(0 ..< colors.count / columns + 1, id: \.self) { row in
-                    HStack(spacing: 16) {
-                        ForEach(0 ..< columns, id: \.self) { column in
-                            if row * 4 + column < colors.count {
-                                Rectangle()
-                                    .frame(width: 64, height: 64)
-                                    .foregroundColor(colors[row * 4 + column])
-                                    .cornerRadius(8)
-                            } else {
-                                Rectangle()
-                                    .frame(width: 64, height: 64)
-                                    .foregroundColor(Color.clear)
-                            }
-                        }
-                    }
+            LazyVGrid(columns: columns, alignment: .leading, spacing: 8) {
+                ForEach(colors, id: \.self) { color in
+                    ColorItemView(name: color.description, color: color.color)
                 }
             }
+            .padding(.horizontal, 8)
+            .padding(.vertical, 12)
         }
         .navigationBarTitle("Colors")
+        .charcoalOverlayContainer()
     }
 }

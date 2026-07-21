@@ -8,9 +8,17 @@ final class IconsViewController: UIViewController {
         return view
     }()
 
-    private let iconsCollectionViewCellIdentifier = "IconsCollectionViewCell"
-
     private let icons = CharcoalAsset.Images.allCases
+
+    private func iconPointSize(for name: String) -> CGFloat {
+        if name.hasSuffix("24") {
+            return 24
+        }
+        if name.hasSuffix("20") {
+            return 20
+        }
+        return 16
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,20 +33,14 @@ final class IconsViewController: UIViewController {
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
 
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(
-            UINib(
-                nibName: iconsCollectionViewCellIdentifier,
-                bundle: .module
-            ),
-            forCellWithReuseIdentifier: iconsCollectionViewCellIdentifier
-        )
+        collectionView.register(IconSwatchCollectionViewCell.self, forCellWithReuseIdentifier: IconSwatchCollectionViewCell.reuseIdentifier)
     }
 }
 
@@ -61,12 +63,17 @@ extension IconsViewController: UICollectionViewDelegate {
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        // swiftlint:disable line_length
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: iconsCollectionViewCellIdentifier, for: indexPath) as? IconsCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IconSwatchCollectionViewCell.reuseIdentifier, for: indexPath) as? IconSwatchCollectionViewCell else {
             fatalError()
         }
-        cell.configure(with: icons[indexPath.item])
+        let icon = icons[indexPath.item]
+        cell.configure(image: icon.image, pointSize: iconPointSize(for: icon.description))
         return cell
+    }
+
+    func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) else { return }
+        CharcoalTooltip.show(text: icons[indexPath.item].description, anchorView: cell)
     }
 }
 
@@ -74,13 +81,13 @@ extension IconsViewController: UICollectionViewDelegate {
 
 extension IconsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
-        let numberOfColumns: CGFloat = 4
         let marginBetweenCells: CGFloat = 8
-        let marginFromTheEdge: CGFloat = 16
-        // swiftlint:disable line_length
+        let marginFromTheEdge: CGFloat = 8
+        let minimumSize: CGFloat = 32
+        let availableWidth = view.frame.width - marginFromTheEdge * 2
+        let numberOfColumns = max(1, floor((availableWidth + marginBetweenCells) / (minimumSize + marginBetweenCells)))
         let width = (view.frame.width - marginFromTheEdge * 2 - marginBetweenCells * (numberOfColumns - 1)) / numberOfColumns
-        let colorNameLabelHeight: CGFloat = ColorsCollectionViewCell.colorNameLabelHeight()
-        return CGSize(width: width, height: width + colorNameLabelHeight)
+        return CGSize(width: width, height: width)
     }
 
     func collectionView(
@@ -88,7 +95,7 @@ extension IconsViewController: UICollectionViewDelegateFlowLayout {
         layout _: UICollectionViewLayout,
         insetForSectionAt _: Int
     ) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 16, left: 16, bottom: 8, right: 16)
+        return UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
     }
 
     func collectionView(
@@ -104,7 +111,7 @@ extension IconsViewController: UICollectionViewDelegateFlowLayout {
         layout _: UICollectionViewLayout,
         minimumInteritemSpacingForSectionAt _: Int
     ) -> CGFloat {
-        return 0
+        return 8
     }
 }
 

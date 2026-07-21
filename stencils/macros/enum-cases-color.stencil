@@ -4,7 +4,7 @@
       {% for asset in assets %}
       {% if asset.type == "color" %}
       case .{{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}:
-        return {{enumName}}.{{catalog.name|swiftIdentifier:"pretty"|escapeReservedKeywords}}.{{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}Asset
+        return Self.{{asset.name|swiftIdentifier:"pretty"|lowerFirstWord}}Asset
       {% endif %}
       {% endfor %}
     }

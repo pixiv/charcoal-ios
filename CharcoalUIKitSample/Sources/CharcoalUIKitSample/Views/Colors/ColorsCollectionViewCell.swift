@@ -25,18 +25,8 @@ class ColorsCollectionViewCell: UICollectionViewCell {
         return 32
     }
 
-    func configure(with color: UIColor) {
+    func configure(with color: UIColor, name: String) {
         palletView.backgroundColor = color
-        colorNameLabel.text = color.name
-    }
-}
-
-private extension UIColor {
-    var name: String? {
-        let string = String(describing: self).dropLast()
-        guard let nameRange = string.range(of: "name = ") else {
-            return nil
-        }
-        return String(string[nameRange.upperBound ..< string.endIndex]).components(separatedBy: "/").last
+        colorNameLabel.text = name
     }
 }
