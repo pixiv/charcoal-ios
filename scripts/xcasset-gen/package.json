@@ -11,7 +11,7 @@
   "type": "module",
   "packageManager": "pnpm@10.30.3",
   "dependencies": {
-    "@babel/runtime": "^7.28.6",
+    "@babel/runtime": "^8.0.0",
     "fs-extra": "^11.3.3",
     "globby": "^16.1.1",
     "yargs": "^18.0.0"
