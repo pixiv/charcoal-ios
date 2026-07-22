@@ -9,6 +9,7 @@
     "xcasset-gen": "node src/index.js"
   },
   "type": "module",
+  "packageManager": "pnpm@10.30.3",
   "dependencies": {
     "@babel/runtime": "^7.28.6",
     "fs-extra": "^11.3.3",
