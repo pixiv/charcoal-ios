@@ -301,18 +301,30 @@ public enum CharcoalAsset {
       static let hoverAAsset = ColorAsset(name: "container/hover-a")
       static let hoverAsset = ColorAsset(name: "container/hover")
       public enum Hud : CaseIterable {
+        static let defaultSurface8Asset = ColorAsset(name: "container/hud/default-surface8")
         static let defaultAsset = ColorAsset(name: "container/hud/default")
+        static let hoverSurface8Asset = ColorAsset(name: "container/hud/hover-surface8")
         static let hoverAsset = ColorAsset(name: "container/hud/hover")
+        static let pressSurface8Asset = ColorAsset(name: "container/hud/press-surface8")
         static let pressAsset = ColorAsset(name: "container/hud/press")
+        case defaultSurface8
         case `default`
+        case hoverSurface8
         case hover
+        case pressSurface8
         case press
         public var colorAsset: ColorAsset {
           switch (self) {
+            case .defaultSurface8:
+              return Self.defaultSurface8Asset
             case .`default`:
               return Self.defaultAsset
+            case .hoverSurface8:
+              return Self.hoverSurface8Asset
             case .hover:
               return Self.hoverAsset
+            case .pressSurface8:
+              return Self.pressSurface8Asset
             case .press:
               return Self.pressAsset
           }
@@ -2488,8 +2500,11 @@ public enum CharcoalAsset {
       Container.Discovery.press.colorAsset,
       Container.hoverA.colorAsset,
       Container.hover.colorAsset,
+      Container.Hud.defaultSurface8.colorAsset,
       Container.Hud.`default`.colorAsset,
+      Container.Hud.hoverSurface8.colorAsset,
       Container.Hud.hover.colorAsset,
+      Container.Hud.pressSurface8.colorAsset,
       Container.Hud.press.colorAsset,
       Container.Negative.`default`.colorAsset,
       Container.Negative.hover.colorAsset,
@@ -2917,6 +2932,7 @@ public enum CharcoalAsset {
       public static let searchAsset = ImageAsset(name: "16/Search")
       public static let smileAsset = ImageAsset(name: "16/Smile")
       public static let speakerAsset = ImageAsset(name: "16/Speaker")
+      public static let translationAsset = ImageAsset(name: "16/Translation")
       public static let trashAsset = ImageAsset(name: "16/Trash")
       public static let upAsset = ImageAsset(name: "16/Up")
       public static let viewAsset = ImageAsset(name: "16/View")
@@ -2981,6 +2997,7 @@ public enum CharcoalAsset {
       public static let faceEditAsset = ImageAsset(name: "24/FaceEdit")
       public static let fashionAsset = ImageAsset(name: "24/Fashion")
       public static let feedAsset = ImageAsset(name: "24/Feed")
+      public static let feedbackAsset = ImageAsset(name: "24/Feedback")
       public static let fileAsset = ImageAsset(name: "24/File")
       public static let filterAsset = ImageAsset(name: "24/Filter")
       public static let flareAsset = ImageAsset(name: "24/Flare")
@@ -3095,6 +3112,7 @@ public enum CharcoalAsset {
       public static let temperatureAsset = ImageAsset(name: "24/Temperature")
       public static let textAsset = ImageAsset(name: "24/Text")
       public static let threadAsset = ImageAsset(name: "24/Thread")
+      public static let translationAsset = ImageAsset(name: "24/Translation")
       public static let trashAsset = ImageAsset(name: "24/Trash")
       public static let trashAltAsset = ImageAsset(name: "24/TrashAlt")
       public static let undoAsset = ImageAsset(name: "24/Undo")
@@ -3217,6 +3235,7 @@ public enum CharcoalAsset {
     case search16
     case smile16
     case speaker16
+    case translation16
     case trash16
     case up16
     case view16
@@ -3279,6 +3298,7 @@ public enum CharcoalAsset {
     case faceEdit24
     case fashion24
     case feed24
+    case feedback24
     case file24
     case filter24
     case flare24
@@ -3393,6 +3413,7 @@ public enum CharcoalAsset {
     case temperature24
     case text24
     case thread24
+    case translation24
     case trash24
     case trashAlt24
     case undo24
@@ -3540,6 +3561,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._16.smileAsset
         case .speaker16:
           return CharcoalAsset.Images._16.speakerAsset
+        case .translation16:
+          return CharcoalAsset.Images._16.translationAsset
         case .trash16:
           return CharcoalAsset.Images._16.trashAsset
         case .up16:
@@ -3664,6 +3687,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.fashionAsset
         case .feed24:
           return CharcoalAsset.Images._24.feedAsset
+        case .feedback24:
+          return CharcoalAsset.Images._24.feedbackAsset
         case .file24:
           return CharcoalAsset.Images._24.fileAsset
         case .filter24:
@@ -3892,6 +3917,8 @@ public enum CharcoalAsset {
           return CharcoalAsset.Images._24.textAsset
         case .thread24:
           return CharcoalAsset.Images._24.threadAsset
+        case .translation24:
+          return CharcoalAsset.Images._24.translationAsset
         case .trash24:
           return CharcoalAsset.Images._24.trashAsset
         case .trashAlt24:
