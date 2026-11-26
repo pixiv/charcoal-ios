@@ -11,7 +11,7 @@
   "author": "pixiv",
   "dependencies": {
     "lodash": "^4.17.21",
-    "quicktype-core": "^23.0.47",
+    "quicktype-core": "^25.0.0",
     "yargs": "^18.0.0"
   }
 }
